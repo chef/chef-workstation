@@ -1,5 +1,5 @@
 
-require 'chef/version'
+require "chef/version"
 module Chef
   CLIConfig = Struct.new(:help, :version)
 
@@ -16,17 +16,18 @@ module Chef
         puts short_banner
       end
     end
+
     def parse_cli_params!
-      require 'optparse'
+      require "optparse"
 
       @parser = OptionParser.new do |o|
         o.banner = banner
         # o.on(...)
         # ...
-        o.on_tail('-v', '--version', 'Show current version of this tool.') do
+        o.on_tail("-v", "--version", "Show current version of this tool.") do
           config.version = true
         end
-        o.on_tail('-h', '--help', 'Show usage information for the chef command') do
+        o.on_tail("-h", "--help", "Show usage information for the chef command") do
           config.help = true
         end
 
@@ -36,6 +37,7 @@ module Chef
       config.help = true if ARGV.include?("help")
       nil
     end
+
     def short_banner
       "Usage:  chef COMMAND [options...]"
     end
