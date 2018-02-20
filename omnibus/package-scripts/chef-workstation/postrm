@@ -1,0 +1,38 @@
+#!/bin/sh
+#
+# Perform necessary removal steps
+# after package is uninstalled.
+#
+
+is_darwin()
+{
+  uname -v | grep "^Darwin" 2>&1 >/dev/null
+}
+
+cleanup_symlinks() {
+  # Keep removed symlinks in this list, so that removal of upgraded packages still cleans up
+  # leftovers from older versions.
+  binaries="chef"
+  for binary in $binaries; do
+    rm -f $PREFIX/bin/$binary
+  done
+}
+
+if is_darwin; then
+    PREFIX="/usr/local"
+    mkdir -p "$PREFIX/bin"
+else
+    PREFIX="/usr"
+fi
+
+# Clean up binary symlinks if they exist
+# see: http://tickets.opscode.com/browse/CHEF-3022
+if [ ! -f /etc/redhat-release -a ! -f /etc/fedora-release -a ! -f /etc/system-release ]; then
+  # not a redhat-ish RPM-based system
+  cleanup_symlinks
+elif [ "x$1" = "x0" ]; then
+  # RPM-based system and we're deinstalling rather than upgrading
+  cleanup_symlinks
+fi
+
+exit 0
