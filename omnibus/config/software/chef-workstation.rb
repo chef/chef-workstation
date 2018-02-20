@@ -23,15 +23,7 @@ license :project_license
 # the local git checkout. This is what you'd want to occur by default if you
 # just ran omnibus build locally.
 version("local_source") do
-  source path: File.expand_path("#{project.files_path}/../.."),
-         # Since we are using the local repo, we try to not copy any files
-         # that are generated in the process of bundle installing omnibus.
-         # If the install steps are well-behaved, this should not matter
-         # since we only perform bundle and gem installs from the
-         # omnibus cache source directory, but we do this regardless
-         # to maintain consistency between what a local build sees and
-         # what a github based build will see.
-         options: { exclude: [ "omnibus/local" ] }
+  source path: File.expand_path("#{project.files_path}/../../components/chef-workstation")
 end
 
 # For any version other than "local_source", fetch from github.
@@ -44,6 +36,17 @@ dependency "bundler"
 dependency "ruby"
 dependency "appbundler"
 
-# These are the primary components we ship with chef workstation:
-dependency "chef-internal"
+relative_path "components/chef-workstation"
 
+build do
+  # Setup a default environment from Omnibus - you should use this Omnibus
+  # helper everywhere. It will become the default in the future.
+  env = with_standard_compiler_flags(with_embedded_path)
+  bundle "install --without development", env: env
+  gem "build chef-workstation.gemspec", env: env
+  gem "install chef-workstation*.gem" \
+      " --no-ri --no-rdoc" \
+      " --verbose --without development", env: env
+
+  appbundle "chef-workstation", env: env
+end
