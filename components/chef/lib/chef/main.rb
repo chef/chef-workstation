@@ -9,8 +9,12 @@ module Chef
     def run
       @config = CLIConfig.new
       parse_cli_params!
+
       puts "Version #{Chef::VERSION}" if config.version
       puts @parser if config.help
+      if !config.version && !config.help
+        puts short_banner
+      end
     end
     def parse_cli_params!
       require 'optparse'
@@ -28,18 +32,25 @@ module Chef
 
       end
       @parser.parse!(ARGV)
+      # Another way to get help
+      config.help = true if ARGV.include?("help")
       nil
     end
+    def short_banner
+      "Usage:  chef COMMAND [options...]"
+    end
+
     def banner
       <<EOM
-Usage:  chef COMMAND [options...]
+#{short_banner}
 
 Congratulations! You are using chef: your gateway
 to managing everything from a single node to an entire Chef
 infrastructure
 
 Required Arguments:
-    COMMAND: the command to execute. Currently, there are none.
+    COMMAND - the command to execute, one of:
+       help - show command help
 
 Flags:
 EOM
