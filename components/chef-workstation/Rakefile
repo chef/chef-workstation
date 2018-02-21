@@ -1,2 +1,12 @@
 require "bundler/gem_tasks"
-task :default => :spec
+
+task :default => :style
+
+require "chefstyle"
+require "rubocop/rake_task"
+desc "Run Chef Ruby style checks"
+RuboCop::RakeTask.new(:chefstyle) do |t|
+  t.options = %w{--display-cop-names}
+end
+
+task :style => :chefstyle
