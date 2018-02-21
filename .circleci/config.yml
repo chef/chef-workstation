@@ -1,0 +1,38 @@
+version: 2
+jobs:
+  build:
+    # parallelism: 3
+    docker:
+      - image: circleci/ruby:2.4
+    steps:
+      - checkout
+      # Restore bundle cache
+      - type: cache-restore
+        name: Restore bundle cache
+        key: chef-workstation-bundle-{{ checksum "components/chef-workstation/Gemfile.lock" }}
+      - run:
+          name: Bundle Install
+          command: |
+            pushd components/chef-workstation
+            bundle install --path vendor/bundle
+            popd
+      - type: cache-save
+        name: Save bundle cache
+        key: chef-workstation-bundle-{{ checksum "components/chef-workstation/Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+      - type: shell
+        command: |
+          mkdir -p test_results
+          pushd components/chef-workstation
+          bundle exec rspec --profile 10 \
+                            --format RspecJunitFormatter \
+                            --out ../../test_results/rspec.xml \
+                            --format progress \
+                            $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+          bundle exec rake chefstyle
+          popd
+
+      # Save test results for timing analysis
+      - store_test_results:
+          path: test_results
