@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "chef/main"
+require "chef-workstation/main"
 
-Chef::Main.new.run
+ChefWorkstation::Main.new.run

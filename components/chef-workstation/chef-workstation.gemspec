@@ -1,11 +1,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "chef/version"
+require "chef-workstation/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "chef-workstation"
-  spec.version       = Chef::VERSION
+  spec.version       = ChefWorkstation::VERSION
   spec.authors       = ["Marc A. Paradise"]
   spec.email         = ["marc.paradise@gmail.com"]
 

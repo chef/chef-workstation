@@ -1,6 +1,6 @@
 
-require "chef/version"
-module Chef
+require "chef-workstation/version"
+module ChefWorkstation
   CLIConfig = Struct.new(:help, :version)
 
   class Main
