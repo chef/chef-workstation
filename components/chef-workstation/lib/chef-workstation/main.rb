@@ -10,7 +10,7 @@ module ChefWorkstation
       @config = CLIConfig.new
       parse_cli_params!
 
-      puts "Version #{Chef::VERSION}" if config.version
+      puts "Version #{ChefWorkstation::VERSION}" if config.version
       puts @parser if config.help
       if !config.version && !config.help
         puts short_banner
