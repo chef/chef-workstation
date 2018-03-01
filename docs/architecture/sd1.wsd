@@ -1,0 +1,52 @@
+@startuml Single Target Single Resource - High Level Overview
+
+participant chef
+participant CLI
+participant Config
+participant CLIOutputFactory
+participant Logger
+participant CommandsMap
+participant ConvergeCommand
+participant Connection
+participant ChefClientInstaller
+participant PolicyGenerator
+participant CookbookGenerator
+' participant SpinnerOutputter
+' participant NullOutputter
+
+-> chef: chef converge hostname package vim
+
+== Initialization ==
+chef -> CLI: .run(ARGV)
+CLI -> Config: .load()
+CLI -> CLIOutputFactory: .build(type)
+CLIOutputFactory --> CLI: cli_outputter
+CLI -> Logger: .init(location, level)
+CLI -> CommandsMap: .instantiate(argv)
+CommandsMap -> ConvergeCommand: .new(cli_outputter, args)
+CommandsMap --> CLI: command
+
+== Invoke Command ==
+' As each of these runs we need to be sending event updates to the CLIOutput
+CLI -> ConvergeCommand: .run()
+ConvergeCommand -> ConvergeCommand: validate_args
+ConvergeCommand -> Connection: .new(target_info)
+ConvergeCommand -> ChefClientInstaller: .new(connection)
+ConvergeCommand -> ChefClientInstaller: .ensure_installed
+' Implementation details on this subject to change - mostly we want to create our policy bundle
+ConvergeCommand -> PolicyGenerator: .generate_policy(resource)
+PolicyGenerator -> CookbookGenerator: .generate_cookbook
+PolicyGenerator -> PolicyGenerator: .generate_policy_bundle
+PolicyGenerator --> ConvergeCommand: bundle_path
+ConvergeCommand -> ChefClientExecutor: .check_root_permissions
+ConvergeCommand -> ChefClientExecutor: .ship_bundle(bundle_path)
+ConvergeCommand -> ChefClientExecutor: .execute_bundle
+' Output from Chef Client run should be sent to traditional logger
+ConvergeCommand -> ConvergeCommand: rescue, print stack trace
+
+== Program End ==
+
+' ConvergeCommand will be responsible for outputting information to CLIOutputter and logger to do any end of program stuff, CLI is only resonsible for exiting
+ConvergeCommand --> CLI: status
+<-- CLI: exit(status)
+@enduml
