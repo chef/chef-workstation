@@ -15,11 +15,16 @@
 #
 
 require "spec_helper"
-require "chef-workstation/main"
+require "chef-workstation/version"
 
-RSpec.describe ChefWorkstation::Main do
-  context "quick test setup to verify circleci" do
-    it "should pass because it doesn't test anything yet" do
+RSpec.describe ChefWorkstation::VERSION do
+  subject(:version) do
+    ChefWorkstation::VERSION
+  end
+
+  context "VERSION" do
+    it "returns the version" do
+      expect(version).to match(/\d+\.\d+\.\d+/)
     end
   end
 end

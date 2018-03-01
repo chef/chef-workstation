@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "chef-workstation/main"
+require "chef-workstation/cli"
 
-ChefWorkstation::Main.new.run
+ChefWorkstation::Cli.new(ARGV.clone).run
