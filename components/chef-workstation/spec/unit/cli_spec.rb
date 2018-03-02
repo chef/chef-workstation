@@ -27,6 +27,7 @@ RSpec.describe ChefWorkstation::Cli do
   context "run" do
     before do
       expect(subject).to receive(:parse_cli_options!)
+      expect(subject).to receive(:initialize_config)
     end
 
     context "version set in cli_options" do
