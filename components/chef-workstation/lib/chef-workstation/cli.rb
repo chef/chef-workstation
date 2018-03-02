@@ -27,7 +27,7 @@ module ChefWorkstation
     end
 
     def run
-      parse_cli_params!
+      parse_cli_options!
       initialize_config
 
       puts "Version #{ChefWorkstation::VERSION}" if cli_options.version
@@ -37,7 +37,7 @@ module ChefWorkstation
       end
     end
 
-    def parse_cli_params!
+    def parse_cli_options!
       @parser.parse!(@argv)
       # Another way to get help
       cli_options.help = true if @argv.include?("help")

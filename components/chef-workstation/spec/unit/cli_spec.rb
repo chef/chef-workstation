@@ -26,7 +26,7 @@ RSpec.describe ChefWorkstation::Cli do
 
   context "run" do
     before do
-      expect(subject).to receive(:parse_cli_params!)
+      expect(subject).to receive(:parse_cli_options!)
     end
 
     context "version set in cli_options" do
@@ -63,13 +63,13 @@ RSpec.describe ChefWorkstation::Cli do
     end
   end
 
-  context "parse_cli_params!" do
+  context "parse_cli_options!" do
     context "short options" do
       context "given -v" do
         let(:argv) { %w{-h} }
 
         it "should set cli_options.help true" do
-          cli.parse_cli_params!
+          cli.parse_cli_options!
           expect(cli.cli_options.help).to eq(true)
         end
       end
@@ -78,7 +78,7 @@ RSpec.describe ChefWorkstation::Cli do
         let(:argv) { %w{-h} }
 
         it "should set cli_options.help true" do
-          cli.parse_cli_params!
+          cli.parse_cli_options!
           expect(cli.cli_options.help).to eq(true)
         end
       end
@@ -89,7 +89,7 @@ RSpec.describe ChefWorkstation::Cli do
         let(:argv) { %w{--help} }
 
         it "should set cli_options.help true" do
-          cli.parse_cli_params!
+          cli.parse_cli_options!
           expect(cli.cli_options.help).to eq(true)
         end
       end
@@ -98,7 +98,7 @@ RSpec.describe ChefWorkstation::Cli do
         let(:argv) { %w{--help} }
 
         it "should set cli_options.help true" do
-          cli.parse_cli_params!
+          cli.parse_cli_options!
           expect(cli.cli_options.help).to eq(true)
         end
       end
@@ -108,7 +108,7 @@ RSpec.describe ChefWorkstation::Cli do
       let(:argv) { %w{help} }
 
       it "should set cli_options.help true" do
-        cli.parse_cli_params!
+        cli.parse_cli_options!
         expect(cli.cli_options.help).to eq(true)
       end
     end
@@ -117,7 +117,7 @@ RSpec.describe ChefWorkstation::Cli do
       let(:argv) { %w{--invalid} }
 
       it "should raise an error" do
-        expect { cli.parse_cli_params! }
+        expect { cli.parse_cli_options! }
           .to raise_error(OptionParser::InvalidOption)
       end
     end
