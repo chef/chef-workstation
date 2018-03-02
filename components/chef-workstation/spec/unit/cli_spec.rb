@@ -56,7 +56,10 @@ RSpec.describe ChefWorkstation::Cli do
     end
 
     context "no cli parmas (nothing in config)" do
-
+      it "prints the short_banner" do
+        expect(STDOUT).to receive(:puts).with(cli.short_banner)
+        cli.run
+      end
     end
   end
 
