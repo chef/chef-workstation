@@ -1,5 +1,6 @@
 require "chef-workstation/config"
 require "chef-workstation/version"
+require "chef-workstation/command/show"
 require "optparse"
 
 module ChefWorkstation
@@ -30,10 +31,14 @@ module ChefWorkstation
       parse_cli_options!
       initialize_config
 
-      puts "Version #{ChefWorkstation::VERSION}" if cli_options.version
-      puts @parser if cli_options.help
-      if !cli_options.version && !cli_options.help
-        puts short_banner
+      if @argv[0..1] == ["show", "config"]
+        Command::Show.new.run
+      else
+        puts "Version #{ChefWorkstation::VERSION}" if cli_options.version
+        puts @parser if cli_options.help
+        if !cli_options.version && !cli_options.help
+          puts short_banner
+        end
       end
     end
 
@@ -66,7 +71,7 @@ EOM
 
     def initialize_config
       if ChefWorkstation::Config.using_default_location? && !ChefWorkstation::Config.exists?
-        puts "Creating config file in #{ChefWorkstation::Config.default_location}}"
+        puts "Creating config file in #{ChefWorkstation::Config.default_location}"
         ChefWorkstation::Config.create_default_config_file
       end
       ChefWorkstation::Config.load

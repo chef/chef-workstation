@@ -1,4 +1,4 @@
-require 'mixlib/config'
+require "mixlib/config"
 
 module ChefWorkstation
   class Config
@@ -23,7 +23,7 @@ module ChefWorkstation
       end
 
       def default_location
-        Pathname.new("~/.chef-workstation/config.toml").to_s
+        Pathname.new("~/.chef-workstation/config.toml").expand_path.to_s
       end
 
       def using_default_location?
