@@ -1,24 +1,16 @@
 
 require "chef-workstation/version"
+require "optparse"
+
 module ChefWorkstation
   CLIConfig = Struct.new(:help, :version)
 
-  class Main
+  class Cli
     attr_reader :config
 
-    def run
+    def initialize(argv)
+      @argv = argv
       @config = CLIConfig.new
-      parse_cli_params!
-
-      puts "Version #{ChefWorkstation::VERSION}" if config.version
-      puts @parser if config.help
-      if !config.version && !config.help
-        puts short_banner
-      end
-    end
-
-    def parse_cli_params!
-      require "optparse"
 
       @parser = OptionParser.new do |o|
         o.banner = banner
@@ -30,11 +22,23 @@ module ChefWorkstation
         o.on_tail("-h", "--help", "Show usage information for the chef command") do
           config.help = true
         end
-
       end
-      @parser.parse!(ARGV)
+    end
+
+    def run
+      parse_cli_params!
+
+      puts "Version #{ChefWorkstation::VERSION}" if config.version
+      puts @parser if config.help
+      if !config.version && !config.help
+        puts short_banner
+      end
+    end
+
+    def parse_cli_params!
+      @parser.parse!(@argv)
       # Another way to get help
-      config.help = true if ARGV.include?("help")
+      config.help = true if @argv.include?("help")
       nil
     end
 
