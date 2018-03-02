@@ -29,11 +29,11 @@ RSpec.describe ChefWorkstation::Cli do
       expect(subject).to receive(:parse_cli_params!)
     end
 
-    context "version set in config" do
+    context "version set in cli_options" do
       let(:version_message) { "Version #{ChefWorkstation::VERSION}" }
 
       before do
-        cli.config.version = true
+        cli.cli_options.version = true
       end
 
       it "prints version" do
@@ -42,11 +42,11 @@ RSpec.describe ChefWorkstation::Cli do
       end
     end
 
-    context "help set in config" do
+    context "help set in cli_options" do
       let(:version_message) { "Version #{ChefWorkstation::VERSION}" }
 
       before do
-        cli.config.help = true
+        cli.cli_options.help = true
       end
 
       it "prints banner" do
@@ -55,7 +55,7 @@ RSpec.describe ChefWorkstation::Cli do
       end
     end
 
-    context "no cli parmas (nothing in config)" do
+    context "no cli_options" do
       it "prints the short_banner" do
         expect(STDOUT).to receive(:puts).with(cli.short_banner)
         cli.run
@@ -68,18 +68,18 @@ RSpec.describe ChefWorkstation::Cli do
       context "given -v" do
         let(:argv) { %w{-h} }
 
-        it "should set config.help true" do
+        it "should set cli_options.help true" do
           cli.parse_cli_params!
-          expect(cli.config.help).to eq(true)
+          expect(cli.cli_options.help).to eq(true)
         end
       end
 
       context "given -h" do
         let(:argv) { %w{-h} }
 
-        it "should set config.help true" do
+        it "should set cli_options.help true" do
           cli.parse_cli_params!
-          expect(cli.config.help).to eq(true)
+          expect(cli.cli_options.help).to eq(true)
         end
       end
     end
@@ -88,18 +88,18 @@ RSpec.describe ChefWorkstation::Cli do
       context "given --version" do
         let(:argv) { %w{--help} }
 
-        it "should set config.help true" do
+        it "should set cli_options.help true" do
           cli.parse_cli_params!
-          expect(cli.config.help).to eq(true)
+          expect(cli.cli_options.help).to eq(true)
         end
       end
 
       context "given --help" do
         let(:argv) { %w{--help} }
 
-        it "should set config.help true" do
+        it "should set cli_options.help true" do
           cli.parse_cli_params!
-          expect(cli.config.help).to eq(true)
+          expect(cli.cli_options.help).to eq(true)
         end
       end
     end
@@ -107,9 +107,9 @@ RSpec.describe ChefWorkstation::Cli do
     context "given 'help'" do
       let(:argv) { %w{help} }
 
-      it "should set config.help true" do
+      it "should set cli_options.help true" do
         cli.parse_cli_params!
-        expect(cli.config.help).to eq(true)
+        expect(cli.cli_options.help).to eq(true)
       end
     end
 

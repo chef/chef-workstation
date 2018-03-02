@@ -1,36 +1,38 @@
-
+require "chef-workstation/config"
 require "chef-workstation/version"
 require "optparse"
 
 module ChefWorkstation
-  CLIConfig = Struct.new(:help, :version)
+  CLIOptions = Struct.new(:help, :version)
 
   class Cli
-    attr_reader :config
+    attr_reader :cli_options
 
     def initialize(argv)
       @argv = argv
-      @config = CLIConfig.new
+      @cli_options = CLIOptions.new
 
       @parser = OptionParser.new do |o|
         o.banner = banner
-        # o.on(...)
-        # ...
+        o.on("-c", "--config PATH", "Location of config file to use. Defaults to #{ChefWorkstation::Config.default_location}") do |path|
+          ChefWorkstation::Config.custom_location(path)
+        end
         o.on_tail("-v", "--version", "Show current version of this tool.") do
-          config.version = true
+          cli_options.version = true
         end
         o.on_tail("-h", "--help", "Show usage information for the chef command") do
-          config.help = true
+          cli_options.help = true
         end
       end
     end
 
     def run
       parse_cli_params!
+      initialize_config
 
-      puts "Version #{ChefWorkstation::VERSION}" if config.version
-      puts @parser if config.help
-      if !config.version && !config.help
+      puts "Version #{ChefWorkstation::VERSION}" if cli_options.version
+      puts @parser if cli_options.help
+      if !cli_options.version && !cli_options.help
         puts short_banner
       end
     end
@@ -38,7 +40,7 @@ module ChefWorkstation
     def parse_cli_params!
       @parser.parse!(@argv)
       # Another way to get help
-      config.help = true if @argv.include?("help")
+      cli_options.help = true if @argv.include?("help")
       nil
     end
 
@@ -60,6 +62,14 @@ Required Arguments:
 
 Flags:
 EOM
+    end
+
+    def initialize_config
+      if ChefWorkstation::Config.using_default_location? && !ChefWorkstation::Config.exists?
+        puts "Creating config file in #{ChefWorkstation::Config.default_location}}"
+        ChefWorkstation::Config.create_default_config_file
+      end
+      ChefWorkstation::Config.load
     end
   end
 end
