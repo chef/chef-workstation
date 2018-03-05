@@ -31,7 +31,7 @@ module ChefWorkstation
       parse_cli_options!
       initialize_config
 
-      if @argv[0..1] == %w{show config}
+      if @argv[0..1] == %w{config show}
         Command::Show.new.run
       else
         puts "Version #{ChefWorkstation::VERSION}" if cli_options.version

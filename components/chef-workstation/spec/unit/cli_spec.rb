@@ -149,4 +149,15 @@ EOM
     end
   end
 
+  context "when a command is supplied" do
+    let(:argv) { %w{config show} }
+
+    it "calls the config show" do
+      expect(cli).to receive(:parse_cli_options!)
+      expect(cli).to receive(:initialize_config)
+      expect_any_instance_of(ChefWorkstation::Command::Show).to receive(:run)
+      cli.run
+    end
+  end
+
 end
