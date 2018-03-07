@@ -7,7 +7,7 @@ module ChefWorkstation
     class ShowConfig
 
       def run
-        d = Config.using_default_location? ? "default ": ""
+        d = Config.using_default_location? ? "default " : ""
         puts "Config loaded from #{d}path #{Config.location}"
         ap Config.to_hash, {
           indent: 2,
