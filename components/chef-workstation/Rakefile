@@ -1,6 +1,9 @@
 require "bundler/gem_tasks"
 
-task :default => :style
+task :default => [:spec, :style]
+
+require "rspec/core/rake_task"
+RSpec::Core::RakeTask.new(:spec)
 
 require "chefstyle"
 require "rubocop/rake_task"

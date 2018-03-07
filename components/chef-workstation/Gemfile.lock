@@ -1,23 +1,34 @@
+GIT
+  remote: https://github.com/chef/mixlib-config.git
+  revision: 8f6a1ffb91d946dc396dff2599431016afa10feb
+  branch: master
+  specs:
+    mixlib-config (2.2.6)
+      tomlrb
+
 PATH
   remote: .
   specs:
     chef-workstation (0.1.0)
+      awesome_print
+      mixlib-config
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.0)
+    awesome_print (1.8.0)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     byebug (10.0.0)
-    chefstyle (0.6.0)
-      rubocop (= 0.49.1)
+    chefstyle (0.8.0)
+      rubocop (= 0.52.1)
     coderay (1.1.2)
     debug_inspector (0.0.3)
     diff-lcs (1.3)
     method_source (0.9.0)
     parallel (1.12.1)
-    parser (2.5.0.2)
+    parser (2.5.0.3)
       ast (~> 2.4.0)
     powerpack (0.1.1)
     pry (0.11.3)
@@ -29,8 +40,7 @@ GEM
     pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    rainbow (2.2.2)
-      rake
+    rainbow (3.0.0)
     rake (10.5.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
@@ -47,14 +57,15 @@ GEM
     rspec-support (3.7.1)
     rspec_junit_formatter (0.3.0)
       rspec-core (>= 2, < 4, != 2.12.0)
-    rubocop (0.49.1)
+    rubocop (0.52.1)
       parallel (~> 1.10)
-      parser (>= 2.3.3.1, < 3.0)
+      parser (>= 2.4.0.2, < 3.0)
       powerpack (~> 0.1)
-      rainbow (>= 1.99.1, < 3.0)
+      rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.9.0)
+    tomlrb (1.2.6)
     unicode-display_width (1.3.0)
 
 PLATFORMS
@@ -64,6 +75,7 @@ DEPENDENCIES
   bundler (~> 1.16)
   chef-workstation!
   chefstyle
+  mixlib-config!
   pry
   pry-byebug
   pry-stack_explorer
@@ -72,4 +84,4 @@ DEPENDENCIES
   rspec_junit_formatter
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
