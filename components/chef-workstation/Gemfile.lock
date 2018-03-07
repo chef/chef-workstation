@@ -10,12 +10,14 @@ PATH
   remote: .
   specs:
     chef-workstation (0.1.0)
+      awesome_print
       mixlib-config
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.0)
+    awesome_print (1.8.0)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     byebug (10.0.0)
