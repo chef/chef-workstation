@@ -15,16 +15,20 @@
 #
 
 require "spec_helper"
-require "chef-workstation/version"
+require "chef-workstation/command/show_config"
 
-RSpec.describe ChefWorkstation::VERSION do
-  subject(:version) do
-    ChefWorkstation::VERSION
+RSpec.describe ChefWorkstation::Command::ShowConfig do
+  subject(:cmd) do
+    ChefWorkstation::Command::ShowConfig.new()
   end
 
-  context "VERSION" do
-    it "returns the version" do
-      expect(Gem::Version.correct?(version)).to eq(0)
+  describe "run" do
+    before do
+      ChefWorkstation::Config.telemetry.dev = true
+    end
+
+    it "prints config to screen" do
+      expect { cmd.run }.to output(/dev: true/).to_stdout
     end
   end
 end

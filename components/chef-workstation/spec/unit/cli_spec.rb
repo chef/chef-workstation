@@ -138,7 +138,7 @@ Usage:  chef COMMAND [options...]
 
 Congratulations! You are using chef: your gateway
 to managing everything from a single node to an entire Chef
-infrastructure
+infrastructure.
 
 Required Arguments:
     COMMAND - the command to execute, one of:
@@ -155,7 +155,7 @@ EOM
     it "calls the config show" do
       expect(cli).to receive(:parse_cli_options!)
       expect(cli).to receive(:initialize_config)
-      expect_any_instance_of(ChefWorkstation::Command::Show).to receive(:run)
+      expect_any_instance_of(ChefWorkstation::Command::ShowConfig).to receive(:run)
       cli.run
     end
   end

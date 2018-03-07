@@ -8,17 +8,17 @@ module ChefWorkstation
 
     # When working on chef-workstation itself,
     # developers should set telemetry.dev to true
-    # in their location configuration to ensure that dev usage
+    # in their local configuration to ensure that dev usage
     # doesn't skew customer telemetry.
     config_context :telemetry do
       default(:dev, false)
     end
 
     class << self
-      @@custom_location = nil
+      @custom_location = nil
 
       def custom_location(path)
-        @@custom_location = path
+        @custom_location = path
         raise "No config file located at #{path}" unless exists?
       end
 
@@ -27,11 +27,11 @@ module ChefWorkstation
       end
 
       def using_default_location?
-        @@custom_location.nil?
+        @custom_location.nil?
       end
 
       def location
-        using_default_location? ? default_location : @@custom_location
+        using_default_location? ? default_location : @custom_location
       end
 
       def load
@@ -48,7 +48,7 @@ module ChefWorkstation
       end
 
       def reset
-        @@custom_location = nil
+        @custom_location = nil
         super
       end
     end

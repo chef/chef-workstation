@@ -1,6 +1,6 @@
 require "chef-workstation/config"
 require "chef-workstation/version"
-require "chef-workstation/command/show"
+require "chef-workstation/command/show_config"
 require "optparse"
 
 module ChefWorkstation
@@ -32,7 +32,7 @@ module ChefWorkstation
       initialize_config
 
       if @argv[0..1] == %w{config show}
-        Command::Show.new.run
+        Command::ShowConfig.new.run
       else
         puts "Version #{ChefWorkstation::VERSION}" if cli_options.version
         puts @parser if cli_options.help
@@ -59,7 +59,7 @@ module ChefWorkstation
 
 Congratulations! You are using chef: your gateway
 to managing everything from a single node to an entire Chef
-infrastructure
+infrastructure.
 
 Required Arguments:
     COMMAND - the command to execute, one of:
