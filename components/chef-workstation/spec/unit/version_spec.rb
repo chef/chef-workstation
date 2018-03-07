@@ -24,7 +24,7 @@ RSpec.describe ChefWorkstation::VERSION do
 
   context "VERSION" do
     it "returns the version" do
-      expect(Gem::Version.correct?(version)).to eq(0)
+      expect(Gem::Version.correct?(version)).to be_truthy
     end
   end
 end

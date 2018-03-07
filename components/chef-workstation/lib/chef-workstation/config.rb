@@ -19,7 +19,7 @@ module ChefWorkstation
 
       def custom_location(path)
         @custom_location = path
-        raise "No config file located at #{path}" unless exists?
+        raise "No config file located at #{path}" unless exist?
       end
 
       def default_location
@@ -38,8 +38,8 @@ module ChefWorkstation
         from_file(location)
       end
 
-      def exists?
-        File.exists? location
+      def exist?
+        File.exist? location
       end
 
       def create_default_config_file

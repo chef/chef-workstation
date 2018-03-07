@@ -40,7 +40,7 @@ RSpec.describe ChefWorkstation::Config do
     it "successfully loads the config" do
       config.custom_location(custom_config)
       expect(config.using_default_location?).to eq(false)
-      expect(config.exists?).to eq(true)
+      expect(config.exist?).to eq(true)
       config.load
       expect(config.telemetry.dev).to eq(true)
     end

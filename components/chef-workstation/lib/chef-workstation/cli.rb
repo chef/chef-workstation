@@ -70,7 +70,7 @@ EOM
     end
 
     def initialize_config
-      if ChefWorkstation::Config.using_default_location? && !ChefWorkstation::Config.exists?
+      if ChefWorkstation::Config.using_default_location? && !ChefWorkstation::Config.exist?
         puts "Creating config file in #{ChefWorkstation::Config.default_location}"
         ChefWorkstation::Config.create_default_config_file
       end
