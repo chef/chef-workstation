@@ -1,3 +1,4 @@
+#
 # Copyright:: Copyright (c) 2018 Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
@@ -14,21 +15,19 @@
 # limitations under the License.
 #
 
-require "spec_helper"
-require "chef-workstation/command/show_config"
+require "chef-workstation/command/base"
 
-RSpec.describe ChefWorkstation::Command::ShowConfig do
-  subject(:cmd) do
-    ChefWorkstation::Command::ShowConfig.new()
-  end
+module ChefWorkstation
+  module Command
+    class Config < Base
 
-  describe "run" do
-    before do
-      ChefWorkstation::Config.telemetry.dev = true
-    end
+      banner Text.config.banner
 
-    it "prints config to screen" do
-      expect { cmd.run }.to output(/dev: true/).to_stdout
+      def run(params)
+        show_help
+        0
+      end
+
     end
   end
 end

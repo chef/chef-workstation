@@ -4,7 +4,8 @@ cli:
   # CLI option, banner, and usage text
   config: Location of config file. Defaults to %1
   version: "Show the current version of this tool"
-  help: "Show usage information for the chef command"
+  print_version: "Chef Workstation Version: %1\n\n"
+  help: "Show usage information"
   short_banner: "Usage:  chef COMMAND [options...]"
   version_msg: "Version %1"
   creating_config: "Creating config file in %1."
@@ -13,18 +14,25 @@ cli:
     to managing everything from a single node to an entire Chef
     infrastructure.
 
-    Required Arguments:
-      COMMAND - the command to execute, one of:
-        help - show command help
-
-    Flags:
+    USAGE:
+      chef [SUBCOMMAND]
+  target: ""
 
 # Text specific to each command
-show_config:
+config_show:
+  banner: "Echo out the config"
   source: "Config loaded from %1path %2"
+
+config:
+  banner: "Manage Chef Workstation configuration"
+
+target_converge:
+  banner: "Converge a target"
+
+target:
+  banner: "Manage a target"
 
 # Error definitions, usage Text.e.ERR888
 e:
   ERR888: |
     This is just a sample error definition
-

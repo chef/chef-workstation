@@ -1,63 +1,53 @@
 require "chef-workstation/config"
 require "chef-workstation/version"
 require "chef-workstation/telemetry"
-require "chef-workstation/command/show_config"
+require "chef-workstation/command/config_show"
+require "chef-workstation/commands_map"
+require "chef-workstation/builtin_commands"
 require "optparse"
 require "chef-workstation/text"
+require "mixlib/cli"
 
 module ChefWorkstation
-  CLIOptions = Struct.new(:help, :version)
+  class CLI
+    include Mixlib::CLI
 
-  class Cli
-    attr_reader :cli_options
+    banner Text.cli.banner
+
+    option :version,
+      :long         => "--version",
+      :description  => Text.cli.version,
+      :boolean      => true
+
+    option :help,
+      :short        => "-h",
+      :long         => "--help",
+      :description  => Text.cli.help,
+      :boolean      => true
+
+    option :config_path,
+      :short        => "-c PATH",
+      :long         => "--config PATH",
+      :description  => Text.cli.config(ChefWorkstation::Config.default_location),
+      :default      => ChefWorkstation::Config.default_location,
+      :proc         => Proc.new { |path| ChefWorkstation::Config.custom_location(path) }
 
     def initialize(argv)
       @argv = argv
-      @cli_options = CLIOptions.new
-      # Load our canned texts
-      Text.load
-
-      @parser = OptionParser.new do |o|
-        o.banner = Text.cli.banner
-        o.on("-c", "--config PATH", Text.cli.config(ChefWorkstation::Config.default_location)) do |path|
-          ChefWorkstation::Config.custom_location(path)
-        end
-        o.on_tail("-v", "--version", Text.cli.version) do
-          cli_options.version = true
-        end
-        o.on_tail("-h", "--help", Text.cli.option_info.help) do
-          cli_options.help = true
-        end
-      end
+      super()
     end
 
     def run
-      parse_cli_options!
       initialize_config
+
       # Perform a timing and capture of the requested command. Individual
       # commands and components may perform nested Telemetry.timed_capture or Telemetry.capture
       # calls in their operation.
       Telemetry.timed_capture(:run, command: @command,
                                     sub: @subcommand, args: @argv,
-                                    opts: @cli_options.to_h) { perform_command() }
+                                    opts: options.to_h) { perform_command() }
     ensure
-      # Ship off everything captured both above
-      # and within the individual commands.
       Telemetry.send!
-    end
-
-    def parse_cli_options!
-      @parser.parse!(@argv)
-      # Another way to get help
-      # TODO - this should e handled as a subcommand,
-      # so that we don't display standard help if someone does "chef converge help"
-      cli_options.help = true if @argv.include?("help")
-      @command = @argv.shift # Primary command to execute, eg 'help' or 'show'
-      if @argv[0] != "help"
-        @subcommand = @argv.shift
-      end
-
-      nil
     end
 
     def initialize_config
@@ -69,14 +59,30 @@ module ChefWorkstation
     end
 
     def perform_command
-      if @argv[0..1] == %w{config show}
-        Command::ShowConfig.new.run
-      else
-        show_version if cli_options.version
-        show_help if cli_options.help
-        if !cli_options.version && !cli_options.help
-          show_short_banner
+      command_name, *command_params = @argv
+      if command_name.nil? || %w{help -h --help}.include?(command_name.downcase)
+        if command_params.empty?
+          puts Text.cli.print_version(ChefWorkstation::VERSION)
+          show_help
+          return
+        else
+          # They are trying to get help text on something else - like `chef help converge`
+          # We pass down the help flag to the actual class they are trying to get help text on
+          command_name = command_params.shift
+          command_params << "-h"
         end
+      elsif %w{version --version}.include?(command_name.downcase)
+        puts ChefWorkstation::VERSION
+        return
+      end
+      if have_command?(command_name)
+        cmd, command_params = commands_map.instantiate(command_name, command_params)
+        exit_code = cmd.run_with_default_options(command_params)
+        exit exit_code
+      else
+        puts "Unknown command '#{command_name}'."
+        show_help
+        exit 1
       end
     rescue => e
       id = e.respond_to?(:id) ? e.id : e.class.to_s
@@ -84,16 +90,49 @@ module ChefWorkstation
       raise
     end
 
-    def show_version
-      puts Text.cli.version_msg(ChefWorkstation::VERSION) if cli_options.version
-    end
-
     def show_help
-      puts @parser
+      puts banner
+      puts "\nFLAGS:\n"
+      justify_length = 0
+      options.each_value do |spec|
+        justify_length = [
+          justify_length,
+          ((spec[:short]&.length) || 0) + ((spec[:long]&.length) || 0) + 2,
+        ].max
+      end
+      options.sort.to_h.each_value do |spec|
+        flags = [spec[:short], spec[:long]].compact.join(", ")
+        puts "    #{flags.rjust(justify_length)}    #{spec[:description]}"
+      end
+      puts ""
+      puts "SUBCOMMANDS:"
+      justify_length = ([7] + commands.map(&:length)).max + 4
+      command_specs.sort.each do |name, spec|
+        next if spec.hidden
+        puts "    #{"#{name}".ljust(justify_length)}#{spec.description}"
+      end
+      puts "    #{"help".ljust(justify_length)}#{Text.cli.help}"
+      puts "    #{"version".ljust(justify_length)}#{Text.cli.version}"
+      puts ""
+      puts "ALIASES:"
+      puts "    TODO autopopulate"
+      puts "    converge    Alias for 'target converge'"
     end
 
-    def show_short_banner
-      puts Text.cli.short_banner
+    def commands_map
+      ChefWorkstation.commands_map
+    end
+
+    def have_command?(name)
+      commands_map.have_command?(name)
+    end
+
+    def commands
+      commands_map.command_names
+    end
+
+    def command_specs
+      commands_map.command_specs
     end
   end
 end

@@ -4,14 +4,14 @@ require "r18n-desktop"
 # down the road and don't want to have to change all of our commands.
 module ChefWorkstation
   class Text
-    class << self
-      def load
-        R18n.from_env("i18n/")
-      end
 
+    R18n.from_env("i18n/")
+
+    class << self
       def method_missing(n, *p)
         R18n.get.send(n, *p)
       end
     end
+
   end
 end
