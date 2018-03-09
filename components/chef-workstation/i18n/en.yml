@@ -1,0 +1,30 @@
+
+# Used only by the CLI class
+cli:
+  # CLI option, banner, and usage text
+  config: Location of config file. Defaults to %1
+  version: "Show the current version of this tool"
+  help: "Show usage information for the chef command"
+  short_banner: "Usage:  chef COMMAND [options...]"
+  version_msg: "Version %1"
+  creating_config: "Creating config file in %1."
+  banner: |
+    Congratulations! You are using chef: your gateway
+    to managing everything from a single node to an entire Chef
+    infrastructure.
+
+    Required Arguments:
+      COMMAND - the command to execute, one of:
+        help - show command help
+
+    Flags:
+
+# Text specific to each command
+show_config:
+  source: "Config loaded from %1path %2"
+
+# Error definitions, usage Text.e.ERR888
+e:
+  ERR888: |
+    This is just a sample error definition
+

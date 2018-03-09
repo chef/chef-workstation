@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/chef/mixlib-config.git
+  remote: git://github.com/chef/mixlib-config.git
   revision: 8f6a1ffb91d946dc396dff2599431016afa10feb
   branch: master
   specs:
@@ -12,6 +12,7 @@ PATH
     chef-workstation (0.1.0)
       awesome_print
       mixlib-config
+      r18n-desktop
 
 GEM
   remote: https://rubygems.org/
@@ -40,6 +41,9 @@ GEM
     pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
+    r18n-core (3.0.1)
+    r18n-desktop (3.0.1)
+      r18n-core (= 3.0.1)
     rainbow (3.0.0)
     rake (10.5.0)
     rspec (3.7.0)
