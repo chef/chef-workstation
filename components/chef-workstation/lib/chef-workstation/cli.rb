@@ -90,16 +90,28 @@ EOM
       if @argv[0..1] == %w{config show}
         Command::ShowConfig.new.run
       else
-        puts "Version #{ChefWorkstation::VERSION}" if cli_options.version
-        puts @parser if cli_options.help
+        show_version if cli_options.version
+        show_help if cli_options.help
         if !cli_options.version && !cli_options.help
-          puts short_banner
+          show_short_banner
         end
       end
     rescue => e
-      id = e.respond_to?(:id) ? e.id : e.class
+      id = e.respond_to?(:id) ? e.id : e.class.to_s
       Telemetry.capture(:error, exception: { id: id, message: e.message })
       raise
+    end
+
+    def show_version
+      puts "Version #{ChefWorkstation::VERSION}"
+    end
+
+    def show_help
+      puts @parser
+    end
+
+    def show_short_banner
+      puts short_banner
     end
   end
 end

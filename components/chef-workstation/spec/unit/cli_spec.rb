@@ -74,13 +74,25 @@ RSpec.describe ChefWorkstation::Cli do
         cli.perform_command
       end
     end
+
+    context "when an exception occurs" do
+      it "captures exception data in telemetry" do
+        # This is a bit of a hack - we know it's going call show_short_banner
+        # so we'll force that to raise to ensure that we track exceptions properly
+        #
+        allow(cli).to receive(:show_short_banner).and_raise "A String exception"
+        expected_payload = { exception: { id: "RuntimeError", message: "A String exception" } }
+        expect(telemetry).to receive(:capture).with(:error, expected_payload)
+        cli.perform_command rescue :ok
+
+      end
+    end
   end
 
   context "parse_cli_options!" do
     context "short options" do
       context "given -v" do
         let(:argv) { %w{-v} }
-
         it "should set cli_options.version true" do
           cli.parse_cli_options!
           expect(cli.cli_options.version).to eq(true)
