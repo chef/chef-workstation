@@ -1,0 +1,4 @@
+# Order is important. The last matching pattern has the most precedence.
+
+*                                   @chef/shake-shack
+components/chef-workstation/i18n/** @chef/user-experience
