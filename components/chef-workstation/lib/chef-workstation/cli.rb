@@ -3,6 +3,7 @@ require "chef-workstation/version"
 require "chef-workstation/telemetry"
 require "chef-workstation/command/show_config"
 require "optparse"
+require "chef-workstation/text"
 
 module ChefWorkstation
   CLIOptions = Struct.new(:help, :version)
@@ -13,16 +14,18 @@ module ChefWorkstation
     def initialize(argv)
       @argv = argv
       @cli_options = CLIOptions.new
+      # Load our canned texts
+      Text.load
 
       @parser = OptionParser.new do |o|
-        o.banner = banner
-        o.on("-c", "--config PATH", "Location of config file to use. Defaults to #{ChefWorkstation::Config.default_location}") do |path|
+        o.banner = Text.cli.banner
+        o.on("-c", "--config PATH", Text.cli.config(ChefWorkstation::Config.default_location)) do |path|
           ChefWorkstation::Config.custom_location(path)
         end
-        o.on_tail("-v", "--version", "Show current version of this tool.") do
+        o.on_tail("-v", "--version", Text.cli.version) do
           cli_options.version = true
         end
-        o.on_tail("-h", "--help", "Show usage information for the chef command") do
+        o.on_tail("-h", "--help", Text.cli.option_info.help) do
           cli_options.help = true
         end
       end
@@ -31,7 +34,6 @@ module ChefWorkstation
     def run
       parse_cli_options!
       initialize_config
-
       # Perform a timing and capture of the requested command. Individual
       # commands and components may perform nested Telemetry.timed_capture or Telemetry.capture
       # calls in their operation.
@@ -58,29 +60,9 @@ module ChefWorkstation
       nil
     end
 
-    def short_banner
-      "Usage:  chef COMMAND [options...]"
-    end
-
-    def banner
-      <<EOM
-#{short_banner}
-
-Congratulations! You are using chef: your gateway
-to managing everything from a single node to an entire Chef
-infrastructure.
-
-Required Arguments:
-    COMMAND - the command to execute, one of:
-       help - show command help
-
-Flags:
-EOM
-    end
-
     def initialize_config
       if ChefWorkstation::Config.using_default_location? && !ChefWorkstation::Config.exist?
-        puts "Creating config file in #{ChefWorkstation::Config.default_location}"
+        puts Text.cli.creating_config(ChefWorkstation::Config.default_location)
         ChefWorkstation::Config.create_default_config_file
       end
       ChefWorkstation::Config.load
@@ -103,7 +85,7 @@ EOM
     end
 
     def show_version
-      puts "Version #{ChefWorkstation::VERSION}"
+      puts Text.cli.version_msg(ChefWorkstation::VERSION) if cli_options.version
     end
 
     def show_help
@@ -111,7 +93,7 @@ EOM
     end
 
     def show_short_banner
-      puts short_banner
+      puts Text.cli.short_banner
     end
   end
 end

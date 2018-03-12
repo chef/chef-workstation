@@ -17,6 +17,7 @@
 require "spec_helper"
 require "chef-workstation/cli"
 require "chef-workstation/telemetry"
+require "chef-workstation/text"
 
 RSpec.describe ChefWorkstation::Cli do
   let(:argv) { [] }
@@ -70,7 +71,7 @@ RSpec.describe ChefWorkstation::Cli do
 
     context "no cli_options" do
       it "prints the short_banner" do
-        expect(STDOUT).to receive(:puts).with(cli.short_banner)
+        expect(STDOUT).to receive(:puts).with(t.cli.short_banner)
         cli.perform_command
       end
     end
@@ -129,15 +130,6 @@ RSpec.describe ChefWorkstation::Cli do
       end
     end
 
-    context "given 'help'" do
-      let(:argv) { %w{help} }
-
-      it "should set cli_options.help true" do
-        cli.parse_cli_options!
-        expect(cli.cli_options.help).to eq(true)
-      end
-    end
-
     context "given an invalid option" do
       let(:argv) { %w{--invalid} }
 
@@ -145,31 +137,6 @@ RSpec.describe ChefWorkstation::Cli do
         expect { cli.parse_cli_options! }
           .to raise_error(OptionParser::InvalidOption)
       end
-    end
-  end
-
-  context "short_banner" do
-    it "should return a short banner" do
-      expect(cli.short_banner).to eq("Usage:  chef COMMAND [options...]")
-    end
-  end
-
-  context "banner" do
-    # We are testing the usage text becuase ux has sugned off on this wording.
-    it "should return a banner" do
-      expect(cli.banner).to eq <<EOM
-Usage:  chef COMMAND [options...]
-
-Congratulations! You are using chef: your gateway
-to managing everything from a single node to an entire Chef
-infrastructure.
-
-Required Arguments:
-    COMMAND - the command to execute, one of:
-       help - show command help
-
-Flags:
-EOM
     end
   end
 
