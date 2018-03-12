@@ -16,6 +16,7 @@
 
 require "spec_helper"
 require "chef-workstation/cli"
+require "chef-workstation/telemetry"
 
 RSpec.describe ChefWorkstation::Cli do
   let(:argv) { [] }
@@ -23,13 +24,24 @@ RSpec.describe ChefWorkstation::Cli do
   subject(:cli) do
     ChefWorkstation::Cli.new(argv)
   end
+  let(:telemetry) { ChefWorkstation::Telemetry }
 
   context "run" do
-    before do
+    it "performs the steps necessary to handle the request and capture telemetry" do
       expect(subject).to receive(:parse_cli_options!)
       expect(subject).to receive(:initialize_config)
+      expect(subject).to receive(:perform_command)
+      expect(telemetry).to receive(:timed_capture).
+        with(:run,
+             command: nil,
+             sub: nil, args: [],
+             opts: cli.instance_variable_get(:@cli_options).to_h).and_yield
+      expect(telemetry).to receive(:send!)
+      cli.run
     end
+  end
 
+  context "#perform_command" do
     context "version set in cli_options" do
       let(:version_message) { "Version #{ChefWorkstation::VERSION}" }
 
@@ -39,7 +51,7 @@ RSpec.describe ChefWorkstation::Cli do
 
       it "prints version" do
         expect(STDOUT).to receive(:puts).with(version_message)
-        cli.run
+        cli.perform_command
       end
     end
 
@@ -52,14 +64,14 @@ RSpec.describe ChefWorkstation::Cli do
 
       it "prints banner" do
         expect(STDOUT).to receive(:puts).with(cli.instance_variable_get :@parser)
-        cli.run
+        cli.perform_command
       end
     end
 
     context "no cli_options" do
       it "prints the short_banner" do
         expect(STDOUT).to receive(:puts).with(cli.short_banner)
-        cli.run
+        cli.perform_command
       end
     end
   end
@@ -67,11 +79,11 @@ RSpec.describe ChefWorkstation::Cli do
   context "parse_cli_options!" do
     context "short options" do
       context "given -v" do
-        let(:argv) { %w{-h} }
+        let(:argv) { %w{-v} }
 
-        it "should set cli_options.help true" do
+        it "should set cli_options.version true" do
           cli.parse_cli_options!
-          expect(cli.cli_options.help).to eq(true)
+          expect(cli.cli_options.version).to eq(true)
         end
       end
 
@@ -87,11 +99,11 @@ RSpec.describe ChefWorkstation::Cli do
 
     context "long options" do
       context "given --version" do
-        let(:argv) { %w{--help} }
+        let(:argv) { %w{--version} }
 
-        it "should set cli_options.help true" do
+        it "should set cli_options.version true" do
           cli.parse_cli_options!
-          expect(cli.cli_options.help).to eq(true)
+          expect(cli.cli_options.version).to eq(true)
         end
       end
 
