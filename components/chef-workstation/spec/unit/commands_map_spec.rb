@@ -20,11 +20,12 @@ require "chef-workstation/commands_map"
 
 RSpec.describe ChefWorkstation::CommandsMap do
   subject(:mapping) { ChefWorkstation::CommandsMap.new }
+  let(:example_text) { double("text", description: "description", usage: "USAGE:\n") }
 
   before do
-    mapping.top_level("example", :TestCommand, "example banner", "unit/fixtures/command/cli_test_command")
-    mapping.top_level("top-level", :TopLevel, "", "", subcommands: [
-      mapping.create("subcommand", [:TopLevel, :Subcommand], "", ""),
+    mapping.top_level("example", :TestCommand, example_text, "unit/fixtures/command/cli_test_command")
+    mapping.top_level("top-level", :TopLevel, example_text, "", subcommands: [
+      mapping.create("subcommand", [:TopLevel, :Subcommand], example_text, ""),
     ])
   end
 
@@ -32,7 +33,7 @@ RSpec.describe ChefWorkstation::CommandsMap do
     expect(mapping.have_command?("example")).to be true
     e = mapping.command_specs["example"]
     expect(e.require_path).to eq("unit/fixtures/command/cli_test_command")
-    expect(e.banner).to eq("example banner")
+    expect(e.make_banner).to eq("description\n\nUSAGE:\n")
   end
 
   it "lists the available commands" do

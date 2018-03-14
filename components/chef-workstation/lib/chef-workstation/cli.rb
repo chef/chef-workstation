@@ -108,7 +108,7 @@ module ChefWorkstation
       justify_length = ([7] + commands.map(&:length)).max + 4
       command_specs.sort.each do |name, spec|
         next if spec.hidden
-        puts "    #{"#{name}".ljust(justify_length)}#{spec.banner}"
+        puts "    #{"#{name}".ljust(justify_length)}#{spec.text.description}"
       end
       puts "    #{"help".ljust(justify_length)}#{Text.cli.help}"
       puts "    #{"version".ljust(justify_length)}#{Text.cli.version}"

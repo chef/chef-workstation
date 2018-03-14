@@ -21,11 +21,11 @@ cmds = ChefWorkstation::Text.commands
 
 ChefWorkstation.commands do |c|
   # TODO must be a better API we can do than `top_level` and `create`
-  c.top_level("target", :Target, cmds.target.banner, "chef-workstation/command/target", subcommands: [
-    c.create("converge", [:Target, :Converge], cmds.target.converge.banner, "chef-workstation/command/target/converge"),
+  c.top_level("target", :Target, cmds.target, "chef-workstation/command/target", subcommands: [
+    c.create("converge", [:Target, :Converge], cmds.target.converge, "chef-workstation/command/target/converge"),
   ])
 
-  c.top_level("config", :Config, cmds.config.banner, "chef-workstation/command/config", subcommands: [
-    c.create("show", [:Config, :Show], cmds.config.show.banner, "chef-workstation/command/config/show"),
+  c.top_level("config", :Config, cmds.config, "chef-workstation/command/config", subcommands: [
+    c.create("show", [:Config, :Show], cmds.config.show, "chef-workstation/command/config/show"),
   ])
 end
