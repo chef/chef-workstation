@@ -45,7 +45,7 @@ RSpec.describe ChefWorkstation::CLI do
     context "help command called" do
       let(:argv) { ["help"] }
       it "prints the help text" do
-        expect { cli.perform_command }.to output(/Congratulations!/).to_stdout
+        expect { cli.perform_command }.to output(/Congratulations!.+-c, --config PATH/m).to_stdout
       end
     end
 

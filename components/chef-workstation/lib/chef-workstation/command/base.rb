@@ -68,21 +68,27 @@ module ChefWorkstation
       def show_help
         puts banner
         unless options.empty?
-          puts "\nFLAGS:\n"
+          puts ""
+          puts "FLAGS:"
+          puts ""
           justify_length = 0
           options.each_value do |spec|
-            justify_length = [
-              justify_length,
-              ((spec[:short]&.length) || 0) + ((spec[:long]&.length) || 0) + 2,
-            ].max
+            justify_length = [justify_length, spec[:long].length + 4].max
           end
           options.sort.to_h.each_value do |spec|
-            flags = [spec[:short], spec[:long]].compact.join(", ")
-            puts "    #{flags.rjust(justify_length)}    #{spec[:description]}"
+            short = spec[:short] || "  "
+            short = short[0, 2] # We only want the flag portion, not the capture portion (if present)
+            if short == "  "
+              short = "    "
+            else
+              short = "#{short}, "
+            end
+            flags = "#{short}#{spec[:long]}"
+            puts "    #{flags.ljust(justify_length)}    #{spec[:description]}"
           end
-          puts ""
         end
         unless subcommands.empty?
+          puts ""
           puts "SUBCOMMANDS:"
           justify_length = ([7] + subcommands.keys.map(&:length)).max + 4
           subcommands.sort.each do |name, spec|

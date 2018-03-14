@@ -32,7 +32,7 @@ RSpec.describe ChefWorkstation::Command::Base do
 
   describe "run_with_default_options" do
     it "prints the help text" do
-      expect { cmd.run_with_default_options(["help"]) }.to output(/Command banner not set/).to_stdout
+      expect { cmd.run_with_default_options(["help"]) }.to output(/Command banner not set.+-c, --config PATH/m).to_stdout
     end
   end
 end
