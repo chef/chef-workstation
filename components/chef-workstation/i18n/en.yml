@@ -19,18 +19,17 @@ cli:
   target: ""
 
 # Text specific to each command
-config_show:
-  banner: "Echo out the config"
-  source: "Config loaded from %1path %2"
-
-config:
-  banner: "Manage Chef Workstation configuration"
-
-target_converge:
-  banner: "Converge a target"
-
-target:
-  banner: "Manage a target"
+commands:
+  config:
+    banner: "Manage Chef Workstation configuration"
+    show:
+      banner: "Echo out the config"
+      source: "Config loaded from %1path %2"
+  target:
+    banner: "Manage a target"
+    converge:
+      banner: "Converge a target"
+      root_description: "Whether to use root permissions on the target. Defaults to true"
 
 # Error definitions, usage Text.e.ERR888
 e:

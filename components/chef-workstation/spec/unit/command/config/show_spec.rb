@@ -15,11 +15,12 @@
 #
 
 require "spec_helper"
-require "chef-workstation/command/config_show"
+require "chef-workstation/command/config/show"
 
-RSpec.describe ChefWorkstation::Command::ConfigShow do
+RSpec.describe ChefWorkstation::Command::Config::Show do
+  let(:cmd_spec) { instance_double(ChefWorkstation::CommandsMap::CommandSpec) }
   subject(:cmd) do
-    ChefWorkstation::Command::ConfigShow.new()
+    ChefWorkstation::Command::Config::Show.new(cmd_spec)
   end
 
   describe "run" do
@@ -28,7 +29,7 @@ RSpec.describe ChefWorkstation::Command::ConfigShow do
     end
 
     it "prints config to screen" do
-      expect { cmd.run }.to output(/dev: true/).to_stdout
+      expect { cmd.run([]) }.to output(/dev: true/).to_stdout
     end
   end
 end

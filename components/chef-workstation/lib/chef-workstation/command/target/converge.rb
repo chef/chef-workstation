@@ -16,25 +16,25 @@
 #
 
 require "chef-workstation/command/base"
+require "chef-workstation/command/target"
 
 module ChefWorkstation
   module Command
-    class TargetConverge < Base
+    class Target
+      class Converge < ChefWorkstation::Command::Base
 
-      banner Text.target_converge.banner
+        # This is just an example here to show that we can set options at this level
+        option :root,
+          :long => "--root",
+          :description => Text.commands.target.converge.root_description,
+          :boolean => true,
+          :default => true
 
-      # This is just an example here to show that we can set options at this level
-      option :root,
-        :long => "--root",
-        :description => "Whether to use root permissions on the target. Defaults to true",
-        :boolean => true,
-        :default => true
-
-      def run(params)
-        show_help
-        0
+        def run(params)
+          show_help
+          0
+        end
       end
-
     end
   end
 end

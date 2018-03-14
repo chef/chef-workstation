@@ -22,26 +22,21 @@ RSpec.describe ChefWorkstation::CommandsMap do
   subject(:mapping) { ChefWorkstation::CommandsMap.new }
 
   before do
-    mapping.top_level("example", :Example)
-    mapping.top_level("hypenated-example", :HyphenatedExample)
-    mapping.top_level("explicit-path-example", :TestCommand, require_path: "unit/fixtures/command/cli_test_command")
-    mapping.top_level("top-level", :TopLevel, subcommands: [mapping.create("subcommand", :Subcommand)])
+    mapping.top_level("example", :TestCommand, "example banner", "unit/fixtures/command/cli_test_command")
+    mapping.top_level("top-level", :TopLevel, "", "", subcommands: [
+      mapping.create("subcommand", [:TopLevel, :Subcommand], "", ""),
+    ])
   end
 
-  it "defines a subcommand mapping" do
+  it "defines the attributes correctly" do
     expect(mapping.have_command?("example")).to be true
-  end
-
-  it "infers a non-hypenated command's require path" do
-    expect(mapping.command_specs["example"].require_path).to eq("chef-workstation/command/example")
-  end
-
-  it "infers a hyphenated command's require path" do
-    expect(mapping.command_specs["hypenated-example"].require_path).to eq("chef-workstation/command/hypenated_example")
+    e = mapping.command_specs["example"]
+    expect(e.require_path).to eq("unit/fixtures/command/cli_test_command")
+    expect(e.banner).to eq("example banner")
   end
 
   it "lists the available commands" do
-    expect(mapping.command_names).to match_array(%w{example hypenated-example explicit-path-example top-level})
+    expect(mapping.command_names).to match_array(%w{example top-level})
   end
 
   it "correctly stores a subcommand" do
@@ -50,6 +45,6 @@ RSpec.describe ChefWorkstation::CommandsMap do
   end
 
   it "creates an instance of a command" do
-    expect(mapping.instantiate("explicit-path-example")[0]).to be_an_instance_of(ChefWorkstation::Command::TestCommand)
+    expect(mapping.instantiate("example")[0]).to be_an_instance_of(ChefWorkstation::Command::TestCommand)
   end
 end

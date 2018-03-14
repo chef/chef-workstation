@@ -16,25 +16,27 @@
 #
 
 require "chef-workstation/command/base"
+require "chef-workstation/command/config"
 require "chef-workstation/config"
 require "awesome_print"
+
 module ChefWorkstation
   module Command
-    class ConfigShow < Base
+    class Config
+      class Show < ChefWorkstation::Command::Base
 
-      banner Text.config_show.banner
+        def run(params)
+          d = ChefWorkstation::Config.using_default_location? ? "default " : ""
+          puts Text.config_show.source(d, ChefWorkstation::Config.location)
+          ap ChefWorkstation::Config.to_hash, {
+            indent: 2,
+            plain: true,
+            ruby19_syntax: true,
+          }
+          0
+        end
 
-      def run(params)
-        d = Config.using_default_location? ? "default " : ""
-        puts Text.config_show.source(d, Config.location)
-        ap Config.to_hash, {
-          indent: 2,
-          plain: true,
-          ruby19_syntax: true,
-        }
-        0
       end
-
     end
   end
 end

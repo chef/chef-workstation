@@ -15,14 +15,17 @@
 # limitations under the License.
 #
 require "chef-workstation/commands_map"
+require "chef-workstation/text"
+
+cmds = ChefWorkstation::Text.commands
 
 ChefWorkstation.commands do |c|
   # TODO must be a better API we can do than `top_level` and `create`
-  c.top_level("target", :Target, require_path: "chef-workstation/command/target", subcommands: [
-    c.create("converge", :TargetConverge, require_path: "chef-workstation/command/target_converge"),
+  c.top_level("target", :Target, cmds.target.banner, "chef-workstation/command/target", subcommands: [
+    c.create("converge", [:Target, :Converge], cmds.target.converge.banner, "chef-workstation/command/target/converge"),
   ])
 
-  c.top_level("config", :Config, require_path: "chef-workstation/command/config", subcommands: [
-    c.create("show", :ConfigShow, require_path: "chef-workstation/command/config_show"),
+  c.top_level("config", :Config, cmds.config.banner, "chef-workstation/command/config", subcommands: [
+    c.create("show", [:Config, :Show], cmds.config.show.banner, "chef-workstation/command/config/show"),
   ])
 end

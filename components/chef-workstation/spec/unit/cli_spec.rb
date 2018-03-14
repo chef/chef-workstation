@@ -83,7 +83,7 @@ RSpec.describe ChefWorkstation::CLI do
       expect(cli).to receive(:initialize_config)
       expect(cli).to receive(:have_command?).with("config").and_return(true)
 
-      expect_any_instance_of(ChefWorkstation::Command::ConfigShow).to receive(:run).and_return(0)
+      expect_any_instance_of(ChefWorkstation::Command::Config::Show).to receive(:run).and_return(0)
       expect { cli.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
     end
   end

@@ -19,9 +19,7 @@ require "chef-workstation/command/base"
 
 module ChefWorkstation
   module Command
-    class Config < Base
-
-      banner Text.config.banner
+    class Config < ChefWorkstation::Command::Base
 
       def run(params)
         show_help

@@ -1,7 +1,6 @@
 require "chef-workstation/config"
 require "chef-workstation/version"
 require "chef-workstation/telemetry"
-require "chef-workstation/command/config_show"
 require "chef-workstation/commands_map"
 require "chef-workstation/builtin_commands"
 require "optparse"
@@ -109,7 +108,7 @@ module ChefWorkstation
       justify_length = ([7] + commands.map(&:length)).max + 4
       command_specs.sort.each do |name, spec|
         next if spec.hidden
-        puts "    #{"#{name}".ljust(justify_length)}#{spec.description}"
+        puts "    #{"#{name}".ljust(justify_length)}#{spec.banner}"
       end
       puts "    #{"help".ljust(justify_length)}#{Text.cli.help}"
       puts "    #{"version".ljust(justify_length)}#{Text.cli.version}"

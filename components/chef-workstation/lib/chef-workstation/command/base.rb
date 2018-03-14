@@ -24,6 +24,8 @@ module ChefWorkstation
     class Base
       include Mixlib::CLI
 
+      # All the actual commands have their banner managed and set from the commands map
+      # Look there to see how we set this in #create
       banner "Command banner not set."
 
       option :help,
@@ -85,7 +87,7 @@ module ChefWorkstation
           justify_length = ([7] + subcommands.keys.map(&:length)).max + 4
           subcommands.sort.each do |name, spec|
             next if spec.hidden
-            puts "    #{"#{name}".ljust(justify_length)}#{spec.description}"
+            puts "    #{"#{name}".ljust(justify_length)}#{spec.banner}"
           end
         end
       end
