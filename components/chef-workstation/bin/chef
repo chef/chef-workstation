@@ -2,4 +2,4 @@
 
 require "chef-workstation/cli"
 
-ChefWorkstation::Cli.new(ARGV.clone).run
+ChefWorkstation::CLI.new(ARGV.clone).run

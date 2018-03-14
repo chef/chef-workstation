@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "awesome_print"
-
+  spec.add_dependency "mixlib-cli"
   spec.add_dependency "mixlib-config" # shared chef configuration library that
                                       # simplifies managing a configuration file
   spec.add_dependency "r18n-desktop" # easy path to message text management via

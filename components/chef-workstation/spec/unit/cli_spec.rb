@@ -19,123 +19,59 @@ require "chef-workstation/cli"
 require "chef-workstation/telemetry"
 require "chef-workstation/text"
 
-RSpec.describe ChefWorkstation::Cli do
+RSpec.describe ChefWorkstation::CLI do
   let(:argv) { [] }
 
   subject(:cli) do
-    ChefWorkstation::Cli.new(argv)
+    ChefWorkstation::CLI.new(argv)
   end
   let(:telemetry) { ChefWorkstation::Telemetry }
 
   context "run" do
     it "performs the steps necessary to handle the request and capture telemetry" do
-      expect(subject).to receive(:parse_cli_options!)
       expect(subject).to receive(:initialize_config)
       expect(subject).to receive(:perform_command)
       expect(telemetry).to receive(:timed_capture).
         with(:run,
              command: nil,
              sub: nil, args: [],
-             opts: cli.instance_variable_get(:@cli_options).to_h).and_yield
+             opts: cli.options.to_h).and_yield
       expect(telemetry).to receive(:send!)
       cli.run
     end
   end
 
   context "#perform_command" do
-    context "version set in cli_options" do
-      let(:version_message) { "Version #{ChefWorkstation::VERSION}" }
-
-      before do
-        cli.cli_options.version = true
-      end
-
-      it "prints version" do
-        expect(STDOUT).to receive(:puts).with(version_message)
-        cli.perform_command
+    context "help command called" do
+      let(:argv) { ["help"] }
+      it "prints the help text" do
+        expect { cli.perform_command }.to output(/Congratulations!/).to_stdout
       end
     end
 
-    context "help set in cli_options" do
-      let(:version_message) { "Version #{ChefWorkstation::VERSION}" }
-
-      before do
-        cli.cli_options.help = true
-      end
-
-      it "prints banner" do
-        expect(STDOUT).to receive(:puts).with(cli.instance_variable_get :@parser)
-        cli.perform_command
+    context "version command called" do
+      let(:argv) { ["version"] }
+      it "prints the help text" do
+        expect { cli.perform_command }.to output("#{ChefWorkstation::VERSION}\n").to_stdout
       end
     end
 
-    context "no cli_options" do
-      it "prints the short_banner" do
-        expect(STDOUT).to receive(:puts).with(t.cli.short_banner)
-        cli.perform_command
+    context "no command provided" do
+      it "prints the help text" do
+        expect { cli.perform_command }.to output(/Congratulations!/).to_stdout
       end
     end
 
     context "when an exception occurs" do
+      let(:err) { "A String exception" }
       it "captures exception data in telemetry" do
         # This is a bit of a hack - we know it's going call show_short_banner
         # so we'll force that to raise to ensure that we track exceptions properly
         #
-        allow(cli).to receive(:show_short_banner).and_raise "A String exception"
-        expected_payload = { exception: { id: "RuntimeError", message: "A String exception" } }
+        allow(cli).to receive(:show_help).and_raise err
+        expected_payload = { exception: { id: "RuntimeError", message: err } }
         expect(telemetry).to receive(:capture).with(:error, expected_payload)
-        cli.perform_command rescue :ok
-
-      end
-    end
-  end
-
-  context "parse_cli_options!" do
-    context "short options" do
-      context "given -v" do
-        let(:argv) { %w{-v} }
-        it "should set cli_options.version true" do
-          cli.parse_cli_options!
-          expect(cli.cli_options.version).to eq(true)
-        end
-      end
-
-      context "given -h" do
-        let(:argv) { %w{-h} }
-
-        it "should set cli_options.help true" do
-          cli.parse_cli_options!
-          expect(cli.cli_options.help).to eq(true)
-        end
-      end
-    end
-
-    context "long options" do
-      context "given --version" do
-        let(:argv) { %w{--version} }
-
-        it "should set cli_options.version true" do
-          cli.parse_cli_options!
-          expect(cli.cli_options.version).to eq(true)
-        end
-      end
-
-      context "given --help" do
-        let(:argv) { %w{--help} }
-
-        it "should set cli_options.help true" do
-          cli.parse_cli_options!
-          expect(cli.cli_options.help).to eq(true)
-        end
-      end
-    end
-
-    context "given an invalid option" do
-      let(:argv) { %w{--invalid} }
-
-      it "should raise an error" do
-        expect { cli.parse_cli_options! }
-          .to raise_error(OptionParser::InvalidOption)
+        expect { cli.perform_command }.to raise_error(err)
       end
     end
   end
@@ -144,10 +80,34 @@ RSpec.describe ChefWorkstation::Cli do
     let(:argv) { %w{config show} }
 
     it "calls the config show" do
-      expect(cli).to receive(:parse_cli_options!)
       expect(cli).to receive(:initialize_config)
-      expect_any_instance_of(ChefWorkstation::Command::ShowConfig).to receive(:run)
-      cli.run
+      expect(cli).to receive(:have_command?).with("config").and_return(true)
+
+      expect_any_instance_of(ChefWorkstation::Command::Config::Show).to receive(:run).and_return(0)
+      expect { cli.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
+    end
+  end
+
+  context "when an unknown command is supplied" do
+    let(:argv) { %w{unknown} }
+
+    it "raises an error" do
+      expect(cli).to receive(:initialize_config)
+      expect(cli).to receive(:have_command?).with("unknown").and_return(false)
+      expect(cli).to receive(:show_help)
+
+      expect { cli.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(1) }
+    end
+  end
+
+  context "help command called on a subcommand" do
+    let(:argv) { %w{help config} }
+    it "passes the help message to the subcommand" do
+      expect(cli).to receive(:initialize_config)
+      expect(cli).to receive(:have_command?).with("config").and_return(true)
+
+      expect_any_instance_of(ChefWorkstation::Command::Base).to receive(:run_with_default_options).with(["-h"]).and_return(0)
+      expect { cli.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
     end
   end
 
