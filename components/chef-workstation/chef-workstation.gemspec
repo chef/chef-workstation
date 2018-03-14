@@ -31,12 +31,13 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "awesome_print"
   spec.add_dependency "mixlib-cli"
   spec.add_dependency "mixlib-config" # shared chef configuration library that
                                       # simplifies managing a configuration file
   spec.add_dependency "r18n-desktop" # easy path to message text management via
                                      # localization gem...
+  spec.add_dependency "toml-rb" # This isn't ideal because mixlib-config uses 'tomlrb'
+                                # but that library does not support a dumper
 
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
