@@ -19,6 +19,7 @@ require "chef-workstation/command/base"
 require "chef-workstation/command/target"
 require "chef-workstation/remote-connection"
 require "chef-workstation/action/install-chef"
+require "chef-workstation/ui/command_outputer"
 
 module ChefWorkstation
   module Command
@@ -35,18 +36,43 @@ module ChefWorkstation
           # TODO ensure it really is, set up usage.
           # TODO: option: --no-install
           target = params.shift
-          conn = RemoteConnection.new(target, { sudo: options[:root] })
-          # These puts will be replaced with actual prgoress reports through
-          # whatever UI interface we settle on.
-          puts "Connecting"
-          # TODO it seems a bit cumbersome, but it might be a bit cleaner if we
-          # define a "connect" action - then we'd basically be looking at a given command
-          # just running a sequence of one or more Actions. It would be interesting to explore something
-          # like having each command just return a list of chained actions that the base class executes.
-          conn.connect!
-          puts "Checking and uploading"
-          Action::InstallChef.new(connection: conn).run
-          puts "Later, I'll converge something!"
+          resource = params.shift
+          resource_name = params.shift
+
+          # conn = RemoteConnection.new(target, { sudo: options[:root] })
+          # # These puts will be replaced with actual prgoress reports through
+          # # whatever UI interface we settle on.
+          # puts "Connecting"
+          # # TODO it seems a bit cumbersome, but it might be a bit cleaner if we
+          # # define a "connect" action - then we'd basically be looking at a given command
+          # # just running a sequence of one or more Actions. It would be interesting to explore something
+          # # like having each command just return a list of chained actions that the base class executes.
+          # conn.connect!
+          # puts "Checking and uploading"
+          # Action::InstallChef.new(connection: conn).run
+          # puts "Later, I'll converge something!"
+
+          full_rs_name = "#{resource}[#{resource_name}]"
+          UI::CommandOutputer.output "Converging #{target} with #{full_rs_name} using the default action"
+          UI::CommandOutputer.spinner("Connecting...", prefix: "[#{target}]") do |status_reporter|
+            # c = Connection.new(target, status_reporter)
+            status_reporter.update("FOOBAR")
+            sleep 3
+            status_reporter.update("BAZ")
+            sleep 1
+            status_reporter.success("Connected - using config specified in ~/.ssh/config")
+          end
+          UI::CommandOutputer.spinner("Performing first time setup...", prefix: "[#{target}]") do |status_reporter|
+            # install chef
+            sleep 3
+            status_reporter.success("First time setup completed successfully!")
+          end
+          UI::CommandOutputer.spinner("Converging #{full_rs_name}...", prefix: "[#{target}]") do |status_reporter|
+            # install chef
+            sleep 3
+            status_reporter.success("#{full_rs_name} converged successfully!")
+          end
+
           0
         end
       end

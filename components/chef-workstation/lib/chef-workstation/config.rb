@@ -2,6 +2,8 @@ require "mixlib/config"
 
 module ChefWorkstation
   class Config
+    HOME_LOCATION = File.join(ENV["HOME"], ".chef-workstation/")
+
     extend Mixlib::Config
 
     config_strict_mode true
@@ -12,6 +14,11 @@ module ChefWorkstation
     # doesn't skew customer telemetry.
     config_context :telemetry do
       default(:dev, false)
+    end
+
+    config_context :log do
+      default(:level, "warn")
+      default(:location, File.join(HOME_LOCATION, "default.log"))
     end
 
     config_context :cache do

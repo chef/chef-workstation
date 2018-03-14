@@ -1,5 +1,7 @@
 require "bundler/setup"
 require "chef-workstation/text"
+require "chef-workstation/log"
+require "chef-workstation/ui/command_outputer"
 RSpec.shared_context "Global helpers" do
   let(:t) { ChefWorkstation::Text }
 end
@@ -20,5 +22,10 @@ RSpec.configure do |config|
 
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
+  end
+
+  config.before(:all) do
+    ChefWorkstation::Log.setup "/dev/null"
+    ChefWorkstation::UI::CommandOutputer.init(File.open("/dev/null", "w"))
   end
 end

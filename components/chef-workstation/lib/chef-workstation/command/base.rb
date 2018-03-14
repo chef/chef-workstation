@@ -18,6 +18,7 @@
 require "mixlib/cli"
 require "chef-workstation/config"
 require "chef-workstation/text"
+require "chef-workstation/log"
 
 module ChefWorkstation
   module Command
@@ -47,6 +48,7 @@ module ChefWorkstation
       end
 
       def run_with_default_options(params = [])
+        Log.debug "Starting #{@command_spec.name} command"
         parse_options(params)
         if params[0]&.downcase == "help" || config[:help]
           show_help
