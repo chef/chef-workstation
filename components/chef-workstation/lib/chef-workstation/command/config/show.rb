@@ -27,8 +27,8 @@ module ChefWorkstation
 
         def run(params)
           d = ChefWorkstation::Config.using_default_location? ? "default " : ""
-          puts Text.config_show.source(d, ChefWorkstation::Config.location)
-          ap ChefWorkstation::Config.to_hash, {
+          puts Text.commands.config.show.source(d, ChefWorkstation::Config.location)
+          ap ChefWorkstation::Config.hash_dup, {
             indent: 2,
             plain: true,
             ruby19_syntax: true,
