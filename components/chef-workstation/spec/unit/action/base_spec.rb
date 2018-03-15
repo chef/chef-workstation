@@ -3,7 +3,7 @@ require "chef-workstation/action/base"
 require "chef-workstation/telemetry"
 
 RSpec.describe ChefWorkstation::Action::Base do
-  let(:opts) { { reporter: "test-reporter", connection: "test-connection", other: "something-else" }}
+  let(:opts) { { reporter: "test-reporter", connection: "test-connection", other: "something-else" } }
   subject(:action) { ChefWorkstation::Action::Base.new(opts) }
 
   context "#initialize" do
@@ -14,14 +14,11 @@ RSpec.describe ChefWorkstation::Action::Base do
     end
   end
   context "#run" do
-     it "runs the underlying action, capturing timing via telemetry" do
-       expect(ChefWorkstation::Telemetry).to receive(:timed_capture).with(:action, name: "Base").and_yield
-       expect(action).to receive(:perform_action)
-       action.run
-     end
+    it "runs the underlying action, capturing timing via telemetry" do
+      expect(ChefWorkstation::Telemetry).to receive(:timed_capture).with(:action, name: "Base").and_yield
+      expect(action).to receive(:perform_action)
+      action.run
+    end
   end
 
-
 end
-
-

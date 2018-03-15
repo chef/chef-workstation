@@ -24,7 +24,7 @@ module ChefWorkstation
     def initialize(host_url, opts = {}, logger = nil)
       target_url = clean_host_url(host_url)
       conn_opts = { sudo: opts.has_key?(:sudo) ? opts[:sudo] : false,
-                    user: ENV['USER'],
+                    user: ENV["USER"],
                     target: target_url,
                     key_files: opts[:key_file] }
       @config = Train.target_config(conn_opts)
@@ -40,7 +40,6 @@ module ChefWorkstation
       # TODO raise notconnected if !connection
       connection.os
     end
-
 
     def run_command(command)
       # TODO raise notconnected if !connection

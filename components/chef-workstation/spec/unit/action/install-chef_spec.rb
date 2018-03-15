@@ -12,7 +12,6 @@ RSpec.describe ChefWorkstation::Action::InstallChef do
   let(:action_options) { { sudo: true } }
   subject(:install) { ChefWorkstation::Action::InstallChef.new(action_options.merge(connection: conn)) }
 
-
   context "#perform_action" do
     let(:artifact) { double("artifact") }
     let(:package_url) { "https://chef.io/download/package/here" }
@@ -22,7 +21,7 @@ RSpec.describe ChefWorkstation::Action::InstallChef do
 
     it "raises if target platform is not supported" do
       expect(install).to receive(:verify_target_platform!).and_raise("Nope")
-      expect{install.perform_action}.to raise_error("Nope")
+      expect { install.perform_action }.to raise_error("Nope")
     end
 
     it "stops if chef is already installed on target" do
@@ -43,14 +42,13 @@ RSpec.describe ChefWorkstation::Action::InstallChef do
     end
   end
 
-
   context "verify_target_platform!" do
     context "on unsupported platforms" do
       let(:is_linux) { false }
       let(:osname) { "SunOS" }
       let(:errors) { ChefWorkstation::Action::Errors }
       it "raises UnsupportedTargetOS" do
-        expect{install.verify_target_platform!}.to raise_error do |e|
+        expect { install.verify_target_platform! }.to raise_error do |e|
           expect(e.class).to eq ChefWorkstation::Action::Errors::UnsupportedTargetOS
           expect(e.params).to eq([osname])
         end

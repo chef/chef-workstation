@@ -18,7 +18,6 @@ module ChefWorkstation
       default(:path, File.join(Dir.home, ".chef-workstation", "cache"))
     end
 
-
     class << self
       @custom_location = nil
 

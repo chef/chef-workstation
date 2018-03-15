@@ -37,7 +37,6 @@ module ChefWorkstation
         connection.run_command("which chef-client").exit_status == 0
       end
 
-
       def lookup_artifact
         require "mixlib/install"
         os = connection.os
@@ -48,7 +47,7 @@ module ChefWorkstation
           architecture: platform[:arch],
           product_name: "chef",
           version: :latest,
-          channel: :stable
+          channel: :stable,
         }
         Mixlib::Install.new(c).artifact_info
       end
@@ -78,7 +77,7 @@ module ChefWorkstation
                 file.write(segment)
               end
             end
-          rescue =>e
+          rescue => e
             puts e.message
             error = true
           ensure
