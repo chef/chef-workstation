@@ -67,7 +67,7 @@ e:
   ACT001: |
     %1 is not a supported target operating system at this time.
 
-    We plan to support the full range of Chef client operating systems,
+    We plan to support a wide range of target operating systems,
     but during this targeted pre-release we are constraining our efforts
     to Windows and Linux.
 

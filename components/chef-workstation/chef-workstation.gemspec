@@ -6,8 +6,8 @@ require "chef-workstation/version"
 Gem::Specification.new do |spec|
   spec.name          = "chef-workstation"
   spec.version       = ChefWorkstation::VERSION
-  spec.authors       = ["Marc A. Paradise"]
-  spec.email         = ["marc.paradise@gmail.com"]
+  spec.authors       = ["Chef Software, Inc"]
+  spec.email         = ["engineering@chef.io"]
 
   spec.summary       = "The essential tool for the Chef ecosystem."
   spec.description   = "Manage individual nodes or the complete Chef ecosystem."
@@ -39,8 +39,7 @@ Gem::Specification.new do |spec|
                                      # localization gem...
   spec.add_dependency "toml-rb" # This isn't ideal because mixlib-config uses 'tomlrb'
                                 # but that library does not support a dumper
-  spec.add_dependency "logger"        # remote connection management over ssh, winrm
-  spec.add_dependency "train"        # remote connection management over ssh, winrm
+  spec.add_dependency "train" # remote connection management over ssh, winrm
 
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"

@@ -1,4 +1,4 @@
 source "https://rubygems.org"
 gemspec
 
-gem "mixlib-config", github: "chef/mixlib-config", branch: "master"
+gem "mixlib-config", git: "https://github.com/chef/mixlib-config", branch: "master"

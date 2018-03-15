@@ -34,7 +34,7 @@ module ChefWorkstation
       end
 
       def already_installed_on_target?
-        connection.run_command("which chef-client").exit_status == 0
+        connection.run_command("test /opt/chef/bin/chef-client").exit_status == 0
       end
 
       def lookup_artifact
@@ -97,6 +97,8 @@ module ChefWorkstation
         connection.run_command("mkdir -p #{installer_dir}")
         connection.run_command("chmod 777 #{installer_dir}")
         # TODO status updates - uploading file... any hooks in train?
+        # TODO - so far performance of this has been pretty bad - this could be my test env
+        # (target is a linode node, and I also get bad times when scp'ing directly to that node.)
         connection.upload_file(local_path, remote_path)
         remote_path
       end
