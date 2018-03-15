@@ -21,14 +21,32 @@ cli:
 # Text specific to each command
 commands:
   config:
-    banner: "Manage Chef Workstation configuration"
+    description: Manage Chef Workstation configuration
+    usage: |
+      USAGE:
+        chef config [SUBCOMMAND]
     show:
-      banner: "Echo out the config"
+      description: Echo out Chef Workstation configuration to stdout
+      usage: |
+        USAGE:
+          chef config show [FLAGS]
       source: "Config loaded from %1path %2"
   target:
-    banner: "Manage a target"
+    description: Manage a target
+    usage: |
+      USAGE:
+        chef target [SUBCOMMAND]
     converge:
-      banner: "Converge a target"
+      description: Converge a target
+      usage: |
+        USAGE:
+          chef target converge <TARGET> <RESOURCE> <RESOURCE_NAME> [FLAGS]
+            Converge the specified <TARGET> ...
+
+        ARGS:
+          <TARGET>          ...
+          <RESOURCE>        ...
+          <RESOURCE_NAME>   ...
       root_description: "Whether to use root permissions on the target. Defaults to true"
 
 # Error definitions, usage Text.e.ERR888

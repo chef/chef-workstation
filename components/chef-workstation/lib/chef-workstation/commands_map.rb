@@ -57,7 +57,7 @@ module ChefWorkstation
   class CommandsMap
     NULL_ARG = Object.new
 
-    CommandSpec = Struct.new(:name, :constant_name, :banner, :require_path, :hidden, :subcommands)
+    CommandSpec = Struct.new(:name, :constant_name, :text, :require_path, :hidden, :subcommands)
 
     class CommandSpec
 
@@ -68,6 +68,8 @@ module ChefWorkstation
       def command_class
         @command_class ||= begin
           require require_path
+          # Definitely need a better API for constructing these commands and nested commands.
+          # Should not need to put in parent class constant inside builtin_commands
           if constant_name.is_a? Array
             klass = ChefWorkstation::Command
             constant_name.each do |name|
@@ -77,11 +79,15 @@ module ChefWorkstation
           else
             klass = ChefWorkstation::Command.const_get(constant_name)
           end
-            # We store the banner in the commands map so we do not have to
-            # require/load every command class to display the help output.
-          klass.banner(banner)
+          # We store the banner in the commands map so we do not have to
+          # require/load every command class to display the help output.
+          klass.banner(make_banner)
           klass
         end
+      end
+
+      def make_banner
+        text.description + "\n\n" + text.usage
       end
 
     end
@@ -92,12 +98,12 @@ module ChefWorkstation
       @command_specs = {}
     end
 
-    def top_level(name, constant_name, banner, require_path, hidden: false, subcommands: [])
-      command_specs[name] = create(name, constant_name, banner, require_path, hidden: hidden, subcommands: subcommands)
+    def top_level(name, constant_name, text, require_path, hidden: false, subcommands: [])
+      command_specs[name] = create(name, constant_name, text, require_path, hidden: hidden, subcommands: subcommands)
     end
 
-    def create(name, constant_name, banner, require_path, hidden: false, subcommands: [])
-      CommandSpec.new(name, constant_name, banner, require_path, hidden, Hash[subcommands.collect { |c| [c.name, c] } ])
+    def create(name, constant_name, text, require_path, hidden: false, subcommands: [])
+      CommandSpec.new(name, constant_name, text, require_path, hidden, Hash[subcommands.collect { |c| [c.name, c] } ])
     end
 
     # The user could be trying to invoke a subcommand - like `chef target converge`. In this case we want to

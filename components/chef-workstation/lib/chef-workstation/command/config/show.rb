@@ -18,7 +18,7 @@
 require "chef-workstation/command/base"
 require "chef-workstation/command/config"
 require "chef-workstation/config"
-require "awesome_print"
+require "toml-rb"
 
 module ChefWorkstation
   module Command
@@ -27,12 +27,8 @@ module ChefWorkstation
 
         def run(params)
           d = ChefWorkstation::Config.using_default_location? ? "default " : ""
-          puts Text.config_show.source(d, ChefWorkstation::Config.location)
-          ap ChefWorkstation::Config.to_hash, {
-            indent: 2,
-            plain: true,
-            ruby19_syntax: true,
-          }
+          puts Text.commands.config.show.source(d, ChefWorkstation::Config.location)
+          puts TomlRB.dump(ChefWorkstation::Config.hash_dup)
           0
         end
 
