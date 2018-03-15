@@ -49,7 +49,27 @@ commands:
           <RESOURCE_NAME>   ...
       root_description: "Whether to use root permissions on the target. Defaults to true"
 
+# actions:
+#   connect:
+#     status:
+#       connecting: "[%1] Connecting."
+#
+#   install_chef:
+#     status:
+#       check_cache: "Checking cache"
+#       downloading: "Downloading chef client installer ."
+#       uploading: "[%1] Uploading chef client installer."
+#       installing: "[%1] Installing chef client"
+
+
 # Error definitions, usage Text.e.ERR888
 e:
+  ACT001: |
+    %1 is not a supported target operating system at this time.
+
+    We plan to support the full range of Chef client operating systems,
+    but during this targeted pre-release we are constraining our efforts
+    to Windows and Linux.
+
   ERR888: |
     This is just a sample error definition
