@@ -70,7 +70,6 @@ module ChefWorkstation
         unless options.empty?
           puts ""
           puts "FLAGS:"
-          puts ""
           justify_length = 0
           options.each_value do |spec|
             justify_length = [justify_length, spec[:long].length + 4].max

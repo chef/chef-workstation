@@ -91,7 +91,8 @@ module ChefWorkstation
 
     def show_help
       puts banner
-      puts "\nFLAGS:\n"
+      puts ""
+      puts "FLAGS:"
       justify_length = 0
       options.each_value do |spec|
         justify_length = [justify_length, spec[:long].length + 4].max
