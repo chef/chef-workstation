@@ -14,16 +14,22 @@ module ChefWorkstation
         # mixin 'install_to_target' and 'already_installed' from
         # platform-specific providers.
         verify_target_platform!
-        return if already_installed_on_target?
+        if already_installed_on_target?
+          reporter.success("Chef already installed!")
+          return
+        end
 
         # TODO this is a pretty major divergence in behavior -
         # do we want to subclass InstallChefFromLocalSource, InstallChefFRomRemoteSource
         # and the caller determines which one to instantiate?
         package = lookup_artifact()
         local_path = download_to_workstation(package.url)
+        reporter.update("Package downloaded to workstation...")
         remote_path = upload_to_target(local_path)
+        reporter.update("Package uploaded to target...")
 
         install_chef_to_target(remote_path)
+        reporter.success("Installed Chef successfully!")
       end
 
       def verify_target_platform!
@@ -35,7 +41,7 @@ module ChefWorkstation
       end
 
       def already_installed_on_target?
-        connection.run_command("test /opt/chef/bin/chef-client").exit_status == 0
+        connection.run_command("which /opt/chef/bin/chef-client").exit_status == 0
       end
 
       def lookup_artifact

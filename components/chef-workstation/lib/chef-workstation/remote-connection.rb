@@ -27,28 +27,16 @@ module ChefWorkstation
     def self.make_connection(target, opts = {})
       conn = RemoteConnection.new(target, opts)
       conn.connect!
-    rescue e
-
-      puts "Error: #{e.message}"
-
-      # There are a large number of errors out of train that we could handle explicitly
-      # and provide better responses for.
+      conn
     end
 
     def initialize(host_url, opts = {}, logger = nil)
       target_url = clean_host_url(host_url)
-      # TODO Temp so I can stop getting spammed withoutput
-      logger = Logger.new(STDOUT)
-      logger.level = Logger::WARN
       conn_opts = { sudo: opts.has_key?(:sudo) ? opts[:sudo] : false,
-                    logger: logger,
-                    # TODO  shoudl default to shell user, but this shouldn't override user@ form.
-                    user: ENV['USER'],
                     target: target_url,
                     key_files: opts[:key_file],
                     logger: ChefWorkstation::Log }
       @config = Train.target_config(conn_opts)
-      # TODO - handling user in url vs user in
       @type = Train.validate_backend(@config)
       @train_connection = Train.create(@type, config)
     end
@@ -64,7 +52,11 @@ module ChefWorkstation
 
     def run_command(command)
       # TODO raise notconnected if !connection
-      connection.run_command command
+      c = connection.run_command(command)
+      # require 'pry'; binding.pry
+      # ChefWorkstation::Log.debug(c.stdout)
+      # ChefWorkstation::Log.error(c.stderr)
+      c
     end
 
     def upload_file(local_path, remote_path)

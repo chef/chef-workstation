@@ -48,6 +48,7 @@ commands:
           <RESOURCE>        ...
           <RESOURCE_NAME>   ...
       root_description: "Whether to use root permissions on the target. Defaults to true"
+      identity_file: "SSH identity file to use when connecting"
 
 # actions:
 #   connect:

@@ -33,6 +33,11 @@ module ChefWorkstation
           :boolean => true,
           :default => true
 
+        option :identity_file,
+          :long => "--identity-file PATH",
+          :short => "-i PATH",
+          :description => Text.commands.target.converge.identity_file
+
         def run(params)
           # TODO ensure it really is, set up usage.
           # TODO: option: --no-install
@@ -40,44 +45,29 @@ module ChefWorkstation
           resource = params.shift
           resource_name = params.shift
 
-          # conn = RemoteConnection.new(target, { sudo: options[:root] })
-          # # These puts will be replaced with actual prgoress reports through
-          # # whatever UI interface we settle on.
-          # puts "Connecting"
-          # # TODO it seems a bit cumbersome, but it might be a bit cleaner if we
-          # # define a "connect" action - then we'd basically be looking at a given command
-          # # just running a sequence of one or more Actions. It would be interesting to explore something
-          # # like having each command just return a list of chained actions that the base class executes.
-          # conn.connect!
-          # puts "Checking and uploading"
-          # Action::InstallChef.new(connection: conn).run
-          # puts "Later, I'll converge something!"
-
           full_rs_name = "#{resource}[#{resource_name}]"
+          conn = nil
           UI::Terminal.output "Converging #{target} with #{full_rs_name} using the default action"
           UI::Terminal.spinner("Connecting...", prefix: "[#{target}]") do |status_reporter|
-            conn = RemoteConnection.make_connection(target, { sudo: options[:root] } )
+            conn = RemoteConnection.make_connection(target, { sudo: config[:root], key_file: config[:identity_file] } )
             conn.run_command("sudo ls")
             status_reporter.success("Connected - using config specified in ~/.ssh/config")
           end
           UI::Terminal.spinner("Installing Chef Client...", prefix: "[#{target}]") do |status_reporter|
-            Action::InstallChef.new(connection: conn).run
-            status_reporter.success("...")
+            Action::InstallChef.new(connection: conn, reporter: status_reporter).run
+            # status_reporter.success("...")
           end
-          UI::Terminal.spinner("Installing Chef Client...", prefix: "[#{target}]") do |status_reporter|
-            Action::ConvergeTarget.new(connection: conn).run
-            status_reporter.success("...")
+          UI::Terminal.spinner("Converging #{full_rs_name}...", prefix: "[#{target}]") do |status_reporter|
+            # Action::ConvergeTarget.new(connection: conn).run
+            c = conn.run_command("/opt/chef/bin/chef-apply -e \"#{resource} '#{resource_name}'\"")
+            if c.exit_status == 0
+              status_reporter.success("Successfully converged #{full_rs_name}!")
+              ChefWorkstation::Log.debug(c.stdout)
+            else
+              status_reporter.error("Failed to converge remote machine. See detailed log")
+              ChefWorkstation::Log.error("Chef workstation error: \n    "+c.stdout.split("\n").join("\n    "))
+            end
           end
-          # UI::Terminal.spinner("Performing first time setup...", prefix: "[#{target}]") do |status_reporter|
-          #   # install chef
-          #   sleep 3
-          #   status_reporter.success("First time setup completed successfully!")
-          # end
-          # UI::Terminal.spinner("Converging #{full_rs_name}...", prefix: "[#{target}]") do |status_reporter|
-          #   # install chef
-          #   sleep 3
-          #   status_reporter.success("#{full_rs_name} converged successfully!")
-          # end
 
           0
         end
