@@ -19,6 +19,7 @@ require "chef-workstation/command/base"
 require "chef-workstation/command/target"
 require "chef-workstation/remote-connection"
 require "chef-workstation/action/install-chef"
+require "chef-workstation/action/converge-target"
 require "chef-workstation/ui/terminal"
 
 module ChefWorkstation
@@ -55,10 +56,17 @@ module ChefWorkstation
           full_rs_name = "#{resource}[#{resource_name}]"
           UI::Terminal.output "Converging #{target} with #{full_rs_name} using the default action"
           UI::Terminal.spinner("Connecting...", prefix: "[#{target}]") do |status_reporter|
-            conn = RemoteConnection.new(target, { sudo: options[:root] })
-            conn.connect!
+            conn = RemoteConnection.make_connection(target, { sudo: options[:root] } )
             conn.run_command("sudo ls")
             status_reporter.success("Connected - using config specified in ~/.ssh/config")
+          end
+          UI::Terminal.spinner("Installing Chef Client...", prefix: "[#{target}]") do |status_reporter|
+            Action::InstallChef.new(connection: conn).run
+            status_reporter.success("...")
+          end
+          UI::Terminal.spinner("Installing Chef Client...", prefix: "[#{target}]") do |status_reporter|
+            Action::ConvergeTarget.new(connection: conn).run
+            status_reporter.success("...")
           end
           # UI::Terminal.spinner("Performing first time setup...", prefix: "[#{target}]") do |status_reporter|
           #   # install chef
