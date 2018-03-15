@@ -1,7 +1,7 @@
 
 require "spec_helper"
 require "remote_connection_mock"
-require "chef-workstation/action/install-chef"
+require "chef-workstation/action/install_chef"
 RSpec.describe ChefWorkstation::Action::InstallChef do
 
   let(:osname) { "linux" }
@@ -10,7 +10,8 @@ RSpec.describe ChefWorkstation::Action::InstallChef do
   let(:is_linux) { true }
   let(:conn) { ChefWorkstation::RemoteConnectionMock.new(osname, osversion, osarch, is_linux) }
   let(:action_options) { { sudo: true } }
-  subject(:install) { ChefWorkstation::Action::InstallChef.new(action_options.merge(connection: conn)) }
+  let(:reporter) { instance_double(ChefWorkstation::StatusReporter) }
+  subject(:install) { ChefWorkstation::Action::InstallChef.new(action_options.merge(connection: conn, reporter: reporter )) }
 
   context "#perform_action" do
     let(:artifact) { double("artifact") }
@@ -21,6 +22,7 @@ RSpec.describe ChefWorkstation::Action::InstallChef do
 
     it "raises if target platform is not supported" do
       expect(install).to receive(:verify_target_platform!).and_raise("Nope")
+      expect(reporter).to receive(:error)
       expect { install.perform_action }.to raise_error("Nope")
     end
 
@@ -28,8 +30,10 @@ RSpec.describe ChefWorkstation::Action::InstallChef do
       expect(install).to receive(:verify_target_platform!)
       expect(install).to receive(:already_installed_on_target?).and_return true
       expect(install).not_to receive(:lookup_artifact)
+      expect(reporter).to receive(:success)
       install.perform_action
     end
+
     it "performs the steps necessary to perform an installation" do
       expect(install).to receive(:verify_target_platform!)
       expect(install).to receive(:already_installed_on_target?).and_return false
@@ -37,6 +41,8 @@ RSpec.describe ChefWorkstation::Action::InstallChef do
       expect(install).to receive(:download_to_workstation).with(package_url) .and_return "/local/path"
       expect(install).to receive(:upload_to_target).with("/local/path").and_return("/remote/path")
       expect(install).to receive(:install_chef_to_target).with("/remote/path")
+      expect(reporter).to receive(:update).exactly(3).times
+      expect(reporter).to receive(:success)
 
       install.perform_action
     end
