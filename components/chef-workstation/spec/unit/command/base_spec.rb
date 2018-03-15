@@ -19,7 +19,7 @@ require "chef-workstation/command/base"
 require "chef-workstation/commands_map"
 
 RSpec.describe ChefWorkstation::Command::Base do
-  let(:cmd_spec) { instance_double(ChefWorkstation::CommandsMap::CommandSpec, subcommands: []) }
+  let(:cmd_spec) { instance_double(ChefWorkstation::CommandsMap::CommandSpec, name: "cmd", subcommands: []) }
   subject(:cmd) do
     ChefWorkstation::Command::Base.new(cmd_spec)
   end

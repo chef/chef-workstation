@@ -1,10 +1,11 @@
 require "chef-workstation/config"
+require "chef-workstation/log"
 require "chef-workstation/version"
 require "chef-workstation/telemetry"
 require "chef-workstation/commands_map"
 require "chef-workstation/builtin_commands"
-require "optparse"
 require "chef-workstation/text"
+require "chef-workstation/ui/terminal"
 require "mixlib/cli"
 
 module ChefWorkstation
@@ -37,7 +38,7 @@ module ChefWorkstation
     end
 
     def run
-      initialize_config
+      init
 
       # Perform a timing and capture of the requested command. Individual
       # commands and components may perform nested Telemetry.timed_capture or Telemetry.capture
@@ -49,12 +50,22 @@ module ChefWorkstation
       Telemetry.send!
     end
 
-    def initialize_config
+    def init
+      # Initialize the config and load it
       if ChefWorkstation::Config.using_default_location? && !ChefWorkstation::Config.exist?
         puts Text.cli.creating_config(ChefWorkstation::Config.default_location)
         ChefWorkstation::Config.create_default_config_file
       end
       ChefWorkstation::Config.load
+
+      # Ensure our logger is setup
+      l = ChefWorkstation::Config.log
+      ChefWorkstation::Log.setup(l.location)
+      Log.level = l.level.to_sym
+      ChefWorkstation::Log.info("Initialized logger")
+
+      # Ensure the CLI outputter is setup
+      UI::Terminal.init
     end
 
     def perform_command

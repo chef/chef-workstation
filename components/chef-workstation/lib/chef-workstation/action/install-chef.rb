@@ -1,6 +1,7 @@
 require "chef-workstation/action/base"
 require "chef-workstation/action/errors"
 require "chef-workstation/config"
+require "chef-workstation/log"
 require "fileutils"
 module ChefWorkstation
   module Action
@@ -67,7 +68,7 @@ module ChefWorkstation
         # TODO - this may be a file-downloader kind of class if we need to
         #        directly handle additional downloads.
 
-        puts "Downloading: #{local_path}"
+        Log.debug "Downloading: #{local_path}"
         Net::HTTP.start(url.host) do |http|
           begin
             # TODO status update when we progress through a chunk,
@@ -78,7 +79,7 @@ module ChefWorkstation
               end
             end
           rescue => e
-            puts e.message
+            log.error e.message
             error = true
           ensure
             file.close()

@@ -19,6 +19,7 @@ require "chef-workstation/command/base"
 require "chef-workstation/command/target"
 require "chef-workstation/remote-connection"
 require "chef-workstation/action/install-chef"
+require "chef-workstation/ui/terminal"
 
 module ChefWorkstation
   module Command
@@ -35,18 +36,41 @@ module ChefWorkstation
           # TODO ensure it really is, set up usage.
           # TODO: option: --no-install
           target = params.shift
-          conn = RemoteConnection.new(target, { sudo: options[:root] })
-          # These puts will be replaced with actual prgoress reports through
-          # whatever UI interface we settle on.
-          puts "Connecting"
-          # TODO it seems a bit cumbersome, but it might be a bit cleaner if we
-          # define a "connect" action - then we'd basically be looking at a given command
-          # just running a sequence of one or more Actions. It would be interesting to explore something
-          # like having each command just return a list of chained actions that the base class executes.
-          conn.connect!
-          puts "Checking and uploading"
-          Action::InstallChef.new(connection: conn).run
-          puts "Later, I'll converge something!"
+          resource = params.shift
+          resource_name = params.shift
+
+          # conn = RemoteConnection.new(target, { sudo: options[:root] })
+          # # These puts will be replaced with actual prgoress reports through
+          # # whatever UI interface we settle on.
+          # puts "Connecting"
+          # # TODO it seems a bit cumbersome, but it might be a bit cleaner if we
+          # # define a "connect" action - then we'd basically be looking at a given command
+          # # just running a sequence of one or more Actions. It would be interesting to explore something
+          # # like having each command just return a list of chained actions that the base class executes.
+          # conn.connect!
+          # puts "Checking and uploading"
+          # Action::InstallChef.new(connection: conn).run
+          # puts "Later, I'll converge something!"
+
+          full_rs_name = "#{resource}[#{resource_name}]"
+          UI::Terminal.output "Converging #{target} with #{full_rs_name} using the default action"
+          UI::Terminal.spinner("Connecting...", prefix: "[#{target}]") do |status_reporter|
+            conn = RemoteConnection.new(target, { sudo: options[:root] })
+            conn.connect!
+            conn.run_command("sudo ls")
+            status_reporter.success("Connected - using config specified in ~/.ssh/config")
+          end
+          # UI::Terminal.spinner("Performing first time setup...", prefix: "[#{target}]") do |status_reporter|
+          #   # install chef
+          #   sleep 3
+          #   status_reporter.success("First time setup completed successfully!")
+          # end
+          # UI::Terminal.spinner("Converging #{full_rs_name}...", prefix: "[#{target}]") do |status_reporter|
+          #   # install chef
+          #   sleep 3
+          #   status_reporter.success("#{full_rs_name} converged successfully!")
+          # end
+
           0
         end
       end

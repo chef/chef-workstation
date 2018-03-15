@@ -29,7 +29,7 @@ RSpec.describe ChefWorkstation::CLI do
 
   context "run" do
     it "performs the steps necessary to handle the request and capture telemetry" do
-      expect(subject).to receive(:initialize_config)
+      expect(subject).to receive(:init)
       expect(subject).to receive(:perform_command)
       expect(telemetry).to receive(:timed_capture).
         with(:run,
@@ -80,7 +80,7 @@ RSpec.describe ChefWorkstation::CLI do
     let(:argv) { %w{config show} }
 
     it "calls the config show" do
-      expect(cli).to receive(:initialize_config)
+      expect(cli).to receive(:init)
       expect(cli).to receive(:have_command?).with("config").and_return(true)
 
       expect_any_instance_of(ChefWorkstation::Command::Config::Show).to receive(:run).and_return(0)
@@ -92,7 +92,7 @@ RSpec.describe ChefWorkstation::CLI do
     let(:argv) { %w{unknown} }
 
     it "raises an error" do
-      expect(cli).to receive(:initialize_config)
+      expect(cli).to receive(:init)
       expect(cli).to receive(:have_command?).with("unknown").and_return(false)
       expect(cli).to receive(:show_help)
 
@@ -103,7 +103,7 @@ RSpec.describe ChefWorkstation::CLI do
   context "help command called on a subcommand" do
     let(:argv) { %w{help config} }
     it "passes the help message to the subcommand" do
-      expect(cli).to receive(:initialize_config)
+      expect(cli).to receive(:init)
       expect(cli).to receive(:have_command?).with("config").and_return(true)
 
       expect_any_instance_of(ChefWorkstation::Command::Base).to receive(:run_with_default_options).with(["-h"]).and_return(0)
