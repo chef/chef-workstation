@@ -15,6 +15,7 @@
 # limitations under the License.
 #
 
+require "chef-workstation/log"
 require "train"
 
 module ChefWorkstation
@@ -26,7 +27,8 @@ module ChefWorkstation
       conn_opts = { sudo: opts.has_key?(:sudo) ? opts[:sudo] : false,
                     user: ENV["USER"],
                     target: target_url,
-                    key_files: opts[:key_file] }
+                    key_files: opts[:key_file],
+                    logger: ChefWorkstation::Log }
       @config = Train.target_config(conn_opts)
       @type = Train.validate_backend(@config)
       @train_connection = Train.create(@type, config)

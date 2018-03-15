@@ -3,7 +3,7 @@ require "tty-spinner"
 
 module ChefWorkstation
   module UI
-    class CommandOutputer
+    class Terminal
       class << self
 
         def init(location = STDOUT)

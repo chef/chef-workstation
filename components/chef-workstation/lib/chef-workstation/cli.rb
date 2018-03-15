@@ -5,7 +5,7 @@ require "chef-workstation/telemetry"
 require "chef-workstation/commands_map"
 require "chef-workstation/builtin_commands"
 require "chef-workstation/text"
-require "chef-workstation/ui/command_outputer"
+require "chef-workstation/ui/terminal"
 require "mixlib/cli"
 
 module ChefWorkstation
@@ -65,7 +65,7 @@ module ChefWorkstation
       ChefWorkstation::Log.info("Initialized logger")
 
       # Ensure the CLI outputter is setup
-      UI::CommandOutputer.init
+      UI::Terminal.init
     end
 
     def perform_command

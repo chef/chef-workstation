@@ -2,7 +2,7 @@ require "mixlib/config"
 
 module ChefWorkstation
   class Config
-    HOME_LOCATION = File.join(ENV["HOME"], ".chef-workstation/")
+    HOME_LOCATION = File.join(Dir.home, ".chef-workstation/")
 
     extend Mixlib::Config
 

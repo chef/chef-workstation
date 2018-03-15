@@ -19,7 +19,7 @@ require "chef-workstation/command/base"
 require "chef-workstation/command/target"
 require "chef-workstation/remote-connection"
 require "chef-workstation/action/install-chef"
-require "chef-workstation/ui/command_outputer"
+require "chef-workstation/ui/terminal"
 
 module ChefWorkstation
   module Command
@@ -53,25 +53,23 @@ module ChefWorkstation
           # puts "Later, I'll converge something!"
 
           full_rs_name = "#{resource}[#{resource_name}]"
-          UI::CommandOutputer.output "Converging #{target} with #{full_rs_name} using the default action"
-          UI::CommandOutputer.spinner("Connecting...", prefix: "[#{target}]") do |status_reporter|
-            # c = Connection.new(target, status_reporter)
-            status_reporter.update("FOOBAR")
-            sleep 3
-            status_reporter.update("BAZ")
-            sleep 1
+          UI::Terminal.output "Converging #{target} with #{full_rs_name} using the default action"
+          UI::Terminal.spinner("Connecting...", prefix: "[#{target}]") do |status_reporter|
+            conn = RemoteConnection.new(target, { sudo: options[:root] })
+            conn.connect!
+            conn.run_command("sudo ls")
             status_reporter.success("Connected - using config specified in ~/.ssh/config")
           end
-          UI::CommandOutputer.spinner("Performing first time setup...", prefix: "[#{target}]") do |status_reporter|
-            # install chef
-            sleep 3
-            status_reporter.success("First time setup completed successfully!")
-          end
-          UI::CommandOutputer.spinner("Converging #{full_rs_name}...", prefix: "[#{target}]") do |status_reporter|
-            # install chef
-            sleep 3
-            status_reporter.success("#{full_rs_name} converged successfully!")
-          end
+          # UI::Terminal.spinner("Performing first time setup...", prefix: "[#{target}]") do |status_reporter|
+          #   # install chef
+          #   sleep 3
+          #   status_reporter.success("First time setup completed successfully!")
+          # end
+          # UI::Terminal.spinner("Converging #{full_rs_name}...", prefix: "[#{target}]") do |status_reporter|
+          #   # install chef
+          #   sleep 3
+          #   status_reporter.success("#{full_rs_name} converged successfully!")
+          # end
 
           0
         end
