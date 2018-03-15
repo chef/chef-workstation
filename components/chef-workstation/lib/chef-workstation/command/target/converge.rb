@@ -17,12 +17,13 @@
 
 require "chef-workstation/command/base"
 require "chef-workstation/command/target"
+require "chef-workstation/remote-connection"
+require "chef-workstation/action/install-chef"
 
 module ChefWorkstation
   module Command
     class Target
       class Converge < ChefWorkstation::Command::Base
-
         # This is just an example here to show that we can set options at this level
         option :root,
           :long => "--root",
@@ -31,7 +32,21 @@ module ChefWorkstation
           :default => true
 
         def run(params)
-          show_help
+          # TODO ensure it really is, set up usage.
+          # TODO: option: --no-install
+          target = params.shift
+          conn = RemoteConnection.new(target, { sudo: options[:root] })
+          # These puts will be replaced with actual prgoress reports through
+          # whatever UI interface we settle on.
+          puts "Connecting"
+          # TODO it seems a bit cumbersome, but it might be a bit cleaner if we
+          # define a "connect" action - then we'd basically be looking at a given command
+          # just running a sequence of one or more Actions. It would be interesting to explore something
+          # like having each command just return a list of chained actions that the base class executes.
+          conn.connect!
+          puts "Checking and uploading"
+          Action::InstallChef.new(connection: conn).run
+          puts "Later, I'll converge something!"
           0
         end
       end
