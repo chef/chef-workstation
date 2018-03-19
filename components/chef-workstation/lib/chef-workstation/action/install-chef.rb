@@ -3,19 +3,20 @@ require "chef-workstation/action/errors"
 require "chef-workstation/config"
 require "chef-workstation/log"
 require "fileutils"
+require "chef-workstation/text"
 module ChefWorkstation
   module Action
     class InstallChef < Base
       # TODO - linux specific value:
       UPLOAD_PATH = "/tmp/chef-install"
-
+      T = ChefWorkstation::Text.actions.installe_chef
       def perform_action
         # TODO when we add windows support in the next card, let's
         # mixin 'install_to_target' and 'already_installed' from
         # platform-specific providers.
         verify_target_platform!
         if already_installed_on_target?
-          reporter.success("Chef already installed!")
+          reporter.success(T.client_already_installed)
           return
         end
 
@@ -23,13 +24,23 @@ module ChefWorkstation
         # do we want to subclass InstallChefFromLocalSource, InstallChefFRomRemoteSource
         # and the caller determines which one to instantiate?
         package = lookup_artifact()
+        reporter.update(T.downloading)
         local_path = download_to_workstation(package.url)
-        reporter.update("Package downloaded to workstation...")
+        reporter.update(T.uploading)
         remote_path = upload_to_target(local_path)
-        reporter.update("Package uploaded to target...")
+
+        reporter.update(T.installing)
 
         install_chef_to_target(remote_path)
-        reporter.success("Installed Chef successfully!")
+        reporter.success(T.success)
+      rescue RuntimeError => e
+        reporter.failure(T.error(e.message))
+        # TODO - let's talk about this.  I was thinking to re-raise
+        # so that the caler/framework can do standard error handling and formatting
+        # based on type.
+        # However, I'm not sure that will behave correctly inside of the job thread
+        # used by our UI framework.
+        raise
       end
 
       def verify_target_platform!

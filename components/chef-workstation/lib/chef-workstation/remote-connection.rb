@@ -20,7 +20,7 @@ require "train"
 
 module ChefWorkstation
   class RemoteConnection
-    attr_reader :config, :reporter, :connection
+    attr_reader :config, :reporter, :connection, :sudo_ok
     # TODO let's figure out the logging and UI-upating paths - do we want separate interfaces?
     #
     # Open connection to target.
@@ -42,7 +42,10 @@ module ChefWorkstation
     end
 
     def connect!
-      @connection ||= @train_connection.connection
+      if @connection.nil
+        @connection = @train_connection.connection
+        @sudo_ok = conn.run_command("sudo ls").exit_status == 0
+      end
     end
 
     def os

@@ -10,7 +10,7 @@ RSpec.describe ChefWorkstation::Action::InstallChef do
   let(:is_linux) { true }
   let(:conn) { ChefWorkstation::RemoteConnectionMock.new(osname, osversion, osarch, is_linux) }
   let(:action_options) { { sudo: true } }
-  subject(:install) { ChefWorkstation::Action::InstallChef.new(action_options.merge(connection: conn)) }
+  subject(:install) { ChefWorkstation::Action::InstallChef.new(action_options.merge(connection: conn, reporter: ChefWorkstation::UI::Terminal )) }
 
   context "#perform_action" do
     let(:artifact) { double("artifact") }

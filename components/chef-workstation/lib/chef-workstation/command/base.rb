@@ -61,8 +61,27 @@ module ChefWorkstation
       end
 
       def run(params)
-        # raise Shak::UnimplementedRunError.new
         raise NotImplementedError.new
+      end
+
+      # The visual progress aspect of connecting will be common to
+      # many commands, so we provide a helper to the in this base class.
+      # If reporter is nil a Terminal spinner will be used; otherwise
+      # the provided reporter will be used.
+      def connect(target, settings, reporter = nil)
+        if reporter.nil?
+          me = self
+          UI::Terminal.spinner(Text.commands.base.connecting, prefix: "[#{target}]") do |rep|
+            me.connect(target, settings, rep)
+          end
+        else
+          conn = RemoteConnection.make_connection(target, settings)
+          reporter.success(Text.commands.base.connected)
+          conn
+        end
+      rescue RuntimeError => e
+        reporter.error(e.message)
+        :connection_failed
       end
 
       private

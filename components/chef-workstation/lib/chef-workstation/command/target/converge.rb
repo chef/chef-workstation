@@ -26,17 +26,18 @@ module ChefWorkstation
   module Command
     class Target
       class Converge < ChefWorkstation::Command::Base
-        # This is just an example here to show that we can set options at this level
+        # Text Context is just the
+        T = Text.commands.target.converge
         option :root,
           :long => "--root",
-          :description => Text.commands.target.converge.root_description,
+          :description => T.usage.root_description,
           :boolean => true,
           :default => true
 
         option :identity_file,
           :long => "--identity-file PATH",
           :short => "-i PATH",
-          :description => Text.commands.target.converge.identity_file
+          :description => T.usage.identity_file
 
         def run(params)
           # TODO ensure it really is, set up usage.
@@ -44,33 +45,25 @@ module ChefWorkstation
           target = params.shift
           resource = params.shift
           resource_name = params.shift
-
           full_rs_name = "#{resource}[#{resource_name}]"
-          conn = nil
-          UI::Terminal.output "Converging #{target} with #{full_rs_name} using the default action"
-          UI::Terminal.spinner("Connecting...", prefix: "[#{target}]") do |status_reporter|
-            conn = RemoteConnection.make_connection(target, { sudo: config[:root], key_file: config[:identity_file] } )
-            conn.run_command("sudo ls")
-            status_reporter.success("Connected - using config specified in ~/.ssh/config")
-          end
-          UI::Terminal.spinner("Installing Chef Client...", prefix: "[#{target}]") do |status_reporter|
-            Action::InstallChef.new(connection: conn, reporter: status_reporter).run
-            # status_reporter.success("...")
-          end
-          UI::Terminal.spinner("Converging #{full_rs_name}...", prefix: "[#{target}]") do |status_reporter|
-            # Action::ConvergeTarget.new(connection: conn).run
-            c = conn.run_command("/opt/chef/bin/chef-apply -e \"#{resource} '#{resource_name}'\"")
-            if c.exit_status == 0
-              status_reporter.success("Successfully converged #{full_rs_name}!")
-              ChefWorkstation::Log.debug(c.stdout)
-            else
-              status_reporter.error("Failed to converge remote machine. See detailed log")
-              ChefWorkstation::Log.error("Chef workstation error: \n    "+c.stdout.split("\n").join("\n    "))
-            end
+
+          conn = connect({sudo: config[:root], key_file: config[:identity_file]})
+
+          UI::Terminal.spinner("Verifying Chef client installation...") do |r|
+            installer = Action::InstallChef.new(connection: conn, reporter: r)
+            installer.run
           end
 
+          UI::Terminal.spinner("Converging #{full_rs_name}...", prefix: "[#{target}]") do |r|
+            converger = Action::ConvergeTarget.new(reporter: r,
+                                                   connection: conn,
+                                                   resource_type: resource,
+                                                   resource_name: resource_name)
+            converger.run
+          end
           0
         end
+
       end
     end
   end
