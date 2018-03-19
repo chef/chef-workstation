@@ -26,18 +26,17 @@ module ChefWorkstation
   module Command
     class Target
       class Converge < ChefWorkstation::Command::Base
-        # Text Context is just the
         T = Text.commands.target.converge
         option :root,
           :long => "--root",
-          :description => T.usage.root_description,
+          :description => T.root_description,
           :boolean => true,
           :default => true
 
         option :identity_file,
           :long => "--identity-file PATH",
           :short => "-i PATH",
-          :description => T.usage.identity_file
+          :description => T.identity_file
 
         def run(params)
           # TODO ensure it really is, set up usage.
@@ -47,14 +46,14 @@ module ChefWorkstation
           resource_name = params.shift
           full_rs_name = "#{resource}[#{resource_name}]"
 
-          conn = connect({sudo: config[:root], key_file: config[:identity_file]})
+          conn = connect(target, { sudo: config[:root], key_file: config[:identity_file] })
 
-          UI::Terminal.spinner("Verifying Chef client installation...") do |r|
+          UI::Terminal.spinner(T.status.verifying.to_s) do |r|
             installer = Action::InstallChef.new(connection: conn, reporter: r)
             installer.run
           end
 
-          UI::Terminal.spinner("Converging #{full_rs_name}...", prefix: "[#{target}]") do |r|
+          UI::Terminal.spinner(T.status.converging(full_rs_name).to_s, prefix: "[#{target}]") do |r|
             converger = Action::ConvergeTarget.new(reporter: r,
                                                    connection: conn,
                                                    resource_type: resource,

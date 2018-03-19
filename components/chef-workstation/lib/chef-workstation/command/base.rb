@@ -24,6 +24,7 @@ module ChefWorkstation
   module Command
     class Base
       include Mixlib::CLI
+      T = Text.commands.base
 
       # All the actual commands have their banner managed and set from the commands map
       # Look there to see how we set this in #create
@@ -71,12 +72,14 @@ module ChefWorkstation
       def connect(target, settings, reporter = nil)
         if reporter.nil?
           me = self
-          UI::Terminal.spinner(Text.commands.base.connecting, prefix: "[#{target}]") do |rep|
-            me.connect(target, settings, rep)
+          conn = nil
+          UI::Terminal.spinner(T.status.connecting.to_s, prefix: "[#{target}]") do |rep|
+            conn = me.connect(target, settings, rep)
           end
+          conn
         else
           conn = RemoteConnection.make_connection(target, settings)
-          reporter.success(Text.commands.base.connected)
+          reporter.success(T.status.connected.to_s)
           conn
         end
       rescue RuntimeError => e

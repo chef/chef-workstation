@@ -42,9 +42,9 @@ module ChefWorkstation
     end
 
     def connect!
-      if @connection.nil
+      if @connection.nil?
         @connection = @train_connection.connection
-        @sudo_ok = conn.run_command("sudo ls").exit_status == 0
+        @sudo_ok = connection.run_command("sudo ls").exit_status == 0
       end
     end
 

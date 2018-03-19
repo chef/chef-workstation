@@ -52,35 +52,32 @@ commands:
           <RESOURCE_NAME>   The name, usually used to specify what 'thing' to set up with
                             the resource. For example, given resource 'user', 'name' would be
                             the name of the user you wanted to create.
-        root_description: "Whether to use root permissions on the target. Defaults to true."
-        identity_file: "SSH identity file to use when connecting."
+      root_description: "Whether to use root permissions on the target. Defaults to true."
+      identity_file: "SSH identity file to use when connecting."
       status:
         verifying: Verifying Chef client installation.
-        planned_action: I will converge %1 with %2 using the default action.
-        successful_converge: Successfully converged resource %1[%2].
-        failed_converge: Failed to converge resource %1[%2].  See log for details.
-    base:
-      status:
-        connecting: "Connecting..."
-        # TODO Review note: Removed 'using config' bit, because we don't actually know if that was used or not.
-        connected: "Connected."
-        connection_failed: "Connection failed: %1"
+        converging: Converging %1...
+  base:
+    status:
+      connecting: "Connecting..."
+      # TODO Review note: Removed 'using config' bit, because we don't actually know if that was used or not.
+      connected: "Connected."
+      connection_failed: "Connection failed: %1"
 actions:
 
 #   connect:
 #     status:
 #       connecting: "[%1] Connecting."
 #
-    install_chef:
-      status:
-        checking_for_client: Checking for Chef client.
-        client_already_installed: Client already installed, no action to take.
-        client_missing: Client not installed.
-        installing: Installing Chef client.
-        downloading: Downloading Chef client installer.
-        uploading: Uploading Chef client installer.
-        success: "Chef client installation completed!"
-        error: "An error occurred while installing Chef client: %1"
+  install_chef:
+    checking_for_client: Checking for Chef client.
+    client_already_installed: Client already installed, no action to take.
+    client_missing: Client not installed.
+    installing: Installing Chef client.
+    downloading: Downloading Chef client installer.
+    uploading: Uploading Chef client installer.
+    success: "Chef client installation completed!"
+    error: "An error occurred while installing Chef client: %1"
 
 
 # Error definitions, usage Text.e.ERR888

@@ -9,14 +9,14 @@ module ChefWorkstation
     class InstallChef < Base
       # TODO - linux specific value:
       UPLOAD_PATH = "/tmp/chef-install"
-      T = ChefWorkstation::Text.actions.installe_chef
+      T = ChefWorkstation::Text.actions.install_chef
       def perform_action
         # TODO when we add windows support in the next card, let's
         # mixin 'install_to_target' and 'already_installed' from
         # platform-specific providers.
         verify_target_platform!
         if already_installed_on_target?
-          reporter.success(T.client_already_installed)
+          reporter.success(T.client_already_installed.to_s)
           return
         end
 
@@ -34,7 +34,7 @@ module ChefWorkstation
         install_chef_to_target(remote_path)
         reporter.success(T.success)
       rescue RuntimeError => e
-        reporter.failure(T.error(e.message))
+        reporter.error(T.error(e.message))
         # TODO - let's talk about this.  I was thinking to re-raise
         # so that the caler/framework can do standard error handling and formatting
         # based on type.
