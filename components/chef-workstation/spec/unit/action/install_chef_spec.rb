@@ -1,7 +1,7 @@
 
 require "spec_helper"
 require "remote_connection_mock"
-require "chef-workstation/action/install-chef"
+require "chef-workstation/action/install_chef"
 RSpec.describe ChefWorkstation::Action::InstallChef do
 
   let(:osname) { "linux" }
