@@ -16,7 +16,7 @@ module ChefWorkstation
         # platform-specific providers.
         verify_target_platform!
         if already_installed_on_target?
-          reporter.success(T.client_already_installed.to_s)
+          reporter.success(T.client_already_installed)
           return
         end
 
@@ -24,17 +24,17 @@ module ChefWorkstation
         # do we want to subclass InstallChefFromLocalSource, InstallChefFRomRemoteSource
         # and the caller determines which one to instantiate?
         package = lookup_artifact()
-        reporter.update(T.downloading.to_s)
+        reporter.update(T.downloading)
         local_path = download_to_workstation(package.url)
-        reporter.update(T.uploading.to_s)
+        reporter.update(T.uploading)
         remote_path = upload_to_target(local_path)
 
-        reporter.update(T.installing.to_s)
+        reporter.update(T.installing)
 
         install_chef_to_target(remote_path)
-        reporter.success(T.success.to_s)
+        reporter.success(T.success)
       rescue RuntimeError => e
-        reporter.error(T.error(e.message).to_s)
+        reporter.error(T.error(e.message))
         # TODO - let's talk about this.  I was thinking to re-raise
         # so that the caler/framework can do standard error handling and formatting
         # based on type.

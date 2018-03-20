@@ -48,12 +48,12 @@ module ChefWorkstation
 
           conn = connect(target, { sudo: config[:root], key_file: config[:identity_file] })
 
-          UI::Terminal.spinner(T.status.verifying.to_s, prefix: "[#{target}]") do |r|
+          UI::Terminal.spinner(T.status.verifying, prefix: "[#{target}]") do |r|
             installer = Action::InstallChef.new(connection: conn, reporter: r)
             installer.run
           end
 
-          UI::Terminal.spinner(T.status.converging(full_rs_name).to_s, prefix: "[#{target}]") do |r|
+          UI::Terminal.spinner(T.status.converging(full_rs_name), prefix: "[#{target}]") do |r|
             converger = Action::ConvergeTarget.new(reporter: r,
                                                    connection: conn,
                                                    resource_type: resource,

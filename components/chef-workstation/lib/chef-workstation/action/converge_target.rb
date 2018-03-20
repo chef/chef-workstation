@@ -18,9 +18,9 @@ module ChefWorkstation::Action
       if c.exit_status == 0
         ChefWorkstation::Log.debug(c.stdout)
         full_rs_name = "#{resource_type}[#{resource_name}]"
-        reporter.success(T.success(full_rs_name).to_s)
+        reporter.success(T.success(full_rs_name))
       else
-        reporter.error(T.error.to_s)
+        reporter.error(T.error)
         ChefWorkstation::Log.error("Remote chef-apply error follows: ")
         # Using Log for each line so that we can keep consistent formatting -
         # undecorated lines are the bane of automated log parsing...

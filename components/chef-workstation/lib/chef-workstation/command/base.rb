@@ -73,18 +73,22 @@ module ChefWorkstation
         if reporter.nil?
           me = self
           conn = nil
-          UI::Terminal.spinner(T.status.connecting.to_s, prefix: "[#{target}]") do |rep|
+          UI::Terminal.spinner(T.status.connecting, prefix: "[#{target}]") do |rep|
             conn = me.connect(target, settings, rep)
           end
           conn
         else
           conn = RemoteConnection.make_connection(target, settings)
-          reporter.success(T.status.connected.to_s)
+          reporter.success(T.status.connected)
           conn
         end
       rescue RuntimeError => e
-        reporter.error(e.message)
-        :connection_failed
+        if reporter.nil?
+          UI::Terminal.output(e.message)
+        else
+          reporter.error(e.message)
+        end
+        raise
       end
 
       private
