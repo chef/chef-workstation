@@ -48,20 +48,58 @@ module ChefWorkstation
 
           conn = connect(target, { sudo: config[:root], key_file: config[:identity_file] })
 
-          UI::Terminal.spinner(T.status.verifying.to_s) do |r|
-            installer = Action::InstallChef.new(connection: conn, reporter: r)
-            installer.run
+          UI::Terminal.spinner(T.status.converge.verifying) do |r|
+            install_chef(r, conn)
           end
 
+
           UI::Terminal.spinner(T.status.converging(full_rs_name).to_s, prefix: "[#{target}]") do |r|
-            converger = Action::ConvergeTarget.new(reporter: r,
-                                                   connection: conn,
-                                                   resource_type: resource,
-                                                   resource_name: resource_name)
-            converger.run
+            converge(r, conn, resource_type, resource_name)
           end
           0
         end
+
+        def install_chef(reporter)
+          installer = Action::InstallChef.new(connection: conn)
+          run_action(installer) do |event, data|
+            install_event_handler(reporter, event, data)
+
+          end
+        end
+
+        def install_event_handler(reporter, event, data)
+          case event
+          when :downloading
+            reporter.update(T.status.downloading)
+          when :uploading
+            reporter.update(T.status.uploading)
+          when :installing
+            reporter.update(T.status.installing)
+          when :success
+            if data == :install_complete
+              reporter.update(T.status.success_installed)
+            else # :already_installed
+              reporter.update(T.status.client_already_installed)
+            end
+          when :exception
+            # # TODO capture excpetion, proper formatting, etc etc
+            reporter.failure(data.message)
+          end
+        end
+
+        def converge(reporter, res_type, res_name)
+          c = Action::ConvergeTarget.new(connection: conn,
+                                         resource_type: res_type,
+                                         resource_name: res_name)
+          run_action(c) do |event, data|
+            case event
+            when :success
+            when :failure
+            end
+          end
+
+        end
+
 
       end
     end

@@ -55,29 +55,33 @@ commands:
       root_description: "Whether to use root permissions on the target. Defaults to true."
       identity_file: "SSH identity file to use when connecting."
       status:
-        verifying: Verifying Chef client installation.
-        converging: Converging %1...
+        converge:
+          converging: Converging %1...
+        install:
+          verifying: "Verifying Chef client installation."
+          checking_for_client: "Checking for Chef client."
+          client_already_installed: "Client already installed, no action to take."
+          client_missing: "Client not installed."
+          installing: "Installing Chef client."
+          downloading: "Downloading Chef client installer."
+          uploading: "Uploading Chef client installer."
+          success_installed: "Chef client installation completed!"
+          error: "An error occurred while installing Chef client: %1"
   base:
     status:
       connecting: "Connecting..."
       # TODO Review note: Removed 'using config' bit, because we don't actually know if that was used or not.
       connected: "Connected."
       connection_failed: "Connection failed: %1"
+
+events:
+  install:
 actions:
 
 #   connect:
 #     status:
 #       connecting: "[%1] Connecting."
 #
-  install_chef:
-    checking_for_client: Checking for Chef client.
-    client_already_installed: Client already installed, no action to take.
-    client_missing: Client not installed.
-    installing: Installing Chef client.
-    downloading: Downloading Chef client installer.
-    uploading: Uploading Chef client installer.
-    success: "Chef client installation completed!"
-    error: "An error occurred while installing Chef client: %1"
 
 
 # Error definitions, usage Text.e.ERR888

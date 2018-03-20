@@ -48,6 +48,14 @@ module ChefWorkstation
         super()
       end
 
+      def run_action(action, &block)
+        add_observer(action, self)
+        @handler = block
+      end
+
+      def update(action, *args)
+        @handler.call(action, *args)
+      end
       def run_with_default_options(params = [])
         Log.debug "Starting #{@command_spec.name} command"
         parse_options(params)

@@ -16,6 +16,8 @@ module ChefWorkstation
         # platform-specific providers.
         verify_target_platform!
         if already_installed_on_target?
+          notify(:success, :already_installed)
+
           reporter.success(T.client_already_installed.to_s)
           return
         end
@@ -24,23 +26,15 @@ module ChefWorkstation
         # do we want to subclass InstallChefFromLocalSource, InstallChefFRomRemoteSource
         # and the caller determines which one to instantiate?
         package = lookup_artifact()
-        reporter.update(T.downloading)
+        notify(:downloading)
         local_path = download_to_workstation(package.url)
-        reporter.update(T.uploading)
+        notify(:uploading)
         remote_path = upload_to_target(local_path)
-
-        reporter.update(T.installing)
-
+        notify(:installing)
         install_chef_to_target(remote_path)
-        reporter.success(T.success)
+        notify(:success, :install_complete)
       rescue RuntimeError => e
-        reporter.error(T.error(e.message))
-        # TODO - let's talk about this.  I was thinking to re-raise
-        # so that the caler/framework can do standard error handling and formatting
-        # based on type.
-        # However, I'm not sure that will behave correctly inside of the job thread
-        # used by our UI framework.
-        raise
+        notify(:exception, e)
       end
 
       def verify_target_platform!

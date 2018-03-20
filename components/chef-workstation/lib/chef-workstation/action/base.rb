@@ -1,8 +1,10 @@
+require "observer"
 require "chef-workstation/telemetry"
 require "chef-workstation/action/errors"
 
 module ChefWorkstation
   module Action
+
     # Derive new Actions from Action::Base
     # "connection" is a train connection that may be active and available
     #              based on
@@ -13,18 +15,22 @@ module ChefWorkstation
     # Run time will be captured via telemetry and categorized under ":action" with the
     # unqualified class name of your Action.
     class Base
+      include Observable
       attr_reader :connection, :config
-      attr_accessor :reporter
       def initialize(config = {})
         c = config.dup
-        @reporter = c.delete :reporter
         @connection = c.delete :connection
         # Remaining options are for child classes to make use of.
         @config = c
       end
 
+      def notify(*args)
+        changed(true)
+        notify_observers(*args)
+      end
+
       def run
-        Telemetry.timed_capture(:action, name: self.class.name.split("::").last) do
+        Telemetry.timed_capture(:action, name: action_name) do
           perform_action
         end
       end
