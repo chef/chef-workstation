@@ -24,6 +24,7 @@ module ChefWorkstation
   module Command
     class Base
       include Mixlib::CLI
+      T = Text.commands.base
 
       # All the actual commands have their banner managed and set from the commands map
       # Look there to see how we set this in #create
@@ -61,8 +62,33 @@ module ChefWorkstation
       end
 
       def run(params)
-        # raise Shak::UnimplementedRunError.new
         raise NotImplementedError.new
+      end
+
+      # The visual progress aspect of connecting will be common to
+      # many commands, so we provide a helper to the in this base class.
+      # If reporter is nil a Terminal spinner will be used; otherwise
+      # the provided reporter will be used.
+      def connect(target, settings, reporter = nil)
+        if reporter.nil?
+          me = self
+          conn = nil
+          UI::Terminal.spinner(T.status.connecting, prefix: "[#{target}]") do |rep|
+            conn = me.connect(target, settings, rep)
+          end
+          conn
+        else
+          conn = RemoteConnection.make_connection(target, settings)
+          reporter.success(T.status.connected)
+          conn
+        end
+      rescue RuntimeError => e
+        if reporter.nil?
+          UI::Terminal.output(e.message)
+        else
+          reporter.error(e.message)
+        end
+        raise
       end
 
       private

@@ -13,7 +13,8 @@ module ChefWorkstation
     # Run time will be captured via telemetry and categorized under ":action" with the
     # unqualified class name of your Action.
     class Base
-      attr_reader :reporter, :connection, :config
+      attr_reader :connection, :config
+      attr_accessor :reporter
       def initialize(config = {})
         c = config.dup
         @reporter = c.delete :reporter

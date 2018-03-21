@@ -1,4 +1,4 @@
-require "chef-workstation/remote-connection"
+require "chef-workstation/remote_connection"
 require "spec_helper"
 RSpec.describe ChefWorkstation::RemoteConnection do
   let(:host) { "example.com" }

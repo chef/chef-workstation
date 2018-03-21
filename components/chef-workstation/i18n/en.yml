@@ -30,7 +30,7 @@ commands:
       usage: |
         USAGE:
           chef config show [FLAGS]
-      source: "Config loaded from %1path %2"
+      source: "Config loaded from %1path %2."
   target:
     description: Manage a target
     usage: |
@@ -40,27 +40,45 @@ commands:
       description: Converge a target
       usage: |
         USAGE:
-          chef target converge <TARGET> <RESOURCE> <RESOURCE_NAME> [FLAGS]
-            Converge the specified <TARGET> ...
+          chef target converge <TARGET> <RESOURCE> <RESOURCE_NAME> [ATTRIBUTES] [FLAGS]
+            Converge the specified <TARGET> with the single <RESOURCE>. [ATTRIBUTES]
+            should be specified as key=value. EG:
+
+            chef target converge myec2node directory /tmp/test mode="0777"
 
         ARGS:
-          <TARGET>          ...
-          <RESOURCE>        ...
-          <RESOURCE_NAME>   ...
-      root_description: "Whether to use root permissions on the target. Defaults to true"
+          <TARGET>          The host or IP address to converge. Can also be an SSH or WinRM URL
+                            in the form:
 
-# actions:
-#   connect:
-#     status:
-#       connecting: "[%1] Connecting."
-#
-#   install_chef:
-#     status:
-#       check_cache: "Checking cache"
-#       downloading: "Downloading chef client installer ."
-#       uploading: "[%1] Uploading chef client installer."
-#       installing: "[%1] Installing chef client"
-
+                            ssh://[USERNAME]@example.com[:PORT]
+          <RESOURCE>        A Chef resource, such as 'user' or 'package'
+          <RESOURCE_NAME>   The name, usually used to specify what 'thing' to set up with
+                            the resource. For example, given resource 'user', 'name' would be
+                            the name of the user you wanted to create.
+      root_description: "Whether to use root permissions on the target. Defaults to true."
+      identity_file: "SSH identity file to use when connecting."
+      status:
+        verifying: Verifying Chef client installation.
+        converging: Converging %1...
+  base:
+    status:
+      connecting: "Connecting..."
+      # TODO Review note: Removed 'using config' bit, because we don't actually know if that was used or not.
+      connected: "Connected."
+      connection_failed: "Connection failed: %1"
+actions:
+  install_chef:
+    checking_for_client: Checking for Chef client.
+    client_already_installed: Client already installed, no action to take.
+    client_missing: Client not installed.
+    installing: Installing Chef client.
+    downloading: Downloading Chef client installer.
+    uploading: Uploading Chef client installer.
+    success: "Chef client installation completed!"
+    error: "An error occurred while installing Chef client: %1"
+  converge_target:
+    success: "Successfully converged %1!"
+    error: Failed to converge remote machine. See detailed log.
 
 # Error definitions, usage Text.e.ERR888
 e:

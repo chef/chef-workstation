@@ -3,27 +3,44 @@ require "chef-workstation/action/errors"
 require "chef-workstation/config"
 require "chef-workstation/log"
 require "fileutils"
+require "chef-workstation/text"
 module ChefWorkstation
   module Action
     class InstallChef < Base
       # TODO - linux specific value:
       UPLOAD_PATH = "/tmp/chef-install"
-
+      T = ChefWorkstation::Text.actions.install_chef
       def perform_action
         # TODO when we add windows support in the next card, let's
         # mixin 'install_to_target' and 'already_installed' from
         # platform-specific providers.
         verify_target_platform!
-        return if already_installed_on_target?
+        if already_installed_on_target?
+          reporter.success(T.client_already_installed)
+          return
+        end
 
         # TODO this is a pretty major divergence in behavior -
         # do we want to subclass InstallChefFromLocalSource, InstallChefFRomRemoteSource
         # and the caller determines which one to instantiate?
         package = lookup_artifact()
+        reporter.update(T.downloading)
         local_path = download_to_workstation(package.url)
+        reporter.update(T.uploading)
         remote_path = upload_to_target(local_path)
 
+        reporter.update(T.installing)
+
         install_chef_to_target(remote_path)
+        reporter.success(T.success)
+      rescue RuntimeError => e
+        reporter.error(T.error(e.message))
+        # TODO - let's talk about this.  I was thinking to re-raise
+        # so that the caler/framework can do standard error handling and formatting
+        # based on type.
+        # However, I'm not sure that will behave correctly inside of the job thread
+        # used by our UI framework.
+        raise
       end
 
       def verify_target_platform!
@@ -35,7 +52,7 @@ module ChefWorkstation
       end
 
       def already_installed_on_target?
-        connection.run_command("test /opt/chef/bin/chef-client").exit_status == 0
+        connection.run_command("test -f /opt/chef/bin/chef-client").exit_status == 0
       end
 
       def lookup_artifact
@@ -111,7 +128,11 @@ module ChefWorkstation
                       when ".deb"
                         "dpkg -i #{remote_path}"
                       end
-        connection.run_command(install_cmd)
+        c = connection.run_command(install_cmd)
+        if c.exit_status != 0
+          raise "#{c.stderr}"
+        end
+        c
       end
     end
   end

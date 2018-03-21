@@ -22,10 +22,17 @@ module ChefWorkstation
   class RemoteConnection
     attr_reader :config, :reporter, :connection
     # TODO let's figure out the logging and UI-upating paths - do we want separate interfaces?
+    #
+    # Open connection to target.
+    def self.make_connection(target, opts = {})
+      conn = RemoteConnection.new(target, opts)
+      conn.connect!
+      conn
+    end
+
     def initialize(host_url, opts = {}, logger = nil)
       target_url = clean_host_url(host_url)
       conn_opts = { sudo: opts.has_key?(:sudo) ? opts[:sudo] : false,
-                    user: ENV["USER"],
                     target: target_url,
                     key_files: opts[:key_file],
                     logger: ChefWorkstation::Log }
@@ -45,7 +52,7 @@ module ChefWorkstation
 
     def run_command(command)
       # TODO raise notconnected if !connection
-      connection.run_command command
+      connection.run_command(command)
     end
 
     def upload_file(local_path, remote_path)
