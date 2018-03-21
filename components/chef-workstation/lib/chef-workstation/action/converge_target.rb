@@ -14,7 +14,7 @@ module ChefWorkstation::Action
 
     def perform_action
       apply_args = "\"#{@resource_type} '#{@resource_name}'\""
-      c = connection.run_command("/opt/chef/bin/chef-apply -e #{apply_args}")
+      c = connection.run_command("#{command_for_platform} -e #{apply_args}")
       if c.exit_status == 0
         ChefWorkstation::Log.debug(c.stdout)
         full_rs_name = "#{resource_type}[#{resource_name}]"
@@ -30,5 +30,16 @@ module ChefWorkstation::Action
         # TODO raise an error here? How do we communicate this failure up?
       end
     end
+
+    def command_for_platform
+      case connection.platform.family
+      when "windows"
+        # TODO this path will need to come out the queried installation info
+        "cmd /c C:/opscode/chef/bin/chef-apply"
+      else
+        "/opt/chef/bin/chef-apply"
+      end
+    end
+
   end
 end

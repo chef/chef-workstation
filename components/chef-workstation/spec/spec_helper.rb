@@ -6,6 +6,14 @@ RSpec.shared_context "Global helpers" do
   let(:t) { ChefWorkstation::Text }
 end
 
+class ChefWorkstation::MockReporter
+  def update(msg); ChefWorkstation::UI::Terminal.output msg; end
+
+  def success(msg); ChefWorkstation::UI::Terminal.output "SUCCESS: #{msg}"; end
+
+  def failure(msg); ChefWorkstation::UI::Terminal.output "FAILURE: #{msg}"; end
+end
+
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"

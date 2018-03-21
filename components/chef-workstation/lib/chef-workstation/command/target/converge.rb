@@ -39,7 +39,6 @@ module ChefWorkstation
           :description => T.identity_file
 
         def run(params)
-          # TODO ensure it really is, set up usage.
           # TODO: option: --no-install
           target = params.shift
           resource = params.shift
@@ -47,10 +46,8 @@ module ChefWorkstation
           full_rs_name = "#{resource}[#{resource_name}]"
 
           conn = connect(target, { sudo: config[:root], key_file: config[:identity_file] })
-
           UI::Terminal.spinner(T.status.verifying, prefix: "[#{target}]") do |r|
-            installer = Action::InstallChef.new(connection: conn, reporter: r)
-            installer.run
+            Action::InstallChef.instance_for_target(conn, reporter: r).run
           end
 
           UI::Terminal.spinner(T.status.converging(full_rs_name), prefix: "[#{target}]") do |r|
