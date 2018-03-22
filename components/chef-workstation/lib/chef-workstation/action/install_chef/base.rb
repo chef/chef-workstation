@@ -1,8 +1,7 @@
 require "chef-workstation/action/base"
 require "chef-workstation/config"
-require "chef-workstation/log"
-require "chef-workstation/action/errors"
 require "fileutils"
+
 module ChefWorkstation::Action::InstallChef
   class Base < ChefWorkstation::Action::Base
     T = ChefWorkstation::Text.actions.install_chef

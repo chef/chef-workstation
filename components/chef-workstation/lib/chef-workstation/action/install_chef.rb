@@ -1,9 +1,12 @@
 require "chef-workstation/action/install_chef/base"
 require "chef-workstation/action/install_chef/windows"
 require "chef-workstation/action/install_chef/linux"
-require "chef-workstation/action/errors"
 
 module ChefWorkstation::Action::InstallChef
+  class UnsupportedTargetOS < ChefWorkstation::Error
+    def initialize(os_name); super("ACT001", os_name); end
+  end
+
   def self.instance_for_target(conn, opts = {})
     opts[:connection] = conn
     p = conn.platform
@@ -12,7 +15,7 @@ module ChefWorkstation::Action::InstallChef
     elsif p.linux?
       Linux.new(opts)
     else
-      raise ChefWorkstation::Action::Errors::UnsupportedTargetOS.new(p.name)
+      raise UnsupportedTargetOS.new(p.name)
     end
   end
 end

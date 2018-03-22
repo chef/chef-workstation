@@ -1,5 +1,5 @@
 require "chef-workstation/telemetry"
-require "chef-workstation/action/errors"
+require "chef-workstation/error"
 
 module ChefWorkstation
   module Action
