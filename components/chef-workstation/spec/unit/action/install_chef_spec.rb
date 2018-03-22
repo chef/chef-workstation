@@ -1,70 +1,58 @@
-
 require "spec_helper"
-require "remote_connection_mock"
 require "chef-workstation/action/install_chef"
+
 RSpec.describe ChefWorkstation::Action::InstallChef do
-
-  let(:osname) { "linux" }
-  let(:osarch) { "x86_64" }
-  let(:osversion) { "14.04" }
-  let(:is_linux) { true }
-  let(:conn) { ChefWorkstation::RemoteConnectionMock.new(osname, osversion, osarch, is_linux) }
-  let(:action_options) { { sudo: true } }
-  let(:reporter) { instance_double(ChefWorkstation::StatusReporter) }
-  subject(:install) { ChefWorkstation::Action::InstallChef.new(action_options.merge(connection: conn, reporter: reporter )) }
-
-  context "#perform_action" do
-    let(:artifact) { double("artifact") }
-    let(:package_url) { "https://chef.io/download/package/here" }
-    before do
-      allow(artifact).to receive(:url).and_return package_url
-    end
-
-    it "raises if target platform is not supported" do
-      expect(install).to receive(:verify_target_platform!).and_raise("Nope")
-      expect(reporter).to receive(:error)
-      expect { install.perform_action }.to raise_error("Nope")
-    end
-
-    it "stops if chef is already installed on target" do
-      expect(install).to receive(:verify_target_platform!)
-      expect(install).to receive(:already_installed_on_target?).and_return true
-      expect(install).not_to receive(:lookup_artifact)
-      expect(reporter).to receive(:success)
-      install.perform_action
-    end
-
-    it "performs the steps necessary to perform an installation" do
-      expect(install).to receive(:verify_target_platform!)
-      expect(install).to receive(:already_installed_on_target?).and_return false
-      expect(install).to receive(:lookup_artifact).and_return artifact
-      expect(install).to receive(:download_to_workstation).with(package_url) .and_return "/local/path"
-      expect(install).to receive(:upload_to_target).with("/local/path").and_return("/remote/path")
-      expect(install).to receive(:install_chef_to_target).with("/remote/path")
-      expect(reporter).to receive(:update).exactly(3).times
-      expect(reporter).to receive(:success)
-
-      install.perform_action
-    end
+  let(:mock_os_name) { "mock" }
+  let(:mock_os_family) { "mock" }
+  let(:mock_os_release ) { "unknown" }
+  let(:mock_opts) do
+    {
+      name: mock_os_name,
+      family: mock_os_family,
+      release: mock_os_release,
+      arch: "x86_64",
+    }
+  end
+  let(:connection) do
+    ChefWorkstation::RemoteConnection.new("mock://user1:password1@localhost")
   end
 
-  context "verify_target_platform!" do
-    context "on unsupported platforms" do
-      let(:is_linux) { false }
-      let(:osname) { "SunOS" }
-      let(:errors) { ChefWorkstation::Action::Errors }
-      it "raises UnsupportedTargetOS" do
-        expect { install.verify_target_platform! }.to raise_error do |e|
-          expect(e.class).to eq ChefWorkstation::Action::Errors::UnsupportedTargetOS
-          expect(e.params).to eq([osname])
-        end
-      end
+  subject(:installer) do
+    ChefWorkstation::Action::InstallChef
+  end
 
+  before do
+    train_conn = connection.connect!
+    train_conn.mock_os(mock_opts)
+  end
+
+  context ".instance_for_target" do
+    context "windows target" do
+      let(:mock_os_name) { "Windows_Server" }
+      let(:mock_os_family) { "windows" }
+      let(:mock_os_release) { "10.0.0" }
+
+      it "should return a InstallChef::Windows instance" do
+        inst = installer.instance_for_target(connection)
+        expect(inst).to be_a installer::Windows
+      end
     end
-    context "on supported platforms" do
-      let(:is_linux) { true }
-      it "runs without error" do
-        expect(install.verify_target_platform!).to eq :ok
+
+    context "linux target" do
+      let(:mock_os_name) { "ubuntu" }
+      let(:mock_os_family) { "debian" }
+      let(:mock_os_release) { "16.04" }
+
+      it "should return a InstallChef::Linux instance" do
+        inst = installer.instance_for_target(connection)
+        expect(inst).to be_a installer::Linux
+      end
+    end
+
+    context "unsupported target" do
+      it "should raise UnsupportedTargetOS" do
+        expected_error = ChefWorkstation::Action::Errors::UnsupportedTargetOS
+        expect { installer.instance_for_target(connection) }.to raise_error expected_error
       end
     end
   end

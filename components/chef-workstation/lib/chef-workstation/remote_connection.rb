@@ -20,7 +20,7 @@ require "train"
 
 module ChefWorkstation
   class RemoteConnection
-    attr_reader :config, :reporter, :connection
+    attr_reader :config, :reporter, :backend
     # TODO let's figure out the logging and UI-upating paths - do we want separate interfaces?
     #
     # Open connection to target.
@@ -42,26 +42,23 @@ module ChefWorkstation
     end
 
     def connect!
-      @connection ||= @train_connection.connection
+      @backend ||= @train_connection.connection
     end
 
-    def os
-      # TODO raise notconnected if !connection
-      connection.os
+    def platform
+      backend.platform
     end
 
     def run_command(command)
-      # TODO raise notconnected if !connection
-      connection.run_command(command)
+      backend.run_command command
     end
 
     def upload_file(local_path, remote_path)
-      # TODO raise notconnected if !connection
-      connection.upload(local_path, remote_path)
+      backend.upload(local_path, remote_path)
     end
 
     def clean_host_url(url)
-      if url =~ /^ssh|winrm:\/\//
+      if url =~ /^ssh|winrm|mock:\/\//
         url
       else
         "ssh://#{url}"
