@@ -4,7 +4,7 @@ require "r18n-desktop"
 # down the road and don't want to have to change all of our commands.
 module ChefWorkstation
   class Text
-    R18n.from_env("i18n/")
+    R18n.from_env(File.join(File.dirname(__FILE__), "../..", "i18n/"))
     t = R18n.get.t
     t.translation_keys.each do |k|
       k = k.to_sym

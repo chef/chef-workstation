@@ -1,4 +1,5 @@
 require "mixlib/config"
+require "pathname"
 
 module ChefWorkstation
   class Config
