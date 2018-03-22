@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.3 -->
+<!-- latest_release 0.1.4 -->
+## [0.1.4](https://github.com/chef/chef-workstation/tree/0.1.4) (2018-03-22)
+
+#### Merged Pull Requests
+- Make text and config work reguardless of where the bin resides. [#25](https://github.com/chef/chef-workstation/pull/25) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.3](https://github.com/chef/chef-workstation/tree/0.1.3) (2018-03-22)
 
 #### Merged Pull Requests
 - We should not update the Gemfile version dependency [#26](https://github.com/chef/chef-workstation/pull/26) ([jaymalasinha](https://github.com/jaymalasinha))
-<!-- latest_release -->
 
 ## [0.1.2](https://github.com/chef/chef-workstation/tree/0.1.2) (2018-03-22)
 
