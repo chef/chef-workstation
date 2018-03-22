@@ -48,5 +48,5 @@ build do
       " --no-ri --no-rdoc" \
       " --verbose --without development", env: env
 
-  appbundle "chef-workstation", env: env
+  appbundle "chef-workstation", lockdir: project_dir, without: %w{development}, env: env
 end

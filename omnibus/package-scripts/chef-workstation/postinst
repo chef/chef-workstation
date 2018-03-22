@@ -5,7 +5,7 @@
 #
 
 PROGNAME=`basename $0`
-INSTALLER_DIR=/opt/chef-workstaton
+INSTALLER_DIR=/opt/chef-workstation
 
 error_exit()
 {
