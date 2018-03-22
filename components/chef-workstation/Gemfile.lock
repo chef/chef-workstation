@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/chef/mixlib-config
+  revision: 9a6bd8062ef3a379223cb90f0fd08882b6045b7e
+  branch: master
+  specs:
+    mixlib-config (2.2.6)
+      tomlrb
+
 PATH
   remote: .
   specs:
@@ -117,8 +125,6 @@ GEM
     method_source (0.9.0)
     methodfinder (2.1.1)
     mixlib-cli (1.7.0)
-    mixlib-config (2.2.6)
-      tomlrb
     mixlib-install (3.9.3)
       mixlib-shellout
       mixlib-versioning
@@ -240,8 +246,8 @@ DEPENDENCIES
   bundler
   chef-workstation!
   chefstyle
-  did_you_mean (= 1.1.2)
   irbtools-more
+  mixlib-config!
   pry
   pry-byebug
   pry-stack_explorer
