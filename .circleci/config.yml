@@ -14,7 +14,7 @@ jobs:
           name: Bundle Install
           command: |
             pushd components/chef-workstation
-            bundle install --path vendor/bundle
+            bundle install --path vendor/bundle --without localdev
             popd
       - type: cache-save
         name: Save bundle cache
