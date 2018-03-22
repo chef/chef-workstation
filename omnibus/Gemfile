@@ -1,11 +1,11 @@
 source "https://rubygems.org"
 
 # Install omnibus
-gem "omnibus", "~> 5.5"
+gem "omnibus", git: "https://github.com/chef/omnibus.git", branch: "lcg/improve-appbundling"
 
 # Use Chef's software definitions. It is recommended that you write your own
 # software definitions, but you can clone/fork Chef's to get you started.
-gem "omnibus-software", github: "opscode/omnibus-software"
+gem "omnibus-software", git: "https://github.com/chef/omnibus-software.git", branch: "lcg/appbundle-0.11-without"
 
 # This development group is installed by default when you run `bundle install`,
 # but if you are using Omnibus in a CI-based infrastructure, you do not need

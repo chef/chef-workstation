@@ -1,8 +1,6 @@
 source "https://rubygems.org"
 gemspec
 
-gem "mixlib-config", git: "https://github.com/chef/mixlib-config", branch: "master"
-
 group :localdev do
   gem "irbtools-more", require: "irbtools/binding"
   # There is a 1.2.0 out but it only works with Ruby 2.5
