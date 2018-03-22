@@ -246,6 +246,7 @@ DEPENDENCIES
   bundler (~> 1.16)
   chef-workstation!
   chefstyle
+  did_you_mean (= 1.1.2)
   irbtools-more
   mixlib-config!
   pry
