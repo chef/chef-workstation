@@ -53,4 +53,12 @@ package :pkg do
   identifier "com.getchef.pkg.chef-workstation"
   signing_identity "Developer ID Installer: Chef Software, Inc. (EU3VF8YLX2)"
 end
+
+package :msi do
+  fast_msi true
+  upgrade_code '9870C512-DF2C-43D9-8C28-7ACD60ABBE27'
+  wix_light_extension 'WixUtilExtension'
+  signing_identity 'E05FF095D07F233B78EB322132BFF0F035E11B5B', machine_store: true
+end
+
 compress :dmg
