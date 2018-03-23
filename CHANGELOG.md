@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.4 -->
+<!-- latest_release 0.1.5 -->
+## [0.1.5](https://github.com/chef/chef-workstation/tree/0.1.5) (2018-03-23)
+
+#### Merged Pull Requests
+- Lets get our Windows Omnibus builds working [#27](https://github.com/chef/chef-workstation/pull/27) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.4](https://github.com/chef/chef-workstation/tree/0.1.4) (2018-03-22)
 
 #### Merged Pull Requests
 - Make text and config work reguardless of where the bin resides. [#25](https://github.com/chef/chef-workstation/pull/25) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.3](https://github.com/chef/chef-workstation/tree/0.1.3) (2018-03-22)
 
