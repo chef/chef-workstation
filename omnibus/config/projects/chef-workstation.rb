@@ -17,14 +17,20 @@
 name          "chef-workstation"
 friendly_name "Chef Workstation"
 maintainer    "Chef Software, Inc. <maintainers@chef.io>"
-homepage      "TBD"
+homepage      "https://chef.sh"
 
 license "Apache-2.0"
 license_file "../LICENSE"
 
 # Defaults to C:/chef-workstation on Windows
 # and /opt/chef-workstation on all other platforms
-install_dir "#{default_root}/#{name}"
+# if
+if windows?
+  install_dir "#{default_root}/opscode/#{name}"
+else
+  install_dir "#{default_root}/#{name}"
+end
+
 
 build_version Omnibus::BuildVersion.semver
 build_iteration 1
@@ -33,14 +39,10 @@ override :bundler,        version: "1.16.1"
 override :rubygems,       version: "2.6.13"
 override :ruby,           version: "2.4.2"
 
-# Creates required build directories
 dependency "preparation"
-
-# the chef-workstation component will pull in others as needed.
 dependency "chef-workstation"
-
-dependency "version-manifest"
 dependency "clean-static-libs"
+dependency "version-manifest"
 
 exclude "**/.git"
 exclude "**/bundler/git"

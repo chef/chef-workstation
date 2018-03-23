@@ -35,6 +35,7 @@ dependency "rubygems"
 dependency "bundler"
 dependency "ruby"
 dependency "appbundler"
+dependency "version-manifest"
 
 relative_path "components/chef-workstation"
 
