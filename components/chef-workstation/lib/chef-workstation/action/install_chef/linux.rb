@@ -12,14 +12,14 @@ module ChefWorkstation::Action::InstallChef
                     when ".deb"
                       "dpkg -i #{remote_path}"
                     end
-      r = connection.run_command(install_cmd)
-      raise r.stderr if r.exit_status != 0
+      connection.run_command!(install_cmd)
+      nil
     end
 
     def setup_remote_temp_path
       installer_dir = "/tmp/chef-installer"
-      connection.run_command("mkdir -p #{installer_dir}")
-      connection.run_command("chmod 777 #{installer_dir}")
+      connection.run_command!("mkdir -p #{installer_dir}")
+      connection.run_command!("chmod 777 #{installer_dir}")
       installer_dir
     end
   end
