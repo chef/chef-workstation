@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 gemspec
 
-gem "mixlib-config", git: "https://github.com/chef/mixlib-config", branch: "master"
+# TODO remove this once train release 1.2.1+  is cut.
+gem "train", git: "https://github.com/chef/train", branch: "master"
 
 group :localdev do
   gem "irbtools-more", require: "irbtools/binding"

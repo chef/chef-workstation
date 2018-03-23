@@ -1,10 +1,19 @@
 GIT
-  remote: https://github.com/chef/mixlib-config
-  revision: 9a6bd8062ef3a379223cb90f0fd08882b6045b7e
+  remote: https://github.com/chef/train
+  revision: fc6e2afa9ce737043068362a525ed6e23a155990
   branch: master
   specs:
-    mixlib-config (2.2.6)
-      tomlrb
+    train (1.2.0)
+      aws-sdk (~> 2)
+      azure_mgmt_resources (~> 0.15)
+      docker-api (~> 1.26)
+      inifile
+      json (>= 1.8, < 3.0)
+      mixlib-shellout (~> 2.0)
+      net-scp (~> 1.2)
+      net-ssh (>= 2.9, < 5.0)
+      winrm (~> 2.0)
+      winrm-fs (~> 1.0)
 
 PATH
   remote: .
@@ -125,6 +134,8 @@ GEM
     method_source (0.9.0)
     methodfinder (2.1.1)
     mixlib-cli (1.7.0)
+    mixlib-config (2.2.6)
+      tomlrb
     mixlib-install (3.9.3)
       mixlib-shellout
       mixlib-versioning
@@ -203,17 +214,6 @@ GEM
     toml-rb (1.1.1)
       citrus (~> 3.0, > 3.0)
     tomlrb (1.2.6)
-    train (1.2.0)
-      aws-sdk (~> 2)
-      azure_mgmt_resources (~> 0.15)
-      docker-api (~> 1.26)
-      inifile
-      json (>= 1.8, < 3.0)
-      mixlib-shellout (~> 2.0)
-      net-scp (~> 1.2)
-      net-ssh (>= 2.9, < 5.0)
-      winrm (~> 2.0)
-      winrm-fs (~> 1.0)
     tty-cursor (0.5.0)
     tty-spinner (0.8.0)
       tty-cursor (>= 0.5.0)
@@ -247,13 +247,13 @@ DEPENDENCIES
   chef-workstation!
   chefstyle
   irbtools-more
-  mixlib-config!
   pry
   pry-byebug
   pry-stack_explorer
   rake
   rspec
   rspec_junit_formatter
+  train!
 
 BUNDLED WITH
    1.16.1
