@@ -4,7 +4,7 @@ require "chef-workstation/action/install_chef/linux"
 
 module ChefWorkstation::Action::InstallChef
   class UnsupportedTargetOS < ChefWorkstation::Error
-    def initialize(os_name); super("ACT001", os_name); end
+    def initialize(os_name); super("INST001", os_name); end
   end
 
   def self.instance_for_target(conn, opts = {})
