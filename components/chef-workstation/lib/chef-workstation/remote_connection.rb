@@ -18,43 +18,65 @@
 require "chef-workstation/log"
 require "train"
 
-module ChefWorkstation
-  class RemoteConnection
-    attr_reader :config, :reporter, :backend
+class ChefWorkstation::RemoteConnection
+  attr_reader :config, :reporter, :backend
+  def self.make_connection(target, opts = {})
+    conn = RemoteConnection.new(target, opts)
+    conn.connect!
+    conn
+  end
 
-    def initialize(host_url, opts = {}, logger = nil)
-      target_url = maybe_add_default_scheme(host_url)
-      conn_opts = { sudo: opts.has_key?(:sudo) ? opts[:sudo] : false,
-                    target: target_url,
-                    key_files: opts[:key_file],
-                    logger: ChefWorkstation::Log }
-      @config = Train.target_config(conn_opts)
-      @type = Train.validate_backend(@config)
-      @train_connection = Train.create(@type, config)
+  def initialize(host_url, opts = {}, logger = nil)
+    target_url = clean_host_url(host_url)
+    conn_opts = { sudo: opts.has_key?(:sudo) ? opts[:sudo] : false,
+                  target: target_url,
+                  key_files: opts[:key_file],
+                  logger: ChefWorkstation::Log }
+    @config = Train.target_config(conn_opts)
+    @type = Train.validate_backend(@config)
+    @train_connection = Train.create(@type, config)
+  end
+
+  def connect!
+    # NOTE: when sudo is enabled at the connection level,
+    # it seems that retrieving the connection is enough to
+    # cause it to connect; but when not enabled,
+    # the connection is not yet made.
+    @backend ||= @train_connection.connection
+  end
+
+  def platform
+    backend.platform
+  end
+
+  def run_command!(command)
+    result = backend.run_command command
+    if result.exit_status != 0
+      raise RemoteExecutionFailed.new(command, result)
     end
+    result
+  end
 
-    def connect!
-      @backend ||= @train_connection.connection
+  def run_command(command)
+    backend.run_command command
+  end
+
+  def upload_file(local_path, remote_path)
+    backend.upload(local_path, remote_path)
+  end
+
+  def maybe_add_default_scheme(url)
+    if url =~ /^ssh|winrm|mock:\/\//
+      url
+    else
+      "ssh://#{url}"
     end
+  end
 
-    def platform
-      backend.platform
-    end
-
-    def run_command(command)
-      backend.run_command command
-    end
-
-    def upload_file(local_path, remote_path)
-      backend.upload(local_path, remote_path)
-    end
-
-    def maybe_add_default_scheme(url)
-      if url =~ /^ssh|winrm|mock:\/\//
-        url
-      else
-        "ssh://#{url}"
-      end
+  class RemoteExecutionFailed < ChefWorkstation::Error
+    attr_reader :stdout, :stderr
+    def initialize(command, result)
+      super("RMT001", command, result.exit_status)
     end
   end
 end
