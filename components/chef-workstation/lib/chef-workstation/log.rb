@@ -5,6 +5,7 @@ module ChefWorkstation
     extend Mixlib::Log
 
     def self.setup(location, log_level = "warn")
+      @location = location
       if location.is_a?(String)
         if location.casecmp("stdout") == 0
           location = $stdout
@@ -13,6 +14,10 @@ module ChefWorkstation
         end
       end
       init(location)
+    end
+
+    def self.location
+      @location
     end
 
   end
