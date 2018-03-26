@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.6 -->
+<!-- latest_release 0.1.7 -->
+## [0.1.7](https://github.com/chef/chef-workstation/tree/0.1.7) (2018-03-26)
+
+#### Merged Pull Requests
+- customize windows install for this product [#28](https://github.com/chef/chef-workstation/pull/28) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.6](https://github.com/chef/chef-workstation/tree/0.1.6) (2018-03-23)
 
 #### Merged Pull Requests
 - Adding a Windows Vagrant host for testing [#24](https://github.com/chef/chef-workstation/pull/24) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.5](https://github.com/chef/chef-workstation/tree/0.1.5) (2018-03-23)
 
