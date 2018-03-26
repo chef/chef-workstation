@@ -36,7 +36,9 @@ module ChefWorkstation
         option :identity_file,
           :long => "--identity-file PATH",
           :short => "-i PATH",
-          :description => T.identity_file
+          :description => T.identity_file,
+          # TODO unique error code, make sure this works with SHACK-105
+          :proc => Proc.new { |path| raise "No identity file at #{path}" unless File.exist?(path) }
 
         def run(params)
           # TODO: option: --no-install
