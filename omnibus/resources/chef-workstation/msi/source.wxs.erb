@@ -22,7 +22,7 @@
     -->
     <% if fastmsi %>
     <SetProperty Id="FastUnzip"
-                 Value="FASTZIPDIR=[INSTALLLOCATION];FASTZIPAPPNAME=chef_workstation"
+                 Value="FASTZIPDIR=[INSTALLLOCATION];FASTZIPAPPNAME=chef-workstation"
                  Sequence="execute"
                  Before="FastUnzip" />
 
@@ -38,7 +38,7 @@
 
     <CustomAction Id="Cleanup"
                   Directory="INSTALLLOCATION"
-                  ExeCommand="cmd /C &quot;rd /S /Q chef_workstation&quot;"
+                  ExeCommand="cmd /C &quot;rd /S /Q chef-workstation&quot;"
                   Execute="deferred"
                   Impersonate="no"
                   Return="ignore" />

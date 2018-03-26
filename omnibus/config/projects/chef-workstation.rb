@@ -24,7 +24,10 @@ license_file "../LICENSE"
 
 # Defaults to C:/chef-workstation on Windows
 # and /opt/chef-workstation on all other platforms
-# if
+# We'll force "c:/opscode/chef-workstation" - otherwise
+# extracting version info after creating the package
+# fails because it can't find c:/opscode/chef-workstation/version-manifest.txt
+# when the install dir is configured to c:/chef-workstation.
 if windows?
   install_dir "#{default_root}/opscode/#{name}"
 else
@@ -41,8 +44,8 @@ override :ruby,           version: "2.4.2"
 
 dependency "preparation"
 dependency "chef-workstation"
-dependency "clean-static-libs"
 dependency "version-manifest"
+dependency "clean-static-libs"
 
 exclude "**/.git"
 exclude "**/bundler/git"
