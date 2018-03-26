@@ -15,12 +15,32 @@ module ChefWorkstation
     class Base
       attr_reader :connection, :config
       attr_accessor :reporter
+
       def initialize(config = {})
         c = config.dup
         @reporter = c.delete :reporter
         @connection = c.delete :connection
         # Remaining options are for child classes to make use of.
         @config = c
+      end
+
+      PATH_MAPPING = {
+        chef_apply: {
+          windows: "cmd /c C:/opscode/chef/bin/chef-apply",
+          other: "/opt/chef/bin/chef-apply",
+        },
+        read_chef_stacktrace: {
+          windows: "type C:/chef/cache/chef-stacktrace.out",
+          other: "cat /var/chef/cache/chef-stacktrace.out",
+        },
+      }
+
+      def chef_apply
+        PATH_MAPPING[:chef_apply][family]
+      end
+
+      def read_chef_stacktrace
+        PATH_MAPPING[:read_chef_stacktrace][family]
       end
 
       def run
@@ -32,6 +52,20 @@ module ChefWorkstation
       def perform_action
         raise NotImplemented
       end
+
+      private
+
+      def family
+        @family ||= begin
+          f = @connection.platform.family
+          if f == "windows"
+            :windows
+          else
+            :other
+          end
+        end
+      end
+
     end
   end
 end
