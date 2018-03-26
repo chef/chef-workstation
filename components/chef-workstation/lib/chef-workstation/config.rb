@@ -1,4 +1,5 @@
 require "mixlib/config"
+require "fileutils"
 require "pathname"
 
 module ChefWorkstation
