@@ -53,7 +53,6 @@ module ChefWorkstation
         parse_options(params)
         if params[0]&.downcase == "help" || config[:help]
           show_help
-          0
         else
           run(params)
         end

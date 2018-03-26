@@ -23,6 +23,7 @@ PATH
       mixlib-config
       mixlib-install
       mixlib-log
+      pastel
       r18n-desktop
       toml-rb
       train
@@ -71,6 +72,7 @@ GEM
       multi_json
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
+    equatable (0.5.0)
     erubis (2.7.0)
     every_day_irb (2.0.0)
       cd (~> 1.0)
@@ -164,6 +166,9 @@ GEM
     parallel (1.12.1)
     parser (2.5.0.5)
       ast (~> 2.4.0)
+    pastel (0.7.2)
+      equatable (~> 0.5.0)
+      tty-color (~> 0.4.0)
     powerpack (0.1.1)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -214,6 +219,7 @@ GEM
     toml-rb (1.1.1)
       citrus (~> 3.0, > 3.0)
     tomlrb (1.2.6)
+    tty-color (0.4.2)
     tty-cursor (0.5.0)
     tty-spinner (0.8.0)
       tty-cursor (>= 0.5.0)

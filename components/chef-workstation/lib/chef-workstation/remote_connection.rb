@@ -17,11 +17,11 @@
 
 require "chef-workstation/log"
 require "train"
-
 class ChefWorkstation::RemoteConnection
   attr_reader :config, :reporter, :backend
+
   def self.make_connection(target, opts = {})
-    conn = RemoteConnection.new(target, opts)
+    conn = self.new(target, opts)
     conn.connect!
     conn
   end
@@ -40,9 +40,14 @@ class ChefWorkstation::RemoteConnection
   def connect!
     # NOTE: when sudo is enabled at the connection level,
     # it seems that retrieving the connection is enough to
-    # cause it to connect; but when not enabled,
-    # the connection is not yet made.
-    @backend ||= @train_connection.connection
+    # cause it to connect; but it seems that when is not enabled,
+    # the connection is not yet made until we trye to actually invoke it.
+    if @backend.nil?
+      @backend = @train_connection.connection
+      # Run an invalid command to establish the connection
+      @backend.run_command("invalid")
+    end
+    @backend
   end
 
   def platform
@@ -52,7 +57,7 @@ class ChefWorkstation::RemoteConnection
   def run_command!(command)
     result = backend.run_command command
     if result.exit_status != 0
-      raise RemoteExecutionFailed.new(command, result)
+      raise RemoteExecutionFailed.new(@config[:host], command, result)
     end
     result
   end
@@ -72,11 +77,12 @@ class ChefWorkstation::RemoteConnection
       "ssh://#{url}"
     end
   end
-
-  class RemoteExecutionFailed < ChefWorkstation::Error
+  class RemoteExecutionFailed < ChefWorkstation::ErrorNoLogs
     attr_reader :stdout, :stderr
-    def initialize(command, result)
-      super("RMT001", command, result.exit_status)
+    def initialize(host, command, result)
+      super("RMT001",  host, command,
+            result.stderr.empty? ? result.stdout : result.stderr,
+            result.exit_status)
     end
   end
 end

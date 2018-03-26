@@ -59,7 +59,6 @@ module ChefWorkstation
                                                    resource_name: resource_name)
             converger.run
           end
-          0
         end
       end
     end

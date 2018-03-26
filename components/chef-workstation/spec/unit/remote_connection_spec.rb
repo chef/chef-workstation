@@ -2,8 +2,6 @@ require "spec_helper"
 require "ostruct"
 require "chef-workstation/remote_connection"
 
-ExecResult = Struct.new(:exit_status, :stdout, :stderr)
-
 RSpec.describe ChefWorkstation::RemoteConnection do
   let(:host) { "example.com" }
   let(:sudo) { true }
@@ -27,7 +25,7 @@ RSpec.describe ChefWorkstation::RemoteConnection do
   context "#run_command!" do
     let(:backend) { double("backend") }
     let(:exit_status) { 0 }
-    let(:result) { ExecResult.new(exit_status, "", "an error occurred") }
+    let(:result) { RemoteExecResult.new(exit_status, "", "an error occurred") }
 
     before do
       allow(subject).to receive(:backend).and_return(backend)

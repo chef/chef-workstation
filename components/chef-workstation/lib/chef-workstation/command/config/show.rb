@@ -29,7 +29,6 @@ module ChefWorkstation
           d = ChefWorkstation::Config.using_default_location? ? "default " : ""
           puts Text.commands.config.show.source(d, ChefWorkstation::Config.location)
           puts TomlRB.dump(ChefWorkstation::Config.hash_dup)
-          0
         end
 
       end

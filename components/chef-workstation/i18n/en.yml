@@ -1,6 +1,7 @@
 
 # Used only by the CLI class
 cli:
+
   # CLI option, banner, and usage text
   config: Location of config file. Defaults to %1
   version: "Show the current version of this tool"
@@ -17,7 +18,7 @@ cli:
     USAGE:
       chef [SUBCOMMAND]
   target: ""
-
+  aborted: Canceling request due to interrupt.
 # Text specific to each command
 commands:
   config:
@@ -80,14 +81,68 @@ actions:
     success: "Successfully converged %1!"
     error: Failed to converge remote machine. See detailed log at %1
 
-# Error definitions, usage Text.e.ERR888
-e:
-  ACT001: |
+# Error definitions, usage Text.e.ERR999
+# General format:
+# First Line: brief description of the error
+# Second line: blank
+# Third+ : detailed description, max 76 characters per line
+errors:
+  # Errors that come out of Actions are prefixed CHEFACT
+  CHEFACT001: |
     %1 is not a supported target operating system at this time.
 
     We plan to support a wide range of target operating systems,
     but during this targeted pre-release we are constraining our efforts
     to Windows and Linux.
 
-  ERR888: |
-    This is just a sample error definition
+  # Remote execution and file operation errors are prefixed CHEFRMT
+  CHEFRMT001: |
+    The command '%1' exited with return code '%2' on '%3'.
+
+    The following error was reported:
+
+      %4
+
+  # Train-related errors (connectivy, auth failure, etc)
+  # are prefixed CHEFTRN. Non-specific descendants of Train::Error
+  # will resolve to CHEFTRN001, and we can add additional
+  # more specific text as we need it.
+  CHEFTRN001: |
+    An error has occurred on the %1 connection to %2:
+
+    %2.
+  CHEFTRN002: |
+    An remote error has occurred:
+
+      %1.
+
+
+  # General errors/unknown errors are handled with CHEFINT
+  CHEFINT001: |
+    An unexpected error has occurred:
+
+      %1
+  footer:
+    both: |
+      If you are not able to resolve this issue, please contact Chef support
+      at support@chef.io and include the log file and strack trace from the
+      locations below:
+
+        %1
+        %2
+
+    log_only:  |
+      If you are not able to resolve this issue, please contact Chef support
+      at support@chef.io and include the log file from the location below:
+        %1
+
+    stack_only:  |
+      If you are not able to resolve this issue, please contact Chef support
+      at support@chef.io and include the stack trace from the location below:
+        %1
+
+    neither:  |
+      If you are not able to resolve this issue, please contact Chef support
+      at support@chef.io.
+
+
