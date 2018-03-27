@@ -27,39 +27,93 @@ module ChefWorkstation
     class Target
       class Converge < ChefWorkstation::Command::Base
         T = Text.commands.target.converge
+
         option :root,
           :long => "--[no-]root",
           :description => T.root_description,
           :boolean => true,
           :default => true
 
+        # TODO unique error code, make sure this works with SHACK-105
         option :identity_file,
           :long => "--identity-file PATH",
           :short => "-i PATH",
           :description => T.identity_file,
-          # TODO unique error code, make sure this works with SHACK-105
-          :proc => Proc.new { |path| raise "No identity file at #{path}" unless File.exist?(path) }
+          :proc => (Proc.new do |path|
+            raise "No identity file at #{path}" unless File.exist?(path)
+            path
+          end)
 
         def run(params)
+          validate_params(cli_arguments)
           # TODO: option: --no-install
-          target = params.shift
-          resource = params.shift
-          resource_name = params.shift
-          full_rs_name = "#{resource}[#{resource_name}]"
+          target = cli_arguments.shift
+          resource = cli_arguments.shift
+          resource_name = cli_arguments.shift
+          attributes = format_attributes(cli_arguments)
 
           conn = connect(target, { sudo: config[:root], key_file: config[:identity_file] })
           UI::Terminal.spinner(T.status.verifying, prefix: "[#{conn.config[:host]}]") do |r|
             Action::InstallChef.instance_for_target(conn, reporter: r).run
           end
 
+          full_rs_name = "#{resource}[#{resource_name}]"
           UI::Terminal.spinner(T.status.converging(full_rs_name), prefix: "[#{conn.config[:host]}]") do |r|
             converger = Action::ConvergeTarget.new(reporter: r,
                                                    connection: conn,
                                                    resource_type: resource,
-                                                   resource_name: resource_name)
+                                                   resource_name: resource_name,
+                                                   attributes: attributes)
             converger.run
           end
         end
+
+        # TODO raise wrapped errors that get formatted and displayed appropriately IE SHACK-105
+        ATTRIBUTE_MATCHER = /^([a-zA-Z0-9]+)=(\w+)$/
+        def validate_params(params)
+          if params.size < 3
+            raise T.validation.not_enough_params
+          end
+          attributes = params[3..-1]
+          attributes.each do |attribute|
+            unless attribute =~ ATTRIBUTE_MATCHER
+              raise T.validation.invalid_attribute(attribute)
+            end
+          end
+        end
+
+        def format_attributes(string_attrs)
+          attributes = {}
+          string_attrs.each do |a|
+            key, value = ATTRIBUTE_MATCHER.match(a)[1..-1]
+            value = transform_attribute_value(value)
+            attributes[key] = value
+          end
+          attributes
+        end
+
+        # Incoming attributes are always read as a string from the command line.
+        # Depending on their type we should transform them so we do not try and pass
+        # a string to a resource attribute that expects an integer or boolean.
+        def transform_attribute_value(value)
+          case value
+          when /^0/
+            # when it is a zero leading value like "0777" don't turn
+            # it into a number (this is a mode flag)
+            value
+          when /\d+/
+            value.to_i
+          when /(^(\d+)(\.)?(\d+)?)|(^(\d+)?(\.)(\d+))/
+            value.to_f
+          when /true/i
+            true
+          when /false/i
+            false
+          else
+            value
+          end
+        end
+
       end
     end
   end
