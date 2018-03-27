@@ -14,32 +14,25 @@ module ChefWorkstation::Action
 
     def perform_action
       apply_args = "\"#{@resource_type} '#{@resource_name}'\""
-      c = connection.run_command("#{command_for_platform} -e #{apply_args}")
+      c = connection.run_command("#{chef_apply} --no-color -e #{apply_args}")
       if c.exit_status == 0
         ChefWorkstation::Log.debug(c.stdout)
         full_rs_name = "#{resource_type}[#{resource_name}]"
         reporter.success(T.success(full_rs_name))
       else
-        reporter.error(T.error)
-        ChefWorkstation::Log.error("Remote chef-apply error follows: ")
-        # Using Log for each line so that we can keep consistent formatting -
-        # undecorated lines are the bane of automated log parsing...
-        # Indent the output line for readability
-        c.stdout.split("\n").each { |line| ChefWorkstation::Log.error("    #{line}") }
-        c.stderr.split("\n").each { |line| ChefWorkstation::Log.error("    #{line}") }
-        # TODO raise an error here? How do we communicate this failure up?
+        reporter.error(T.error(ChefWorkstation::Log.location))
+        # Ideally we will eventually write a custom handler to package up data we care
+        # about - https://docs.chef.io/handlers.html
+        c = connection.run_command(read_chef_stacktrace)
+        if c.exit_status == 0
+          ChefWorkstation::Log.error("Remote chef-apply error follows:")
+          ChefWorkstation::Log.error("\n    " + c.stdout.split("\n").join("\n    "))
+        else
+          ChefWorkstation::Log.error("Could not read remote stacktrace:")
+          ChefWorkstation::Log.error("stdout: #{c.stdout}")
+          ChefWorkstation::Log.error("stderr: #{c.stderr}")
+        end
       end
     end
-
-    def command_for_platform
-      case connection.platform.family
-      when "windows"
-        # TODO this path will need to come out the queried installation info
-        "cmd /c C:/opscode/chef/bin/chef-apply"
-      else
-        "/opt/chef/bin/chef-apply"
-      end
-    end
-
   end
 end

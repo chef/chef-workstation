@@ -78,7 +78,7 @@ actions:
     error: "An error occurred while installing Chef client: %1"
   converge_target:
     success: "Successfully converged %1!"
-    error: Failed to converge remote machine. See detailed log.
+    error: Failed to converge remote machine. See detailed log at %1
 
 # Error definitions, usage Text.e.ERR888
 e:
