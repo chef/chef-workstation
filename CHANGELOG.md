@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.8 -->
+<!-- latest_release 0.1.9 -->
+## [0.1.9](https://github.com/chef/chef-workstation/tree/0.1.9) (2018-03-27)
+
+#### Merged Pull Requests
+- Mask passwords in url output. [#30](https://github.com/chef/chef-workstation/pull/30) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.8](https://github.com/chef/chef-workstation/tree/0.1.8) (2018-03-27)
 
 #### Merged Pull Requests
 - When remote chef-client run fails we copy over the log [#29](https://github.com/chef/chef-workstation/pull/29) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.7](https://github.com/chef/chef-workstation/tree/0.1.7) (2018-03-26)
 
