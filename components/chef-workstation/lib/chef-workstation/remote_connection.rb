@@ -21,17 +21,9 @@ require "train"
 module ChefWorkstation
   class RemoteConnection
     attr_reader :config, :reporter, :backend
-    # TODO let's figure out the logging and UI-upating paths - do we want separate interfaces?
-    #
-    # Open connection to target.
-    def self.make_connection(target, opts = {})
-      conn = RemoteConnection.new(target, opts)
-      conn.connect!
-      conn
-    end
 
     def initialize(host_url, opts = {}, logger = nil)
-      target_url = clean_host_url(host_url)
+      target_url = maybe_add_default_scheme(host_url)
       conn_opts = { sudo: opts.has_key?(:sudo) ? opts[:sudo] : false,
                     target: target_url,
                     key_files: opts[:key_file],
@@ -57,7 +49,7 @@ module ChefWorkstation
       backend.upload(local_path, remote_path)
     end
 
-    def clean_host_url(url)
+    def maybe_add_default_scheme(url)
       if url =~ /^ssh|winrm|mock:\/\//
         url
       else

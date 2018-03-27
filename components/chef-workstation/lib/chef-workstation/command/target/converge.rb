@@ -48,11 +48,11 @@ module ChefWorkstation
           full_rs_name = "#{resource}[#{resource_name}]"
 
           conn = connect(target, { sudo: config[:root], key_file: config[:identity_file] })
-          UI::Terminal.spinner(T.status.verifying, prefix: "[#{target}]") do |r|
+          UI::Terminal.spinner(T.status.verifying, prefix: "[#{conn.config[:host]}]") do |r|
             Action::InstallChef.instance_for_target(conn, reporter: r).run
           end
 
-          UI::Terminal.spinner(T.status.converging(full_rs_name), prefix: "[#{target}]") do |r|
+          UI::Terminal.spinner(T.status.converging(full_rs_name), prefix: "[#{conn.config[:host]}]") do |r|
             converger = Action::ConvergeTarget.new(reporter: r,
                                                    connection: conn,
                                                    resource_type: resource,
@@ -61,7 +61,6 @@ module ChefWorkstation
           end
           0
         end
-
       end
     end
   end
