@@ -104,7 +104,6 @@ RSpec.describe ChefWorkstation::CLI do
     it "raises an error, displays it, and exits non-zero" do
       expect(cli).to receive(:init)
       expect(cli).to receive(:have_command?).with("unknown").and_return(false)
-      expect(cli).to receive(:show_help)
       expect(cli).to receive(:capture_exception_backtrace)
       expect_any_instance_of(ChefWorkstation::UI::ErrorPrinter).to receive(:show_error)
       expect { cli.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(1) }

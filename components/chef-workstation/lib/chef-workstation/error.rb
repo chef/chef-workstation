@@ -19,7 +19,7 @@ module ChefWorkstation
     attr_reader :id, :params
     attr_accessor:show_stack, :show_log
     def initialize(id, *params)
-      @id = "CHEF#{id}"
+      @id = id
       @params = params
       @show_log = true
       @show_stack = true

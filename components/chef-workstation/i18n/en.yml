@@ -79,7 +79,7 @@ actions:
     error: "An error occurred while installing Chef client: %1"
   converge_target:
     success: "Successfully converged %1!"
-    error: Failed to converge remote machine. See detailed log at %1
+    error: Failed to converge remote machine. See detailed log.
 
 # Error definitions, usage Text.e.ERR999
 # General format:
@@ -87,8 +87,8 @@ actions:
 # Second line: blank
 # Third+ : detailed description, max 76 characters per line
 errors:
-  # Errors that come out of Actions are prefixed CHEFACT
-  CHEFACT001: |
+  # Installer action errors
+  CHEFINS001: |
     %1 is not a supported target operating system at this time.
 
     We plan to support a wide range of target operating systems,
@@ -116,6 +116,11 @@ errors:
 
       %1.
 
+  # Errors that originate out of the CLI itself
+  CHEFCLI001: |
+    The command '%1' does not exist.
+
+      Available commands are: %2
 
   # General errors/unknown errors are handled with CHEFINT
   CHEFINT001: |

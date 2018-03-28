@@ -30,11 +30,6 @@ module ChefWorkstation
   class CLI
     include Mixlib::CLI
     T = ChefWorkstation::Text.cli
-    class UnknownCommand < ErrorNoLogs
-      def initialize(command_name)
-        super("CLI001", command_name)
-      end
-    end
 
     banner T.banner
 
@@ -73,13 +68,11 @@ module ChefWorkstation
     rescue WrappedError => e
       UI::ErrorPrinter.new(e).show_error
       @rc = 1
-    rescue Interrupt
-      # TODO - also use INT handler, because Interrupt will
-      # not always be raised.
-      UI::Terminal.output(T.aborted)
-      @rc = 128
     rescue => e
-      puts e
+      # An unwrapped error is an unlikely to occur,
+      # but if it does ensure it dumps to terminal.
+      puts e.message if e.respond_to(:message)
+      puts e.backtrace if e.respond_to(:backtrace)
     ensure
       Telemetry.send!
       exit @rc
@@ -123,25 +116,27 @@ module ChefWorkstation
         @cmd, command_params = commands_map.instantiate(command_name, command_params)
         @cmd.run_with_default_options(command_params)
       else
-        show_help
-        raise UnknownCommand.new(command_name)
+        raise UnknownCommand.new(command_name, commands.join(" "))
       end
     rescue => e
       handle_perform_error(e)
     end
 
     def handle_perform_error(e)
-      # user-facing handling/formatting is handled in in the main 'run' method
-      # so we'll re-raise whatever we get, but this allows us
-      # to ensure that all errors are captured to telemetry and stack
-      # traces are written without intervening layers due to re-raise.
       id = e.respond_to?(:id) ? e.id : e.class.to_s
       message = e.respond_to?(:message) ? e.message : e.to_s
       Telemetry.capture(:error, exception: { id: id, message: message })
-      # Ugh: This won't work, because the connection is internal the action that faile.d
-      #conn = @cmd.nil? ? nil : @cmd.connection
-      wrapper = ChefWorkstation::WrappedError.new(e, nil)
+      # TODO: connection assignment below won't work, because the connection is internal the
+      #       action that failed. We can work around this for CW::Error-derived errors by accepting connection
+      #       in the constructor; but we still need to find a happy path for third-party errors
+      #       (train, runtime) - perhaps moving connection tracking and lookup to its own component
+      #
+      # #conn = @cmd.nil? ? nil : @cmd.connection
+      conn = nil
+      wrapper = ChefWorkstation::WrappedError.new(e, conn)
       capture_exception_backtrace(wrapper)
+      # Now that our housekeeping is done, allow user-facing handling/formatting
+      # in `run` to execute by re-raising
       raise wrapper
     end
 
@@ -196,6 +191,12 @@ module ChefWorkstation
 
     def command_specs
       commands_map.command_specs
+    end
+
+    class UnknownCommand < ErrorNoLogs
+      def initialize(command_name, avail_commands)
+        super("CHEFCLI001", command_name, avail_commands)
+      end
     end
   end
 end

@@ -1,6 +1,5 @@
 require "chef-workstation/action/base"
 require "chef-workstation/text"
-require "ostruct"
 
 module ChefWorkstation::Action
   class ConvergeTarget < Base

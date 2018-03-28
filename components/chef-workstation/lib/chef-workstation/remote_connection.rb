@@ -27,7 +27,7 @@ class ChefWorkstation::RemoteConnection
   end
 
   def initialize(host_url, opts = {}, logger = nil)
-    target_url = clean_host_url(host_url)
+    target_url = maybe_add_default_scheme(host_url)
     conn_opts = { sudo: opts.has_key?(:sudo) ? opts[:sudo] : false,
                   target: target_url,
                   key_files: opts[:key_file],
@@ -80,7 +80,7 @@ class ChefWorkstation::RemoteConnection
   class RemoteExecutionFailed < ChefWorkstation::ErrorNoLogs
     attr_reader :stdout, :stderr
     def initialize(host, command, result)
-      super("RMT001", host, command,
+      super("CHEFRMT001", host, command,
             result.stderr.empty? ? result.stdout : result.stderr,
             result.exit_status)
     end

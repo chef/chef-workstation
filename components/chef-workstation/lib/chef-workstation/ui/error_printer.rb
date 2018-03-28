@@ -54,6 +54,14 @@ module ChefWorkstation::UI
       @content << format_footer()
       @content.write("\n")
       Terminal.output @content.string
+    rescue => e
+      # This shouldn't happen, but we don't want to
+      # just fail silently with no message
+      puts "INTERNAL ERROR"
+      puts "-=" * 30
+      puts e.message
+      puts "=-" * 30
+      exit! 128
     end
 
     def format_header
@@ -111,7 +119,7 @@ module ChefWorkstation::UI
 
     def format_workstation_exception
       params = exception.params
-      T.errors.send(@id, *params)
+      t.send(@id, *params)
     end
 
     def format_train_exception
@@ -119,12 +127,12 @@ module ChefWorkstation::UI
       if host.nil?
         t.CHEFTRN002(exception.message)
       else
-        t.CHEFTRN002(backend, host, exception.message)
+        t.CHEFTRN001(backend, host, exception.message)
       end
     end
 
     def format_other_exception
-      t.CHEFINT001(exception.message)
+      t.send(DEFAULT_ERROR_NO, exception.message)
     end
 
     def formatted_host
