@@ -41,7 +41,7 @@ RSpec.describe ChefWorkstation::RemoteConnection do
     context "when an error occurs" do
       let(:exit_status) { 1 }
       it "raises a RemoteExecutionFailed error" do
-        expect{subject.run_command!("invalid")}.to raise_error ChefWorkstation::RemoteConnection::RemoteExecutionFailed
+        expect { subject.run_command!("invalid") }.to raise_error ChefWorkstation::RemoteConnection::RemoteExecutionFailed
       end
     end
   end

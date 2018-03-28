@@ -38,7 +38,7 @@ RSpec.describe ChefWorkstation::CLI do
              sub: nil, args: [],
              opts: cli.options.to_h).and_yield
       expect(telemetry).to receive(:send!)
-      expect{cli.run}.to raise_error SystemExit
+      expect { cli.run }.to raise_error SystemExit
     end
   end
 
@@ -80,7 +80,7 @@ RSpec.describe ChefWorkstation::CLI do
                                         message: "Test" } }
       expect(telemetry).to receive(:capture).with(:error, expected_payload)
       expect(cli).to receive(:capture_exception_backtrace)
-      expect{cli.handle_perform_error(original_exception)}.to raise_error(ChefWorkstation::WrappedError) do |e|
+      expect { cli.handle_perform_error(original_exception) }.to raise_error(ChefWorkstation::WrappedError) do |e|
         expect(e.contained_exception.class).to eq RuntimeError
       end
 

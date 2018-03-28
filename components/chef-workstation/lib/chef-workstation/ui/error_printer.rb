@@ -23,10 +23,9 @@ require "chef-workstation/text"
 module ChefWorkstation::UI
   # TODO - thi sis more of an error formatter...
   class ErrorPrinter
-    # TODO temporary workaround to
-    # provindg a text context that we can
-    # also hook into for verifying correct
-    # lookups in tests.
+    attr_reader :pastel, :show_log, :show_stack, :exception
+    # TODO definint 't' as a method is a temporary workaround
+    # to ensure that text key lookups are testable.
     def t
       ChefWorkstation::Text.errors
     end
@@ -39,7 +38,7 @@ module ChefWorkstation::UI
       @conn = conn
       @pastel = Pastel.new
       @show_log = exception.respond_to?(:show_log) ? exception.show_log : true
-      @show_stack  = exception.respond_to?(:show_stack) ? exception.show_stack : true
+      @show_stack = exception.respond_to?(:show_stack) ? exception.show_stack : true
       @content = StringIO.new
       @id = DEFAULT_ERROR_NO
       if exception.respond_to?(:id) && exception.id =~ /CHEF.*/
@@ -47,7 +46,7 @@ module ChefWorkstation::UI
       end
     end
 
-    def show_error()
+    def show_error
       @content << format_header()
       @content.write("\n")
       @content << format_body()
@@ -57,11 +56,11 @@ module ChefWorkstation::UI
       Terminal.output @content.string
     end
 
-    def format_header()
+    def format_header
       pastel.decorate(@id, :bold)
     end
 
-    def format_body()
+    def format_body
       if exception.kind_of? ChefWorkstation::Error
         format_workstation_exception
       elsif exception.kind_of? Train::Error
@@ -71,8 +70,7 @@ module ChefWorkstation::UI
       end
     end
 
-    def format_footer()
-
+    def format_footer
       if show_log
         if show_stack
           t.footer.both(ChefWorkstation::Config.log.location,
@@ -96,11 +94,10 @@ module ChefWorkstation::UI
       save_backtrace(out)
     end
 
-
     private
 
     def add_backtrace_header(out, args)
-      out.write("#{"-"*80}\n")
+      out.write("#{"-" * 80}\n")
       out.print("#{Time.now} - Error encountered while running the following:\n")
       out.print("  #{args.join(' ')}\n")
       out.print("Backtrace:\n")
@@ -112,12 +109,12 @@ module ChefWorkstation::UI
       end
     end
 
-    def format_workstation_exception()
+    def format_workstation_exception
       params = exception.params
       T.errors.send(@id, *params)
     end
 
-    def format_train_exception()
+    def format_train_exception
       backend, host = formatted_host()
       if host.nil?
         t.CHEFTRN002(exception.message)
@@ -126,8 +123,7 @@ module ChefWorkstation::UI
       end
     end
 
-    def format_other_exception()
-      require 'pry'; binding.pry
+    def format_other_exception
       t.CHEFINT001(exception.message)
     end
 
@@ -181,11 +177,6 @@ module ChefWorkstation::UI
       end
       backtrace1[0..-i]
     end
-
-    private
-
-    attr_reader :pastel, :show_log, :show_stack, :exception
-
   end
 
 end

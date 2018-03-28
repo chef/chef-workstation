@@ -21,7 +21,7 @@ class ChefWorkstation::RemoteConnection
   attr_reader :config, :reporter, :backend
 
   def self.make_connection(target, opts = {})
-    conn = self.new(target, opts)
+    conn = new(target, opts)
     conn.connect!
     conn
   end
@@ -80,7 +80,7 @@ class ChefWorkstation::RemoteConnection
   class RemoteExecutionFailed < ChefWorkstation::ErrorNoLogs
     attr_reader :stdout, :stderr
     def initialize(host, command, result)
-      super("RMT001",  host, command,
+      super("RMT001", host, command,
             result.stderr.empty? ? result.stdout : result.stderr,
             result.exit_status)
     end

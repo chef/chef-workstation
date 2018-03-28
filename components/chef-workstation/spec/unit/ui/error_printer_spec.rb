@@ -21,7 +21,7 @@ RSpec.describe ChefWorkstation::UI::ErrorPrinter do
   context "#format_body" do
     RC = ChefWorkstation::RemoteConnection
     context "when exception is a ChefWorkstation::Error" do
-      let(:result) {  RemoteExecResult.new(1, "", "failed") }
+      let(:result) { RemoteExecResult.new(1, "", "failed") }
       let(:orig_exception) { RC::RemoteExecutionFailed.new("localhost", "test", result) }
       it "invokes the right handler" do
         expect(subject).to receive(:format_workstation_exception)
@@ -47,7 +47,6 @@ RSpec.describe ChefWorkstation::UI::ErrorPrinter do
       end
     end
   end
-
 
   context "#format_footer" do
 
@@ -101,5 +100,3 @@ RSpec.describe ChefWorkstation::UI::ErrorPrinter do
     end
   end
 end
-
-

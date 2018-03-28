@@ -68,12 +68,12 @@ module ChefWorkstation
       # commands and components may perform nested Telemetry.timed_capture or Telemetry.capture
       # calls in their operation.
       Telemetry.timed_capture(:run, command: @command,
-                              sub: @subcommand, args: @argv,
-                              opts: options.to_h) { perform_command() }
+                                    sub: @subcommand, args: @argv,
+                                    opts: options.to_h) { perform_command() }
     rescue WrappedError => e
       UI::ErrorPrinter.new(e).show_error
       @rc = 1
-    rescue Interrupt => e
+    rescue Interrupt
       # TODO - also use INT handler, because Interrupt will
       # not always be raised.
       UI::Terminal.output(T.aborted)
@@ -129,7 +129,6 @@ module ChefWorkstation
     rescue => e
       handle_perform_error(e)
     end
-
 
     def handle_perform_error(e)
       # user-facing handling/formatting is handled in in the main 'run' method
