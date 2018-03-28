@@ -51,7 +51,7 @@ RSpec.describe ChefWorkstation::Action::InstallChef do
 
     context "unsupported target" do
       it "should raise UnsupportedTargetOS" do
-        expected_error = ChefWorkstation::Action::Errors::UnsupportedTargetOS
+        expected_error = ChefWorkstation::Action::InstallChef::UnsupportedTargetOS
         expect { installer.instance_for_target(connection) }.to raise_error expected_error
       end
     end

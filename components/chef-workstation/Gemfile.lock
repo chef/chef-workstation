@@ -1,3 +1,20 @@
+GIT
+  remote: https://github.com/chef/train
+  revision: fc6e2afa9ce737043068362a525ed6e23a155990
+  branch: master
+  specs:
+    train (1.2.0)
+      aws-sdk (~> 2)
+      azure_mgmt_resources (~> 0.15)
+      docker-api (~> 1.26)
+      inifile
+      json (>= 1.8, < 3.0)
+      mixlib-shellout (~> 2.0)
+      net-scp (~> 1.2)
+      net-ssh (>= 2.9, < 5.0)
+      winrm (~> 2.0)
+      winrm-fs (~> 1.0)
+
 PATH
   remote: .
   specs:
@@ -6,6 +23,7 @@ PATH
       mixlib-config
       mixlib-install
       mixlib-log
+      pastel
       r18n-desktop
       toml-rb
       train
@@ -54,6 +72,7 @@ GEM
       multi_json
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
+    equatable (0.5.0)
     erubis (2.7.0)
     every_day_irb (2.0.0)
       cd (~> 1.0)
@@ -147,6 +166,9 @@ GEM
     parallel (1.12.1)
     parser (2.5.0.5)
       ast (~> 2.4.0)
+    pastel (0.7.2)
+      equatable (~> 0.5.0)
+      tty-color (~> 0.4.0)
     powerpack (0.1.1)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -197,17 +219,7 @@ GEM
     toml-rb (1.1.1)
       citrus (~> 3.0, > 3.0)
     tomlrb (1.2.6)
-    train (1.2.0)
-      aws-sdk (~> 2)
-      azure_mgmt_resources (~> 0.15)
-      docker-api (~> 1.26)
-      inifile
-      json (>= 1.8, < 3.0)
-      mixlib-shellout (~> 2.0)
-      net-scp (~> 1.2)
-      net-ssh (>= 2.9, < 5.0)
-      winrm (~> 2.0)
-      winrm-fs (~> 1.0)
+    tty-color (0.4.2)
     tty-cursor (0.5.0)
     tty-spinner (0.8.0)
       tty-cursor (>= 0.5.0)
@@ -240,7 +252,6 @@ DEPENDENCIES
   bundler
   chef-workstation!
   chefstyle
-  did_you_mean (= 1.1.2)
   irbtools-more
   pry
   pry-byebug
@@ -248,6 +259,7 @@ DEPENDENCIES
   rake
   rspec
   rspec_junit_formatter
+  train!
 
 BUNDLED WITH
    1.16.1

@@ -35,8 +35,26 @@ module ChefWorkstation
       end
     end
 
-    def method_missing(n, *args)
-      raise "Tried to access i18n key #{@tree.instance_variable_get(:@path)}.#{n} but it does not exist"
+    def method_missing(name, *args)
+      raise InvalidKey.new(@tree.instance_variable_get(:@path), name)
     end
+
+    class InvalidKey < RuntimeError
+      def initialize(path, terminus)
+        line = caller(3, 1).first # 1 - TextWrapper.method_missing
+                                 # 2 - TextWrapper.initialize
+                                 # 3 - actual caller
+        if line =~ /.*\/lib\/(.*\.rb):(\d+)/
+          line = "File: #{$1} Line: #{$2}"
+        end
+
+        # Calling back into Text here seems icky, this is an error
+        # that only engineering should see.
+        message = "i18n key #{path}.#{terminus} does not exist.\n"
+        message << "Referenced from #{line}"
+        super(message)
+      end
+    end
+
   end
 end

@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright (c) 2018 Chef Software Inc.
+# Copyright:: Copyright (c) 2017 Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,24 +14,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-require "chef-workstation/command/base"
-require "chef-workstation/command/config"
-require "chef-workstation/config"
-require "toml-rb"
-
 module ChefWorkstation
-  module Command
-    class Config
-      class Show < ChefWorkstation::Command::Base
+  class Error < StandardError
+    attr_reader :id, :params
+    attr_accessor:show_stack, :show_log
+    def initialize(id, *params)
+      @id = id
+      @params = params
+      @show_log = true
+      @show_stack = true
+    end
+  end
 
-        def run(params)
-          d = ChefWorkstation::Config.using_default_location? ? "default " : ""
-          puts Text.commands.config.show.source(d, ChefWorkstation::Config.location)
-          puts TomlRB.dump(ChefWorkstation::Config.hash_dup)
-        end
+  class ErrorNoLogs < Error
+    def initialize(id, *params)
+      super
+      @show_log = false
+      @show_stack = false
+    end
+  end
 
-      end
+  class WrappedError < StandardError
+    attr_accessor :conn, :contained_exception
+    def initialize(e, connection)
+      super(e.message)
+      @contained_exception = e
+      @conn = connection
     end
   end
 end

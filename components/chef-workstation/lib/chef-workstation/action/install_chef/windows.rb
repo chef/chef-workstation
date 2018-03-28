@@ -11,8 +11,7 @@ module ChefWorkstation::Action::InstallChef
         Write-Host -NoNewline 'true'
       }
       EOM
-      r = connection.run_command(cmd)
-      raise r.stderr if r.exit_status != 0
+      r = connection.run_command!(cmd)
       r.stdout == "true"
     end
 
@@ -23,7 +22,7 @@ module ChefWorkstation::Action::InstallChef
         channel: :stable,
         shell_type: :ps1,
       })
-      connection.run_command installer.install_command
+      connection.run_command! installer.install_command
     end
 
     # TODO: These methods are implemented, but are currently

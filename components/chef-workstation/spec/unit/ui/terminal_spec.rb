@@ -26,7 +26,7 @@ RSpec.describe ChefWorkstation::UI::Terminal do
   it "correctly passes a block to the spinner and executes it", :pending do
     expect do
       Terminal.init($stdout)
-      Terminal.spinner("a message") { |reporter| sleep 1 }
+      Terminal.spinner("a message") { |reporter| sleep 0.1 }
     end.to output("test\n").to_stdout
   end
 end

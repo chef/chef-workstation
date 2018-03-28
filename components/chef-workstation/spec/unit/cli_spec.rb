@@ -17,6 +17,7 @@
 require "spec_helper"
 require "chef-workstation/cli"
 require "chef-workstation/telemetry"
+require "chef-workstation/error"
 require "chef-workstation/text"
 
 RSpec.describe ChefWorkstation::CLI do
@@ -37,7 +38,7 @@ RSpec.describe ChefWorkstation::CLI do
              sub: nil, args: [],
              opts: cli.options.to_h).and_yield
       expect(telemetry).to receive(:send!)
-      cli.run
+      expect { cli.run }.to raise_error SystemExit
     end
   end
 
@@ -64,26 +65,35 @@ RSpec.describe ChefWorkstation::CLI do
 
     context "when an exception occurs" do
       let(:err) { "A String exception" }
-      it "captures exception data in telemetry" do
-        # This is a bit of a hack - we know it's going call show_short_banner
-        # so we'll force that to raise to ensure that we track exceptions properly
-        #
+      it "handles it" do
         allow(cli).to receive(:show_help).and_raise err
-        expected_payload = { exception: { id: "RuntimeError", message: err } }
-        expect(telemetry).to receive(:capture).with(:error, expected_payload)
-        expect { cli.perform_command }.to raise_error(err)
+        expect(cli).to receive(:handle_perform_error)
+        cli.perform_command
       end
     end
   end
 
-  context "when a command is supplied" do
+  context "#handle_perform_error" do
+    it "captures exception data in telemetry, writes backtrace, and re-raises as a WrappedError" do
+      original_exception = RuntimeError.new("Test")
+      expected_payload = { exception: { id: "RuntimeError",
+                                        message: "Test" } }
+      expect(telemetry).to receive(:capture).with(:error, expected_payload)
+      expect(cli).to receive(:capture_exception_backtrace)
+      expect { cli.handle_perform_error(original_exception) }.to raise_error(ChefWorkstation::WrappedError) do |e|
+        expect(e.contained_exception.class).to eq RuntimeError
+      end
+
+    end
+  end
+
+  context "when a known command is supplied" do
     let(:argv) { %w{config show} }
 
-    it "calls the config show" do
+    it "invokes the command" do
       expect(cli).to receive(:init)
       expect(cli).to receive(:have_command?).with("config").and_return(true)
-
-      expect_any_instance_of(ChefWorkstation::Command::Config::Show).to receive(:run).and_return(0)
+      expect_any_instance_of(ChefWorkstation::Command::Config::Show).to receive(:run)
       expect { cli.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
     end
   end
@@ -91,11 +101,11 @@ RSpec.describe ChefWorkstation::CLI do
   context "when an unknown command is supplied" do
     let(:argv) { %w{unknown} }
 
-    it "raises an error" do
+    it "raises an error, displays it, and exits non-zero" do
       expect(cli).to receive(:init)
       expect(cli).to receive(:have_command?).with("unknown").and_return(false)
-      expect(cli).to receive(:show_help)
-
+      expect(cli).to receive(:capture_exception_backtrace)
+      expect_any_instance_of(ChefWorkstation::UI::ErrorPrinter).to receive(:show_error)
       expect { cli.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(1) }
     end
   end

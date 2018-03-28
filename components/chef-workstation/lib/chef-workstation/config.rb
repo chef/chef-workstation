@@ -4,7 +4,7 @@ require "pathname"
 
 module ChefWorkstation
   class Config
-    HOME_LOCATION = File.join(Dir.home, ".chef-workstation/")
+    WS_BASE_PATH = File.join(Dir.home, ".chef-workstation/")
 
     extend Mixlib::Config
 
@@ -20,11 +20,11 @@ module ChefWorkstation
 
     config_context :log do
       default(:level, "warn")
-      default(:location, File.join(HOME_LOCATION, "default.log"))
+      default(:location, File.join(WS_BASE_PATH, "logs/default.log"))
     end
 
     config_context :cache do
-      default(:path, File.join(Dir.home, ".chef-workstation", "cache"))
+      default(:path, File.join(WS_BASE_PATH, "cache"))
     end
 
     class << self
@@ -36,7 +36,11 @@ module ChefWorkstation
       end
 
       def default_location
-        Pathname.new("~/.chef-workstation/config.toml").expand_path.to_s
+        File.join(WS_BASE_PATH, "config.toml")
+      end
+
+      def stack_trace_path
+        File.join(File.dirname(log.location), "stack-trace.log")
       end
 
       def using_default_location?
@@ -55,8 +59,12 @@ module ChefWorkstation
         File.exist? location
       end
 
-      def create_default_config_file
+      def create_directory_tree
         FileUtils.mkdir_p(File.dirname(default_location))
+        FileUtils.mkdir_p(File.dirname(stack_trace_path))
+      end
+
+      def create_default_config_file
         FileUtils.touch(default_location)
       end
 

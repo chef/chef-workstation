@@ -2,9 +2,14 @@ require "bundler/setup"
 require "chef-workstation/text"
 require "chef-workstation/log"
 require "chef-workstation/ui/terminal"
+require "rspec/expectations"
+require "r18n-desktop"
+
 RSpec.shared_context "Global helpers" do
   let(:t) { ChefWorkstation::Text }
 end
+
+RemoteExecResult = Struct.new(:exit_status, :stdout, :stderr)
 
 class ChefWorkstation::MockReporter
   def update(msg); ChefWorkstation::UI::Terminal.output msg; end
@@ -12,6 +17,32 @@ class ChefWorkstation::MockReporter
   def success(msg); ChefWorkstation::UI::Terminal.output "SUCCESS: #{msg}"; end
 
   def failure(msg); ChefWorkstation::UI::Terminal.output "FAILURE: #{msg}"; end
+end
+
+# TODO would read better to make this a custom matcher.
+# Simulates a recursive string lookup on the Text object
+#
+# assert_string_lookup("tree.tree.tree.leaf", "a returned string")
+# TODO this can be more cleanly expressed as a custom matcher...
+def assert_string_lookup(key, retval = "testvalue")
+  it "should look up string #{key}" do
+    top_level_method, *call_seq = key.split(".")
+    terminal_method = call_seq.pop
+    tmock = double()
+    # Because ordering is important
+    # (eg calling errors.hello is different from hello.errors),
+    # we need to add this individually instead of using
+    # `receive_messages`, which doesn't appear to give a way to
+    # guarantee ordering
+    expect(ChefWorkstation::Text).to receive(top_level_method).
+      and_return(tmock)
+    call_seq.each do |m|
+      expect(tmock).to receive(m).ordered.and_return(tmock)
+    end
+    expect(tmock).to receive(terminal_method).
+      ordered.and_return(retval)
+    subject.call
+  end
 end
 
 RSpec.configure do |config|
