@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.13 -->
+<!-- latest_release 0.1.14 -->
+## [0.1.14](https://github.com/chef/chef-workstation/tree/0.1.14) (2018-03-29)
+
+#### Merged Pull Requests
+- use Terminal.output instead of puts [#35](https://github.com/chef/chef-workstation/pull/35) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.13](https://github.com/chef/chef-workstation/tree/0.1.13) (2018-03-29)
 
 #### Merged Pull Requests
 - Move .ci to ci so scripts can be found. [#34](https://github.com/chef/chef-workstation/pull/34) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.12](https://github.com/chef/chef-workstation/tree/0.1.12) (2018-03-29)
 
