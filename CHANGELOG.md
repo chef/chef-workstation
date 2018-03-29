@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.10 -->
+<!-- latest_release 0.1.11 -->
+## [0.1.11](https://github.com/chef/chef-workstation/tree/0.1.11) (2018-03-29)
+
+#### Merged Pull Requests
+- error handling [#31](https://github.com/chef/chef-workstation/pull/31) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.10](https://github.com/chef/chef-workstation/tree/0.1.10) (2018-03-29)
 
 #### Merged Pull Requests
 - Add ci verify script so we controll verification tests. [#32](https://github.com/chef/chef-workstation/pull/32) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.9](https://github.com/chef/chef-workstation/tree/0.1.9) (2018-03-27)
 
