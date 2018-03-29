@@ -137,6 +137,16 @@ errors:
     An unexpected error has occurred:
 
       %1
+
+  # Maps to: NameError
+  CHEFNET001: |
+    A network error occurred:
+
+      %1
+
+    Please verify the host is named correctly and is reachable
+    then try again.
+
   footer:
     both: |
       If you are not able to resolve this issue, please contact Chef support
