@@ -5,19 +5,33 @@ module ChefWorkstation::Action
   class ConvergeTarget < Base
     T = ChefWorkstation::Text.actions.converge_target
 
-    attr_reader :resource_type, :resource_name
+    attr_reader :resource_type, :resource_name, :attributes
     def initialize(config)
       super(config)
       @resource_type = @config.delete :resource_type
       @resource_name = @config.delete :resource_name
+      @attributes = @config.delete(:attributes) || []
     end
 
     def perform_action
-      apply_args = "\"#{@resource_type} '#{@resource_name}'\""
+      apply_args = "\"#{@resource_type} '#{@resource_name}'"
+
+      # lets format the attributes into the correct syntax Chef expects
+      unless attributes.empty?
+        apply_args += " do; "
+        attributes.each do |k, v|
+          v = "\\\"#{v}\\\"" if v.is_a? String
+          apply_args += "#{k} #{v}; "
+        end
+        apply_args += "end\""
+      end
+
+      full_rs_name = "#{resource_type}[#{resource_name}]"
+      ChefWorkstation::Log.debug("Converging #{full_rs_name} with attributes #{attributes}")
+
       c = connection.run_command("#{chef_apply} --no-color -e #{apply_args}")
       if c.exit_status == 0
         ChefWorkstation::Log.debug(c.stdout)
-        full_rs_name = "#{resource_type}[#{resource_name}]"
         reporter.success(T.success(full_rs_name))
       else
         reporter.error(T.error(ChefWorkstation::Log.location))
@@ -34,5 +48,6 @@ module ChefWorkstation::Action
         end
       end
     end
+
   end
 end

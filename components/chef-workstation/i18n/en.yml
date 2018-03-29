@@ -45,7 +45,7 @@ commands:
             Converge the specified <TARGET> with the single <RESOURCE>. [ATTRIBUTES]
             should be specified as key=value. EG:
 
-            chef target converge myec2node directory /tmp/test mode="0777"
+            chef target converge myec2node directory /tmp/test mode="0777" action=create
 
         ARGS:
           <TARGET>          The host or IP address to converge. Can also be an SSH or WinRM URL
@@ -89,7 +89,7 @@ actions:
 errors:
   # Installer action errors
   CHEFINS001: |
-    %1 is not a supported target operating system at this time.
+    '%1' is not a supported target operating system at this time.
 
     We plan to support a wide range of target operating systems,
     but during this targeted pre-release we are constraining our efforts
@@ -122,6 +122,16 @@ errors:
 
       Available commands are: %2
 
+  # CLI Validation errors are prefixed with CHEFVAL
+  CHEFVAL001: |
+    No identity file at %1
+
+  CHEFVAL002: |
+    You must supply <TARGET>, <RESOURCE> and <RESOURCE_NAME>
+
+  CHEFVAL003: |
+    Attribute '%1' did not match the 'key=value' syntax required
+
   # General errors/unknown errors are handled with CHEFINT
   CHEFINT001: |
     An unexpected error has occurred:
@@ -149,5 +159,3 @@ errors:
     neither:  |
       If you are not able to resolve this issue, please contact Chef support
       at support@chef.io.
-
-
