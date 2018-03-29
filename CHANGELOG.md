@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.9 -->
+<!-- latest_release 0.1.10 -->
+## [0.1.10](https://github.com/chef/chef-workstation/tree/0.1.10) (2018-03-29)
+
+#### Merged Pull Requests
+- Add ci verify script so we controll verification tests. [#32](https://github.com/chef/chef-workstation/pull/32) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.9](https://github.com/chef/chef-workstation/tree/0.1.9) (2018-03-27)
 
 #### Merged Pull Requests
 - Mask passwords in url output. [#30](https://github.com/chef/chef-workstation/pull/30) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.8](https://github.com/chef/chef-workstation/tree/0.1.8) (2018-03-27)
 
