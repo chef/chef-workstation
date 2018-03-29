@@ -19,6 +19,7 @@ require "mixlib/cli"
 require "chef-workstation/config"
 require "chef-workstation/text"
 require "chef-workstation/log"
+require "chef-workstation/error"
 
 module ChefWorkstation
   module Command
@@ -126,6 +127,10 @@ module ChefWorkstation
 
       def subcommands
         @command_spec.subcommands
+      end
+
+      class OptionValidationError < ChefWorkstation::Error
+        def initialize(id, *args); super(id, *args); end
       end
 
     end

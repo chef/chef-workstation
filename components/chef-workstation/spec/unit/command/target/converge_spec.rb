@@ -23,17 +23,32 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
   subject(:cmd) do
     ChefWorkstation::Command::Target::Converge.new(cmd_spec)
   end
+  OptionValidationError = ChefWorkstation::Command::Target::Converge::OptionValidationError
 
   describe "#validate_params" do
     it "raises an error if not enough params are specified" do
-      expect { cmd.validate_params([]) }.to raise_error(/must supply/)
-      expect { cmd.validate_params(%w{one two}) }.to raise_error(/must supply/)
+      params = [
+        [],
+        %w{one two}
+      ]
+      params.each do |p|
+        expect { cmd.validate_params(p) }.to raise_error(OptionValidationError) do |e|
+          e.id == "CHEFVAL002"
+        end
+      end
     end
 
     it "raises an error if attributes are not specified as key value pairs" do
-      expect { cmd.validate_params(%w{one two three four}) }.to raise_error(/four.+key=value/)
-      expect { cmd.validate_params(%w{one two three four=value five six=value}) }.to raise_error(/five.+key=value/)
-      expect { cmd.validate_params(%w{one two three non.word=value}) }.to raise_error(/non\.word.+key=value/)
+      params = [
+        %w{one two three four},
+        %w{one two three four=value five six=value},
+        %w{one two three non.word=value},
+      ]
+      params.each do |p|
+        expect { cmd.validate_params(p) }.to raise_error(OptionValidationError) do |e|
+          e.id == "CHEFVAL003"
+        end
+      end
     end
   end
 

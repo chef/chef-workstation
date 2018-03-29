@@ -40,7 +40,9 @@ module ChefWorkstation
           :short => "-i PATH",
           :description => T.identity_file,
           :proc => (Proc.new do |path|
-            raise "No identity file at #{path}" unless File.exist?(path)
+            unless File.exist?(path)
+              raise OptionValidationError.new("CHEFVAL001", path)
+            end
             path
           end)
 
@@ -72,12 +74,12 @@ module ChefWorkstation
         ATTRIBUTE_MATCHER = /^([a-zA-Z0-9]+)=(\w+)$/
         def validate_params(params)
           if params.size < 3
-            raise T.validation.not_enough_params
+            raise OptionValidationError.new("CHEFVAL002")
           end
           attributes = params[3..-1]
           attributes.each do |attribute|
             unless attribute =~ ATTRIBUTE_MATCHER
-              raise T.validation.invalid_attribute(attribute)
+              raise OptionValidationError.new("CHEFVAL003", attribute)
             end
           end
         end

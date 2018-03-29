@@ -58,9 +58,6 @@ commands:
                             the name of the user you wanted to create.
       root_description: "Whether to use root permissions on the target. Defaults to true."
       identity_file: "SSH identity file to use when connecting."
-      validation:
-        not_enough_params: You must supply <TARGET>, <RESOURCE> and <RESOURCE_NAME>
-        invalid_attribute: Attribute '%1' did not match the 'key=value' syntax required
       status:
         verifying: Verifying Chef client installation.
         converging: Converging %1...
@@ -125,6 +122,16 @@ errors:
 
       Available commands are: %2
 
+  # CLI Validation errors are prefixed with CHEFVAL
+  CHEFVAL001: |
+    No identity file at %1
+
+  CHEFVAL002: |
+    You must supply <TARGET>, <RESOURCE> and <RESOURCE_NAME>
+
+  CHEFVAL003: |
+    Attribute '%1' did not match the 'key=value' syntax required
+
   # General errors/unknown errors are handled with CHEFINT
   CHEFINT001: |
     An unexpected error has occurred:
@@ -152,5 +159,3 @@ errors:
     neither:  |
       If you are not able to resolve this issue, please contact Chef support
       at support@chef.io.
-
-
