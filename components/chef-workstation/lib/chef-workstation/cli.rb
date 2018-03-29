@@ -71,8 +71,8 @@ module ChefWorkstation
     rescue => e
       # An unwrapped error is an unlikely to occur,
       # but if it does ensure it dumps to terminal.
-      puts e.message if e.respond_to(:message)
-      puts e.backtrace if e.respond_to(:backtrace)
+      UI::Terminal.output e.message if e.respond_to(:message)
+      UI::Terminal.output e.backtrace if e.respond_to(:backtrace)
     ensure
       Telemetry.send!
       exit @rc
@@ -83,7 +83,7 @@ module ChefWorkstation
       # based on config settings:
       Config.create_directory_tree
       if Config.using_default_location? && !Config.exist?
-        puts T.creating_config(Config.default_location)
+        UI::Terminal.output T.creating_config(Config.default_location)
         Config.create_default_config_file
       end
       Config.load
@@ -108,7 +108,7 @@ module ChefWorkstation
           command_params << "-h"
         end
       elsif %w{version --version}.include?(command_name.downcase)
-        puts ChefWorkstation::VERSION
+        UI::Terminal.output ChefWorkstation::VERSION
         return
       end
 
@@ -145,9 +145,9 @@ module ChefWorkstation
     end
 
     def show_help
-      puts banner
-      puts ""
-      puts "FLAGS:"
+      UI::Terminal.output banner
+      UI::Terminal.output ""
+      UI::Terminal.output "FLAGS:"
       justify_length = 0
       options.each_value do |spec|
         justify_length = [justify_length, spec[:long].length + 4].max
@@ -161,20 +161,20 @@ module ChefWorkstation
           short = "#{short}, "
         end
         flags = "#{short}#{spec[:long]}"
-        puts "    #{flags.ljust(justify_length)}    #{spec[:description]}"
+        UI::Terminal.output "    #{flags.ljust(justify_length)}    #{spec[:description]}"
       end
-      puts ""
-      puts "SUBCOMMANDS:"
+      UI::Terminal.output ""
+      UI::Terminal.output "SUBCOMMANDS:"
       justify_length = ([7] + commands.map(&:length)).max + 4
       command_specs.sort.each do |name, spec|
         next if spec.hidden
-        puts "    #{"#{name}".ljust(justify_length)}#{spec.text.description}"
+        UI::Terminal.output "    #{"#{name}".ljust(justify_length)}#{spec.text.description}"
       end
-      puts "    #{"help".ljust(justify_length)}#{T.help}"
-      puts "    #{"version".ljust(justify_length)}#{T.version}"
-      puts ""
-      puts "ALIASES:"
-      puts "    converge    Alias for 'target converge'"
+      UI::Terminal.output "    #{"help".ljust(justify_length)}#{T.help}"
+      UI::Terminal.output "    #{"version".ljust(justify_length)}#{T.version}"
+      UI::Terminal.output ""
+      UI::Terminal.output "ALIASES:"
+      UI::Terminal.output "    converge    Alias for 'target converge'"
     end
 
     def commands_map

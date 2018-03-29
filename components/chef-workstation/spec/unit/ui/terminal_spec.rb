@@ -16,17 +16,15 @@ RSpec.describe ChefWorkstation::UI::Terminal do
 
   it "correctly outputs a message" do
     expect do
-      Terminal.init($stdout)
       Terminal.output("test")
-    end.to output("test\n").to_stdout
+    end.to output("test\n").to_terminal
   end
 
   # The spinner REALLY doesn't want to send output to anything besides a real
   # stdout. Maybe it has something to do with a tty check?
-  it "correctly passes a block to the spinner and executes it", :pending do
-    expect do
-      Terminal.init($stdout)
-      Terminal.spinner("a message") { |reporter| sleep 0.1 }
-    end.to output("test\n").to_stdout
+  it "correctly passes a block to the spinner and executes it" do
+    @ran = false
+    Terminal.spinner("a message") { |reporter| @ran = true }
+    expect(@ran).to eq true
   end
 end

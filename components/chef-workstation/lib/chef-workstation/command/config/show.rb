@@ -18,19 +18,18 @@
 require "chef-workstation/command/base"
 require "chef-workstation/command/config"
 require "chef-workstation/config"
+require "chef-workstation/ui/terminal"
 require "toml-rb"
 
 module ChefWorkstation
   module Command
     class Config
       class Show < ChefWorkstation::Command::Base
-
         def run(params)
           d = ChefWorkstation::Config.using_default_location? ? "default " : ""
-          puts Text.commands.config.show.source(d, ChefWorkstation::Config.location)
-          puts TomlRB.dump(ChefWorkstation::Config.hash_dup)
+          UI::Terminal.output Text.commands.config.show.source(d, ChefWorkstation::Config.location)
+          UI::Terminal.output TomlRB.dump(ChefWorkstation::Config.hash_dup)
         end
-
       end
     end
   end

@@ -20,6 +20,7 @@ require "chef-workstation/config"
 require "chef-workstation/text"
 require "chef-workstation/log"
 require "chef-workstation/error"
+require "chef-workstation/ui/terminal"
 
 module ChefWorkstation
   module Command
@@ -94,10 +95,10 @@ module ChefWorkstation
       private
 
       def show_help
-        puts banner
+        UI::Terminal.output banner
         unless options.empty?
-          puts ""
-          puts "FLAGS:"
+          UI::Terminal.output ""
+          UI::Terminal.output "FLAGS:"
           justify_length = 0
           options.each_value do |spec|
             justify_length = [justify_length, spec[:long].length + 4].max
@@ -111,16 +112,16 @@ module ChefWorkstation
               short = "#{short}, "
             end
             flags = "#{short}#{spec[:long]}"
-            puts "    #{flags.ljust(justify_length)}    #{spec[:description]}"
+            UI::Terminal.output "    #{flags.ljust(justify_length)}    #{spec[:description]}"
           end
         end
         unless subcommands.empty?
-          puts ""
-          puts "SUBCOMMANDS:"
+          UI::Terminal.output ""
+          UI::Terminal.output "SUBCOMMANDS:"
           justify_length = ([7] + subcommands.keys.map(&:length)).max + 4
           subcommands.sort.each do |name, spec|
             next if spec.hidden
-            puts "    #{"#{name}".ljust(justify_length)}#{spec.text.description}"
+            UI::Terminal.output "    #{"#{name}".ljust(justify_length)}#{spec.text.description}"
           end
         end
       end

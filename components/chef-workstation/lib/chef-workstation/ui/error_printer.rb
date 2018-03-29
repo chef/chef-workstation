@@ -19,6 +19,7 @@ require "pastel"
 require "chef-workstation/error"
 require "chef-workstation/config"
 require "chef-workstation/text"
+require "chef-workstation/ui/terminal"
 
 module ChefWorkstation::UI
   # TODO - thi sis more of an error formatter...
@@ -57,10 +58,10 @@ module ChefWorkstation::UI
     rescue => e
       # This shouldn't happen, but we don't want to
       # just fail silently with no message
-      puts "INTERNAL ERROR"
-      puts "-=" * 30
-      puts e.message
-      puts "=-" * 30
+      Terminal.output "INTERNAL ERROR"
+      Terminal.output "-=" * 30
+      Terminal.output e.message
+      Terminal.output "=-" * 30
       exit! 128
     end
 

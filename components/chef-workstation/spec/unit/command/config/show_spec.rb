@@ -29,7 +29,7 @@ RSpec.describe ChefWorkstation::Command::Config::Show do
     end
 
     it "prints config to screen" do
-      expect { cmd.run([]) }.to output(/dev = true/).to_stdout
+      expect { cmd.run([]) }.to output(/dev = true/).to_terminal
     end
   end
 end

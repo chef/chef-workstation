@@ -17,17 +17,17 @@ module RSpec
         end
         module CaptureTerminal
           def self.name
-            'terminal'
+            "terminal"
           end
 
           def self.capture(block)
             captured_stream = StringIO.new
-            original_stream = ::ChefWorkstation::UI::Terminal::location
-            ::ChefWorkstation::UI::Terminal::location = captured_stream
+            original_stream = ::ChefWorkstation::UI::Terminal.location
+            ::ChefWorkstation::UI::Terminal.location = captured_stream
             block.call
             captured_stream.string
           ensure
-            ::ChefWorkstation::UI::Terminal::location = original_stream
+            ::ChefWorkstation::UI::Terminal.location = original_stream
           end
         end
       end
