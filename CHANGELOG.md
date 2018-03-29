@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.12 -->
+<!-- latest_release 0.1.13 -->
+## [0.1.13](https://github.com/chef/chef-workstation/tree/0.1.13) (2018-03-29)
+
+#### Merged Pull Requests
+- Move .ci to ci so scripts can be found. [#34](https://github.com/chef/chef-workstation/pull/34) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.12](https://github.com/chef/chef-workstation/tree/0.1.12) (2018-03-29)
 
 #### Merged Pull Requests
 - [SHACK-107] Specify resource attributes on command line [#33](https://github.com/chef/chef-workstation/pull/33) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.11](https://github.com/chef/chef-workstation/tree/0.1.11) (2018-03-29)
 
