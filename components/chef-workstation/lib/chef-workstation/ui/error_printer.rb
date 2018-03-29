@@ -33,9 +33,9 @@ module ChefWorkstation::UI
 
     DEFAULT_ERROR_NO = "CHEFINT001"
 
-    def initialize(wrapped_exception, conn = nil)
-      @wrapper = wrapped_exception
-      @exception = wrapped_exception.contained_exception
+    def initialize(wrapper, conn = nil)
+      @wrapper = wrapper
+      @exception = ChefWorkstation::StandardErrorResolver.unwrap_exception(wrapper)
       @conn = conn
       @pastel = Pastel.new
       @show_log = exception.respond_to?(:show_log) ? exception.show_log : true
