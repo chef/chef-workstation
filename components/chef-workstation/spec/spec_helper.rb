@@ -3,6 +3,8 @@ require "chef-workstation/text"
 require "chef-workstation/log"
 require "chef-workstation/ui/terminal"
 require "rspec/expectations"
+require "support/matchers/output_to_terminal"
+
 require "r18n-desktop"
 
 RSpec.shared_context "Global helpers" do

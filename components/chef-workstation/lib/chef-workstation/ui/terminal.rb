@@ -5,6 +5,8 @@ module ChefWorkstation
   module UI
     class Terminal
       class << self
+        # To support matching in test
+        attr_accessor :location
 
         def init(location = STDOUT)
           @location = location
