@@ -22,13 +22,11 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
     end
   end
 
-  describe "#perform_action" do
-    let(:result) { double("command result", exit_status: 0, stdout: "") }
-
-    it "runs the converge and reports back success" do
-      expect(connection).to receive(:run_command).with(/chef-apply.+#{r1}/).and_return(result)
-      expect(reporter).to receive(:success).with(/#{r1}/)
-      action.perform_action
+  describe "#create_apply_args" do
+    context "when no attributes are provided" do
+      it "it creates a simple resource" do
+        expect(action.create_apply_args).to eq("\"directory '/tmp'\"")
+      end
     end
 
     context "when attributes are provided" do
@@ -41,19 +39,28 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
           "key_with_underscore" => "value",
         }
       end
-      it "runs the converge and reports back success" do
-        expect(connection).to receive(:run_command).with(
-          "cmd /c C:/opscode/chef/bin/chef-apply --no-color -e \"directory '/tmp' do; " \
-          "key1 \\\"value\\\"; " \
+
+      it "convertes the attributes to chef-apply args" do
+        expect(action.create_apply_args).to eq(
+          "\"directory '/tmp' do; " \
+          "key1 'value'; " \
           "key2 0.1; " \
           "key3 100; " \
           "key4 true; " \
-          "key_with_underscore \\\"value\\\"; " \
+          "key_with_underscore 'value'; " \
           "end\""
-        ).and_return(result)
-        expect(reporter).to receive(:success).with(/#{r1}/)
-        action.perform_action
+        )
       end
+    end
+  end
+
+  describe "#perform_action" do
+    let(:result) { double("command result", exit_status: 0, stdout: "") }
+
+    it "runs the converge and reports back success" do
+      expect(connection).to receive(:run_command).with(/chef-apply.+#{r1}/).and_return(result)
+      expect(reporter).to receive(:success).with(/#{r1}/)
+      action.perform_action
     end
 
     context "when command fails" do
@@ -66,6 +73,7 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
       it "scrapes the remote log" do
         expect(reporter).to receive(:error).with(/converge/)
         expect(connection).to receive(:run_command).with(/chef-stacktrace/).and_return(stacktrace_result)
+        expect(connection).to receive(:run_command).with(/del/).and_return(stacktrace_result)
         action.perform_action
       end
 

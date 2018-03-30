@@ -33,14 +33,14 @@ module ChefWorkstation
           windows: "type C:/chef/cache/chef-stacktrace.out",
           other: "cat /var/chef/cache/chef-stacktrace.out",
         },
+        delete_chef_stacktrace: {
+          windows: "del /f C:/chef/cache/chef-stacktrace.out",
+          other: "rm -f /var/chef/cache/chef-stacktrace.out",
+        },
       }
 
-      def chef_apply
-        PATH_MAPPING[:chef_apply][family]
-      end
-
-      def read_chef_stacktrace
-        PATH_MAPPING[:read_chef_stacktrace][family]
+      PATH_MAPPING.keys.each do |m|
+        define_method(m) { PATH_MAPPING[m][family] }
       end
 
       def run
