@@ -144,8 +144,8 @@ errors:
 
       %1
 
-    Please verify the host is named correctly and is reachable
-    then try again.
+    Please verify the host name or address is correct and that the host is
+    reachable before trying again.
 
   footer:
     both: |
@@ -168,4 +168,4 @@ errors:
 
     neither:  |
       If you are not able to resolve this issue, please contact Chef support
-      at support@chef.io.
+      at support@chef.io
