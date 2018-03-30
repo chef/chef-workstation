@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.15 -->
+<!-- latest_release 0.1.16 -->
+## [0.1.16](https://github.com/chef/chef-workstation/tree/0.1.16) (2018-03-30)
+
+#### Merged Pull Requests
+- Slight cleanups to error handling [#37](https://github.com/chef/chef-workstation/pull/37) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.15](https://github.com/chef/chef-workstation/tree/0.1.15) (2018-03-29)
 
 #### Merged Pull Requests
 - standard error handling [#36](https://github.com/chef/chef-workstation/pull/36) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.14](https://github.com/chef/chef-workstation/tree/0.1.14) (2018-03-29)
 
