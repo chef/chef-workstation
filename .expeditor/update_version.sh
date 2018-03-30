@@ -6,4 +6,4 @@
 
 set -evx
 
-sed -i -r "s/VERSION = ".*"/VERSION = '$(cat VERSION)'/"  components/chef-workstation/lib/chef-workstation/version.rb
+sed -i -r "s/VERSION = \".*\"/VERSION = \"$(cat VERSION)\"/"  components/chef-workstation/lib/chef-workstation/version.rb
