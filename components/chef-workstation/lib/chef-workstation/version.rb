@@ -1,3 +1,3 @@
 module ChefWorkstation
-  VERSION = "0.1.0"
+  VERSION = '0.1.17'
 end
