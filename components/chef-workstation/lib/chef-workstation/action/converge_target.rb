@@ -14,17 +14,7 @@ module ChefWorkstation::Action
     end
 
     def perform_action
-      apply_args = "\"#{@resource_type} '#{@resource_name}'"
-
-      # lets format the attributes into the correct syntax Chef expects
-      unless attributes.empty?
-        apply_args += " do; "
-        attributes.each do |k, v|
-          v = "\\\"#{v}\\\"" if v.is_a? String
-          apply_args += "#{k} #{v}; "
-        end
-        apply_args += "end\""
-      end
+      apply_args = create_apply_args
 
       full_rs_name = "#{resource_type}[#{resource_name}]"
       ChefWorkstation::Log.debug("Converging #{full_rs_name} with attributes #{attributes}")
@@ -41,12 +31,30 @@ module ChefWorkstation::Action
         if c.exit_status == 0
           ChefWorkstation::Log.error("Remote chef-apply error follows:")
           ChefWorkstation::Log.error("\n    " + c.stdout.split("\n").join("\n    "))
+          # We need to delete the stacktrace after copying it over. Otherwise if we get a
+          # remote failure that does not write a chef stacktrace its possible to get an old
+          # stale stacktrace.
+          connection.run_command(delete_chef_stacktrace)
         else
           ChefWorkstation::Log.error("Could not read remote stacktrace:")
           ChefWorkstation::Log.error("stdout: #{c.stdout}")
           ChefWorkstation::Log.error("stderr: #{c.stderr}")
         end
       end
+    end
+
+    def create_apply_args
+      apply_args = "\"#{resource_type} '#{resource_name}'"
+      # lets format the attributes into the correct syntax Chef expects
+      unless attributes.empty?
+        apply_args += " do; "
+        attributes.each do |k, v|
+          v = "'#{v}'" if v.is_a? String
+          apply_args += "#{k} #{v}; "
+        end
+        apply_args += "end"
+      end
+      apply_args += "\""
     end
 
   end

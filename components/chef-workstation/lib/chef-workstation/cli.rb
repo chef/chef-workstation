@@ -79,6 +79,9 @@ module ChefWorkstation
     end
 
     def init
+      # Enable CLI output via Terminal. This comes first because we want to supply
+      # status output about reading and creating config files
+      UI::Terminal.init
       # Creates the tree we need under ~/.chef-workstation
       # based on config settings:
       Config.create_directory_tree
@@ -90,8 +93,6 @@ module ChefWorkstation
       ChefWorkstation::Log.setup(Config.log.location)
       Log.level = Config.log.level.to_sym
       ChefWorkstation::Log.info("Initialized logger")
-      # Enable CLI output via Terminal
-      UI::Terminal.init
     end
 
     def perform_command
