@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.19 -->
+<!-- latest_release 0.1.20 -->
+## [0.1.20](https://github.com/chef/chef-workstation/tree/0.1.20) (2018-03-30)
+
+#### Merged Pull Requests
+- [SHACK-120] remove alias text [#42](https://github.com/chef/chef-workstation/pull/42) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.19](https://github.com/chef/chef-workstation/tree/0.1.19) (2018-03-30)
 
 #### Merged Pull Requests
 - Bug fixes [#38](https://github.com/chef/chef-workstation/pull/38) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.18](https://github.com/chef/chef-workstation/tree/0.1.18) (2018-03-30)
 
