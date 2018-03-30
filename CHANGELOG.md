@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.17 -->
+<!-- latest_release 0.1.18 -->
+## [0.1.18](https://github.com/chef/chef-workstation/tree/0.1.18) (2018-03-30)
+
+#### Merged Pull Requests
+- Make sure to use proper quoting when replacing version too [#41](https://github.com/chef/chef-workstation/pull/41) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.17](https://github.com/chef/chef-workstation/tree/0.1.17) (2018-03-30)
 
 #### Merged Pull Requests
 - [SHACK-122] Fix quoting in update-version so that it works [#39](https://github.com/chef/chef-workstation/pull/39) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.16](https://github.com/chef/chef-workstation/tree/0.1.16) (2018-03-30)
 
