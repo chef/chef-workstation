@@ -174,8 +174,6 @@ module ChefWorkstation
       UI::Terminal.output "    #{"help".ljust(justify_length)}#{T.help}"
       UI::Terminal.output "    #{"version".ljust(justify_length)}#{T.version}"
       UI::Terminal.output ""
-      UI::Terminal.output "ALIASES:"
-      UI::Terminal.output "    converge    Alias for 'target converge'"
     end
 
     def commands_map
