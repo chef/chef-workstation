@@ -8,13 +8,12 @@ RSpec.describe ChefWorkstation::UI::ErrorPrinter do
   let(:wrapped_exception) { ChefWorkstation::WrappedError.new(orig_exception, conn) }
   subject(:printer) { ChefWorkstation::UI::ErrorPrinter.new(wrapped_exception, nil) }
 
-  context "#show_error" do
-    it "creates and renders the message" do
-      expect(subject).to receive(:format_header).and_return "1"
-      expect(subject).to receive(:format_body).and_return "2"
-      expect(subject).to receive(:format_footer).and_return "3"
-      expect(ChefWorkstation::UI::Terminal).to receive(:output).with "1\n2\n3\n"
-      subject.show_error
+  context "#format_error" do
+    it "formats the message" do
+      expect(subject).to receive(:format_header).and_return "header"
+      expect(subject).to receive(:format_body).and_return "body"
+      expect(subject).to receive(:format_footer).and_return "footer"
+      expect(subject.format_error).to eq "\nheader\n\nbody\nfooter\n"
     end
   end
 
@@ -28,6 +27,7 @@ RSpec.describe ChefWorkstation::UI::ErrorPrinter do
         subject.format_body
       end
     end
+
     context "when exception is a Train::Error" do
       # These may expand as we find error-specific messaging we can provide to customers
       # for more specific train exceptions
@@ -90,13 +90,18 @@ RSpec.describe ChefWorkstation::UI::ErrorPrinter do
     end
   end
 
-  context "#write_backtrace" do
+  context ".write_backtrace" do
+    let(:inst) { double(ChefWorkstation::UI::ErrorPrinter) }
+    before do
+      allow(ChefWorkstation::UI::ErrorPrinter).to receive(:new).and_return inst
+    end
+
     let(:orig_args) { %w{test} }
     it "formats and saves the backtrace" do
-      expect(subject).to receive(:add_backtrace_header).with(anything(), orig_args)
-      expect(subject).to receive(:add_formatted_backtrace)
-      expect(subject).to receive(:save_backtrace)
-      subject.write_backtrace(orig_args)
+      expect(inst).to receive(:add_backtrace_header).with(anything(), orig_args)
+      expect(inst).to receive(:add_formatted_backtrace)
+      expect(inst).to receive(:save_backtrace)
+      ChefWorkstation::UI::ErrorPrinter.write_backtrace(wrapped_exception, orig_args)
     end
   end
 end

@@ -25,7 +25,7 @@ module ChefWorkstation::UI
   # TODO - thi sis more of an error formatter...
   class ErrorPrinter
     attr_reader :pastel, :show_log, :show_stack, :exception
-    # TODO definint 't' as a method is a temporary workaround
+    # TODO define 't' as a method is a temporary workaround
     # to ensure that text key lookups are testable.
     def t
       ChefWorkstation::Text.errors
@@ -33,10 +33,39 @@ module ChefWorkstation::UI
 
     DEFAULT_ERROR_NO = "CHEFINT001"
 
-    def initialize(wrapper, conn = nil)
-      @wrapper = wrapper
-      @exception = ChefWorkstation::StandardErrorResolver.unwrap_exception(wrapper)
-      @conn = conn
+    def self.show_error(e)
+      unwrapped = ChefWorkstation::StandardErrorResolver.unwrap_exception(e)
+      formatter = ErrorPrinter.new(e, unwrapped)
+      Terminal.output(formatter.format_error)
+    rescue => e
+      dump_unexpected_error(e)
+    end
+
+    def self.write_backtrace(e, args)
+      formatter = ErrorPrinter.new(e)
+      out = StringIO.new
+      formatter.add_backtrace_header(out, args)
+      formatter.add_formatted_backtrace(out)
+      formatter.save_backtrace(out)
+    rescue => e
+      dump_unexpected_error(e)
+    end
+
+    # Use this to dump an an exception to output. useful
+    # if an error occurs in the error handling itself.
+    def self.dump_unexpected_error(e)
+      Terminal.output "INTERNAL ERROR"
+      Terminal.output "-=" * 30
+      Terminal.output "Message:"
+      Terminal.output e.message
+      Terminal.output e.backtrace if e.respond_to?(:backtrace)
+      Terminal.output "Backtrace:"
+      Terminal.output "=-" * 30
+    end
+
+    def initialize(wrapper, unwrapped = nil, conn = nil)
+      @exception = unwrapped || wrapper.contained_exception
+      @conn = wrapper.conn
       @pastel = Pastel.new
       @show_log = exception.respond_to?(:show_log) ? exception.show_log : true
       @show_stack = exception.respond_to?(:show_stack) ? exception.show_stack : true
@@ -45,24 +74,20 @@ module ChefWorkstation::UI
       if exception.respond_to?(:id) && exception.id =~ /CHEF.*/
         @id = exception.id
       end
+    rescue => e
+      ErrorPrinter.dump_unexpected_error(e)
+      exit! 128
     end
 
-    def show_error
-      @content << format_header()
+    def format_error
       @content.write("\n")
+      @content << format_header()
+      @content.write("\n\n")
       @content << format_body()
       @content.write("\n")
       @content << format_footer()
       @content.write("\n")
-      Terminal.output @content.string
-    rescue => e
-      # This shouldn't happen, but we don't want to
-      # just fail silently with no message
-      Terminal.output "INTERNAL ERROR"
-      Terminal.output "-=" * 30
-      Terminal.output e.message
-      Terminal.output "=-" * 30
-      exit! 128
+      @content.string
     end
 
     def format_header
@@ -96,18 +121,9 @@ module ChefWorkstation::UI
       end
     end
 
-    def write_backtrace(args)
-      out = StringIO.new
-      add_backtrace_header(out, args)
-      add_formatted_backtrace(out)
-      save_backtrace(out)
-    end
-
-    private
-
     def add_backtrace_header(out, args)
-      out.write("#{"-" * 80}\n")
-      out.print("#{Time.now} - Error encountered while running the following:\n")
+      out.write("\n#{"-" * 80}\n")
+      out.print("#{Time.now}: Error encountered while running the following:\n")
       out.print("  #{args.join(' ')}\n")
       out.print("Backtrace:\n")
     end
@@ -137,8 +153,8 @@ module ChefWorkstation::UI
     end
 
     def formatted_host
-      return nil if @wrapped_exception.conn.nil?
-      cfg = @wrapped_exception.conn.config
+      return nil if conn.nil?
+      cfg = conn.config
       port = cfg[:port].nil? ? "" : ":#{cfg[:port]}"
       if cfg[:user].nil?
         user = ""
@@ -155,7 +171,6 @@ module ChefWorkstation::UI
     # mostly copied from
     # https://gist.github.com/stanio/13d74294ca1868fed7fb
     def add_formatted_backtrace(out)
-      return unless @show_stack
       _format_single(out, exception)
       current_backtrace = exception.backtrace
       cause = exception.cause

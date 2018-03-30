@@ -30,6 +30,8 @@ module ChefWorkstation
   class CLI
     include Mixlib::CLI
     T = ChefWorkstation::Text.cli
+    RC_COMMAND_FAILED = 1
+    RC_ERROR_HANDLING_FAILED = 64
 
     banner T.banner
 
@@ -66,13 +68,11 @@ module ChefWorkstation
                                     sub: @subcommand, args: @argv,
                                     opts: options.to_h) { perform_command() }
     rescue WrappedError => e
-      UI::ErrorPrinter.new(e).show_error
-      @rc = 1
+      UI::ErrorPrinter.show_error(e)
+      @rc = RC_COMMAND_FAILED
     rescue => e
-      # An unwrapped error is an unlikely to occur,
-      # but if it does ensure it dumps to terminal.
-      UI::Terminal.output e.message if e.respond_to(:message)
-      UI::Terminal.output e.backtrace if e.respond_to(:backtrace)
+      UI::ErrorPrinter.dump_unexpected_error(e)
+      @rc = RC_ERROR_HANDLING_FAILED
     ensure
       Telemetry.send!
       exit @rc
@@ -141,7 +141,7 @@ module ChefWorkstation
     end
 
     def capture_exception_backtrace(e)
-      UI::ErrorPrinter.new(e).write_backtrace(@argv)
+      UI::ErrorPrinter.write_backtrace(e, @argv)
     end
 
     def show_help

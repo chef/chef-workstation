@@ -1,4 +1,4 @@
-# Copyright:: Copyright (c) 2018 Chef Software Inc.
+# Copyright:: Copyright (c) 2017 Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -105,7 +105,7 @@ RSpec.describe ChefWorkstation::CLI do
       expect(cli).to receive(:init)
       expect(cli).to receive(:have_command?).with("unknown").and_return(false)
       expect(cli).to receive(:capture_exception_backtrace)
-      expect_any_instance_of(ChefWorkstation::UI::ErrorPrinter).to receive(:show_error)
+      expect(ChefWorkstation::UI::ErrorPrinter).to receive(:show_error)
       expect { cli.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(1) }
     end
   end

@@ -42,29 +42,30 @@ module ChefWorkstation
       @conn = connection
     end
   end
+
   # Provides mappings of common errors that we don't explicitly
   # handle, but can offer expanded help text around.
   class StandardErrorResolver
     def self.unwrap_exception(wrapper)
-      id = "CHEFINT001"
-      do_convert = true
+      deps
       show_log = true
       show_stack = true
-      # This is going to be a common pattern
       case wrapper.contained_exception
-      when SocketError
-        id = "CHEFNET001"; show_log = false; show_stack = false
-      else
-        do_convert = false
+      when SocketError then id = "CHEFNET001"; show_log = false; show_stack = false
       end
-      if do_convert
+      if id.nil?
+        wrapper.contained_exception
+      else
         e = ChefWorkstation::Error.new(id, wrapper.contained_exception.message)
         e.show_log = show_log
         e.show_stack = show_stack
         e
-      else
-        wrapper.contained_exception
       end
+    end
+
+    def self.deps
+      # Avoid loading additional includes until they're needed
+      require "socket"
     end
   end
 

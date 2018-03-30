@@ -130,7 +130,7 @@ module ChefWorkstation
         @command_spec.subcommands
       end
 
-      class OptionValidationError < ChefWorkstation::Error
+      class OptionValidationError < ChefWorkstation::ErrorNoLogs
         def initialize(id, *args); super(id, *args); end
       end
 
