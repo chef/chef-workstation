@@ -40,6 +40,7 @@ module ChefWorkstation::Action
           ChefWorkstation::Log.error("stdout: #{c.stdout}")
           ChefWorkstation::Log.error("stderr: #{c.stderr}")
         end
+        raise RemoteChefClientRunFailed.new
       end
     end
 
@@ -57,5 +58,8 @@ module ChefWorkstation::Action
       apply_args += "\""
     end
 
+    class RemoteChefClientRunFailed < ChefWorkstation::Error
+      def initialize(); super("CHEFCCR001"); end
+    end
   end
 end

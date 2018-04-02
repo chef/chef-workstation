@@ -70,19 +70,19 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
       let(:result) { double("command result", exit_status: 1) }
       let(:stacktrace_result) { double("stacktrace scrape result", exit_status: 0, stdout: "") }
 
-      it "scrapes the remote log" do
+      it "scrapes the remote log and raises" do
         expect(reporter).to receive(:error).with(/converge/)
         expect(connection).to receive(:run_command).with(/chef-stacktrace/).and_return(stacktrace_result)
         expect(connection).to receive(:run_command).with(/del/).and_return(stacktrace_result)
-        action.perform_action
+        expect { action.perform_action }.to raise_error ChefWorkstation::Action::ConvergeTarget::RemoteChefClientRunFailed
       end
 
       context "when remote log cannot be retrieved" do
         let(:stacktrace_result) { double("stacktrace scrape result", exit_status: 1, stdout: "", stderr: "") }
-        it "logs results from the attempt" do
+        it "logs results from the attempt and raises" do
           expect(reporter).to receive(:error).with(/converge/)
           expect(connection).to receive(:run_command).with(/chef-stacktrace/).and_return(stacktrace_result)
-          action.perform_action
+          expect { action.perform_action }.to raise_error ChefWorkstation::Action::ConvergeTarget::RemoteChefClientRunFailed
         end
       end
     end
