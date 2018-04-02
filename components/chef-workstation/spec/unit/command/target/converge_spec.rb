@@ -54,13 +54,14 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
 
   describe "#format_attributes" do
     it "parses attributes into a hash" do
-      provided = %w{key1=value key2=1 key3=true key4=FaLsE key5=0777}
+      provided = %w{key1=value key2=1 key3=true key4=FaLsE key5=0777 key6=https://some.website}
       expected = {
         "key1" => "value",
         "key2" => 1,
         "key3" => true,
         "key4" => false,
-        "key5" => "0777"
+        "key5" => "0777",
+        "key6" => "https://some.website",
       }
       expect(cmd.format_attributes(provided)).to eq(expected)
     end

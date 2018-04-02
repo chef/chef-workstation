@@ -71,7 +71,7 @@ module ChefWorkstation
         end
 
         # TODO raise wrapped errors that get formatted and displayed appropriately IE SHACK-105
-        ATTRIBUTE_MATCHER = /^([a-zA-Z0-9]+)=(\w+)$/
+        ATTRIBUTE_MATCHER = /^([a-zA-Z0-9]+)=(.+)$/
         def validate_params(params)
           if params.size < 3
             raise OptionValidationError.new("CHEFVAL002")

@@ -24,7 +24,7 @@ require "chef-workstation/ui/terminal"
 module ChefWorkstation::UI
   # TODO - thi sis more of an error formatter...
   class ErrorPrinter
-    attr_reader :pastel, :show_log, :show_stack, :exception
+    attr_reader :pastel, :show_log, :show_stack, :exception, :conn
     # TODO define 't' as a method is a temporary workaround
     # to ensure that text key lookups are testable.
     def t
