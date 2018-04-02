@@ -17,7 +17,7 @@
 module ChefWorkstation
   class Error < StandardError
     attr_reader :id, :params
-    attr_accessor:show_stack, :show_log
+    attr_accessor :show_stack, :show_log
     def initialize(id, *params)
       @id = id
       @params = params
@@ -30,6 +30,14 @@ module ChefWorkstation
     def initialize(id, *params)
       super
       @show_log = false
+      @show_stack = false
+    end
+  end
+
+  class ErrorNoStack < Error
+    def initialize(id, *params)
+      super
+      @show_log = true
       @show_stack = false
     end
   end

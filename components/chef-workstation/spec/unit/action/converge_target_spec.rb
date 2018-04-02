@@ -2,6 +2,7 @@ require "spec_helper"
 require "chef-workstation/action/converge_target"
 require "chef-workstation/status_reporter"
 require "chef-workstation/remote_connection"
+require "chef-workstation/errors/ccr_failure_mapper"
 
 RSpec.describe ChefWorkstation::Action::ConvergeTarget do
   let(:reporter) { instance_double(ChefWorkstation::StatusReporter) }
@@ -64,25 +65,30 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
     end
 
     context "when command fails" do
-      before do
-        expect(connection).to receive(:run_command).with(/chef-apply.+#{r1}/).and_return(result)
-      end
       let(:result) { double("command result", exit_status: 1) }
       let(:stacktrace_result) { double("stacktrace scrape result", exit_status: 0, stdout: "") }
+      let(:exception_mapper) { double("mapper") }
+      before do
+        expect(connection).to receive(:run_command).with(/chef-apply.+#{r1}/).and_return(result)
+        expect(ChefWorkstation::Errors::CCRFailureMapper).to receive(:new).
+          and_return exception_mapper
+      end
 
-      it "scrapes the remote log and raises" do
+      it "scrapes the remote log and raised via mapper" do
         expect(reporter).to receive(:error).with(/converge/)
         expect(connection).to receive(:run_command).with(/chef-stacktrace/).and_return(stacktrace_result)
         expect(connection).to receive(:run_command).with(/del/).and_return(stacktrace_result)
-        expect { action.perform_action }.to raise_error ChefWorkstation::Action::ConvergeTarget::RemoteChefClientRunFailed
+        expect(exception_mapper).to receive(:raise_mapped_exception!)
+        action.perform_action
       end
 
       context "when remote log cannot be retrieved" do
         let(:stacktrace_result) { double("stacktrace scrape result", exit_status: 1, stdout: "", stderr: "") }
-        it "logs results from the attempt and raises" do
+        it "logs results from the attempt and raises via mapper" do
           expect(reporter).to receive(:error).with(/converge/)
+          expect(exception_mapper).to receive(:raise_mapped_exception!)
           expect(connection).to receive(:run_command).with(/chef-stacktrace/).and_return(stacktrace_result)
-          expect { action.perform_action }.to raise_error ChefWorkstation::Action::ConvergeTarget::RemoteChefClientRunFailed
+          action.perform_action
         end
       end
     end
