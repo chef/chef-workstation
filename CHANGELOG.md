@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.21 -->
+<!-- latest_release 0.1.22 -->
+## [0.1.22](https://github.com/chef/chef-workstation/tree/0.1.22) (2018-04-02)
+
+#### Merged Pull Requests
+- Raise an exception when remote CCR fails [#44](https://github.com/chef/chef-workstation/pull/44) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.21](https://github.com/chef/chef-workstation/tree/0.1.21) (2018-04-02)
 
 #### Merged Pull Requests
 - Got some more bug fixes [#43](https://github.com/chef/chef-workstation/pull/43) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.20](https://github.com/chef/chef-workstation/tree/0.1.20) (2018-03-30)
 
