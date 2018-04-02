@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.22 -->
+<!-- latest_release 0.1.23 -->
+## [0.1.23](https://github.com/chef/chef-workstation/tree/0.1.23) (2018-04-02)
+
+#### Merged Pull Requests
+- Need to cd into proper directory for expeditor script to work [#46](https://github.com/chef/chef-workstation/pull/46) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.22](https://github.com/chef/chef-workstation/tree/0.1.22) (2018-04-02)
 
 #### Merged Pull Requests
 - Raise an exception when remote CCR fails [#44](https://github.com/chef/chef-workstation/pull/44) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.21](https://github.com/chef/chef-workstation/tree/0.1.21) (2018-04-02)
 
