@@ -7,3 +7,6 @@
 set -evx
 
 sed -i -r "s/VERSION = \".*\"/VERSION = \"$(cat VERSION)\"/"  components/chef-workstation/lib/chef-workstation/version.rb
+
+# Ensure our Gemfile.lock reflects the new version
+bundle update chef-workstation

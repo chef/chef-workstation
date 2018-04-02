@@ -34,7 +34,6 @@ module ChefWorkstation
           :boolean => true,
           :default => true
 
-        # TODO unique error code, make sure this works with SHACK-105
         option :identity_file,
           :long => "--identity-file PATH",
           :short => "-i PATH",
@@ -70,7 +69,6 @@ module ChefWorkstation
           end
         end
 
-        # TODO raise wrapped errors that get formatted and displayed appropriately IE SHACK-105
         ATTRIBUTE_MATCHER = /^([a-zA-Z0-9]+)=(.+)$/
         def validate_params(params)
           if params.size < 3

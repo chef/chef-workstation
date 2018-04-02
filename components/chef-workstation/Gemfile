@@ -1,9 +1,8 @@
 source "https://rubygems.org"
 gemspec
 
-# TODO remove this once train release 1.2.1+  is cut.
-gem "train", git: "https://github.com/chef/train", branch: "master"
-
 group :localdev do
   gem "irbtools-more", require: "irbtools/binding"
+  # 1.2.0 requires Ruby 2.5.0 which isn't released yet
+  gem "did_you_mean", ">= 1.1.2", "< 1.2.0"
 end

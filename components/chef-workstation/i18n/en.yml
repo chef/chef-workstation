@@ -64,7 +64,6 @@ commands:
   base:
     status:
       connecting: "Connecting..."
-      # TODO Review note: Removed 'using config' bit, because we don't actually know if that was used or not.
       connected: "Connected."
       connection_failed: "Connection failed: %1"
 actions:
