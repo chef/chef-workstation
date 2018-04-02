@@ -147,6 +147,12 @@ errors:
     Please verify the host name or address is correct and that the host is
     reachable before trying again.
 
+  # Remote chef client run failure start here.
+  CHEFCCR001: |
+    The converge of the remote host failed.
+
+    Please examine the log file below for a detailed cause of failure.
+
   footer:
     both: |
       If you are not able to resolve this issue, please contact Chef support
