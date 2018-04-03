@@ -26,6 +26,9 @@ module ChefWorkstation
     config_context :cache do
       default(:path, File.join(WS_BASE_PATH, "cache"))
     end
+    config_context :dev do
+      default(:spinner, "TTY::Spinner")
+    end
 
     class << self
       @custom_location = nil
