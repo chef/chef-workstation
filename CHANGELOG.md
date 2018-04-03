@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.24 -->
+<!-- latest_release 0.1.25 -->
+## [0.1.25](https://github.com/chef/chef-workstation/tree/0.1.25) (2018-04-03)
+
+#### Merged Pull Requests
+- Make plain-text spinner element avaialble via config [#48](https://github.com/chef/chef-workstation/pull/48) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.24](https://github.com/chef/chef-workstation/tree/0.1.24) (2018-04-03)
 
 #### Merged Pull Requests
 - Update email to support@chef.io [#40](https://github.com/chef/chef-workstation/pull/40) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.23](https://github.com/chef/chef-workstation/tree/0.1.23) (2018-04-02)
 
