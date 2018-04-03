@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "chef-workstation"
   spec.version       = ChefWorkstation::VERSION
   spec.authors       = ["Chef Software, Inc"]
-  spec.email         = ["engineering@chef.io"]
+  spec.email         = ["beta@chef.io"]
 
   spec.summary       = "The essential tool for the Chef ecosystem."
   spec.description   = "Manage individual nodes or the complete Chef ecosystem."

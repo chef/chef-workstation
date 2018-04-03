@@ -155,7 +155,7 @@ errors:
   footer:
     both: |
       If you are not able to resolve this issue, please contact Chef support
-      at support@chef.io and include the log file and strack trace from the
+      at beta@chef.io and include the log file and strack trace from the
       locations below:
 
         %1
@@ -163,14 +163,14 @@ errors:
 
     log_only:  |
       If you are not able to resolve this issue, please contact Chef support
-      at support@chef.io and include the log file from the location below:
+      at beta@chef.io and include the log file from the location below:
         %1
 
     stack_only:  |
       If you are not able to resolve this issue, please contact Chef support
-      at support@chef.io and include the stack trace from the location below:
+      at beta@chef.io and include the stack trace from the location below:
         %1
 
     neither:  |
       If you are not able to resolve this issue, please contact Chef support
-      at support@chef.io
+      at beta@chef.io
