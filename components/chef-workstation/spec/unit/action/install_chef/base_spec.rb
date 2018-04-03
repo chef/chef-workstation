@@ -54,8 +54,8 @@ RSpec.describe ChefWorkstation::Action::InstallChef::Base do
         before do
         end
 
-        it "should invoke perform_remote_install" do
-          expect(install).to receive(:perform_remote_install)
+        it "should invoke perform_local_install" do
+          expect(install).to receive(:perform_local_install)
           install.perform_action
         end
       end

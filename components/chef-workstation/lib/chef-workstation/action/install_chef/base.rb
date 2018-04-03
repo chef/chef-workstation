@@ -11,19 +11,8 @@ module ChefWorkstation::Action::InstallChef
         reporter.success(T.client_already_installed)
         return
       end
-      # TODO 2018-03-21  WinRMFS/WinRM interface mismatch bug
-      # Currently, upload_to_target fails over WinRM due to:
-      # NoMethodError: undefined method `shell' for #<WinRM::Shells::Powershell:0x00563332151498>
-      #  winrm-fs/lib/winrm-fs/file_manager.rb:110:in `upload'
-      #  train/lib/train/transports/winrm_connection.rb:67:in `upload'
-      # This means that until we can look closer at that,
-      # windows installations are required to be remote.
-      if connection.platform.family == "windows"
-        reporter.update(T.installing)
-        perform_remote_install
-      else
-        perform_local_install
-      end
+      # TODO: Support an option to specify perform_local/remote_install.
+      perform_local_install
     end
 
     def perform_local_install
@@ -35,8 +24,9 @@ module ChefWorkstation::Action::InstallChef
       reporter.update(T.installing)
       install_chef_to_target(remote_path)
       reporter.success(T.success)
-    rescue RuntimeError => e
-      reporter.error(T.error(e.message))
+    rescue => e
+      msg = e.respond_to?(:message) ? e.message : T.aborted
+      reporter.error(T.error(msg))
       raise
     end
 
@@ -47,9 +37,10 @@ module ChefWorkstation::Action::InstallChef
     def lookup_artifact
       require "mixlib/install"
       platform = connection.platform
+      platform_name = platform.family == "windows" ? "windows" : platform.name
       c = {
         platform_version: platform.release,
-        platform: platform.name,
+        platform: platform_name,
         architecture: platform.arch,
         product_name: "chef",
         version: :latest,
@@ -70,8 +61,9 @@ module ChefWorkstation::Action::InstallChef
 
       return local_path if File.exist?(local_path)
 
-      file = open(local_path, "wb")
-      ChefWorkstation::Log.debug "Downloading: #{local_path}"
+      temp_path = "#{local_path}.downloading"
+      file = open(temp_path, "wb")
+      ChefWorkstation::Log.debug "Downloading: #{temp_path}"
       Net::HTTP.start(url.host) do |http|
         begin
           http.request_get(url.path) do |resp|
@@ -79,13 +71,17 @@ module ChefWorkstation::Action::InstallChef
               file.write(segment)
             end
           end
-        rescue => e
-          log.error e.message
-          error = true
+        rescue e
+          @error = true
+          raise
         ensure
           file.close()
-          if error
-            File.delete(local_path)
+          # If any failures occurred, don't risk keeping
+          # an incomplete download that we'll see as 'cached'
+          if @error
+            FileUtils.rm_f(temp_path)
+          else
+            FileUtils.mv(temp_path, local_path)
           end
         end
       end
@@ -100,6 +96,8 @@ module ChefWorkstation::Action::InstallChef
     end
 
     def setup_remote_temp_path
+      # TODO - when we raise this, it's not caught
+      # by top-level exception handling
       raise NotImplementedError
     end
 
