@@ -38,14 +38,9 @@ class ChefWorkstation::RemoteConnection
   end
 
   def connect!
-    # NOTE: when sudo is enabled at the connection level,
-    # it seems that retrieving the connection is enough to
-    # cause it to connect; but it seems that when is not enabled,
-    # the connection is not yet made until we trye to actually invoke it.
     if @backend.nil?
       @backend = @train_connection.connection
-      # Run an invalid command to establish the connection
-      @backend.run_command("invalid")
+      @backend.wait_until_ready
     end
     @backend
   end
