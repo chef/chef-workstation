@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chef-workstation (0.1.23)
+    chef-workstation (0.1.24)
       mixlib-cli
       mixlib-config
       mixlib-install
@@ -16,13 +16,13 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.0)
-    aws-sdk (2.11.26)
-      aws-sdk-resources (= 2.11.26)
-    aws-sdk-core (2.11.26)
+    aws-sdk (2.11.27)
+      aws-sdk-resources (= 2.11.27)
+    aws-sdk-core (2.11.27)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.26)
-      aws-sdk-core (= 2.11.26)
+    aws-sdk-resources (2.11.27)
+      aws-sdk-core (= 2.11.27)
     aws-sigv4 (1.0.2)
     azure_mgmt_resources (0.16.0)
       ms_rest_azure (~> 0.10.0)
