@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.25 -->
+<!-- latest_release 0.1.26 -->
+## [0.1.26](https://github.com/chef/chef-workstation/tree/0.1.26) (2018-04-04)
+
+#### Merged Pull Requests
+- Handle common parseable errors [#47](https://github.com/chef/chef-workstation/pull/47) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.25](https://github.com/chef/chef-workstation/tree/0.1.25) (2018-04-03)
 
 #### Merged Pull Requests
 - Make plain-text spinner element avaialble via config [#48](https://github.com/chef/chef-workstation/pull/48) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.24](https://github.com/chef/chef-workstation/tree/0.1.24) (2018-04-03)
 
