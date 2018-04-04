@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.29 -->
+<!-- latest_release 0.1.30 -->
+## [0.1.30](https://github.com/chef/chef-workstation/tree/0.1.30) (2018-04-04)
+
+#### Merged Pull Requests
+- Windows license needs to be rich text. [#53](https://github.com/chef/chef-workstation/pull/53) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.29](https://github.com/chef/chef-workstation/tree/0.1.29) (2018-04-04)
 
 #### Merged Pull Requests
 - Add dmg resources. [#52](https://github.com/chef/chef-workstation/pull/52) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.28](https://github.com/chef/chef-workstation/tree/0.1.28) (2018-04-04)
 
