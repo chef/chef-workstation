@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.26 -->
+<!-- latest_release 0.1.27 -->
+## [0.1.27](https://github.com/chef/chef-workstation/tree/0.1.27) (2018-04-04)
+
+#### Merged Pull Requests
+- Add license and resource templates for each platform [#50](https://github.com/chef/chef-workstation/pull/50) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.26](https://github.com/chef/chef-workstation/tree/0.1.26) (2018-04-04)
 
 #### Merged Pull Requests
 - Handle common parseable errors [#47](https://github.com/chef/chef-workstation/pull/47) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.25](https://github.com/chef/chef-workstation/tree/0.1.25) (2018-04-03)
 

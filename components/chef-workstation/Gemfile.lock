@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chef-workstation (0.1.26)
+    chef-workstation (0.1.27)
       mixlib-cli
       mixlib-config
       mixlib-install
@@ -132,7 +132,7 @@ GEM
       concurrent-ruby (~> 1.0)
       faraday (~> 0.9)
       timeliness (~> 0.3)
-    ms_rest_azure (0.10.3)
+    ms_rest_azure (0.10.4)
       concurrent-ruby (~> 1.0)
       faraday (~> 0.9)
       faraday-cookie_jar (~> 0.0.6)
