@@ -21,12 +21,15 @@ require "chef-workstation/remote_connection"
 require "chef-workstation/action/install_chef"
 require "chef-workstation/action/converge_target"
 require "chef-workstation/ui/terminal"
+require "chef-workstation/log"
+require "chef-workstation/config"
 
 module ChefWorkstation
   module Command
     class Target
       class Converge < ChefWorkstation::Command::Base
-        T = Text.commands.target.converge
+        T = ChefWorkstation::Text.commands.target.converge
+        Config = ChefWorkstation::Config
 
         option :root,
           :long => "--[no-]root",
@@ -45,15 +48,31 @@ module ChefWorkstation
             path
           end)
 
+        option :ssl,
+          :long => "--[no-]ssl",
+          :short => "-s",
+          :description => T.ssl.desc(Config.connection.winrm.ssl),
+          :boolean => true,
+          :default => Config.connection.winrm.ssl
+
+        option :ssl_verify,
+          :long => "--[no-]ssl-verify",
+          :short => "-s",
+          :description => T.ssl.verify_desc(Config.connection.winrm.ssl_verify),
+          :boolean => true,
+          :default => Config.connection.winrm.ssl_verify
+
         def run(params)
           validate_params(cli_arguments)
           # TODO: option: --no-install
           target = cli_arguments.shift
           resource = cli_arguments.shift
           resource_name = cli_arguments.shift
+
           attributes = format_attributes(cli_arguments)
 
-          conn = connect(target, { sudo: config[:root], key_file: config[:identity_file] })
+          conn = connect(target, config)
+
           UI::Terminal.spinner(T.status.verifying, prefix: "[#{conn.config[:host]}]") do |r|
             Action::InstallChef.instance_for_target(conn, reporter: r).run
           end
@@ -113,7 +132,6 @@ module ChefWorkstation
             value
           end
         end
-
       end
     end
   end

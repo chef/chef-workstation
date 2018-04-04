@@ -46,8 +46,8 @@ module ChefWorkstation::UI
       formatter.add_backtrace_header(out, args)
       formatter.add_formatted_backtrace(out)
       formatter.save_backtrace(out)
-    rescue => e
-      dump_unexpected_error(e)
+    rescue => ex
+      dump_unexpected_error(ex)
     end
 
     # Use this to dump an an exception to output. useful

@@ -57,6 +57,13 @@ commands:
                             the name of the user you wanted to create.
       root_description: "Whether to use root permissions on the target. Defaults to true."
       identity_file: "SSH identity file to use when connecting."
+      ssl:
+        desc: "Use SSL for WinRM. Current default: %1"
+        verify_desc: |
+          Verify peer certificate when using SSL for WinRM
+          Use --ssl-no-verify when using SSL for WinRM and
+          the remote host is using a self-signed certificate.
+          Current default: %1
       status:
         verifying: Verifying Chef client installation.
         converging: Converging %1...
@@ -210,6 +217,20 @@ errors:
 
     Please verify the host name or address is correct and that the host is
     reachable before trying again.
+
+  # Maps to: SSL::SSLError with message text indicating verification failure
+  CHEFNET002: |
+    SSL host verification failed.
+
+    I could not verify the identity of the remote host.
+
+    If you are certain that you are connecting to the correct host,
+    you can specify the '--no-ssl-verify' option for this command, or
+    make it the default by setting the following in your configuration:
+
+      [connection.winrm]
+      ssl_verify=false
+
   footer:
     both: |
       If you are not able to resolve this issue, please contact Chef support
