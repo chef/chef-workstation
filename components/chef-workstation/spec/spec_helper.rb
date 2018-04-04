@@ -18,7 +18,7 @@ class ChefWorkstation::MockReporter
 
   def success(msg); ChefWorkstation::UI::Terminal.output "SUCCESS: #{msg}"; end
 
-  def failure(msg); ChefWorkstation::UI::Terminal.output "FAILURE: #{msg}"; end
+  def error(msg); ChefWorkstation::UI::Terminal.output "FAILURE: #{msg}"; end
 end
 
 # TODO would read better to make this a custom matcher.
