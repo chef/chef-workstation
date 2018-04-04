@@ -31,8 +31,6 @@ module ChefWorkstation::Action
 
     def handle_ccr_error
       require "chef-workstation/errors/ccr_failure_mapper"
-      # Ideally we will eventually write a custom handler to package up data we care
-      # about - https://docs.chef.io/handlers.html
       mapper_opts = { resource: resource_type, resource_name: resource_name }
       c = connection.run_command(read_chef_stacktrace)
       if c.exit_status == 0
@@ -54,8 +52,6 @@ module ChefWorkstation::Action
       mapper = ChefWorkstation::Errors::CCRFailureMapper.new(lines, mapper_opts)
       mapper.raise_mapped_exception!
     end
-
-    # TODO chef-workstation/errors/CCRFailureMapper or so?
 
     def create_apply_args
       apply_args = "\"#{resource_type} '#{resource_name}'"

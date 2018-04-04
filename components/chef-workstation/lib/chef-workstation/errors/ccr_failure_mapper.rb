@@ -23,9 +23,13 @@ module ChefWorkstation::Errors
       end
     end
 
+    # Ideally we will write a custom handler to package up data we care
+    # about and present it more directly  https://docs.chef.io/handlers.html
+    # For now, we'll just match the most common failures based on their
+    # messages.
     def exception_args_from_cause
-      # Ordering is important below.  Some tests are more detailed cases of
-      # things that will match further down.
+      # Ordering is important below.  Some earlier tests are more detailed
+      # cases of things that will match more general tests further down.
       case @cause_line
       when /.*had an error:(.*:)\s+(.*$)/
         # Some invalid attribute value cases, among others.
