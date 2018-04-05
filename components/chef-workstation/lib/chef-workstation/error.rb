@@ -59,6 +59,12 @@ module ChefWorkstation
       show_log = true
       show_stack = true
       case wrapper.contained_exception
+      when OpenSSL::SSL::SSLError
+        if wrapper.contained_exception.message =~ /SSL.*verify failed.*/
+          id = "CHEFNET002"
+          show_log = false
+          show_stack = false
+        end
       when SocketError then id = "CHEFNET001"; show_log = false; show_stack = false
       end
       if id.nil?

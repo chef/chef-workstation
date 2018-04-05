@@ -28,11 +28,16 @@ class ChefWorkstation::RemoteConnection
 
   def initialize(host_url, opts = {}, logger = nil)
     target_url = maybe_add_default_scheme(host_url)
-    conn_opts = { sudo: opts.has_key?(:sudo) ? opts[:sudo] : false,
-                  target: target_url,
-                  key_files: opts[:key_file],
-                  logger: ChefWorkstation::Log }
-    @config = Train.target_config(conn_opts)
+    cfg = { target: target_url,
+            sudo: opts.has_key?(:root) ? opts[:root] : true,
+            key_files: opts[:identity_file],
+            logger: ChefWorkstation::Log }
+    if opts.has_key? :ssl
+      cfg[:ssl] = opts[:ssl]
+      cfg[:self_signed] = opts[:ssl_verify] == false ? true : false
+    end
+
+    @config = Train.target_config(cfg)
     @type = Train.validate_backend(@config)
     @train_connection = Train.create(@type, config)
   end

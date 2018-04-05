@@ -26,6 +26,14 @@ module ChefWorkstation
     config_context :cache do
       default(:path, File.join(WS_BASE_PATH, "cache"))
     end
+
+    config_context :connection do
+      config_context :winrm do
+        default(:ssl, false)
+        default(:ssl_verify, true)
+      end
+    end
+
     config_context :dev do
       default(:spinner, "TTY::Spinner")
     end
