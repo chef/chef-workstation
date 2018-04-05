@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.31 -->
+<!-- latest_release 0.1.32 -->
+## [0.1.32](https://github.com/chef/chef-workstation/tree/0.1.32) (2018-04-05)
+
+#### Merged Pull Requests
+- Try using bash instead of sh in expeditor. [#59](https://github.com/chef/chef-workstation/pull/59) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.31](https://github.com/chef/chef-workstation/tree/0.1.31) (2018-04-04)
 
 #### Merged Pull Requests
 - Additional rtf tags in license [#56](https://github.com/chef/chef-workstation/pull/56) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.30](https://github.com/chef/chef-workstation/tree/0.1.30) (2018-04-04)
 
