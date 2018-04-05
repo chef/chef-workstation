@@ -9,9 +9,9 @@ set -evx
 sed -i -r "s/VERSION = \".*\"/VERSION = \"$(cat VERSION)\"/"  components/chef-workstation/lib/chef-workstation/version.rb
 
 # Ensure our Gemfile.lock reflects the new version
-pushd components/chef-workstation
+cd components/chef-workstation
 bundle update chef-workstation
-popd
+cd ../..
 
 # run readme update script.
 # TODO: Remove this when expeditor issue requiring mixlib install definition
