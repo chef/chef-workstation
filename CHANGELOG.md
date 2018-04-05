@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.32 -->
+<!-- latest_release 0.1.33 -->
+## [0.1.33](https://github.com/chef/chef-workstation/tree/0.1.33) (2018-04-05)
+
+#### Merged Pull Requests
+- Support for connecting to winrm over ssl [#54](https://github.com/chef/chef-workstation/pull/54) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.32](https://github.com/chef/chef-workstation/tree/0.1.32) (2018-04-05)
 
 #### Merged Pull Requests
 - Try using bash instead of sh in expeditor. [#59](https://github.com/chef/chef-workstation/pull/59) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.31](https://github.com/chef/chef-workstation/tree/0.1.31) (2018-04-04)
 
