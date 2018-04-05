@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # After the release build expeditor will update the readme to include new
 # package urls. Note if the build fails these links wont work. Also, they won't
