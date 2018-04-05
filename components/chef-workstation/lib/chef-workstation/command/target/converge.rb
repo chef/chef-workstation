@@ -27,7 +27,6 @@ require "chef-workstation/config"
 module ChefWorkstation
   module Command
     class Target
-      ATTRIBUTE_MATCHER = /^([a-zA-Z0-9]+)=(.+)$/
       class Converge < ChefWorkstation::Command::Base
         T = ChefWorkstation::Text.commands.target.converge
         TS = ChefWorkstation::Text.status
@@ -66,31 +65,46 @@ module ChefWorkstation
 
         def run(params)
           validate_params(cli_arguments)
-          # TODO: option: --no-install
-          target = cli_arguments.shift
-          @resource = cli_arguments.shift
-          @resource_name = cli_arguments.shift
-          full_rs_name = "#{@resource}[#{@resource_name}]"
-          @attributes = format_attributes(cli_arguments)
-          @conn = connect(target, config)
 
+          target = cli_arguments.shift
+
+          @conn = connect(target, config)
           UI::Terminal.spinner(TS.install.verifying, prefix: "[#{@conn.hostname}]") do |r|
             install(r)
           end
 
-          UI::Terminal.spinner(TS.converge.converging(full_rs_name), prefix: "[#{@conn.hostname}]") do |r|
-            converge(r, full_rs_name)
+          converge_args = { connection: @conn }
+          converge_args, spinner_msg = parse_converge_args(converge_args, cli_arguments)
+          UI::Terminal.spinner(spinner_msg, prefix: "[#{@conn.hostname}]") do |r|
+            converge(r, converge_args)
           end
         end
 
+        # The first param is always hostname. Then we either have
+        # 1. A recipe designation
+        # 2. A resource type and resource name followed by any attributes
+        ATTRIBUTE_MATCHER = /^([a-zA-Z0-9]+)=(.+)$/
+        CB_MATCHER = '[\w\-]+'
         def validate_params(params)
-          if params.size < 3
+          if params.size < 2
             raise OptionValidationError.new("CHEFVAL002")
           end
-          attributes = params[3..-1]
-          attributes.each do |attribute|
-            unless attribute =~ ATTRIBUTE_MATCHER
-              raise OptionValidationError.new("CHEFVAL003", attribute)
+          if params.size == 2
+            # Trying to specify a recipe to run remotely, no attributes
+            cb = params[1]
+            if File.exist?(cb)
+              # This is a path specification, and we know it is valid
+            elsif cb =~ /^#{CB_MATCHER}$/ || cb =~ /^#{CB_MATCHER}::#{CB_MATCHER}$/
+              # They are specifying a cookbook as 'cb_name' or 'cb_name::recipe'
+            else
+              raise OptionValidationError.new("CHEFVAL004", cb)
+            end
+          elsif params.size >= 3
+            attributes = params[3..-1]
+            attributes.each do |attribute|
+              unless attribute =~ ATTRIBUTE_MATCHER
+                raise OptionValidationError.new("CHEFVAL003", attribute)
+              end
             end
           end
         end
@@ -114,7 +128,7 @@ module ChefWorkstation
             # when it is a zero leading value like "0777" don't turn
             # it into a number (this is a mode flag)
             value
-          when /\d+/
+          when /^\d+$/
             value.to_i
           when /(^(\d+)(\.)?(\d+)?)|(^(\d+)?(\.)(\d+))/
             value.to_f
@@ -125,6 +139,38 @@ module ChefWorkstation
           else
             value
           end
+        end
+
+        # The user will either specify a single resource on the command line, or a recipe.
+        # We need to parse out those two different situations
+        def parse_converge_args(converge_args, cli_arguments)
+          if recipe_strategy?(cli_arguments)
+            recipe_specifier = cli_arguments.shift
+            ChefWorkstation::Log.debug("Beginning to look for recipe specified as #{recipe_specifier}")
+
+            # First, we check to see if the user has specified the full path (absolute or relative)
+            # to a file. If they have, we assume that is a recipe they want to execute.
+            if File.file?(recipe_specifier)
+              ChefWorkstation::Log.debug("#{recipe_specifier} is a valid path to a recipe")
+              converge_args[:recipe_path] = recipe_specifier
+              spinner_msg = TS.converge.converging_recipe(recipe_specifier)
+            else
+              raise "Cannot specify anything besides full path yet"
+            end
+          else
+            resource = converge_args[:resource_type] = cli_arguments.shift
+            resource_name = converge_args[:resource_name] = cli_arguments.shift
+            converge_args[:attributes] = format_attributes(cli_arguments)
+            full_rs_name = "#{resource}[#{resource_name}]"
+            ChefWorkstation::Log.debug("Converging resource #{full_rs_name} on target")
+            spinner_msg = TS.converge.converging_resource(full_rs_name)
+          end
+
+          [converge_args, spinner_msg]
+        end
+
+        def recipe_strategy?(cli_arguments)
+          cli_arguments.size == 1
         end
 
           # Runs the InstallChef action and renders UI updates as
@@ -155,11 +201,8 @@ module ChefWorkstation
 
           # Runs the Converge action and renders UI updates as
           # the action reports back
-        def converge(reporter, full_rs_name)
-          converger = Action::ConvergeTarget.new(connection: @conn,
-                                                 resource_type: @resource,
-                                                 resource_name: @resource_name,
-                                                 attributes: @attributes)
+        def converge(reporter, converge_args)
+          converger = Action::ConvergeTarget.new(converge_args)
           converger.run do |event, data|
             case event
             when :success

@@ -29,12 +29,35 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
     it "raises an error if not enough params are specified" do
       params = [
         [],
-        %w{one two}
+        %w{one}
       ]
       params.each do |p|
         expect { cmd.validate_params(p) }.to raise_error(OptionValidationError) do |e|
           e.id == "CHEFVAL002"
         end
+      end
+    end
+
+    it "succeeds if the second command is a valid file path" do
+      params = %w{target /some/path}
+      expect(File).to receive(:exist?).with("/some/path").and_return true
+      expect { cmd.validate_params(params) }.to_not raise_error
+    end
+
+    it "succeeds if the second argument looks like a cookbook name" do
+      params = [
+        %w{target cb},
+        %w{target cb::recipe}
+      ]
+      params.each do |p|
+        expect { cmd.validate_params(p) }.to_not raise_error
+      end
+    end
+
+    it "raises an error if the second argument is neither a valid path or a valid cookbook name" do
+      params = %w{target weird%name}
+      expect { cmd.validate_params(params) }.to raise_error(OptionValidationError) do |e|
+        e.id == "CHEFVAL004"
       end
     end
 
@@ -54,7 +77,7 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
 
   describe "#format_attributes" do
     it "parses attributes into a hash" do
-      provided = %w{key1=value key2=1 key3=true key4=FaLsE key5=0777 key6=https://some.website}
+      provided = %w{key1=value key2=1 key3=true key4=FaLsE key5=0777 key6=https://some.website key7=num1and2digit}
       expected = {
         "key1" => "value",
         "key2" => 1,
@@ -62,9 +85,75 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
         "key4" => false,
         "key5" => "0777",
         "key6" => "https://some.website",
+        "key7" => "num1and2digit",
       }
       expect(cmd.format_attributes(provided)).to eq(expected)
     end
+  end
 
+  describe "#parse_converge_args" do
+    let(:converge_args) { Hash.new }
+
+    context "when trying to converge a recipe" do
+      context "as a path" do
+        let(:p) { "/some/path" }
+        let(:cli_arguments) { [p] }
+        it "returns the recipe path" do
+          expect(File).to receive(:file?).with(p).and_return true
+          actual1, actual2 = cmd.parse_converge_args(converge_args, cli_arguments)
+          expect(actual1).to eq({ recipe_path: p })
+          msg = ChefWorkstation::Text.status.converge.converging_recipe(p)
+          expect(actual2).to eq(msg)
+        end
+      end
+
+      context "as a cookbook name" do
+        let(:cli_arguments) { %w{cb_name} }
+        it "returns the recipe path" do
+          expect { cmd.parse_converge_args(converge_args, cli_arguments) }.to raise_error(
+            "Cannot specify anything besides full path yet"
+          )
+        end
+      end
+    end
+
+    context "when trying to converge a resource" do
+      let(:cli_arguments) { %w{directory foo attr1=val1 attr2=val2} }
+      it "returns the resource information" do
+        actual1, actual2 = cmd.parse_converge_args(converge_args, cli_arguments)
+        expect(actual1).to eq({
+          attributes: { "attr1" => "val1", "attr2" => "val2" },
+          resource_type: "directory",
+          resource_name: "foo"
+        })
+        msg = ChefWorkstation::Text.status.converge.converging_resource("directory[foo]")
+        expect(actual2).to eq(msg)
+      end
+    end
+  end
+
+  describe "#run" do
+    let(:params) { %w{target /some/path} }
+    let(:conn) { instance_double(ChefWorkstation::RemoteConnection, hostname: "target") }
+    let(:reporter) { instance_double(ChefWorkstation::StatusReporter) }
+    let(:installer) { instance_double(ChefWorkstation::Action::InstallChef::Linux) }
+    let(:converger) { instance_double(ChefWorkstation::Action::ConvergeTarget) }
+    it "installs chef and runs the resource" do
+      expect(cmd).to receive(:cli_arguments).and_return(params).exactly(3).times
+      expect(cmd).to receive(:validate_params).with(params)
+      expect(cmd).to receive(:connect).with("target", an_instance_of(Hash)).and_return(conn)
+      msg = ChefWorkstation::Text.status.install.verifying
+      expect(ChefWorkstation::UI::Terminal).to receive(:spinner).with(msg, { prefix: "[target]" }).and_yield(reporter)
+      expect(ChefWorkstation::Action::InstallChef).to receive(:instance_for_target).with(conn).and_return(installer)
+      expect(installer).to receive(:run)
+      msg = "other_msg"
+      converge_args = {}
+      expect(cmd).to receive(:parse_converge_args).with({ connection: conn }, params).and_return([converge_args, msg])
+      expect(ChefWorkstation::UI::Terminal).to receive(:spinner).with(msg, { prefix: "[target]" }).and_yield(reporter)
+      expect(ChefWorkstation::Action::ConvergeTarget).to receive(:new).with(converge_args).and_return(converger)
+      expect(converger).to receive(:run)
+
+      cmd.run(params)
+    end
   end
 end

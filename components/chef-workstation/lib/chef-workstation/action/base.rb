@@ -34,10 +34,35 @@ module ChefWorkstation
           windows: "del /f C:/chef/cache/chef-stacktrace.out",
           other: "rm -f /var/chef/cache/chef-stacktrace.out",
         },
+        tempdir: {
+          windows: "%TEMP%",
+          other: "$TMPDIR",
+        },
+        # TODO this is duplicating some stuff in the install_chef folder
+        # TODO maybe we start to break these out into actual functions, so
+        # we don't have to try and make really long one-liners
+        mktemp: {
+          windows: "$parent = [System.IO.Path]::GetTempPath(); [string] $name = [System.Guid]::NewGuid(); $tmp = New-Item -ItemType Directory -Path (Join-Path $parent $name); $tmp.FullName",
+          other: "bash -c 'd=$(mktemp -d -p${TMPDIR:-/tmp} chef_XXXXXX); chmod 777 $d; echo $d'"
+        },
+        delete_folder: {
+          windows: "Remove-Item -Recurse -Force –Path",
+          other: "rm -rf",
+        }
       }
 
       PATH_MAPPING.keys.each do |m|
         define_method(m) { PATH_MAPPING[m][family] }
+      end
+
+      # Trying to perform File or Pathname operations on a Windows path with '\'
+      # characters in it fails. So lets convert them to '/' which these libraries
+      # handle better.
+      def escape_windows_path(p)
+        if family == :windows
+          p = p.tr("\\", "/")
+        end
+        p
       end
 
       def run(&block)
