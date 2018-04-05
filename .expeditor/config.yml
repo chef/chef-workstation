@@ -32,6 +32,8 @@ merge_actions:
         - "Meta: Exclude From Changelog"
         - "Expeditor: Exclude From Changelog"
         - "Expeditor: Skip All"
+  - bash:.expeditor/update_readme_download_urls.sh:
+      only_if: built_in:bump_version
   - built_in:trigger_omnibus_release_build:
       ignore_labels:
         - "Omnibus: Skip Build"
