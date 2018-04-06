@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.33 -->
+<!-- latest_release 0.1.34 -->
+## [0.1.34](https://github.com/chef/chef-workstation/tree/0.1.34) (2018-04-06)
+
+#### Merged Pull Requests
+- Fixes the bolding of the NOTE message in README [#60](https://github.com/chef/chef-workstation/pull/60) ([burtlo](https://github.com/burtlo))
+<!-- latest_release -->
+
 ## [0.1.33](https://github.com/chef/chef-workstation/tree/0.1.33) (2018-04-05)
 
 #### Merged Pull Requests
 - Support for connecting to winrm over ssl [#54](https://github.com/chef/chef-workstation/pull/54) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.32](https://github.com/chef/chef-workstation/tree/0.1.32) (2018-04-05)
 
