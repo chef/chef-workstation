@@ -7,9 +7,9 @@ Chef Workstation installs everything you need to get started using Chef on Windo
 
 1. Download Chef Workstation
    
-   * [Download Chef Workstation for Mac](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.40/mac_os_x/10.13/chef-workstation-0.1.40-1.dmg)
+   * [Download Chef Workstation for Mac](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.42/mac_os_x/10.13/chef-workstation-0.1.42-1.dmg)
 
-   * [Download Chef Workstation for Windows](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.40/windows/2016/chef-workstation-0.1.40-1-x64.msi)
+   * [Download Chef Workstation for Windows](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.42/windows/2016/chef-workstation-0.1.42-1-x64.msi)
 
     ***Note:*** These links are internal and require Chef VPN. </br>
     ***Note2:*** These links may return a 404 if a build is in progress. Please try again in a few minutes.
