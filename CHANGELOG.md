@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.35 -->
+<!-- latest_release 0.1.36 -->
+## [0.1.36](https://github.com/chef/chef-workstation/tree/0.1.36) (2018-04-06)
+
+#### Merged Pull Requests
+- Update readme formatting [#61](https://github.com/chef/chef-workstation/pull/61) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.35](https://github.com/chef/chef-workstation/tree/0.1.35) (2018-04-06)
 
 #### Merged Pull Requests
 - Update expeditor config to properly handle url updates in readme. [#57](https://github.com/chef/chef-workstation/pull/57) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.34](https://github.com/chef/chef-workstation/tree/0.1.34) (2018-04-06)
 
