@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.42 -->
+<!-- latest_release 0.1.43 -->
+## [0.1.43](https://github.com/chef/chef-workstation/tree/0.1.43) (2018-04-06)
+
+#### Merged Pull Requests
+- Remove 404 warning from readme [#68](https://github.com/chef/chef-workstation/pull/68) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.42](https://github.com/chef/chef-workstation/tree/0.1.42) (2018-04-06)
 
 #### Merged Pull Requests
 - Push changes back to master [#67](https://github.com/chef/chef-workstation/pull/67) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.41](https://github.com/chef/chef-workstation/tree/0.1.41) (2018-04-06)
 
