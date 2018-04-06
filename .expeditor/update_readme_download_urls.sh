@@ -1,9 +1,7 @@
 #!/bin/bash
 #
 # After the release build expeditor will update the readme to include new
-# package urls. Note if the build fails these links wont work. Also, they won't
-# work during the build because we will have updated the readme before the
-# artifacts are ready.
+# package urls.
 
 set -evx
 

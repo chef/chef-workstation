@@ -11,9 +11,3 @@ sed -i -r "s/VERSION = \".*\"/VERSION = \"$(cat VERSION)\"/"  components/chef-wo
 # Ensure our Gemfile.lock reflects the new version
 cd components/chef-workstation
 bundle update chef-workstation
-cd ../..
-
-# run readme update script.
-# TODO: Remove this when expeditor issue requiring mixlib install definition
-# is fixed. This check prevents us changing our config file.
-bash .expeditor/update_readme_download_urls.sh
