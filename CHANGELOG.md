@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.34 -->
+<!-- latest_release 0.1.35 -->
+## [0.1.35](https://github.com/chef/chef-workstation/tree/0.1.35) (2018-04-06)
+
+#### Merged Pull Requests
+- Update expeditor config to properly handle url updates in readme. [#57](https://github.com/chef/chef-workstation/pull/57) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.34](https://github.com/chef/chef-workstation/tree/0.1.34) (2018-04-06)
 
 #### Merged Pull Requests
 - Fixes the bolding of the NOTE message in README [#60](https://github.com/chef/chef-workstation/pull/60) ([burtlo](https://github.com/burtlo))
-<!-- latest_release -->
 
 ## [0.1.33](https://github.com/chef/chef-workstation/tree/0.1.33) (2018-04-05)
 
