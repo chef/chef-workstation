@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.39 -->
+<!-- latest_release unreleased -->
+## Unreleased
+
+#### Merged Pull Requests
+- Try promote action to avoid 404s [#65](https://github.com/chef/chef-workstation/pull/65) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.39](https://github.com/chef/chef-workstation/tree/0.1.39) (2018-04-06)
 
 #### Merged Pull Requests
 - Add note about 404 durning build [#64](https://github.com/chef/chef-workstation/pull/64) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.38](https://github.com/chef/chef-workstation/tree/0.1.38) (2018-04-06)
 
