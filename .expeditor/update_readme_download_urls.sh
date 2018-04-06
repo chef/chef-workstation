@@ -13,3 +13,4 @@ sed -i -r "s/(^   \* \[.*Windows\]\().*(\))/\1${windows_url//\//\\/}\2/" README.
 
 git add .
 git commit -m "Update readme links to $(cat VERSION) by Expeditor"
+git push origin master
