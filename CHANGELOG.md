@@ -1,10 +1,15 @@
-<!-- latest_release 0.1.41 -->
+<!-- latest_release 0.1.42 -->
+## [0.1.42](https://github.com/chef/chef-workstation/tree/0.1.42) (2018-04-06)
+
+#### Merged Pull Requests
+- Push changes back to master [#67](https://github.com/chef/chef-workstation/pull/67) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.41](https://github.com/chef/chef-workstation/tree/0.1.41) (2018-04-06)
 
 #### Merged Pull Requests
 - Remove only if and only run url update on promote. [#66](https://github.com/chef/chef-workstation/pull/66) ([jonsmorrow](https://github.com/jonsmorrow))
 - Try promote action to avoid 404s [#65](https://github.com/chef/chef-workstation/pull/65) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.39](https://github.com/chef/chef-workstation/tree/0.1.39) (2018-04-06)
 
