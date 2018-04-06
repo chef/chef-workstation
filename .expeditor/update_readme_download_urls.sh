@@ -5,8 +5,11 @@
 
 set -evx
 
-mac_url=http://artifactory.chef.co/omnibus-unstable-local/com/getchef/chef-workstation/$(cat VERSION)/mac_os_x/10.13/chef-workstation-$(cat VERSION)-1.dmg
-windows_url=http://artifactory.chef.co/omnibus-unstable-local/com/getchef/chef-workstation/$(cat VERSION)/windows/2016/chef-workstation-$(cat VERSION)-1-x64.msi
+mac_url=http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/$(cat VERSION)/mac_os_x/10.13/chef-workstation-$(cat VERSION)-1.dmg
+windows_url=http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/$(cat VERSION)/windows/2016/chef-workstation-$(cat VERSION)-1-x64.msi
 
 sed -i -r "s/(^   \* \[.*Mac\]\().*(\))/\1${mac_url//\//\\/}\2/" README.md
 sed -i -r "s/(^   \* \[.*Windows\]\().*(\))/\1${windows_url//\//\\/}\2/" README.md
+
+git add .
+git commit -m "Update readme links to $(cat VERSION) by Expeditor"
