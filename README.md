@@ -10,7 +10,7 @@ Chef Workstation installs everything you need to get started using Chef on Windo
 
   * [Download Chef Workstation for Windows](http://artifactory.chef.co/omnibus-unstable-local/com/getchef/chef-workstation/0.1.33/windows/2016/chef-workstation-0.1.33-1-x64.msi)
 
-  ***Note:** This link is internal and requires VPN
+  ***Note:*** This link is internal and requires VPN
 
 2. Double-click the `.dmg` file to start the install process.
 
