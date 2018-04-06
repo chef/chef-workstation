@@ -3,8 +3,6 @@ require "chef-workstation/text"
 
 module ChefWorkstation::Action
   class ConvergeTarget < Base
-    T = ChefWorkstation::Text.actions.converge_target
-
     attr_reader :resource_type, :resource_name, :attributes
     def initialize(config)
       super(config)
@@ -15,16 +13,13 @@ module ChefWorkstation::Action
 
     def perform_action
       apply_args = create_apply_args
-
-      full_rs_name = "#{resource_type}[#{resource_name}]"
-      ChefWorkstation::Log.debug("Converging #{full_rs_name} with attributes #{attributes}")
-
+      ChefWorkstation::Log.debug("Converging  #{resource_type} #{resource_name} with attributes #{attributes}")
       c = connection.run_command("#{chef_apply} --no-color -e #{apply_args}")
       if c.exit_status == 0
         ChefWorkstation::Log.debug(c.stdout)
-        reporter.success(T.success(full_rs_name))
+        notify(:success)
       else
-        reporter.error(T.error)
+        notify(:error)
         handle_ccr_error()
       end
     end

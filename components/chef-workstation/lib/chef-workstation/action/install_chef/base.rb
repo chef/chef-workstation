@@ -1,32 +1,28 @@
 require "chef-workstation/action/base"
-require "chef-workstation/config"
 require "fileutils"
 
 module ChefWorkstation::Action::InstallChef
   class Base < ChefWorkstation::Action::Base
-    T = ChefWorkstation::Text.actions.install_chef
-    # Create connection action instance based on targt OS.
     def perform_action
       if already_installed_on_target?
-        reporter.success(T.client_already_installed)
+        notify(:success, :already_installed)
         return
       end
-      # TODO: Support an option to specify perform_local/remote_install.
-      perform_local_install
+      perform_local_install()
     end
 
     def perform_local_install
       package = lookup_artifact()
-      reporter.update(T.downloading)
+      notify(:downloading)
       local_path = download_to_workstation(package.url)
-      reporter.update(T.uploading)
+      notify(:uploading)
       remote_path = upload_to_target(local_path)
-      reporter.update(T.installing)
+      notify(:installing)
       install_chef_to_target(remote_path)
-      reporter.success(T.success)
+      notify(:success, :install_complete)
     rescue => e
-      msg = e.respond_to?(:message) ? e.message : T.aborted
-      reporter.error(T.error(msg))
+      msg = e.respond_to?(:message) ? e.message : nil
+      notify(:error, msg)
       raise
     end
 
@@ -50,42 +46,8 @@ module ChefWorkstation::Action::InstallChef
     end
 
     def download_to_workstation(url_path)
-      require "uri"
-      require "net/http"
-
-      FileUtils.mkdir_p(ChefWorkstation::Config.cache.path)
-      url = URI.parse(url_path)
-      name = File.basename(url.path)
-      local_path = File.join(ChefWorkstation::Config.cache.path,
-                             name)
-
-      return local_path if File.exist?(local_path)
-
-      temp_path = "#{local_path}.downloading"
-      file = open(temp_path, "wb")
-      ChefWorkstation::Log.debug "Downloading: #{temp_path}"
-      Net::HTTP.start(url.host) do |http|
-        begin
-          http.request_get(url.path) do |resp|
-            resp.read_body do |segment|
-              file.write(segment)
-            end
-          end
-        rescue e
-          @error = true
-          raise
-        ensure
-          file.close()
-          # If any failures occurred, don't risk keeping
-          # an incomplete download that we'll see as 'cached'
-          if @error
-            FileUtils.rm_f(temp_path)
-          else
-            FileUtils.mv(temp_path, local_path)
-          end
-        end
-      end
-      local_path
+      require "chef-workstation/file_fetcher"
+      ChefWorkstation::FileFetcher.fetch(url_path)
     end
 
     def upload_to_target(local_path)

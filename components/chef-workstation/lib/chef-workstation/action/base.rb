@@ -16,7 +16,7 @@ module ChefWorkstation
       attr_reader :connection, :config
       attr_accessor :reporter
 
-      def initialize(config = {})
+      def initialize(config = {}, &block)
         c = config.dup
         @reporter = c.delete :reporter
         @connection = c.delete :connection
@@ -43,7 +43,8 @@ module ChefWorkstation
         define_method(m) { PATH_MAPPING[m][family] }
       end
 
-      def run
+      def run(&block)
+        @notification_handler = block
         Telemetry.timed_capture(:action, name: self.class.name.split("::").last) do
           perform_action
         end
@@ -51,6 +52,12 @@ module ChefWorkstation
 
       def perform_action
         raise NotImplemented
+      end
+
+      def notify(action, *args)
+        return if @notification_handler.nil?
+        ChefWorkstation::Log.debug("[#{self.class.name}] Action: #{action}, Action Data: #{args}")
+        @notification_handler.call(action, args) if @notification_handler
       end
 
       private

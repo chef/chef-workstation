@@ -60,7 +60,7 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
 
     it "runs the converge and reports back success" do
       expect(connection).to receive(:run_command).with(/chef-apply.+#{r1}/).and_return(result)
-      expect(reporter).to receive(:success).with(/#{r1}/)
+      expect(action).to receive(:notify).with(:success)
       action.perform_action
     end
 
@@ -75,7 +75,7 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
       end
 
       it "scrapes the remote log and raised via mapper" do
-        expect(reporter).to receive(:error).with(/converge/)
+        expect(action).to receive(:notify).with(:error)
         expect(connection).to receive(:run_command).with(/chef-stacktrace/).and_return(stacktrace_result)
         expect(connection).to receive(:run_command).with(/del/).and_return(stacktrace_result)
         expect(exception_mapper).to receive(:raise_mapped_exception!)
@@ -85,7 +85,7 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
       context "when remote log cannot be retrieved" do
         let(:stacktrace_result) { double("stacktrace scrape result", exit_status: 1, stdout: "", stderr: "") }
         it "logs results from the attempt and raises via mapper" do
-          expect(reporter).to receive(:error).with(/converge/)
+          expect(action).to receive(:notify).with(:error)
           expect(exception_mapper).to receive(:raise_mapped_exception!)
           expect(connection).to receive(:run_command).with(/chef-stacktrace/).and_return(stacktrace_result)
           action.perform_action

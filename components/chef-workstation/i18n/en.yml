@@ -67,27 +67,27 @@ commands:
           Use --ssl-no-verify when using SSL for WinRM and
           the remote host is using a self-signed certificate.
           Current default: %1
-      status:
-        verifying: Verifying Chef client installation.
-        converging: Converging %1...
   base:
     status:
       connecting: "Connecting..."
       connected: "Connected."
       connection_failed: "Connection failed: %1"
-actions:
-  install_chef:
-    checking_for_client: Checking for Chef client.
-    client_already_installed: Client already installed, no action to take.
-    client_missing: Client not installed.
+
+# Status updates shared across commands.
+status:
+  install:
     installing: Installing Chef client.
     downloading: Downloading Chef client installer.
     uploading: Uploading Chef client installer.
+    checking_for_client: Checking for Chef client.
+    verifying: Verifying Chef client installation.
+    already_present: Client already present on system.
     success: "Chef client installation completed!"
-    error: "An error occurred while installing Chef client: %1"
-  converge_target:
+    failure: "An error occurred while installing Chef client: %1"
+  converge:
+    converging: Converging %1...
     success: "Successfully converged %1!"
-    error: "Failed to converge remote machine."
+    failure: "Failed to converge remote machine."
 
 # Error definitions, usage Text.e.ERR999
 # General format:

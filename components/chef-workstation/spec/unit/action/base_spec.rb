@@ -25,6 +25,15 @@ RSpec.describe ChefWorkstation::Action::Base do
       expect(action).to receive(:perform_action)
       action.run
     end
+
+    it "invokes an action handler when actions occur and a handler is provided" do
+      @run_action = nil
+      @args = nil
+      expect(action).to receive(:perform_action) { action.notify(:test_success, "some arg") }
+      action.run { |action, args| @run_action = action; @args = args }
+      expect(@run_action).to eq :test_success
+      expect(@args).to eq ["some arg"]
+    end
   end
 
   shared_examples "check path fetching" do

@@ -42,4 +42,3 @@ module ChefWorkstation
     end
   end
 end
-
