@@ -6,20 +6,25 @@ Chef Workstation installs everything you need to get started using Chef on Windo
 ## Getting Started
 
 1. Download Chef Workstation
-  * [Download Chef Workstation for Mac](http://artifactory.chef.co/omnibus-unstable-local/com/getchef/chef-workstation/0.1.35/mac_os_x/10.13/chef-workstation-0.1.35-1.dmg)
+   
+   * [Download Chef Workstation for Mac](http://artifactory.chef.co/omnibus-unstable-local/com/getchef/chef-workstation/0.1.35/mac_os_x/10.13/chef-workstation-0.1.35-1.dmg)
 
-  * [Download Chef Workstation for Windows](http://artifactory.chef.co/omnibus-unstable-local/com/getchef/chef-workstation/0.1.35/windows/2016/chef-workstation-0.1.35-1-x64.msi)
+   * [Download Chef Workstation for Windows](http://artifactory.chef.co/omnibus-unstable-local/com/getchef/chef-workstation/0.1.35/windows/2016/chef-workstation-0.1.35-1-x64.msi)
 
-  ***Note:*** This link is internal and requires VPN
+    ***Note:*** These links are internal and require Chef VPN.
 
-2. Double-click the `.dmg` file to start the install process.
+2. Double-click the `.dmg` or `.msi` file to start the install process.
 
 3. Open a command-line terminal, and try out some Chef-workstation commands
+   
+   * Run `chef -h` to view the available commands
 
-    * Run `chef -h` to view the available commands
-    * Want to perform an ad-hoc task? Try
+   * Want to perform an ad-hoc task? Try
+    
     `chef target converge <Target host|IP|SSH|WinRM> <Resource> <Resource Name> [attributes] [flags]`
+    
     `chef target converge user@hostname user timmy`
+    
     `chef target converge winrm://user@hostname:port user timmy`
 
 
