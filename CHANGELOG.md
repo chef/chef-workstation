@@ -1,7 +1,8 @@
-<!-- latest_release unreleased -->
-## Unreleased
+<!-- latest_release 0.1.41 -->
+## [0.1.41](https://github.com/chef/chef-workstation/tree/0.1.41) (2018-04-06)
 
 #### Merged Pull Requests
+- Remove only if and only run url update on promote. [#66](https://github.com/chef/chef-workstation/pull/66) ([jonsmorrow](https://github.com/jonsmorrow))
 - Try promote action to avoid 404s [#65](https://github.com/chef/chef-workstation/pull/65) ([jonsmorrow](https://github.com/jonsmorrow))
 <!-- latest_release -->
 
