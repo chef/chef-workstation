@@ -80,6 +80,7 @@ module ChefWorkstation
     def self.deps
       # Avoid loading additional includes until they're needed
       require "socket"
+      require "openssl"
     end
   end
 
