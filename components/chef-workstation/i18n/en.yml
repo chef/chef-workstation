@@ -95,8 +95,8 @@ status:
   converge:
     converging_recipe: Converging local recipe %1 on target...
     converging_resource: Converging %1 on target...
-    success: "Successfully converged %1!"
-    failure: "Failed to converge remote machine."
+    success: "Successfully converged target!"
+    failure: "Failed to converge target."
 
 # Error definitions, usage Text.e.ERR999
 # General format:

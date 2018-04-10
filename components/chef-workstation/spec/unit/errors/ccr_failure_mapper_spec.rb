@@ -18,9 +18,8 @@ RSpec.describe ChefWorkstation::Errors::CCRFailureMapper do
         let(:cause_line) { "Chef::Exceptions::ValidationFailed: Option action must be equal to one of: nothing, install, upgrade, remove, purge, reconfig, lock, unlock!  You passed :marve." }
         it "returns a correct CHEFCCR003" do
           expect(subject.exception_args_from_cause).to eq(
-            ["CHEFCCR003", "apt_package", "marve",
-             "nothing, install, upgrade, remove, purge, reconfig, lock, unlock!",
-             "apt-package" ]
+            ["CHEFCCR003", "marve",
+             "nothing, install, upgrade, remove, purge, reconfig, lock, unlock"]
           )
         end
       end
@@ -31,17 +30,14 @@ RSpec.describe ChefWorkstation::Errors::CCRFailureMapper do
           it "returns a correct CHEFCCR004 when details are available" do
             expect(subject.exception_args_from_cause).to eq(
               ["CHEFCCR004",
-               "Option force must be a kind of [TrueClass, FalseClass]!  You passed \"purle\".",
-               "apt_package", "apt-package"])
+               "Option force must be a kind of [TrueClass, FalseClass]!  You passed \"purle\"."])
           end
         end
         context "And less detail is available" do
           let(:cause_line) { "Chef::Exceptions::User: linux_user[marc] ((chef-apply cookbook)::(chef-apply recipe) line 1) had an error: Chef::Exceptions::User: Couldn't lookup integer GID for group name blah" }
           it "returns a correct CHEFCCR002" do
             expect(subject.exception_args_from_cause).to eq(
-              ["CHEFCCR002",
-               "Couldn't lookup integer GID for group name blah",
-               "apt-package" ])
+              ["CHEFCCR002", "Couldn't lookup integer GID for group name blah"])
           end
         end
       end
@@ -59,9 +55,7 @@ RSpec.describe ChefWorkstation::Errors::CCRFailureMapper do
       let(:cause_line) { "NoMethodError: undefined method `badresourceattr' for Chef::Resource::User::LinuxUser" }
       it "returns a correct CHEFCCR006 " do
         expect(subject.exception_args_from_cause).to eq(
-          ["CHEFCCR006",
-            "badresourceattr",
-            "apt_package", "apt-package" ])
+          ["CHEFCCR006", "badresourceattr", "Chef::Resource::User::LinuxUser"])
       end
     end
   end

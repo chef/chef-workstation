@@ -206,7 +206,7 @@ module ChefWorkstation
           converger.run do |event, data|
             case event
             when :success
-              reporter.update(TS.converge.success(full_rs_name))
+              reporter.update(TS.converge.success)
             when :error
               reporter.error(TS.converge.failure)
             end

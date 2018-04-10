@@ -144,14 +144,12 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
       expect(cmd).to receive(:connect).with("target", an_instance_of(Hash)).and_return(conn)
       msg = ChefWorkstation::Text.status.install.verifying
       expect(ChefWorkstation::UI::Terminal).to receive(:spinner).with(msg, { prefix: "[target]" }).and_yield(reporter)
-      expect(ChefWorkstation::Action::InstallChef).to receive(:instance_for_target).with(conn).and_return(installer)
-      expect(installer).to receive(:run)
+      expect(cmd).to receive(:install).with(reporter)
       msg = "other_msg"
       converge_args = {}
       expect(cmd).to receive(:parse_converge_args).with({ connection: conn }, params).and_return([converge_args, msg])
       expect(ChefWorkstation::UI::Terminal).to receive(:spinner).with(msg, { prefix: "[target]" }).and_yield(reporter)
-      expect(ChefWorkstation::Action::ConvergeTarget).to receive(:new).with(converge_args).and_return(converger)
-      expect(converger).to receive(:run)
+      expect(cmd).to receive(:converge).with(reporter, converge_args)
 
       cmd.run(params)
     end

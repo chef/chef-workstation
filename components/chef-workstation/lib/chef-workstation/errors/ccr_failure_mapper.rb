@@ -11,7 +11,7 @@ module ChefWorkstation::Errors
 
     def raise_mapped_exception!
       if @cause_line.nil?
-        raise RemoteChefRunFailedToResolveError.new(@params[:stdout], @params[:stderr])
+        raise RemoteChefRunFailedToResolveError.new(params[:stdout], params[:stderr])
       else
         errid, *args = exception_args_from_cause()
         if errid.nil?
@@ -33,19 +33,19 @@ module ChefWorkstation::Errors
       case @cause_line
       when /.*had an error:(.*:)\s+(.*$)/
         # Some invalid attribute value cases, among others.
-        ["CHEFCCR002", $2, resource_doc_anchor]
-      when /.*Chef::Exceptions::ValidationFailed:\s+Option action must be equal to one of:\s+(.*). You passed :(.*)\./
+        ["CHEFCCR002", $2]
+      when /.*Chef::Exceptions::ValidationFailed:\s+Option action must be equal to one of:\s+(.*)!\s+You passed :(.*)\./
         # Invalid action - specialization of invalid attribute value, below
-        ["CHEFCCR003", params[:resource], $2, $1, resource_doc_anchor()]
+        ["CHEFCCR003", $2, $1]
       when /.*Chef::Exceptions::ValidationFailed:\s+(.*)/
         # Invalid resource attribute value
-        ["CHEFCCR004", $1, params[:resource], resource_doc_anchor()]
-      when /.*NoMethodError: undefined method `#{params[:resource]}'.*/
+        ["CHEFCCR004", $1]
+      when /.*NoMethodError: undefined method `(.+)' for cookbook.+/
         # Invalid resource type in most cases
-        ["CHEFCCR005", params[:resource]]
-      when /.*undefined method `(.*)'.*for Chef::Resource.*/
+        ["CHEFCCR005", $1]
+      when /.*undefined method `(.*)' for (.+)/
         # Unknown resource attribute
-        ["CHEFCCR006", $1, params[:resource], resource_doc_anchor()]
+        ["CHEFCCR006", $1, $2]
 
       # Below would catch the general form of most errors, but the
       # message itself in those lines is not generally aligned
@@ -54,14 +54,6 @@ module ChefWorkstation::Errors
       else
         nil
       end
-    end
-
-    def resource_doc_anchor
-      params[:resource].
-        gsub(/([A-Z]+)([A-Z][a-z])/, '\1_\2').
-        gsub(/([a-z\d])([A-Z])/, '\1_\2').
-        tr("_", "-").
-        downcase
     end
 
     class RemoteChefClientRunFailed < ChefWorkstation::ErrorNoLogs
