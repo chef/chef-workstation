@@ -113,15 +113,18 @@ module ChefWorkstation
         UI::Terminal.output ChefWorkstation::VERSION
         return
       end
+      run_command!(command_name, command_params)
+    rescue => e
+      handle_perform_error(e)
+    end
 
+    def run_command!(command_name, command_params)
       if have_command?(command_name)
         @cmd, command_params = commands_map.instantiate(command_name, command_params)
         @cmd.run_with_default_options(command_params)
       else
         raise UnknownCommand.new(command_name, commands.join(" "))
       end
-    rescue => e
-      handle_perform_error(e)
     end
 
     def handle_perform_error(e)
@@ -166,7 +169,7 @@ module ChefWorkstation
         UI::Terminal.output "    #{flags.ljust(justify_length)}    #{spec[:description]}"
       end
       UI::Terminal.output ""
-      UI::Terminal.output "SUBCOMMANDS:"
+      UI::Terminal.output(T.subcommands)
       justify_length = ([7] + commands.map(&:length)).max + 4
       command_specs.sort.each do |name, spec|
         next if spec.hidden
@@ -174,7 +177,14 @@ module ChefWorkstation
       end
       UI::Terminal.output "    #{"help".ljust(justify_length)}#{T.help}"
       UI::Terminal.output "    #{"version".ljust(justify_length)}#{T.version}"
-      UI::Terminal.output ""
+      unless command_aliases.empty?
+        UI::Terminal.output ""
+        UI::Terminal.output(T.aliases)
+        command_aliases.sort.each do |name, spec|
+          next if spec.hidden
+          UI::Terminal.output "    #{"#{name}".ljust(justify_length)}#{T.alias_for} '#{spec.qualified_name}'"
+        end
+      end
     end
 
     def commands_map
@@ -182,11 +192,15 @@ module ChefWorkstation
     end
 
     def have_command?(name)
-      commands_map.have_command?(name)
+      commands_map.have_command_or_alias?(name)
     end
 
     def commands
       commands_map.command_names
+    end
+
+    def command_aliases
+      commands_map.alias_specs
     end
 
     def command_specs

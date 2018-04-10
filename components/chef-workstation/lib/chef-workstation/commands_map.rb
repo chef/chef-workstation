@@ -48,16 +48,20 @@ module ChefWorkstation
   #     c.builtin("weird-command", :WeirdoClass, require_path: "chef-workstation/command/this_is_cray")
   #
   #
-  #     # You can setup a chain of subcommand invoked like `chef parent-cmd child-cmd`
+  #     # You can setup a chain of subcommand invoked like `chef parent-cmd child-cmd`,
+  #     # including optional aliases.  An alias will only work if it exists on a
+  #     # leaf node/command without subcommands.
   #     c.builtin("parent-cmd", :ParentCmd, subcommands: [
   #       c.builtin("child-cmd", :ChildCmd)
+  #       c.builtin("child-cmd-2", :Child2Cmd, cmd_alias: "parent-child")
   #     ])
   #   end
+  #
   #
   class CommandsMap
     NULL_ARG = Object.new
 
-    CommandSpec = Struct.new(:name, :constant_name, :text, :require_path, :hidden, :subcommands)
+    CommandSpec = Struct.new(:name, :constant_name, :text, :require_path, :hidden, :subcommands, :qualified_name)
 
     class CommandSpec
 
@@ -92,25 +96,33 @@ module ChefWorkstation
 
     end
 
-    attr_reader :command_specs
+    attr_reader :command_specs, :alias_specs
 
     def initialize
       @command_specs = {}
+      @alias_specs = {}
     end
 
     def top_level(name, constant_name, text, require_path, hidden: false, subcommands: [])
       command_specs[name] = create(name, constant_name, text, require_path, hidden: hidden, subcommands: subcommands)
     end
 
-    def create(name, constant_name, text, require_path, hidden: false, subcommands: [])
-      CommandSpec.new(name, constant_name, text, require_path, hidden, Hash[subcommands.collect { |c| [c.name, c] } ])
+    def create(name, constant_name, text, require_path, cmd_alias: "", hidden: false, subcommands: [])
+      cmd_spec = CommandSpec.new(name, constant_name, text, require_path, hidden, Hash[subcommands.collect { |c| [c.name, c] } ])
+      unless cmd_alias.empty?
+        @alias_specs[cmd_alias] = cmd_spec
+      end
+      cmd_spec
     end
 
     # The user could be trying to invoke a subcommand - like `chef target converge`. In this case we want to
     # instantiate the converge command. We also remove any command names from the params so it can be
     # invoked correctly by the caller.
+    #
+    # This can also be an alias - if there is no matching command name,
+    # check for a matching alias name.
     def instantiate(name, additional_params = [])
-      cmd = command_specs[name]
+      cmd = command_specs[name] || alias_specs[name]
       additional_params.each_with_index do |possible_subcommand, i|
         subcommand = cmd.subcommands[possible_subcommand]
         if subcommand
@@ -123,8 +135,8 @@ module ChefWorkstation
       [cmd.instantiate, additional_params]
     end
 
-    def have_command?(name)
-      command_specs.key?(name)
+    def have_command_or_alias?(name)
+      command_specs.key?(name) || alias_specs.key?(name)
     end
 
     def command_names
@@ -142,7 +154,20 @@ module ChefWorkstation
     @commands_map ||= CommandsMap.new
   end
 
+  # NOTE: 'commands_map', commands, and assign_parentage
+  # are all created here class methods of 'ChefWorkstation',
+  # which isn't ideal.
   def self.commands
-    yield commands_map
+    result = yield commands_map
+    assign_parentage!(commands_map.command_specs)
+    result
   end
+
+  def self.assign_parentage!(root_specs, qualified_name = "")
+    root_specs.each do |cmd_name, cmd_spec|
+      cmd_spec.qualified_name = "#{qualified_name} #{cmd_name}".gsub(/^ /, "")
+      assign_parentage!(cmd_spec.subcommands, cmd_spec.qualified_name)
+    end
+  end
+
 end

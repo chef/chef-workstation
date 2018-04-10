@@ -1,14 +1,6 @@
-# Used only by the CLI class
+# Shared and top-level CLI output text.
 cli:
-
   # CLI option, banner, and usage text
-  config: Location of config file. Defaults to %1
-  version: "Show the current version of this tool"
-  print_version: "Chef Workstation Version: %1\n\n"
-  help: "Show usage information"
-  short_banner: "Usage:  chef COMMAND [options...]"
-  version_msg: "Version %1"
-  creating_config: "Creating config file in %1."
   banner: |
     Congratulations! You are using chef: your gateway
     to managing everything from a single node to an entire Chef
@@ -16,8 +8,19 @@ cli:
 
     USAGE:
       chef [SUBCOMMAND]
-  target: ""
   aborted: Canceling request due to interrupt.
+  alias_for: "Alias for: "
+  aliases: "ALIASES:"
+  config: Location of config file. Defaults to %1
+  creating_config: "Creating config file in %1."
+  help: "Show usage information"
+  print_version: "Chef Workstation Version: %1\n\n"
+  short_banner: "Usage:  chef COMMAND [options...]"
+  subcommands: "SUBCOMMANDS:"
+  target: ""
+  version: "Show the current version of this tool"
+  version_msg: "Version %1"
+
 # Text specific to each command
 commands:
   config:
