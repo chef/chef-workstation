@@ -44,7 +44,7 @@ module ChefWorkstation
           :description => T.identity_file,
           :proc => (Proc.new do |path|
             unless File.exist?(path)
-              raise OptionValidationError.new("CHEFVAL001", path)
+              raise OptionValidationError.new("CHEFVAL001", self, path)
             end
             path
           end)
@@ -69,7 +69,7 @@ module ChefWorkstation
           target = cli_arguments.shift
 
           @conn = connect(target, config)
-          UI::Terminal.spinner(TS.install.verifying, prefix: "[#{@conn.hostname}]") do |r|
+          UI::Terminal.spinner(TS.install_chef.verifying, prefix: "[#{@conn.hostname}]") do |r|
             install(r)
           end
 
@@ -87,7 +87,7 @@ module ChefWorkstation
         CB_MATCHER = '[\w\-]+'
         def validate_params(params)
           if params.size < 2
-            raise OptionValidationError.new("CHEFVAL002")
+            raise OptionValidationError.new("CHEFVAL002", self)
           end
           if params.size == 2
             # Trying to specify a recipe to run remotely, no properties
@@ -97,13 +97,13 @@ module ChefWorkstation
             elsif cb =~ /^#{CB_MATCHER}$/ || cb =~ /^#{CB_MATCHER}::#{CB_MATCHER}$/
               # They are specifying a cookbook as 'cb_name' or 'cb_name::recipe'
             else
-              raise OptionValidationError.new("CHEFVAL004", cb)
+              raise OptionValidationError.new("CHEFVAL004", self, cb)
             end
           elsif params.size >= 3
             properties = params[3..-1]
             properties.each do |property|
               unless property =~ PROPERTY_MATCHER
-                raise OptionValidationError.new("CHEFVAL003", property)
+                raise OptionValidationError.new("CHEFVAL003", self, property)
               end
             end
           end

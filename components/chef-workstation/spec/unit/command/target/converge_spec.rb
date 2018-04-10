@@ -19,7 +19,7 @@ require "chef-workstation/commands_map"
 require "chef-workstation/command/target/converge"
 
 RSpec.describe ChefWorkstation::Command::Target::Converge do
-  let(:cmd_spec) { instance_double(ChefWorkstation::CommandsMap::CommandSpec) }
+  let(:cmd_spec) { ChefWorkstation::CommandsMap::CommandSpec.new }
   subject(:cmd) do
     ChefWorkstation::Command::Target::Converge.new(cmd_spec)
   end
@@ -142,7 +142,7 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
       expect(cmd).to receive(:cli_arguments).and_return(params).exactly(3).times
       expect(cmd).to receive(:validate_params).with(params)
       expect(cmd).to receive(:connect).with("target", an_instance_of(Hash)).and_return(conn)
-      msg = ChefWorkstation::Text.status.install.verifying
+      msg = ChefWorkstation::Text.status.install_chef.verifying
       expect(ChefWorkstation::UI::Terminal).to receive(:spinner).with(msg, { prefix: "[target]" }).and_yield(reporter)
       expect(cmd).to receive(:install).with(reporter)
       msg = "other_msg"

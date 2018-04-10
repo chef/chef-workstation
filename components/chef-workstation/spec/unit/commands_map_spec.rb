@@ -20,7 +20,7 @@ require "chef-workstation/commands_map"
 
 RSpec.describe ChefWorkstation::CommandsMap do
   subject(:mapping) { ChefWorkstation::CommandsMap.new }
-  let(:example_text) { double("text", description: "description", usage: "USAGE:\n") }
+  let(:example_text) { double("text", description: "description", usage_full: "Full usage", usage: "short usage:\n") }
   let(:example_cmd) { mapping.top_level("example", :TestCommand, example_text, "unit/fixtures/command/cli_test_command") }
   let(:subcmd1) { mapping.create("subcommand1", [:TopLevel, :Subcommand], example_text, "unit/fixtures/command/cli_test_command") }
   let(:subcmd2) { mapping.create("subcommand2", :AliasedCommand, example_text, "unit/fixtures/command/cli_test_command", cmd_alias: "subby") }
@@ -37,7 +37,7 @@ RSpec.describe ChefWorkstation::CommandsMap do
     expect(mapping.have_command_or_alias?("example")).to be true
     e = mapping.command_specs["example"]
     expect(e.require_path).to eq("unit/fixtures/command/cli_test_command")
-    expect(e.make_banner).to eq("description\n\nUSAGE:\n")
+    expect(e.make_banner).to eq("description\nFull usage")
   end
 
   it "lists the available commands" do
@@ -58,7 +58,6 @@ RSpec.describe ChefWorkstation::CommandsMap do
   end
 
   it "assigns qualified names to commands correctly" do
-    ChefWorkstation.assign_parentage!(mapping.command_specs)
     expect(subcmd1.qualified_name).to eq "top-level subcommand1"
     expect(subcmd2.qualified_name).to eq "top-level subcommand2"
     expect(example_cmd.qualified_name).to eq "example"

@@ -16,12 +16,13 @@
 #
 
 require "chef-workstation/command/base"
+require "chef-workstation/ui/terminal"
 
 module ChefWorkstation
   module Command
-    class Target < ChefWorkstation::Command::Base
+    class Version < ChefWorkstation::Command::Base
       def run(params)
-        show_help
+        UI::Terminal.output ChefWorkstation::VERSION
       end
     end
   end
