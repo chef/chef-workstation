@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.44 -->
+<!-- latest_release 0.1.45 -->
+## [0.1.45](https://github.com/chef/chef-workstation/tree/0.1.45) (2018-04-10)
+
+#### Merged Pull Requests
+- [SHACK-122] support -v for version [#72](https://github.com/chef/chef-workstation/pull/72) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.44](https://github.com/chef/chef-workstation/tree/0.1.44) (2018-04-10)
 
 #### Merged Pull Requests
 - re-add lost openssl require [#70](https://github.com/chef/chef-workstation/pull/70) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.43](https://github.com/chef/chef-workstation/tree/0.1.43) (2018-04-06)
 
