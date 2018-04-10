@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/chef/train
-  revision: 970a725c3f0704b6f7702f02922acf4c2b2766dc
+  revision: a931a4dccf8d01b0a99de28d5c17b2b484e6ce06
   branch: master
   specs:
     train (1.3.0)
@@ -18,7 +18,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-workstation (0.1.43)
+    chef-workstation (0.1.44)
       mixlib-cli
       mixlib-config
       mixlib-install
@@ -33,13 +33,13 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.0)
-    aws-sdk (2.11.31)
-      aws-sdk-resources (= 2.11.31)
-    aws-sdk-core (2.11.31)
+    aws-sdk (2.11.32)
+      aws-sdk-resources (= 2.11.32)
+    aws-sdk-core (2.11.32)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.31)
-      aws-sdk-core (= 2.11.31)
+    aws-sdk-resources (2.11.32)
+      aws-sdk-core (= 2.11.32)
     aws-sigv4 (1.0.2)
     azure_mgmt_resources (0.16.0)
       ms_rest_azure (~> 0.10.0)
