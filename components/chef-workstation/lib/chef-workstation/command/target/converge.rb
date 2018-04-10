@@ -155,7 +155,7 @@ module ChefWorkstation
 
           # Runs the Converge action and renders UI updates as
           # the action reports back
-        def converge(r, full_rs_name)
+        def converge(reporter, full_rs_name)
           converger = Action::ConvergeTarget.new(connection: @conn,
                                                  resource_type: @resource,
                                                  resource_name: @resource_name,
@@ -163,9 +163,9 @@ module ChefWorkstation
           converger.run do |event, data|
             case event
             when :success
-              r.update(TS.converge.success(full_rs_name))
+              reporter.update(TS.converge.success(full_rs_name))
             when :error
-              r.error(TS.converge.failure)
+              reporter.error(TS.converge.failure)
             end
           end
         end

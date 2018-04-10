@@ -6,7 +6,6 @@ module ChefWorkstation
     # Derive new Actions from Action::Base
     # "connection" is a train connection that may be active and available
     #              based on
-    # "reporter" is an interface to the UI that supports 'status', 'success', and 'failure'.
     # "config" is hash containing any options that your command may need
     #
     # Implement perform_action to perform whatever action your class is intended to do.
@@ -14,11 +13,9 @@ module ChefWorkstation
     # unqualified class name of your Action.
     class Base
       attr_reader :connection, :config
-      attr_accessor :reporter
 
-      def initialize(config = {}, &block)
+      def initialize(config = {})
         c = config.dup
-        @reporter = c.delete :reporter
         @connection = c.delete :connection
         # Remaining options are for child classes to make use of.
         @config = c
