@@ -38,5 +38,7 @@ module ChefWorkstation
         23
       end
     end
+    class AliasedCommand < TestCommand
+    end
   end
 end
