@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.45 -->
+<!-- latest_release 0.1.46 -->
+## [0.1.46](https://github.com/chef/chef-workstation/tree/0.1.46) (2018-04-10)
+
+#### Merged Pull Requests
+- [SHACK-101] alias support [#73](https://github.com/chef/chef-workstation/pull/73) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.45](https://github.com/chef/chef-workstation/tree/0.1.45) (2018-04-10)
 
 #### Merged Pull Requests
 - [SHACK-122] support -v for version [#72](https://github.com/chef/chef-workstation/pull/72) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.44](https://github.com/chef/chef-workstation/tree/0.1.44) (2018-04-10)
 
