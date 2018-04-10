@@ -19,6 +19,7 @@ require "chef-workstation/cli"
 require "chef-workstation/telemetry"
 require "chef-workstation/error"
 require "chef-workstation/text"
+require "chef-workstation/ui/terminal"
 
 RSpec.describe ChefWorkstation::CLI do
   let(:argv) { [] }
@@ -29,8 +30,11 @@ RSpec.describe ChefWorkstation::CLI do
   let(:telemetry) { ChefWorkstation::Telemetry }
 
   context "run" do
-    it "performs the steps necessary to handle the request and capture telemetry" do
+    before do
       expect(subject).to receive(:init)
+    end
+
+    it "performs the steps necessary to handle the request and capture telemetry" do
       expect(subject).to receive(:perform_command)
       expect(telemetry).to receive(:timed_capture).
         with(:run,
@@ -39,6 +43,62 @@ RSpec.describe ChefWorkstation::CLI do
              opts: cli.options.to_h).and_yield
       expect(telemetry).to receive(:send!)
       expect { cli.run }.to raise_error SystemExit
+    end
+
+    context "when a known command is supplied" do
+      let(:argv) { %w{config show} }
+
+      it "invokes the command" do
+        expect(subject).to receive(:have_command?).with("config").and_return(true)
+        expect_any_instance_of(ChefWorkstation::Command::Config::Show).to receive(:run)
+        expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
+      end
+    end
+
+    context "when an unknown command is supplied" do
+      let(:argv) { %w{unknown} }
+
+      it "raises an error, displays it, and exits non-zero" do
+        expect(subject).to receive(:have_command?).with("unknown").and_return(false)
+        expect(subject).to receive(:capture_exception_backtrace)
+        expect(ChefWorkstation::UI::ErrorPrinter).to receive(:show_error)
+        expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(1) }
+      end
+    end
+
+    context "version flag provided" do
+      let(:expected_version_string) { ChefWorkstation::VERSION }
+      %w{-v --version version}.each do |flag|
+        context "as #{flag}" do
+          let(:argv) { [flag] }
+          it "shows version and exits 0" do
+            expect(ChefWorkstation::UI::Terminal).to receive(:output).with(expected_version_string)
+            expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
+          end
+        end
+      end
+    end
+
+    context "help command called on a subcommand" do
+      let(:argv) { %w{help config} }
+      it "passes the help message to the subcommand" do
+        expect(cli).to receive(:have_command?).with("config").and_return(true)
+
+        expect_any_instance_of(ChefWorkstation::Command::Base).to receive(:run_with_default_options).with(["-h"]).and_return(0)
+        expect { cli.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
+      end
+    end
+
+    context "help command called with no args" do
+      let(:expected_version_string) { ChefWorkstation::Text.cli.print_version(ChefWorkstation::VERSION) }
+      %w{-h --help help}.each do |flag|
+        let(:argv) { [flag] }
+        it "shows version and top-level help, and exits 0" do
+          expect(ChefWorkstation::UI::Terminal).to receive(:output).with(expected_version_string)
+          expect(subject).to receive(:show_help)
+          expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
+        end
+      end
     end
   end
 
@@ -86,39 +146,4 @@ RSpec.describe ChefWorkstation::CLI do
 
     end
   end
-
-  context "when a known command is supplied" do
-    let(:argv) { %w{config show} }
-
-    it "invokes the command" do
-      expect(cli).to receive(:init)
-      expect(cli).to receive(:have_command?).with("config").and_return(true)
-      expect_any_instance_of(ChefWorkstation::Command::Config::Show).to receive(:run)
-      expect { cli.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
-    end
-  end
-
-  context "when an unknown command is supplied" do
-    let(:argv) { %w{unknown} }
-
-    it "raises an error, displays it, and exits non-zero" do
-      expect(cli).to receive(:init)
-      expect(cli).to receive(:have_command?).with("unknown").and_return(false)
-      expect(cli).to receive(:capture_exception_backtrace)
-      expect(ChefWorkstation::UI::ErrorPrinter).to receive(:show_error)
-      expect { cli.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(1) }
-    end
-  end
-
-  context "help command called on a subcommand" do
-    let(:argv) { %w{help config} }
-    it "passes the help message to the subcommand" do
-      expect(cli).to receive(:init)
-      expect(cli).to receive(:have_command?).with("config").and_return(true)
-
-      expect_any_instance_of(ChefWorkstation::Command::Base).to receive(:run_with_default_options).with(["-h"]).and_return(0)
-      expect { cli.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
-    end
-  end
-
 end

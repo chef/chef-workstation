@@ -37,6 +37,7 @@ module ChefWorkstation
 
     option :version,
       :long         => "--version",
+      :short        => "-v",
       :description  => T.version,
       :boolean      => true
 
@@ -108,7 +109,7 @@ module ChefWorkstation
           command_name = command_params.shift
           command_params << "-h"
         end
-      elsif %w{version --version}.include?(command_name.downcase)
+      elsif %w{version --version -v}.include?(command_name.downcase)
         UI::Terminal.output ChefWorkstation::VERSION
         return
       end
