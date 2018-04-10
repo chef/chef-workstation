@@ -27,8 +27,10 @@ require "chef-workstation/config"
 module ChefWorkstation
   module Command
     class Target
+      ATTRIBUTE_MATCHER = /^([a-zA-Z0-9]+)=(.+)$/
       class Converge < ChefWorkstation::Command::Base
         T = ChefWorkstation::Text.commands.target.converge
+        TS = ChefWorkstation::Text.status
         Config = ChefWorkstation::Config
 
         option :root,
@@ -66,29 +68,21 @@ module ChefWorkstation
           validate_params(cli_arguments)
           # TODO: option: --no-install
           target = cli_arguments.shift
-          resource = cli_arguments.shift
-          resource_name = cli_arguments.shift
+          @resource = cli_arguments.shift
+          @resource_name = cli_arguments.shift
+          full_rs_name = "#{@resource}[#{@resource_name}]"
+          @attributes = format_attributes(cli_arguments)
+          @conn = connect(target, config)
 
-          attributes = format_attributes(cli_arguments)
-
-          conn = connect(target, config)
-
-          UI::Terminal.spinner(T.status.verifying, prefix: "[#{conn.config[:host]}]") do |r|
-            Action::InstallChef.instance_for_target(conn, reporter: r).run
+          UI::Terminal.spinner(TS.install.verifying, prefix: "[#{@conn.hostname}]") do |r|
+            install(r)
           end
 
-          full_rs_name = "#{resource}[#{resource_name}]"
-          UI::Terminal.spinner(T.status.converging(full_rs_name), prefix: "[#{conn.config[:host]}]") do |r|
-            converger = Action::ConvergeTarget.new(reporter: r,
-                                                   connection: conn,
-                                                   resource_type: resource,
-                                                   resource_name: resource_name,
-                                                   attributes: attributes)
-            converger.run
+          UI::Terminal.spinner(TS.converge.converging(full_rs_name), prefix: "[#{@conn.hostname}]") do |r|
+            converge(r, full_rs_name)
           end
         end
 
-        ATTRIBUTE_MATCHER = /^([a-zA-Z0-9]+)=(.+)$/
         def validate_params(params)
           if params.size < 3
             raise OptionValidationError.new("CHEFVAL002")
@@ -111,9 +105,9 @@ module ChefWorkstation
           attributes
         end
 
-        # Incoming attributes are always read as a string from the command line.
-        # Depending on their type we should transform them so we do not try and pass
-        # a string to a resource attribute that expects an integer or boolean.
+          # Incoming attributes are always read as a string from the command line.
+          # Depending on their type we should transform them so we do not try and pass
+          # a string to a resource attribute that expects an integer or boolean.
         def transform_attribute_value(value)
           case value
           when /^0/
@@ -132,6 +126,50 @@ module ChefWorkstation
             value
           end
         end
+
+          # Runs the InstallChef action and renders UI updates as
+          # the action reports back
+        def install(r)
+          installer = Action::InstallChef.instance_for_target(@conn)
+          installer.run do |event, data|
+            case event
+            when :installing
+              r.update(TS.install.installing)
+            when :uploading
+              r.update(TS.install.uploading)
+            when :downloading
+              r.update(TS.install.downloading)
+            when :success
+              if data[0] == :already_installed
+                r.success(TS.install.already_present)
+              elsif data[0] == :install_success
+                r.success(TS.install.success)
+              end
+            when :error
+              # Message may or may not be present. First arg if it is.
+              msg = data.length > 0 ? data[0] : Text.cli.aborted
+              r.error(TS.install.failure(msg))
+            end
+          end
+        end
+
+          # Runs the Converge action and renders UI updates as
+          # the action reports back
+        def converge(reporter, full_rs_name)
+          converger = Action::ConvergeTarget.new(connection: @conn,
+                                                 resource_type: @resource,
+                                                 resource_name: @resource_name,
+                                                 attributes: @attributes)
+          converger.run do |event, data|
+            case event
+            when :success
+              reporter.update(TS.converge.success(full_rs_name))
+            when :error
+              reporter.error(TS.converge.failure)
+            end
+          end
+        end
+
       end
     end
   end

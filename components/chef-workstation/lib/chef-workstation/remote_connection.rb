@@ -50,6 +50,10 @@ class ChefWorkstation::RemoteConnection
     @backend
   end
 
+  def hostname
+    config[:host]
+  end
+
   def platform
     backend.platform
   end

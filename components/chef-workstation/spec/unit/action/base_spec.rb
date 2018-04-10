@@ -8,12 +8,11 @@ RSpec.describe ChefWorkstation::Action::Base do
     p = double("platform", family: family)
     instance_double(ChefWorkstation::RemoteConnection, platform: p)
   end
-  let(:opts) { { reporter: "test-reporter", connection: connection, other: "something-else" } }
+  let(:opts) { { connection: connection, other: "something-else" } }
   subject(:action) { ChefWorkstation::Action::Base.new(opts) }
 
   context "#initialize" do
     it "properly initializes exposed attribute readers" do
-      expect(action.reporter).to eq "test-reporter"
       expect(action.connection).to eq connection
       expect(action.config).to eq({ other: "something-else" })
     end
@@ -24,6 +23,15 @@ RSpec.describe ChefWorkstation::Action::Base do
       expect(ChefWorkstation::Telemetry).to receive(:timed_capture).with(:action, name: "Base").and_yield
       expect(action).to receive(:perform_action)
       action.run
+    end
+
+    it "invokes an action handler when actions occur and a handler is provided" do
+      @run_action = nil
+      @args = nil
+      expect(action).to receive(:perform_action) { action.notify(:test_success, "some arg", "some other arg") }
+      action.run { |action, args| @run_action = action; @args = args }
+      expect(@run_action).to eq :test_success
+      expect(@args).to eq ["some arg", "some other arg"]
     end
   end
 

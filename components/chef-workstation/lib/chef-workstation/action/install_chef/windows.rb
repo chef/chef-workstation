@@ -46,6 +46,5 @@ module ChefWorkstation::Action::InstallChef
       connection.run_command("New-Item -ItemType Directory -Force -Path #{temppath}")
       @temppath = temppath
     end
-
   end
 end
