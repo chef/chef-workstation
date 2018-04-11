@@ -112,6 +112,10 @@ module ChefWorkstation
       elsif %w{version --version -v}.include?(command_name.downcase)
         UI::Terminal.output ChefWorkstation::VERSION
         return
+      elsif command_name.start_with?("-")
+        # with the known flags for the root chef command handled by this point,
+        # if it's still a flag we don't know what to do with it
+        raise UnknownFlag.new(command_name, options.each_value.map { |o| o[:long] })
       end
       run_command!(command_name, command_params)
     rescue => e
@@ -210,6 +214,12 @@ module ChefWorkstation
     class UnknownCommand < ErrorNoLogs
       def initialize(command_name, avail_commands)
         super("CHEFCLI001", command_name, avail_commands)
+      end
+    end
+
+    class UnknownFlag < ErrorNoLogs
+      def initialize(option, avail_options)
+        super("CHEFCLI002", option, avail_options)
       end
     end
   end

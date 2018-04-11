@@ -16,6 +16,8 @@
 
 require "spec_helper"
 require "chef-workstation/cli"
+require "chef-workstation/command/config"
+require "chef-workstation/command/config/show"
 require "chef-workstation/telemetry"
 require "chef-workstation/error"
 require "chef-workstation/text"
@@ -52,17 +54,6 @@ RSpec.describe ChefWorkstation::CLI do
         expect(subject).to receive(:have_command?).with("config").and_return(true)
         expect_any_instance_of(ChefWorkstation::Command::Config::Show).to receive(:run)
         expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
-      end
-    end
-
-    context "when an unknown command is supplied" do
-      let(:argv) { %w{unknown} }
-
-      it "raises an error, displays it, and exits non-zero" do
-        expect(subject).to receive(:have_command?).with("unknown").and_return(false)
-        expect(subject).to receive(:capture_exception_backtrace)
-        expect(ChefWorkstation::UI::ErrorPrinter).to receive(:show_error)
-        expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(1) }
       end
     end
 
@@ -129,6 +120,30 @@ RSpec.describe ChefWorkstation::CLI do
         allow(cli).to receive(:show_help).and_raise err
         expect(cli).to receive(:handle_perform_error)
         cli.perform_command
+      end
+    end
+
+    context "when an unknown command is supplied" do
+      let(:argv) { %w{unknown} }
+
+      it "raises an unknown command error" do
+        expect { subject.perform_command }
+          .to raise_error(ChefWorkstation::WrappedError) do |e|
+            expect(e.contained_exception).to be_a(ChefWorkstation::CLI::UnknownCommand)
+            expect(e.contained_exception.id).to eq("CHEFCLI001")
+          end
+      end
+    end
+
+    context "when an unknown flag is supplied" do
+      let(:argv) { %w{--nope} }
+
+      it "raises an invalid flag error" do
+        expect { subject.perform_command }
+          .to raise_error(ChefWorkstation::WrappedError) do |e|
+            expect(e.contained_exception).to be_a(ChefWorkstation::CLI::UnknownFlag)
+            expect(e.contained_exception.id).to eq("CHEFCLI002")
+          end
       end
     end
   end
