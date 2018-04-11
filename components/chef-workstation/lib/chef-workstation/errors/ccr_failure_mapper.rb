@@ -32,19 +32,19 @@ module ChefWorkstation::Errors
       # cases of things that will match more general tests further down.
       case @cause_line
       when /.*had an error:(.*:)\s+(.*$)/
-        # Some invalid attribute value cases, among others.
+        # Some invalid property value cases, among others.
         ["CHEFCCR002", $2]
       when /.*Chef::Exceptions::ValidationFailed:\s+Option action must be equal to one of:\s+(.*)!\s+You passed :(.*)\./
-        # Invalid action - specialization of invalid attribute value, below
+        # Invalid action - specialization of invalid property value, below
         ["CHEFCCR003", $2, $1]
       when /.*Chef::Exceptions::ValidationFailed:\s+(.*)/
-        # Invalid resource attribute value
+        # Invalid resource property value
         ["CHEFCCR004", $1]
       when /.*NoMethodError: undefined method `(.+)' for cookbook.+/
         # Invalid resource type in most cases
         ["CHEFCCR005", $1]
       when /.*undefined method `(.*)' for (.+)/
-        # Unknown resource attribute
+        # Unknown resource property
         ["CHEFCCR006", $1, $2]
 
       # Below would catch the general form of most errors, but the

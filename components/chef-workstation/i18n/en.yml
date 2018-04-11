@@ -43,8 +43,8 @@ commands:
       description: Converge a target
       usage: |
         USAGE:
-          chef target converge <TARGET> <RESOURCE> <RESOURCE_NAME> [ATTRIBUTES] [FLAGS]
-            Converge the specified <TARGET> with the single <RESOURCE>. [ATTRIBUTES]
+          chef target converge <TARGET> <RESOURCE> <RESOURCE_NAME> [PROPERTIES] [FLAGS]
+            Converge the specified <TARGET> with the single <RESOURCE>. [PROPERTIES]
             should be specified as key=value. EG:
 
             chef target converge myec2node directory /tmp/test mode="0777" action=create
@@ -156,11 +156,11 @@ errors:
       https://docs.chef.io/resource_reference.html
 
   CHEFCCR004: |
-    An attribute value you provided is not valid:
+    An property value you provided is not valid:
 
       %1
 
-    Please consult the documentation for attributes
+    Please consult the documentation for properties
     supported by your resource and their valid values:
 
       https://docs.chef.io/resource_reference.html
@@ -173,10 +173,10 @@ errors:
       https://docs.chef.io/resource_reference.html
 
   CHEFCCR006: |
-    '%1' is not an attribute of '%2'.
+    '%1' is not a property of '%2'.
 
     Please consult the documentation for %2 for a list of
-    valid attributes:
+    valid properties:
 
       https://docs.chef.io/resource_reference.html
 
@@ -213,7 +213,7 @@ errors:
     You must supply <TARGET> and either <RESOURCE> and <RESOURCE_NAME> or <RECIPE>
 
   CHEFVAL003: |
-    Attribute '%1' did not match the 'key=value' syntax required
+    Property '%1' did not match the 'key=value' syntax required
 
   CHEFVAL004: |
     Please provide a recipe in the form 'path/to/recipe/file', 'cookbook_name',

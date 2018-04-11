@@ -179,7 +179,7 @@
 ## [0.1.12](https://github.com/chef/chef-workstation/tree/0.1.12) (2018-03-29)
 
 #### Merged Pull Requests
-- [SHACK-107] Specify resource attributes on command line [#33](https://github.com/chef/chef-workstation/pull/33) ([tyler-ball](https://github.com/tyler-ball))
+- [SHACK-107] Specify resource properties on command line [#33](https://github.com/chef/chef-workstation/pull/33) ([tyler-ball](https://github.com/tyler-ball))
 
 ## [0.1.11](https://github.com/chef/chef-workstation/tree/0.1.11) (2018-03-29)
 

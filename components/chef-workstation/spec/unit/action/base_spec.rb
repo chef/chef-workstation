@@ -12,7 +12,7 @@ RSpec.describe ChefWorkstation::Action::Base do
   subject(:action) { ChefWorkstation::Action::Base.new(opts) }
 
   context "#initialize" do
-    it "properly initializes exposed attribute readers" do
+    it "properly initializes exposed attr readers" do
       expect(action.connection).to eq connection
       expect(action.config).to eq({ other: "something-else" })
     end

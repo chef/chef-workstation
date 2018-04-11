@@ -61,7 +61,7 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
       end
     end
 
-    it "raises an error if attributes are not specified as key value pairs" do
+    it "raises an error if properties are not specified as key value pairs" do
       params = [
         %w{one two three four},
         %w{one two three four=value five six=value},
@@ -75,8 +75,8 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
     end
   end
 
-  describe "#format_attributes" do
-    it "parses attributes into a hash" do
+  describe "#format_properties" do
+    it "parses properties into a hash" do
       provided = %w{key1=value key2=1 key3=true key4=FaLsE key5=0777 key6=https://some.website key7=num1and2digit}
       expected = {
         "key1" => "value",
@@ -87,7 +87,7 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
         "key6" => "https://some.website",
         "key7" => "num1and2digit",
       }
-      expect(cmd.format_attributes(provided)).to eq(expected)
+      expect(cmd.format_properties(provided)).to eq(expected)
     end
   end
 
@@ -118,11 +118,11 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
     end
 
     context "when trying to converge a resource" do
-      let(:cli_arguments) { %w{directory foo attr1=val1 attr2=val2} }
+      let(:cli_arguments) { %w{directory foo prop1=val1 prop2=val2} }
       it "returns the resource information" do
         actual1, actual2 = cmd.parse_converge_args(converge_args, cli_arguments)
         expect(actual1).to eq({
-          attributes: { "attr1" => "val1", "attr2" => "val2" },
+          properties: { "prop1" => "val1", "prop2" => "val2" },
           resource_type: "directory",
           resource_name: "foo"
         })

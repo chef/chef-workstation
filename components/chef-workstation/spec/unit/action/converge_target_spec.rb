@@ -10,19 +10,19 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
   end
   let(:r1) { "directory" }
   let(:r2) { "/tmp" }
-  let(:attrs) { nil }
-  let(:opts) { { connection: connection, resource_type: r1, resource_name: r2, attributes: attrs } }
+  let(:props) { nil }
+  let(:opts) { { connection: connection, resource_type: r1, resource_name: r2, properties: props } }
   subject(:action) { ChefWorkstation::Action::ConvergeTarget.new(opts) }
 
   describe "#create_resource" do
-    context "when no attributes are provided" do
+    context "when no properties are provided" do
       it "it creates a simple resource" do
         expect(action.create_resource(r1, r2, [])).to eq("directory '/tmp'\n")
       end
     end
 
-    context "when attributes are provided" do
-      let(:attrs) do
+    context "when properties are provided" do
+      let(:props) do
         {
           "key1" => "value",
           "key2" => 0.1,
@@ -32,7 +32,7 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
         }
       end
 
-      it "convertes the attributes to chef-apply args" do
+      it "convertes the properties to chef-apply args" do
         expected = <<-EOH.gsub(/^\s{10}/, "")
           directory '/tmp' do
             key1 'value'
@@ -42,7 +42,7 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
             key_with_underscore 'value'
           end
           EOH
-        expect(action.create_resource(r1, r2, attrs)).to eq(expected)
+        expect(action.create_resource(r1, r2, props)).to eq(expected)
       end
     end
   end
@@ -95,7 +95,7 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
   end
 
   describe "#perform_action" do
-    let(:config) { { resource_type: r1, resource_name: r2, attributes: attrs } }
+    let(:config) { { resource_type: r1, resource_name: r2, properties: props } }
     let(:remote_recipe) { "/tmp/recipe.rb" }
     let(:result) { double("command result", exit_status: 0, stdout: "") }
 
