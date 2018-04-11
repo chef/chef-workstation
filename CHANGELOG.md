@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.47 -->
+<!-- latest_release 0.1.48 -->
+## [0.1.48](https://github.com/chef/chef-workstation/tree/0.1.48) (2018-04-11)
+
+#### Merged Pull Requests
+- [SHACK-127] Converge local recipe on remote target [#71](https://github.com/chef/chef-workstation/pull/71) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.47](https://github.com/chef/chef-workstation/tree/0.1.47) (2018-04-10)
 
 #### Merged Pull Requests
 - [SHACK-106] action ui separation [#69](https://github.com/chef/chef-workstation/pull/69) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.46](https://github.com/chef/chef-workstation/tree/0.1.46) (2018-04-10)
 
