@@ -3,7 +3,7 @@ jobs:
   build:
     # parallelism: 3
     docker:
-      - image: circleci/ruby:2.4
+      - image: circleci/ruby:2.5
     steps:
       - checkout
       # Restore bundle cache

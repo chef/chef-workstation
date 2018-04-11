@@ -39,8 +39,8 @@ build_version Omnibus::BuildVersion.semver
 build_iteration 1
 
 override :bundler,        version: "1.16.1"
-override :rubygems,       version: "2.6.13"
-override :ruby,           version: "2.4.2"
+override :rubygems,       version: "2.7.6"
+override :ruby,           version: "2.5.1"
 
 dependency "preparation"
 dependency "chef-workstation"
