@@ -49,6 +49,12 @@ commands:
 
             chef target converge myec2node directory /tmp/test mode="0777" action=create
 
+          chef target converge <TARGET> <RECIPE> [FLAGS]
+            Converge the specified <TARGET> with the single recipe located at
+            <RECIPE>.
+
+            chef target converge myec2node path/to/cookbook/recipe.rb
+
         ARGS:
           <TARGET>          The host or IP address to converge. Can also be an SSH or WinRM URL
                             in the form:
@@ -58,6 +64,8 @@ commands:
           <RESOURCE_NAME>   The name, usually used to specify what 'thing' to set up with
                             the resource. For example, given resource 'user', 'name' would be
                             the name of the user you wanted to create.
+          <RECIPE>          The recipe to converge. This can be provided as one of:
+                            1. Full path to a recipe file
       root_description: "Whether to use root permissions on the target. Defaults to true."
       identity_file: "SSH identity file to use when connecting."
       ssl:
@@ -85,9 +93,10 @@ status:
     success: "Chef client installation completed!"
     failure: "An error occurred while installing Chef client: %1"
   converge:
-    converging: Converging %1...
-    success: "Successfully converged %1!"
-    failure: "Failed to converge remote machine."
+    converging_recipe: Converging local recipe %1 on target...
+    converging_resource: Converging %1 on target...
+    success: "Successfully converged target!"
+    failure: "Failed to converge target."
 
 # Error definitions, usage Text.e.ERR999
 # General format:
@@ -135,16 +144,16 @@ errors:
       %1
 
   CHEFCCR003: |
-    The action '%2' is not valid for '%1'.
+    The action '%1' is not valid.
 
-    Valid actions for '%1' are:
+    Valid actions are:
 
-      %3
+      %2
 
     For more information, please consult the documentation
     for this resource:
 
-      https://docs.chef.io/resource_reference.html#%4
+      https://docs.chef.io/resource_reference.html
 
   CHEFCCR004: |
     An attribute value you provided is not valid:
@@ -152,9 +161,9 @@ errors:
       %1
 
     Please consult the documentation for attributes
-    supported by %2 and their valid values:
+    supported by your resource and their valid values:
 
-      https://docs.chef.io/resource_reference.html#%2
+      https://docs.chef.io/resource_reference.html
 
   CHEFCCR005: |
     '%1' is not a valid Chef resource.
@@ -169,7 +178,7 @@ errors:
     Please consult the documentation for %2 for a list of
     valid attributes:
 
-      https://docs.chef.io/resource_reference.html#%3
+      https://docs.chef.io/resource_reference.html
 
 
   CHEFCCR099: |
@@ -198,13 +207,19 @@ errors:
 
   # CLI Validation errors are prefixed with CHEFVAL
   CHEFVAL001: |
-    No identity file at %1
+    No identity file at '%1'
 
   CHEFVAL002: |
-    You must supply <TARGET>, <RESOURCE> and <RESOURCE_NAME>
+    You must supply <TARGET> and either <RESOURCE> and <RESOURCE_NAME> or <RECIPE>
 
   CHEFVAL003: |
     Attribute '%1' did not match the 'key=value' syntax required
+
+  CHEFVAL004: |
+    Please provide a recipe in the form 'path/to/recipe/file', 'cookbook_name',
+    or 'cookbook_name::recipe_name'.
+
+    You provided '%1'.
 
   # General errors/unknown errors are handled with CHEFINT
   CHEFINT001: |
@@ -220,6 +235,13 @@ errors:
 
     Please verify the host name or address is correct and that the host is
     reachable before trying again.
+
+  # Remote chef client run failure start here.
+  CHEFUPL001: |
+    Uploading local recipe '%1' to target failed.
+
+  CHEFUPL002: |
+    Uploading resource to target failed.
 
   # Maps to: SSL::SSLError with message text indicating verification failure
   CHEFNET002: |

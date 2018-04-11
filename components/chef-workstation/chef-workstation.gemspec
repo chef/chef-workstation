@@ -43,6 +43,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "train" # remote connection management over ssh, winrm
   spec.add_dependency "pastel" # A color library
   spec.add_dependency "tty-spinner" # Pretty output for status updates in the CLI
+  spec.add_dependency "chef", ">= 14.0" # Needed to load cookbooks
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
