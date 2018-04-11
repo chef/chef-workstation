@@ -3,17 +3,17 @@ require "chef-workstation/text"
 
 module ChefWorkstation::Action
   class ConvergeTarget < Base
-    attr_reader :resource_type, :resource_name, :attributes
+    attr_reader :resource_type, :resource_name, :properties
     def initialize(config)
       super(config)
       @resource_type = @config.delete :resource_type
       @resource_name = @config.delete :resource_name
-      @attributes = @config.delete(:attributes) || []
+      @properties = @config.delete(:properties) || []
     end
 
     def perform_action
       apply_args = create_apply_args
-      ChefWorkstation::Log.debug("Converging  #{resource_type} #{resource_name} with attributes #{attributes}")
+      ChefWorkstation::Log.debug("Converging  #{resource_type} #{resource_name} with properties #{properties}")
       c = connection.run_command("#{chef_apply} --no-color -e #{apply_args}")
       if c.exit_status == 0
         ChefWorkstation::Log.debug(c.stdout)
@@ -50,10 +50,10 @@ module ChefWorkstation::Action
 
     def create_apply_args
       apply_args = "\"#{resource_type} '#{resource_name}'"
-      # lets format the attributes into the correct syntax Chef expects
-      unless attributes.empty?
+      # lets format the properties into the correct syntax Chef expects
+      unless properties.empty?
         apply_args += " do; "
-        attributes.each do |k, v|
+        properties.each do |k, v|
           v = "'#{v}'" if v.is_a? String
           apply_args += "#{k} #{v}; "
         end

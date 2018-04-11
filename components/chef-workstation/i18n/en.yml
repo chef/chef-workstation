@@ -147,11 +147,11 @@ errors:
       https://docs.chef.io/resource_reference.html#%4
 
   CHEFCCR004: |
-    An attribute value you provided is not valid:
+    A property value you provided is not valid:
 
       %1
 
-    Please consult the documentation for attributes
+    Please consult the documentation for properties
     supported by %2 and their valid values:
 
       https://docs.chef.io/resource_reference.html#%2
@@ -164,10 +164,10 @@ errors:
       https://docs.chef.io/resource_reference.html
 
   CHEFCCR006: |
-    '%1' is not an attribute of '%2'.
+    '%1' is not a property of '%2'.
 
     Please consult the documentation for %2 for a list of
-    valid attributes:
+    valid properties:
 
       https://docs.chef.io/resource_reference.html#%3
 

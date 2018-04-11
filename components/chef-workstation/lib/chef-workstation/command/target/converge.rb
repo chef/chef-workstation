@@ -27,7 +27,7 @@ require "chef-workstation/config"
 module ChefWorkstation
   module Command
     class Target
-      ATTRIBUTE_MATCHER = /^([a-zA-Z0-9]+)=(.+)$/
+      PROPERTY_MATCHER = /^([a-zA-Z0-9]+)=(.+)$/
       class Converge < ChefWorkstation::Command::Base
         T = ChefWorkstation::Text.commands.target.converge
         TS = ChefWorkstation::Text.status
@@ -71,7 +71,7 @@ module ChefWorkstation
           @resource = cli_arguments.shift
           @resource_name = cli_arguments.shift
           full_rs_name = "#{@resource}[#{@resource_name}]"
-          @attributes = format_attributes(cli_arguments)
+          @properties = format_properties(cli_arguments)
           @conn = connect(target, config)
 
           UI::Terminal.spinner(TS.install.verifying, prefix: "[#{@conn.hostname}]") do |r|
@@ -87,28 +87,28 @@ module ChefWorkstation
           if params.size < 3
             raise OptionValidationError.new("CHEFVAL002")
           end
-          attributes = params[3..-1]
-          attributes.each do |attribute|
-            unless attribute =~ ATTRIBUTE_MATCHER
-              raise OptionValidationError.new("CHEFVAL003", attribute)
+          properties = params[3..-1]
+          properties.each do |property|
+            unless property =~ PROPERTY_MATCHER
+              raise OptionValidationError.new("CHEFVAL003", property)
             end
           end
         end
 
-        def format_attributes(string_attrs)
-          attributes = {}
-          string_attrs.each do |a|
-            key, value = ATTRIBUTE_MATCHER.match(a)[1..-1]
-            value = transform_attribute_value(value)
-            attributes[key] = value
+        def format_properties(string_props)
+          properties = {}
+          string_props.each do |a|
+            key, value = PROPERTY_MATCHER.match(a)[1..-1]
+            value = transform_property_value(value)
+            properties[key] = value
           end
-          attributes
+          properties
         end
 
-          # Incoming attributes are always read as a string from the command line.
+          # Incoming properties are always read as a string from the command line.
           # Depending on their type we should transform them so we do not try and pass
-          # a string to a resource attribute that expects an integer or boolean.
-        def transform_attribute_value(value)
+          # a string to a resource property that expects an integer or boolean.
+        def transform_property_value(value)
           case value
           when /^0/
             # when it is a zero leading value like "0777" don't turn
@@ -159,7 +159,7 @@ module ChefWorkstation
           converger = Action::ConvergeTarget.new(connection: @conn,
                                                  resource_type: @resource,
                                                  resource_name: @resource_name,
-                                                 attributes: @attributes)
+                                                 properties: @properties)
           converger.run do |event, data|
             case event
             when :success

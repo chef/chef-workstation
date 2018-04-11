@@ -12,26 +12,26 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
   end
   let(:r1) { "directory" }
   let(:r2) { "/tmp" }
-  let(:attrs) { nil }
-  let(:opts) { { reporter: reporter, connection: connection, resource_type: r1, resource_name: r2, attributes: attrs } }
+  let(:props) { nil }
+  let(:opts) { { reporter: reporter, connection: connection, resource_type: r1, resource_name: r2, properties: props } }
   subject(:action) { ChefWorkstation::Action::ConvergeTarget.new(opts) }
 
   describe "#initialize" do
-    it "properly initializes exposed attribute readers" do
+    it "properly initializes exposed attr readers" do
       expect(action.resource_type).to eq r1
       expect(action.resource_name).to eq r2
     end
   end
 
   describe "#create_apply_args" do
-    context "when no attributes are provided" do
+    context "when no properties are provided" do
       it "it creates a simple resource" do
         expect(action.create_apply_args).to eq("\"directory '/tmp'\"")
       end
     end
 
-    context "when attributes are provided" do
-      let(:attrs) do
+    context "when properties are provided" do
+      let(:props) do
         {
           "key1" => "value",
           "key2" => 0.1,
@@ -41,7 +41,7 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
         }
       end
 
-      it "convertes the attributes to chef-apply args" do
+      it "converts the properties to chef-apply args" do
         expect(action.create_apply_args).to eq(
           "\"directory '/tmp' do; " \
           "key1 'value'; " \

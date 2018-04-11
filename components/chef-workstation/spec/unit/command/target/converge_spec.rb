@@ -38,7 +38,7 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
       end
     end
 
-    it "raises an error if attributes are not specified as key value pairs" do
+    it "raises an error if properties are not specified as key value pairs" do
       params = [
         %w{one two three four},
         %w{one two three four=value five six=value},
@@ -52,8 +52,8 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
     end
   end
 
-  describe "#format_attributes" do
-    it "parses attributes into a hash" do
+  describe "#format_properties" do
+    it "parses properties into a hash" do
       provided = %w{key1=value key2=1 key3=true key4=FaLsE key5=0777 key6=https://some.website}
       expected = {
         "key1" => "value",
@@ -63,7 +63,7 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
         "key5" => "0777",
         "key6" => "https://some.website",
       }
-      expect(cmd.format_attributes(provided)).to eq(expected)
+      expect(cmd.format_properties(provided)).to eq(expected)
     end
 
   end
