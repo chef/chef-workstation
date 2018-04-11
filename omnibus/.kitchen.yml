@@ -13,27 +13,17 @@ driver:
 provisioner:
   name: chef_zero
 
+# only run one of these at a time if you are interested in using the
+# omnibus package produced; the build process begins by cleaning up
+# prior built artifacts in pkg/ which is shared across VMs
 platforms:
-  - name: centos-7.1
-    run_list: yum-epel::default
-  - name: centos-6.6
-    run_list: yum-epel::default
-  - name: centos-5.11
-    run_list: yum-epel::default
-  - name: debian-7.8
-    run_list: apt::default
-  - name: debian-6.0.10
-    run_list: apt::default
-  - name: freebsd-10.1
-    run_list: freebsd::portsnap
-  - name: freebsd-9.3
-    run_list:
-      - freebsd::portsnap
-      - freebsd::pkgng
+  - name: centos-7
+  - name: centos-6
+  - name: debian-9
+  - name: debian-8
+  - name: debian-7
+  - name: ubuntu-16.04
   - name: ubuntu-14.04
-    run_list: apt::default
-  - name: ubuntu-12.04
-    run_list: apt::default
 
 suites:
   - name: default

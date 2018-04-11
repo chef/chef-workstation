@@ -6,4 +6,6 @@ description      'Builds a Chef Workstation package'
 long_description 'Builds a Chef Workstation package'
 version          '1.0.0'
 
-depends          'omnibus'
+depends 'omnibus'
+depends 'apt',      '~> 2.8'
+depends 'yum-epel', '~> 0.6'
