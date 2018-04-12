@@ -95,26 +95,52 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
     let(:converge_args) { Hash.new }
 
     context "when trying to converge a recipe" do
+      let(:cli_arguments) { [p] }
+      let(:recipe_lookup) { instance_double(ChefWorkstation::RecipeLookup) }
+      let(:status_msg) { ChefWorkstation::Text.status.converge.converging_recipe(p) }
+      let(:cookbook) { double("cookbook") }
+      let(:recipe_path) { "/recipe/path" }
+
       context "as a path" do
-        let(:p) { "/some/path" }
-        let(:cli_arguments) { [p] }
+        let(:p) { recipe_path }
         it "returns the recipe path" do
           expect(File).to receive(:file?).with(p).and_return true
           actual1, actual2 = cmd.parse_converge_args(converge_args, cli_arguments)
           expect(actual1).to eq({ recipe_path: p })
-          msg = ChefWorkstation::Text.status.converge.converging_recipe(p)
-          expect(actual2).to eq(msg)
+          expect(actual2).to eq(status_msg)
         end
       end
 
       context "as a cookbook name" do
-        let(:cli_arguments) { %w{cb_name} }
+        let(:p) { "cb_name" }
         it "returns the recipe path" do
-          expect { cmd.parse_converge_args(converge_args, cli_arguments) }.to raise_error(
-            "Cannot specify anything besides full path yet"
-          )
+          expect(File).to receive(:file?).with(p).and_return false
+          expect(ChefWorkstation::RecipeLookup).to receive(:new).and_return(recipe_lookup)
+          expect(recipe_lookup).to receive(:split).with(p).and_return([p])
+          expect(recipe_lookup).to receive(:load_cookbook).with(p).and_return(cookbook)
+          expect(recipe_lookup).to receive(:find_recipe).with(cookbook, nil).and_return(recipe_path)
+          actual1, actual2 = cmd.parse_converge_args(converge_args, cli_arguments)
+          expect(actual1).to eq({ recipe_path: recipe_path })
+          expect(actual2).to eq(status_msg)
         end
       end
+
+      context "as a cookbook and recipe name" do
+        let(:cookbook_name) { "cb_name" }
+        let(:recipe_name) { "recipe_name" }
+        let(:p) { cookbook_name + "::" + recipe_name }
+        it "returns the recipe path" do
+          expect(File).to receive(:file?).with(p).and_return false
+          expect(ChefWorkstation::RecipeLookup).to receive(:new).and_return(recipe_lookup)
+          expect(recipe_lookup).to receive(:split).with(p).and_return([cookbook_name, recipe_name])
+          expect(recipe_lookup).to receive(:load_cookbook).with(cookbook_name).and_return(cookbook)
+          expect(recipe_lookup).to receive(:find_recipe).with(cookbook, recipe_name).and_return(recipe_path)
+          actual1, actual2 = cmd.parse_converge_args(converge_args, cli_arguments)
+          expect(actual1).to eq({ recipe_path: recipe_path })
+          expect(actual2).to eq(status_msg)
+        end
+      end
+
     end
 
     context "when trying to converge a resource" do
