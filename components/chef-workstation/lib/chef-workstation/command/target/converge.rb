@@ -147,16 +147,8 @@ module ChefWorkstation
           if recipe_strategy?(cli_arguments)
             recipe_specifier = cli_arguments.shift
             ChefWorkstation::Log.debug("Beginning to look for recipe specified as #{recipe_specifier}")
-
-            # First, we check to see if the user has specified the full path (absolute or relative)
-            # to a file. If they have, we assume that is a recipe they want to execute.
-            if File.file?(recipe_specifier)
-              ChefWorkstation::Log.debug("#{recipe_specifier} is a valid path to a recipe")
-              converge_args[:recipe_path] = recipe_specifier
-              spinner_msg = TS.converge.converging_recipe(recipe_specifier)
-            else
-              raise "Cannot specify anything besides full path yet"
-            end
+            recipe_path = RecipePath.resolve(recipe_specifier)
+            spinner_msg = TS.converge.converging_recipe(recipe_specifier)
           else
             resource = converge_args[:resource_type] = cli_arguments.shift
             resource_name = converge_args[:resource_name] = cli_arguments.shift

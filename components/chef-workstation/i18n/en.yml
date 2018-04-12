@@ -54,6 +54,9 @@ commands:
             <RECIPE>.
 
             chef target converge myec2node path/to/cookbook/recipe.rb
+            chef target converge myec2node path/to/cookbook
+            chef target converge myec2node cookbook_name
+            chef target converge myec2node cookbook_name::recipe_name
 
         ARGS:
           <TARGET>          The host or IP address to converge. Can also be an SSH or WinRM URL
@@ -66,6 +69,11 @@ commands:
                             the name of the user you wanted to create.
           <RECIPE>          The recipe to converge. This can be provided as one of:
                             1. Full path to a recipe file
+                            2. Cookbook name. First we check the working directory for this
+                               cookbook, then we check in the chef repo path. If a cookbook
+                               is found we run the default recipe.
+                            3. Cookbook and recipe name. Same as 2 but we run the specified
+                               recipe instead of the default recipe.
       root_description: "Whether to use root permissions on the target. Defaults to true."
       identity_file: "SSH identity file to use when connecting."
       ssl:
@@ -216,10 +224,13 @@ errors:
     Property '%1' did not match the 'key=value' syntax required
 
   CHEFVAL004: |
-    Please provide a recipe in the form 'path/to/recipe/file', 'cookbook_name',
-    or 'cookbook_name::recipe_name'.
+    Please provide a recipe in the form 'path/to/recipe/file.rb',
+    'path/to/cookbook', 'cookbook_name' or 'cookbook_name::recipe_name'.
 
     You provided '%1'.
+
+  CHEFVAL005: |
+
 
   # General errors/unknown errors are handled with CHEFINT
   CHEFINT001: |
