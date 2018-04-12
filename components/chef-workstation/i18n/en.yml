@@ -205,6 +205,11 @@ errors:
 
       Available commands are: %2
 
+  CHEFCLI002: |
+    '%1' is not a valid flag.
+
+      Available options are: %2
+
   # CLI Validation errors are prefixed with CHEFVAL
   CHEFVAL001: |
     No identity file at '%1'
