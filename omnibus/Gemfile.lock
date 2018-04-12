@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: 3f6f9836cb041ad6187b7b52a25cf759fc830bc6
+  revision: 71f7f900cddf62c3c1260ec3885a029e1f2193d9
   branch: lcg/appbundle-0.11-without
   specs:
     omnibus-software (4.0.0)
@@ -9,10 +9,10 @@ GIT
 
 GIT
   remote: https://github.com/chef/omnibus.git
-  revision: bc76c699bc8b85959bb546933efa6b5cf0ff1823
+  revision: 5bc3a48f9210c19f9b84371d6037447739c96bd8
   branch: lcg/improve-appbundling
   specs:
-    omnibus (5.6.10)
+    omnibus (5.6.11)
       aws-sdk (~> 2)
       chef-sugar (~> 3.3)
       cleanroom (~> 1.0)
@@ -31,18 +31,18 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     awesome_print (1.8.0)
-    aws-sdk (2.11.19)
-      aws-sdk-resources (= 2.11.19)
-    aws-sdk-core (2.11.19)
+    aws-sdk (2.11.33)
+      aws-sdk-resources (= 2.11.33)
+    aws-sdk-core (2.11.33)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.19)
-      aws-sdk-core (= 2.11.19)
+    aws-sdk-resources (2.11.33)
+      aws-sdk-core (= 2.11.33)
     aws-sigv4 (1.0.2)
-    berkshelf (6.3.1)
+    berkshelf (6.3.2)
       buff-config (~> 2.0)
       buff-extensions (~> 2.0)
-      chef (>= 12.7.2)
+      chef (>= 12.7.2, < 14.0)
       cleanroom (~> 1.0)
       concurrent-ruby (~> 1.0)
       faraday (~> 0.9)
@@ -66,7 +66,7 @@ GEM
     buff-shell_out (1.1.0)
       buff-ruby_engine (~> 1.0)
     builder (3.2.3)
-    byebug (10.0.1)
+    byebug (10.0.2)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     celluloid-io (0.16.2)
@@ -140,7 +140,7 @@ GEM
     iostruct (0.0.4)
     ipaddress (0.8.3)
     iso8601 (0.9.1)
-    jmespath (1.3.1)
+    jmespath (1.4.0)
     json (2.1.0)
     kitchen-vagrant (1.3.1)
       test-kitchen (~> 1.4)
@@ -168,7 +168,7 @@ GEM
     mixlib-log (1.7.1)
     mixlib-shellout (2.3.2)
     mixlib-versioning (1.2.2)
-    molinillo (0.6.4)
+    molinillo (0.6.5)
     multi_json (1.13.1)
     multipart-post (2.0.0)
     net-scp (1.2.1)
@@ -186,7 +186,7 @@ GEM
     nori (2.6.0)
     octokit (4.8.0)
       sawyer (~> 0.8.0, >= 0.5.3)
-    ohai (13.8.0)
+    ohai (13.9.0)
       chef-config (>= 12.5.0.alpha.1, < 14)
       ffi (~> 1.9)
       ffi-yajl (~> 2.2)
@@ -272,7 +272,7 @@ GEM
     solve (4.0.0)
       molinillo (~> 0.6)
       semverse (>= 1.1, < 3.0)
-    specinfra (2.73.2)
+    specinfra (2.73.3)
       net-scp
       net-ssh (>= 2.7, < 5.0)
       net-telnet
