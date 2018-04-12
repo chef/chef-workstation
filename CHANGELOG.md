@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.49 -->
+<!-- latest_release 0.1.50 -->
+## [0.1.50](https://github.com/chef/chef-workstation/tree/0.1.50) (2018-04-12)
+
+#### Merged Pull Requests
+- [SHACK-140] Updating our ruby version to 2.5 to be on the latest [#75](https://github.com/chef/chef-workstation/pull/75) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.49](https://github.com/chef/chef-workstation/tree/0.1.49) (2018-04-12)
 
 #### Merged Pull Requests
 - [SHACK-143] set the omnibus kitchen config to perform the omnibus build during converge [#74](https://github.com/chef/chef-workstation/pull/74) ([robbkidd](https://github.com/robbkidd))
-<!-- latest_release -->
 
 ## [0.1.48](https://github.com/chef/chef-workstation/tree/0.1.48) (2018-04-11)
 

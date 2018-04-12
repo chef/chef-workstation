@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/chef/train
-  revision: 31834a19217a2757efa92d2d968665899c7bf373
+  revision: 8f275a4c4c16f09dc195f86782329faaa5c78b94
   branch: master
   specs:
-    train (1.3.0)
+    train (1.4.0)
       aws-sdk (~> 2)
       azure_mgmt_resources (~> 0.15)
       docker-api (~> 1.26)
@@ -18,7 +18,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-workstation (0.1.49)
+    chef-workstation (0.1.50)
       chef (>= 14.0)
       mixlib-cli
       mixlib-config
