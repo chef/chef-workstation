@@ -156,7 +156,7 @@ errors:
       https://docs.chef.io/resource_reference.html
 
   CHEFCCR004: |
-    An property value you provided is not valid:
+    A property value you provided is not valid:
 
       %1
 
