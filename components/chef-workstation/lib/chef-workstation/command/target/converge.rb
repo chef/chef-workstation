@@ -82,15 +82,15 @@ module ChefWorkstation
 
         # The first param is always hostname. Then we either have
         # 1. A recipe designation
-        # 2. A resource type and resource name followed by any attributes
-        ATTRIBUTE_MATCHER = /^([a-zA-Z0-9]+)=(.+)$/
+        # 2. A resource type and resource name followed by any properties
+        PROPERTY_MATCHER = /^([a-zA-Z0-9]+)=(.+)$/
         CB_MATCHER = '[\w\-]+'
         def validate_params(params)
           if params.size < 2
             raise OptionValidationError.new("CHEFVAL002")
           end
           if params.size == 2
-            # Trying to specify a recipe to run remotely, no attributes
+            # Trying to specify a recipe to run remotely, no properties
             cb = params[1]
             if File.exist?(cb)
               # This is a path specification, and we know it is valid
@@ -100,29 +100,29 @@ module ChefWorkstation
               raise OptionValidationError.new("CHEFVAL004", cb)
             end
           elsif params.size >= 3
-            attributes = params[3..-1]
-            attributes.each do |attribute|
-              unless attribute =~ ATTRIBUTE_MATCHER
-                raise OptionValidationError.new("CHEFVAL003", attribute)
+            properties = params[3..-1]
+            properties.each do |property|
+              unless property =~ PROPERTY_MATCHER
+                raise OptionValidationError.new("CHEFVAL003", property)
               end
             end
           end
         end
 
-        def format_attributes(string_attrs)
-          attributes = {}
-          string_attrs.each do |a|
-            key, value = ATTRIBUTE_MATCHER.match(a)[1..-1]
-            value = transform_attribute_value(value)
-            attributes[key] = value
+        def format_properties(string_props)
+          properties = {}
+          string_props.each do |a|
+            key, value = PROPERTY_MATCHER.match(a)[1..-1]
+            value = transform_property_value(value)
+            properties[key] = value
           end
-          attributes
+          properties
         end
 
-          # Incoming attributes are always read as a string from the command line.
+          # Incoming properties are always read as a string from the command line.
           # Depending on their type we should transform them so we do not try and pass
-          # a string to a resource attribute that expects an integer or boolean.
-        def transform_attribute_value(value)
+          # a string to a resource property that expects an integer or boolean.
+        def transform_property_value(value)
           case value
           when /^0/
             # when it is a zero leading value like "0777" don't turn
@@ -160,7 +160,7 @@ module ChefWorkstation
           else
             resource = converge_args[:resource_type] = cli_arguments.shift
             resource_name = converge_args[:resource_name] = cli_arguments.shift
-            converge_args[:attributes] = format_attributes(cli_arguments)
+            converge_args[:properties] = format_properties(cli_arguments)
             full_rs_name = "#{resource}[#{resource_name}]"
             ChefWorkstation::Log.debug("Converging resource #{full_rs_name} on target")
             spinner_msg = TS.converge.converging_resource(full_rs_name)

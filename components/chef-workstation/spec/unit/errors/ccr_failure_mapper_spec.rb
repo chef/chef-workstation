@@ -13,8 +13,8 @@ RSpec.describe ChefWorkstation::Errors::CCRFailureMapper do
   subject { ChefWorkstation::Errors::CCRFailureMapper.new(stack, params) }
 
   describe "#exception_args_from_cause" do
-    context "when resource attributes have valid names but invalid values" do
-      context "and the attribute is 'action'" do
+    context "when resource properties have valid names but invalid values" do
+      context "and the property is 'action'" do
         let(:cause_line) { "Chef::Exceptions::ValidationFailed: Option action must be equal to one of: nothing, install, upgrade, remove, purge, reconfig, lock, unlock!  You passed :marve." }
         it "returns a correct CHEFCCR003" do
           expect(subject.exception_args_from_cause).to eq(
@@ -24,7 +24,7 @@ RSpec.describe ChefWorkstation::Errors::CCRFailureMapper do
         end
       end
 
-      context "and the attribute is something else" do
+      context "and the property is something else" do
         context "and details are available" do
           let(:cause_line) { "Chef::Exceptions::ValidationFailed: Option force must be a kind of [TrueClass, FalseClass]!  You passed \"purle\"." }
           it "returns a correct CHEFCCR004 when details are available" do
@@ -51,11 +51,11 @@ RSpec.describe ChefWorkstation::Errors::CCRFailureMapper do
       end
     end
 
-    context "when a resource attribute does not exist for the given resource" do
-      let(:cause_line) { "NoMethodError: undefined method `badresourceattr' for Chef::Resource::User::LinuxUser" }
+    context "when a resource property does not exist for the given resource" do
+      let(:cause_line) { "NoMethodError: undefined method `badresourceprop' for Chef::Resource::User::LinuxUser" }
       it "returns a correct CHEFCCR006 " do
         expect(subject.exception_args_from_cause).to eq(
-          ["CHEFCCR006", "badresourceattr", "Chef::Resource::User::LinuxUser"])
+          ["CHEFCCR006", "badresourceprop", "Chef::Resource::User::LinuxUser"])
       end
     end
   end
@@ -78,7 +78,7 @@ RSpec.describe ChefWorkstation::Errors::CCRFailureMapper do
       end
 
       context "and can resolve the cause" do
-        let(:cause_line) { "NoMethodError: undefined method `badresourceattr' for Chef::Resource::User::LinuxUser" }
+        let(:cause_line) { "NoMethodError: undefined method `badresourceprop' for Chef::Resource::User::LinuxUser" }
         it "raises a RemoteChefClientRunFailed" do
           expect { subject.raise_mapped_exception! }.to raise_error(ChefWorkstation::Errors::CCRFailureMapper::RemoteChefClientRunFailed)
         end

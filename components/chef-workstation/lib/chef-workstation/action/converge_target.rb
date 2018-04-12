@@ -36,10 +36,10 @@ module ChefWorkstation::Action
       else
         resource_type = config.delete :resource_type
         resource_name = config.delete :resource_name
-        attributes = config.delete(:attributes) || []
+        properties = config.delete(:properties) || []
         begin
           recipe_file = Tempfile.new
-          recipe_file.write(create_resource(resource_type, resource_name, attributes))
+          recipe_file.write(create_resource(resource_type, resource_name, properties))
           recipe_file.close
           connection.upload_file(recipe_file.path, remote_recipe_path)
         rescue RuntimeError
@@ -75,12 +75,12 @@ module ChefWorkstation::Action
       mapper.raise_mapped_exception!
     end
 
-    def create_resource(resource_type, resource_name, attributes)
+    def create_resource(resource_type, resource_name, properties)
       r = "#{resource_type} '#{resource_name}'"
-      # lets format the attributes into the correct syntax Chef expects
-      unless attributes.empty?
+      # lets format the properties into the correct syntax Chef expects
+      unless properties.empty?
         r += " do\n"
-        attributes.each do |k, v|
+        properties.each do |k, v|
           v = "'#{v}'" if v.is_a? String
           r += "  #{k} #{v}\n"
         end

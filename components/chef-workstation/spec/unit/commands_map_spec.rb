@@ -33,7 +33,7 @@ RSpec.describe ChefWorkstation::CommandsMap do
     parent_cmd
   end
 
-  it "defines the attributes correctly" do
+  it "defines the properties correctly" do
     expect(mapping.have_command_or_alias?("example")).to be true
     e = mapping.command_specs["example"]
     expect(e.require_path).to eq("unit/fixtures/command/cli_test_command")

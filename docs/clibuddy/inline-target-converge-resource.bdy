@@ -2,9 +2,9 @@ commands
   chef
     flow
       for show resource package
-        .description Show the commonly used attributes for the resource given.
-        .show-text The package resource supports the following attributes:
-        .table Attribute|Description|Env Var
+        .description Show the commonly used properties for the resource given.
+        .show-text The package resource supports the following properties:
+        .table Property|Description|Env Var
           action|action to perform|package_action
           version|package version to install|package_version
         .show-text .n
@@ -13,10 +13,10 @@ commands
         .description Show additional helpful hints for 'show package'.
         .use show resource package
         .show-text You can set these options on the command line in the
-        .show-text form attr=VALUE after other options/arguments:
+        .show-text form prop=VALUE after other options/arguments:
         .show-text .t CMD target converge /TARGET package nginx version=1.0
         .show-text .n
-        .show-text You can set the environment variable shown in 'Env Var' for each attribute.
+        .show-text You can set the environment variable shown in 'Env Var' for each property.
         .show-text This can be either preceding the command:
         .show-text .t version=1.0 CMD target converge /TARGET package nginx
         .show-text .n
@@ -46,11 +46,11 @@ commands
           .success after 1s [TARGET] RESOURCE[RS_NAME] applied successfully!
 
       for target converge * package * action=remove version=9.2
-        .description Custom action and additional attribute
+        .description Custom action and additional property
         .use target converge * package * action=remove
 
       for target converge * with package nginx using version=9.2 action=install
-        .description  Optional 'with' and 'using' keywords and action+attributes
+        .description  Optional 'with' and 'using' keywords and action+properties
         .use target converge TARGET package nginx
 
       for target converge * with package nginx version=9.2
@@ -65,7 +65,7 @@ commands
         .description Show usage of confirm, and how env vars can be pulled in
         .show-text The following action and settings will be used when applying ACTION to TARGET:
         .show-text .n
-        .table Attribute|Value|Source
+        .table Property|Value|Source
           name | .magenta nginx | command line
           action | .magenta install | default action
           ignore_failure | .blue false | default
@@ -84,8 +84,8 @@ commands
         the type of resource to invoke
       RS_NAME
        the name property to supply to the resource
-      [ATTRIBUTES]
-        one or more cookbook attributes in the form name=value,
+      [PROPERTIES]
+        one or more cookbook properties in the form name=value,
         separated by spaces. This must be the final argument.
       --*help
         shows usage details for this command
@@ -101,7 +101,7 @@ commands
         will be presented to you before applying to the remote node, and an
         opportunity to stop the run will be given before any change is applied.
       --extended-help
-        Used with 'show', provides examples of how resource attributes can be set.
+        Used with 'show', provides examples of how resource properties can be set.
     usage
       short
         Apply RESOURCE to TARGET
