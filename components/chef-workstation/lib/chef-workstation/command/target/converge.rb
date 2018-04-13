@@ -23,6 +23,7 @@ require "chef-workstation/action/converge_target"
 require "chef-workstation/ui/terminal"
 require "chef-workstation/log"
 require "chef-workstation/config"
+require "chef-workstation/recipe_path"
 
 module ChefWorkstation
   module Command
@@ -62,6 +63,10 @@ module ChefWorkstation
           :description => T.ssl.verify_desc(Config.connection.winrm.ssl_verify),
           :boolean => true,
           :default => Config.connection.winrm.ssl_verify
+
+        option :chef_repo_path,
+          :long => "--chef-repo-path",
+          :description => T.chef_repo_path.desc
 
         def run(params)
           validate_params(cli_arguments)
@@ -147,21 +152,14 @@ module ChefWorkstation
           if recipe_strategy?(cli_arguments)
             recipe_specifier = cli_arguments.shift
             ChefWorkstation::Log.debug("Beginning to look for recipe specified as #{recipe_specifier}")
-
-            # First, we check to see if the user has specified the full path (absolute or relative)
-            # to a file. If they have, we assume that is a recipe they want to execute.
-            if File.file?(recipe_specifier)
-              ChefWorkstation::Log.debug("#{recipe_specifier} is a valid path to a recipe")
-              converge_args[:recipe_path] = recipe_specifier
-              spinner_msg = TS.converge.converging_recipe(recipe_specifier)
-            else
-              raise "Cannot specify anything besides full path yet"
-            end
+            recipe_path = RecipePath.resolve(recipe_specifier)
+            converge_args[:recipe_path] = recipe_path
+            spinner_msg = TS.converge.converging_recipe(recipe_specifier)
           else
-            resource = converge_args[:resource_type] = cli_arguments.shift
-            resource_name = converge_args[:resource_name] = cli_arguments.shift
+            converge_args[:resource_type] = cli_arguments.shift
+            converge_args[:resource_name] = cli_arguments.shift
             converge_args[:properties] = format_properties(cli_arguments)
-            full_rs_name = "#{resource}[#{resource_name}]"
+            full_rs_name = "#{converge_args[:resource_type]}[#{converge_args[:resource_name]}]"
             ChefWorkstation::Log.debug("Converging resource #{full_rs_name} on target")
             spinner_msg = TS.converge.converging_resource(full_rs_name)
           end
