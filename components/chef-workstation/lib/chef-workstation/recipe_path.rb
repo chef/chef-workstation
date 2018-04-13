@@ -32,7 +32,7 @@ module ChefWorkstation
         # This is a 'cookbook' or 'cookbook::recipe' specifier
         cookbook_name, recipe_name = recipe_specifier.split("::")
 
-        if Dir.exist?(cookbook_name)
+        if File.directory?(cookbook_name)
           # First, is there a cookbook in the specified dir that matches?
           cookbook = load_cookbook(cookbook_name)
         else
@@ -77,7 +77,7 @@ module ChefWorkstation
         v.load!
         v.cookbook_version
       rescue Chef::Exceptions::CookbookNotFoundInRepo => e
-        raise InvalidCookbook.new(File.expand_path(cookbook_path), e.message)
+        raise InvalidCookbook.new(cookbook_path)
       end
     end
 
