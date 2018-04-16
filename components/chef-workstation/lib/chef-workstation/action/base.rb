@@ -22,9 +22,9 @@ module ChefWorkstation
       end
 
       PATH_MAPPING = {
-        chef_apply: {
-          windows: "cmd /c C:/opscode/chef/bin/chef-apply",
-          other: "/opt/chef/bin/chef-apply",
+        chef_client: {
+          windows: "cmd /c C:/opscode/chef/bin/chef-client",
+          other: "/opt/chef/bin/chef-client",
         },
         read_chef_stacktrace: {
           windows: "type C:/chef/cache/chef-stacktrace.out",

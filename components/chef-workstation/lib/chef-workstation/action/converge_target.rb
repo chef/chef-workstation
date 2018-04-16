@@ -8,7 +8,7 @@ module ChefWorkstation::Action
 
     def perform_action
       remote_recipe_path = create_remote_recipe(@config)
-      c = connection.run_command("#{chef_apply} #{remote_recipe_path} --no-color")
+      c = connection.run_command("#{chef_client} #{remote_recipe_path} --local-mode --no-color")
       remote_dir_path = File.dirname(remote_recipe_path)
 
       connection.run_command!("#{delete_folder} #{remote_dir_path}")
@@ -61,7 +61,7 @@ module ChefWorkstation::Action
         # remote failure that does not write a chef stacktrace its possible to get an old
         # stale stacktrace.
         connection.run_command!(delete_chef_stacktrace)
-        ChefWorkstation::Log.error("Remote chef-apply error follows:")
+        ChefWorkstation::Log.error("Remote chef-client error follows:")
         ChefWorkstation::Log.error("\n    " + lines.join("\n    "))
       else
         lines = []

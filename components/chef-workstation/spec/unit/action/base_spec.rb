@@ -36,7 +36,7 @@ RSpec.describe ChefWorkstation::Action::Base do
   end
 
   shared_examples "check path fetching" do
-    [:chef_apply, :read_chef_stacktrace].each do |path|
+    [:chef_client, :read_chef_stacktrace].each do |path|
       it "correctly returns path #{path}" do
         expect(action.send(path)).to be_a(String)
       end
