@@ -120,7 +120,7 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
 
       it "reports back failure and scrapes the remote log" do
         expect(action).to receive(:create_remote_recipe).with(config).and_return(remote_recipe)
-        expect(connection).to receive(:run_command).with("#{action.chef_client} #{remote_recipe} --local-mode --no-color").and_return(result)
+        expect(connection).to receive(:run_command).with("#{action.chef_client} #{remote_recipe} --local-mode --no-color --config-option file_cache_path=/var/chef/cache").and_return(result)
         expect(connection).to receive(:run_command!)
           .with("#{action.delete_folder} #{File.dirname(remote_recipe)}")
         expect(action).to receive(:notify).with(:error)
@@ -134,7 +134,7 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
         let(:stacktrace_result) { double("stacktrace scrape result", exit_status: 1, stdout: "", stderr: "") }
         it "reports back failure" do
           expect(action).to receive(:create_remote_recipe).with(config).and_return(remote_recipe)
-          expect(connection).to receive(:run_command).with("#{action.chef_client} #{remote_recipe} --local-mode --no-color").and_return(result)
+          expect(connection).to receive(:run_command).with("#{action.chef_client} #{remote_recipe} --local-mode --no-color --config-option file_cache_path=/var/chef/cache").and_return(result)
           expect(connection).to receive(:run_command!)
             .with("#{action.delete_folder} #{File.dirname(remote_recipe)}")
           expect(action).to receive(:notify).with(:error)
