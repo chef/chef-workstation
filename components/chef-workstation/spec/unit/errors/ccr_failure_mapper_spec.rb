@@ -34,7 +34,7 @@ RSpec.describe ChefWorkstation::Errors::CCRFailureMapper do
           end
         end
         context "And less detail is available" do
-          let(:cause_line) { "Chef::Exceptions::User: linux_user[marc] ((chef-apply cookbook)::(chef-apply recipe) line 1) had an error: Chef::Exceptions::User: Couldn't lookup integer GID for group name blah" }
+          let(:cause_line) { "Chef::Exceptions::User: linux_user[marc] ((chef-client cookbook)::(chef-client recipe) line 1) had an error: Chef::Exceptions::User: Couldn't lookup integer GID for group name blah" }
           it "returns a correct CHEFCCR002" do
             expect(subject.exception_args_from_cause).to eq(
               ["CHEFCCR002", "Couldn't lookup integer GID for group name blah"])
@@ -44,7 +44,7 @@ RSpec.describe ChefWorkstation::Errors::CCRFailureMapper do
     end
 
     context "when resource is not a known Chef resource" do
-      let(:cause_line) { "NoMethodError: undefined method `useraaa' for cookbook: (chef-apply cookbook), recipe: (chef-apply recipe) :Chef::Recipe" }
+      let(:cause_line) { "NoMethodError: undefined method `useraaa' for cookbook: (chef-client cookbook), recipe: (chef-client recipe) :Chef::Recipe" }
       let(:resource) { "useraaa" }
       it "returns a correct CHEFCCR005" do
         expect(subject.exception_args_from_cause).to eq(["CHEFCCR005", resource])
