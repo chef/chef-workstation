@@ -103,16 +103,24 @@ module ChefWorkstation
           options.each_value do |spec|
             justify_length = [justify_length, spec[:long].length + 4].max
           end
-          options.sort.to_h.each_value do |spec|
-            short = spec[:short] || "  "
+          options.sort.to_h.each_value do |flag_spec|
+            short = flag_spec[:short] || "  "
             short = short[0, 2] # We only want the flag portion, not the capture portion (if present)
             if short == "  "
               short = "    "
             else
               short = "#{short}, "
             end
-            flags = "#{short}#{spec[:long]}"
-            UI::Terminal.output "    #{flags.ljust(justify_length)}    #{spec[:description]}"
+            flags = "#{short}#{flag_spec[:long]}"
+            UI::Terminal.write("    #{flags.ljust(justify_length)}    ")
+            ml_padding = " " * (justify_length + 8)
+            first = true
+            flag_spec[:description].split("\n").each do |d|
+              UI::Terminal.write(ml_padding) unless first
+              first = false
+              UI::Terminal.write(d)
+              UI::Terminal.write("\n")
+            end
           end
         end
         unless subcommands.empty?
