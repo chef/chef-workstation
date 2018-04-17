@@ -8,7 +8,7 @@ module ChefWorkstation::Action
 
     def perform_action
       remote_recipe_path = create_remote_recipe(@config)
-      c = connection.run_command("#{chef_client} #{remote_recipe_path} --local-mode --no-color")
+      c = connection.run_command("#{chef_client} #{remote_recipe_path} --local-mode --no-color --config-option file_cache_path=/var/chef/cache")
       remote_dir_path = File.dirname(remote_recipe_path)
 
       connection.run_command!("#{delete_folder} #{remote_dir_path}")
