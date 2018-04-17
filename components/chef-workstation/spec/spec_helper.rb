@@ -66,7 +66,7 @@ RSpec.configure do |config|
   end
 
   config.before(:all) do
-    ChefWorkstation::Log.setup "/dev/null"
+    ChefWorkstation::Log.setup "/dev/null", :error
     ChefWorkstation::UI::Terminal.init(File.open("/dev/null", "w"))
   end
 end

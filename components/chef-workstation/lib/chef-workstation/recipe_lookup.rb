@@ -1,6 +1,7 @@
 require "chef-workstation/config"
 require "chef-workstation/error"
 require "chef-workstation/log"
+require "chef-config/config"
 
 module ChefWorkstation
   # When users are trying to converge a local recipe on a remote target, there
@@ -18,10 +19,10 @@ module ChefWorkstation
     # Given a cookbook path or name, try to load that cookbook. Either return
     # a cookbook object or raise an error.
     def load_cookbook(path_or_name)
+      require "chef/exceptions"
       if File.directory?(path_or_name)
         cookbook_path = path_or_name
         # First, is there a cookbook in the specified dir that matches?
-        require "chef/exceptions"
         require "chef/cookbook/cookbook_version_loader"
         begin
           v = Chef::Cookbook::CookbookVersionLoader.new(cookbook_path)
@@ -33,11 +34,8 @@ module ChefWorkstation
       else
         cookbook_name = path_or_name
         # Second, is there a cookbook in their local repo that matches?
-        # TODO initialize Chef logger to send to our log
-        require "chef-config/config"
-        require "chef-config/workstation_config_loader"
         require "chef/cookbook_loader"
-        cookbook_repo_path ||= chef_cookbook_path
+        cookbook_repo_path ||= ChefConfig::Config[:cookbook_path]
         cb_loader = Chef::CookbookLoader.new(cookbook_repo_path)
         cb_loader.load_cookbooks_without_shadow_warning
 
@@ -67,11 +65,6 @@ module ChefWorkstation
         raise RecipeNotFound.new(cookbook.root_dir, recipe_name, recipes.keys) if recipe.nil?
         recipe
       end
-    end
-
-    def chef_cookbook_path
-      ChefConfig::WorkstationConfigLoader.new(nil).load
-      ChefConfig::Config[:cookbook_path]
     end
 
     class InvalidCookbook < ChefWorkstation::Error

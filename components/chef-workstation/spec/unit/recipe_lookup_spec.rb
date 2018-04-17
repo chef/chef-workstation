@@ -3,7 +3,6 @@ require "chef-workstation/recipe_lookup"
 require "chef/exceptions"
 require "chef/cookbook/cookbook_version_loader"
 require "chef/cookbook_version"
-require "chef-config/workstation_config_loader"
 require "chef/cookbook_loader"
 
 RSpec.describe ChefWorkstation::RecipeLookup do
@@ -12,7 +11,6 @@ RSpec.describe ChefWorkstation::RecipeLookup do
   let(:version_loader) { instance_double(VL) }
   let(:cookbook_version) { instance_double(Chef::CookbookVersion, root_dir: "dir", name: "name") }
   let(:cookbook_loader) { instance_double(Chef::CookbookLoader, load_cookbooks_without_shadow_warning: nil) }
-  let(:config_loader) { instance_double(ChefConfig::WorkstationConfigLoader, load: nil) }
 
   describe "#split" do
     it "splits a customer provided specifier into a cookbook part and possible recipe part" do
@@ -50,7 +48,6 @@ RSpec.describe ChefWorkstation::RecipeLookup do
       let(:repo_path) { "repo_path" }
       before do
         expect(File).to receive(:directory?).with(recipe_specifier).and_return(false)
-        expect(ChefConfig::WorkstationConfigLoader).to receive(:new).and_return(config_loader)
         expect(Chef::CookbookLoader).to receive(:new).and_return(cookbook_loader)
         ChefConfig::Config[:cookbook_path] = repo_path
       end

@@ -24,6 +24,10 @@ require "chef-workstation/ui/terminal"
 require "chef-workstation/log"
 require "chef-workstation/config"
 require "chef-workstation/recipe_lookup"
+require "chef-config/config"
+require "chef-config/workstation_config_loader"
+require "chef-config/logger"
+require "chef/log"
 
 module ChefWorkstation
   module Command
@@ -70,6 +74,7 @@ module ChefWorkstation
 
         def run(params)
           validate_params(cli_arguments)
+          configure_chef
 
           target = cli_arguments.shift
 
@@ -112,6 +117,16 @@ module ChefWorkstation
               end
             end
           end
+        end
+
+        # Now that we are leveraging Chef locally we want to perform some initial setup of it
+        def configure_chef
+          ChefConfig.logger = ChefWorkstation::Log
+          ChefConfig::WorkstationConfigLoader.new(nil).load
+          # Setting the config isn't enough, we need to ensure the logger is initialized
+          # or automatic initialization will still go to stdout
+          Chef::Log.init(ChefWorkstation::Log)
+          Chef::Log.level = ChefWorkstation::Log.level
         end
 
         def format_properties(string_props)
