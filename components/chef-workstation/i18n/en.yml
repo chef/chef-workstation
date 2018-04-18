@@ -1,16 +1,12 @@
 # Shared and top-level CLI output text.
 cli:
-  # CLI option, banner, and usage text
-  aborted: Canceling request due to interrupt.
-  config: Location of config file. Defaults to %1
   creating_config: "Creating config file in %1."
-  subcommands: "SUBCOMMANDS:"
-  target: ""
 
 # Text specific to each command
 commands:
   base:
-    version: "Show the current version of this tool"
+    config: Location of config file. Defaults to %1
+    version: Show the current version of Chef Workstation.
     version_for_help: "Chef Workstation Version: %1\n\n"
     description: |
       Congratulations! You are using chef: your gateway
@@ -61,10 +57,12 @@ commands:
     usage_full: chef target [SUBCOMMAND] [FLAGS]
 
     converge:
+      aborted: Canceling request due to interrupt.
       description: Apply a change to a target node.
 
       usage: |
         chef target converge <TARGET> <RESOURCE> <RESOURCE_NAME> [PROPERTIES] [FLAGS]
+        chef target converge <TARGET> <RECIPE> [FLAGS]
 
       usage_full: |
         chef target converge <TARGET> <RESOURCE> <RESOURCE_NAME> [PROPERTIES] [FLAGS]
@@ -72,8 +70,7 @@ commands:
           Converge the specified <TARGET> with the single <RESOURCE>.
           [PROPERTIES] should be specified as key=value. For example:
 
-            chef target converge myec2node directory \
-                                 /tmp/test mode="0777" action=create
+            chef target converge myec2node directory /tmp/test mode="0777" action=create
 
         chef target converge <TARGET> <RECIPE> [FLAGS]
 

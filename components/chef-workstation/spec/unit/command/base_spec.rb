@@ -47,13 +47,5 @@ RSpec.describe ChefWorkstation::Command::Base do
         end
       end
     end
-    context "with version arguments" do
-      %w{--version -v}.each do |arg|
-        it "shows version when run with #{arg}" do
-          expect(subject).to receive(:show_version)
-          subject.run_with_default_options([arg])
-        end
-      end
-    end
   end
 end

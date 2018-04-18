@@ -193,7 +193,7 @@ module ChefWorkstation
               end
             when :error
               # Message may or may not be present. First arg if it is.
-              msg = data.length > 0 ? data[0] : Text.cli.aborted
+              msg = data.length > 0 ? data[0] : T.aborted
               r.error(TS.install.failure(msg))
             end
           end

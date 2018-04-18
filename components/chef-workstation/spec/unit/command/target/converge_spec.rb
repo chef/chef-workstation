@@ -19,7 +19,7 @@ require "chef-workstation/commands_map"
 require "chef-workstation/command/target/converge"
 
 RSpec.describe ChefWorkstation::Command::Target::Converge do
-  let(:cmd_spec) { ChefWorkstation::CommandsMap::CommandSpec.new }
+  let(:cmd_spec) { instance_double(ChefWorkstation::CommandsMap::CommandSpec) }
   subject(:cmd) do
     ChefWorkstation::Command::Target::Converge.new(cmd_spec)
   end

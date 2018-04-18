@@ -106,7 +106,7 @@ module ChefWorkstation
 
       def make_usage
         # TODO an OutputFormatter that understands "format_usage(command) might be better.
-        usage = ChefWorkstation::Text.cli.usage
+        usage = ChefWorkstation::Text.commands.base.usage
         usage_text_split = text.usage.split("\n")
         if usage_text_split.length == 1
           usage << text.usage
@@ -118,7 +118,6 @@ module ChefWorkstation
           end
         end
         usage
-
       end
 
       def make_banner
@@ -178,7 +177,7 @@ module ChefWorkstation
     def command_names(with_hidden = false)
       return command_specs.keys if with_hidden
 
-      command_specs.select {|k, v| !v.hidden}.keys
+      command_specs.select { |k, v| !v.hidden }.keys
     end
 
     private

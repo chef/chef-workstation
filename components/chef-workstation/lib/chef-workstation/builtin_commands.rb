@@ -39,7 +39,7 @@ ChefWorkstation.commands do |c|
 
   # Version works inversely - if someone specifies '-v' we will swap that out
   # to use the Version command.
-  c.top_level("version", :Version, text.base, "chef-workstation/command/version")
+  c.top_level("version", :Version, text.version, "chef-workstation/command/version")
 
   # This is our root command 'chef'. Giving it all top-level subcommands (which will
   # exclude this hidden one at time of evaluation) means that 'chef help' will be able to show

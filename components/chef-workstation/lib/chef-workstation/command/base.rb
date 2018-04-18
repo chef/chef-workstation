@@ -47,7 +47,7 @@ module ChefWorkstation
       option :config_path,
         :short        => "-c PATH",
         :long         => "--config PATH",
-        :description  => Text.cli.config(ChefWorkstation::Config.default_location),
+        :description  => T.config(ChefWorkstation::Config.default_location),
         :default      => ChefWorkstation::Config.default_location,
         :proc         => Proc.new { |path| ChefWorkstation::Config.custom_location(path) }
 
@@ -64,17 +64,12 @@ module ChefWorkstation
           # We ignore options for all 'help' commands.
           Log.debug "Showing help for #{@command_spec.qualified_name}"
           show_help
-        elsif params.include?("-v") || params.include?("--version")
-          Log.debug "Showing version for #{@command_spec.qualified_name}"
-          show_version
         else
           Log.debug "Starting #{@command_spec.qualified_name} command"
           parse_options(params)
           run(params)
         end
         Log.debug "Completed #{@command_spec.qualified_name} command without exception"
-        # rescue OptionParser::InvalidOption, OptionParser::MissingArgument
-        #   raise Shak::OptionParserError.new(opt_parser.to_s)
       end
 
       def run(params)
@@ -119,12 +114,7 @@ module ChefWorkstation
         self.class.usage
       end
 
-
       private
-
-      def show_version
-        UI::Terminal.output(ChefWorkstation::VERSION)
-      end
 
       # TODO - does this all just belong in a HelpFormatter? Seems weird
       # to encumber the base with all this...
@@ -148,24 +138,24 @@ module ChefWorkstation
         options.each_value do |spec|
           justify_length = [justify_length, spec[:long].length + 4].max
         end
-          options.sort.to_h.each_value do |flag_spec|
-            short = flag_spec[:short] || "  "
+        options.sort.to_h.each_value do |flag_spec|
+          short = flag_spec[:short] || "  "
           short = short[0, 2] # We only want the flag portion, not the capture portion (if present)
           if short == "  "
             short = "    "
           else
             short = "#{short}, "
           end
-            flags = "#{short}#{flag_spec[:long]}"
-            UI::Terminal.write("    #{flags.ljust(justify_length)}    ")
-            ml_padding = " " * (justify_length + 8)
-            first = true
-            flag_spec[:description].split("\n").each do |d|
-              UI::Terminal.write(ml_padding) unless first
-              first = false
-              UI::Terminal.write(d)
-              UI::Terminal.write("\n")
-            end
+          flags = "#{short}#{flag_spec[:long]}"
+          UI::Terminal.write("    #{flags.ljust(justify_length)}    ")
+          ml_padding = " " * (justify_length + 8)
+          first = true
+          flag_spec[:description].split("\n").each do |d|
+            UI::Terminal.write(ml_padding) unless first
+            first = false
+            UI::Terminal.write(d)
+            UI::Terminal.write("\n")
+          end
         end
       end
 
@@ -204,11 +194,7 @@ module ChefWorkstation
         # of top-level commands - those are subcommands of 'chef'.
         # In a future pass, we may want to actually structure it that way
         # such that a "Base' instance named 'chef' is the root command.
-        if self.class == Base
-          ChefWorkstation.commands_map.command_specs
-        else
-          @command_spec.subcommands
-        end
+        @command_spec.subcommands
       end
 
       class OptionValidationError < ChefWorkstation::ErrorNoLogs
