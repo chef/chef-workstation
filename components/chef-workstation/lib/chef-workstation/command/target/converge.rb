@@ -25,7 +25,6 @@ require "chef-workstation/log"
 require "chef-workstation/config"
 require "chef-workstation/recipe_lookup"
 require "chef-config/config"
-require "chef-config/workstation_config_loader"
 require "chef-config/logger"
 require "chef/log"
 
@@ -35,7 +34,6 @@ module ChefWorkstation
       class Converge < ChefWorkstation::Command::Base
         T = ChefWorkstation::Text.commands.target.converge
         TS = ChefWorkstation::Text.status
-        Config = ChefWorkstation::Config
 
         option :root,
           :long => "--[no-]root",
@@ -57,20 +55,22 @@ module ChefWorkstation
         option :ssl,
           :long => "--[no-]ssl",
           :short => "-s",
-          :description => T.ssl.desc(Config.connection.winrm.ssl),
+          :description => T.ssl.desc(ChefWorkstation::Config.connection.winrm.ssl),
           :boolean => true,
-          :default => Config.connection.winrm.ssl
+          :default => ChefWorkstation::Config.connection.winrm.ssl
 
         option :ssl_verify,
           :long => "--[no-]ssl-verify",
           :short => "-s",
-          :description => T.ssl.verify_desc(Config.connection.winrm.ssl_verify),
+          :description => T.ssl.verify_desc(ChefWorkstation::Config.connection.winrm.ssl_verify),
           :boolean => true,
-          :default => Config.connection.winrm.ssl_verify
+          :default => ChefWorkstation::Config.connection.winrm.ssl_verify
 
-        option :chef_repo_path,
-          :long => "--chef-repo-path",
-          :description => T.chef_repo_path.desc
+        option :cookbook_repo_paths,
+          :long => "--cookbook-repo-paths PATH",
+          :description => T.cookbook_repo_paths.desc,
+          :default => ChefWorkstation::Config.chef.cookbook_repo_paths,
+          :proc => Proc.new { |paths| paths.split(",") }
 
         def run(params)
           validate_params(cli_arguments)
@@ -122,7 +122,6 @@ module ChefWorkstation
         # Now that we are leveraging Chef locally we want to perform some initial setup of it
         def configure_chef
           ChefConfig.logger = ChefWorkstation::Log
-          ChefConfig::WorkstationConfigLoader.new(nil).load
           # Setting the config isn't enough, we need to ensure the logger is initialized
           # or automatic initialization will still go to stdout
           Chef::Log.init(ChefWorkstation::Log)
@@ -171,7 +170,7 @@ module ChefWorkstation
               ChefWorkstation::Log.debug("#{recipe_specifier} is a valid path to a recipe")
               recipe_path = recipe_specifier
             else
-              rl = RecipeLookup.new
+              rl = RecipeLookup.new(config[:cookbook_repo_paths])
               cookbook_path_or_name, optional_recipe_name = rl.split(recipe_specifier)
               cookbook = rl.load_cookbook(cookbook_path_or_name)
               recipe_path = rl.find_recipe(cookbook, optional_recipe_name)

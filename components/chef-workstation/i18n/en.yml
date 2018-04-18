@@ -107,8 +107,8 @@ commands:
           Use --ssl-no-verify when using SSL for WinRM and
           the remote host is using a self-signed certificate.
           Current default: %1
-      chef_repo_path:
-        desc: "Location of the Chef repo containing cookbooks to execute on targets"
+      cookbook_repo_paths:
+        desc: "Location of the Chef repo containing cookbooks to execute on targets. Comma seperated list of paths"
 
 
 # Status updates shared across commands.
@@ -258,7 +258,9 @@ errors:
     Cookbook path is '%1'.
 
   CHEFVAL006: |
-    Cookbook '%1' could not be found in directory '%2'.
+    Cookbook '%1' could not be found in any of the following directorys
+
+    %2
 
   CHEFVAL007: |
     Cookbook '%2' did not contain a default recipe and you did not specify

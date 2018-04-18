@@ -10,6 +10,11 @@ module ChefWorkstation
   # a path to a recipe or we raise an error.
   class RecipeLookup
 
+    attr_reader :cookbook_repo_paths
+    def initialize(cookbook_repo_paths)
+      @cookbook_repo_paths = cookbook_repo_paths
+    end
+
     # The recipe specifier is provided by the customer as either a path OR
     # a cookbook and optional recipe name.
     def split(recipe_specifier)
@@ -35,18 +40,19 @@ module ChefWorkstation
         cookbook_name = path_or_name
         # Second, is there a cookbook in their local repo that matches?
         require "chef/cookbook_loader"
-        cookbook_repo_path ||= ChefConfig::Config[:cookbook_path]
-        cb_loader = Chef::CookbookLoader.new(cookbook_repo_path)
+        cb_loader = Chef::CookbookLoader.new(cookbook_repo_paths)
         cb_loader.load_cookbooks_without_shadow_warning
 
         begin
           cookbook = cb_loader[cookbook_name]
         rescue Chef::Exceptions::CookbookNotFoundInRepo
-          cookbook_path = File.join(cookbook_repo_path, cookbook_name)
-          if File.directory?(cookbook_path)
-            raise InvalidCookbook.new(cookbook_path)
+          cookbook_repo_paths.each do |repo_path|
+            cookbook_path = File.join(repo_path, cookbook_name)
+            if File.directory?(cookbook_path)
+              raise InvalidCookbook.new(cookbook_path)
+            end
           end
-          raise CookbookNotFound.new(cookbook_name, cookbook_repo_path)
+          raise CookbookNotFound.new(cookbook_name, cookbook_repo_paths)
         end
       end
       cookbook
@@ -72,7 +78,10 @@ module ChefWorkstation
     end
 
     class CookbookNotFound < ChefWorkstation::Error
-      def initialize(cookbook_name, repo_path); super("CHEFVAL006", cookbook_name, repo_path); end
+      def initialize(cookbook_name, repo_paths)
+        repo_paths = repo_paths.join("\n")
+        super("CHEFVAL006", cookbook_name, repo_paths)
+      end
     end
 
     class NoDefaultRecipe < ChefWorkstation::Error

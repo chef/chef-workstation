@@ -6,7 +6,8 @@ require "chef/cookbook_version"
 require "chef/cookbook_loader"
 
 RSpec.describe ChefWorkstation::RecipeLookup do
-  subject(:rp) { ChefWorkstation::RecipeLookup.new }
+  let(:repo_path) { "repo_path" }
+  subject(:rp) { ChefWorkstation::RecipeLookup.new([repo_path]) }
   VL = Chef::Cookbook::CookbookVersionLoader
   let(:version_loader) { instance_double(VL) }
   let(:cookbook_version) { instance_double(Chef::CookbookVersion, root_dir: "dir", name: "name") }
@@ -45,11 +46,9 @@ RSpec.describe ChefWorkstation::RecipeLookup do
 
     context "when a cookbook name is provided" do
       let(:recipe_specifier) { "cb" }
-      let(:repo_path) { "repo_path" }
       before do
         expect(File).to receive(:directory?).with(recipe_specifier).and_return(false)
         expect(Chef::CookbookLoader).to receive(:new).and_return(cookbook_loader)
-        ChefConfig::Config[:cookbook_path] = repo_path
       end
 
       context "and a cookbook in the cookbook repo exists with that name" do
