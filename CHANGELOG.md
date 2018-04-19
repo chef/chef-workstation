@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.50 -->
+<!-- latest_release 0.1.51 -->
+## [0.1.51](https://github.com/chef/chef-workstation/tree/0.1.51) (2018-04-19)
+
+#### Merged Pull Requests
+- Temporarily taking ChefDK off the path until its Ruby version is updated [#84](https://github.com/chef/chef-workstation/pull/84) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.50](https://github.com/chef/chef-workstation/tree/0.1.50) (2018-04-12)
 
 #### Merged Pull Requests
 - [SHACK-140] Updating our ruby version to 2.5 to be on the latest [#75](https://github.com/chef/chef-workstation/pull/75) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.49](https://github.com/chef/chef-workstation/tree/0.1.49) (2018-04-12)
 
