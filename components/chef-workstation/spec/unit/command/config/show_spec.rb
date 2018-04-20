@@ -18,7 +18,7 @@ require "spec_helper"
 require "chef-workstation/command/config/show"
 
 RSpec.describe ChefWorkstation::Command::Config::Show do
-  let(:cmd_spec) { instance_double(ChefWorkstation::CommandsMap::CommandSpec, qualified_name: "blah")}
+  let(:cmd_spec) { instance_double(ChefWorkstation::CommandsMap::CommandSpec, qualified_name: "blah") }
   subject(:cmd) do
     ChefWorkstation::Command::Config::Show.new(cmd_spec)
   end

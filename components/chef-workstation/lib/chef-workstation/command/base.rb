@@ -63,21 +63,16 @@ module ChefWorkstation
       end
 
       def run_with_default_options(params = [])
-        # Each subcommand gets its own help subcommand which is really the class
-        # as its parent.  If the name of the command is help,
-        # ignore options and just display help.
-        if params.include?("-h") || params.include?("--help")
-          # We ignore options for all 'help' commands.
-          Log.debug "Showing help for #{@command_spec.qualified_name}"
+        parse_options(params)
+        if config[:help]
           show_help
         else
-          Log.debug "Starting #{@command_spec.qualified_name} command"
-          parse_options(params)
           run(params)
         end
-        Log.debug "Completed #{@command_spec.qualified_name} command without exception"
       end
 
+      # This is normally overridden by the command implementations, but
+      # can execute in the case of 'chef' being run with no arguments.
       def run(params)
         show_help
       end

@@ -9,4 +9,3 @@ RSpec.describe "chef config" do
   end
 
 end
-
