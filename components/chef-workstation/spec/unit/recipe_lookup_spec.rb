@@ -51,7 +51,7 @@ RSpec.describe ChefWorkstation::RecipeLookup do
         expect(Chef::CookbookLoader).to receive(:new).and_return(cookbook_loader)
       end
 
-      context "and a cookbook in the cookbook repo exists with that name" do
+      context "and a cookbook in the cookbook repository exists with that name" do
         it "returns the default cookbook" do
           expect(cookbook_loader).to receive(:[]).with(recipe_specifier).and_return(cookbook_version)
           expect(rp.load_cookbook(recipe_specifier)).to eq(cookbook_version)

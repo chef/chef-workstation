@@ -38,7 +38,7 @@ module ChefWorkstation
         end
       else
         cookbook_name = path_or_name
-        # Second, is there a cookbook in their local repo that matches?
+        # Second, is there a cookbook in their local repository that matches?
         require "chef/cookbook_loader"
         cb_loader = Chef::CookbookLoader.new(cookbook_repo_paths)
         cb_loader.load_cookbooks_without_shadow_warning
@@ -68,7 +68,7 @@ module ChefWorkstation
         default_recipe
       else
         recipe = recipes[recipe_name]
-        raise RecipeNotFound.new(cookbook.root_dir, recipe_name, recipes.keys) if recipe.nil?
+        raise RecipeNotFound.new(cookbook.root_dir, recipe_name, recipes.keys, cookbook.name) if recipe.nil?
         recipe
       end
     end
@@ -89,10 +89,10 @@ module ChefWorkstation
     end
 
     class RecipeNotFound < ChefWorkstation::Error
-      def initialize(cookbook_path, recipe_name, available_recipes)
+      def initialize(cookbook_path, recipe_name, available_recipes, cookbook_name)
         available_recipes.map! { |r| "'#{r}'" }
         available_recipes = available_recipes.join(", ")
-        super("CHEFVAL008", cookbook_path, recipe_name, available_recipes)
+        super("CHEFVAL008", cookbook_path, recipe_name, available_recipes, cookbook_name)
       end
     end
 
