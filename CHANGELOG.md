@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.52 -->
+<!-- latest_release 0.1.53 -->
+## [0.1.53](https://github.com/chef/chef-workstation/tree/0.1.53) (2018-04-20)
+
+#### Merged Pull Requests
+- [SHACK-136] Ensure help works consistently [#79](https://github.com/chef/chef-workstation/pull/79) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.52](https://github.com/chef/chef-workstation/tree/0.1.52) (2018-04-20)
 
 #### Merged Pull Requests
 - Experimental Omnibus APIs we were using got merged to master, update to support that [#85](https://github.com/chef/chef-workstation/pull/85) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.51](https://github.com/chef/chef-workstation/tree/0.1.51) (2018-04-19)
 
