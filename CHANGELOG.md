@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.53 -->
+<!-- latest_release 0.1.54 -->
+## [0.1.54](https://github.com/chef/chef-workstation/tree/0.1.54) (2018-04-20)
+
+#### Merged Pull Requests
+- [SHACK-154] Create and run with a config file [#86](https://github.com/chef/chef-workstation/pull/86) ([cheeseplus](https://github.com/cheeseplus))
+<!-- latest_release -->
+
 ## [0.1.53](https://github.com/chef/chef-workstation/tree/0.1.53) (2018-04-20)
 
 #### Merged Pull Requests
 - [SHACK-136] Ensure help works consistently [#79](https://github.com/chef/chef-workstation/pull/79) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.52](https://github.com/chef/chef-workstation/tree/0.1.52) (2018-04-20)
 
