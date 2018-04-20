@@ -26,13 +26,17 @@ module ChefWorkstation
           windows: "cmd /c C:/opscode/chef/bin/chef-client",
           other: "/opt/chef/bin/chef-client",
         },
+        cache_path: {
+          windows: '#{ENV[\'APPDATA\']}/chef-workstation',
+          other: "/var/chef-workstation",
+        },
         read_chef_stacktrace: {
-          windows: "type C:/chef/cache/chef-stacktrace.out",
-          other: "cat /var/chef/cache/chef-stacktrace.out",
+          windows: "type $env:APPDATA/chef-workstation/cache/chef-stacktrace.out",
+          other: "cat /var/chef-workstation/cache/chef-stacktrace.out",
         },
         delete_chef_stacktrace: {
-          windows: "del /f C:/chef/cache/chef-stacktrace.out",
-          other: "rm -f /var/chef/cache/chef-stacktrace.out",
+          windows: "del /f $env:APPDATA/chef-workstation/chef-stacktrace.out",
+          other: "rm -f /var/chef-workstation/cache/chef-stacktrace.out",
         },
         tempdir: {
           windows: "%TEMP%",
