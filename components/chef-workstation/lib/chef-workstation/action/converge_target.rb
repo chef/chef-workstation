@@ -68,6 +68,8 @@ module ChefWorkstation::Action
         connection.upload_file(config_file.path, remote_config_path)
       rescue RuntimeError
         raise ConfigUploadFailed.new()
+      ensure
+        config_file.unlink
       end
       remote_config_path
     end
