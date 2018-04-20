@@ -111,7 +111,7 @@ module ChefWorkstation
 
       # Special case for prefixed --help/-h: we have to move it to the end so that
       # we don't consider '-h' to be the command we're trying to load.
-      if @argv[0].casecmp("help") == 0 || @argv[0] == "-h" || @argv[0] == "--help"
+      if %w{help -h --help}.include?(@argv[0].downcase)
         # Make help command the last option to the specified command (if any)
         # so that it's handled by the command that is being asked about.
         @argv.shift

@@ -2,6 +2,21 @@
 require "chef-workstation/cli"
 require "chef-workstation/version"
 
+# Create the chef configuration directory and touch the config
+# file.
+# this makes sure our output doesn't include
+# an extra line telling us that it's created,
+# causing the first integration test to execute to fail on
+# CI.
+# TODO this is not ideal... let's look at
+# testing the output correctly in both cases,
+# possible forcing a specific test that will also create
+# the directory to run first.
+dir = File.join(Dir.home, ".chef-workstation")
+conf = File.join(dir, "config.toml")
+FileUtils.mkdir_p(dir) unless Dir.exist?(dir)
+FileUtils.touch(conf) unless File.exist?(conf)
+
 # Simple wrapper that runs the CLI and prevents it
 # from aborting all tests with a SystemExit.
 # We could shell out, but this will run a little faster as we

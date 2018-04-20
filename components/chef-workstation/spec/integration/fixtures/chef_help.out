@@ -1,4 +1,4 @@
-Chef Workstation Version: 0.1.53
+Chef Workstation Version: $VERSION
 
 Congratulations! You are using chef: your gateway
 to managing everything from a single node to an entire Chef
