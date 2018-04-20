@@ -31,16 +31,13 @@ RSpec.describe ChefWorkstation::CLI do
 
   context "run" do
     before do
-      expect(subject).to receive(:init)
+      expect(subject).to receive(:setup_cli)
     end
 
     it "performs the steps necessary to handle the request and capture telemetry" do
       expect(subject).to receive(:perform_command)
       expect(telemetry).to receive(:timed_capture).
-        with(:run,
-             command: nil,
-             sub: nil, args: [],
-             opts: cli.options.to_h).and_yield
+        with(:run, args: []).and_yield
       expect(telemetry).to receive(:send!)
       expect { cli.run }.to raise_error SystemExit
     end
@@ -79,31 +76,33 @@ RSpec.describe ChefWorkstation::CLI do
       end
     end
 
-    context "help command called on a subcommand" do
-      let(:argv) { %w{help config} }
-      it "passes the help message to the subcommand" do
-        expect(cli).to receive(:have_command?).with("config").and_return(true)
-
-        expect_any_instance_of(ChefWorkstation::Command::Base).to receive(:run_with_default_options).with(["-h"]).and_return(0)
-        expect { cli.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
+    context "help handling" do
+      context "help command called on a subcommand" do
+        let(:argv) { %w{help config} }
+        it "passes the help message to the subcommand" do
+          expect(cli).to receive(:have_command?).with("config").and_return(true)
+          expect_any_instance_of(ChefWorkstation::Command::Base).to receive(:run_with_default_options).with(["--help"]).and_return(0)
+          expect { cli.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
+        end
       end
-    end
 
-    context "help command called with no args" do
-      let(:expected_version_string) { ChefWorkstation::Text.cli.print_version(ChefWorkstation::VERSION) }
-      %w{-h --help help}.each do |flag|
-        let(:argv) { [flag] }
-        it "shows version and top-level help, and exits 0" do
-          expect(ChefWorkstation::UI::Terminal).to receive(:output).with(expected_version_string)
-          expect(subject).to receive(:show_help)
-          expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
+      context "help command called with no args" do
+        let(:expected_version_string) { ChefWorkstation::Text.commands.base.version_for_help(ChefWorkstation::VERSION) }
+        %w{-h --help help}.each do |flag|
+          let(:argv) { [flag] }
+          it "shows version and top-level help, and exits 0" do
+            expect(ChefWorkstation::UI::Terminal).to receive(:output).with(expected_version_string)
+            expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
+          end
         end
       end
     end
+
   end
 
   context "#perform_command" do
     context "help command called" do
+
       let(:argv) { ["help"] }
       it "prints the help text" do
         expect { cli.perform_command }.to output(/Congratulations!.+-c, --config PATH/m).to_terminal
@@ -126,7 +125,9 @@ RSpec.describe ChefWorkstation::CLI do
     context "when an exception occurs" do
       let(:err) { "A String exception" }
       it "handles it" do
-        allow(cli).to receive(:show_help).and_raise err
+        # and hijack the first call perform_command makes
+        # to force an error.
+        allow(cli).to receive(:update_args_for_help).and_raise err
         expect(cli).to receive(:handle_perform_error)
         cli.perform_command
       end

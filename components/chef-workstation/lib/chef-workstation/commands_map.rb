@@ -61,12 +61,25 @@ module ChefWorkstation
   class CommandsMap
     NULL_ARG = Object.new
 
-    CommandSpec = Struct.new(:name, :constant_name, :text, :require_path, :hidden, :subcommands, :qualified_name)
+    CommandSpec = Struct.new(:name, :constant_name, :text, :require_path, :hidden, :subcommands, :parent)
 
     class CommandSpec
 
       def instantiate
         command_class.new(self)
+      end
+
+      def qualified_name
+        @qualified_name ||= begin
+            # Until we make the hidden root the real root, an extra step
+            # to ensure the alias doesn't describe itself as "hidden-base target converge"
+          parent_name = if parent.nil? || parent.qualified_name == "hidden-root"
+                          ""
+                        else
+                          "#{parent.qualified_name} "
+                        end
+          "#{parent_name}#{name}"
+        end
       end
 
       def command_class
@@ -83,15 +96,32 @@ module ChefWorkstation
           else
             klass = ChefWorkstation::Command.const_get(constant_name)
           end
-          # We store the banner in the commands map so we do not have to
+          # We store the banner at the class level (not instance) so we do not have to
           # require/load every command class to display the help output.
           klass.banner(make_banner)
+          klass.usage(make_usage)
           klass
         end
       end
 
+      def make_usage
+        # TODO an OutputFormatter that understands "format_usage(command) might be better.
+        usage = ChefWorkstation::Text.commands.base.usage
+        usage_text_split = text.usage.split("\n")
+        if usage_text_split.length == 1
+          usage << text.usage
+        else
+          usage << "\n"
+
+          usage_text_split.each do |t|
+            usage << "  #{t}\n"
+          end
+        end
+        usage
+      end
+
       def make_banner
-        text.description + "\n\n" + text.usage
+        text.description + "\n" + text.usage_full
       end
 
     end
@@ -104,11 +134,16 @@ module ChefWorkstation
     end
 
     def top_level(name, constant_name, text, require_path, hidden: false, subcommands: [])
-      command_specs[name] = create(name, constant_name, text, require_path, hidden: hidden, subcommands: subcommands)
+      command_specs[name] = create(name, constant_name, text, require_path,
+                                   hidden: hidden, subcommands: subcommands)
     end
 
-    def create(name, constant_name, text, require_path, cmd_alias: "", hidden: false, subcommands: [])
-      cmd_spec = CommandSpec.new(name, constant_name, text, require_path, hidden, Hash[subcommands.collect { |c| [c.name, c] } ])
+    def create(name, constant_name, text, require_path, cmd_alias: "",
+               hidden: false, subcommands: [])
+      subcommandmap = Hash[subcommands.collect { |c| [c.name, c] } ]
+      cmd_spec = CommandSpec.new(name, constant_name, text, require_path,
+                                 hidden, subcommandmap)
+      subcommandmap.each_value { |v| v.parent = cmd_spec }
       unless cmd_alias.empty?
         @alias_specs[cmd_alias] = cmd_spec
       end
@@ -139,8 +174,10 @@ module ChefWorkstation
       command_specs.key?(name) || alias_specs.key?(name)
     end
 
-    def command_names
-      command_specs.keys
+    def command_names(with_hidden = false)
+      return command_specs.keys if with_hidden
+
+      command_specs.select { |k, v| !v.hidden }.keys
     end
 
     private
@@ -154,20 +191,7 @@ module ChefWorkstation
     @commands_map ||= CommandsMap.new
   end
 
-  # NOTE: 'commands_map', commands, and assign_parentage
-  # are all created here class methods of 'ChefWorkstation',
-  # which isn't ideal.
   def self.commands
-    result = yield commands_map
-    assign_parentage!(commands_map.command_specs)
-    result
+    yield commands_map
   end
-
-  def self.assign_parentage!(root_specs, qualified_name = "")
-    root_specs.each do |cmd_name, cmd_spec|
-      cmd_spec.qualified_name = "#{qualified_name} #{cmd_name}".gsub(/^ /, "")
-      assign_parentage!(cmd_spec.subcommands, cmd_spec.qualified_name)
-    end
-  end
-
 end

@@ -69,9 +69,15 @@ module ChefWorkstation::UI
       @show_log = exception.respond_to?(:show_log) ? exception.show_log : true
       @show_stack = exception.respond_to?(:show_stack) ? exception.show_stack : true
       @content = StringIO.new
+      @command = exception.respond_to?(:command) ? exception.command : nil
       @id = DEFAULT_ERROR_NO
       if exception.respond_to?(:id) && exception.id =~ /CHEF.*/
         @id = exception.id
+      end
+      if exception.respond_to?(:decorate)
+        @decorate = exception.decorate
+      else
+        @decorate = true
       end
     rescue => e
       ErrorPrinter.dump_unexpected_error(e)
@@ -79,14 +85,31 @@ module ChefWorkstation::UI
     end
 
     def format_error
-      @content.write("\n")
-      @content << format_header()
-      @content.write("\n\n")
-      @content << format_body()
-      @content.write("\n")
-      @content << format_footer()
-      @content.write("\n")
+      if @decorate
+        format_decorated
+      else
+        format_undecorated
+      end
       @content.string
+    end
+
+    def format_undecorated
+      @content << "\n"
+      @content << format_body()
+      if @command
+        @content << "\n"
+        @content << @command.usage
+      end
+    end
+
+    def format_decorated
+      @content << "\n"
+      @content << format_header()
+      @content << "\n\n"
+      @content << format_body()
+      @content << "\n"
+      @content << format_footer()
+      @content << "\n"
     end
 
     def format_header

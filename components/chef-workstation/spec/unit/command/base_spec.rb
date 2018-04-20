@@ -21,18 +21,31 @@ require "chef-workstation/commands_map"
 RSpec.describe ChefWorkstation::Command::Base do
   let(:cmd_spec) { instance_double(ChefWorkstation::CommandsMap::CommandSpec, name: "cmd", subcommands: []) }
   subject(:cmd) do
+    allow(cmd_spec).to receive(:qualified_name).and_return "blah"
     ChefWorkstation::Command::Base.new(cmd_spec)
   end
 
   describe "run" do
-    it "raises an NotImplementedError" do
-      expect { cmd.run([]) }.to raise_error(NotImplementedError)
+    it "shows help" do
+      expect(subject).to receive(:show_help)
+      subject.run([])
     end
   end
 
   describe "run_with_default_options" do
-    it "prints the help text" do
-      expect { cmd.run_with_default_options(["help"]) }.to output(/Command banner not set.+-c, --config PATH/m).to_terminal
+    context "with no arguments" do
+      it "invokes show_help" do
+        expect(subject).to receive(:show_help)
+        subject.run_with_default_options([])
+      end
+    end
+    context "with help arguments" do
+      %w{--help -h}.each do |arg|
+        it "shows help when run with #{arg}" do
+          expect(subject).to receive(:show_help)
+          subject.run_with_default_options([arg])
+        end
+      end
     end
   end
 end

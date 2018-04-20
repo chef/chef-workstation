@@ -1,61 +1,85 @@
 # Shared and top-level CLI output text.
 cli:
-  # CLI option, banner, and usage text
-  banner: |
-    Congratulations! You are using chef: your gateway
-    to managing everything from a single node to an entire Chef
-    infrastructure.
-
-    USAGE:
-      chef [SUBCOMMAND]
-  aborted: Canceling request due to interrupt.
-  alias_for: "Alias for: "
-  aliases: "ALIASES:"
-  config: Location of config file. Defaults to %1
   creating_config: "Creating config file in %1."
-  help: "Show usage information"
-  print_version: "Chef Workstation Version: %1\n\n"
-  short_banner: "Usage:  chef COMMAND [options...]"
-  subcommands: "SUBCOMMANDS:"
-  target: ""
-  version: "Show the current version of this tool"
-  version_msg: "Version %1"
 
 # Text specific to each command
 commands:
+  base:
+    config: Location of config file. Defaults to %1
+    version: Show the current version of Chef Workstation.
+    version_for_help: "Chef Workstation Version: %1\n\n"
+    description: |
+      Congratulations! You are using chef: your gateway
+      to managing everything from a single node to an entire Chef
+      infrastructure.
+
+    usage: chef COMMAND [options...]
+
+    usage_full: |
+      chef COMMAND [options...]
+
+    status:
+      connecting: "Connecting..."
+      connected: "Connected."
+      connection_failed: "Connection failed: %1"
+
+    help: "Show usage information"
+    alias_for: "Alias for: "
+    aliases: "ALIASES:"
+    usage_msg: "USAGE: "
+
+  help:
+    description: Show help and usage for 'chef' or a given subcommand.
+    usage: cheff <help|-h|--help> [COMMAND_OR_ALIAS]
+    usage_full: |
+      chef <help|-h|--help>
+      chef <help|-h|--help> [COMMAND_OR_ALIAS]
+      chef <COMMAND_OR_ALIAS> <help|-h|--help>
+
+  version:
+    description: Show the current version of Chef Workstation.
+    usage: chef <version|-v|--version>
+    usage_full: chef <version|-v|--version>
+
   config:
     description: Manage Chef Workstation configuration
-    usage: |
-      USAGE:
-        chef config [SUBCOMMAND]
+    usage: chef config [SUBCOMMAND] [FLAGS]
+    usage_full: chef config [SUBCOMMAND] [FLAGS]
     show:
       description: Echo out Chef Workstation configuration to stdout
-      usage: |
-        USAGE:
-          chef config show [FLAGS]
+      usage: chef config show [FLAGS]
+      usage_full: chef config show [FLAGS]
       source: "Config loaded from %1path %2."
+
   target:
-    description: Manage a target
-    usage: |
-      USAGE:
-        chef target [SUBCOMMAND]
+    description: Manage a target node or device.
+    usage: chef target [SUBCOMMAND] [FLAGS]
+    usage_full: chef target [SUBCOMMAND] [FLAGS]
+
     converge:
-      description: Converge a target
+      aborted: Canceling request due to interrupt.
+      description: Apply a change to a target node.
+
       usage: |
-        USAGE:
-          chef target converge <TARGET> <RESOURCE> <RESOURCE_NAME> [PROPERTIES] [FLAGS]
-            Converge the specified <TARGET> with the single <RESOURCE>. [PROPERTIES]
-            should be specified as key=value. EG:
+        chef target converge <TARGET> <RESOURCE> <RESOURCE_NAME> [PROPERTIES] [FLAGS]
+        chef target converge <TARGET> <RECIPE> [FLAGS]
+
+      usage_full: |
+        chef target converge <TARGET> <RESOURCE> <RESOURCE_NAME> [PROPERTIES] [FLAGS]
+
+          Converge the specified <TARGET> with the single <RESOURCE>.
+          [PROPERTIES] should be specified as key=value. For example:
 
             chef target converge myec2node directory /tmp/test mode="0777" action=create
 
-          chef target converge <TARGET> <RECIPE> [FLAGS]
-            Converge the specified <TARGET> with the single recipe located at
-            <RECIPE>.
+        chef target converge <TARGET> <RECIPE> [FLAGS]
+
+          Converge the specified <TARGET> with the single recipe located at
+          <RECIPE>. For example:
 
             chef target converge myec2node path/to/cookbook/recipe.rb
 
-        ARGS:
+        ARGUMENTS:
           <TARGET>          The host or IP address to converge. Can also be an SSH or WinRM URL
                             in the form:
 
@@ -66,6 +90,7 @@ commands:
                             the name of the user you wanted to create.
           <RECIPE>          The recipe to converge. This can be provided as one of:
                             1. Full path to a recipe file
+
       root_description: "Whether to use root permissions on the target. Defaults to true."
       identity_file: "SSH identity file to use when connecting."
       ssl:
@@ -75,15 +100,11 @@ commands:
           Use --ssl-no-verify when using SSL for WinRM and
           the remote host is using a self-signed certificate.
           Current default: %1
-  base:
-    status:
-      connecting: "Connecting..."
-      connected: "Connected."
-      connection_failed: "Connection failed: %1"
+
 
 # Status updates shared across commands.
 status:
-  install:
+  install_chef:
     installing: Installing Chef client.
     downloading: Downloading Chef client installer.
     uploading: Uploading Chef client installer.

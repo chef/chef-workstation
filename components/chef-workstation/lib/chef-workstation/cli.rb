@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright (c) 2017 Chef Software Inc.
+# Copyright:: Copyright (c) 2018 Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,43 +16,20 @@
 #
 require "chef-workstation/config"
 require "chef-workstation/log"
-require "chef-workstation/version"
 require "chef-workstation/telemetry"
 require "chef-workstation/commands_map"
 require "chef-workstation/builtin_commands"
 require "chef-workstation/text"
 require "chef-workstation/error"
+require "chef-workstation/log"
 require "chef-workstation/ui/terminal"
 require "chef-workstation/ui/error_printer"
-require "mixlib/cli"
 
 module ChefWorkstation
   class CLI
-    include Mixlib::CLI
     T = ChefWorkstation::Text.cli
     RC_COMMAND_FAILED = 1
     RC_ERROR_HANDLING_FAILED = 64
-
-    banner T.banner
-
-    option :version,
-      :long         => "--version",
-      :short        => "-v",
-      :description  => T.version,
-      :boolean      => true
-
-    option :help,
-      :short        => "-h",
-      :long         => "--help",
-      :description  => T.help,
-      :boolean      => true
-
-    option :config_path,
-      :short        => "-c PATH",
-      :long         => "--config PATH",
-      :description  => T.config(Config.default_location),
-      :default      => Config.default_location,
-      :proc         => Proc.new { |path| Config.custom_location(path) }
 
     def initialize(argv)
       @argv = argv
@@ -61,13 +38,14 @@ module ChefWorkstation
     end
 
     def run
-      init
       # Perform a timing and capture of the requested command. Individual
       # commands and components may perform nested Telemetry.timed_capture or Telemetry.capture
       # calls in their operation.
-      Telemetry.timed_capture(:run, command: @command,
-                                    sub: @subcommand, args: @argv,
-                                    opts: options.to_h) { perform_command() }
+      Telemetry.timed_capture(:run, args: @argv) do
+        setup_cli()
+        perform_command()
+      end
+
     rescue WrappedError => e
       UI::ErrorPrinter.show_error(e)
       @rc = RC_COMMAND_FAILED
@@ -79,7 +57,9 @@ module ChefWorkstation
       exit @rc
     end
 
-    def init
+    def setup_cli
+      #TODO - how to handle if we don't eval the config file option,
+      #and they specify 'chef -c blah invalid-command'
       # Enable CLI output via Terminal. This comes first because we want to supply
       # status output about reading and creating config files
       UI::Terminal.init
@@ -97,33 +77,67 @@ module ChefWorkstation
     end
 
     def perform_command
-      command_name, *command_params = @argv
-      if command_name.nil? || %w{help -h --help}.include?(command_name.downcase)
-        if command_params.empty?
-          UI::Terminal.output(T.print_version(ChefWorkstation::VERSION))
-          show_help
-          return
-        else
-          # They are trying to get help text on something else - like `chef help converge`
-          # We pass down the help flag to the actual class they are trying to get help text on
-          command_name = command_params.shift
-          command_params << "-h"
-        end
-      elsif %w{version --version -v}.include?(command_name.downcase)
-        UI::Terminal.output ChefWorkstation::VERSION
-        return
-      end
-      run_command!(command_name, command_params)
+      update_args_for_help
+      update_args_for_version
+      root_command, *leftover = @argv
+
+      run_command!(root_command, leftover)
     rescue => e
       handle_perform_error(e)
     end
 
+    # This converts any use of version as a flag into a 'version' command.
+    # placed as the first command.
+    def update_args_for_version
+      version_included = false
+      @argv.delete_if do |item|
+        if item =~ /^--version|-v/
+          version_included = true
+          true
+        else
+          false
+        end
+      end
+      @argv.unshift "version" if version_included
+    end
+
+    # This converts any use of help as a command into a '--help' flag
+    # This lets us present it as a command, but rely on the command we want help for
+    # to handle providing that help.
+    def update_args_for_help
+      if @argv.empty?
+        @argv << "--help"
+        return
+      end
+
+      if @argv[0].casecmp("help") == 0
+        # Make help command the last option to the specified command (if any)
+        # so that it's handled by the command that is being asked about.
+        @argv.shift
+        @argv << "--help"
+      elsif @argv.last.casecmp("help") == 0
+        @argv.pop
+        @argv.push "--help"
+      else
+        #
+        @argv = @argv.map { |arg| arg == "help" ? "--help" : arg }
+      end
+    end
+
     def run_command!(command_name, command_params)
+      if command_name.nil? || %w{-h --help help}.include?(command_name.downcase)
+        # hidden-root represents the base "Chef" command which knows how to report
+        # help for that top-level command.  IDeally we'll return to this
+        # and make it represent the actual 'chef' command.
+        command_name = "hidden-root"
+      end
+
       if have_command?(command_name)
         @cmd, command_params = commands_map.instantiate(command_name, command_params)
         @cmd.run_with_default_options(command_params)
       else
-        raise UnknownCommand.new(command_name, commands.join(" "))
+        ChefWorkstation::Log.error("Command not found: #{command_name}")
+        raise UnknownCommand.new(command_name, available_commands.join(" "))
       end
     end
 
@@ -149,44 +163,6 @@ module ChefWorkstation
       UI::ErrorPrinter.write_backtrace(e, @argv)
     end
 
-    def show_help
-      UI::Terminal.output banner
-      UI::Terminal.output ""
-      UI::Terminal.output "FLAGS:"
-      justify_length = 0
-      options.each_value do |spec|
-        justify_length = [justify_length, spec[:long].length + 4].max
-      end
-      options.sort.to_h.each_value do |spec|
-        short = spec[:short] || "  "
-        short = short[0, 2] # We only want the flag portion, not the capture portion (if present)
-        if short == "  "
-          short = "    "
-        else
-          short = "#{short}, "
-        end
-        flags = "#{short}#{spec[:long]}"
-        UI::Terminal.output "    #{flags.ljust(justify_length)}    #{spec[:description]}"
-      end
-      UI::Terminal.output ""
-      UI::Terminal.output(T.subcommands)
-      justify_length = ([7] + commands.map(&:length)).max + 4
-      command_specs.sort.each do |name, spec|
-        next if spec.hidden
-        UI::Terminal.output "    #{"#{name}".ljust(justify_length)}#{spec.text.description}"
-      end
-      UI::Terminal.output "    #{"help".ljust(justify_length)}#{T.help}"
-      UI::Terminal.output "    #{"version".ljust(justify_length)}#{T.version}"
-      unless command_aliases.empty?
-        UI::Terminal.output ""
-        UI::Terminal.output(T.aliases)
-        command_aliases.sort.each do |name, spec|
-          next if spec.hidden
-          UI::Terminal.output "    #{"#{name}".ljust(justify_length)}#{T.alias_for} '#{spec.qualified_name}'"
-        end
-      end
-    end
-
     def commands_map
       ChefWorkstation.commands_map
     end
@@ -195,8 +171,8 @@ module ChefWorkstation
       commands_map.have_command_or_alias?(name)
     end
 
-    def commands
-      commands_map.command_names
+    def available_commands
+      commands_map.command_names(true)
     end
 
     def command_aliases
@@ -210,6 +186,7 @@ module ChefWorkstation
     class UnknownCommand < ErrorNoLogs
       def initialize(command_name, avail_commands)
         super("CHEFCLI001", command_name, avail_commands)
+        @decorate = false
       end
     end
   end
