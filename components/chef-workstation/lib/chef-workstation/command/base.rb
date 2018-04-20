@@ -35,13 +35,13 @@ module ChefWorkstation
       option :version,
         :short        => "-v",
         :long         => "--version",
-        :description  => T.version,
+        :description  => Text.commands.version.description,
         :boolean      => true
 
       option :help,
         :short        => "-h",
         :long         => "--help",
-        :description  => T.help,
+        :description  => Text.commands.help.description,
         :boolean      => true
 
       option :config_path,
@@ -163,19 +163,21 @@ module ChefWorkstation
         UI::Terminal.output ""
         UI::Terminal.output "SUBCOMMANDS:"
         justify_length = ([7] + subcommands.keys.map(&:length)).max + 4
-        display_subcmds = subcommands.dup
+        display_subcmds = subcommands.keys.sort
         # A bit of management to ensure that 'help' and version are the last displayed subcommands
 
-        help_cmd = display_subcmds.delete("help")
-        version_cmd = display_subcmds.delete("version")
-        display_subcmds.sort.each do |name, spec|
+        # Ensure help and version show up last - remove them from
+        # current location and append them.
+        if display_subcmds.include? "help"
+          display_subcmds << display_subcmds.delete("help")
+        end
+        if display_subcmds.include? "version"
+          display_subcmds << display_subcmds.delete("version")
+        end
+        display_subcmds.each do |name|
+          spec = subcommands[name]
           next if spec.hidden
           UI::Terminal.output "    #{"#{name}".ljust(justify_length)}#{spec.text.description}"
-        end
-
-        unless help_cmd.nil?
-          UI::Terminal.output "    #{"#{help_cmd.name}".ljust(justify_length)}#{T.help}"
-          UI::Terminal.output "    #{"#{version_cmd.name}".ljust(justify_length)}#{T.help}"
         end
       end
 

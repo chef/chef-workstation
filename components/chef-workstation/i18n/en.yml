@@ -22,7 +22,6 @@ commands:
       connecting: "Connecting..."
       connected: "Connected."
       connection_failed: "Connection failed: %1"
-
     help: "Show usage information"
     alias_for: "Alias for: "
     aliases: "ALIASES:"
@@ -30,7 +29,7 @@ commands:
 
   help:
     description: Show help and usage for 'chef' or a given subcommand.
-    usage: cheff <help|-h|--help> [COMMAND_OR_ALIAS]
+    usage: chef <help|-h|--help> [COMMAND_OR_ALIAS]
     usage_full: |
       chef <help|-h|--help>
       chef <help|-h|--help> [COMMAND_OR_ALIAS]
