@@ -8,6 +8,7 @@ commands:
     config: Location of config file. Defaults to %1
     version: Show the current version of Chef Workstation.
     version_for_help: "Chef Workstation Version: %1\n\n"
+    help_for: "Show help for the 'chef %1' command."
     description: |
       Congratulations! You are using chef: your gateway
       to managing everything from a single node to an entire Chef

@@ -53,7 +53,13 @@ module ChefWorkstation
 
       def initialize(command_spec)
         @command_spec = command_spec
+        @root_command = @command_spec.qualified_name == "hidden-root"
         super()
+        # Replace top-level command help description with one specific to the
+        # command being run
+        if !@root_command
+          options[:help][:description] = T.help_for(@command_spec.qualified_name)
+        end
       end
 
       def run_with_default_options(params = [])
@@ -119,14 +125,13 @@ module ChefWorkstation
       # TODO - does this all just belong in a HelpFormatter? Seems weird
       # to encumber the base with all this...
       def show_help
-        root_command = @command_spec.qualified_name == "hidden-root"
-        if root_command
+        if @root_command
           UI::Terminal.output T.version_for_help(ChefWorkstation::VERSION)
         end
         UI::Terminal.output banner
         show_help_flags unless options.empty?
         show_help_subcommands unless subcommands.empty?
-        if root_command && ChefWorkstation.commands_map.alias_specs.length > 0
+        if @root_command && ChefWorkstation.commands_map.alias_specs.length > 0
           show_help_aliases
         end
       end
