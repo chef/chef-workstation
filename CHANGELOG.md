@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.51 -->
+<!-- latest_release 0.1.52 -->
+## [0.1.52](https://github.com/chef/chef-workstation/tree/0.1.52) (2018-04-20)
+
+#### Merged Pull Requests
+- Experimental Omnibus APIs we were using got merged to master, update to support that [#85](https://github.com/chef/chef-workstation/pull/85) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.51](https://github.com/chef/chef-workstation/tree/0.1.51) (2018-04-19)
 
 #### Merged Pull Requests
 - Temporarily taking ChefDK off the path until its Ruby version is updated [#84](https://github.com/chef/chef-workstation/pull/84) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.50](https://github.com/chef/chef-workstation/tree/0.1.50) (2018-04-12)
 

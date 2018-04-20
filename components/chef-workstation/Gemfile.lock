@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chef-workstation (0.1.51)
+    chef-workstation (0.1.52)
       chef (>= 14.0)
       mixlib-cli
       mixlib-config
