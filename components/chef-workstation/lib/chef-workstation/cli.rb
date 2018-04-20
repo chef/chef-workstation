@@ -62,7 +62,7 @@ module ChefWorkstation
       #and they specify 'chef -c blah invalid-command'
       # Enable CLI output via Terminal. This comes first because we want to supply
       # status output about reading and creating config files
-      UI::Terminal.init
+      UI::Terminal.init($stdout)
       # Creates the tree we need under ~/.chef-workstation
       # based on config settings:
       Config.create_directory_tree
