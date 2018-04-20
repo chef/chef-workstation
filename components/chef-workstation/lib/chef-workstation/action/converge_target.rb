@@ -7,9 +7,12 @@ module ChefWorkstation::Action
   class ConvergeTarget < Base
 
     def perform_action
-      remote_recipe_path = create_remote_recipe(@config)
-      c = connection.run_command("#{chef_client} #{remote_recipe_path} --local-mode --no-color --config-option file_cache_path=/var/chef/cache")
-      remote_dir_path = File.dirname(remote_recipe_path)
+      remote_tmp = connection.run_command!(mktemp)
+      remote_dir_path = escape_windows_path(remote_tmp.stdout.strip)
+      remote_recipe_path = create_remote_recipe(@config, remote_dir_path)
+      remote_config_path = create_remote_config(remote_dir_path)
+
+      c = connection.run_command("#{chef_client} #{remote_recipe_path} --config #{remote_config_path}")
 
       connection.run_command!("#{delete_folder} #{remote_dir_path}")
       if c.exit_status == 0
@@ -21,9 +24,7 @@ module ChefWorkstation::Action
       end
     end
 
-    def create_remote_recipe(config)
-      c = connection.run_command!(mktemp)
-      dir = escape_windows_path(c.stdout.strip)
+    def create_remote_recipe(config, dir)
       remote_recipe_path = File.join(dir, "recipe.rb")
 
       if config.has_key?(:recipe_path)
@@ -49,6 +50,28 @@ module ChefWorkstation::Action
         end
       end
       remote_recipe_path
+    end
+
+    def create_remote_config(dir)
+      remote_config_path = File.join(dir, "workstation.rb")
+
+      workstation_rb = <<~EOM
+        local_mode true
+        color false
+        cache_path "#{cache_path}"
+      EOM
+
+      begin
+        config_file = Tempfile.new
+        config_file.write(workstation_rb)
+        config_file.close
+        connection.upload_file(config_file.path, remote_config_path)
+      rescue RuntimeError
+        raise ConfigUploadFailed.new()
+      ensure
+        config_file.unlink
+      end
+      remote_config_path
     end
 
     def handle_ccr_error
@@ -96,6 +119,10 @@ module ChefWorkstation::Action
 
     class ResourceUploadFailed < ChefWorkstation::Error
       def initialize(); super("CHEFUPL002"); end
+    end
+
+    class ConfigUploadFailed < ChefWorkstation::Error
+      def initialize(); super("CHEFUPL003"); end
     end
 
   end

@@ -32,7 +32,7 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
         }
       end
 
-      it "convertes the properties to chef-client args" do
+      it "converts the properties to chef-client args" do
         expected = <<-EOH.gsub(/^\s{10}/, "")
           directory '/tmp' do
             key1 'value'
@@ -50,10 +50,6 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
   describe "#create_remote_recipe" do
     let(:remote_folder) { "/tmp/foo" }
     let(:remote_recipe) { "#{remote_folder}/recipe.rb" }
-    let(:tmpdir) { double("tmpdir", exit_status: 0, stdout: remote_folder) }
-    before do
-      expect(connection).to receive(:run_command!).with(action.mktemp).and_return(tmpdir)
-    end
 
     context "when using a local recipe" do
       let(:local_recipe) { "/local" }
@@ -61,13 +57,13 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
 
       it "pushes it to the remote machine" do
         expect(connection).to receive(:upload_file).with(local_recipe, remote_recipe)
-        expect(action.create_remote_recipe(config)).to eq(remote_recipe)
+        expect(action.create_remote_recipe(config, remote_folder)).to eq(remote_recipe)
       end
 
       it "raises an error if the upload fails" do
         expect(connection).to receive(:upload_file).with(local_recipe, remote_recipe).and_raise("foo")
         err = ChefWorkstation::Action::ConvergeTarget::RecipeUploadFailed
-        expect { action.create_remote_recipe(config) }.to raise_error(err)
+        expect { action.create_remote_recipe(config, remote_folder) }.to raise_error(err)
       end
     end
 
@@ -78,7 +74,7 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
       it "pushes it to the remote machine" do
         expect(Tempfile).to receive(:new).and_return(local_tempfile)
         expect(connection).to receive(:upload_file).with(local_tempfile.path, remote_recipe)
-        expect(action.create_remote_recipe(config)).to eq(remote_recipe)
+        expect(action.create_remote_recipe(config, remote_folder)).to eq(remote_recipe)
         # ensure the tempfile is deleted locally
         expect(local_tempfile.closed?).to eq(true)
       end
@@ -87,7 +83,33 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
         expect(Tempfile).to receive(:new).and_return(local_tempfile)
         expect(connection).to receive(:upload_file).with(local_tempfile.path, remote_recipe).and_raise("foo")
         err = ChefWorkstation::Action::ConvergeTarget::ResourceUploadFailed
-        expect { action.create_remote_recipe(config) }.to raise_error(err)
+        expect { action.create_remote_recipe(config, remote_folder) }.to raise_error(err)
+        # ensure the tempfile is deleted locally
+        expect(local_tempfile.closed?).to eq(true)
+      end
+    end
+  end
+
+  describe "#create_remote_config" do
+    let(:remote_folder) { "/tmp/foo" }
+    let(:remote_config) { "#{remote_folder}/workstation.rb" }
+
+    context "when using a config file" do
+      let!(:local_tempfile) { Tempfile.new }
+
+      it "pushes it to the remote machine" do
+        expect(Tempfile).to receive(:new).and_return(local_tempfile)
+        expect(connection).to receive(:upload_file).with(local_tempfile.path, remote_config)
+        expect(action.create_remote_config(remote_folder)).to eq(remote_config)
+        # ensure the tempfile is deleted locally
+        expect(local_tempfile.closed?).to eq(true)
+      end
+
+      it "raises an error if the upload fails" do
+        expect(Tempfile).to receive(:new).and_return(local_tempfile)
+        expect(connection).to receive(:upload_file).with(local_tempfile.path, remote_config).and_raise("foo")
+        err = ChefWorkstation::Action::ConvergeTarget::ConfigUploadFailed
+        expect { action.create_remote_config(remote_folder) }.to raise_error(err)
         # ensure the tempfile is deleted locally
         expect(local_tempfile.closed?).to eq(true)
       end
@@ -96,14 +118,21 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
 
   describe "#perform_action" do
     let(:config) { { resource_type: r1, resource_name: r2, properties: props } }
-    let(:remote_recipe) { "/tmp/recipe.rb" }
+    let(:remote_folder) { "/tmp/foo" }
+    let(:remote_recipe) { "#{remote_folder}/recipe.rb" }
+    let(:remote_config) { "#{remote_folder}/workstation.rb" }
+    let(:tmpdir) { double("tmpdir", exit_status: 0, stdout: remote_folder) }
+    before do
+      expect(connection).to receive(:run_command!).with(action.mktemp).and_return(tmpdir)
+    end
     let(:result) { double("command result", exit_status: 0, stdout: "") }
 
     it "runs the converge and reports back success" do
-      expect(action).to receive(:create_remote_recipe).with(config).and_return(remote_recipe)
+      expect(action).to receive(:create_remote_recipe).with(config, remote_folder).and_return(remote_recipe)
+      expect(action).to receive(:create_remote_config).with(remote_folder).and_return(remote_folder)
       expect(connection).to receive(:run_command).with(/chef-client.+#{remote_recipe}/).and_return(result)
       expect(connection).to receive(:run_command!)
-        .with("#{action.delete_folder} #{File.dirname(remote_recipe)}")
+        .with("#{action.delete_folder} #{remote_folder}")
         .and_return(result)
       expect(action).to receive(:notify).with(:success)
       action.perform_action
@@ -119,10 +148,11 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
       end
 
       it "reports back failure and scrapes the remote log" do
-        expect(action).to receive(:create_remote_recipe).with(config).and_return(remote_recipe)
-        expect(connection).to receive(:run_command).with("#{action.chef_client} #{remote_recipe} --local-mode --no-color --config-option file_cache_path=/var/chef/cache").and_return(result)
+        expect(action).to receive(:create_remote_recipe).with(config, remote_folder).and_return(remote_recipe)
+        expect(action).to receive(:create_remote_config).with(remote_folder).and_return(remote_config)
+        expect(connection).to receive(:run_command).with("#{action.chef_client} #{remote_recipe} --config #{remote_config}").and_return(result)
         expect(connection).to receive(:run_command!)
-          .with("#{action.delete_folder} #{File.dirname(remote_recipe)}")
+          .with("#{action.delete_folder} #{remote_folder}")
         expect(action).to receive(:notify).with(:error)
         expect(connection).to receive(:run_command).with(action.read_chef_stacktrace).and_return(stacktrace_result)
         expect(connection).to receive(:run_command!).with(action.delete_chef_stacktrace)
@@ -133,8 +163,9 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
       context "when remote log cannot be scraped" do
         let(:stacktrace_result) { double("stacktrace scrape result", exit_status: 1, stdout: "", stderr: "") }
         it "reports back failure" do
-          expect(action).to receive(:create_remote_recipe).with(config).and_return(remote_recipe)
-          expect(connection).to receive(:run_command).with("#{action.chef_client} #{remote_recipe} --local-mode --no-color --config-option file_cache_path=/var/chef/cache").and_return(result)
+          expect(action).to receive(:create_remote_recipe).with(config, remote_folder).and_return(remote_recipe)
+          expect(action).to receive(:create_remote_config).with(remote_folder).and_return(remote_config)
+          expect(connection).to receive(:run_command).with("#{action.chef_client} #{remote_recipe} --config #{remote_config}").and_return(result)
           expect(connection).to receive(:run_command!)
             .with("#{action.delete_folder} #{File.dirname(remote_recipe)}")
           expect(action).to receive(:notify).with(:error)
