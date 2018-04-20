@@ -40,6 +40,9 @@ module ChefWorkstation::Errors
       when /.*Chef::Exceptions::ValidationFailed:\s+(.*)/
         # Invalid resource property value
         ["CHEFCCR004", $1]
+      when /.*NameError: undefined local variable or method `(.+)' for cookbook.+/
+        # Invalid resource type in most cases
+        ["CHEFCCR005", $1]
       when /.*NoMethodError: undefined method `(.+)' for cookbook.+/
         # Invalid resource type in most cases
         ["CHEFCCR005", $1]

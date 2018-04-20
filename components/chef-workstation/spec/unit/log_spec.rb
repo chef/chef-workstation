@@ -6,15 +6,14 @@ RSpec.describe ChefWorkstation::Log do
   let(:output) { StringIO.new }
 
   before do
-    Log.setup output
+    Log.setup output, :debug
   end
 
   after do
-    Log.setup "/dev/null"
+    Log.setup "/dev/null", :error
   end
 
   it "correctly logs to stdout" do
-    Log.level = :debug
     Log.debug("test")
     expect(output.string).to match(/DEBUG: test$/)
   end

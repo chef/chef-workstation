@@ -78,6 +78,9 @@ commands:
           <RECIPE>. For example:
 
             chef target converge myec2node path/to/cookbook/recipe.rb
+            chef target converge myec2node path/to/cookbook
+            chef target converge myec2node cookbook_name
+            chef target converge myec2node cookbook_name::recipe_name
 
         ARGUMENTS:
           <TARGET>          The host or IP address to converge. Can also be an SSH or WinRM URL
@@ -90,7 +93,11 @@ commands:
                             the name of the user you wanted to create.
           <RECIPE>          The recipe to converge. This can be provided as one of:
                             1. Full path to a recipe file
-
+                            2. Cookbook name. First we check the working directory for this
+                               cookbook, then we check in the chef repository path. If a
+                               cookbook is found we run the default recipe.
+                            3. This behaves similarly to 'cookbook name' above, but it also allows
+                               you to specify which recipe to use from the cookbook.
       root_description: "Whether to use root permissions on the target. Defaults to true."
       identity_file: "SSH identity file to use when connecting."
       ssl:
@@ -100,6 +107,8 @@ commands:
           Use --ssl-no-verify when using SSL for WinRM and
           the remote host is using a self-signed certificate.
           Current default: %1
+      cookbook_repo_paths:
+        desc: "Comma separated list of cookbook repository paths."
 
 
 # Status updates shared across commands.
@@ -237,10 +246,35 @@ errors:
     Property '%1' did not match the 'key=value' syntax required
 
   CHEFVAL004: |
-    Please provide a recipe in the form 'path/to/recipe/file', 'cookbook_name',
-    or 'cookbook_name::recipe_name'.
+    Please provide a recipe in the form 'path/to/recipe/file.rb',
+    'path/to/cookbook', 'cookbook_name' or 'cookbook_name::recipe_name'.
 
     You provided '%1'.
+
+  CHEFVAL005: |
+    The cookbook provided could not be loaded. Ensure it contains a valid
+    'metadata.rb'.
+
+    Cookbook path is '%1'.
+
+  CHEFVAL006: |
+    Cookbook '%1' could not be found in any of the following directorys
+
+    %2
+
+  CHEFVAL007: |
+    There is no default recipe in cookbook '%2'. Please provide the name of the recipe to run, for example:
+      %2::some_recipe
+
+    Cookbook path is '%1'.
+
+  CHEFVAL008: |
+    There is no recipe named '%2' in the cookbook '%4', which I found at '%1'.
+
+    Please include the name of the recipe you wish to converge on the remote target.
+
+    These are the available recipes in '%4':
+    %3
 
   # General errors/unknown errors are handled with CHEFINT
   CHEFINT001: |

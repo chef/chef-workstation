@@ -71,8 +71,7 @@ module ChefWorkstation
         Config.create_default_config_file
       end
       Config.load
-      ChefWorkstation::Log.setup(Config.log.location)
-      Log.level = Config.log.level.to_sym
+      ChefWorkstation::Log.setup(Config.log.location, Config.log.level.to_sym)
       ChefWorkstation::Log.info("Initialized logger")
     end
 

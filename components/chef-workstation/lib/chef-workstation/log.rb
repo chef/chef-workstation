@@ -4,7 +4,7 @@ module ChefWorkstation
   class Log
     extend Mixlib::Log
 
-    def self.setup(location, log_level = "warn")
+    def self.setup(location, log_level)
       @location = location
       if location.is_a?(String)
         if location.casecmp("stdout") == 0
@@ -14,6 +14,7 @@ module ChefWorkstation
         end
       end
       init(location)
+      Log.level = log_level
     end
 
     def self.location
