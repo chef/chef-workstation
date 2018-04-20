@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.55 -->
+<!-- latest_release 0.1.56 -->
+## [0.1.56](https://github.com/chef/chef-workstation/tree/0.1.56) (2018-04-20)
+
+#### Merged Pull Requests
+- [SHACK-155] cli integration tests [#87](https://github.com/chef/chef-workstation/pull/87) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.55](https://github.com/chef/chef-workstation/tree/0.1.55) (2018-04-20)
 
 #### Merged Pull Requests
 - [SHACK-141] Lookup cookbooks in repo for remote target execution [#82](https://github.com/chef/chef-workstation/pull/82) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.54](https://github.com/chef/chef-workstation/tree/0.1.54) (2018-04-20)
 
