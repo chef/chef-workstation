@@ -35,13 +35,13 @@ module ChefWorkstation
       option :version,
         :short        => "-v",
         :long         => "--version",
-        :description  => T.version,
+        :description  => Text.commands.version.description,
         :boolean      => true
 
       option :help,
         :short        => "-h",
         :long         => "--help",
-        :description  => T.help,
+        :description  => Text.commands.help.description,
         :boolean      => true
 
       option :config_path,
@@ -53,25 +53,26 @@ module ChefWorkstation
 
       def initialize(command_spec)
         @command_spec = command_spec
+        @root_command = @command_spec.qualified_name == "hidden-root"
         super()
+        # Replace top-level command help description with one specific to the
+        # command being run
+        if !@root_command
+          options[:help][:description] = T.help_for(@command_spec.qualified_name)
+        end
       end
 
       def run_with_default_options(params = [])
-        # Each subcommand gets its own help subcommand which is really the class
-        # as its parent.  If the name of the command is help,
-        # ignore options and just display help.
-        if params.include?("-h") || params.include?("--help")
-          # We ignore options for all 'help' commands.
-          Log.debug "Showing help for #{@command_spec.qualified_name}"
+        parse_options(params)
+        if config[:help]
           show_help
         else
-          Log.debug "Starting #{@command_spec.qualified_name} command"
-          parse_options(params)
           run(params)
         end
-        Log.debug "Completed #{@command_spec.qualified_name} command without exception"
       end
 
+      # This is normally overridden by the command implementations, but
+      # can execute in the case of 'chef' being run with no arguments.
       def run(params)
         show_help
       end
@@ -119,14 +120,13 @@ module ChefWorkstation
       # TODO - does this all just belong in a HelpFormatter? Seems weird
       # to encumber the base with all this...
       def show_help
-        root_command = @command_spec.qualified_name == "hidden-root"
-        if root_command
+        if @root_command
           UI::Terminal.output T.version_for_help(ChefWorkstation::VERSION)
         end
         UI::Terminal.output banner
         show_help_flags unless options.empty?
         show_help_subcommands unless subcommands.empty?
-        if root_command && ChefWorkstation.commands_map.alias_specs.length > 0
+        if @root_command && ChefWorkstation.commands_map.alias_specs.length > 0
           show_help_aliases
         end
       end
@@ -163,19 +163,21 @@ module ChefWorkstation
         UI::Terminal.output ""
         UI::Terminal.output "SUBCOMMANDS:"
         justify_length = ([7] + subcommands.keys.map(&:length)).max + 4
-        display_subcmds = subcommands.dup
+        display_subcmds = subcommands.keys.sort
         # A bit of management to ensure that 'help' and version are the last displayed subcommands
 
-        help_cmd = display_subcmds.delete("help")
-        version_cmd = display_subcmds.delete("version")
-        display_subcmds.sort.each do |name, spec|
+        # Ensure help and version show up last - remove them from
+        # current location and append them.
+        if display_subcmds.include? "help"
+          display_subcmds << display_subcmds.delete("help")
+        end
+        if display_subcmds.include? "version"
+          display_subcmds << display_subcmds.delete("version")
+        end
+        display_subcmds.each do |name|
+          spec = subcommands[name]
           next if spec.hidden
           UI::Terminal.output "    #{"#{name}".ljust(justify_length)}#{spec.text.description}"
-        end
-
-        unless help_cmd.nil?
-          UI::Terminal.output "    #{"#{help_cmd.name}".ljust(justify_length)}#{T.help}"
-          UI::Terminal.output "    #{"#{version_cmd.name}".ljust(justify_length)}#{T.help}"
         end
       end
 

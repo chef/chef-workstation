@@ -8,6 +8,7 @@ commands:
     config: Location of config file. Defaults to %1
     version: Show the current version of Chef Workstation.
     version_for_help: "Chef Workstation Version: %1\n\n"
+    help_for: "Show help for the 'chef %1' command."
     description: |
       Congratulations! You are using chef: your gateway
       to managing everything from a single node to an entire Chef
@@ -22,7 +23,6 @@ commands:
       connecting: "Connecting..."
       connected: "Connected."
       connection_failed: "Connection failed: %1"
-
     help: "Show usage information"
     alias_for: "Alias for: "
     aliases: "ALIASES:"
@@ -30,7 +30,7 @@ commands:
 
   help:
     description: Show help and usage for 'chef' or a given subcommand.
-    usage: cheff <help|-h|--help> [COMMAND_OR_ALIAS]
+    usage: chef <help|-h|--help> [COMMAND_OR_ALIAS]
     usage_full: |
       chef <help|-h|--help>
       chef <help|-h|--help> [COMMAND_OR_ALIAS]

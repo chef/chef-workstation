@@ -35,7 +35,7 @@ ChefWorkstation.commands do |c|
   # Help is a function of a command, so we convert the subcommand 'help' to the appropriate
   # flag when we encounter it and pass it into the actual command that the
   # customer wants to execute. It is never instantiated.
-  c.top_level("help", nil, text.base, nil)
+  c.top_level("help", nil, text.help, nil)
 
   # Version works inversely - if someone specifies '-v' we will swap that out
   # to use the Version command.

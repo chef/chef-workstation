@@ -11,7 +11,7 @@ module ChefWorkstation
         # To support matching in test
         attr_accessor :location
 
-        def init(location = STDOUT)
+        def init(location)
           @location = location
         end
 

@@ -62,7 +62,7 @@ module ChefWorkstation
       #and they specify 'chef -c blah invalid-command'
       # Enable CLI output via Terminal. This comes first because we want to supply
       # status output about reading and creating config files
-      UI::Terminal.init
+      UI::Terminal.init($stdout)
       # Creates the tree we need under ~/.chef-workstation
       # based on config settings:
       Config.create_directory_tree
@@ -109,7 +109,9 @@ module ChefWorkstation
         return
       end
 
-      if @argv[0].casecmp("help") == 0
+      # Special case for prefixed --help/-h: we have to move it to the end so that
+      # we don't consider '-h' to be the command we're trying to load.
+      if %w{help -h --help}.include?(@argv[0].downcase)
         # Make help command the last option to the specified command (if any)
         # so that it's handled by the command that is being asked about.
         @argv.shift
@@ -118,12 +120,16 @@ module ChefWorkstation
         @argv.pop
         @argv.push "--help"
       else
-        #
         @argv = @argv.map { |arg| arg == "help" ? "--help" : arg }
       end
     end
 
     def run_command!(command_name, command_params)
+      # TODO 2018-04-20  we still have a general misbehavior when we
+      #                  do 'chef --any-flag any-command' because it will always pass
+      #                  the flag as the command name. We'll want to apply a more general
+      #                  solution, being mindful that some flags do require parameters - something
+      #                  we can't see at this level currently.
       if command_name.nil? || %w{-h --help help}.include?(command_name.downcase)
         # hidden-root represents the base "Chef" command which knows how to report
         # help for that top-level command.  IDeally we'll return to this
@@ -136,7 +142,7 @@ module ChefWorkstation
         @cmd.run_with_default_options(command_params)
       else
         ChefWorkstation::Log.error("Command not found: #{command_name}")
-        raise UnknownCommand.new(command_name, available_commands.join(" "))
+        raise UnknownCommand.new(command_name, visible_commands.join(" "))
       end
     end
 
@@ -168,6 +174,10 @@ module ChefWorkstation
 
     def have_command?(name)
       commands_map.have_command_or_alias?(name)
+    end
+
+    def visible_commands
+      commands_map.command_names(false)
     end
 
     def available_commands

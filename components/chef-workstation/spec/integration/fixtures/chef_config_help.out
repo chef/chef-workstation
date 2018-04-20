@@ -1,0 +1,10 @@
+Manage Chef Workstation configuration
+chef config [SUBCOMMAND] [FLAGS]
+
+FLAGS:
+    -c, --config PATH    Location of config file. Defaults to $HOME/.chef-workstation/config.toml
+    -h, --help           Show help for the 'chef config' command.
+    -v, --version        Show the current version of Chef Workstation.
+
+SUBCOMMANDS:
+    show       Echo out Chef Workstation configuration to stdout
