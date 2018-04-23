@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.56 -->
+<!-- latest_release 0.1.57 -->
+## [0.1.57](https://github.com/chef/chef-workstation/tree/0.1.57) (2018-04-23)
+
+#### Merged Pull Requests
+- Correct wrong i18n key for install status [#88](https://github.com/chef/chef-workstation/pull/88) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.56](https://github.com/chef/chef-workstation/tree/0.1.56) (2018-04-20)
 
 #### Merged Pull Requests
 - [SHACK-155] cli integration tests [#87](https://github.com/chef/chef-workstation/pull/87) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.55](https://github.com/chef/chef-workstation/tree/0.1.55) (2018-04-20)
 
