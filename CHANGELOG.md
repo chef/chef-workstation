@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.57 -->
+<!-- latest_release 0.1.58 -->
+## [0.1.58](https://github.com/chef/chef-workstation/tree/0.1.58) (2018-04-23)
+
+#### Merged Pull Requests
+- Ensure that we return the path of the cached file. [#89](https://github.com/chef/chef-workstation/pull/89) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.57](https://github.com/chef/chef-workstation/tree/0.1.57) (2018-04-23)
 
 #### Merged Pull Requests
 - Correct wrong i18n key for install status [#88](https://github.com/chef/chef-workstation/pull/88) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.56](https://github.com/chef/chef-workstation/tree/0.1.56) (2018-04-20)
 

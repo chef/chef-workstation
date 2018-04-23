@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chef-workstation (0.1.57)
+    chef-workstation (0.1.58)
       chef (>= 14.0)
       mixlib-cli
       mixlib-config
@@ -19,13 +19,13 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.4.0)
-    aws-sdk (2.11.35)
-      aws-sdk-resources (= 2.11.35)
-    aws-sdk-core (2.11.35)
+    aws-sdk (2.11.36)
+      aws-sdk-resources (= 2.11.36)
+    aws-sdk-core (2.11.36)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.35)
-      aws-sdk-core (= 2.11.35)
+    aws-sdk-resources (2.11.36)
+      aws-sdk-core (= 2.11.36)
     aws-sigv4 (1.0.2)
     azure_mgmt_resources (0.16.0)
       ms_rest_azure (~> 0.10.0)
@@ -245,7 +245,7 @@ GEM
     r18n-core (3.0.3)
     r18n-desktop (3.0.3)
       r18n-core (= 3.0.3)
-    rack (2.0.4)
+    rack (2.0.5)
     rainbow (3.0.0)
     rake (12.3.1)
     rspec (3.7.0)
