@@ -197,24 +197,25 @@ module ChefWorkstation
           # the action reports back
         def install(r)
           installer = Action::InstallChef.instance_for_target(@conn)
+          context = Text.status.install_chef
           installer.run do |event, data|
             case event
             when :installing
-              r.update(TS.install.installing)
+              r.update(context.installing)
             when :uploading
-              r.update(TS.install.uploading)
+              r.update(context.uploading)
             when :downloading
-              r.update(TS.install.downloading)
+              r.update(context.downloading)
             when :success
               if data[0] == :already_installed
-                r.success(TS.install.already_present)
+                r.success(context.already_present)
               elsif data[0] == :install_success
-                r.success(TS.install.success)
+                r.success(context.success)
               end
             when :error
               # Message may or may not be present. First arg if it is.
               msg = data.length > 0 ? data[0] : T.aborted
-              r.error(TS.install.failure(msg))
+              r.error(context.failure(msg))
             end
           end
         end
