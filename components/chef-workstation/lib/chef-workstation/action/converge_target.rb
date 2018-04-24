@@ -59,6 +59,7 @@ module ChefWorkstation::Action
         local_mode true
         color false
         cache_path "#{cache_path}"
+        chef_repo_path "#{cache_path}"
       EOM
 
       begin
