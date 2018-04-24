@@ -4,9 +4,9 @@ module ChefWorkstation::Errors
   class CCRFailureMapper
     attr_reader :params
 
-    def initialize(stack, params)
+    def initialize(exception, params)
       @params = params
-      @cause_line = stack[1]
+      @cause_line = exception
     end
 
     def raise_mapped_exception!

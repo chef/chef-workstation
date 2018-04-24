@@ -121,6 +121,7 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
     let(:remote_folder) { "/tmp/foo" }
     let(:remote_recipe) { "#{remote_folder}/recipe.rb" }
     let(:remote_config) { "#{remote_folder}/workstation.rb" }
+    let(:remote_handler) { "#{remote_folder}/reporter.rb" }
     let(:tmpdir) { double("tmpdir", exit_status: 0, stdout: remote_folder) }
     before do
       expect(target_host).to receive(:run_command!).with(action.mktemp).and_return(tmpdir)
@@ -129,7 +130,8 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
 
     it "runs the converge and reports back success" do
       expect(action).to receive(:create_remote_recipe).with(config, remote_folder).and_return(remote_recipe)
-      expect(action).to receive(:create_remote_config).with(remote_folder).and_return(remote_folder)
+      expect(action).to receive(:create_remote_config).with(remote_folder).and_return(remote_config)
+      expect(action).to receive(:create_remote_handler).with(remote_folder).and_return(remote_handler)
       expect(target_host).to receive(:run_command).with(/chef-client.+#{remote_recipe}/).and_return(result)
       expect(target_host).to receive(:run_command!)
         .with("#{action.delete_folder} #{remote_folder}")
@@ -140,36 +142,38 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
 
     context "when command fails" do
       let(:result) { double("command result", exit_status: 1) }
-      let(:stacktrace_result) { double("stacktrace scrape result", exit_status: 0, stdout: "") }
+      let(:report_result) { double("report result", exit_status: 0, stdout: '{ "exception": "thing" }') }
       let(:exception_mapper) { double("mapper") }
       before do
         expect(ChefWorkstation::Errors::CCRFailureMapper).to receive(:new).
           and_return exception_mapper
       end
 
-      it "reports back failure and scrapes the remote log" do
+      it "reports back failure and reads the remote report" do
         expect(action).to receive(:create_remote_recipe).with(config, remote_folder).and_return(remote_recipe)
         expect(action).to receive(:create_remote_config).with(remote_folder).and_return(remote_config)
+        expect(action).to receive(:create_remote_handler).with(remote_folder).and_return(remote_handler)
         expect(target_host).to receive(:run_command).with("#{action.chef_client} #{remote_recipe} --config #{remote_config}").and_return(result)
         expect(target_host).to receive(:run_command!)
           .with("#{action.delete_folder} #{remote_folder}")
         expect(action).to receive(:notify).with(:error)
-        expect(target_host).to receive(:run_command).with(action.read_chef_stacktrace).and_return(stacktrace_result)
-        expect(target_host).to receive(:run_command!).with(action.delete_chef_stacktrace)
+        expect(target_host).to receive(:run_command).with(action.read_chef_report).and_return(report_result)
+        expect(target_host).to receive(:run_command!).with(action.delete_chef_report)
         expect(exception_mapper).to receive(:raise_mapped_exception!)
         action.perform_action
       end
 
-      context "when remote log cannot be scraped" do
-        let(:stacktrace_result) { double("stacktrace scrape result", exit_status: 1, stdout: "", stderr: "") }
+      context "when remote report cannot be read" do
+        let(:report_result) { double("report result", exit_status: 1, stdout: "", stderr: "") }
         it "reports back failure" do
           expect(action).to receive(:create_remote_recipe).with(config, remote_folder).and_return(remote_recipe)
           expect(action).to receive(:create_remote_config).with(remote_folder).and_return(remote_config)
+          expect(action).to receive(:create_remote_handler).with(remote_folder).and_return(remote_handler)
           expect(target_host).to receive(:run_command).with("#{action.chef_client} #{remote_recipe} --config #{remote_config}").and_return(result)
           expect(target_host).to receive(:run_command!)
             .with("#{action.delete_folder} #{File.dirname(remote_recipe)}")
           expect(action).to receive(:notify).with(:error)
-          expect(target_host).to receive(:run_command).with(action.read_chef_stacktrace).and_return(stacktrace_result)
+          expect(target_host).to receive(:run_command).with(action.read_chef_report).and_return(report_result)
           expect(exception_mapper).to receive(:raise_mapped_exception!)
           action.perform_action
         end

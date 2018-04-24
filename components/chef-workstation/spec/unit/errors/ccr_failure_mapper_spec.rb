@@ -5,12 +5,11 @@ require "chef-workstation/errors/ccr_failure_mapper"
 RSpec.describe ChefWorkstation::Errors::CCRFailureMapper do
   let(:cause_line) { nil }
   let(:resource) { "apt_package" }
-  let(:stack) { ["", cause_line] }
   let(:params) do
     { resource: resource, resource_name: "a-test-thing",
       stderr: "an error", stdout: "other output" }
   end
-  subject { ChefWorkstation::Errors::CCRFailureMapper.new(stack, params) }
+  subject { ChefWorkstation::Errors::CCRFailureMapper.new(cause_line, params) }
 
   describe "#exception_args_from_cause" do
     context "when resource properties have valid names but invalid values" do
