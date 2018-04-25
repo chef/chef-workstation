@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chef-workstation (0.1.58)
+    chef-workstation (0.1.59)
       chef (>= 14.0)
       mixlib-cli
       mixlib-config
@@ -19,13 +19,13 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.4.0)
-    aws-sdk (2.11.36)
-      aws-sdk-resources (= 2.11.36)
-    aws-sdk-core (2.11.36)
+    aws-sdk (2.11.37)
+      aws-sdk-resources (= 2.11.37)
+    aws-sdk-core (2.11.37)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.36)
-      aws-sdk-core (= 2.11.36)
+    aws-sdk-resources (2.11.37)
+      aws-sdk-core (= 2.11.37)
     aws-sigv4 (1.0.2)
     azure_mgmt_resources (0.16.0)
       ms_rest_azure (~> 0.10.0)
@@ -72,10 +72,10 @@ GEM
       mixlib-config (~> 2.0)
       mixlib-shellout (~> 2.0)
       tomlrb (~> 1.2)
-    chef-zero (14.0.1)
+    chef-zero (14.0.6)
       ffi-yajl (~> 2.2)
       hashie (>= 2.0, < 4.0)
-      mixlib-log (~> 2)
+      mixlib-log (~> 2.0)
       rack (~> 2.0)
       uuidtools (~> 2.1)
     chefstyle (0.9.0)
@@ -172,7 +172,7 @@ GEM
     method_locator (0.0.4)
     method_source (0.9.0)
     methodfinder (2.1.1)
-    mixlib-archive (0.4.1)
+    mixlib-archive (0.4.2)
       mixlib-log
     mixlib-authentication (2.0.0)
     mixlib-cli (1.7.0)

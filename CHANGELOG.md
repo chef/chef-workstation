@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.58 -->
+<!-- latest_release 0.1.59 -->
+## [0.1.59](https://github.com/chef/chef-workstation/tree/0.1.59) (2018-04-25)
+
+#### Merged Pull Requests
+- Specify repo path to prevent cheffs content from publishing to user home [#90](https://github.com/chef/chef-workstation/pull/90) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.58](https://github.com/chef/chef-workstation/tree/0.1.58) (2018-04-23)
 
 #### Merged Pull Requests
 - Ensure that we return the path of the cached file. [#89](https://github.com/chef/chef-workstation/pull/89) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.57](https://github.com/chef/chef-workstation/tree/0.1.57) (2018-04-23)
 
