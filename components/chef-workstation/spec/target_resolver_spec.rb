@@ -23,7 +23,7 @@ RSpec.describe ChefWorkstation::TargetResolver do
 
     context "when a comma-separated list of targets is provided" do
       let(:target_string) { "ssh://node1.example.com,winrm://node2.example.com" }
-      it "returns an array with correct RemoteConnection instances" do
+      it "returns an array with correct TargetHost instances" do
         actual_targets = subject.targets
         expect(actual_targets[0].config[:host]).to eq "node1.example.com"
         expect(actual_targets[1].config[:host]).to eq "node2.example.com"

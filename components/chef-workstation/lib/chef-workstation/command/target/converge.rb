@@ -17,7 +17,7 @@
 
 require "chef-workstation/command/base"
 require "chef-workstation/command/target"
-require "chef-workstation/remote_connection"
+require "chef-workstation/target_host"
 require "chef-workstation/action/install_chef"
 require "chef-workstation/action/converge_target"
 require "chef-workstation/ui/terminal"

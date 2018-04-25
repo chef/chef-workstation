@@ -160,7 +160,7 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
 
   describe "#run" do
     let(:params) { %w{target /some/path} }
-    let(:conn) { instance_double(ChefWorkstation::RemoteConnection, hostname: "target") }
+    let(:conn) { instance_double(ChefWorkstation::TargetHost, hostname: "target") }
     let(:reporter) { instance_double(ChefWorkstation::StatusReporter) }
     let(:installer) { instance_double(ChefWorkstation::Action::InstallChef::Linux) }
     let(:converger) { instance_double(ChefWorkstation::Action::ConvergeTarget) }

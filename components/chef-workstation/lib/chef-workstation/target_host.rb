@@ -17,7 +17,7 @@
 
 require "chef-workstation/log"
 require "train"
-class ChefWorkstation::RemoteConnection
+class ChefWorkstation::TargetHost
   attr_reader :config, :reporter, :backend
 
   def self.make_connection(target, opts = {})

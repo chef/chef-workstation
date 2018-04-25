@@ -6,7 +6,7 @@ RSpec.describe ChefWorkstation::Action::Base do
   let(:family) { "windows" }
   let(:connection) do
     p = double("platform", family: family)
-    instance_double(ChefWorkstation::RemoteConnection, platform: p)
+    instance_double(ChefWorkstation::TargetHost, platform: p)
   end
   let(:opts) { { connection: connection, other: "something-else" } }
   subject(:action) { ChefWorkstation::Action::Base.new(opts) }

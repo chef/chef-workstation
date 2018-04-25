@@ -1,10 +1,10 @@
 require "spec_helper"
 require "chef-workstation/ui/error_printer"
-require "chef-workstation/remote_connection"
+require "chef-workstation/target_host"
 
 RSpec.describe ChefWorkstation::UI::ErrorPrinter do
   let(:orig_exception) { StandardError.new("test") }
-  let(:conn) { ChefWorkstation::RemoteConnection.make_connection("mock://localhost") }
+  let(:conn) { ChefWorkstation::TargetHost.make_connection("mock://localhost") }
   let(:wrapped_exception) { ChefWorkstation::WrappedError.new(orig_exception, conn) }
   subject(:printer) { ChefWorkstation::UI::ErrorPrinter.new(wrapped_exception, nil) }
 
@@ -18,7 +18,7 @@ RSpec.describe ChefWorkstation::UI::ErrorPrinter do
   end
 
   context "#format_body" do
-    RC = ChefWorkstation::RemoteConnection
+    RC = ChefWorkstation::TargetHost
     context "when exception is a ChefWorkstation::Error" do
       let(:result) { RemoteExecResult.new(1, "", "failed") }
       let(:orig_exception) { RC::RemoteExecutionFailed.new("localhost", "test", result) }

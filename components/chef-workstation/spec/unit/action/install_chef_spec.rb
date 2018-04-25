@@ -14,7 +14,7 @@ RSpec.describe ChefWorkstation::Action::InstallChef do
     }
   end
   let(:connection) do
-    ChefWorkstation::RemoteConnection.new("mock://user1:password1@localhost")
+    ChefWorkstation::TargetHost.new("mock://user1:password1@localhost")
   end
 
   subject(:installer) do

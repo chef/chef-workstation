@@ -1,4 +1,4 @@
-require "chef-workstation/remote_connection"
+require "chef-workstation/target_host"
 
 module ChefWorkstation
   class TargetResolver
@@ -9,7 +9,7 @@ module ChefWorkstation
 
     def targets
       @targets ||= @unparsed_target.split(",").map do |target|
-        RemoteConnection.new(target, @conn_options)
+        TargetHost.new(target, @conn_options)
       end
     end
   end

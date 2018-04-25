@@ -1,12 +1,12 @@
 require "spec_helper"
 require "chef-workstation/action/converge_target"
-require "chef-workstation/remote_connection"
+require "chef-workstation/target_host"
 require "chef-workstation/errors/ccr_failure_mapper"
 
 RSpec.describe ChefWorkstation::Action::ConvergeTarget do
   let(:connection) do
     p = double("platform", family: "windows")
-    instance_double(ChefWorkstation::RemoteConnection, platform: p)
+    instance_double(ChefWorkstation::TargetHost, platform: p)
   end
   let(:r1) { "directory" }
   let(:r2) { "/tmp" }
