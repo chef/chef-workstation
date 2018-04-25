@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.59 -->
+<!-- latest_release 0.1.60 -->
+## [0.1.60](https://github.com/chef/chef-workstation/tree/0.1.60) (2018-04-25)
+
+#### Merged Pull Requests
+- [SHACK-145] Introduce TargetResolver [#93](https://github.com/chef/chef-workstation/pull/93) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.59](https://github.com/chef/chef-workstation/tree/0.1.59) (2018-04-25)
 
 #### Merged Pull Requests
 - Specify repo path to prevent cheffs content from publishing to user home [#90](https://github.com/chef/chef-workstation/pull/90) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.58](https://github.com/chef/chef-workstation/tree/0.1.58) (2018-04-23)
 
