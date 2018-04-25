@@ -24,6 +24,7 @@ require "chef-workstation/error"
 require "chef-workstation/log"
 require "chef-workstation/ui/terminal"
 require "chef-workstation/ui/error_printer"
+require "chef-dk/cli"
 
 module ChefWorkstation
   class CLI
@@ -49,6 +50,8 @@ module ChefWorkstation
     rescue WrappedError => e
       UI::ErrorPrinter.show_error(e)
       @rc = RC_COMMAND_FAILED
+    rescue SystemExit => e
+      @rc = e.status
     rescue => e
       UI::ErrorPrinter.dump_unexpected_error(e)
       @rc = RC_ERROR_HANDLING_FAILED
@@ -140,6 +143,8 @@ module ChefWorkstation
       if have_command?(command_name)
         @cmd, command_params = commands_map.instantiate(command_name, command_params)
         @cmd.run_with_default_options(command_params)
+      elsif ChefDK::CLI.new(ARGV.clone).have_command?(command_name)
+        ChefDK::CLI.new(ARGV.clone).run
       else
         ChefWorkstation::Log.error("Command not found: #{command_name}")
         raise UnknownCommand.new(command_name, visible_commands.join(" "))

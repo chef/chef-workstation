@@ -1,6 +1,9 @@
 source "https://rubygems.org"
 gemspec
 
+# TODO when chef-dk 3.0 is released to Rubygems as 3.0 we can get rid of this
+gem "chef-dk", git: "https://github.com/chef/chef-dk.git", branch: "master"
+
 group :localdev do
   gem "irbtools-more", require: "irbtools/binding"
 end

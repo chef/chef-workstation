@@ -35,6 +35,7 @@ dependency "rubygems"
 dependency "bundler"
 dependency "ruby"
 dependency "appbundler"
+dependency "chef-dk"
 
 relative_path "components/chef-workstation"
 
@@ -46,7 +47,8 @@ build do
   gem "build chef-workstation.gemspec", env: env
   gem "install chef-workstation*.gem" \
       " --no-ri --no-rdoc" \
+      " --force" \
       " --verbose --without development", env: env
 
-  appbundle "chef-workstation", lockdir: project_dir, without: %w{development}, gem: 'chef-workstation', env: env
+  appbundle "chef-workstation", lockdir: project_dir, without: %w{development localdev}, gem: 'chef-workstation', env: env
 end

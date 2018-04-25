@@ -6,3 +6,7 @@ REM ; package is working correctly after install.
 REM ; chef version ensures our bin ends up on path and the basic ruby env is
 REM ; working.
 call chef version
+
+REM ; Ensure our ChefDK shims works
+call chef env
+call chefdk env
