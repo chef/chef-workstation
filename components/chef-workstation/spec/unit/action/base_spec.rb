@@ -4,16 +4,16 @@ require "chef-workstation/telemetry"
 
 RSpec.describe ChefWorkstation::Action::Base do
   let(:family) { "windows" }
-  let(:connection) do
+  let(:target_host) do
     p = double("platform", family: family)
     instance_double(ChefWorkstation::TargetHost, platform: p)
   end
-  let(:opts) { { connection: connection, other: "something-else" } }
+  let(:opts) { { target_host: target_host, other: "something-else" } }
   subject(:action) { ChefWorkstation::Action::Base.new(opts) }
 
   context "#initialize" do
     it "properly initializes exposed attr readers" do
-      expect(action.connection).to eq connection
+      expect(action.target_host).to eq target_host
       expect(action.config).to eq({ other: "something-else" })
     end
   end

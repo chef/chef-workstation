@@ -150,14 +150,14 @@ module ChefWorkstation
       id = e.respond_to?(:id) ? e.id : e.class.to_s
       message = e.respond_to?(:message) ? e.message : e.to_s
       Telemetry.capture(:error, exception: { id: id, message: message })
-      # TODO: connection assignment below won't work, because the connection is internal the
-      #       action that failed. We can work around this for CW::Error-derived errors by accepting connection
+      # TODO: connection assignment below won't work, because the target host is internal the
+      #       action that failed. We can work around this for CW::Error-derived errors by accepting target host
       #       in the constructor; but we still need to find a happy path for third-party errors
-      #       (train, runtime) - perhaps moving connection tracking and lookup to its own component
+      #       (train, runtime) - perhaps moving target host tracking and lookup to its own component
       #
-      # #conn = @cmd.nil? ? nil : @cmd.connection
-      conn = nil
-      wrapper = ChefWorkstation::WrappedError.new(e, conn)
+      # #target_host = @cmd.nil? ? nil : @cmd.target_host
+      target_host = nil
+      wrapper = ChefWorkstation::WrappedError.new(e, target_host)
       capture_exception_backtrace(wrapper)
       # Now that our housekeeping is done, allow user-facing handling/formatting
       # in `run` to execute by re-raising

@@ -4,8 +4,8 @@ require "chef-workstation/target_host"
 
 RSpec.describe ChefWorkstation::UI::ErrorPrinter do
   let(:orig_exception) { StandardError.new("test") }
-  let(:conn) { ChefWorkstation::TargetHost.make_connection("mock://localhost") }
-  let(:wrapped_exception) { ChefWorkstation::WrappedError.new(orig_exception, conn) }
+  let(:target_host) { ChefWorkstation::TargetHost.instance_for_url("mock://localhost") }
+  let(:wrapped_exception) { ChefWorkstation::WrappedError.new(orig_exception, target_host) }
   subject(:printer) { ChefWorkstation::UI::ErrorPrinter.new(wrapped_exception, nil) }
 
   context "#format_error" do

@@ -82,18 +82,18 @@ module ChefWorkstation
       # If reporter is nil a Terminal spinner will be used; otherwise
       # the provided reporter will be used.
       def connect(target, settings, reporter = nil)
-        conn = TargetHost.new(target, settings)
+        target_host = TargetHost.new(target, settings)
         if reporter.nil?
-          UI::Terminal.spinner(T.status.connecting, prefix: "[#{conn.config[:host]}]") do |rep|
-            conn.connect!
+          UI::Terminal.spinner(T.status.connecting, prefix: "[#{target_host.config[:host]}]") do |rep|
+            target_host.connect!
             rep.success(T.status.connected)
           end
         else
           reporter.update(T.status.connecting)
-          conn = conn.connect!
+          target_host.connect!
           reporter.success(T.status.connected)
         end
-        conn
+        target_host
       rescue RuntimeError => e
         if reporter.nil?
           UI::Terminal.output(e.message)

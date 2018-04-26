@@ -14,7 +14,7 @@ RSpec.describe ChefWorkstation::Action::InstallChef::Base do
       arch: "x86_64",
     }
   end
-  let(:connection) do
+  let(:target_host) do
     ChefWorkstation::TargetHost.new("mock://user1:password1@localhost")
   end
 
@@ -23,11 +23,11 @@ RSpec.describe ChefWorkstation::Action::InstallChef::Base do
   end
 
   subject(:install) do
-    ChefWorkstation::Action::InstallChef::Base.new(connection: connection,
+    ChefWorkstation::Action::InstallChef::Base.new(target_host: target_host,
                                                    reporter: reporter) end
   before do
-    train_conn = connection.connect!
-    train_conn.mock_os(mock_opts)
+    target_host.connect!
+    target_host.backend.mock_os(mock_opts)
   end
 
   context "#perform_action" do

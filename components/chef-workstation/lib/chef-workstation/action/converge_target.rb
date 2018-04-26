@@ -7,14 +7,14 @@ module ChefWorkstation::Action
   class ConvergeTarget < Base
 
     def perform_action
-      remote_tmp = connection.run_command!(mktemp)
+      remote_tmp = target_host.run_command!(mktemp)
       remote_dir_path = escape_windows_path(remote_tmp.stdout.strip)
       remote_recipe_path = create_remote_recipe(@config, remote_dir_path)
       remote_config_path = create_remote_config(remote_dir_path)
 
-      c = connection.run_command("#{chef_client} #{remote_recipe_path} --config #{remote_config_path}")
+      c = target_host.run_command("#{chef_client} #{remote_recipe_path} --config #{remote_config_path}")
 
-      connection.run_command!("#{delete_folder} #{remote_dir_path}")
+      target_host.run_command!("#{delete_folder} #{remote_dir_path}")
       if c.exit_status == 0
         ChefWorkstation::Log.debug(c.stdout)
         notify(:success)
@@ -30,7 +30,7 @@ module ChefWorkstation::Action
       if config.has_key?(:recipe_path)
         recipe_path = config.delete :recipe_path
         begin
-          connection.upload_file(recipe_path, remote_recipe_path)
+          target_host.upload_file(recipe_path, remote_recipe_path)
         rescue RuntimeError
           raise RecipeUploadFailed.new(recipe_path)
         end
@@ -42,7 +42,7 @@ module ChefWorkstation::Action
           recipe_file = Tempfile.new
           recipe_file.write(create_resource(resource_type, resource_name, properties))
           recipe_file.close
-          connection.upload_file(recipe_file.path, remote_recipe_path)
+          target_host.upload_file(recipe_file.path, remote_recipe_path)
         rescue RuntimeError
           raise ResourceUploadFailed.new()
         ensure
@@ -66,7 +66,7 @@ module ChefWorkstation::Action
         config_file = Tempfile.new
         config_file.write(workstation_rb)
         config_file.close
-        connection.upload_file(config_file.path, remote_config_path)
+        target_host.upload_file(config_file.path, remote_config_path)
       rescue RuntimeError
         raise ConfigUploadFailed.new()
       ensure
@@ -78,13 +78,13 @@ module ChefWorkstation::Action
     def handle_ccr_error
       require "chef-workstation/errors/ccr_failure_mapper"
       mapper_opts = {}
-      c = connection.run_command(read_chef_stacktrace)
+      c = target_host.run_command(read_chef_stacktrace)
       if c.exit_status == 0
         lines = c.stdout.split("\n")
         # We need to delete the stacktrace after copying it over. Otherwise if we get a
         # remote failure that does not write a chef stacktrace its possible to get an old
         # stale stacktrace.
-        connection.run_command!(delete_chef_stacktrace)
+        target_host.run_command!(delete_chef_stacktrace)
         ChefWorkstation::Log.error("Remote chef-client error follows:")
         ChefWorkstation::Log.error("\n    " + lines.join("\n    "))
       else

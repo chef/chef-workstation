@@ -44,11 +44,11 @@ module ChefWorkstation
   end
 
   class WrappedError < StandardError
-    attr_accessor :conn, :contained_exception
-    def initialize(e, connection)
+    attr_accessor :target_host, :contained_exception
+    def initialize(e, target_host)
       super(e.message)
       @contained_exception = e
-      @conn = connection
+      @target_host = target_host
     end
   end
 

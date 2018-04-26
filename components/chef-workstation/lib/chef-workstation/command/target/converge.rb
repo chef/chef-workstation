@@ -78,14 +78,14 @@ module ChefWorkstation
 
           target = cli_arguments.shift
 
-          @conn = connect(target, config)
-          UI::Terminal.spinner(TS.install_chef.verifying, prefix: "[#{@conn.hostname}]") do |r|
+          @target_host = connect(target, config)
+          UI::Terminal.spinner(TS.install_chef.verifying, prefix: "[#{@target_host.hostname}]") do |r|
             install(r)
           end
 
-          converge_args = { connection: @conn }
+          converge_args = { target_host: @target_host }
           converge_args, spinner_msg = parse_converge_args(converge_args, cli_arguments)
-          UI::Terminal.spinner(spinner_msg, prefix: "[#{@conn.hostname}]") do |r|
+          UI::Terminal.spinner(spinner_msg, prefix: "[#{@target_host.hostname}]") do |r|
             converge(r, converge_args)
           end
         end
@@ -196,7 +196,7 @@ module ChefWorkstation
           # Runs the InstallChef action and renders UI updates as
           # the action reports back
         def install(r)
-          installer = Action::InstallChef.instance_for_target(@conn)
+          installer = Action::InstallChef.instance_for_target(@target_host)
           context = Text.status.install_chef
           installer.run do |event, data|
             case event

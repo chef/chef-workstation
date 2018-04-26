@@ -20,10 +20,10 @@ require "train"
 class ChefWorkstation::TargetHost
   attr_reader :config, :reporter, :backend
 
-  def self.make_connection(target, opts = {})
-    conn = new(target, opts)
-    conn.connect!
-    conn
+  def self.instance_for_url(target, opts = {})
+    target_host = new(target, opts)
+    target_host.connect!
+    target_host
   end
 
   def initialize(host_url, opts = {}, logger = nil)
@@ -47,7 +47,7 @@ class ChefWorkstation::TargetHost
       @backend = @train_connection.connection
       @backend.wait_until_ready
     end
-    @backend
+    nil
   end
 
   def hostname

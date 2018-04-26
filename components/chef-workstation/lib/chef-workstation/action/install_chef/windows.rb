@@ -11,7 +11,7 @@ module ChefWorkstation::Action::InstallChef
         Write-Host -NoNewline 'true'
       }
       EOM
-      r = connection.run_command!(cmd)
+      r = target_host.run_command!(cmd)
       r.stdout == "true"
     end
 
@@ -23,7 +23,7 @@ module ChefWorkstation::Action::InstallChef
         channel: :stable,
         shell_type: :ps1,
       })
-      connection.run_command! installer.install_command
+      target_host.run_command! installer.install_command
     end
 
     # TODO: These methods are implemented, but are currently
@@ -33,17 +33,17 @@ module ChefWorkstation::Action::InstallChef
       # 'cmd.exe' definitely does - so we'll make the path cmd-friendly
       # before running the command
       cmd = "cmd /c msiexec /package #{remote_path.tr("/", "\\")} /quiet"
-      connection.run_command!(cmd)
+      target_host.run_command!(cmd)
     end
 
     def setup_remote_temp_path
       return @temppath if @temppath
 
-      r = connection.run_command!("Write-Host -NoNewline $env:TEMP")
+      r = target_host.run_command!("Write-Host -NoNewline $env:TEMP")
       temppath = "#{r.stdout}\\chef-installer"
 
       # Failure here is acceptable - the dir could already exist
-      connection.run_command("New-Item -ItemType Directory -Force -Path #{temppath}")
+      target_host.run_command("New-Item -ItemType Directory -Force -Path #{temppath}")
       @temppath = temppath
     end
   end
