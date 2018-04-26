@@ -23,7 +23,7 @@ require "chef-workstation/ui/terminal"
 
 module ChefWorkstation::UI
   class ErrorPrinter
-    attr_reader :pastel, :show_log, :show_stack, :exception, :conn
+    attr_reader :pastel, :show_log, :show_stack, :exception, :target_host
     # TODO define 't' as a method is a temporary workaround
     # to ensure that text key lookups are testable.
     def t
@@ -62,9 +62,9 @@ module ChefWorkstation::UI
       Terminal.output "=-" * 30
     end
 
-    def initialize(wrapper, unwrapped = nil, conn = nil)
+    def initialize(wrapper, unwrapped = nil, target_host = nil)
       @exception = unwrapped || wrapper.contained_exception
-      @conn = wrapper.conn
+      @target_host = wrapper.target_host || target_host
       @pastel = Pastel.new
       @show_log = exception.respond_to?(:show_log) ? exception.show_log : true
       @show_stack = exception.respond_to?(:show_stack) ? exception.show_stack : true
@@ -175,8 +175,8 @@ module ChefWorkstation::UI
     end
 
     def formatted_host
-      return nil if conn.nil?
-      cfg = conn.config
+      return nil if target_host.nil?
+      cfg = target_host.config
       port = cfg[:port].nil? ? "" : ":#{cfg[:port]}"
       if cfg[:user].nil?
         user = ""

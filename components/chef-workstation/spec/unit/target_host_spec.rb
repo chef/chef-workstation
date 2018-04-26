@@ -1,12 +1,12 @@
 require "spec_helper"
 require "ostruct"
-require "chef-workstation/remote_connection"
+require "chef-workstation/target_host"
 
-RSpec.describe ChefWorkstation::RemoteConnection do
+RSpec.describe ChefWorkstation::TargetHost do
   let(:host) { "example.com" }
   let(:sudo) { true }
   let(:logger) { nil }
-  subject(:subject) { ChefWorkstation::RemoteConnection.new(host, sudo: sudo, logger: logger) }
+  subject(:subject) { ChefWorkstation::TargetHost.new(host, sudo: sudo, logger: logger) }
 
   context "#maybe_add_default_scheme" do
     it "prefixes a non-prefixed host with ssh://" do
@@ -41,7 +41,7 @@ RSpec.describe ChefWorkstation::RemoteConnection do
     context "when an error occurs" do
       let(:exit_status) { 1 }
       it "raises a RemoteExecutionFailed error" do
-        expect { subject.run_command!("invalid") }.to raise_error ChefWorkstation::RemoteConnection::RemoteExecutionFailed
+        expect { subject.run_command!("invalid") }.to raise_error ChefWorkstation::TargetHost::RemoteExecutionFailed
       end
     end
   end

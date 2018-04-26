@@ -13,8 +13,8 @@ RSpec.describe ChefWorkstation::Action::InstallChef do
       arch: "x86_64",
     }
   end
-  let(:connection) do
-    ChefWorkstation::RemoteConnection.new("mock://user1:password1@localhost")
+  let(:target_host) do
+    ChefWorkstation::TargetHost.new("mock://user1:password1@localhost")
   end
 
   subject(:installer) do
@@ -22,8 +22,8 @@ RSpec.describe ChefWorkstation::Action::InstallChef do
   end
 
   before do
-    train_conn = connection.connect!
-    train_conn.mock_os(mock_opts)
+    target_host.connect!
+    target_host.backend.mock_os(mock_opts)
   end
 
   context ".instance_for_target" do
@@ -33,7 +33,7 @@ RSpec.describe ChefWorkstation::Action::InstallChef do
       let(:mock_os_release) { "10.0.0" }
 
       it "should return a InstallChef::Windows instance" do
-        inst = installer.instance_for_target(connection)
+        inst = installer.instance_for_target(target_host)
         expect(inst).to be_a installer::Windows
       end
     end
@@ -44,7 +44,7 @@ RSpec.describe ChefWorkstation::Action::InstallChef do
       let(:mock_os_release) { "16.04" }
 
       it "should return a InstallChef::Linux instance" do
-        inst = installer.instance_for_target(connection)
+        inst = installer.instance_for_target(target_host)
         expect(inst).to be_a installer::Linux
       end
     end
@@ -52,7 +52,7 @@ RSpec.describe ChefWorkstation::Action::InstallChef do
     context "unsupported target" do
       it "should raise UnsupportedTargetOS" do
         expected_error = ChefWorkstation::Action::InstallChef::UnsupportedTargetOS
-        expect { installer.instance_for_target(connection) }.to raise_error expected_error
+        expect { installer.instance_for_target(target_host) }.to raise_error expected_error
       end
     end
   end

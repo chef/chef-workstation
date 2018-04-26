@@ -32,7 +32,7 @@ module ChefWorkstation::Action::InstallChef
 
     def lookup_artifact
       require "mixlib/install"
-      platform = connection.platform
+      platform = target_host.platform
       platform_name = platform.family == "windows" ? "windows" : platform.name
       c = {
         platform_version: platform.release,
@@ -53,7 +53,7 @@ module ChefWorkstation::Action::InstallChef
     def upload_to_target(local_path)
       installer_dir = setup_remote_temp_path()
       remote_path = File.join(installer_dir, File.basename(local_path))
-      connection.upload_file(local_path, remote_path)
+      target_host.upload_file(local_path, remote_path)
       remote_path
     end
 

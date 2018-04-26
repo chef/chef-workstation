@@ -160,20 +160,20 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
 
   describe "#run" do
     let(:params) { %w{target /some/path} }
-    let(:conn) { instance_double(ChefWorkstation::RemoteConnection, hostname: "target") }
+    let(:target_host) { instance_double(ChefWorkstation::TargetHost, hostname: "target") }
     let(:reporter) { instance_double(ChefWorkstation::StatusReporter) }
     let(:installer) { instance_double(ChefWorkstation::Action::InstallChef::Linux) }
     let(:converger) { instance_double(ChefWorkstation::Action::ConvergeTarget) }
     it "installs chef and runs the resource" do
       expect(cmd).to receive(:cli_arguments).and_return(params).exactly(3).times
       expect(cmd).to receive(:validate_params).with(params)
-      expect(cmd).to receive(:connect).with("target", an_instance_of(Hash)).and_return(conn)
+      expect(cmd).to receive(:connect).with("target", an_instance_of(Hash)).and_return(target_host)
       msg = ChefWorkstation::Text.status.install_chef.verifying
       expect(ChefWorkstation::UI::Terminal).to receive(:spinner).with(msg, { prefix: "[target]" }).and_yield(reporter)
       expect(cmd).to receive(:install).with(reporter)
       msg = "other_msg"
       converge_args = {}
-      expect(cmd).to receive(:parse_converge_args).with({ connection: conn }, params).and_return([converge_args, msg])
+      expect(cmd).to receive(:parse_converge_args).with({ target_host: target_host }, params).and_return([converge_args, msg])
       expect(ChefWorkstation::UI::Terminal).to receive(:spinner).with(msg, { prefix: "[target]" }).and_yield(reporter)
       expect(cmd).to receive(:converge).with(reporter, converge_args)
 
