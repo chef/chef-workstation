@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chef-workstation (0.1.61)
+    chef-workstation (0.1.62)
       chef (>= 14.0)
       mixlib-cli
       mixlib-config
@@ -300,7 +300,7 @@ GEM
     toml-rb (1.1.1)
       citrus (~> 3.0, > 3.0)
     tomlrb (1.2.6)
-    train (1.4.1)
+    train (1.4.2)
       aws-sdk (~> 2)
       azure_mgmt_resources (~> 0.15)
       docker-api (~> 1.26)

@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.61 -->
+<!-- latest_release 0.1.62 -->
+## [0.1.62](https://github.com/chef/chef-workstation/tree/0.1.62) (2018-04-26)
+
+#### Merged Pull Requests
+- Removing thread ability to print exception information to stdout [#95](https://github.com/chef/chef-workstation/pull/95) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.61](https://github.com/chef/chef-workstation/tree/0.1.61) (2018-04-26)
 
 #### Merged Pull Requests
 - [SHACK-145] rename remote connection to target host [#94](https://github.com/chef/chef-workstation/pull/94) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.60](https://github.com/chef/chef-workstation/tree/0.1.60) (2018-04-25)
 
