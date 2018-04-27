@@ -70,17 +70,15 @@ commands
       for converge host1,hosta2 user xiao
         .description Show multi-host converge, single failure
         .parallel Converging requested targets
+          .spinner [hosta2] Connecting...
+            .failure after 2.0s [host2a] .redConnection failed: getaddrinfo: Name or service not known
           .spinner [host1] Connecting...
             .show-text after 1.0s [host1] Connected.
             .show-text after 0.5s [host1] Verifying Chef client installation
             .show-text after 0.5s [host1] Client already present on system.
             .show-text after 0.5s [host1] Converging user[xiao] on target...
             .success after 1.0s [host1] Successfully converged target!
-          .spinner [hosta2] Connecting...
-            .failure after 2.0s [host2a] .redCHEFNET001 getaddrinfo: Name or service not known
-        .show-text .n
-        .show-text An error occurred converging the following host:
-        .show-text .t * [host2a] CHEFNET001 - see /tmp/hosta2.error.out for details
+        .show-error CHEFCON001
       for converge host1,hosta2 usera jame
         .description Show multi-host converge, all failed
         .parallel Converging requested targets
@@ -89,13 +87,10 @@ commands
             .show-text after 0.5s [host1] Verifying Chef client installation
             .show-text after 0.5s [host1] Client already present on system.
             .show-text after 0.5s [host1] Converging usera[jame] on target...
-            .failure after 1.0s [host1] .redCHEFCCR005: 'usera' is not a valid Chef resource
+            .failure after 1.0s [host1] .red'usera' is not a valid Chef resource
           .spinner [hosta2] Connecting...
-            .failure after 2.0s [host2a] .redCHENET001: Connection failed: getaddrinfo: Name or service not known
-        .show-text .n
-        .show-text Errors occurred converging the following hosts:
-        .show-text .t * [host1] CHEFCCR005 - see /tmp/host1.error.out for details
-        .show-text .t * [host2a] CHEFNET001 - see /tmp/hosta2.error.out for details
+            .failure after 2.0s [host2a] .redConnection failed: getaddrinfo: Name or service not known
+        .show-error CHEFCON001
     definition
       SUBCOMMAND
         the command to run
@@ -139,6 +134,10 @@ messages
     connection, tried both ssh and winrm, timed out trying
     a command, etc.
 
+
+  CHEFCON001
+    One or more nodes has failed to converge.  For error details,
+    see ~/.chef-workstation/logs/converge_failures.log
 
   CHEFNET001
     .n
