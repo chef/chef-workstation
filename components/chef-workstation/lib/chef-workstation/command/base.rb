@@ -77,12 +77,9 @@ module ChefWorkstation
         show_help
       end
 
-      # The visual progress aspect of connecting will be common to
-      # many commands, so we provide a helper to the in this base class.
-      # If reporter is nil a Terminal spinner will be used; otherwise
-      # the provided reporter will be used.
-      def connect(target, settings, reporter = nil)
-        target_host = TargetHost.new(target, settings)
+      # Accepts a target_host and establishes the connection to that host
+      # while providing visual feedback via the Terminal API.
+      def connect_target(target_host, reporter = nil)
         if reporter.nil?
           UI::Terminal.spinner(T.status.connecting, prefix: "[#{target_host.config[:host]}]") do |rep|
             target_host.connect!
@@ -91,7 +88,10 @@ module ChefWorkstation
         else
           reporter.update(T.status.connecting)
           target_host.connect!
-          reporter.success(T.status.connected)
+          # No success here - if we have a reporter,
+          # it's because it will be used for more actions than our own
+          # and success marks the end.
+          reporter.update(T.status.connected)
         end
         target_host
       rescue RuntimeError => e

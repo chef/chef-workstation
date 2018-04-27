@@ -160,7 +160,7 @@ module ChefWorkstation
       #       in the constructor; but we still need to find a happy path for third-party errors
       #       (train, runtime) - perhaps moving target host tracking and lookup to its own component
       #
-      # #target_host = @cmd.nil? ? nil : @cmd.target_host
+      # #target = @cmd.nil? ? nil : @cmd.target_host
       target_host = nil
       wrapper = ChefWorkstation::WrappedError.new(e, target_host)
       capture_exception_backtrace(wrapper)

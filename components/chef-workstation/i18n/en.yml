@@ -123,6 +123,7 @@ status:
     success: "Chef client installation completed!"
     failure: "An error occurred while installing Chef client: %1"
   converge:
+    multi_header: "Converging targets:"
     converging_recipe: Converging local recipe %1 on target...
     converging_resource: Converging %1 on target...
     success: "Successfully converged target!"

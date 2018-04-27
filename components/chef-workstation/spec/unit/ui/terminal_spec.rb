@@ -20,11 +20,32 @@ RSpec.describe ChefWorkstation::UI::Terminal do
     end.to output("test\n").to_terminal
   end
 
+  context "#render_action" do
+    it "executes the provided action" do
+      @ran = false
+      Terminal.render_action("a message") { |reporter| @ran = true }
+      expect(@ran).to eq true
+    end
+  end
+
+  context "#render_parallel_actions" do
+    it "executes the provided actions" do
+      @action1ran = false
+      @action2ran = false
+      action1 = Terminal::Action.new("prefix") do
+        @action1ran = true
+      end
+      action2 = Terminal::Action.new("prefix") do
+        @action2ran = true
+      end
+      Terminal.render_parallel_actions("a message", [action1, action2])
+      expect(@action1ran).to eq true
+      expect(@action2ran).to eq true
+    end
+  end
+
   # The spinner REALLY doesn't want to send output to anything besides a real
   # stdout. Maybe it has something to do with a tty check?
   it "correctly passes a block to the spinner and executes it" do
-    @ran = false
-    Terminal.spinner("a message") { |reporter| @ran = true }
-    expect(@ran).to eq true
   end
 end

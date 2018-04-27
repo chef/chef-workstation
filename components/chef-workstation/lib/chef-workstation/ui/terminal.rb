@@ -7,6 +7,14 @@ require "chef-workstation/ui/plain_text_element"
 module ChefWorkstation
   module UI
     class Terminal
+      class Action
+        attr_reader :proc, :prefix
+        def initialize(prefix, &block)
+          @proc = block
+          @prefix = prefix
+        end
+      end
+
       class << self
         # To support matching in test
         attr_accessor :location
@@ -28,7 +36,18 @@ module ChefWorkstation
           @location.puts msg
         end
 
-        def spinner(msg, prefix: "", &block)
+        def render_parallel_actions(header, actions, prefix: "")
+          multispinner = TTY::Spinner::Multi.new("[:spinner] #{header}")
+          actions.each do |a|
+            multispinner.register(":spinner #{a.prefix} :status") do |spinner|
+              reporter = StatusReporter.new(spinner, prefix: prefix, key: :status)
+              a.proc.call(reporter)
+            end
+          end
+          multispinner.auto_spin
+        end
+
+        def render_action(msg, prefix: "", &block)
           klass = Object.const_get("ChefWorkstation::UI::#{ChefWorkstation::Config.dev.spinner}")
           spinner = klass.new("[:spinner] :prefix :status", output: @location)
           reporter = StatusReporter.new(spinner, prefix: prefix, key: :status)

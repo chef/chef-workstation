@@ -17,6 +17,7 @@
 require "spec_helper"
 require "chef-workstation/commands_map"
 require "chef-workstation/command/target/converge"
+require "chef-workstation/target_host"
 
 RSpec.describe ChefWorkstation::Command::Target::Converge do
   let(:cmd_spec) { instance_double(ChefWorkstation::CommandsMap::CommandSpec, qualified_name: "blah") }
@@ -159,25 +160,55 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
   end
 
   describe "#run" do
+    let(:converge_args) { Hash.new }
     let(:params) { %w{target /some/path} }
-    let(:target_host) { instance_double(ChefWorkstation::TargetHost, hostname: "target") }
-    let(:reporter) { instance_double(ChefWorkstation::StatusReporter) }
-    let(:installer) { instance_double(ChefWorkstation::Action::InstallChef::Linux) }
-    let(:converger) { instance_double(ChefWorkstation::Action::ConvergeTarget) }
-    it "installs chef and runs the resource" do
+    before do
+      msg = ChefWorkstation::Text.status.install_chef.verifying
       expect(cmd).to receive(:cli_arguments).and_return(params).exactly(3).times
       expect(cmd).to receive(:validate_params).with(params)
-      expect(cmd).to receive(:connect).with("target", an_instance_of(Hash)).and_return(target_host)
-      msg = ChefWorkstation::Text.status.install_chef.verifying
-      expect(ChefWorkstation::UI::Terminal).to receive(:spinner).with(msg, { prefix: "[target]" }).and_yield(reporter)
-      expect(cmd).to receive(:install).with(reporter)
-      msg = "other_msg"
-      converge_args = {}
-      expect(cmd).to receive(:parse_converge_args).with({ target_host: target_host }, params).and_return([converge_args, msg])
-      expect(ChefWorkstation::UI::Terminal).to receive(:spinner).with(msg, { prefix: "[target]" }).and_yield(reporter)
-      expect(cmd).to receive(:converge).with(reporter, converge_args)
+      expect(cmd).to receive(:parse_converge_args).with({}, params).and_return([converge_args, msg])
+    end
 
-      cmd.run(params)
+    context "single target" do
+      let(:params) { %w{target /some/path} }
+      it "invokes run_single_target" do
+        expect(cmd).to receive(:run_single_target)
+        cmd.run(params)
+      end
+    end
+
+    context "multiple targets" do
+      let(:params) { %w{host1,host2 /some/path} }
+      it "invokes run_multi_target" do
+        expect(cmd).to receive(:run_multi_target)
+        cmd.run(params)
+      end
+    end
+  end
+
+  describe "#run_single_target" do
+    let(:installer) { instance_double(ChefWorkstation::Action::InstallChef::Linux) }
+    let(:converger) { instance_double(ChefWorkstation::Action::ConvergeTarget) }
+    let(:reporter) { instance_double(ChefWorkstation::StatusReporter) }
+    let(:host1) { ChefWorkstation::TargetHost.new("ssh://host1") }
+    it "connects, installs chef on and converges the target" do
+      expect(cmd).to receive(:connect_target).with(host1)
+      expect(cmd).to receive(:install).with(host1, anything())
+      expect(cmd).to receive(:converge)
+      cmd.run_single_target("", host1, {})
+    end
+  end
+  describe "#run_multi_target" do
+    let(:reporter) { instance_double(ChefWorkstation::StatusReporter) }
+    let(:host1) { ChefWorkstation::TargetHost.new("ssh://host1") }
+    let(:host2) { ChefWorkstation::TargetHost.new("ssh://host2") }
+    it "connects, installs chef on and converges the targets" do
+      expect(cmd).to receive(:connect_target).with(host1, anything())
+      expect(cmd).to receive(:connect_target).with(host2, anything())
+      expect(cmd).to receive(:install).with(host1, anything())
+      expect(cmd).to receive(:install).with(host2, anything())
+      expect(cmd).to receive(:converge).exactly(2).times
+      cmd.run_multi_target("", [host1, host2], {})
     end
   end
 end
