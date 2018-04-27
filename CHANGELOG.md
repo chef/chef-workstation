@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.63 -->
+<!-- latest_release 0.1.64 -->
+## [0.1.64](https://github.com/chef/chef-workstation/tree/0.1.64) (2018-04-27)
+
+#### Merged Pull Requests
+- [SHACK-158] Add basic custom handler [#91](https://github.com/chef/chef-workstation/pull/91) ([cheeseplus](https://github.com/cheeseplus))
+<!-- latest_release -->
+
 ## [0.1.63](https://github.com/chef/chef-workstation/tree/0.1.63) (2018-04-27)
 
 #### Merged Pull Requests
 - [SHACK-163] Move ChefDK gem dep into workstation and add shim command [#96](https://github.com/chef/chef-workstation/pull/96) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.62](https://github.com/chef/chef-workstation/tree/0.1.62) (2018-04-26)
 
