@@ -11,6 +11,7 @@ module ChefWorkstation::Action
       remote_dir_path = escape_windows_path(remote_tmp.stdout.strip)
       remote_recipe_path = create_remote_recipe(@config, remote_dir_path)
       remote_config_path = create_remote_config(remote_dir_path)
+      create_remote_handler(remote_dir_path)
 
       c = target_host.run_command("#{chef_client} #{remote_recipe_path} --config #{remote_config_path}")
 
@@ -60,6 +61,10 @@ module ChefWorkstation::Action
         color false
         cache_path "#{cache_path}"
         chef_repo_path "#{cache_path}"
+        require_relative "reporter"
+        reporter = ChefWorkstation::Reporter.new
+        report_handlers << reporter
+        exception_handlers << reporter
       EOM
 
       begin
@@ -75,27 +80,42 @@ module ChefWorkstation::Action
       remote_config_path
     end
 
+    def create_remote_handler(dir)
+      remote_handler_path = File.join(dir, "reporter.rb")
+      begin
+        handler_file = Tempfile.new
+        handler_file.write(File.read(File.join(__dir__, "reporter.rb")))
+        handler_file.close
+        target_host.upload_file(handler_file.path, remote_handler_path)
+      rescue RuntimeError
+        raise HandlerUploadFailed.new()
+      ensure
+        handler_file.unlink
+      end
+      remote_handler_path
+    end
+
     def handle_ccr_error
       require "chef-workstation/errors/ccr_failure_mapper"
       mapper_opts = {}
-      c = target_host.run_command(read_chef_stacktrace)
+      c = target_host.run_command(read_chef_report)
       if c.exit_status == 0
-        lines = c.stdout.split("\n")
+        report = JSON.parse(c.stdout)
         # We need to delete the stacktrace after copying it over. Otherwise if we get a
         # remote failure that does not write a chef stacktrace its possible to get an old
         # stale stacktrace.
-        target_host.run_command!(delete_chef_stacktrace)
+        target_host.run_command!(delete_chef_report)
         ChefWorkstation::Log.error("Remote chef-client error follows:")
-        ChefWorkstation::Log.error("\n    " + lines.join("\n    "))
+        ChefWorkstation::Log.error(report["exception"])
       else
-        lines = []
-        ChefWorkstation::Log.error("Could not read remote stacktrace:")
+        report = {}
+        ChefWorkstation::Log.error("Could not read remote report:")
         ChefWorkstation::Log.error("stdout: #{c.stdout}")
         ChefWorkstation::Log.error("stderr: #{c.stderr}")
         mapper_opts[:stdout] = c.stdout
         mapper_opts[:stdrerr] = c.stderr
       end
-      mapper = ChefWorkstation::Errors::CCRFailureMapper.new(lines, mapper_opts)
+      mapper = ChefWorkstation::Errors::CCRFailureMapper.new(report["exception"], mapper_opts)
       mapper.raise_mapped_exception!
     end
 
@@ -126,5 +146,8 @@ module ChefWorkstation::Action
       def initialize(); super("CHEFUPL003"); end
     end
 
+    class HandlerUploadFailed < ChefWorkstation::Error
+      def initialize(); super("CHEFUPL004"); end
+    end
   end
 end

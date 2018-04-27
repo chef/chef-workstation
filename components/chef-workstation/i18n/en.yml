@@ -300,6 +300,9 @@ errors:
 
   CHEFUPL003: |
     Uploading config to target failed.
+  
+  CHEFUPL004: |
+    Uploading handler to target failed.
 
   # Maps to: SSL::SSLError with message text indicating verification failure
   CHEFNET002: |

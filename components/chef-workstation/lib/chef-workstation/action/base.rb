@@ -30,13 +30,13 @@ module ChefWorkstation
           windows: '#{ENV[\'APPDATA\']}/chef-workstation',
           other: "/var/chef-workstation",
         },
-        read_chef_stacktrace: {
-          windows: "type $env:APPDATA/chef-workstation/cache/chef-stacktrace.out",
-          other: "cat /var/chef-workstation/cache/chef-stacktrace.out",
+        read_chef_report: {
+          windows: "type $env:APPDATA/chef-workstation/cache/run-report.json",
+          other: "cat /var/chef-workstation/cache/run-report.json",
         },
-        delete_chef_stacktrace: {
-          windows: "del /f $env:APPDATA/chef-workstation/chef-stacktrace.out",
-          other: "rm -f /var/chef-workstation/cache/chef-stacktrace.out",
+        delete_chef_report: {
+          windows: "del /f $env:APPDATA/chef-workstation/run-report.json",
+          other: "rm -f /var/chef-workstation/cache/run-report.json",
         },
         tempdir: {
           windows: "%TEMP%",
