@@ -19,7 +19,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-workstation (0.1.64)
+    chef-workstation (0.1.65)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       mixlib-cli

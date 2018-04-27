@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.64 -->
+<!-- latest_release 0.1.65 -->
+## [0.1.65](https://github.com/chef/chef-workstation/tree/0.1.65) (2018-04-27)
+
+#### Merged Pull Requests
+- [SHACK-144] Add mocks for multi-target converges [#92](https://github.com/chef/chef-workstation/pull/92) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.64](https://github.com/chef/chef-workstation/tree/0.1.64) (2018-04-27)
 
 #### Merged Pull Requests
 - [SHACK-158] Add basic custom handler [#91](https://github.com/chef/chef-workstation/pull/91) ([cheeseplus](https://github.com/cheeseplus))
-<!-- latest_release -->
 
 ## [0.1.63](https://github.com/chef/chef-workstation/tree/0.1.63) (2018-04-27)
 
