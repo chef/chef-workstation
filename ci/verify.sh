@@ -3,3 +3,7 @@
 
 # chef version ensures our bin ends up on path and the basic ruby env is working.
 chef version
+
+# Ensure our ChefDK shims works
+chef env
+chefdk env
