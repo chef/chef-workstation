@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.62 -->
+<!-- latest_release 0.1.63 -->
+## [0.1.63](https://github.com/chef/chef-workstation/tree/0.1.63) (2018-04-27)
+
+#### Merged Pull Requests
+- [SHACK-163] Move ChefDK gem dep into workstation and add shim command [#96](https://github.com/chef/chef-workstation/pull/96) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.62](https://github.com/chef/chef-workstation/tree/0.1.62) (2018-04-26)
 
 #### Merged Pull Requests
 - Removing thread ability to print exception information to stdout [#95](https://github.com/chef/chef-workstation/pull/95) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.61](https://github.com/chef/chef-workstation/tree/0.1.61) (2018-04-26)
 
