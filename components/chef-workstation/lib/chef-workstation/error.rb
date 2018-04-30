@@ -20,7 +20,7 @@ module ChefWorkstation
     attr_accessor :show_stack, :show_log, :decorate
     def initialize(id, *params)
       @id = id
-      @params = params
+      @params = params || []
       @show_log = true
       @show_stack = true
       @decorate = true
@@ -51,6 +51,16 @@ module ChefWorkstation
       @target_host = target_host
     end
   end
+
+  class MultiJobFailure < ChefWorkstation::ErrorNoLogs
+    attr_reader :jobs
+    def initialize(jobs)
+      super("CHEFMULTI001")
+      @jobs = jobs
+      @decorate = false
+    end
+  end
+
 
   # Provides mappings of common errors that we don't explicitly
   # handle, but can offer expanded help text around.

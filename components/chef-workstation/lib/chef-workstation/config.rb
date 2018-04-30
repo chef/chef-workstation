@@ -28,6 +28,10 @@ module ChefWorkstation
         File.join(WS_BASE_PATH, "config.toml")
       end
 
+      def error_output_path
+        File.join(File.dirname(log.location), "errors.txt")
+      end
+
       def stack_trace_path
         File.join(File.dirname(log.location), "stack-trace.log")
       end

@@ -301,7 +301,7 @@ errors:
 
   CHEFUPL003: |
     Uploading config to target failed.
-  
+
   CHEFUPL004: |
     Uploading handler to target failed.
 
@@ -318,10 +318,18 @@ errors:
       [connection.winrm]
       ssl_verify=false
 
+  CHEFMULTI001: |
+    One or more actions has failed.
+
+    A complete list of failures and possible resolutions can
+    be found in the file below:
+
+      %1
+
   footer:
     both: |
       If you are not able to resolve this issue, please contact Chef support
-      at beta@chef.io and include the log file and strack trace from the
+      at beta@chef.io and include the log file and stack trace from the
       locations below:
 
         %1
