@@ -89,10 +89,10 @@ module ChefWorkstation
         def run_single_target(initial_status_msg, target_host, converge_args)
           connect_target(target_host)
           prefix = "[#{target_host.hostname}]"
-          UI::Terminal.render_action(TS.install_chef.verifying, prefix: prefix) do |r|
-            install(target_host, r)
+          UI::Terminal.render_job(TS.install_chef.verifying, prefix: prefix) do |reporter|
+            install(target_host, reporter)
           end
-          UI::Terminal.render_action(initial_status_msg, prefix: "[#{target_host.hostname}]") do |r|
+          UI::Terminal.render_job(initial_status_msg, prefix: "[#{target_host.hostname}]") do |r|
             converge(r, converge_args.merge(target_host: target_host))
           end
         end
@@ -100,8 +100,9 @@ module ChefWorkstation
         def run_multi_target(initial_status_msg, target_hosts, converge_args)
           # Our multi-host UX does not show a line item per action,
           # but rather a line-item per connection.
-          actions = target_hosts.map do |target_host|
-            UI::Terminal::Action.new("[#{target_host.hostname}]") do |reporter|
+          jobs = target_hosts.map do |target_host|
+            # This block will run in its own thread during render.
+            UI::Terminal::Job.new("[#{target_host.hostname}]", target_host) do |reporter|
               connect_target(target_host, reporter)
               reporter.update(TS.install_chef.verifying)
               install(target_host, reporter)
@@ -109,7 +110,8 @@ module ChefWorkstation
               converge(reporter, converge_args.merge(target_host: target_host))
             end
           end
-          UI::Terminal.render_parallel_actions(TS.converge.multi_header, actions)
+          UI::Terminal.render_parallel_jobs(TS.converge.multi_header, jobs)
+          handle_job_failures(jobs)
         end
 
         # The first param is always hostname. Then we either have
@@ -217,25 +219,25 @@ module ChefWorkstation
 
         # Runs the InstallChef action and renders UI updates as
         # the action reports back
-        def install(target_host, r)
+        def install(target_host, reporter)
           installer = Action::InstallChef.instance_for_target(target_host)
           context = Text.status.install_chef
           installer.run do |event, data|
             case event
             when :installing
-              r.update(context.installing)
+              reporter.update(context.installing)
             when :uploading
-              r.update(context.uploading)
+              reporter.update(context.uploading)
             when :downloading
-              r.update(context.downloading)
+              reporter.update(context.downloading)
             when :success
               meth = @multi_target ? :update : :success
               msg = (data[0] == :already_installed) ? context.already_present : context.success
-              r.send(meth, msg)
+              reporter.send(meth, msg)
             when :error
               # Message may or may not be present. First arg if it is.
               msg = data.length > 0 ? data[0] : T.aborted
-              r.error(context.failure(msg))
+              reporter.error(context.failure(msg))
             end
           end
         end

@@ -191,6 +191,18 @@ module ChefWorkstation
         end
       end
 
+      # When running multiple jobs, exceptions are captured to the
+      # job to avoid interrupting other jobs in process.  This function
+      # collects them and raises a MultiJobFailure if failure has occurred;
+      # we do *not* differentiate between one failed jobs and multiple failed jobs
+      # - if you're in the 'multi-job' path (eg, multiple targets) we handle
+      # all errors the same to provide a consistent experience.
+      def handle_job_failures(jobs)
+        failed_jobs = jobs.select { |j| !j.exception.nil? }
+        return if failed_jobs.empty?
+        raise ChefWorkstation::MultiJobFailure.new(failed_jobs)
+      end
+
       def subcommands
         # The base class behavior subcommands are actually the full list
         # of top-level commands - those are subcommands of 'chef'.

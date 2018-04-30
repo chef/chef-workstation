@@ -7,11 +7,20 @@ require "chef-workstation/ui/plain_text_element"
 module ChefWorkstation
   module UI
     class Terminal
-      class Action
-        attr_reader :proc, :prefix
-        def initialize(prefix, &block)
+      class Job
+        attr_reader :proc, :prefix, :target_host, :exception
+        def initialize(prefix, target_host, &block)
           @proc = block
           @prefix = prefix
+          @target_host = target_host
+          @error = nil
+        end
+
+        def run(reporter)
+          @proc.call(reporter)
+        rescue => e
+          reporter.error(e.to_s)
+          @exception = e
         end
       end
 
@@ -36,19 +45,20 @@ module ChefWorkstation
           @location.puts msg
         end
 
-        def render_parallel_actions(header, actions, prefix: "")
+        def render_parallel_jobs(header, actions, prefix: "")
           multispinner = TTY::Spinner::Multi.new("[:spinner] #{header}")
           actions.each do |a|
             multispinner.register(":spinner #{a.prefix} :status") do |spinner|
               reporter = StatusReporter.new(spinner, prefix: prefix, key: :status)
-              a.proc.call(reporter)
+              a.run(reporter)
             end
           end
           multispinner.auto_spin
         end
 
-        def render_action(msg, prefix: "", &block)
-          klass = Object.const_get("ChefWorkstation::UI::#{ChefWorkstation::Config.dev.spinner}")
+        # TODO this should also accept a job.
+        def render_job(msg, prefix: "", &block)
+          klass = ChefWorkstation::UI.const_get(ChefWorkstation::Config.dev.spinner)
           spinner = klass.new("[:spinner] :prefix :status", output: @location)
           reporter = StatusReporter.new(spinner, prefix: prefix, key: :status)
           reporter.update(msg)

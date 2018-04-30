@@ -339,10 +339,18 @@ errors:
 
       At this time there is a limit of %2 hosts in a single operation.
 
+  CHEFMULTI001: |
+    One or more actions has failed.
+
+    A complete list of failures and possible resolutions can
+    be found in the file below:
+
+      %1
+
   footer:
     both: |
       If you are not able to resolve this issue, please contact Chef support
-      at beta@chef.io and include the log file and strack trace from the
+      at beta@chef.io and include the log file and stack trace from the
       locations below:
 
         %1
