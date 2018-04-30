@@ -24,6 +24,7 @@ require "chef-workstation/ui/terminal"
 require "chef-workstation/log"
 require "chef-workstation/config"
 require "chef-workstation/recipe_lookup"
+require "chef-workstation/target_resolver"
 require "chef-config/config"
 require "chef-config/logger"
 require "chef/log"
@@ -75,19 +76,40 @@ module ChefWorkstation
         def run(params)
           validate_params(cli_arguments)
           configure_chef
-
-          target = cli_arguments.shift
-
-          @target_host = connect(target, config)
-          UI::Terminal.spinner(TS.install_chef.verifying, prefix: "[#{@target_host.hostname}]") do |r|
-            install(r)
+          target_hosts = TargetResolver.new(cli_arguments.shift, config).targets
+          converge_args, initial_status_msg = parse_converge_args({}, cli_arguments)
+          if target_hosts.length == 1
+            run_single_target(initial_status_msg, target_hosts[0], converge_args )
+          else
+            @multi_target = true
+            run_multi_target(initial_status_msg, target_hosts, converge_args)
           end
+        end
 
-          converge_args = { target_host: @target_host }
-          converge_args, spinner_msg = parse_converge_args(converge_args, cli_arguments)
-          UI::Terminal.spinner(spinner_msg, prefix: "[#{@target_host.hostname}]") do |r|
-            converge(r, converge_args)
+        def run_single_target(initial_status_msg, target_host, converge_args)
+          connect_target(target_host)
+          prefix = "[#{target_host.hostname}]"
+          UI::Terminal.render_action(TS.install_chef.verifying, prefix: prefix) do |r|
+            install(target_host, r)
           end
+          UI::Terminal.render_action(initial_status_msg, prefix: "[#{target_host.hostname}]") do |r|
+            converge(r, converge_args.merge(target_host: target_host))
+          end
+        end
+
+        def run_multi_target(initial_status_msg, target_hosts, converge_args)
+          # Our multi-host UX does not show a line item per action,
+          # but rather a line-item per connection.
+          actions = target_hosts.map do |target_host|
+            UI::Terminal::Action.new("[#{target_host.hostname}]") do |reporter|
+              connect_target(target_host, reporter)
+              reporter.update(TS.install_chef.verifying)
+              install(target_host, reporter)
+              reporter.update(initial_status_msg)
+              converge(reporter, converge_args.merge(target_host: target_host))
+            end
+          end
+          UI::Terminal.render_parallel_actions(TS.converge.multi_header, actions)
         end
 
         # The first param is always hostname. Then we either have
@@ -176,27 +198,27 @@ module ChefWorkstation
               recipe_path = rl.find_recipe(cookbook, optional_recipe_name)
             end
             converge_args[:recipe_path] = recipe_path
-            spinner_msg = TS.converge.converging_recipe(recipe_specifier)
+            initial_status_msg = TS.converge.converging_recipe(recipe_specifier)
           else
             converge_args[:resource_type] = cli_arguments.shift
             converge_args[:resource_name] = cli_arguments.shift
             converge_args[:properties] = format_properties(cli_arguments)
             full_rs_name = "#{converge_args[:resource_type]}[#{converge_args[:resource_name]}]"
             ChefWorkstation::Log.debug("Converging resource #{full_rs_name} on target")
-            spinner_msg = TS.converge.converging_resource(full_rs_name)
+            initial_status_msg = TS.converge.converging_resource(full_rs_name)
           end
 
-          [converge_args, spinner_msg]
+          [converge_args, initial_status_msg]
         end
 
         def recipe_strategy?(cli_arguments)
           cli_arguments.size == 1
         end
 
-          # Runs the InstallChef action and renders UI updates as
-          # the action reports back
-        def install(r)
-          installer = Action::InstallChef.instance_for_target(@target_host)
+        # Runs the InstallChef action and renders UI updates as
+        # the action reports back
+        def install(target_host, r)
+          installer = Action::InstallChef.instance_for_target(target_host)
           context = Text.status.install_chef
           installer.run do |event, data|
             case event
@@ -207,11 +229,9 @@ module ChefWorkstation
             when :downloading
               r.update(context.downloading)
             when :success
-              if data[0] == :already_installed
-                r.success(context.already_present)
-              elsif data[0] == :install_success
-                r.success(context.success)
-              end
+              meth = @multi_target ? :update : :success
+              msg = (data[0] == :already_installed) ? context.already_present : context.success
+              r.send(meth, msg)
             when :error
               # Message may or may not be present. First arg if it is.
               msg = data.length > 0 ? data[0] : T.aborted
@@ -220,14 +240,14 @@ module ChefWorkstation
           end
         end
 
-          # Runs the Converge action and renders UI updates as
-          # the action reports back
+        # Runs the Converge action and renders UI updates as
+        # the action reports back
         def converge(reporter, converge_args)
           converger = Action::ConvergeTarget.new(converge_args)
           converger.run do |event, data|
             case event
             when :success
-              reporter.update(TS.converge.success)
+              reporter.success(TS.converge.success)
             when :error
               reporter.error(TS.converge.failure)
             end

@@ -56,9 +56,9 @@ module ChefWorkstation::UI
       Terminal.output "INTERNAL ERROR"
       Terminal.output "-=" * 30
       Terminal.output "Message:"
-      Terminal.output e.message
-      Terminal.output e.backtrace if e.respond_to?(:backtrace)
+      Terminal.output e.message if e.respond_to?(:message)
       Terminal.output "Backtrace:"
+      Terminal.output e.backtrace if e.respond_to?(:backtrace)
       Terminal.output "=-" * 30
     end
 
