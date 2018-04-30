@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.65 -->
+<!-- latest_release 0.1.66 -->
+## [0.1.66](https://github.com/chef/chef-workstation/tree/0.1.66) (2018-04-30)
+
+#### Merged Pull Requests
+-  [SHACK-145] enable mutlitarget support for &#39;converge&#39; [#97](https://github.com/chef/chef-workstation/pull/97) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.65](https://github.com/chef/chef-workstation/tree/0.1.65) (2018-04-27)
 
 #### Merged Pull Requests
 - [SHACK-144] Add mocks for multi-target converges [#92](https://github.com/chef/chef-workstation/pull/92) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.64](https://github.com/chef/chef-workstation/tree/0.1.64) (2018-04-27)
 
