@@ -37,10 +37,7 @@ Chef Workstation installs everything you need to get started using Chef on Windo
 We use Omnibus to describe our packaging. Please review [chef-workstation/omnibus/README.MD](https://github.com/chef/chef-workstation/tree/master/omnibus) for further details.
 
 ## Questions or concerns?
-Please join us in the *#shake-shack* channel on Slack!
-
-*Notes:*
-- We currently don't have ChefDK compatibility - it's coming soon on the next milestone.
+Please join us in the *#chef-workstation* channel on Slack!
 
 ## Copyright and License
 Copyright 2008-2018, Chef Software, Inc.
