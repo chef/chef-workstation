@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.67 -->
+<!-- latest_release 0.1.68 -->
+## [0.1.68](https://github.com/chef/chef-workstation/tree/0.1.68) (2018-05-01)
+
+#### Merged Pull Requests
+- Fix ubuntu link [#100](https://github.com/chef/chef-workstation/pull/100) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.67](https://github.com/chef/chef-workstation/tree/0.1.67) (2018-05-01)
 
 #### Merged Pull Requests
 - Add links for linux packages to README.md [#99](https://github.com/chef/chef-workstation/pull/99) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.66](https://github.com/chef/chef-workstation/tree/0.1.66) (2018-04-30)
 
