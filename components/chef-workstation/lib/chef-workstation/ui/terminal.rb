@@ -9,14 +9,16 @@ module ChefWorkstation
     class Terminal
       class Job
         attr_reader :proc, :prefix, :target_host, :exception
-        def initialize(prefix, target_host, &block)
+        def initialize(prefix, target_host, initial_message = nil, &block)
           @proc = block
           @prefix = prefix
           @target_host = target_host
-          @error = nil
+          @initial_message = initial_message
+          @exception = nil
         end
 
         def run(reporter)
+          reporter.update(initial_message)
           @proc.call(reporter)
         rescue => e
           reporter.error(e.to_s)
@@ -45,24 +47,22 @@ module ChefWorkstation
           @location.puts msg
         end
 
-        def render_parallel_jobs(header, actions, prefix: "")
+        def render_parallel_jobs(header, jobs, prefix: "")
           multispinner = TTY::Spinner::Multi.new("[:spinner] #{header}")
-          actions.each do |a|
-            multispinner.register(":spinner #{a.prefix} :status") do |spinner|
+          jobs.each do |j|
+            multispinner.register(":spinner #{j.prefix} :status") do |spinner|
               reporter = StatusReporter.new(spinner, prefix: prefix, key: :status)
-              a.run(reporter)
+              j.run(reporter)
             end
           end
           multispinner.auto_spin
         end
 
-        # TODO this should also accept a job.
-        def render_job(msg, prefix: "", &block)
+        def render_job(prefix, job, reporter = nil)
           klass = ChefWorkstation::UI.const_get(ChefWorkstation::Config.dev.spinner)
           spinner = klass.new("[:spinner] :prefix :status", output: @location)
-          reporter = StatusReporter.new(spinner, prefix: prefix, key: :status)
-          reporter.update(msg)
-          spinner.run { yield(reporter) }
+          reporter ||= StatusReporter.new(spinner, prefix: prefix, key: :status)
+          spinner.run { job.run(reporter) }
         end
       end
     end

@@ -80,20 +80,21 @@ module ChefWorkstation
       # Accepts a target_host and establishes the connection to that host
       # while providing visual feedback via the Terminal API.
       def connect_target(target_host, reporter = nil)
-        if reporter.nil?
-          UI::Terminal.spinner(T.status.connecting, prefix: "[#{target_host.config[:host]}]") do |rep|
-            target_host.connect!
-            rep.success(T.status.connected)
+          job = UI::Terminal::Job.new("[#{target_host.config[:host]}]",
+                                      target_host, T.status.connecting) do |rep|
+            target_host.connect;
+            if reporter.nil?
+              rep.success(T.status.connected)
+            else
+              # If we're given an existing reporter, we're running as part of
+              # a bigger job. That means we can't use 'reporter.success' -
+              # that stop the spinner and prevent future updates.
+              reporter.update(T.status.connected)
+            end
+            rep = reporter.nil? ? rep : reporter
           end
-        else
-          reporter.update(T.status.connecting)
-          target_host.connect!
-          # No success here - if we have a reporter,
-          # it's because it will be used for more actions than our own
-          # and success marks the end.
-          reporter.update(T.status.connected)
-        end
-        target_host
+          UI::Terminal.render_job("[#{target_host.config[:host]}]", job, reporter)
+          target_host
       rescue RuntimeError => e
         if reporter.nil?
           UI::Terminal.output(e.message)

@@ -79,7 +79,7 @@ module ChefWorkstation
           target_hosts = TargetResolver.new(cli_arguments.shift, config).targets
           converge_args, initial_status_msg = parse_converge_args({}, cli_arguments)
           if target_hosts.length == 1
-            run_single_target(initial_status_msg, target_hosts[0], converge_args )
+            run_single_target(initial_status_msg, target_hosts[0], converge_args)
           else
             @multi_target = true
             run_multi_target(initial_status_msg, target_hosts, converge_args)
@@ -89,11 +89,12 @@ module ChefWorkstation
         def run_single_target(initial_status_msg, target_host, converge_args)
           connect_target(target_host)
           prefix = "[#{target_host.hostname}]"
-          UI::Terminal.render_job(TS.install_chef.verifying, prefix: prefix) do |reporter|
+          install_job = UI::Terminal::Job.new(prefix, target_host, TS.install_chef.verifying)  do |reporter|
             install(target_host, reporter)
           end
-          UI::Terminal.render_job(initial_status_msg, prefix: "[#{target_host.hostname}]") do |r|
-            converge(r, converge_args.merge(target_host: target_host))
+          install_job = UI::Terminal::Job.new(prefix, target_host, initial_status_msg)  do |reporter|
+          iUI::Terminal.render_job(initial_status_msg, prefix: "[#{target_host.hostname}]") do |r|
+            converge(reporter, converge_args.merge(target_host: target_host))
           end
         end
 
