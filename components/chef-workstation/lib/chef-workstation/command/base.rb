@@ -81,7 +81,7 @@ module ChefWorkstation
       # while providing visual feedback via the Terminal API.
       def connect_target(target_host, reporter = nil)
         if reporter.nil?
-          UI::Terminal.spinner(T.status.connecting, prefix: "[#{target_host.config[:host]}]") do |rep|
+          UI::Terminal.render_action(T.status.connecting, prefix: "[#{target_host.config[:host]}]") do |rep|
             target_host.connect!
             rep.success(T.status.connected)
           end
