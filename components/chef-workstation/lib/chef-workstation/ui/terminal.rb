@@ -56,7 +56,8 @@ module ChefWorkstation
           multispinner.auto_spin
         end
 
-        # TODO this should also accept a job.
+        # TODO update this to accept a job instead of a block, for consistency of usage
+        #      between render_job and render_parallel
         def render_job(msg, prefix: "", &block)
           klass = ChefWorkstation::UI.const_get(ChefWorkstation::Config.dev.spinner)
           spinner = klass.new("[:spinner] :prefix :status", output: @location)

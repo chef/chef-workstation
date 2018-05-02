@@ -48,8 +48,56 @@ RSpec.describe ChefWorkstation::UI::ErrorPrinter do
     end
   end
 
-  context "#format_footer" do
+  context ".show_error" do
+    subject { ChefWorkstation::UI::ErrorPrinter }
+    context "when handling a MultiJobFailure" do
+      it "recognizes it and invokes capture_multiple_failures" do
+        underlying_error = ChefWorkstation::MultiJobFailure.new([])
+        error_to_process = ChefWorkstation::StandardErrorResolver.wrap_exception(underlying_error)
+        expect(subject).to receive(:capture_multiple_failures).with(underlying_error)
+        subject.show_error(error_to_process)
 
+      end
+    end
+
+    context "when an error occurs in error handling" do
+      it "processes the new failure with dump_unexpected_error" do
+        error_to_raise = StandardError.new("this will be raised")
+        error_to_process = ChefWorkstation::StandardErrorResolver.wrap_exception(StandardError.new("this is being shown"))
+        # Intercept a known call to raise an error
+        expect(ChefWorkstation::UI::Terminal).to receive(:output).and_raise error_to_raise
+        expect(subject).to receive(:dump_unexpected_error).with(error_to_raise)
+        subject.show_error(error_to_process)
+      end
+    end
+
+  end
+
+  context ".capture_multiple_failures" do
+    subject { ChefWorkstation::UI::ErrorPrinter }
+    let(:file_content_capture) { StringIO.new }
+    before do
+      allow(ChefWorkstation::Config).to receive(:error_output_path).and_return "/dev/null"
+      allow(File).to receive(:open).with("/dev/null", "w").and_yield(file_content_capture)
+    end
+
+    it "should write a properly formatted error file" do
+      # TODO - add support for test-only i18n content, so that we don't have
+      #        to rely on specific known error IDs that may change or be removed,
+      #        and arent' directly relevant to the test at hand.
+      job1 = double("Job", target_host: double("TargetHost", hostname: "host1"),
+                           exception: ChefWorkstation::Error.new("CHEFUPL002"))
+      job2 = double("Job", target_host: double("TargetHost", hostname: "host2"),
+                           exception: StandardError.new("Hello World"))
+
+      expected_content = File.read("spec/unit/fixtures/multi-error.out")
+      multifailure = ChefWorkstation::MultiJobFailure.new([job1, job2] )
+      subject.capture_multiple_failures(multifailure)
+      expect(file_content_capture.string).to eq expected_content
+    end
+  end
+
+  context "#format_footer" do
     let(:show_log) { true }
     let(:show_stack) { true }
     let(:formatter) do

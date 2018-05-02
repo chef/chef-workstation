@@ -33,7 +33,7 @@ module ChefWorkstation::UI
     DEFAULT_ERROR_NO = "CHEFINT001"
 
     def self.show_error(e)
-      # Name is misleading - it's unwrapping but also doing furtehr
+      # Name is misleading - it's unwrapping but also doing further
       # error resolution for common errors:
       unwrapped = ChefWorkstation::StandardErrorResolver.unwrap_exception(e)
       if unwrapped.class == ChefWorkstation::MultiJobFailure
@@ -50,21 +50,15 @@ module ChefWorkstation::UI
       e.params << out_file # Tell the operator where to find this info
       File.open(out_file, "w") do |out|
         e.jobs.each do |j|
-          # ErrorPrinter only instantiates with a WrappedError:
-          wrapped = ChefWorkstation::WrappedError.new(j.exception, j.target_host)
-          # This is silly, but necessary 'til we clean up (or do away with)
-          # wrapped errors because 'unwrap_exception' does further processing to resolve
-          # the error
-          unwrapped = ChefWorkstation::StandardErrorResolver.unwrap_exception(wrapped)
-          ep = ErrorPrinter.new(wrapped, unwrapped)
-          msg = ep.format_body().tr("\n", " ").gsub(/ {2,}/, " ")
+          wrapped = ChefWorkstation::StandardErrorResolver.wrap_exception(j.exception, j.target_host)
+          ep = ErrorPrinter.new(wrapped)
+          msg = ep.format_body().tr("\n", " ").gsub(/ {2,}/, " ").chomp.strip
           out.write("Host: #{j.target_host.hostname} ")
-          if unwrapped.respond_to? :id
-            out.write("Error: #{unwrapped.id}: ")
+          if ep.exception.respond_to? :id
+            out.write("Error: #{ep.exception.id}: ")
           else
             out.write(": ")
           end
-
           out.write("#{msg}\n")
         end
       end
