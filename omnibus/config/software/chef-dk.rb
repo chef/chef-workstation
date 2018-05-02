@@ -1,19 +1,27 @@
-#
-# Super simple temporary chef-dk software definition. This enables us to
-# install *only* the chef-dk code without any of the extra dependencies
-# (Test Kitchen, Berkshelf, etc.). In the future when we merge these projects
-# this will go away.
-#
-
 name "chef-dk"
-default_version "master"
-source git: "https://github.com/chef/chef-dk.git"
+default_version "local_source"
 
 license :project_license
 
-dependency "rubygems"
-dependency "bundler"
-dependency "ruby"
+# For the specific super-special version "local_source", build the source from
+# the local git checkout. This is what you'd want to occur by default if you
+# just ran omnibus build locally.
+version("local_source") do
+  source path: File.expand_path("../..", project.files_path),
+         # Since we are using the local repo, we try to not copy any files
+         # that are generated in the process of bundle installing omnibus.
+         # If the install steps are well-behaved, this should not matter
+         # since we only perform bundle and gem installs from the
+         # omnibus cache source directory, but we do this regardless
+         # to maintain consistency between what a local build sees and
+         # what a github based build will see.
+         options: { exclude: [ "omnibus/vendor" ] }
+end
+
+# For any version other than "local_source", fetch from github.
+if version != "local_source"
+  source git: "git://github.com/chef/chef-dk.git"
+end
 
 # For nokogiri
 dependency "libxml2"
@@ -22,14 +30,55 @@ dependency "liblzma"
 dependency "zlib"
 dependency "libarchive"
 
+# For berkshelf
+dependency "libarchive"
+
+# For opscode-pushy-client
+dependency "libzmq"
+
+# ruby and bundler and friends
+dependency "ruby"
+dependency "rubygems"
+dependency "appbundler"
+
 build do
-  # Setup a default environment from Omnibus - you should use this Omnibus
-  # helper everywhere. It will become the default in the future.
   env = with_standard_compiler_flags(with_embedded_path)
-  bundle "install --without development omnibus_package provisioning", env: env
+
+  excluded_groups = %w{server docgen maintenance pry travis integration ci}
+  excluded_groups << "ruby_prof" if aix?
+  excluded_groups << "ruby_shadow" if aix?
+
+  # install the whole bundle first
+  bundle "install --without #{excluded_groups.join(' ')}", env: env
+
   gem "build chef-dk.gemspec", env: env
-  gem "install chef-dk*.gem" \
-      " --no-ri --no-rdoc" \
-      " --force" \
-      " --verbose --without development", env: env
+
+  gem "install chef*.gem --no-ri --no-rdoc --verbose", env: env
+
+  env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
+
+  appbundle "chef", lockdir: project_dir, gem: "chef", without: %w{integration docgen maintenance ci travis}, env: env
+  appbundle "foodcritic", lockdir: project_dir, gem: "foodcritic", without: %w{development}, env: env
+  appbundle "test-kitchen", lockdir: project_dir, gem: "test-kitchen", without: %w{changelog debug docs provisioning}, env: env
+  appbundle "inspec", lockdir: project_dir, gem: "inspec", without: %w{deploy tools maintenance integration}, env: env
+
+  %w{chef-dk chef-vault ohai opscode-pushy-client cookstyle dco berkshelf}.each do |gem|
+    appbundle gem, lockdir: project_dir, gem: gem, without: %w{changelog}, env: env
+  end
+
+  # Clear the now-unnecessary git caches, cached gems, and git-checked-out gems
+  block "Delete bundler git cache and git installs" do
+    gemdir = shellout!("#{install_dir}/embedded/bin/gem environment gemdir", env: env).stdout.chomp
+    remove_directory "#{gemdir}/cache"
+    remove_directory "#{gemdir}/bundler"
+  end
+
+  # Clean up docs
+  delete "#{install_dir}/embedded/docs"
+  delete "#{install_dir}/embedded/share/man"
+  delete "#{install_dir}/embedded/share/doc"
+  delete "#{install_dir}/embedded/share/gtk-doc"
+  delete "#{install_dir}/embedded/ssl/man"
+  delete "#{install_dir}/embedded/man"
+  delete "#{install_dir}/embedded/info"
 end
