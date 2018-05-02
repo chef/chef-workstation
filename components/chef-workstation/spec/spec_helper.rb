@@ -1,10 +1,10 @@
 require "bundler/setup"
+require "simplecov"
 require "chef-workstation/text"
 require "chef-workstation/log"
 require "chef-workstation/ui/terminal"
 require "rspec/expectations"
 require "support/matchers/output_to_terminal"
-
 require "r18n-desktop"
 
 RSpec.shared_context "Global helpers" do
@@ -70,3 +70,9 @@ RSpec.configure do |config|
     ChefWorkstation::UI::Terminal.init(File.open("/dev/null", "w"))
   end
 end
+
+if ENV["CIRCLE_ARTIFACTS"]
+  dir = File.join(ENV["CIRCLE_ARTIFACTS"], "coverage")
+  SimpleCov.coverage_dir(dir)
+end
+SimpleCov.start
