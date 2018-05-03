@@ -1,2 +1,7 @@
 test_results/
 tags
+
+
+# chef.sh website
+www/site/public
+www/chef-sh
