@@ -301,7 +301,7 @@ errors:
 
   CHEFUPL003: |
     Uploading config to target failed.
-  
+
   CHEFUPL004: |
     Uploading handler to target failed.
 
@@ -317,6 +317,22 @@ errors:
 
       [connection.winrm]
       ssl_verify=false
+
+  CHEFRANGE001: |
+    The target provided contains an invalid range.
+
+    The range '%1' mixes alphabetic and numeric values.
+    A range must be one or the other.
+
+  CHEFRANGE002: |
+    The target provided contains too many ranges.
+
+    A single target name can contain at most two ranges.
+
+  CHEFRANGE003: |
+    The target(s) provided resolve to too many hosts.
+
+    At this time there is a limit of %1 hosts in a single operation.
 
   footer:
     both: |

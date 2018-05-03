@@ -16,6 +16,7 @@
 #
 
 require "chef-workstation/log"
+require "chef-workstation/error"
 require "train"
 module ChefWorkstation
   class TargetHost
