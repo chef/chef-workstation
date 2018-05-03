@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.69 -->
+<!-- latest_release 0.1.70 -->
+## [0.1.70](https://github.com/chef/chef-workstation/tree/0.1.70) (2018-05-03)
+
+#### Merged Pull Requests
+- First pass at adding chef.sh www directory [#104](https://github.com/chef/chef-workstation/pull/104) ([tduffield](https://github.com/tduffield))
+<!-- latest_release -->
+
 ## [0.1.69](https://github.com/chef/chef-workstation/tree/0.1.69) (2018-05-01)
 
 #### Merged Pull Requests
 - Quick bugfix [#101](https://github.com/chef/chef-workstation/pull/101) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.68](https://github.com/chef/chef-workstation/tree/0.1.68) (2018-05-01)
 

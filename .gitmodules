@@ -1,0 +1,3 @@
+[submodule "www/chef-www"]
+	path = www/chef-www
+	url = https://github.com/chef/chef-www.git

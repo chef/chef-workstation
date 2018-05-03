@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/chef/chef-dk.git
-  revision: de65c20540cbdcc0d9672d08f1aaf26f28c1013b
+  revision: 79b875cbc210df5322b5038171a9c06dd3946ee4
   branch: master
   specs:
-    chef-dk (3.0.24)
+    chef-dk (3.0.25)
       addressable (>= 2.3.5, < 2.6)
       chef (~> 14.0)
       chef-provisioning (~> 2.0)
@@ -19,7 +19,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-workstation (0.1.69)
+    chef-workstation (0.1.70)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       mixlib-cli
@@ -38,13 +38,13 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.4.0)
-    aws-sdk (2.11.40)
-      aws-sdk-resources (= 2.11.40)
-    aws-sdk-core (2.11.40)
+    aws-sdk (2.11.41)
+      aws-sdk-resources (= 2.11.41)
+    aws-sdk-core (2.11.41)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.40)
-      aws-sdk-core (= 2.11.40)
+    aws-sdk-resources (2.11.41)
+      aws-sdk-core (= 2.11.41)
     aws-sigv4 (1.0.2)
     azure_mgmt_resources (0.16.0)
       ms_rest_azure (~> 0.10.0)
@@ -207,7 +207,7 @@ GEM
     method_source (0.9.0)
     methodfinder (2.1.1)
     minitar (0.6.1)
-    mixlib-archive (0.4.2)
+    mixlib-archive (0.4.4)
       mixlib-log
     mixlib-authentication (2.0.0)
     mixlib-cli (1.7.0)
@@ -340,7 +340,7 @@ GEM
     toml-rb (1.1.1)
       citrus (~> 3.0, > 3.0)
     tomlrb (1.2.6)
-    train (1.4.2)
+    train (1.4.4)
       aws-sdk (~> 2)
       azure_mgmt_resources (~> 0.15)
       docker-api (~> 1.26)
