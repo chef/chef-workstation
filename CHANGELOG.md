@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.73 -->
+<!-- latest_release 0.1.74 -->
+## [0.1.74](https://github.com/chef/chef-workstation/tree/0.1.74) (2018-05-04)
+
+#### Merged Pull Requests
+- Add more vagrant hosts for multitarget testing [#106](https://github.com/chef/chef-workstation/pull/106) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.73](https://github.com/chef/chef-workstation/tree/0.1.73) (2018-05-04)
 
 #### Merged Pull Requests
 - [SHACK-145] Add handling for multi-target errors [#98](https://github.com/chef/chef-workstation/pull/98) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.72](https://github.com/chef/chef-workstation/tree/0.1.72) (2018-05-04)
 
