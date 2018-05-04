@@ -8,6 +8,7 @@ module ChefWorkstation
 
     def initialize(unparsed_target, conn_options)
       @unparsed_target = unparsed_target
+      @split_targets = unparsed_target.split(",")
       @conn_options = conn_options
     end
 
@@ -15,13 +16,16 @@ module ChefWorkstation
     def targets
       return @targets unless @targets.nil?
       hostnames = []
-      @unparsed_target.split(",").each do |target|
+      @split_targets.each do |target|
         hostnames = (hostnames | expand_targets(target))
       end
       @targets = hostnames.map { |host| TargetHost.new(host, @conn_options) }
     end
 
-    def expand_targets(target); do_parse([target.downcase]); end
+    def expand_targets(target)
+      @current_target = target
+      do_parse([target.downcase])
+    end
 
     private
 
@@ -34,7 +38,7 @@ module ChefWorkstation
     # explode with stack level too deep when you include it works to start with Recursively descends
     def do_parse(targets, depth = 0)
       if depth > 2
-        raise TooManyRanges.new()
+        raise TooManyRanges.new(@current_target)
       end
       new_targets = []
       done = false
@@ -62,7 +66,7 @@ module ChefWorkstation
       stop_is_int = Integer(stop) >= 0 rescue false
 
       if (start_is_int && !stop_is_int) || (stop_is_int && !start_is_int)
-        raise InvalidRange.new("[#{start}:#{stop}]")
+        raise InvalidRange.new(@current_target, "[#{start}:#{stop}]")
       end
 
       # Ensure range start precedes stop
@@ -79,22 +83,25 @@ module ChefWorkstation
         # Stop expanding as soon as we go over limit to prevent
         # making the user wait for a massive accidental expansion
         if dest.length > MAX_EXPANDED_TARGETS
-          raise TooManyTargets.new()
+          raise TooManyTargets.new(@split_targets.length, MAX_EXPANDED_TARGETS)
         end
       end
     end
     class InvalidRange < ErrorNoLogs
-      def initialize(given_range); super("CHEFRANGE001", given_range); end
+      def initialize(unresolved_target, given_range)
+        super("CHEFRANGE001", unresolved_target, given_range)
+      end
     end
     class TooManyRanges < ErrorNoLogs
-      def initialize(); super("CHEFRANGE002"); end
+      def initialize(unresolved_target)
+        super("CHEFRANGE002", unresolved_target)
+      end
     end
+
     class TooManyTargets < ErrorNoLogs
-      def initialize(); super("CHEFRANGE003", MAX_EXPANDED_TARGETS); end
+      def initialize(num_top_level_targets, max_targets)
+        super("CHEFRANGE003", num_top_level_targets, max_targets)
+      end
     end
   end
-end
-def refresh_parse(targets)
-  load "lib/chef-workstation/target_resolver.rb"
-  ChefWorkstation::TargetResolver.new(targets, {})
 end

@@ -319,20 +319,25 @@ errors:
       ssl_verify=false
 
   CHEFRANGE001: |
-    The target provided contains an invalid range.
+    The target '%1' contains an invalid range.
 
-    The range '%1' mixes alphabetic and numeric values.
+    The range '%2' mixes alphabetic and numeric values.
     A range must be one or the other.
 
-  CHEFRANGE002: |
-    The target provided contains too many ranges.
+  CHEFRANGE002:
+    The target '%1' contains too many ranges.
 
-    A single target name can contain at most two ranges.
+    A single target name can contain up two ranges.
 
-  CHEFRANGE003: |
-    The target(s) provided resolve to too many hosts.
+  CHEFRANGE003: !!pl
+    1:
+      The target provided resolves to too many hosts.
 
-    At this time there is a limit of %1 hosts in a single operation.
+      At this time there is a limit of %2 hosts in a single operation.
+    n:
+      The targets provided resolve to too many hosts.
+
+      At this time there is a limit of %2 hosts in a single operation.
 
   footer:
     both: |

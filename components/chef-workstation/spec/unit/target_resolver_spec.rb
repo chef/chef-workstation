@@ -87,9 +87,6 @@ RSpec.describe ChefWorkstation::TargetResolver do
         expect { subject.expand_targets("[0:99999]") }.to raise_error(ChefWorkstation::TargetResolver::TooManyTargets)
       end
     end
-    xit "expands single hexadecimal range"
-    xit "raises InvalidRange if a range mixes alpha and hex"
-    xit "raises InvalidRange if a range mixes numeric and hex"
   end
 
 end
