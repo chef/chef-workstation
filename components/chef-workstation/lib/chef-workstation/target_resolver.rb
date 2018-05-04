@@ -23,7 +23,7 @@ module ChefWorkstation
     end
 
     def expand_targets(target)
-      @current_target = target
+      @current_target = target # Hold onto this for error reporting
       do_parse([target.downcase])
     end
 
@@ -32,10 +32,8 @@ module ChefWorkstation
     # A string matching PREFIX[x:y]POSTFIX:
     # POSTFIX can contain further ranges itself
     # $1 - prefix; $2 - x, $3 - y, $4 unproccessed/remaining text
-    TARGET_WITH_RANGE = /^([a-zA-Z0-9\/:._-]*)\[([\p{Alnum}]+):([\p{Alnum}]+)\](.*)/
+    TARGET_WITH_RANGE = /^([a-zA-Z0-9@\/:._-]*)\[([\p{Alnum}]+):([\p{Alnum}]+)\](.*)/
 
-    # This performs poorly when you get to the third range or so; and will
-    # explode with stack level too deep when you include it works to start with Recursively descends
     def do_parse(targets, depth = 0)
       if depth > 2
         raise TooManyRanges.new(@current_target)

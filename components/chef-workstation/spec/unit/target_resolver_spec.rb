@@ -58,6 +58,13 @@ RSpec.describe ChefWorkstation::TargetResolver do
       }
     end
 
+    it "expands a range when the target name is qualified with credentials" do
+      expect(subject.expand_targets("ssh://user:password@host[a:b]")).to eq %w{
+        ssh://user:password@hosta
+        ssh://user:password@hostb
+      }
+    end
+
     it "expands single numeric range" do
       expect(subject.expand_targets("host[10:20]")).to eq %w{
         host10 host11 host12 host13 host14 host15 host16

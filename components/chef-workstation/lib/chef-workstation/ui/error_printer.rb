@@ -202,16 +202,8 @@ module ChefWorkstation::UI
       return nil if target_host.nil?
       cfg = target_host.config
       port = cfg[:port].nil? ? "" : ":#{cfg[:port]}"
-      if cfg[:user].nil?
-        user = ""
-      else
-        if cfg[:password].nil?
-          user = "#{config[:user]}@"
-        else
-          user = "#{config[:user]}:<password-hidden>@"
-        end
-      end
-      "#{user}#{config[:host]}#{port}"
+      user = cfg[:user].nil? ? "" : "#{cfg[:user]}@"
+      "#{user}#{target_host.hostname}#{port}"
     end
 
     # mostly copied from
