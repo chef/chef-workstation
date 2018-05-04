@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.71 -->
+<!-- latest_release 0.1.72 -->
+## [0.1.72](https://github.com/chef/chef-workstation/tree/0.1.72) (2018-05-04)
+
+#### Merged Pull Requests
+- Add support for ranges in target names. [#105](https://github.com/chef/chef-workstation/pull/105) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.71](https://github.com/chef/chef-workstation/tree/0.1.71) (2018-05-04)
 
 #### Merged Pull Requests
 - Remove notes on upcoming ChefDK compat. [#102](https://github.com/chef/chef-workstation/pull/102) ([mchiang0610](https://github.com/mchiang0610))
-<!-- latest_release -->
 
 ## [0.1.70](https://github.com/chef/chef-workstation/tree/0.1.70) (2018-05-03)
 
