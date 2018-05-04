@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.70 -->
+<!-- latest_release 0.1.71 -->
+## [0.1.71](https://github.com/chef/chef-workstation/tree/0.1.71) (2018-05-04)
+
+#### Merged Pull Requests
+- Remove notes on upcoming ChefDK compat. [#102](https://github.com/chef/chef-workstation/pull/102) ([mchiang0610](https://github.com/mchiang0610))
+<!-- latest_release -->
+
 ## [0.1.70](https://github.com/chef/chef-workstation/tree/0.1.70) (2018-05-03)
 
 #### Merged Pull Requests
 - First pass at adding chef.sh www directory [#104](https://github.com/chef/chef-workstation/pull/104) ([tduffield](https://github.com/tduffield))
-<!-- latest_release -->
 
 ## [0.1.69](https://github.com/chef/chef-workstation/tree/0.1.69) (2018-05-01)
 
