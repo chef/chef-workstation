@@ -81,7 +81,7 @@ module ChefWorkstation
       # while providing visual feedback via the Terminal API.
       def connect_target(target_host, reporter = nil)
         if reporter.nil?
-          UI::Terminal.render_action(T.status.connecting, prefix: "[#{target_host.config[:host]}]") do |rep|
+          UI::Terminal.render_job(T.status.connecting, prefix: "[#{target_host.config[:host]}]") do |rep|
             target_host.connect!
             rep.success(T.status.connected)
           end
@@ -113,6 +113,18 @@ module ChefWorkstation
 
       def usage
         self.class.usage
+      end
+
+      # When running multiple jobs, exceptions are captured to the
+      # job to avoid interrupting other jobs in process.  This function
+      # collects them and raises a MultiJobFailure if failure has occurred;
+      # we do *not* differentiate between one failed jobs and multiple failed jobs
+      # - if you're in the 'multi-job' path (eg, multiple targets) we handle
+      # all errors the same to provide a consistent UX when running with mulitiple targets.
+      def handle_job_failures(jobs)
+        failed_jobs = jobs.select { |j| !j.exception.nil? }
+        return if failed_jobs.empty?
+        raise ChefWorkstation::MultiJobFailure.new(failed_jobs)
       end
 
       private

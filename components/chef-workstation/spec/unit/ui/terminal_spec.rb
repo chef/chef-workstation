@@ -20,32 +20,81 @@ RSpec.describe ChefWorkstation::UI::Terminal do
     end.to output("test\n").to_terminal
   end
 
-  context "#render_action" do
-    it "executes the provided action" do
+  context "#render_job" do
+    it "executes the provided block" do
       @ran = false
-      Terminal.render_action("a message") { |reporter| @ran = true }
+      Terminal.render_job("a message") { |reporter| @ran = true }
       expect(@ran).to eq true
     end
   end
 
-  context "#render_parallel_actions" do
-    it "executes the provided actions" do
-      @action1ran = false
-      @action2ran = false
-      action1 = Terminal::Action.new("prefix") do
-        @action1ran = true
+  context "#render_parallel_jobs" do
+    it "executes the provided job instances" do
+      @job1ran = false
+      @job2ran = false
+      job1 = Terminal::Job.new("prefix", nil) do
+        @job1ran = true
       end
-      action2 = Terminal::Action.new("prefix") do
-        @action2ran = true
+      job2 = Terminal::Job.new("prefix", nil) do
+        @job2ran = true
       end
-      Terminal.render_parallel_actions("a message", [action1, action2])
-      expect(@action1ran).to eq true
-      expect(@action2ran).to eq true
+      Terminal.render_parallel_jobs("a message", [job1, job2])
+      expect(@job1ran).to eq true
+      expect(@job2ran).to eq true
     end
   end
 
-  # The spinner REALLY doesn't want to send output to anything besides a real
-  # stdout. Maybe it has something to do with a tty check?
-  it "correctly passes a block to the spinner and executes it" do
+  describe ChefWorkstation::UI::Terminal::Job do
+    subject { ChefWorkstation::UI::Terminal::Job }
+    context "#exception" do
+      context "when no exception occurs in execution" do
+        context "and it's been invoked directly" do
+          it "exception is nil" do
+            job = subject.new("", nil) { 0 }
+            job.run(ChefWorkstation::MockReporter.new)
+            expect(job.exception).to eq nil
+          end
+        end
+        context "and it's running in a thread alongside other jobs" do
+          it "exception is nil for each job" do
+            job1 = subject.new("", nil) { 0 }
+            job2 = subject.new("", nil) { 0 }
+            threads = []
+            threads << Thread.new { job1.run(ChefWorkstation::MockReporter.new) }
+            threads << Thread.new { job2.run(ChefWorkstation::MockReporter.new) }
+            threads.each(&:join)
+            expect(job1.exception).to eq nil
+            expect(job2.exception).to eq nil
+
+          end
+        end
+      end
+      context "when an exception occurs in execution" do
+        context "and it's been invoked directly" do
+          it "captures the exception in #exception" do
+            expected_exception = StandardError.new("exception 1")
+            job = subject.new("", nil) { |arg| raise expected_exception }
+            job.run(ChefWorkstation::MockReporter.new)
+            expect(job.exception).to eq expected_exception
+          end
+        end
+
+        context "and it's running in a thread alongside other jobs" do
+          it "each job holds its own exception" do
+            e1 = StandardError.new("exception 1")
+            e2 = StandardError.new("exception 2")
+
+            job1 = subject.new("", nil) { |_| raise e1 }
+            job2 = subject.new("", nil) { |_| raise e2 }
+            threads = []
+            threads << Thread.new { job1.run(ChefWorkstation::MockReporter.new) }
+            threads << Thread.new { job2.run(ChefWorkstation::MockReporter.new) }
+            threads.each(&:join)
+            expect(job1.exception).to eq e1
+            expect(job2.exception).to eq e2
+          end
+        end
+      end
+    end
   end
 end

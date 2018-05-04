@@ -20,7 +20,7 @@ module ChefWorkstation
     attr_accessor :show_stack, :show_log, :decorate
     def initialize(id, *params)
       @id = id
-      @params = params
+      @params = params || []
       @show_log = true
       @show_stack = true
       @decorate = true
@@ -52,16 +52,26 @@ module ChefWorkstation
     end
   end
 
+  class MultiJobFailure < ChefWorkstation::ErrorNoLogs
+    attr_reader :jobs
+    def initialize(jobs)
+      super("CHEFMULTI001")
+      @jobs = jobs
+      @decorate = false
+    end
+  end
+
   # Provides mappings of common errors that we don't explicitly
   # handle, but can offer expanded help text around.
   class StandardErrorResolver
-    def self.unwrap_exception(wrapper)
+
+    def self.resolve_exception(exception)
       deps
       show_log = true
       show_stack = true
-      case wrapper.contained_exception
+      case exception
       when OpenSSL::SSL::SSLError
-        if wrapper.contained_exception.message =~ /SSL.*verify failed.*/
+        if exception.message =~ /SSL.*verify failed.*/
           id = "CHEFNET002"
           show_log = false
           show_stack = false
@@ -69,13 +79,22 @@ module ChefWorkstation
       when SocketError then id = "CHEFNET001"; show_log = false; show_stack = false
       end
       if id.nil?
-        wrapper.contained_exception
+        exception
       else
-        e = ChefWorkstation::Error.new(id, wrapper.contained_exception.message)
+        e = ChefWorkstation::Error.new(id, exception.message)
         e.show_log = show_log
         e.show_stack = show_stack
         e
       end
+    end
+
+    def self.wrap_exception(original, target_host = nil)
+      resolved_exception = resolve_exception(original)
+      WrappedError.new(resolved_exception, target_host)
+    end
+
+    def self.unwrap_exception(wrapper)
+      resolve_exception(wrapper.contained_exception)
     end
 
     def self.deps

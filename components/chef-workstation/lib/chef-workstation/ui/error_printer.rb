@@ -23,7 +23,7 @@ require "chef-workstation/ui/terminal"
 
 module ChefWorkstation::UI
   class ErrorPrinter
-    attr_reader :pastel, :show_log, :show_stack, :exception, :target_host
+    attr_reader :id, :pastel, :show_log, :show_stack, :exception, :target_host
     # TODO define 't' as a method is a temporary workaround
     # to ensure that text key lookups are testable.
     def t
@@ -33,11 +33,35 @@ module ChefWorkstation::UI
     DEFAULT_ERROR_NO = "CHEFINT001"
 
     def self.show_error(e)
+      # Name is misleading - it's unwrapping but also doing further
+      # error resolution for common errors:
       unwrapped = ChefWorkstation::StandardErrorResolver.unwrap_exception(e)
+      if unwrapped.class == ChefWorkstation::MultiJobFailure
+        capture_multiple_failures(unwrapped)
+      end
       formatter = ErrorPrinter.new(e, unwrapped)
       Terminal.output(formatter.format_error)
     rescue => e
       dump_unexpected_error(e)
+    end
+
+    def self.capture_multiple_failures(e)
+      out_file = ChefWorkstation::Config.error_output_path
+      e.params << out_file # Tell the operator where to find this info
+      File.open(out_file, "w") do |out|
+        e.jobs.each do |j|
+          wrapped = ChefWorkstation::StandardErrorResolver.wrap_exception(j.exception, j.target_host)
+          ep = ErrorPrinter.new(wrapped)
+          msg = ep.format_body().tr("\n", " ").gsub(/ {2,}/, " ").chomp.strip
+          out.write("Host: #{j.target_host.hostname} ")
+          if ep.exception.respond_to? :id
+            out.write("Error: #{ep.exception.id}: ")
+          else
+            out.write(": ")
+          end
+          out.write("#{msg}\n")
+        end
+      end
     end
 
     def self.write_backtrace(e, args)

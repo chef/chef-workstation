@@ -17,6 +17,7 @@
 require "spec_helper"
 require "chef-workstation/command/base"
 require "chef-workstation/commands_map"
+require "chef-workstation/error"
 
 RSpec.describe ChefWorkstation::Command::Base do
   let(:cmd_spec) { instance_double(ChefWorkstation::CommandsMap::CommandSpec, name: "cmd", subcommands: []) }
@@ -48,4 +49,28 @@ RSpec.describe ChefWorkstation::Command::Base do
       end
     end
   end
+
+  describe "#handle_job_failures" do
+    let(:passing_job) { double("PassingJob", exception: nil) }
+    let(:failing_job_1) { double("FailingJob1", exception: "failed 1") }
+    let(:failing_job_2) { double("FailingJob2", exception: "failed 2") }
+
+    context "when all jobs pass" do
+      let(:jobs) { [ passing_job, passing_job] }
+      it "returns without raising any exception" do
+        subject.handle_job_failures(jobs)
+      end
+    end
+
+    context "when at least one job fails" do
+      let(:jobs) { [ failing_job_1, passing_job, failing_job_2 ] }
+      it "raises a MulitJobFailure containing the failed jobs" do
+        expect { subject.handle_job_failures(jobs) }.to raise_error(ChefWorkstation::MultiJobFailure) do |e|
+          expect(e.jobs).to eq [failing_job_1, failing_job_2]
+        end
+      end
+    end
+
+  end
+
 end
