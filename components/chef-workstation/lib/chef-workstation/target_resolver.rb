@@ -67,15 +67,25 @@ module ChefWorkstation
         raise InvalidRange.new(@current_target, "[#{start}:#{stop}]")
       end
 
-      # Ensure range start precedes stop
+      # Ensure that a numeric range doesn't get created as a string, which
+      # would make the created Range further below fail to iterate.
+      if start_is_int
+        start = Integer(start)
+      end
+
+      if stop_is_int
+        stop = Integer(stop)
+      end
+
+      # For range to iterate correctly, the values must
+      # be low,high
       if start > stop
         temp = stop; stop = start; start = temp
       end
       Range.new(start, stop).each do |value|
-        value = value.downcase
         # Ranges will resolve only numbers and letters,
         # not other ascii characters that happen to fall between.
-        if /^[a-z0-9]/ =~ value
+        if start_is_int || /^[a-z0-9]/ =~ value
           dest << "#{prefix}#{value}#{suffix}"
         end
         # Stop expanding as soon as we go over limit to prevent
