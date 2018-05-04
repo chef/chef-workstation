@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.72 -->
+<!-- latest_release 0.1.73 -->
+## [0.1.73](https://github.com/chef/chef-workstation/tree/0.1.73) (2018-05-04)
+
+#### Merged Pull Requests
+- [SHACK-145] Add handling for multi-target errors [#98](https://github.com/chef/chef-workstation/pull/98) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.72](https://github.com/chef/chef-workstation/tree/0.1.72) (2018-05-04)
 
 #### Merged Pull Requests
 - Add support for ranges in target names. [#105](https://github.com/chef/chef-workstation/pull/105) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.71](https://github.com/chef/chef-workstation/tree/0.1.71) (2018-05-04)
 
