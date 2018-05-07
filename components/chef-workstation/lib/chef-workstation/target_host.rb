@@ -79,9 +79,11 @@ module ChefWorkstation
     class RemoteExecutionFailed < ChefWorkstation::ErrorNoLogs
       attr_reader :stdout, :stderr
       def initialize(host, command, result)
-        super("CHEFRMT001", host, command,
-              result.stderr.empty? ? result.stdout : result.stderr,
-              result.exit_status)
+        super("CHEFRMT001",
+              command,
+              result.exit_status,
+              host,
+              result.stderr.empty? ? result.stdout : result.stderr)
       end
     end
   end

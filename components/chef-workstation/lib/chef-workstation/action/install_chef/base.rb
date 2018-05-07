@@ -40,7 +40,8 @@ module ChefWorkstation::Action::InstallChef
         architecture: platform.arch,
         product_name: "chef",
         version: :latest,
-        channel: :stable,
+        # Need unstable until 14.1.1 is released
+        channel: :unstable,
       }
       Mixlib::Install.new(c).artifact_info
     end

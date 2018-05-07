@@ -86,7 +86,7 @@ RSpec.describe ChefWorkstation::UI::ErrorPrinter do
       #        to rely on specific known error IDs that may change or be removed,
       #        and arent' directly relevant to the test at hand.
       job1 = double("Job", target_host: double("TargetHost", hostname: "host1"),
-                           exception: ChefWorkstation::Error.new("CHEFUPL002"))
+                           exception: ChefWorkstation::Error.new("CHEFUPL005"))
       job2 = double("Job", target_host: double("TargetHost", hostname: "host2"),
                            exception: StandardError.new("Hello World"))
 
