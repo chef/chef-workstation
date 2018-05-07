@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/chef/chef-dk.git
-  revision: 79b875cbc210df5322b5038171a9c06dd3946ee4
+  revision: 1d5ab254d89b9f14e49464439a909c0be8811b58
   branch: master
   specs:
-    chef-dk (3.0.25)
+    chef-dk (3.0.26)
       addressable (>= 2.3.5, < 2.6)
       chef (~> 14.0)
       chef-provisioning (~> 2.0)
@@ -19,7 +19,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-workstation (0.1.74)
+    chef-workstation (0.1.75)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       mixlib-cli
@@ -38,13 +38,13 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.4.0)
-    aws-sdk (2.11.42)
-      aws-sdk-resources (= 2.11.42)
-    aws-sdk-core (2.11.42)
+    aws-sdk (2.11.43)
+      aws-sdk-resources (= 2.11.43)
+    aws-sdk-core (2.11.43)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.42)
-      aws-sdk-core (= 2.11.42)
+    aws-sdk-resources (2.11.43)
+      aws-sdk-core (= 2.11.43)
     aws-sigv4 (1.0.2)
     azure_mgmt_resources (0.16.0)
       ms_rest_azure (~> 0.10.0)

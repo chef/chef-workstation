@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.74 -->
+<!-- latest_release 0.1.75 -->
+## [0.1.75](https://github.com/chef/chef-workstation/tree/0.1.75) (2018-05-07)
+
+#### Merged Pull Requests
+- Enable simplecov coverage reporting [#103](https://github.com/chef/chef-workstation/pull/103) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.74](https://github.com/chef/chef-workstation/tree/0.1.74) (2018-05-04)
 
 #### Merged Pull Requests
 - Add more vagrant hosts for multitarget testing [#106](https://github.com/chef/chef-workstation/pull/106) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.73](https://github.com/chef/chef-workstation/tree/0.1.73) (2018-05-04)
 
