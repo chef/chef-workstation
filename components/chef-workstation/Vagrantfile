@@ -14,6 +14,8 @@ Vagrant.configure("2") do |config|
       # Allow host caching - many images don't have it by default but it significantly speeds up
       # disk IO (such as installing chef via dpkg)
       v.customize ["storagectl", :id, "--name", "SCSI", "--hostiocache", "on"]
+      # disable logging client console on host
+      v.customize ["modifyvm", :id, "--uartmode1", "disconnected"]
     end
   end
 

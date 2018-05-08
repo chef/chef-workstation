@@ -25,6 +25,7 @@ require "chef-workstation/log"
 require "chef-workstation/config"
 require "chef-workstation/recipe_lookup"
 require "chef-workstation/target_resolver"
+require "chef-workstation/temp_cookbook"
 require "chef-config/config"
 require "chef-config/logger"
 require "chef/log"
@@ -77,27 +78,27 @@ module ChefWorkstation
           validate_params(cli_arguments)
           configure_chef
           target_hosts = TargetResolver.new(cli_arguments.shift, config).targets
-          converge_args, initial_status_msg = parse_converge_args({}, cli_arguments)
+          temp_cookbook, initial_status_msg = generate_temp_cookbook(cli_arguments)
           if target_hosts.length == 1
-            run_single_target(initial_status_msg, target_hosts[0], converge_args )
+            run_single_target(initial_status_msg, target_hosts[0], temp_cookbook )
           else
             @multi_target = true
-            run_multi_target(initial_status_msg, target_hosts, converge_args)
+            run_multi_target(initial_status_msg, target_hosts, temp_cookbook)
           end
         end
 
-        def run_single_target(initial_status_msg, target_host, converge_args)
+        def run_single_target(initial_status_msg, target_host, temp_cookbook)
           connect_target(target_host)
           prefix = "[#{target_host.hostname}]"
           UI::Terminal.render_job(TS.install_chef.verifying, prefix: prefix) do |reporter|
             install(target_host, reporter)
           end
-          UI::Terminal.render_job(initial_status_msg, prefix: "[#{target_host.hostname}]") do |r|
-            converge(r, converge_args.merge(target_host: target_host))
+          UI::Terminal.render_job(initial_status_msg, prefix: "[#{target_host.hostname}]") do |reporter|
+            converge(reporter, temp_cookbook, target_host)
           end
         end
 
-        def run_multi_target(initial_status_msg, target_hosts, converge_args)
+        def run_multi_target(initial_status_msg, target_hosts, temp_cookbook)
           # Our multi-host UX does not show a line item per action,
           # but rather a line-item per connection.
           jobs = target_hosts.map do |target_host|
@@ -107,7 +108,7 @@ module ChefWorkstation
               reporter.update(TS.install_chef.verifying)
               install(target_host, reporter)
               reporter.update(initial_status_msg)
-              converge(reporter, converge_args.merge(target_host: target_host))
+              converge(reporter, temp_cookbook, target_host)
             end
           end
           UI::Terminal.render_parallel_jobs(TS.converge.multi_header, jobs)
@@ -186,7 +187,8 @@ module ChefWorkstation
 
         # The user will either specify a single resource on the command line, or a recipe.
         # We need to parse out those two different situations
-        def parse_converge_args(converge_args, cli_arguments)
+        def generate_temp_cookbook(cli_arguments)
+          temp_cookbook = TempCookbook.new
           if recipe_strategy?(cli_arguments)
             recipe_specifier = cli_arguments.shift
             ChefWorkstation::Log.debug("Beginning to look for recipe specified as #{recipe_specifier}")
@@ -199,18 +201,18 @@ module ChefWorkstation
               cookbook = rl.load_cookbook(cookbook_path_or_name)
               recipe_path = rl.find_recipe(cookbook, optional_recipe_name)
             end
-            converge_args[:recipe_path] = recipe_path
+            temp_cookbook.from_existing_recipe(recipe_path)
             initial_status_msg = TS.converge.converging_recipe(recipe_specifier)
           else
-            converge_args[:resource_type] = cli_arguments.shift
-            converge_args[:resource_name] = cli_arguments.shift
-            converge_args[:properties] = format_properties(cli_arguments)
-            full_rs_name = "#{converge_args[:resource_type]}[#{converge_args[:resource_name]}]"
+            resource_type = cli_arguments.shift
+            resource_name = cli_arguments.shift
+            temp_cookbook.from_resource(resource_type, resource_name, format_properties(cli_arguments))
+            full_rs_name = "#{resource_type}[#{resource_name}]"
             ChefWorkstation::Log.debug("Converging resource #{full_rs_name} on target")
             initial_status_msg = TS.converge.converging_resource(full_rs_name)
           end
 
-          [converge_args, initial_status_msg]
+          [temp_cookbook, initial_status_msg]
         end
 
         def recipe_strategy?(cli_arguments)
@@ -244,7 +246,8 @@ module ChefWorkstation
 
         # Runs the Converge action and renders UI updates as
         # the action reports back
-        def converge(reporter, converge_args)
+        def converge(reporter, temp_cookbook, target_host)
+          converge_args = { local_cookbook: temp_cookbook, target_host: target_host }
           converger = Action::ConvergeTarget.new(converge_args)
           converger.run do |event, data|
             case event
@@ -252,8 +255,13 @@ module ChefWorkstation
               reporter.success(TS.converge.success)
             when :error
               reporter.error(TS.converge.failure)
+            when :creating_remote_policy
+              reporter.update(TS.converge.creating_remote_policy)
+            when :running_chef
+              reporter.update(TS.converge.running_chef)
             end
           end
+          temp_cookbook.delete
         end
 
       end

@@ -21,6 +21,7 @@ module ChefWorkstation
         @config = c
       end
 
+      run_report = "$env:APPDATA/chef-workstation/cache/run-report.json"
       PATH_MAPPING = {
         chef_client: {
           windows: "cmd /c C:/opscode/chef/bin/chef-client",
@@ -31,11 +32,11 @@ module ChefWorkstation
           other: "/var/chef-workstation",
         },
         read_chef_report: {
-          windows: "type $env:APPDATA/chef-workstation/cache/run-report.json",
+          windows: "type #{run_report}",
           other: "cat /var/chef-workstation/cache/run-report.json",
         },
         delete_chef_report: {
-          windows: "del /f $env:APPDATA/chef-workstation/run-report.json",
+          windows: "If (Test-Path #{run_report}){ Remove-Item -Force -Path #{run_report} }",
           other: "rm -f /var/chef-workstation/cache/run-report.json",
         },
         tempdir: {
@@ -57,6 +58,24 @@ module ChefWorkstation
 
       PATH_MAPPING.keys.each do |m|
         define_method(m) { PATH_MAPPING[m][family] }
+      end
+
+      # Chef will try 'downloading' the policy from the internet unless we pass it a valid, local file
+      # in the working directory. By pointing it at a local file it will just copy it instead of trying
+      # to download it.
+      def run_chef(working_dir, config, policy)
+        case family
+        when :windows
+          "Set-Location -Path #{working_dir}; " +
+            "chef-client -z --config #{config} --recipe-url #{policy}; " +
+            # We have to working dir so we don't hold a lock on it, which allows us to delete this tempdir later
+            "Set-Location C:/; " +
+            "exit $LASTEXITCODE"
+        else
+          # cd is shell a builtin, so much call bash. This also means all commands are executed
+          # with sudo (as long as we are hardcoding our sudo use)
+          "bash -c 'cd #{working_dir}; chef-client -z --config #{config} --recipe-url #{policy}'"
+        end
       end
 
       # Trying to perform File or Pathname operations on a Windows path with '\'

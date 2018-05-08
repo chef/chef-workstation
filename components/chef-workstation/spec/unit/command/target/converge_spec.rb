@@ -18,6 +18,7 @@ require "spec_helper"
 require "chef-workstation/commands_map"
 require "chef-workstation/command/target/converge"
 require "chef-workstation/target_host"
+require "chef-workstation/temp_cookbook"
 
 RSpec.describe ChefWorkstation::Command::Target::Converge do
   let(:cmd_spec) { instance_double(ChefWorkstation::CommandsMap::CommandSpec, qualified_name: "blah") }
@@ -92,8 +93,12 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
     end
   end
 
-  describe "#parse_converge_args" do
-    let(:converge_args) { Hash.new }
+  describe "#generate_temp_cookbook" do
+    let(:tc) { instance_double(ChefWorkstation::TempCookbook) }
+
+    before do
+      expect(ChefWorkstation::TempCookbook).to receive(:new).and_return(tc)
+    end
 
     context "when trying to converge a recipe" do
       let(:cli_arguments) { [p] }
@@ -106,8 +111,9 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
         let(:p) { recipe_path }
         it "returns the recipe path" do
           expect(File).to receive(:file?).with(p).and_return true
-          actual1, actual2 = cmd.parse_converge_args(converge_args, cli_arguments)
-          expect(actual1).to eq({ recipe_path: p })
+          expect(tc).to receive(:from_existing_recipe).with(recipe_path)
+          actual1, actual2 = cmd.generate_temp_cookbook(cli_arguments)
+          expect(actual1).to eq(tc)
           expect(actual2).to eq(status_msg)
         end
       end
@@ -120,8 +126,9 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
           expect(recipe_lookup).to receive(:split).with(p).and_return([p])
           expect(recipe_lookup).to receive(:load_cookbook).with(p).and_return(cookbook)
           expect(recipe_lookup).to receive(:find_recipe).with(cookbook, nil).and_return(recipe_path)
-          actual1, actual2 = cmd.parse_converge_args(converge_args, cli_arguments)
-          expect(actual1).to eq({ recipe_path: recipe_path })
+          expect(tc).to receive(:from_existing_recipe).with(recipe_path)
+          actual1, actual2 = cmd.generate_temp_cookbook(cli_arguments)
+          expect(actual1).to eq(tc)
           expect(actual2).to eq(status_msg)
         end
       end
@@ -136,8 +143,9 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
           expect(recipe_lookup).to receive(:split).with(p).and_return([cookbook_name, recipe_name])
           expect(recipe_lookup).to receive(:load_cookbook).with(cookbook_name).and_return(cookbook)
           expect(recipe_lookup).to receive(:find_recipe).with(cookbook, recipe_name).and_return(recipe_path)
-          actual1, actual2 = cmd.parse_converge_args(converge_args, cli_arguments)
-          expect(actual1).to eq({ recipe_path: recipe_path })
+          expect(tc).to receive(:from_existing_recipe).with(recipe_path)
+          actual1, actual2 = cmd.generate_temp_cookbook(cli_arguments)
+          expect(actual1).to eq(tc)
           expect(actual2).to eq(status_msg)
         end
       end
@@ -147,12 +155,9 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
     context "when trying to converge a resource" do
       let(:cli_arguments) { %w{directory foo prop1=val1 prop2=val2} }
       it "returns the resource information" do
-        actual1, actual2 = cmd.parse_converge_args(converge_args, cli_arguments)
-        expect(actual1).to eq({
-          properties: { "prop1" => "val1", "prop2" => "val2" },
-          resource_type: "directory",
-          resource_name: "foo"
-        })
+        expect(tc).to receive(:from_resource).with("directory", "foo", { "prop1" => "val1", "prop2" => "val2" })
+        actual1, actual2 = cmd.generate_temp_cookbook(cli_arguments)
+        expect(actual1).to eq(tc)
         msg = ChefWorkstation::Text.status.converge.converging_resource("directory[foo]")
         expect(actual2).to eq(msg)
       end
@@ -160,13 +165,13 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
   end
 
   describe "#run" do
-    let(:converge_args) { Hash.new }
+    let(:tc) { instance_double(ChefWorkstation::TempCookbook) }
     let(:params) { %w{target /some/path} }
     before do
       msg = ChefWorkstation::Text.status.install_chef.verifying
       expect(cmd).to receive(:cli_arguments).and_return(params).exactly(3).times
       expect(cmd).to receive(:validate_params).with(params)
-      expect(cmd).to receive(:parse_converge_args).with({}, params).and_return([converge_args, msg])
+      expect(cmd).to receive(:generate_temp_cookbook).with(params).and_return([tc, msg])
     end
 
     context "single target" do
@@ -198,6 +203,7 @@ RSpec.describe ChefWorkstation::Command::Target::Converge do
       cmd.run_single_target("", host1, {})
     end
   end
+
   describe "#run_multi_target" do
     let(:reporter) { instance_double(ChefWorkstation::StatusReporter) }
     let(:host1) { ChefWorkstation::TargetHost.new("ssh://host1") }

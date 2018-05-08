@@ -126,6 +126,8 @@ status:
     multi_header: "Converging targets:"
     converging_recipe: Converging local recipe %1 on target...
     converging_resource: Converging %1 on target...
+    creating_remote_policy: Creating remote policy on target...
+    running_chef: Running Chef on target...
     success: "Successfully converged target!"
     failure: "Failed to converge target."
 
@@ -293,17 +295,14 @@ errors:
     reachable before trying again.
 
   # Remote chef client run failure start here.
-  CHEFUPL001: |
-    Uploading local recipe '%1' to target failed.
-
-  CHEFUPL002: |
-    Uploading resource to target failed.
-
   CHEFUPL003: |
     Uploading config to target failed.
 
   CHEFUPL004: |
     Uploading handler to target failed.
+
+  CHEFUPL005: |
+    Uploading policy bundle to target failed.
 
   # Maps to: SSL::SSLError with message text indicating verification failure
   CHEFNET002: |
