@@ -29,9 +29,9 @@ module ChefWorkstation
     end
 
     def initialize(host_url, opts = {}, logger = nil)
-      target_url = maybe_add_default_scheme(host_url)
-      cfg = { target: target_url,
+      cfg = { target: host_url,
               sudo: opts.has_key?(:root) ? opts[:root] : true,
+              www_form_encoded_password: true,
               key_files: opts[:identity_file],
               logger: ChefWorkstation::Log }
       if opts.has_key? :ssl
@@ -76,13 +76,6 @@ module ChefWorkstation
       backend.upload(local_path, remote_path)
     end
 
-    def maybe_add_default_scheme(url)
-      if url =~ /^ssh|winrm|mock:\/\//
-        url
-      else
-        "ssh://#{url}"
-      end
-    end
     class RemoteExecutionFailed < ChefWorkstation::ErrorNoLogs
       attr_reader :stdout, :stderr
       def initialize(host, command, result)

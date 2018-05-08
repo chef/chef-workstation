@@ -16,6 +16,23 @@ GIT
       paint (~> 1.0)
       solve (> 2.0, < 5.0)
 
+GIT
+  remote: https://github.com/chef/train.git
+  revision: 182d985c427f6b6734ef167f3a4d93351a1aa8a6
+  branch: master
+  specs:
+    train (1.4.6)
+      aws-sdk (~> 2)
+      azure_mgmt_resources (~> 0.15)
+      docker-api (~> 1.26)
+      inifile
+      json (>= 1.8, < 3.0)
+      mixlib-shellout (~> 2.0)
+      net-scp (~> 1.2)
+      net-ssh (>= 2.9, < 5.0)
+      winrm (~> 2.0)
+      winrm-fs (~> 1.0)
+
 PATH
   remote: .
   specs:
@@ -347,17 +364,6 @@ GEM
     toml-rb (1.1.1)
       citrus (~> 3.0, > 3.0)
     tomlrb (1.2.6)
-    train (1.4.4)
-      aws-sdk (~> 2)
-      azure_mgmt_resources (~> 0.15)
-      docker-api (~> 1.26)
-      inifile
-      json (>= 1.8, < 3.0)
-      mixlib-shellout (~> 2.0)
-      net-scp (~> 1.2)
-      net-ssh (>= 2.9, < 5.0)
-      winrm (~> 2.0)
-      winrm-fs (~> 1.0)
     tty-color (0.4.2)
     tty-cursor (0.5.0)
     tty-spinner (0.8.0)
@@ -405,6 +411,7 @@ DEPENDENCIES
   rspec
   rspec_junit_formatter
   simplecov
+  train!
 
 BUNDLED WITH
    1.16.1

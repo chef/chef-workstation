@@ -39,6 +39,7 @@ RSpec.describe ChefWorkstation::TargetResolver do
         expect(actual_targets[2].config[:host]).to eq "machine0"
         expect(actual_targets[3].config[:host]).to eq "machine1"
       end
+
     end
   end
 
@@ -86,12 +87,12 @@ RSpec.describe ChefWorkstation::TargetResolver do
     end
 
     it "expands two included ranges" do
-      expect(subject.expand_targets("host[1:4].domain[a:c]")).to eq [
+      expect(subject.expand_targets("host[1:4].domain[a:c]").sort).to eq [
         "host1.domaina", "host1.domainb", "host1.domainc",
         "host2.domaina", "host2.domainb", "host2.domainc",
         "host3.domaina", "host3.domainb", "host3.domainc",
         "host4.domaina", "host4.domainb", "host4.domainc"
-      ]
+      ].sort
     end
 
     it "raises InvalidRange if a range mixes alpha and numeric" do
@@ -106,6 +107,27 @@ RSpec.describe ChefWorkstation::TargetResolver do
       it "raises TooManyTargets if the target resolves to more than 25 names" do
         expect { subject.expand_targets("[0:99999]") }.to raise_error(ChefWorkstation::TargetResolver::TooManyTargets)
       end
+    end
+  end
+
+  context "#target_to_valid_url" do
+    [ %w{example.com ssh://example.com},
+      %w{ssh://example.com ssh://example.com},
+      %w{ssh://user@example.com ssh://user@example.com},
+      %w{ssh://user:password@example.com ssh://user:password@example.com},
+      %w{ssh://user:pas:sw:ord@example.com ssh://user:pas%3Asw%3Aord@example.com},
+      %w{ssh://user:!@#$%^&*()|\'\";:/?><.,{}[]+=`~@example.com
+         ssh://user:%21%40%23%24%25%5E%26*%28%29%7C%5C%27%5C%22%3B%3A%2F%3F%3E%3C.%2C%7B%7D%5B%5D%2B%3D%60%7E@example.com},
+    ].each do |values|
+      it "resolves #{values[0]} to #{values[1]}" do
+        expect(subject.target_to_valid_url(values[0])).to eq values[1]
+      end
+
+    end
+    it "preserves range specifiers in the host portion while encoding in the password portion" do
+      input = "user:pas[1:2]!^@ho[a:b]s[t:z].com"
+      output = "ssh://user:pas%5B1%3A2%5D%21%5E@ho[a:b]s[t:z].com"
+      expect(subject.target_to_valid_url(input)).to eq output
     end
   end
 
