@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.78 -->
+<!-- latest_release 0.1.79 -->
+## [0.1.79](https://github.com/chef/chef-workstation/tree/0.1.79) (2018-05-08)
+
+#### Merged Pull Requests
+- [SHACK-129] Use policyfile for remote code bundle [#109](https://github.com/chef/chef-workstation/pull/109) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.78](https://github.com/chef/chef-workstation/tree/0.1.78) (2018-05-08)
 
 #### Merged Pull Requests
 - [SHACK-182] support special password characters in targets via www-form encoding [#110](https://github.com/chef/chef-workstation/pull/110) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.77](https://github.com/chef/chef-workstation/tree/0.1.77) (2018-05-08)
 
