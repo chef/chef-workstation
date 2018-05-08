@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.77 -->
+<!-- latest_release 0.1.78 -->
+## [0.1.78](https://github.com/chef/chef-workstation/tree/0.1.78) (2018-05-08)
+
+#### Merged Pull Requests
+- [SHACK-182] support special password characters in targets via www-form encoding [#110](https://github.com/chef/chef-workstation/pull/110) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.77](https://github.com/chef/chef-workstation/tree/0.1.77) (2018-05-08)
 
 #### Merged Pull Requests
 - include a more complete collection of tooling from DK [#108](https://github.com/chef/chef-workstation/pull/108) ([robbkidd](https://github.com/robbkidd))
-<!-- latest_release -->
 
 ## [0.1.76](https://github.com/chef/chef-workstation/tree/0.1.76) (2018-05-08)
 
