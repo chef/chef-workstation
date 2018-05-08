@@ -58,6 +58,26 @@ RSpec.describe ChefWorkstation::TargetResolver do
       }
     end
 
+    it "expands a range when the target name is qualified with credentials" do
+      expect(subject.expand_targets("ssh://user:password@host[a:b]")).to eq %w{
+        ssh://user:password@hosta
+        ssh://user:password@hostb
+      }
+    end
+
+    it "expands a numeric range correctly when start/stop string values ASCII-sort in reverse" do
+      # eg: ["4", "10"].sort => ["10", "4"]
+      expect(subject.expand_targets("[4:10]")).to eq %w{ 4 5 6 7 8 9 10 }
+    end
+
+    it "expands a numeric range correctly when stop is higher than start" do
+      expect(subject.expand_targets("[10:8]")).to eq %w{ 8 9 10 }
+    end
+
+    it "expands a string range correctly when stop is higher than start" do
+      expect(subject.expand_targets("[z:y]")).to eq %w{ y z }
+    end
+
     it "expands single numeric range" do
       expect(subject.expand_targets("host[10:20]")).to eq %w{
         host10 host11 host12 host13 host14 host15 host16

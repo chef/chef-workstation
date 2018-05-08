@@ -23,7 +23,7 @@ module ChefWorkstation
     end
 
     def expand_targets(target)
-      @current_target = target
+      @current_target = target # Hold onto this for error reporting
       do_parse([target.downcase])
     end
 
@@ -32,10 +32,8 @@ module ChefWorkstation
     # A string matching PREFIX[x:y]POSTFIX:
     # POSTFIX can contain further ranges itself
     # $1 - prefix; $2 - x, $3 - y, $4 unproccessed/remaining text
-    TARGET_WITH_RANGE = /^([a-zA-Z0-9\/:._-]*)\[([\p{Alnum}]+):([\p{Alnum}]+)\](.*)/
+    TARGET_WITH_RANGE = /^([a-zA-Z0-9@\/:._-]*)\[([\p{Alnum}]+):([\p{Alnum}]+)\](.*)/
 
-    # This performs poorly when you get to the third range or so; and will
-    # explode with stack level too deep when you include it works to start with Recursively descends
     def do_parse(targets, depth = 0)
       if depth > 2
         raise TooManyRanges.new(@current_target)
@@ -69,15 +67,25 @@ module ChefWorkstation
         raise InvalidRange.new(@current_target, "[#{start}:#{stop}]")
       end
 
-      # Ensure range start precedes stop
+      # Ensure that a numeric range doesn't get created as a string, which
+      # would make the created Range further below fail to iterate.
+      if start_is_int
+        start = Integer(start)
+      end
+
+      if stop_is_int
+        stop = Integer(stop)
+      end
+
+      # For range to iterate correctly, the values must
+      # be low,high
       if start > stop
         temp = stop; stop = start; start = temp
       end
       Range.new(start, stop).each do |value|
-        value = value.downcase
         # Ranges will resolve only numbers and letters,
         # not other ascii characters that happen to fall between.
-        if /^[a-z0-9]/ =~ value
+        if start_is_int || /^[a-z0-9]/ =~ value
           dest << "#{prefix}#{value}#{suffix}"
         end
         # Stop expanding as soon as we go over limit to prevent
