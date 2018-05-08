@@ -12,12 +12,13 @@ module ChefWorkstation
       @conn_options = conn_options
     end
 
-    # This will expand the unparsed targets
+    # Returns the list of targets as an array of strings, after expanding
+    # them to account for ranges embedded in the target.
     def targets
       return @targets unless @targets.nil?
       hostnames = []
       @split_targets.each do |target|
-        hostnames = (hostnames | expand_targets(target))
+        hostnames = (hostnames | expand_targets(target_to_valid_url(target)))
       end
       @targets = hostnames.map { |host| TargetHost.new(host, @conn_options) }
     end
@@ -27,12 +28,47 @@ module ChefWorkstation
       do_parse([target.downcase])
     end
 
+    # This method will prefix the target with 'ssh://' if no prefix
+    # is present, and replace the password (if present) with
+    # its www-form-component encoded value.
+    # This allows it to be further passed into Train, which knows
+    # how to deal with www-form encoded passwords.
+    def target_to_valid_url(target)
+      if target =~ /^(.+?):\/\/(.*)/
+        # We'll store the existing prefix to avoid it interfering
+        # with the check further below.
+        prefix = "#{$1}://"
+        target = $2
+      else
+        prefix = "ssh://"
+      end
+
+      credentials = ""
+      host = target
+      # Default greedy-scan of the regex means that
+      # $2 will resolve to content after the final "@"
+      if target =~ /(.*)@(.*)/
+        credentials = $1
+        host = $2
+        # We'll use a non-greedy match to grab everthinmg up to the first ':'
+        # as username if there is no :, credentials is just the username
+        if credentials =~ /(.+?):(.*)/
+          credentials = "#{$1}:#{URI.encode_www_form_component($2)}@"
+        else
+          credentials = "#{credentials}@"
+        end
+      end
+      "#{prefix}#{credentials}#{host}"
+    end
+
     private
 
     # A string matching PREFIX[x:y]POSTFIX:
     # POSTFIX can contain further ranges itself
+    # This uses a greedy match (.*) to get include every character
+    # up to the last "[" in PREFIX
     # $1 - prefix; $2 - x, $3 - y, $4 unproccessed/remaining text
-    TARGET_WITH_RANGE = /^([a-zA-Z0-9@\/:._-]*)\[([\p{Alnum}]+):([\p{Alnum}]+)\](.*)/
+    TARGET_WITH_RANGE = /^(.*)\[([\p{Alnum}]+):([\p{Alnum}]+)\](.*)/
 
     def do_parse(targets, depth = 0)
       if depth > 2
@@ -68,7 +104,8 @@ module ChefWorkstation
       end
 
       # Ensure that a numeric range doesn't get created as a string, which
-      # would make the created Range further below fail to iterate.
+      # would make the created Range further below fail to iterate for some values
+      # because of ASCII sorting.
       if start_is_int
         start = Integer(start)
       end
@@ -95,6 +132,7 @@ module ChefWorkstation
         end
       end
     end
+
     class InvalidRange < ErrorNoLogs
       def initialize(unresolved_target, given_range)
         super("CHEFRANGE001", unresolved_target, given_range)
