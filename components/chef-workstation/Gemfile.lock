@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/chef/chef-dk.git
-  revision: 1d5ab254d89b9f14e49464439a909c0be8811b58
+  revision: b3493a2de993523e15825f053e8f181eeab43497
   branch: master
   specs:
-    chef-dk (3.0.26)
+    chef-dk (3.0.29)
       addressable (>= 2.3.5, < 2.6)
       chef (~> 14.0)
       chef-provisioning (~> 2.0)
@@ -19,7 +19,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-workstation (0.1.75)
+    chef-workstation (0.1.76)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       mixlib-cli
@@ -38,13 +38,13 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.4.0)
-    aws-sdk (2.11.43)
-      aws-sdk-resources (= 2.11.43)
-    aws-sdk-core (2.11.43)
+    aws-sdk (2.11.44)
+      aws-sdk-resources (= 2.11.44)
+    aws-sdk-core (2.11.44)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.43)
-      aws-sdk-core (= 2.11.43)
+    aws-sdk-resources (2.11.44)
+      aws-sdk-core (= 2.11.44)
     aws-sigv4 (1.0.2)
     azure_mgmt_resources (0.16.0)
       ms_rest_azure (~> 0.10.0)
@@ -55,13 +55,14 @@ GEM
     builder (3.2.3)
     byebug (10.0.2)
     cd (1.0.1)
-    chef (14.0.202)
+    chef (14.1.1)
       addressable
       bundler (>= 1.10)
-      chef-config (= 14.0.202)
+      chef-config (= 14.1.1)
       chef-zero (>= 13.0)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)
+      ffi (< 1.9.22)
       ffi-yajl (~> 2.2)
       highline (~> 1.6, >= 1.6.9)
       iniparse (~> 1.4)
@@ -85,7 +86,7 @@ GEM
       specinfra (~> 2.10)
       syslog-logger (~> 1.6)
       uuidtools (~> 2.1.5)
-    chef-config (14.0.202)
+    chef-config (14.1.1)
       addressable
       fuzzyurl
       mixlib-config (~> 2.0)
@@ -148,7 +149,7 @@ GEM
     faraday-cookie_jar (0.0.6)
       faraday (>= 0.7.4)
       http-cookie (~> 1.0.0)
-    ffi (1.9.23)
+    ffi (1.9.21)
     ffi-yajl (2.3.1)
       libyajl2 (~> 1.2)
     fuzzyurl (0.9.0)
@@ -208,7 +209,7 @@ GEM
     method_source (0.9.0)
     methodfinder (2.1.1)
     minitar (0.6.1)
-    mixlib-archive (0.4.5)
+    mixlib-archive (0.4.6)
       mixlib-log
     mixlib-authentication (2.0.0)
     mixlib-cli (1.7.0)

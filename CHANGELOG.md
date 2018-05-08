@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.75 -->
+<!-- latest_release 0.1.76 -->
+## [0.1.76](https://github.com/chef/chef-workstation/tree/0.1.76) (2018-05-08)
+
+#### Merged Pull Requests
+- multitarget fixes [#107](https://github.com/chef/chef-workstation/pull/107) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.75](https://github.com/chef/chef-workstation/tree/0.1.75) (2018-05-07)
 
 #### Merged Pull Requests
 - Enable simplecov coverage reporting [#103](https://github.com/chef/chef-workstation/pull/103) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.74](https://github.com/chef/chef-workstation/tree/0.1.74) (2018-05-04)
 
