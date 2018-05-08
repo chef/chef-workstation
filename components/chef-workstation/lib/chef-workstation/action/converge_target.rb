@@ -53,7 +53,7 @@ module ChefWorkstation::Action
         local_mode true
         color false
         cache_path "#{cache_path}"
-        # chef_repo_path "#{cache_path}"
+        chef_repo_path "#{cache_path}"
         require_relative "reporter"
         reporter = ChefWorkstation::Reporter.new
         report_handlers << reporter

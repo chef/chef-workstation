@@ -22,22 +22,20 @@ module ChefWorkstation
   # it with various recipes, attributes, config, etc. and delete it when the
   # cookbook is no longer necessary
   class TempCookbook
-    attr_reader :path, :name, :recipe
+    attr_reader :path
 
     # We expect name to come in as a list of strings - resource/resource_name
     # or cookbook/recipe combination
     def initialize
       @path = Dir.mktmpdir("cw")
-      @recipe = "default"
+      @recipe_name = "default"
+      @recipe_path = File.join(generate_recipes_dir, "#{@recipe_name}.rb")
     end
 
     def from_existing_recipe(existing_recipe_path)
       @name = "cw_#{File.basename(path)}"
 
-      recipes_path = generate_recipes_dir
-
-      recipe_path = File.join(recipes_path, "default.rb")
-      FileUtils.cp(existing_recipe_path, recipe_path)
+      FileUtils.cp(existing_recipe_path, @recipe_path)
 
       generate_metadata
       generate_policyfile
@@ -46,10 +44,7 @@ module ChefWorkstation
     def from_resource(resource_type, resource_name, properties)
       @name = "cw_#{resource_type}"
 
-      recipes_path = generate_recipes_dir
-
-      recipe_path = File.join(recipes_path, "default.rb")
-      File.open(recipe_path, "w+") do |f|
+      File.open(@recipe_path, "w+") do |f|
         f.print(create_resource(resource_type, resource_name, properties))
       end
 
@@ -70,7 +65,7 @@ module ChefWorkstation
     def generate_metadata
       metadata_file = File.join(path, "metadata.rb")
       File.open(metadata_file, "w+") do |f|
-        f.print("name \"#{name}\"\n")
+        f.print("name \"#{@name}\"\n")
       end
       metadata_file
     end
@@ -78,17 +73,10 @@ module ChefWorkstation
     def generate_policyfile
       policy_file = File.join(path, "Policyfile.rb")
       File.open(policy_file, "w+") do |f|
-        f.print("name \"#{name}_policy\"\n")
+        f.print("name \"#{@name}_policy\"\n")
         f.print("default_source :supermarket\n")
-        f.print("run_list \"#{name}::#{recipe}\"\n")
-        f.print("cookbook \"#{name}\", path: \".\"\n")
-        # stak.override_parameters.each do |param|
-        #   value = param[:value]
-        #   if value.class == String
-        #     value = "\"#{value}\""
-        #   end
-        #   f.print("override[\"#{stak.name}\"][\"#{param[:key]}\"] = #{value}\n")
-        # end
+        f.print("run_list \"#{@name}::#{@recipe_name}\"\n")
+        f.print("cookbook \"#{@name}\", path: \".\"\n")
       end
       policy_file
     end
