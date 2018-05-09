@@ -3,12 +3,21 @@ require "fileutils"
 
 module ChefWorkstation::Action::InstallChef
   class Base < ChefWorkstation::Action::Base
+    MIN_CHEF_VERSION = Gem::Version.new("14.1.1")
+
     def perform_action
-      if already_installed_on_target?
-        notify(:success, :already_installed)
+      if target_host.installed_chef_version >= MIN_CHEF_VERSION
+        notify(:already_installed)
         return
       end
-      perform_local_install()
+      @upgrading = true
+      perform_local_install
+    rescue ChefWorkstation::TargetHost::ChefNotInstalled
+      perform_local_install
+    end
+
+    def upgrading?
+      @upgrading
     end
 
     def perform_local_install
@@ -19,7 +28,7 @@ module ChefWorkstation::Action::InstallChef
       remote_path = upload_to_target(local_path)
       notify(:installing)
       install_chef_to_target(remote_path)
-      notify(:success, :install_complete)
+      notify(:install_complete)
     rescue => e
       msg = e.respond_to?(:message) ? e.message : nil
       notify(:error, msg)
@@ -31,6 +40,7 @@ module ChefWorkstation::Action::InstallChef
     end
 
     def lookup_artifact
+      return @artifact_info if @artifact_info
       require "mixlib/install"
       c = train_to_mixlib(target_host.platform)
       Mixlib::Install.new(c).artifact_info
@@ -46,6 +56,16 @@ module ChefWorkstation::Action::InstallChef
         channel: :stable,
         platform_version_compatibility_mode: true
       }
+      @artifact_info = Mixlib::Install.new(c).artifact_info
+    end
+
+    def version_to_install
+      lookup_artifact.version
+    end
+
+    # TODO: Omnitruck has the logic to deal with translaton but
+    # mixlib-install is filtering out results incorrectly
+    def train_to_mixlib(platform)
       case platform.name
       when /windows/
         c[:platform] = "windows"
@@ -75,12 +95,6 @@ module ChefWorkstation::Action::InstallChef
     end
 
     def setup_remote_temp_path
-      # TODO - when we raise this, it's not caught
-      # by top-level exception handling
-      raise NotImplementedError
-    end
-
-    def already_installed_on_target?
       raise NotImplementedError
     end
 

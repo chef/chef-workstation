@@ -1,19 +1,5 @@
 module ChefWorkstation::Action::InstallChef
   class Windows < ChefWorkstation::Action::InstallChef::Base
-    def already_installed_on_target?
-      # TODO: 2018-03-20 Let's take a look at ways to query installed packages.
-      #       This method (checking if file exists) works for now, but
-      #       the customer could have installed chef client anywhere.
-      # Another option is below - but it runs very slowly in testing:
-      # Get-WmiObject Win32_Product | Where {$_.Name -match 'Chef Client'}
-      cmd = <<-EOM.delete("\n")
-      if (Test-Path 'c:\\opscode\\chef\\bin\\chef-client' -PathType Leaf) {
-        Write-Host -NoNewline 'true'
-      }
-      EOM
-      r = target_host.run_command!(cmd)
-      r.stdout == "true"
-    end
 
     def perform_remote_install
       require "mixlib/install"

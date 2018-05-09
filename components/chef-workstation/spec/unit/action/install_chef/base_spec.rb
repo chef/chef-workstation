@@ -31,28 +31,37 @@ RSpec.describe ChefWorkstation::Action::InstallChef::Base do
   end
 
   context "#perform_action" do
-    context "when chef is already installed on target" do
+    context "when chef is already installed on target at the correct minimum version" do
       before do
-        expect(install).to receive(:already_installed_on_target?).and_return true
+        expect(install.target_host).to receive(:installed_chef_version).and_return ChefWorkstation::Action::InstallChef::Base::MIN_CHEF_VERSION
       end
-      it "takes no action" do
-        expect(install).not_to receive(:lookup_artifact)
+      it "notifies of success and takes no further action" do
+        expect(install).not_to receive(:perform_local_install)
+        install.perform_action
+      end
+    end
+
+    context "when chef is already installed on target at a version that's too low" do
+      before do
+        expect(install.target_host).to receive(:installed_chef_version).
+          and_return Gem::Version.new("12.1.1")
+      end
+      it "performs the upgrade" do
+        expect(install).to receive(:perform_local_install)
         install.perform_action
       end
     end
 
     context "when chef is not already installed on target" do
       before do
-        expect(install).to receive(:already_installed_on_target?).and_return false
+        expect(install.target_host).to receive(:installed_chef_version).
+          and_raise ChefWorkstation::TargetHost::ChefNotInstalled.new
       end
 
       context "on windows" do
         let(:mock_os_name) { "Windows_Server" }
         let(:mock_os_family) { "windows" }
         let(:mock_os_releae) { "10.0.1" }
-
-        before do
-        end
 
         it "should invoke perform_local_install" do
           expect(install).to receive(:perform_local_install)

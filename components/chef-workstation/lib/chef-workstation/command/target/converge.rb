@@ -227,15 +227,27 @@ module ChefWorkstation
           installer.run do |event, data|
             case event
             when :installing
-              reporter.update(context.installing)
+              if installer.upgrading?
+                message = context.upgrading(target_host.installed_chef_version, installer.version_to_install)
+              else
+                message = context.installing(installer.version_to_install)
+              end
+              reporter.update(message)
             when :uploading
               reporter.update(context.uploading)
             when :downloading
               reporter.update(context.downloading)
-            when :success
+            when :already_installed
               meth = @multi_target ? :update : :success
-              msg = (data[0] == :already_installed) ? context.already_present : context.success
-              reporter.send(meth, msg)
+              reporter.send(meth, context.already_present(target_host.installed_chef_version))
+            when :install_complete
+              meth = @multi_target ? :update : :success
+              if installer.upgrading?
+                message = context.upgrade_success(target_host.installed_chef_version, installer.version_to_install)
+              else
+                message = context.install_success(installer.version_to_install)
+              end
+              reporter.send(meth, message)
             when :error
               # Message may or may not be present. First arg if it is.
               msg = data.length > 0 ? data[0] : T.aborted

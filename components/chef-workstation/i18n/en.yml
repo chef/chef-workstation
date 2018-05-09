@@ -114,13 +114,15 @@ commands:
 # Status updates shared across commands.
 status:
   install_chef:
-    installing: Installing Chef client.
-    downloading: Downloading Chef client installer.
-    uploading: Uploading Chef client installer.
+    installing: Installing Chef client version %1.
     checking_for_client: Checking for Chef client.
+    upgrading: Upgrading Chef client from version %1 to %2.
+    downloading: Downloading Chef client installer into local cache.
+    uploading: Uploading Chef client installer to target.
     verifying: Verifying Chef client installation.
-    already_present: Client already present on system.
-    success: "Chef client installation completed!"
+    already_present: Chef client version %1 already installed on target.
+    install_success: Successfully installed Chef client version %1
+    upgrade_success: Successfully upgraded Chef client from version %1 to %2.
     failure: "An error occurred while installing Chef client: %1"
   converge:
     multi_header: "Converging targets:"
