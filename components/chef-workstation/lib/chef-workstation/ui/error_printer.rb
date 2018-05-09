@@ -180,6 +180,21 @@ module ChefWorkstation::UI
       end
     end
 
+    def self.error_summary(e)
+      if e.kind_of? ChefWorkstation::Error
+        # By convention, all of our defined messages have a short summary on the first line.
+        ChefWorkstation::Text.errors.send(e.id, *e.params).split("\n").first
+      elsif e.kind_of? String
+        e
+      else
+        if e.respond_to? :message
+          e.message
+        else
+          ChefWorkstation::Text.errors.UNKNOWN
+        end
+      end
+    end
+
     def format_workstation_exception
       params = exception.params
       t.send(@id, *params)

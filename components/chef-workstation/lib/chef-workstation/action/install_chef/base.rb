@@ -10,9 +10,15 @@ module ChefWorkstation::Action::InstallChef
         notify(:already_installed)
         return
       end
+      if config[:check_only]
+        raise ClientOutdated.new(target_host.installed_chef_version, MIN_CHEF_VERSION)
+      end
       @upgrading = true
       perform_local_install
     rescue ChefWorkstation::TargetHost::ChefNotInstalled
+      if config[:check_only]
+        raise ClientNotInstalled.new()
+      end
       perform_local_install
     end
 
@@ -29,10 +35,6 @@ module ChefWorkstation::Action::InstallChef
       notify(:installing)
       install_chef_to_target(remote_path)
       notify(:install_complete)
-    rescue => e
-      msg = e.respond_to?(:message) ? e.message : nil
-      notify(:error, msg)
-      raise
     end
 
     def perform_remote_install
@@ -100,6 +102,16 @@ module ChefWorkstation::Action::InstallChef
 
     def install_chef_to_target(remote_path)
       raise NotImplementedError
+    end
+  end
+
+  class ClientNotInstalled < ChefWorkstation::ErrorNoLogs
+    def initialize(); super("CHEFINS002"); end
+  end
+
+  class ClientOutdated < ChefWorkstation::ErrorNoLogs
+    def initialize(current_version, target_version)
+      super("CHEFINS003", current_version, target_version)
     end
   end
 end

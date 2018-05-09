@@ -74,6 +74,11 @@ module ChefWorkstation
           :default => ChefWorkstation::Config.chef.cookbook_repo_paths,
           :proc => Proc.new { |paths| paths.split(",") }
 
+        option :install,
+          long: "--[no-]install",
+          default: true,
+          description:  T.install_description(Action::InstallChef::Base::MIN_CHEF_VERSION)
+
         def run(params)
           validate_params(cli_arguments)
           configure_chef
@@ -222,7 +227,7 @@ module ChefWorkstation
         # Runs the InstallChef action and renders UI updates as
         # the action reports back
         def install(target_host, reporter)
-          installer = Action::InstallChef.instance_for_target(target_host)
+          installer = Action::InstallChef.instance_for_target(target_host, check_only: !config[:install])
           context = Text.status.install_chef
           installer.run do |event, data|
             case event
@@ -248,10 +253,8 @@ module ChefWorkstation
                 message = context.install_success(installer.version_to_install)
               end
               reporter.send(meth, message)
-            when :error
-              # Message may or may not be present. First arg if it is.
-              msg = data.length > 0 ? data[0] : T.aborted
-              reporter.error(context.failure(msg))
+            else
+              handle_message(event, data, reporter)
             end
           end
         end
@@ -265,12 +268,14 @@ module ChefWorkstation
             case event
             when :success
               reporter.success(TS.converge.success)
-            when :error
+            when :converge_error
               reporter.error(TS.converge.failure)
             when :creating_remote_policy
               reporter.update(TS.converge.creating_remote_policy)
             when :running_chef
               reporter.update(TS.converge.running_chef)
+            else
+              handle_message(event, data, reporter)
             end
           end
           temp_cookbook.delete

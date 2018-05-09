@@ -109,7 +109,10 @@ commands:
           Current default: %1
       cookbook_repo_paths:
         desc: "Comma separated list of cookbook repository paths."
-
+      install_description: |
+        Install Chef client on the target host(s) if it is not installed,
+        or upgrade it if the installed client is older than version %1.
+        By default, perform the install/upgrade if it is necessary.
 
 # Status updates shared across commands.
 status:
@@ -139,13 +142,35 @@ status:
 # Second line: blank
 # Third+ : detailed description, max 76 characters per line
 errors:
+  # Catch-all for the worst case
+  UNKNOWN: An unknown error has occurred.
+
   # Installer action errors
   CHEFINS001: |
     '%1' is not a supported target operating system at this time.
 
-    We plan to support a wide range of target operating systems,
-    but during this targeted pre-release we are constraining our efforts
+    We plan to support a range of target operating systems,
+    but during this targeted beta we are constraining our efforts
     to Windows and Linux.
+
+  CHEFINS002: |
+    The target does not have chef-client installed.
+
+    This command is powered by the Chef client.  In order to make use of it
+    on this node, the Chef client must be installed first.
+
+    Re-running this command without the '--no-install' flag will permit
+    me to automatically perform the installation.
+
+  CHEFINS003: |
+    The target has an older version of Chef client installed.
+
+    The target has version %1 installed, but this command
+    requires a minimum version of %2.
+
+    Re-running this command without the '--no-install' flag will permit
+    me to automatically upgrade the target to the latest Chef client.
+
 
   # Remote execution and file operation errors are prefixed CHEFRMT
   CHEFRMT001: |
@@ -215,7 +240,6 @@ errors:
 
       https://docs.chef.io/resource_reference.html
 
-
   CHEFCCR099: |
     The converge of the remote host failed.
 
@@ -229,6 +253,7 @@ errors:
     An error has occurred on the %1 connection to %2:
 
     %2.
+
   CHEFTRN002: |
     An remote error has occurred:
 

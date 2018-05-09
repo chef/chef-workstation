@@ -91,7 +91,15 @@ module ChefWorkstation
       def run(&block)
         @notification_handler = block
         Telemetry.timed_capture(:action, name: self.class.name.split("::").last) do
-          perform_action
+          begin
+            perform_action
+          rescue StandardError => e
+            # Give the caller a chance to clean up - if an exception is
+            # raised it'll otherwise get routed through the execution thread,
+            # providing no means of feedback for the caller's current task.
+            notify(:error, e)
+            raise
+          end
         end
       end
 

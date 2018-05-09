@@ -133,7 +133,7 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
         expect(target_host).to receive(:run_command).with(/chef-client.+#{archive}/).and_return(result)
         expect(target_host).to receive(:run_command!)
           .with("#{action.delete_folder} #{remote_folder}")
-        [:creating_remote_policy, :running_chef, :error].each do |n|
+        [:creating_remote_policy, :running_chef, :converge_error].each do |n|
           expect(action).to receive(:notify).with(n)
         end
         expect(target_host).to receive(:run_command).with(action.read_chef_report).and_return(report_result)
@@ -151,7 +151,7 @@ RSpec.describe ChefWorkstation::Action::ConvergeTarget do
           expect(target_host).to receive(:run_command).with(/chef-client.+#{archive}/).and_return(result)
           expect(target_host).to receive(:run_command!)
             .with("#{action.delete_folder} #{remote_folder}")
-          [:creating_remote_policy, :running_chef, :error].each do |n|
+          [:creating_remote_policy, :running_chef, :converge_error].each do |n|
             expect(action).to receive(:notify).with(n)
           end
           expect(target_host).to receive(:run_command).with(action.read_chef_report).and_return(report_result)
