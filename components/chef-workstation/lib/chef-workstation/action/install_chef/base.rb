@@ -41,11 +41,13 @@ module ChefWorkstation::Action::InstallChef
         version: :latest,
         # Need unstable until 14.1.1 is released
         channel: :unstable,
+        platform_version_compatibility_mode: true
       }
       Mixlib::Install.new(c).artifact_info
     end
 
-    #TODO: All this munging should be done by Omnitruck
+    # TODO: Omnitruck has the logic to deal with translaton but
+    # mixlib-install is filtering out results incorrectly
     def train_to_mixlib(platform)
       case platform.name
        when /windows/
@@ -53,10 +55,10 @@ module ChefWorkstation::Action::InstallChef
        when "redhat", "centos"
          { name: "el", version: platform.release.to_i, arch: platform.arch }
        when "amazon"
-         if platform.release.to_f > 2017.12
-           { name: "el", version: "7", arch: platform.arch }
-         else
+         if platform.release.to_i > 2010 # legacy Amazon version 1
            { name: "el", version: "6", arch: platform.arch }
+         else
+           { name: "el", version: "7", arch: platform.arch }
          end
        else
          { name: platform.name, version: platform.release, arch: platform.arch }
