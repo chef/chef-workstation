@@ -32,18 +32,35 @@ module ChefWorkstation::Action::InstallChef
 
     def lookup_artifact
       require "mixlib/install"
-      platform = target_host.platform
-      platform_name = platform.family == "windows" ? "windows" : platform.name
+      platform = train_to_mixlib(target_host.platform)
       c = {
-        platform_version: platform.release,
-        platform: platform_name,
-        architecture: platform.arch,
+        platform_version: platform[:version].to_s,
+        platform: platform[:name],
+        architecture: platform[:arch],
         product_name: "chef",
         version: :latest,
         # Need unstable until 14.1.1 is released
         channel: :unstable,
       }
       Mixlib::Install.new(c).artifact_info
+    end
+
+    #TODO: All this munging should be done by Omnitruck
+    def train_to_mixlib(platform)
+      case platform.name
+       when /windows/
+         { name: "windows", version: platform.release, arch: platform.arch }
+       when "redhat", "centos"
+         { name: "el", version: platform.release.to_i, arch: platform.arch }
+       when "amazon"
+         if platform.release.to_f > 2017.12
+           { name: "el", version: "7", arch: platform.arch }
+         else
+           { name: "el", version: "6", arch: platform.arch }
+         end
+       else
+         { name: platform.name, version: platform.release, arch: platform.arch }
+      end
     end
 
     def download_to_workstation(url_path)
