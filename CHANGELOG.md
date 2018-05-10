@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.79 -->
+<!-- latest_release 0.1.80 -->
+## [0.1.80](https://github.com/chef/chef-workstation/tree/0.1.80) (2018-05-10)
+
+#### Merged Pull Requests
+- Fix chef install for EL derivatives and Amazon Linux [#111](https://github.com/chef/chef-workstation/pull/111) ([cheeseplus](https://github.com/cheeseplus))
+<!-- latest_release -->
+
 ## [0.1.79](https://github.com/chef/chef-workstation/tree/0.1.79) (2018-05-08)
 
 #### Merged Pull Requests
 - [SHACK-129] Use policyfile for remote code bundle [#109](https://github.com/chef/chef-workstation/pull/109) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.78](https://github.com/chef/chef-workstation/tree/0.1.78) (2018-05-08)
 
