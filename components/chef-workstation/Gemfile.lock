@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/chef/chef-dk.git
-  revision: b3493a2de993523e15825f053e8f181eeab43497
+  revision: 83f031f172033d483d2f1135852390903cde40a2
   branch: master
   specs:
     chef-dk (3.0.29)
@@ -36,7 +36,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-workstation (0.1.80)
+    chef-workstation (0.1.81)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       mixlib-cli
@@ -161,7 +161,7 @@ GEM
     fancy_irb (1.1.0)
       paint (>= 0.9, < 3.0)
       unicode-display_width (~> 1.1)
-    faraday (0.15.0)
+    faraday (0.15.1)
       multipart-post (>= 1.2, < 3)
     faraday-cookie_jar (0.0.6)
       faraday (>= 0.7.4)

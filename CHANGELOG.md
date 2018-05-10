@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.80 -->
+<!-- latest_release 0.1.81 -->
+## [0.1.81](https://github.com/chef/chef-workstation/tree/0.1.81) (2018-05-10)
+
+#### Merged Pull Requests
+- Cleaning up [#113](https://github.com/chef/chef-workstation/pull/113) ([cheeseplus](https://github.com/cheeseplus))
+<!-- latest_release -->
+
 ## [0.1.80](https://github.com/chef/chef-workstation/tree/0.1.80) (2018-05-10)
 
 #### Merged Pull Requests
 - Fix chef install for EL derivatives and Amazon Linux [#111](https://github.com/chef/chef-workstation/pull/111) ([cheeseplus](https://github.com/cheeseplus))
-<!-- latest_release -->
 
 ## [0.1.79](https://github.com/chef/chef-workstation/tree/0.1.79) (2018-05-08)
 
