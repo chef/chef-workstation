@@ -85,7 +85,7 @@ RSpec.describe ChefCLI::TargetHost do
   end
 
   context "#get_chef_version_manifest" do
-    let(:manifest_content) { nil }
+    let(:manifest_content) { '{"build_version" : "1.2.3"}' }
     let(:expected_manifest_path) do
       {
         windows: "c:\\opscode\\chef\\version-manifest.json",
@@ -94,7 +94,7 @@ RSpec.describe ChefCLI::TargetHost do
     end
     let(:base_os) { :unknown }
     before do
-      remote_file_mock = double("remote_file", content: manifest_content)
+      remote_file_mock = double("remote_file", file?: manifest_exists, content: manifest_content)
       backend_mock = double("backend")
       expect(backend_mock).to receive(:file).
         with(expected_manifest_path[base_os]).
@@ -104,6 +104,7 @@ RSpec.describe ChefCLI::TargetHost do
     end
 
     context "when manifest is missing" do
+      let(:manifest_exists) { false }
       context "on windows" do
         let(:base_os) { :windows }
         it "returns :not_found" do
@@ -120,9 +121,9 @@ RSpec.describe ChefCLI::TargetHost do
     end
 
     context "when manifest is present" do
+      let(:manifest_exists) { true }
       context "on windows" do
         let(:base_os) { :windows }
-        let(:manifest_content) { '{"build_version" : "1.2.3"}' }
         it "should return the parsed manifest" do
           expect(subject.get_chef_version_manifest).to eq({ "build_version" => "1.2.3" })
         end
@@ -130,7 +131,6 @@ RSpec.describe ChefCLI::TargetHost do
 
       context "on linux" do
         let(:base_os) { :linux }
-        let(:manifest_content) { '{"build_version" : "1.2.3"}' }
         it "should return the parsed manifest" do
           expect(subject.get_chef_version_manifest).to eq({ "build_version" => "1.2.3" })
         end
