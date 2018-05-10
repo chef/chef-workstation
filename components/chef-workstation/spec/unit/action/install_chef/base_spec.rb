@@ -46,7 +46,8 @@ RSpec.describe ChefWorkstation::Action::InstallChef::Base do
         expect(install.target_host).to receive(:installed_chef_version).
           and_return Gem::Version.new("12.1.1")
       end
-      it "performs the upgrade" do
+      # 2018-05-10  pended until we determine how we want auto-upgrades to behave
+      xit "performs the upgrade" do
         expect(install).to receive(:perform_local_install)
         install.perform_action
       end

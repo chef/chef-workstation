@@ -10,11 +10,12 @@ module ChefWorkstation::Action::InstallChef
         notify(:already_installed)
         return
       end
-      if config[:check_only]
-        raise ClientOutdated.new(target_host.installed_chef_version, MIN_CHEF_VERSION)
-      end
-      @upgrading = true
-      perform_local_install
+      raise ClientOutdated.new(target_host.installed_chef_version, MIN_CHEF_VERSION)
+      # NOTE: 2018-05-10 below is an intentionally dead code path that
+      #       will get re-visited once we determine how we want automatic
+      #       upgrades to behave.
+      # @upgrading = true
+      # perform_local_install
     rescue ChefWorkstation::TargetHost::ChefNotInstalled
       if config[:check_only]
         raise ClientNotInstalled.new()
@@ -48,6 +49,12 @@ module ChefWorkstation::Action::InstallChef
       Mixlib::Install.new(c).artifact_info
     end
 
+    def version_to_install
+      lookup_artifact.version
+    end
+
+    # TODO: Omnitruck has the logic to deal with translaton but
+    # mixlib-install is filtering out results incorrectly
     def train_to_mixlib(platform)
       c = {
         platform_version: platform.release,
@@ -58,16 +65,6 @@ module ChefWorkstation::Action::InstallChef
         channel: :stable,
         platform_version_compatibility_mode: true
       }
-      @artifact_info = Mixlib::Install.new(c).artifact_info
-    end
-
-    def version_to_install
-      lookup_artifact.version
-    end
-
-    # TODO: Omnitruck has the logic to deal with translaton but
-    # mixlib-install is filtering out results incorrectly
-    def train_to_mixlib(platform)
       case platform.name
       when /windows/
         c[:platform] = "windows"

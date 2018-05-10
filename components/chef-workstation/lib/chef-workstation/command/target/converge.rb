@@ -75,9 +75,10 @@ module ChefWorkstation
           :proc => Proc.new { |paths| paths.split(",") }
 
         option :install,
-          long: "--[no-]install",
-          default: true,
-          description:  T.install_description(Action::InstallChef::Base::MIN_CHEF_VERSION)
+           long: "--[no-]install",
+           default: true,
+           boolean: true,
+           description:  T.install_description(Action::InstallChef::Base::MIN_CHEF_VERSION)
 
         def run(params)
           validate_params(cli_arguments)

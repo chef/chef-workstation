@@ -110,9 +110,10 @@ commands:
       cookbook_repo_paths:
         desc: "Comma separated list of cookbook repository paths."
       install_description: |
-        Install Chef client on the target host(s) if it is not installed,
-        or upgrade it if the installed client is older than version %1.
-        By default, perform the install/upgrade if it is necessary.
+        Install Chef client on the target host(s) if it is not installed.
+        This defaults to enabled - the installation will be performed
+        if there is no Chef client on the target(s).
+
 
 # Status updates shared across commands.
 status:
@@ -152,8 +153,8 @@ errors:
     This command is powered by the Chef client.  In order to make use of it
     on this node, the Chef client must be installed first.
 
-    Re-running this command without the '--no-install' flag will permit
-    me to automatically perform the installation.
+    Re-running this command without the '--no-install' flag will
+    automatically perform the installation.
 
   CHEFINS003: |
     The target has an older version of Chef client installed.
@@ -161,9 +162,7 @@ errors:
     The target has version %1 installed, but this command
     requires a minimum version of %2.
 
-    Re-running this command without the '--no-install' flag will permit
-    me to automatically upgrade the target to the latest Chef client.
-
+    Please upgrade the Chef client on this node to version %2 or later.
 
   # Remote execution and file operation errors are prefixed CHEFRMT
   CHEFRMT001: |

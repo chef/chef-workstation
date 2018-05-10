@@ -105,6 +105,9 @@ module ChefWorkstation
       # TODO - use a proper method to query the win installation path -
       #        currently we're assuming the default, but this can be customized
       #        at install time.
+      #        A working approach is below - but it runs very slowly in testing
+      #        on a virtualbox windows vm:
+      #        (over winrm) Get-WmiObject Win32_Product | Where {$_.Name -match 'Chef Client'}
       windows: "c:\\opscode\\chef\\version-manifest.json",
       linux: "/opt/chef/version-manifest.json"
     }
