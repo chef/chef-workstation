@@ -138,7 +138,7 @@ module ChefWorkstation
 
       private
 
-      # TODO - does this all just belong in a HelpFormatter? Seems weire
+      # TODO - does this all just belong in a HelpFormatter? Seems weird
       # to encumber the base with all this...
       def show_help
         if @root_command

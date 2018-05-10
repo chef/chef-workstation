@@ -62,7 +62,7 @@ module ChefWorkstation
       elsif platform.linux?
         :linux
       else
-        :unknown
+        raise ChefWorkstation::TargetHost::UnsupportedTargetOS.new(platform.name)
       end
     end
 
@@ -86,35 +86,38 @@ module ChefWorkstation
       backend.upload(local_path, remote_path)
     end
 
+    # Returns the installed chef version as a Gem::Version,
+    # or raised ChefNotInstalled if chef client version manifest can't
+    # be found.
     def installed_chef_version
       return @installed_chef_version if @installed_chef_version
-
-      manifest_path = case base_os()
-                      when :windows then windows_version_manifest_path()
-                      when :linux then linux_version_manifest_path()
-                        # else TODO - raise for unsupported OS, move it over from
-                        # installer action
-                      end
-      manifest_content = backend.file(manifest_path).content
-      # TODO - handle where it is installed, but at such an old version there is no manifest?
-      raise ChefNotInstalled.new if manifest_content.nil?
-      manifest = JSON.parse(manifest_content)
+      # Note: In the case of a very old version of chef (that has no manifest - pre 12.0?)
+      #       this will report as not installed.
+      manifest = get_chef_version_manifest()
+      raise ChefNotInstalled.new if manifest == :not_found
       # We'll split the version here because  unstable builds (where we currently
       # install from) are in the form "Major.Minor.Build+HASH" which is not a valid
       # version string.
       @installed_chef_version = Gem::Version.new(manifest["build_version"].split("+")[0])
     end
 
-    def windows_version_manifest_path
-      "c:\\opscode\\chef\\version-manifest.json'"
-    end
+    MANIFEST_PATHS = {
+      # TODO - use a proper method to query the win installation path -
+      #        currently we're assuming the default, but this can be customized
+      #        at install time.
+      windows: "c:\\opscode\\chef\\version-manifest.json",
+      linux: "/opt/chef/version-manifest.json"
+    }
 
-    def linux_version_manifest_path
-      "/opt/chef/version-manifest.json"
+    def get_chef_version_manifest
+      path = MANIFEST_PATHS[base_os()]
+      content = backend.file(path).content
+      if content
+        JSON.parse(content)
+      else
+        :not_found
+      end
     end
-
-    # For internal capture, so it does not descend from an Workstation error
-    class ChefNotInstalled < StandardError; end
 
     class RemoteExecutionFailed < ChefWorkstation::ErrorNoLogs
       attr_reader :stdout, :stderr
@@ -125,6 +128,12 @@ module ChefWorkstation
               host,
               result.stderr.empty? ? result.stdout : result.stderr)
       end
+    end
+
+    class ChefNotInstalled < StandardError; end
+
+    class UnsupportedTargetOS < ChefWorkstation::Error
+      def initialize(os_name); super("CHEFTARG001", os_name); end
     end
   end
 end

@@ -146,13 +146,6 @@ errors:
   UNKNOWN: An unknown error has occurred.
 
   # Installer action errors
-  CHEFINS001: |
-    '%1' is not a supported target operating system at this time.
-
-    We plan to support a range of target operating systems,
-    but during this targeted beta we are constraining our efforts
-    to Windows and Linux.
-
   CHEFINS002: |
     The target does not have chef-client installed.
 
@@ -372,6 +365,14 @@ errors:
     be found in the file below:
 
       %1
+
+  # Errors relating to target state:
+  CHEFTARG001: |
+    '%1' is not a supported target operating system at this time.
+
+    We plan to support a range of target operating systems,
+    but during this targeted beta we are constraining our efforts
+    to Windows and Linux.
 
   footer:
     both: |

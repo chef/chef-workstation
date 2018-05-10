@@ -5,18 +5,9 @@ require "chef-workstation/action/install_chef/linux"
 module ChefWorkstation::Action::InstallChef
   def self.instance_for_target(target_host, opts = { check_only: false })
     opts[:target_host] = target_host
-    p = target_host.platform
-    if p.family == "windows" # Family is reliable even when mocking; `windows?` is not.
-      Windows.new(opts)
-    elsif p.linux?
-      Linux.new(opts)
-    else
-      raise UnsupportedTargetOS.new(p.name)
+    case target_host.base_os
+    when :windows then Windows.new(opts)
+    when :linux then Linux.new(opts)
     end
   end
-
-  class UnsupportedTargetOS < ChefWorkstation::Error
-    def initialize(os_name); super("CHEFINS001", os_name); end
-  end
-
 end
