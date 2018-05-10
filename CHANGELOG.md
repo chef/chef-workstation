@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.82 -->
+<!-- latest_release 0.1.83 -->
+## [0.1.83](https://github.com/chef/chef-workstation/tree/0.1.83) (2018-05-10)
+
+#### Merged Pull Requests
+- [SHACK-181] Renaming Chef Workstation gem to Chef CLI because that is more true [#114](https://github.com/chef/chef-workstation/pull/114) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.82](https://github.com/chef/chef-workstation/tree/0.1.82) (2018-05-10)
 
 #### Merged Pull Requests
 - [SHACK-179] Support for upgrading chef-client [#112](https://github.com/chef/chef-workstation/pull/112) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.81](https://github.com/chef/chef-workstation/tree/0.1.81) (2018-05-10)
 
