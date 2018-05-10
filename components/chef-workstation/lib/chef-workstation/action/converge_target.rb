@@ -30,7 +30,7 @@ module ChefWorkstation::Action
         ChefWorkstation::Log.debug(c.stdout)
         notify(:success)
       else
-        notify(:error)
+        notify(:converge_error)
         handle_ccr_error()
       end
     end

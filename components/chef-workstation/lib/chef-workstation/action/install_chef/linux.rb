@@ -1,10 +1,5 @@
 module ChefWorkstation::Action::InstallChef
   class Linux < ChefWorkstation::Action::InstallChef::Base
-    def already_installed_on_target?
-      r = target_host.run_command("test -f /opt/chef/bin/chef-client")
-      r.exit_status == 0
-    end
-
     def install_chef_to_target(remote_path)
       install_cmd = case File.extname(remote_path)
                     when ".rpm"

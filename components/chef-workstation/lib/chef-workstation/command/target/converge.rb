@@ -74,6 +74,12 @@ module ChefWorkstation
           :default => ChefWorkstation::Config.chef.cookbook_repo_paths,
           :proc => Proc.new { |paths| paths.split(",") }
 
+        option :install,
+           long: "--[no-]install",
+           default: true,
+           boolean: true,
+           description:  T.install_description(Action::InstallChef::Base::MIN_CHEF_VERSION)
+
         def run(params)
           validate_params(cli_arguments)
           configure_chef
@@ -222,24 +228,34 @@ module ChefWorkstation
         # Runs the InstallChef action and renders UI updates as
         # the action reports back
         def install(target_host, reporter)
-          installer = Action::InstallChef.instance_for_target(target_host)
+          installer = Action::InstallChef.instance_for_target(target_host, check_only: !config[:install])
           context = Text.status.install_chef
           installer.run do |event, data|
             case event
             when :installing
-              reporter.update(context.installing)
+              if installer.upgrading?
+                message = context.upgrading(target_host.installed_chef_version, installer.version_to_install)
+              else
+                message = context.installing(installer.version_to_install)
+              end
+              reporter.update(message)
             when :uploading
               reporter.update(context.uploading)
             when :downloading
               reporter.update(context.downloading)
-            when :success
+            when :already_installed
               meth = @multi_target ? :update : :success
-              msg = (data[0] == :already_installed) ? context.already_present : context.success
-              reporter.send(meth, msg)
-            when :error
-              # Message may or may not be present. First arg if it is.
-              msg = data.length > 0 ? data[0] : T.aborted
-              reporter.error(context.failure(msg))
+              reporter.send(meth, context.already_present(target_host.installed_chef_version))
+            when :install_complete
+              meth = @multi_target ? :update : :success
+              if installer.upgrading?
+                message = context.upgrade_success(target_host.installed_chef_version, installer.version_to_install)
+              else
+                message = context.install_success(installer.version_to_install)
+              end
+              reporter.send(meth, message)
+            else
+              handle_message(event, data, reporter)
             end
           end
         end
@@ -253,12 +269,14 @@ module ChefWorkstation
             case event
             when :success
               reporter.success(TS.converge.success)
-            when :error
+            when :converge_error
               reporter.error(TS.converge.failure)
             when :creating_remote_policy
               reporter.update(TS.converge.creating_remote_policy)
             when :running_chef
               reporter.update(TS.converge.running_chef)
+            else
+              handle_message(event, data, reporter)
             end
           end
           temp_cookbook.delete

@@ -109,18 +109,24 @@ commands:
           Current default: %1
       cookbook_repo_paths:
         desc: "Comma separated list of cookbook repository paths."
+      install_description: |
+        Install Chef client on the target host(s) if it is not installed.
+        This defaults to enabled - the installation will be performed
+        if there is no Chef client on the target(s).
 
 
 # Status updates shared across commands.
 status:
   install_chef:
-    installing: Installing Chef client.
-    downloading: Downloading Chef client installer.
-    uploading: Uploading Chef client installer.
+    installing: Installing Chef client version %1.
     checking_for_client: Checking for Chef client.
+    upgrading: Upgrading Chef client from version %1 to %2.
+    downloading: Downloading Chef client installer into local cache.
+    uploading: Uploading Chef client installer to target.
     verifying: Verifying Chef client installation.
-    already_present: Client already present on system.
-    success: "Chef client installation completed!"
+    already_present: Chef client version %1 already installed on target.
+    install_success: Successfully installed Chef client version %1
+    upgrade_success: Successfully upgraded Chef client from version %1 to %2.
     failure: "An error occurred while installing Chef client: %1"
   converge:
     multi_header: "Converging targets:"
@@ -137,13 +143,26 @@ status:
 # Second line: blank
 # Third+ : detailed description, max 76 characters per line
 errors:
-  # Installer action errors
-  CHEFINS001: |
-    '%1' is not a supported target operating system at this time.
+  # Catch-all for the worst case
+  UNKNOWN: An unknown error has occurred.
 
-    We plan to support a wide range of target operating systems,
-    but during this targeted pre-release we are constraining our efforts
-    to Windows and Linux.
+  # Installer action errors
+  CHEFINS002: |
+    The target does not have chef-client installed.
+
+    This command is powered by the Chef client.  In order to make use of it
+    on this node, the Chef client must be installed first.
+
+    Re-running this command without the '--no-install' flag will
+    automatically perform the installation.
+
+  CHEFINS003: |
+    The target has an older version of Chef client installed.
+
+    The target has version %1 installed, but this command
+    requires a minimum version of %2.
+
+    Please upgrade the Chef client on this node to version %2 or later.
 
   # Remote execution and file operation errors are prefixed CHEFRMT
   CHEFRMT001: |
@@ -213,7 +232,6 @@ errors:
 
       https://docs.chef.io/resource_reference.html
 
-
   CHEFCCR099: |
     The converge of the remote host failed.
 
@@ -227,6 +245,7 @@ errors:
     An error has occurred on the %1 connection to %2:
 
     %2.
+
   CHEFTRN002: |
     An remote error has occurred:
 
@@ -345,6 +364,14 @@ errors:
     be found in the file below:
 
       %1
+
+  # Errors relating to target state:
+  CHEFTARG001: |
+    '%1' is not a supported target operating system at this time.
+
+    We plan to support a range of target operating systems,
+    but during this targeted beta we are constraining our efforts
+    to Windows and Linux.
 
   footer:
     both: |

@@ -94,7 +94,7 @@ module ChefWorkstation
           reporter.update(T.status.connected)
         end
         target_host
-      rescue RuntimeError => e
+      rescue StandardError => e
         if reporter.nil?
           UI::Terminal.output(e.message)
         else
@@ -125,6 +125,15 @@ module ChefWorkstation
         failed_jobs = jobs.select { |j| !j.exception.nil? }
         return if failed_jobs.empty?
         raise ChefWorkstation::MultiJobFailure.new(failed_jobs)
+      end
+
+      # A handler for common action messages
+      def handle_message(message, data, reporter)
+        if message == :error # data[0] = exception
+          # Mark the current task as failed with whatever data is available to us
+          require "chef-workstation/ui/error_printer"
+          reporter.error(ChefWorkstation::UI::ErrorPrinter.error_summary(data[0]))
+        end
       end
 
       private
