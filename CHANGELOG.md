@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.81 -->
+<!-- latest_release 0.1.82 -->
+## [0.1.82](https://github.com/chef/chef-workstation/tree/0.1.82) (2018-05-10)
+
+#### Merged Pull Requests
+- [SHACK-179] Support for upgrading chef-client [#112](https://github.com/chef/chef-workstation/pull/112) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.81](https://github.com/chef/chef-workstation/tree/0.1.81) (2018-05-10)
 
 #### Merged Pull Requests
 - Cleaning up [#113](https://github.com/chef/chef-workstation/pull/113) ([cheeseplus](https://github.com/cheeseplus))
-<!-- latest_release -->
 
 ## [0.1.80](https://github.com/chef/chef-workstation/tree/0.1.80) (2018-05-10)
 
