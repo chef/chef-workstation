@@ -9,22 +9,22 @@ jobs:
       # Restore bundle cache
       - type: cache-restore
         name: Restore bundle cache
-        key: chef-workstation-bundle-{{ checksum "components/chef-workstation/Gemfile.lock" }}
+        key: chef-cli-bundle-{{ checksum "components/chef-cli/Gemfile.lock" }}
       - run:
           name: Bundle Install
           command: |
-            pushd components/chef-workstation
+            pushd components/chef-cli
             bundle install --path vendor/bundle --without localdev
             popd
       - type: cache-save
         name: Save bundle cache
-        key: chef-workstation-bundle-{{ checksum "components/chef-workstation/Gemfile.lock" }}
+        key: chef-cli-bundle-{{ checksum "components/chef-cli/Gemfile.lock" }}
         paths:
           - vendor/bundle
       - type: shell
         command: |
           mkdir -p test_results
-          pushd components/chef-workstation
+          pushd components/chef-cli
           bundle exec rspec --profile 10 \
                             --format RspecJunitFormatter \
                             --out ../../test_results/rspec.xml \

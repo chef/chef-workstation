@@ -1,7 +1,7 @@
 Chef Workstation
 ==================================
 
-Chef Workstation installs everything you need to get started using Chef on Windows, Mac and Linux; and is currently focused around performing ad-hoc tasks on your server.  
+Chef Workstation installs everything you need to get started using Chef on Windows, Mac and Linux; and is currently focused around performing ad-hoc tasks on your server.
 
 ## Getting Started
 
@@ -20,7 +20,7 @@ Chef Workstation installs everything you need to get started using Chef on Windo
 2. Double-click the `.dmg` or `.msi` file to start the install process. Or install
    the Linux package for your platform.
 
-3. Open a command-line terminal, and try out some Chef-workstation commands
+3. Open a command-line terminal, and try out some chef-cli commands
 
    * Run `chef -h` to view the available commands
 

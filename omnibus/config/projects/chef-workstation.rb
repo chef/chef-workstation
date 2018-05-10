@@ -79,7 +79,7 @@ dependency "delivery-cli"
 # This is a build-time dependency, so we won't leave it behind:
 dependency "rust-uninstall"
 
-dependency "chef-workstation"
+dependency "chef-cli"
 
 dependency "gem-permissions"
 dependency "rubygems-customization"

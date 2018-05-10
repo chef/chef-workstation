@@ -1,0 +1,3 @@
+module ChefCLI
+
+end

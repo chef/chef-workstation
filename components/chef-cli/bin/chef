@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "chef-cli/cli"
+
+ChefCLI::CLI.new(ARGV.clone).run
