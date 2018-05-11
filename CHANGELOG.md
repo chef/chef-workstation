@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.83 -->
+<!-- latest_release 0.1.84 -->
+## [0.1.84](https://github.com/chef/chef-workstation/tree/0.1.84) (2018-05-11)
+
+#### Merged Pull Requests
+- Ensure chef manifest exists before trying to read it [#115](https://github.com/chef/chef-workstation/pull/115) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.83](https://github.com/chef/chef-workstation/tree/0.1.83) (2018-05-10)
 
 #### Merged Pull Requests
 - [SHACK-181] Renaming Chef Workstation gem to Chef CLI because that is more true [#114](https://github.com/chef/chef-workstation/pull/114) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.82](https://github.com/chef/chef-workstation/tree/0.1.82) (2018-05-10)
 
