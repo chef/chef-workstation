@@ -114,12 +114,9 @@ module ChefCLI
 
     def get_chef_version_manifest
       path = MANIFEST_PATHS[base_os()]
-      content = backend.file(path).content
-      if content
-        JSON.parse(content)
-      else
-        :not_found
-      end
+      manifest = backend.file(path)
+      return :not_found unless manifest.file?
+      JSON.parse(manifest.content)
     end
 
     class RemoteExecutionFailed < ChefCLI::ErrorNoLogs
