@@ -67,6 +67,62 @@ RSpec.describe ChefCLI::Action::ConvergeTarget do
       # ensure the tempfile is deleted locally
       expect(local_tempfile.closed?).to eq(true)
     end
+
+    describe "when data_collector is set in config" do
+      before do
+        ChefCLI::Config.data_collector.url = "dc.url"
+        ChefCLI::Config.data_collector.token = "dc.token"
+      end
+
+      it "creates a config file with data collector config values" do
+        expect(Tempfile).to receive(:new).and_return(local_tempfile)
+        expect(local_tempfile).to receive(:write).with(<<~EOM
+          local_mode true
+          color false
+          cache_path "\#{ENV['APPDATA']}/chef-workstation"
+          chef_repo_path "\#{ENV['APPDATA']}/chef-workstation"
+          require_relative "reporter"
+          reporter = ChefCLI::Reporter.new
+          report_handlers << reporter
+          exception_handlers << reporter
+          data_collector.server_url "dc.url"
+          data_collector.token "dc.token"
+          data_collector.mode :solo
+          data_collector.organization "Chef Workstation"
+        EOM
+        )
+        expect(target_host).to receive(:upload_file).with(local_tempfile.path, remote_config)
+        expect(action.create_remote_config(remote_folder)).to eq(remote_config)
+        # ensure the tempfile is deleted locally
+        expect(local_tempfile.closed?).to eq(true)
+      end
+    end
+
+    describe "when data_collector is not set" do
+      before do
+        ChefCLI::Config.data_collector.url = nil
+        ChefCLI::Config.data_collector.token = nil
+      end
+
+      it "creates a config file without data collector config values" do
+        expect(Tempfile).to receive(:new).and_return(local_tempfile)
+        expect(local_tempfile).to receive(:write).with(<<~EOM
+          local_mode true
+          color false
+          cache_path "\#{ENV['APPDATA']}/chef-workstation"
+          chef_repo_path "\#{ENV['APPDATA']}/chef-workstation"
+          require_relative "reporter"
+          reporter = ChefCLI::Reporter.new
+          report_handlers << reporter
+          exception_handlers << reporter
+        EOM
+        )
+        expect(target_host).to receive(:upload_file).with(local_tempfile.path, remote_config)
+        expect(action.create_remote_config(remote_folder)).to eq(remote_config)
+        # ensure the tempfile is deleted locally
+        expect(local_tempfile.closed?).to eq(true)
+      end
+    end
   end
 
   describe "#create_remote_handler" do
