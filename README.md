@@ -7,13 +7,13 @@ Chef Workstation installs everything you need to get started using Chef on Windo
 
 1. Download Chef Workstation
 
-   * [Download Chef Workstation for Mac](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.82/mac_os_x/10.13/chef-workstation-0.1.82-1.dmg)
+   * [Download Chef Workstation for Mac](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.83/mac_os_x/10.13/chef-workstation-0.1.83-1.dmg)
 
-   * [Download Chef Workstation for Windows](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.82/windows/2016/chef-workstation-0.1.82-1-x64.msi)
+   * [Download Chef Workstation for Windows](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.83/windows/2016/chef-workstation-0.1.83-1-x64.msi)
 
-   * [Download Chef Workstation for Debian](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.82/ubuntu/16.04/chef-workstation_0.1.82-1_amd64.deb)
+   * [Download Chef Workstation for Debian](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.83/ubuntu/16.04/chef-workstation_0.1.83-1_amd64.deb)
 
-   * [Download Chef Workstation for Enterprise Linux](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.82/el/7/chef-workstation-0.1.82-1.el6.x86_64.rpm)
+   * [Download Chef Workstation for Enterprise Linux](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.83/el/7/chef-workstation-0.1.83-1.el6.x86_64.rpm)
 
     ***Note:*** These links are internal and require Chef VPN.
 
