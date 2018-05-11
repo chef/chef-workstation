@@ -2,6 +2,6 @@ baseURL = "/"
 languageCode = "en-us"
 title = "chef.sh (Chef Workstation)"
 
-theme = "chef-sh"
+theme = "chef"
 themesDir = "../chef-www/site/themes"
 staticDir = ["./static", "../chef-sh"]
