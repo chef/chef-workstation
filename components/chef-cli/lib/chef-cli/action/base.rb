@@ -90,7 +90,7 @@ module ChefCLI
 
       def run(&block)
         @notification_handler = block
-        Telemetry.timed_capture(:action, name: self.class.name.split("::").last) do
+        Telemetry.timed_action_capture(self) do
           begin
             perform_action
           rescue StandardError => e
@@ -98,9 +98,14 @@ module ChefCLI
             # raised it'll otherwise get routed through the execution thread,
             # providing no means of feedback for the caller's current task.
             notify(:error, e)
-            raise
+            @error = e
           end
         end
+        raise @error unless @error.nil?
+      end
+
+      def name
+        self.class.name.split("::").last
       end
 
       def perform_action
