@@ -31,15 +31,5 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius ipsum accums
 * Vivamus auctor nisl sit amet tortor luctus dapibus.
 * Nulla fermentum ligula vitae enim maximus bibendum.
 
-{{% styled-nums %}}
-1. Sed vitae turpis quis ligula eleifend consectetur.
-1. Donec accumsan purus vitae felis semper fermentum.
-1. Vivamus auctor nisl sit amet tortor luctus dapibus.
-1. Nulla fermentum ligula vitae enim maximus bibendum.
-{{% /styled-nums %}}
-
 This is a [paragraph link](#).
 
-This is a {{< cta href="#" text="call to action" >}}
-
-These are buttons: {{< orange-button href="#" text="Button" >}} {{< white-button href="#" text="Button" >}}

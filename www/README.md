@@ -38,7 +38,7 @@ Everytime a PR is merged into `chef/chef-workstation`, the contents of the `chef
 ## Helpers
 
 make sync
-: Pull down the current chef.sh content and chef-www submodule (for the chef-sh theme)
+: Pull down the current chef.sh content and chef-hugo-theme submodule. You'll need [okta_aws](https://github.com/chef/okta_aws) configured and have access to the `chef-cd` profile.
 
 make serve
 : Start the live-reload development environment

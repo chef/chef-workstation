@@ -3,5 +3,9 @@ languageCode = "en-us"
 title = "chef.sh (Chef Workstation)"
 
 theme = "chef"
-themesDir = "../chef-www/site/themes"
 staticDir = ["./static", "../chef-sh"]
+
+# To develop against a local copy of the chef hugo theme, uncomment this line
+# and set the value to the parent directory of where you have checked out the
+# chef-hugo-theme repository
+# themesDir = ""
