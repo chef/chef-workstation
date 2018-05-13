@@ -79,7 +79,7 @@ RSpec.describe ChefCLI::Command::Target::Converge do
 
   describe "#format_properties" do
     it "parses properties into a hash" do
-      provided = %w{key1=value key2=1 key3=true key4=FaLsE key5=0777 key6=https://some.website key7=num1and2digit}
+      provided = %w{key1=value key2=1 key3=true key4=FaLsE key5=0777 key6=https://some.website key7=num1and2digit key_8=underscore}
       expected = {
         "key1" => "value",
         "key2" => 1,
@@ -88,6 +88,7 @@ RSpec.describe ChefCLI::Command::Target::Converge do
         "key5" => "0777",
         "key6" => "https://some.website",
         "key7" => "num1and2digit",
+        "key_8" => "underscore"
       }
       expect(cmd.format_properties(provided)).to eq(expected)
     end

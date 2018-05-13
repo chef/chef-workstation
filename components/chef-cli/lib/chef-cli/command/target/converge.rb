@@ -124,7 +124,7 @@ module ChefCLI
         # The first param is always hostname. Then we either have
         # 1. A recipe designation
         # 2. A resource type and resource name followed by any properties
-        PROPERTY_MATCHER = /^([a-zA-Z0-9]+)=(.+)$/
+        PROPERTY_MATCHER = /^([a-zA-Z0-9_]+)=(.+)$/
         CB_MATCHER = '[\w\-]+'
         def validate_params(params)
           if params.size < 2
