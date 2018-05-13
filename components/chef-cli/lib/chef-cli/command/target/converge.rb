@@ -275,13 +275,14 @@ module ChefCLI
               reporter.update(TS.converge.creating_remote_policy)
             when :running_chef
               reporter.update(TS.converge.running_chef)
+            when :reboot
+              reporter.success(TS.converge.reboot)
             else
               handle_message(event, data, reporter)
             end
           end
           temp_cookbook.delete
         end
-
       end
     end
   end
