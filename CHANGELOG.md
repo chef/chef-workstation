@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.84 -->
+<!-- latest_release 0.1.85 -->
+## [0.1.85](https://github.com/chef/chef-workstation/tree/0.1.85) (2018-05-14)
+
+#### Merged Pull Requests
+- SHACK-191 Basic Automate 2 Reporting [#119](https://github.com/chef/chef-workstation/pull/119) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.84](https://github.com/chef/chef-workstation/tree/0.1.84) (2018-05-11)
 
 #### Merged Pull Requests
 - Ensure chef manifest exists before trying to read it [#115](https://github.com/chef/chef-workstation/pull/115) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.83](https://github.com/chef/chef-workstation/tree/0.1.83) (2018-05-10)
 
