@@ -103,5 +103,9 @@ module ChefCLI
       default(:cookbook_repo_paths, ChefConfig::Config[:cookbook_path])
     end
 
+    config_context :data_collector do
+      default :url, nil
+      default :token, nil
+    end
   end
 end

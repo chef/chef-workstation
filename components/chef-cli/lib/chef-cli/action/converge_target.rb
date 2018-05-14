@@ -62,6 +62,17 @@ module ChefCLI::Action
         exception_handlers << reporter
       EOM
 
+      # Maybe add data collector endpoint.
+      dc = ChefCLI::Config.data_collector
+      if !dc.url.nil? && !dc.token.nil?
+        workstation_rb << <<~EOM
+          data_collector.server_url "#{dc.url}"
+          data_collector.token "#{dc.token}"
+          data_collector.mode :solo
+          data_collector.organization "Chef Workstation"
+        EOM
+      end
+
       begin
         config_file = Tempfile.new
         config_file.write(workstation_rb)
