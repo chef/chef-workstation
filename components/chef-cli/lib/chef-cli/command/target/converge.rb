@@ -124,7 +124,7 @@ module ChefCLI
         # The first param is always hostname. Then we either have
         # 1. A recipe designation
         # 2. A resource type and resource name followed by any properties
-        PROPERTY_MATCHER = /^([a-zA-Z0-9]+)=(.+)$/
+        PROPERTY_MATCHER = /^([a-zA-Z0-9_]+)=(.+)$/
         CB_MATCHER = '[\w\-]+'
         def validate_params(params)
           if params.size < 2
@@ -275,13 +275,14 @@ module ChefCLI
               reporter.update(TS.converge.creating_remote_policy)
             when :running_chef
               reporter.update(TS.converge.running_chef)
+            when :reboot
+              reporter.success(TS.converge.reboot)
             else
               handle_message(event, data, reporter)
             end
           end
           temp_cookbook.delete
         end
-
       end
     end
   end

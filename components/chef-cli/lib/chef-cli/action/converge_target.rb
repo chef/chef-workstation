@@ -29,6 +29,8 @@ module ChefCLI::Action
       if c.exit_status == 0
         ChefCLI::Log.debug(c.stdout)
         notify(:success)
+      elsif c.exit_status == 35
+        notify(:reboot)
       else
         notify(:converge_error)
         handle_ccr_error()

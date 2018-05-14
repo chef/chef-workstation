@@ -117,6 +117,24 @@ RSpec.describe ChefCLI::Action::ConvergeTarget do
       action.perform_action
     end
 
+    context "when chef schedules restart" do
+      let(:result) { double("command result", exit_status: 35) }
+
+      it "runs the converge and reports back reboot" do
+        expect(action).to receive(:create_remote_policy).with(local_cookbook, remote_folder).and_return(remote_archive)
+        expect(action).to receive(:create_remote_config).with(remote_folder).and_return(remote_config)
+        expect(action).to receive(:create_remote_handler).with(remote_folder).and_return(remote_handler)
+        expect(target_host).to receive(:run_command).with(/chef-client.+#{archive}/).and_return(result)
+        expect(target_host).to receive(:run_command!)
+          .with("#{action.delete_folder} #{remote_folder}")
+          .and_return(result)
+        [:creating_remote_policy, :running_chef, :reboot].each do |n|
+          expect(action).to receive(:notify).with(n)
+        end
+        action.perform_action
+      end
+    end
+
     context "when command fails" do
       let(:result) { double("command result", exit_status: 1) }
       let(:report_result) { double("report result", exit_status: 0, stdout: '{ "exception": "thing" }') }
