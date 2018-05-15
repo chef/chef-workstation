@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.85 -->
+<!-- latest_release 0.1.86 -->
+## [0.1.86](https://github.com/chef/chef-workstation/tree/0.1.86) (2018-05-15)
+
+#### Merged Pull Requests
+- pin train to pre-GCP version [#128](https://github.com/chef/chef-workstation/pull/128) ([robbkidd](https://github.com/robbkidd))
+<!-- latest_release -->
+
 ## [0.1.85](https://github.com/chef/chef-workstation/tree/0.1.85) (2018-05-14)
 
 #### Merged Pull Requests
 - SHACK-191 Basic Automate 2 Reporting [#119](https://github.com/chef/chef-workstation/pull/119) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.84](https://github.com/chef/chef-workstation/tree/0.1.84) (2018-05-11)
 

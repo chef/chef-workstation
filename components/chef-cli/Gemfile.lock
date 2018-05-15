@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/chef/chef-dk.git
-  revision: 18eac46574c4a75cb702afd38b0555c41dd27ffa
+  revision: c5a25993989f04f08bc5349d82697b18aadbc92f
   branch: master
   specs:
-    chef-dk (3.0.30)
+    chef-dk (3.0.32)
       addressable (>= 2.3.5, < 2.6)
       chef (~> 14.0)
       chef-provisioning (~> 2.0)
@@ -18,8 +18,8 @@ GIT
 
 GIT
   remote: https://github.com/chef/train.git
-  revision: 182d985c427f6b6734ef167f3a4d93351a1aa8a6
-  branch: master
+  revision: daefae3357bdaa903ec75da9ab6b222073f6fa07
+  branch: v1.4.6
   specs:
     train (1.4.6)
       aws-sdk (~> 2)
@@ -36,7 +36,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-cli (0.1.85)
+    chef-cli (0.1.86)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       mixlib-cli
@@ -55,13 +55,13 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.4.0)
-    aws-sdk (2.11.48)
-      aws-sdk-resources (= 2.11.48)
-    aws-sdk-core (2.11.48)
+    aws-sdk (2.11.50)
+      aws-sdk-resources (= 2.11.50)
+    aws-sdk-core (2.11.50)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.48)
-      aws-sdk-core (= 2.11.48)
+    aws-sdk-resources (2.11.50)
+      aws-sdk-core (= 2.11.50)
     aws-sigv4 (1.0.2)
     azure_mgmt_resources (0.16.0)
       ms_rest_azure (~> 0.10.0)
@@ -263,7 +263,7 @@ GEM
       net-ssh-gateway (>= 1.2.0)
     net-telnet (0.1.1)
     nori (2.6.0)
-    ohai (14.1.0)
+    ohai (14.1.3)
       chef-config (>= 12.8, < 15)
       ffi (~> 1.9)
       ffi-yajl (~> 2.2)
