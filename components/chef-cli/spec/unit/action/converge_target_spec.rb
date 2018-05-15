@@ -148,6 +148,45 @@ RSpec.describe ChefCLI::Action::ConvergeTarget do
     end
   end
 
+  describe "#create_local_policy" do
+    let(:long) { "THIS_IS_A_REALLY_LONG_STRING111111111111111111111111111111111111111111111111111111" }
+    let(:cb) do
+      d = Dir.mktmpdir(long)
+      File.open(File.join(d, "metadata.rb"), "w+") do |f|
+        f << "name \"#{long}\""
+      end
+      File.open(File.join(d, "Policyfile.rb"), "w+") do |f|
+        f << "name \"#{long}_policy\"\n"
+        f << "default_source :supermarket\n"
+        f << "run_list \"#{long}::default\"\n"
+        f << "cookbook \"#{long}\", path: \".\"\n"
+      end
+      FileUtils.mkdir(File.join(d, "recipes"))
+      File.open(File.join(d, "recipes", "default.rb"), "w+") do |f|
+        f << SecureRandom.uuid
+      end
+      File.new(d)
+    end
+
+    after do
+      FileUtils.remove_entry cb
+    end
+
+    # There is an issue with policyfile generation where, if we have a cookbook with too long
+    # of a name or directory name the policyfile will not generate. This is because the tar
+    # library that ChefDK uses comes from the Rubygems package and is meant for packaging
+    # gems up, so it can impose a 100 character limit. We attempt to solve this by ensuring
+    # that the paths/names we generate with `TempCookbook` are short. This is here for
+    # documentation
+    it "fails to create when there is a long path name" do
+      err = ChefDK::PolicyfileExportRepoError
+      expect { action.create_local_policy(cb) }.to raise_error(err) do |e|
+        expect(e.cause.class).to eq(Gem::Package::TooLongFileName)
+        expect(e.cause.message).to match(/should be 100 or less/)
+      end
+    end
+  end
+
   describe "#perform_action" do
     let(:remote_folder) { "/tmp/foo" }
     let(:remote_archive) { File.join(remote_folder, File.basename(archive)) }

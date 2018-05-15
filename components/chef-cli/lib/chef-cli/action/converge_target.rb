@@ -38,7 +38,7 @@ module ChefCLI::Action
     end
 
     def create_remote_policy(local_cookbook, remote_dir_path)
-      local_policy_path = generate_policy(local_cookbook)
+      local_policy_path = create_local_policy(local_cookbook)
       remote_policy_path = File.join(remote_dir_path, File.basename(local_policy_path))
       begin
         target_host.upload_file(local_policy_path, remote_policy_path)
@@ -101,7 +101,7 @@ module ChefCLI::Action
       remote_handler_path
     end
 
-    def generate_policy(local_cookbook)
+    def create_local_policy(local_cookbook)
       ChefDK::PolicyfileServices::Install.new(ui: ChefDK::UI.null(),
                                               root_dir: local_cookbook.path).run
       lock_path = File.join(local_cookbook.path, "Policyfile.lock.json")
