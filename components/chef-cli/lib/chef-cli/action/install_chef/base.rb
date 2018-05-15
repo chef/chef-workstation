@@ -53,10 +53,8 @@ module ChefCLI::Action::InstallChef
       lookup_artifact.version
     end
 
-    # TODO: Omnitruck has the logic to deal with translaton but
-    # mixlib-install is filtering out results incorrectly
     def train_to_mixlib(platform)
-      c = {
+      opts = {
         platform_version: platform.release,
         platform: platform.name,
         architecture: platform.arch,
@@ -67,18 +65,20 @@ module ChefCLI::Action::InstallChef
       }
       case platform.name
       when /windows/
-        c[:platform] = "windows"
+        opts[:platform] = "windows"
       when "redhat", "centos"
-        c[:platform] = "el"
+        opts[:platform] = "el"
+      when "suse"
+        opts[:platform] = "sles"
       when "amazon"
-        c[:platform] = "el"
+        opts[:platform] = "el"
         if platform.release.to_i > 2010 # legacy Amazon version 1
-          c[:platform_version] = "6"
+          opts[:platform_version] = "6"
         else
-          c[:platform_version] = "7"
+          opts[:platform_version] = "7"
         end
       end
-      c
+      opts
     end
 
     def download_to_workstation(url_path)
