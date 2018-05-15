@@ -186,7 +186,7 @@ GEM
     interactive_editor (0.0.11)
       spoon (>= 0.0.1)
     ipaddress (0.8.3)
-    irbtools (2.2.0)
+    irbtools (2.2.1)
       binding.repl (~> 3.0)
       clipboard (~> 1.1)
       code (~> 0.9)
@@ -200,7 +200,7 @@ GEM
       method_locator (~> 0.0, >= 0.0.4)
       methodfinder (~> 2.0)
       ori (~> 0.1.0)
-      os (~> 1.0)
+      os
       paint (>= 0.9, < 3.0)
       ruby_engine (~> 1.0)
       ruby_info (~> 1.0)
@@ -224,7 +224,7 @@ GEM
     looksee (4.0.0)
     method_locator (0.0.4)
     method_source (0.9.0)
-    methodfinder (2.1.1)
+    methodfinder (2.2.1)
     minitar (0.6.1)
     mixlib-archive (0.4.6)
       mixlib-log
