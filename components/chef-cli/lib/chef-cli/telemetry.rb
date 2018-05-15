@@ -35,11 +35,16 @@ module ChefCLI
     class << self
       extend Forwardable
       def_delegators :instance, :timed_capture, :capture, :commit, :timed_action_capture, :timed_run_capture
-      def_delegators :instance, :pending_event_count, :last_event
+      def_delegators :instance, :pending_event_count, :last_event, :enabled?
       def_delegators :instance, :make_event_payload
     end
 
     attr_reader :events_to_send, :run_timestamp
+
+    def enabled?
+      require "telemetry/decision"
+      ChefCLI::Config.telemetry.enable && !::Telemetry::Decision.env_opt_out?
+    end
 
     def initialize
       @events_to_send = []
@@ -80,8 +85,10 @@ module ChefCLI
     end
 
     def commit
-      session = convert_events_to_session
-      write_session(session)
+      if enabled?
+        session = convert_events_to_session
+        write_session(session)
+      end
       @events_to_send = []
     end
 

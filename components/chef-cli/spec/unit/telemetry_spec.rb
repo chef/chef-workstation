@@ -30,13 +30,34 @@ RSpec.describe ChefCLI::Telemetry do
   end
 
   context "#commit" do
-    it "writes events out and clears the queue" do
-      subject.capture(:test)
-      expect(subject.pending_event_count).to eq 1
-      expect(subject).to receive(:convert_events_to_session)
-      expect(subject).to receive(:write_session)
-      subject.commit
-      expect(subject.pending_event_count).to eq 0
+    context "when telemetry is enabled" do
+      before do
+        allow(subject).to receive(:enabled?).and_return true
+      end
+
+      it "writes events out and clears the queue" do
+        subject.capture(:test)
+        expect(subject.pending_event_count).to eq 1
+        expect(subject).to receive(:convert_events_to_session)
+        expect(subject).to receive(:write_session)
+
+        subject.commit
+        expect(subject.pending_event_count).to eq 0
+      end
+    end
+
+    context "when telemetry is disabled" do
+      before do
+        allow(subject).to receive(:enabled?).and_return false
+      end
+      it "does not write any events and clears the queue" do
+        subject.capture(:test)
+        expect(subject.pending_event_count).to eq 1
+        expect(subject).to_not receive(:convert_events_to_session)
+
+        subject.commit
+        expect(subject.pending_event_count).to eq 0
+      end
     end
   end
 

@@ -7,7 +7,7 @@ class ::Telemetry
   end
 
   def deliver(data = {})
-    if ChefCLI::Config.telemetry.enable && !::Telemetry::Decision.env_opt_out?
+    if ChefCLI::Telemetry.instance.enabled?
       payload = event.prepare(data)
       client.await.fire(payload)
     end
