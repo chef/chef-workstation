@@ -95,12 +95,13 @@ module ChefCLI
             perform_action
           rescue StandardError => e
             # Give the caller a chance to clean up - if an exception is
-            # raised it'll otherwise get routed through the execution thread,
+            # raised it'll otherwise get routed through the executing thread,
             # providing no means of feedback for the caller's current task.
             notify(:error, e)
             @error = e
           end
         end
+        # Raise outside the block to ensure that the telemetry cpature completes
         raise @error unless @error.nil?
       end
 

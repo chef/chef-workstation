@@ -1,6 +1,20 @@
 # Shared and top-level CLI output text.
 cli:
-  creating_config: "Creating config file in %1."
+  telemetry_enabled: |
+    Telemetry has been enabled by default for this beta release
+    of Chef Workstation. The anonymous data we gather is used to
+    determine how we can impove your Chef Workstation experience.
+
+    To disable it, add the following entry to
+    %1:
+
+    [telemetry]
+    enable=false
+
+    For more information about what we data gather and additional opt-out
+    options, please visit https://chef.sh/TODO.
+
+  creating_config: "Creating config file '%1'."
 
 # Text specific to each command
 commands:

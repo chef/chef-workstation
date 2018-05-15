@@ -84,6 +84,11 @@ module ChefCLI
       if Config.using_default_location? && !Config.exist?
         UI::Terminal.output T.creating_config(Config.default_location)
         Config.create_default_config_file
+        # Tell the user we're anonymously tracking, give brief opt-out
+        # and a link to detailed information.
+        UI::Terminal.output ""
+        UI::Terminal.output T.telemetry_enabled(Config.default_location)
+        UI::Terminal.output ""
       end
       Config.load
       ChefCLI::Log.setup(Config.log.location, Config.log.level.to_sym)
