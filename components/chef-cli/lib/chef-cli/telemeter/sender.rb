@@ -10,7 +10,7 @@ module ChefCLI
         if ChefCLI::Telemeter.enabled?
           # dev mode telemetry gets sent to a different location
           if ChefCLI::Config.telemetry.dev
-            ENV["CHEF_TELEMETRY_ENDPOINT"] = "https://telemetry-acceptance.chef.io"
+            ENV["CHEF_TELEMETRY_ENDPOINT"] ||= "https://telemetry-acceptance.chef.io"
           end
           session_files.each { |path| process_session(path) }
         else

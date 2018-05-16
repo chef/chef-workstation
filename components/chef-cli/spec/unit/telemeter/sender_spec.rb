@@ -53,9 +53,21 @@ RSpec.describe ChefCLI::Telemeter::Sender do
       context "and telemetry dev mode is true" do
         let(:dev_mode) { true }
         let(:session_files) { [] } # Ensure we don't send anything without mocking :allthecalls:
-        it "configures the environment to submit to the Acceptance telemetry endpoint" do
-          subject.run
-          expect(ENV["CHEF_TELEMETRY_ENDPOINT"]).to eq "https://telemetry-acceptance.chef.io"
+        context "and a custom telemetry endpoint is not set" do
+          it "configures the environment to submit to the Acceptance telemetry endpoint" do
+            subject.run
+            expect(ENV["CHEF_TELEMETRY_ENDPOINT"]).to eq "https://telemetry-acceptance.chef.io"
+          end
+        end
+
+        context "and a custom telemetry endpoint is already set" do
+          before do
+            ENV["CHEF_TELEMETRY_ENDPOINT"] = "https://localhost"
+          end
+          it "should not overwrite the custom value" do
+            subject.run
+            expect(ENV["CHEF_TELEMETRY_ENDPOINT"]).to eq "https://localhost"
+          end
         end
       end
 
