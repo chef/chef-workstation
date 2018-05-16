@@ -27,18 +27,18 @@ RSpec.describe ChefCLI::CLI do
   subject(:cli) do
     ChefCLI::CLI.new(argv)
   end
-  let(:telemetry) { ChefCLI::Telemetry }
+  let(:telemetry) { ChefCLI::Telemetry.instance }
 
   context "run" do
     before do
       expect(subject).to receive(:setup_cli)
     end
 
+    # TODO - test for Sender.new.run in thread
     it "performs the steps necessary to handle the request and capture telemetry" do
       expect(subject).to receive(:perform_command)
-      expect(telemetry).to receive(:timed_capture).
-        with(:run, args: []).and_yield
-      expect(telemetry).to receive(:send!)
+      expect(telemetry).to receive(:timed_run_capture).and_yield
+      expect(telemetry).to receive(:commit)
       expect { cli.run }.to raise_error SystemExit
     end
 
