@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.92 -->
+<!-- latest_release 0.1.93 -->
+## [0.1.93](https://github.com/chef/chef-workstation/tree/0.1.93) (2018-05-16)
+
+#### Merged Pull Requests
+- [SHACK-131] Support custom resources from another cookbook [#126](https://github.com/chef/chef-workstation/pull/126) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.92](https://github.com/chef/chef-workstation/tree/0.1.92) (2018-05-16)
 
 #### Merged Pull Requests
 - change possibly confusing sample hostname in usage text [#133](https://github.com/chef/chef-workstation/pull/133) ([jjasghar](https://github.com/jjasghar))
-<!-- latest_release -->
 
 ## [0.1.91](https://github.com/chef/chef-workstation/tree/0.1.91) (2018-05-16)
 
