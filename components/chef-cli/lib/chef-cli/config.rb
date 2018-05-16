@@ -16,7 +16,6 @@ module ChefCLI
       # to converge later
       def initialize_mixlib_config
         super
-        ChefConfig::WorkstationConfigLoader.new(nil).load
       end
 
       def custom_location(path)
@@ -26,6 +25,14 @@ module ChefCLI
 
       def default_location
         File.join(WS_BASE_PATH, "config.toml")
+      end
+
+      def telemetry_path
+        File.join(WS_BASE_PATH, "telemetry")
+      end
+
+      def telemetry_session_file
+        File.join(telemetry_path, "TELEMETRY_SESSION_ID")
       end
 
       def error_output_path
@@ -55,6 +62,7 @@ module ChefCLI
       def create_directory_tree
         FileUtils.mkdir_p(File.dirname(default_location))
         FileUtils.mkdir_p(File.dirname(stack_trace_path))
+        FileUtils.mkdir_p(telemetry_path)
       end
 
       def create_default_config_file
@@ -77,6 +85,7 @@ module ChefCLI
     # doesn't skew customer telemetry.
     config_context :telemetry do
       default(:dev, false)
+      default(:enable, true)
     end
 
     config_context :log do
