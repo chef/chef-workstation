@@ -20,15 +20,52 @@ require "chef-cli/config"
 
 RSpec.describe ChefCLI::Telemeter::Sender do
   let(:subject) { ChefCLI::Telemeter::Sender.new }
+  let(:enabled_flag) { true }
+  let(:dev_mode) { false }
+  let(:config) { double("config") }
+
+  before do
+    allow(config).to receive(:dev).and_return dev_mode
+    allow(ChefCLI::Config).to receive(:telemetry).and_return config
+    allow(ChefCLI::Telemeter).to receive(:enabled?).and_return enabled_flag
+    # Ensure this is not set for each test:
+    ENV.delete("CHEF_TELEMETRY_ENDPOINT")
+  end
+
   describe "#run" do
     let(:session_files) { %w{file1 file2} }
-    it "submits the session capture for each session file found" do
+    before do
       expect(subject).to receive(:session_files).and_return session_files
-      expect(subject).to receive(:process_session).with("file1")
-      expect(subject).to receive(:process_session).with("file2")
-      subject.run
     end
 
+    context "when telemetry is disabled" do
+      let(:enabled_flag) { false }
+      it "deletes session files without sending" do
+        expect(FileUtils).to receive(:rm_rf).with("file1")
+        expect(FileUtils).to receive(:rm_rf).with("file2")
+        expect(FileUtils).to receive(:rm_rf).with(ChefCLI::Config.telemetry_session_file)
+        expect(subject).to_not receive(:process_session)
+        subject.run
+      end
+    end
+
+    context "when telemetry is enabled" do
+      context "and telemetry dev mode is true" do
+        let(:dev_mode) { true }
+        let(:session_files) { [] } # Ensure we don't send anything without mocking :allthecalls:
+        it "configures the environment to submit to the Acceptance telemetry endpoint" do
+          subject.run
+          expect(ENV["CHEF_TELEMETRY_ENDPOINT"]).to eq "https://telemetry-acceptance.chef.io"
+        end
+      end
+
+      it "submits the session capture for each session file found" do
+        expect(subject).to receive(:process_session).with("file1")
+        expect(subject).to receive(:process_session).with("file2")
+        expect(FileUtils).to receive(:rm_rf).with(ChefCLI::Config.telemetry_session_file)
+        subject.run
+      end
+    end
   end
 
   describe "#session_files" do
@@ -66,5 +103,4 @@ RSpec.describe ChefCLI::Telemeter::Sender do
       subject.submit_entry(telemetry, { "test" => "this" }, 1, 1)
     end
   end
-
 end

@@ -7,7 +7,20 @@ module ChefCLI
   class Telemeter
     class Sender
       def run
-        session_files.each { |path| process_session(path) }
+        if ChefCLI::Telemeter.enabled?
+          # dev mode telemetry gets sent to a different location
+          if ChefCLI::Config.telemetry.dev
+            ENV["CHEF_TELEMETRY_ENDPOINT"] = "https://telemetry-acceptance.chef.io"
+          end
+          session_files.each { |path| process_session(path) }
+        else
+          # If telemetry is not enabled, just clean up and return. Even though
+          # the telemetry gem will not send if disabled, log output saying that we're submitting
+          # it when it has been disabled can be alarming.
+          ChefCLI::Log.info("Telemetry disabled, clearing any existing session captures without sending them.")
+          session_files.each { |path| FileUtils.rm_rf(path) }
+        end
+        FileUtils.rm_rf(ChefCLI::Config.telemetry_session_file)
         ChefCLI::Log.info("Terminating, nothing more to do.")
       end
 
