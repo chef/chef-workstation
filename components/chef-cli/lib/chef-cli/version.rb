@@ -1,3 +1,3 @@
 module ChefCLI
-  VERSION = "0.1.87"
+  VERSION = "0.1.90"
 end

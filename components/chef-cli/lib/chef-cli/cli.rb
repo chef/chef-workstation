@@ -16,8 +16,8 @@
 #
 require "chef-cli/config"
 require "chef-cli/log"
-require "chef-cli/telemetry"
-require "chef-cli/telemetry/sender"
+require "chef-cli/telemeter"
+require "chef-cli/telemeter/sender"
 require "chef-cli/commands_map"
 require "chef-cli/builtin_commands"
 require "chef-cli/text"
@@ -46,15 +46,15 @@ module ChefCLI
       # the command exectuion completes, then we'll pick up what's left in the next run.
       # We don't, under any circumstances, want to cause the user to encounter noticeable
       # delays when waiting for a command to complete because telemetry hasn't yet finished submitting.
-      Thread.new() { ChefCLI::Telemetry::Sender.new().run }
+      Thread.new() { ChefCLI::Telemeter::Sender.new().run }
 
       # Perform a timing and capture of the requested command. Individual
-      # commands and actions may perform nested Telemetry.timed_*_capture or Telemetry.capture
+      # commands and actions may perform nested Telemeter.timed_*_capture or Telemeter.capture
       # calls in their operation, and they will be captured in the same telemetry session.
       # NOTE: We're not currently sending arguments to telemetry because we have not implemented
       #       pre-parsing of arguemtns to eliminate potentially sensitive data such as
       #       passwords in host name, or in ad-hoc converge properties.
-      Telemetry.timed_run_capture([:redacted]) do
+      Telemeter.timed_run_capture([:redacted]) do
         begin
           perform_command()
         rescue WrappedError => e
@@ -68,7 +68,7 @@ module ChefCLI
         end
       end
     ensure
-      Telemetry.commit
+      Telemeter.commit
       exit @rc
     end
 
@@ -170,7 +170,7 @@ module ChefCLI
     def handle_perform_error(e)
       id = e.respond_to?(:id) ? e.id : e.class.to_s
       message = e.respond_to?(:message) ? e.message : e.to_s
-      Telemetry.capture(:error, exception: { id: id, message: message })
+      Telemeter.capture(:error, exception: { id: id, message: message })
       wrapper = ChefCLI::StandardErrorResolver.wrap_exception(e)
       capture_exception_backtrace(wrapper)
       # Now that our housekeeping is done, allow user-facing handling/formatting

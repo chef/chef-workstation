@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/chef/chef-dk.git
-  revision: 488aa67c0bd4ecb0806a27d0bd883c4846b43951
+  revision: c1e437c6133b52ed9f9cc7d0c001a44ac1de3e6b
   branch: master
   specs:
-    chef-dk (3.0.33)
+    chef-dk (3.0.34)
       addressable (>= 2.3.5, < 2.6)
       chef (~> 14.0)
       chef-provisioning (~> 2.0)
@@ -47,7 +47,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-cli (0.1.87)
+    chef-cli (0.1.90)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       mixlib-cli

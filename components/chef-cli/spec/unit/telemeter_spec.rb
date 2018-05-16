@@ -15,10 +15,10 @@
 #
 
 require "spec_helper"
-require "chef-cli/telemetry"
+require "chef-cli/telemeter"
 
-RSpec.describe ChefCLI::Telemetry do
-  subject { ChefCLI::Telemetry.instance }
+RSpec.describe ChefCLI::Telemeter do
+  subject { ChefCLI::Telemeter.instance }
   let(:dev_mode) { true }
   let(:config) { double("config") }
   let(:host_platform) { "linux" }

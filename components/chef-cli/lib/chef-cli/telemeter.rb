@@ -26,11 +26,11 @@ require "yaml"
 
 module ChefCLI
 
-  # This definites the Telemetry interface. Implementation thoughts for
+  # This definites the Telemeter interface. Implementation thoughts for
   # when we unstub it:
   # - let's track the call sequence; most of our calls will be nested inside
   # a main 'timed_capture', and it would be good to see ordering within nested calls.
-  class Telemetry
+  class Telemeter
     include Singleton
     class << self
       extend Forwardable
@@ -43,7 +43,7 @@ module ChefCLI
 
     def enabled?
       require "telemetry/decision"
-      ChefCLI::Config.telemetry.enable && !::Telemetry::Decision.env_opt_out?
+      ChefCLI::Config.telemetry.enable && !Telemetry::Decision.env_opt_out?
     end
 
     def initialize
