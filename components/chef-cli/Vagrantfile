@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
     node.vm.box = "ubuntu/xenial64"
     node.vm.hostname = "#{name}"
     node.vm.network "private_network", ip: "192.168.33.#{final_octet}"
-    node.vm.network :forwarded_port, guest: 22, host: 2222, id: "ssh", auto_correct: true
+    node.vm.network :forwarded_port, guest: 22, host: ssh_port, id: "ssh", auto_correct: true
     node.vm.provider "virtualbox" do |v|
       # Keep these light, we're not really using them except to
       # run chef client
