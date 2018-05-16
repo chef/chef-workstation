@@ -41,6 +41,9 @@ dependency "ruby"
 dependency "rubygems"
 dependency "appbundler"
 
+# For inspec et all
+dependency "train"
+
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 

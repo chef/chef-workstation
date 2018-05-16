@@ -36,6 +36,7 @@ dependency "bundler"
 dependency "ruby"
 dependency "appbundler"
 dependency "chef-dk"
+dependency "train"
 
 relative_path "components/chef-cli"
 
