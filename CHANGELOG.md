@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.88 -->
+<!-- latest_release 0.1.89 -->
+## [0.1.89](https://github.com/chef/chef-workstation/tree/0.1.89) (2018-05-16)
+
+#### Merged Pull Requests
+- Support SLES and add tests for train translation [#125](https://github.com/chef/chef-workstation/pull/125) ([cheeseplus](https://github.com/cheeseplus))
+<!-- latest_release -->
+
 ## [0.1.88](https://github.com/chef/chef-workstation/tree/0.1.88) (2018-05-16)
 
 #### Merged Pull Requests
 - rename ChefCLI::Telemtry to ChefCLI::Telemeter [#132](https://github.com/chef/chef-workstation/pull/132) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.87](https://github.com/chef/chef-workstation/tree/0.1.87) (2018-05-16)
 
