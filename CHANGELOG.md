@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.91 -->
+<!-- latest_release 0.1.92 -->
+## [0.1.92](https://github.com/chef/chef-workstation/tree/0.1.92) (2018-05-16)
+
+#### Merged Pull Requests
+- change possibly confusing sample hostname in usage text [#133](https://github.com/chef/chef-workstation/pull/133) ([jjasghar](https://github.com/jjasghar))
+<!-- latest_release -->
+
 ## [0.1.91](https://github.com/chef/chef-workstation/tree/0.1.91) (2018-05-16)
 
 #### Merged Pull Requests
 - Some bug fixes / tests as documentation I came across [#127](https://github.com/chef/chef-workstation/pull/127) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.90](https://github.com/chef/chef-workstation/tree/0.1.90) (2018-05-16)
 
