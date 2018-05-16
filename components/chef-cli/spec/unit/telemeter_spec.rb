@@ -169,16 +169,22 @@ RSpec.describe ChefCLI::Telemeter do
   end
 
   context "#make_event_payload" do
-    context "when event is ':run'" do
-      it "adds expected properties" do
-        payload = subject.make_event_payload(:run, { hello: "world" })
-        expect(payload[:event]).to eq :run
-        props = payload[:properties]
-        expect(props[:host_platform]).to eq host_platform
-        expect(props[:run_timestamp]).to_not eq nil
-        expect(props[:hello]).to eq "world"
-      end
+    before do
+      allow(subject).to receive(:installation_id).and_return "0000"
     end
 
+    it "adds expected properties" do
+      payload = subject.make_event_payload(:run, { hello: "world" })
+      expected_payload = {
+        event: :run,
+        properties: {
+          installation_id: "0000",
+          run_timestamp: subject.run_timestamp,
+          host_platform: host_platform,
+          event_data:  { hello: "world" }
+        }
+      }
+      expect(payload).to eq expected_payload
+    end
   end
 end

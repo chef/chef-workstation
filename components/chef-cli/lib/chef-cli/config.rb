@@ -35,6 +35,10 @@ module ChefCLI
         File.join(telemetry_path, "TELEMETRY_SESSION_ID")
       end
 
+      def telemetry_installation_identifier_file
+        File.join(WS_BASE_PATH, "installation_id")
+      end
+
       def error_output_path
         File.join(File.dirname(log.location), "errors.txt")
       end
