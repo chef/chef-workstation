@@ -122,7 +122,8 @@ module ChefCLI
     end
 
     def convert_events_to_session
-      YAML.dump({ "entries" => @events_to_send })
+      YAML.dump({ "version" => ChefCLI::VERSION,
+                  "entries" => @events_to_send })
     end
 
     def write_session(session)
