@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.86 -->
+<!-- latest_release 0.1.87 -->
+## [0.1.87](https://github.com/chef/chef-workstation/tree/0.1.87) (2018-05-16)
+
+#### Merged Pull Requests
+- [SHACK-188] Telemetry power on [#123](https://github.com/chef/chef-workstation/pull/123) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.86](https://github.com/chef/chef-workstation/tree/0.1.86) (2018-05-15)
 
 #### Merged Pull Requests
 - pin train to pre-GCP version [#128](https://github.com/chef/chef-workstation/pull/128) ([robbkidd](https://github.com/robbkidd))
-<!-- latest_release -->
 
 ## [0.1.85](https://github.com/chef/chef-workstation/tree/0.1.85) (2018-05-14)
 

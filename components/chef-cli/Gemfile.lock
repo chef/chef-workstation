@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/chef/chef-dk.git
-  revision: c5a25993989f04f08bc5349d82697b18aadbc92f
+  revision: 488aa67c0bd4ecb0806a27d0bd883c4846b43951
   branch: master
   specs:
-    chef-dk (3.0.32)
+    chef-dk (3.0.33)
       addressable (>= 2.3.5, < 2.6)
       chef (~> 14.0)
       chef-provisioning (~> 2.0)
@@ -47,7 +47,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-cli (0.1.86)
+    chef-cli (0.1.87)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       mixlib-cli
@@ -83,10 +83,10 @@ GEM
     builder (3.2.3)
     byebug (10.0.2)
     cd (1.0.1)
-    chef (14.1.1)
+    chef (14.1.12)
       addressable
       bundler (>= 1.10)
-      chef-config (= 14.1.1)
+      chef-config (= 14.1.12)
       chef-zero (>= 13.0)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)
@@ -114,7 +114,7 @@ GEM
       specinfra (~> 2.10)
       syslog-logger (~> 1.6)
       uuidtools (~> 2.1.5)
-    chef-config (14.1.1)
+    chef-config (14.1.12)
       addressable
       fuzzyurl
       mixlib-config (~> 2.0)
