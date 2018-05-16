@@ -417,6 +417,10 @@ module ChefRun
       UI::Terminal.output "#{T.description}\n#{T.usage_full}"
     end
 
+    def usage
+      T.usage
+    end
+
     def show_version
       UI::Terminal.output T.version.show(ChefRun::VERSION)
     end

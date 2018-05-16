@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-# TODO: Telemetry require "chef-run/telemetry"
+require "chef-run/telemetry"
 require "chef-run/error"
 
 module ChefRun
@@ -107,7 +107,7 @@ module ChefRun
 
       def run(&block)
         @notification_handler = block
-        # Telemetry.timed_capture(:action, name: self.class.name.split("::").last) do
+        Telemetry.timed_capture(:action, name: self.class.name.split("::").last) do
           begin
             perform_action
           rescue StandardError => e
@@ -117,7 +117,7 @@ module ChefRun
             notify(:error, e)
             raise
           end
-        # end
+        end
       end
 
       def perform_action
