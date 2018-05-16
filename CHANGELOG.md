@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.89 -->
+<!-- latest_release 0.1.90 -->
+## [0.1.90](https://github.com/chef/chef-workstation/tree/0.1.90) (2018-05-16)
+
+#### Merged Pull Requests
+- [SHACK-167] use the real website in the post-install message [#130](https://github.com/chef/chef-workstation/pull/130) ([robbkidd](https://github.com/robbkidd))
+<!-- latest_release -->
+
 ## [0.1.89](https://github.com/chef/chef-workstation/tree/0.1.89) (2018-05-16)
 
 #### Merged Pull Requests
 - Support SLES and add tests for train translation [#125](https://github.com/chef/chef-workstation/pull/125) ([cheeseplus](https://github.com/cheeseplus))
-<!-- latest_release -->
 
 ## [0.1.88](https://github.com/chef/chef-workstation/tree/0.1.88) (2018-05-16)
 
