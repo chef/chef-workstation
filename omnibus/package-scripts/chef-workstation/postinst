@@ -35,6 +35,6 @@ for binary in $binaries; do
 done
 
 echo "Thank you for installing Chef Workstation!"
-echo "You can find some tips on getting started at HTTP://URL-TO-BE-DETERMINED"
+echo "You can find some tips on getting started at https://chef.sh/"
 
 exit 0
