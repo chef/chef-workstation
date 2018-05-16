@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.87 -->
+<!-- latest_release 0.1.88 -->
+## [0.1.88](https://github.com/chef/chef-workstation/tree/0.1.88) (2018-05-16)
+
+#### Merged Pull Requests
+- rename ChefCLI::Telemtry to ChefCLI::Telemeter [#132](https://github.com/chef/chef-workstation/pull/132) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.87](https://github.com/chef/chef-workstation/tree/0.1.87) (2018-05-16)
 
 #### Merged Pull Requests
 - [SHACK-188] Telemetry power on [#123](https://github.com/chef/chef-workstation/pull/123) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.86](https://github.com/chef/chef-workstation/tree/0.1.86) (2018-05-15)
 
