@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.90 -->
+<!-- latest_release 0.1.91 -->
+## [0.1.91](https://github.com/chef/chef-workstation/tree/0.1.91) (2018-05-16)
+
+#### Merged Pull Requests
+- Some bug fixes / tests as documentation I came across [#127](https://github.com/chef/chef-workstation/pull/127) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.90](https://github.com/chef/chef-workstation/tree/0.1.90) (2018-05-16)
 
 #### Merged Pull Requests
 - [SHACK-167] use the real website in the post-install message [#130](https://github.com/chef/chef-workstation/pull/130) ([robbkidd](https://github.com/robbkidd))
-<!-- latest_release -->
 
 ## [0.1.89](https://github.com/chef/chef-workstation/tree/0.1.89) (2018-05-16)
 
