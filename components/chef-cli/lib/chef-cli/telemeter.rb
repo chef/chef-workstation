@@ -32,6 +32,8 @@ module ChefCLI
   # a main 'timed_capture', and it would be good to see ordering within nested calls.
   class Telemeter
     include Singleton
+    DEFAULT_INSTALLATION_GUID = "00000000-0000-0000-0000-000000000000"
+
     class << self
       extend Forwardable
       def_delegators :instance, :timed_capture, :capture, :commit, :timed_action_capture, :timed_run_capture
@@ -93,12 +95,26 @@ module ChefCLI
     end
 
     def make_event_payload(name, data)
-      properties = {
-        # We will submit this payload in a future run, so capture the time of actual execution:
-        run_timestamp: run_timestamp,
-        host_platform: host_platform,
+      {
+        event: name,
+        properties: {
+          installation_id: installation_id,
+          run_timestamp: run_timestamp,
+          host_platform: host_platform,
+          event_data: data
+        }
       }
-      { event: name, properties: properties.merge(data) }
+    end
+
+    def installation_id
+      @installation_id ||=
+        begin
+          File.read(ChefCLI::Config.telemetry_installation_identifier_file).chomp
+        rescue
+          require 'pry';
+          ChefCLI::Log.info "could not read #{ChefCLI::Config.telemetry_installation_identifier_file} - using default id"
+          DEFAULT_INSTALLATION_GUID
+        end
     end
 
     # For testing.

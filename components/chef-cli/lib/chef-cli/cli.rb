@@ -79,20 +79,32 @@ module ChefCLI
       # Creates the tree we need under ~/.chef-workstation
       # based on config settings:
       Config.create_directory_tree
-      # TODO because we have not loaded a command, we wil lalways be using
+
+      # TODO because we have not loaded a command, we will always be using
       #      the default location at this step.
       if Config.using_default_location? && !Config.exist?
-        UI::Terminal.output T.creating_config(Config.default_location)
-        Config.create_default_config_file
-        # Tell the user we're anonymously tracking, give brief opt-out
-        # and a link to detailed information.
-        UI::Terminal.output ""
-        UI::Terminal.output T.telemetry_enabled(Config.default_location)
-        UI::Terminal.output ""
+        setup_workstation
       end
+
       Config.load
       ChefCLI::Log.setup(Config.log.location, Config.log.level.to_sym)
       ChefCLI::Log.info("Initialized logger")
+    end
+
+    # This setup command is run if ".chef-workstation" is missing prior to
+    # the run.  It will set up default configuration, generated an installation id
+    # for telemetry, and report telemetry & config info to the operator.
+    def setup_workstation
+      require 'securerandom'
+      installation_id = SecureRandom.uuid
+      File.write(Config.telemetry_installation_identifier_file, installation_id)
+      UI::Terminal.output T.creating_config(Config.default_location)
+      Config.create_default_config_file
+      # Tell the user we're anonymously tracking, give brief opt-out
+      # and a link to detailed information.
+      UI::Terminal.output ""
+      UI::Terminal.output T.telemetry_enabled(Config.default_location)
+      UI::Terminal.output ""
     end
 
     def perform_command
