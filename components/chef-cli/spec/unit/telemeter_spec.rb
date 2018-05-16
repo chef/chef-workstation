@@ -19,13 +19,9 @@ require "chef-cli/telemeter"
 
 RSpec.describe ChefCLI::Telemeter do
   subject { ChefCLI::Telemeter.instance }
-  let(:dev_mode) { true }
-  let(:config) { double("config") }
   let(:host_platform) { "linux" }
 
   before do
-    allow(config).to receive(:dev).and_return dev_mode
-    allow(ChefCLI::Config).to receive(:telemetry).and_return config
     allow(subject).to receive(:host_platform).and_return host_platform
   end
 
@@ -103,6 +99,38 @@ RSpec.describe ChefCLI::Telemeter do
     end
   end
 
+  context "::enabled?" do
+    let(:enabled_flag) { false }
+    let(:config) { double("config") }
+    before do
+      allow(ChefCLI::Config).to receive(:telemetry).and_return(config)
+      allow(config).to receive(:enable).and_return(enabled_flag)
+    end
+
+    context "when config value is enabled" do
+      let(:enabled_flag) { true }
+      context "and CHEF_TELEMETRY_OPT_OUT is not present in env vars" do
+        it "returns false" do
+          ENV.delete("CHEF_TELEMETRY_OPT_OUT")
+          expect(subject.enabled?).to eq true
+        end
+      end
+      context "and CHEF_TELEMETRY_OPT_OUT is present in env vars" do
+        it "returns false" do
+          ENV["CHEF_TELEMETRY_OPT_OUT"] = ""
+          expect(subject.enabled?).to eq false
+        end
+      end
+    end
+
+    context "when config value is disabled" do
+      let(:enabled_flag) { false }
+      it "returns false" do
+        expect(subject.enabled?).to eq false
+      end
+    end
+  end
+
   context "#timed_run_capture" do
     it "invokes timed_capture with run data" do
       expected_data = { arguments: [ "arg1" ] }
@@ -141,17 +169,22 @@ RSpec.describe ChefCLI::Telemeter do
   end
 
   context "#make_event_payload" do
-    context "when event is ':run'" do
-      it "adds expected properties" do
-        payload = subject.make_event_payload(:run, { hello: "world" })
-        expect(payload[:event]).to eq :run
-        props = payload[:properties]
-        expect(props[:telemetry_mode]).to eq "dev"
-        expect(props[:host_platform]).to eq host_platform
-        expect(props[:run_timestamp]).to_not eq nil
-        expect(props[:hello]).to eq "world"
-      end
+    before do
+      allow(subject).to receive(:installation_id).and_return "0000"
     end
 
+    it "adds expected properties" do
+      payload = subject.make_event_payload(:run, { hello: "world" })
+      expected_payload = {
+        event: :run,
+        properties: {
+          installation_id: "0000",
+          run_timestamp: subject.run_timestamp,
+          host_platform: host_platform,
+          event_data:  { hello: "world" }
+        }
+      }
+      expect(payload).to eq expected_payload
+    end
   end
 end

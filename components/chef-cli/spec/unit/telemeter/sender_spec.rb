@@ -20,15 +20,64 @@ require "chef-cli/config"
 
 RSpec.describe ChefCLI::Telemeter::Sender do
   let(:subject) { ChefCLI::Telemeter::Sender.new }
+  let(:enabled_flag) { true }
+  let(:dev_mode) { false }
+  let(:config) { double("config") }
+
+  before do
+    allow(config).to receive(:dev).and_return dev_mode
+    allow(ChefCLI::Config).to receive(:telemetry).and_return config
+    allow(ChefCLI::Telemeter).to receive(:enabled?).and_return enabled_flag
+    # Ensure this is not set for each test:
+    ENV.delete("CHEF_TELEMETRY_ENDPOINT")
+  end
+
   describe "#run" do
     let(:session_files) { %w{file1 file2} }
-    it "submits the session capture for each session file found" do
+    before do
       expect(subject).to receive(:session_files).and_return session_files
-      expect(subject).to receive(:process_session).with("file1")
-      expect(subject).to receive(:process_session).with("file2")
-      subject.run
     end
 
+    context "when telemetry is disabled" do
+      let(:enabled_flag) { false }
+      it "deletes session files without sending" do
+        expect(FileUtils).to receive(:rm_rf).with("file1")
+        expect(FileUtils).to receive(:rm_rf).with("file2")
+        expect(FileUtils).to receive(:rm_rf).with(ChefCLI::Config.telemetry_session_file)
+        expect(subject).to_not receive(:process_session)
+        subject.run
+      end
+    end
+
+    context "when telemetry is enabled" do
+      context "and telemetry dev mode is true" do
+        let(:dev_mode) { true }
+        let(:session_files) { [] } # Ensure we don't send anything without mocking :allthecalls:
+        context "and a custom telemetry endpoint is not set" do
+          it "configures the environment to submit to the Acceptance telemetry endpoint" do
+            subject.run
+            expect(ENV["CHEF_TELEMETRY_ENDPOINT"]).to eq "https://telemetry-acceptance.chef.io"
+          end
+        end
+
+        context "and a custom telemetry endpoint is already set" do
+          before do
+            ENV["CHEF_TELEMETRY_ENDPOINT"] = "https://localhost"
+          end
+          it "should not overwrite the custom value" do
+            subject.run
+            expect(ENV["CHEF_TELEMETRY_ENDPOINT"]).to eq "https://localhost"
+          end
+        end
+      end
+
+      it "submits the session capture for each session file found" do
+        expect(subject).to receive(:process_session).with("file1")
+        expect(subject).to receive(:process_session).with("file2")
+        expect(FileUtils).to receive(:rm_rf).with(ChefCLI::Config.telemetry_session_file)
+        subject.run
+      end
+    end
   end
 
   describe "#session_files" do
@@ -41,8 +90,8 @@ RSpec.describe ChefCLI::Telemeter::Sender do
 
   describe "process_session" do
     it "loads the sesion and submits it" do
-      expect(subject).to receive(:load_and_clear_session).with("file1").and_return({ "entries" => [] })
-      expect(subject).to receive(:submit_session).with({ "entries" => [] })
+      expect(subject).to receive(:load_and_clear_session).with("file1").and_return({ "version" => "1.0.0", "entries" => [] })
+      expect(subject).to receive(:submit_session).with({ "version" => "1.0.0", "entries" => [] })
       subject.process_session("file1")
     end
   end
@@ -55,7 +104,8 @@ RSpec.describe ChefCLI::Telemeter::Sender do
       expect(Telemetry).to receive(:new).and_return telemetry
       expect(subject).to receive(:submit_entry).with(telemetry, { "event" => "action1" }, 1, 2)
       expect(subject).to receive(:submit_entry).with(telemetry, { "event" => "action2" }, 2, 2)
-      subject.submit_session( { "entries" => [ { "event" => "action1" }, { "event" => "action2" } ] } )
+      subject.submit_session( { "version" => "1.0.0",
+                                "entries" => [ { "event" => "action1" }, { "event" => "action2" } ] } )
     end
   end
 
@@ -66,5 +116,4 @@ RSpec.describe ChefCLI::Telemeter::Sender do
       subject.submit_entry(telemetry, { "test" => "this" }, 1, 1)
     end
   end
-
 end
