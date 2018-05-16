@@ -99,6 +99,38 @@ RSpec.describe ChefCLI::Telemeter do
     end
   end
 
+  context "::enabled?" do
+    let(:enabled_flag) { false }
+    let(:config) { double("config") }
+    before do
+      allow(ChefCLI::Config).to receive(:telemetry).and_return(config)
+      allow(config).to receive(:enable).and_return(enabled_flag)
+    end
+
+    context "when config value is enabled" do
+      let(:enabled_flag) { true }
+      context "and CHEF_TELEMETRY_OPT_OUT is not present in env vars" do
+        it "returns false" do
+          ENV.delete("CHEF_TELEMETRY_OPT_OUT")
+          expect(subject.enabled?).to eq true
+        end
+      end
+      context "and CHEF_TELEMETRY_OPT_OUT is present in env vars" do
+        it "returns false" do
+          ENV["CHEF_TELEMETRY_OPT_OUT"] = ""
+          expect(subject.enabled?).to eq false
+        end
+      end
+    end
+
+    context "when config value is disabled" do
+      let(:enabled_flag) { false }
+      it "returns false" do
+        expect(subject.enabled?).to eq false
+      end
+    end
+  end
+
   context "#timed_run_capture" do
     it "invokes timed_capture with run data" do
       expected_data = { arguments: [ "arg1" ] }
