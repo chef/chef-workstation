@@ -78,8 +78,8 @@ RSpec.describe ChefCLI::Telemeter::Sender do
 
   describe "process_session" do
     it "loads the sesion and submits it" do
-      expect(subject).to receive(:load_and_clear_session).with("file1").and_return({ "entries" => [] })
-      expect(subject).to receive(:submit_session).with({ "entries" => [] })
+      expect(subject).to receive(:load_and_clear_session).with("file1").and_return({ "version" => "1.0.0", "entries" => [] })
+      expect(subject).to receive(:submit_session).with({ "version" => "1.0.0", "entries" => [] })
       subject.process_session("file1")
     end
   end
@@ -92,7 +92,8 @@ RSpec.describe ChefCLI::Telemeter::Sender do
       expect(Telemetry).to receive(:new).and_return telemetry
       expect(subject).to receive(:submit_entry).with(telemetry, { "event" => "action1" }, 1, 2)
       expect(subject).to receive(:submit_entry).with(telemetry, { "event" => "action2" }, 2, 2)
-      subject.submit_session( { "entries" => [ { "event" => "action1" }, { "event" => "action2" } ] } )
+      subject.submit_session( { "version" => "1.0.0",
+                                "entries" => [ { "event" => "action1" }, { "event" => "action2" } ] } )
     end
   end
 
