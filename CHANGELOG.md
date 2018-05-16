@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.93 -->
+<!-- latest_release 0.1.94 -->
+## [0.1.94](https://github.com/chef/chef-workstation/tree/0.1.94) (2018-05-16)
+
+#### Merged Pull Requests
+- [SHACK-188] telemetry cleanup tasks [#134](https://github.com/chef/chef-workstation/pull/134) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.93](https://github.com/chef/chef-workstation/tree/0.1.93) (2018-05-16)
 
 #### Merged Pull Requests
 - [SHACK-131] Support custom resources from another cookbook [#126](https://github.com/chef/chef-workstation/pull/126) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.92](https://github.com/chef/chef-workstation/tree/0.1.92) (2018-05-16)
 

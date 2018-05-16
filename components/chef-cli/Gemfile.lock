@@ -47,7 +47,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-cli (0.1.93)
+    chef-cli (0.1.94)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       mixlib-cli
@@ -433,4 +433,4 @@ DEPENDENCIES
   train!
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
