@@ -16,7 +16,7 @@
 
 require "spec_helper"
 require "chef-cli/cli"
-require "chef-cli/telemetry"
+require "chef-cli/telemeter"
 require "chef-cli/error"
 require "chef-cli/text"
 require "chef-cli/ui/terminal"
@@ -27,7 +27,7 @@ RSpec.describe ChefCLI::CLI do
   subject(:cli) do
     ChefCLI::CLI.new(argv)
   end
-  let(:telemetry) { ChefCLI::Telemetry.instance }
+  let(:telemetry) { ChefCLI::Telemeter.instance }
 
   context "run" do
     before do

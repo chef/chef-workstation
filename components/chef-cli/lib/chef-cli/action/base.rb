@@ -1,4 +1,4 @@
-require "chef-cli/telemetry"
+require "chef-cli/telemeter"
 require "chef-cli/error"
 
 module ChefCLI
@@ -90,7 +90,7 @@ module ChefCLI
 
       def run(&block)
         @notification_handler = block
-        Telemetry.timed_action_capture(self) do
+        Telemeter.timed_action_capture(self) do
           begin
             perform_action
           rescue StandardError => e
