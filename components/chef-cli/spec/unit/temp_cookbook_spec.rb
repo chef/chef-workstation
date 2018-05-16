@@ -22,22 +22,76 @@ require "securerandom"
 RSpec.describe ChefCLI::TempCookbook do
   subject(:tc) { ChefCLI::TempCookbook.new }
   let(:uuid) { SecureRandom.uuid }
-  let(:existing_recipe) do
-    t = Tempfile.new
-    t.write(uuid)
-    t.close
-    t
-  end
 
   after do
     tc.delete
-    existing_recipe.unlink
   end
 
   describe "#from_existing_recipe" do
-    it "copies the existing recipe" do
-      tc.from_existing_recipe(existing_recipe.path)
-      expect(File.read(File.join(tc.path, "recipes/default.rb"))).to eq(uuid)
+    it "raises an error if the recipe does not have a .rb extension" do
+      err = ChefCLI::TempCookbook::UnsupportedExtension
+      expect { tc.from_existing_recipe("/some/file.chef") }.to raise_error(err)
+    end
+
+    context "when there is an existing cookbook" do
+      let(:cb) do
+        d = Dir.mktmpdir
+        File.open(File.join(d, "metadata.rb"), "w+") do |f|
+          f << "name \"foo\""
+        end
+        FileUtils.mkdir(File.join(d, "recipes"))
+        d
+      end
+
+      let(:existing_recipe) do
+        File.open(File.join(cb, "recipes/default.rb"), "w+") do |f|
+          f.write(uuid)
+          f
+        end
+      end
+
+      after do
+        FileUtils.remove_entry cb
+      end
+
+      it "copies the whole cookbook" do
+        tc.from_existing_recipe(existing_recipe.path)
+        expect(File.read(File.join(tc.path, "recipes/default.rb"))).to eq(uuid)
+        expect(File.read(File.join(tc.path, "Policyfile.rb"))).to eq <<-EOD.gsub(/^ {10}/, "")
+          name "foo_policy"
+          default_source :supermarket
+          run_list "foo::default"
+          cookbook "foo", path: "."
+        EOD
+        expect(File.read(File.join(tc.path, "metadata.rb"))).to eq("name \"foo\"")
+      end
+    end
+
+    context "when there is only a single recipe not in a cookbook" do
+      let(:existing_recipe) do
+        t = Tempfile.new(["recipe", ".rb"])
+        t.write(uuid)
+        t.close
+        t
+      end
+
+      after do
+        existing_recipe.unlink
+      end
+
+      it "copies the existing recipe into a new cookbook" do
+        tc.from_existing_recipe(existing_recipe.path)
+        recipe_filename = File.basename(existing_recipe.path)
+        recipe_name = File.basename(recipe_filename, File.extname(recipe_filename))
+        expect(File.read(File.join(tc.path, "recipes/", recipe_filename))).to eq(uuid)
+        expect(File.read(File.join(tc.path, "Policyfile.rb"))).to eq <<-EOD.gsub(/^ {10}/, "")
+          name "cw_recipe_policy"
+          default_source :supermarket
+          run_list "cw_recipe::#{recipe_name}"
+          cookbook "cw_recipe", path: "."
+        EOD
+        expect(File.read(File.join(tc.path, "metadata.rb"))).to eq("name \"cw_recipe\"\n")
+      end
     end
   end
 
@@ -50,19 +104,19 @@ RSpec.describe ChefCLI::TempCookbook do
 
   describe "#generate_metadata" do
     it "generates metadata in the temp cookbook" do
-      f = tc.generate_metadata
-      expect(File.read(f)).to eq("name \"\"\n")
+      f = tc.generate_metadata("foo")
+      expect(File.read(f)).to eq("name \"foo\"\n")
     end
   end
 
   describe "#generate_policyfile" do
     it "generates a policyfile in the temp cookbook" do
-      f = tc.generate_policyfile
+      f = tc.generate_policyfile("foo", "bar")
       expect(File.read(f)).to eq <<-EOD.gsub(/^ {6}/, "")
-      name "_policy"
+      name "foo_policy"
       default_source :supermarket
-      run_list "::default"
-      cookbook "", path: "."
+      run_list "foo::bar"
+      cookbook "foo", path: "."
       EOD
     end
   end
