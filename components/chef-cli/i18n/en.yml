@@ -84,17 +84,17 @@ commands:
           Converge the specified <TARGET> with the single <RESOURCE>.
           [PROPERTIES] should be specified as key=value. For example:
 
-            chef target converge myec2node directory /tmp/test mode="0777" action=create
+            chef target converge web01 directory /tmp/test mode="0777" action=create
 
         chef target converge <TARGET> <RECIPE> [FLAGS]
 
           Converge the specified <TARGET> with the single recipe located at
           <RECIPE>. For example:
 
-            chef target converge myec2node path/to/cookbook/recipe.rb
-            chef target converge myec2node path/to/cookbook
-            chef target converge myec2node cookbook_name
-            chef target converge myec2node cookbook_name::recipe_name
+            chef target converge web01 path/to/cookbook/recipe.rb
+            chef target converge web01 path/to/cookbook
+            chef target converge web01 cookbook_name
+            chef target converge web01 cookbook_name::recipe_name
 
         ARGUMENTS:
           <TARGET>          The host or IP address to converge. Can also be an SSH or WinRM URL
