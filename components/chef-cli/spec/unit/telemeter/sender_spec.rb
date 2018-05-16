@@ -15,11 +15,11 @@
 #
 
 require "spec_helper"
-require "chef-cli/telemetry"
+require "chef-cli/telemeter"
 require "chef-cli/config"
 
-RSpec.describe ChefCLI::Telemetry::Sender do
-  let(:subject) { ChefCLI::Telemetry::Sender.new }
+RSpec.describe ChefCLI::Telemeter::Sender do
+  let(:subject) { ChefCLI::Telemeter::Sender.new }
   describe "#run" do
     let(:session_files) { %w{file1 file2} }
     it "submits the session capture for each session file found" do
@@ -52,7 +52,7 @@ RSpec.describe ChefCLI::Telemetry::Sender do
     it "removes the telemetry session file and starts a new session, then submits each entry in the session" do
       expect(ChefCLI::Config).to receive(:telemetry_session_file).and_return("/tmp/SESSION_ID")
       expect(FileUtils).to receive(:rm_rf).with("/tmp/SESSION_ID")
-      expect(::Telemetry).to receive(:new).and_return telemetry
+      expect(Telemetry).to receive(:new).and_return telemetry
       expect(subject).to receive(:submit_entry).with(telemetry, { "event" => "action1" }, 1, 2)
       expect(subject).to receive(:submit_entry).with(telemetry, { "event" => "action2" }, 2, 2)
       subject.submit_session( { "entries" => [ { "event" => "action1" }, { "event" => "action2" } ] } )

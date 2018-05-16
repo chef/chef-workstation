@@ -1,10 +1,10 @@
 require "telemetry"
-require "chef-cli/telemetry/patch"
+require "chef-cli/telemeter/patch"
 require "chef-cli/log"
 require "chef-cli/version"
 
 module ChefCLI
-  class Telemetry
+  class Telemeter
     class Sender
       def run
         session_files.each { |path| process_session(path) }
@@ -30,10 +30,10 @@ module ChefCLI
         # Each run is one session, so we'll first remove remove the session file
         # to force creating a new one.
         FileUtils.rm_rf(ChefCLI::Config.telemetry_session_file)
-        telemetry = ::Telemetry.new(product: "chef-workstation-cli",
-                                    origin: "command-line",
-                                    product_version: ChefCLI::VERSION,
-                                    install_context: "omnibus")
+        telemetry = Telemetry.new(product: "chef-workstation-cli",
+                                  origin: "command-line",
+                                  product_version: ChefCLI::VERSION,
+                                  install_context: "omnibus")
         entries = content["entries"]
         total = entries.length
         entries.each_with_index do |entry, x|
