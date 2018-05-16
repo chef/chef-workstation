@@ -62,7 +62,7 @@ module ChefCLI
           @rc = RC_COMMAND_FAILED
         rescue SystemExit => e
           @rc = e.status
-        rescue => e
+        rescue Exception => e
           UI::ErrorPrinter.dump_unexpected_error(e)
           @rc = RC_ERROR_HANDLING_FAILED
         end
@@ -100,7 +100,7 @@ module ChefCLI
       update_args_for_version
       root_command, *leftover = @argv
       run_command!(root_command, leftover)
-    rescue => e
+    rescue Exception => e
       handle_perform_error(e)
     end
 
