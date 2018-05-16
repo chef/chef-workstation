@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright (c) 2018 Chef Software Inc.
+# Copyright:: Copyright (c) 2017 Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,17 +15,28 @@
 # limitations under the License.
 #
 
-require "spec_helper"
-require "chef-run/version"
+module ChefRun
+  class StatusReporter
 
-RSpec.describe ChefRun::VERSION do
-  subject(:version) do
-    ChefRun::VERSION
-  end
-
-  context "VERSION" do
-    it "returns the version" do
-      expect(Gem::Version.correct?(version)).to be_truthy
+    def initialize(ui_element, prefix: nil, key: nil)
+      @ui_element = ui_element
+      @key = key
+      @ui_element.update(prefix: prefix)
     end
+
+    def update(msg)
+      @ui_element.update({ @key => msg })
+    end
+
+    def success(msg)
+      update(msg)
+      @ui_element.success
+    end
+
+    def error(msg)
+      update(msg)
+      @ui_element.error
+    end
+
   end
 end

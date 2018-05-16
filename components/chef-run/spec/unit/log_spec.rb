@@ -16,16 +16,22 @@
 #
 
 require "spec_helper"
-require "chef-run/version"
+require "chef-run/log"
 
-RSpec.describe ChefRun::VERSION do
-  subject(:version) do
-    ChefRun::VERSION
+RSpec.describe ChefRun::Log do
+  Log = ChefRun::Log
+  let(:output) { StringIO.new }
+
+  before do
+    Log.setup output, :debug
   end
 
-  context "VERSION" do
-    it "returns the version" do
-      expect(Gem::Version.correct?(version)).to be_truthy
-    end
+  after do
+    Log.setup "/dev/null", :error
+  end
+
+  it "correctly logs to stdout" do
+    Log.debug("test")
+    expect(output.string).to match(/DEBUG: test$/)
   end
 end

@@ -18,6 +18,7 @@
 require "bundler/setup"
 require "simplecov"
 require "rspec/expectations"
+require "support/matchers/output_to_terminal"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -34,6 +35,10 @@ RSpec.configure do |config|
 
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
+  end
+
+  config.before(:all) do
+    ChefRun::UI::Terminal.init(File.open("/dev/null", "w"))
   end
 end
 

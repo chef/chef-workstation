@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright (c) 2018 Chef Software Inc.
+# Copyright:: Copyright (c) 2017 Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,17 +15,28 @@
 # limitations under the License.
 #
 
-require "spec_helper"
-require "chef-run/version"
+require "mixlib/log"
 
-RSpec.describe ChefRun::VERSION do
-  subject(:version) do
-    ChefRun::VERSION
-  end
+module ChefRun
+  class Log
+    extend Mixlib::Log
 
-  context "VERSION" do
-    it "returns the version" do
-      expect(Gem::Version.correct?(version)).to be_truthy
+    def self.setup(location, log_level)
+      @location = location
+      if location.is_a?(String)
+        if location.casecmp("stdout") == 0
+          location = $stdout
+        else
+          location = File.open(location, "w+")
+        end
+      end
+      init(location)
+      Log.level = log_level
     end
+
+    def self.location
+      @location
+    end
+
   end
 end

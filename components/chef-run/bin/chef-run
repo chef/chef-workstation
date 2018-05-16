@@ -17,6 +17,6 @@
 # limitations under the License.
 #
 
-require "chef-run/version"
+require "chef-run/cli"
 
-puts "chef-run: #{ChefRun::VERSION}"
+ChefRun::CLI.new(ARGV.clone).run

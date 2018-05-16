@@ -48,6 +48,21 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "mixlib-cli"    # Provides argument handling DSL for CLI applications
+  spec.add_dependency "mixlib-config" # shared chef configuration library that
+                                      # simplifies managing a configuration file
+  spec.add_dependency "mixlib-log"    # Basis for our traditional logger
+  spec.add_dependency "mixlib-install" # URL resolver + install tool for chef products
+  spec.add_dependency "r18n-desktop" # easy path to message text management via
+                                     # localization gem...
+  spec.add_dependency "toml-rb" # This isn't ideal because mixlib-config uses 'tomlrb'
+                               # but that library does not support a dumper
+  spec.add_dependency "train" # remote connection management over ssh, winrm
+  spec.add_dependency "pastel" # A color library
+  spec.add_dependency "tty-spinner" # Pretty output for status updates in the CLI
+  spec.add_dependency "chef", ">= 14.0" # Needed to load cookbooks
+  spec.add_dependency "chef-dk", ">= 3.0"
+
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"

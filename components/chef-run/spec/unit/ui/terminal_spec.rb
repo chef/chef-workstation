@@ -16,16 +16,13 @@
 #
 
 require "spec_helper"
-require "chef-run/version"
+require "chef-run/ui/terminal"
 
-RSpec.describe ChefRun::VERSION do
-  subject(:version) do
-    ChefRun::VERSION
-  end
+RSpec.describe ChefRun::UI::Terminal do
+  Terminal = ChefRun::UI::Terminal
 
-  context "VERSION" do
-    it "returns the version" do
-      expect(Gem::Version.correct?(version)).to be_truthy
-    end
+  it "correctly outputs a message" do
+    expect { Terminal.output("test") }
+      .to output("test\n").to_terminal
   end
 end
