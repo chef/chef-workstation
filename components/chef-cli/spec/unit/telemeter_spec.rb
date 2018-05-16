@@ -19,13 +19,9 @@ require "chef-cli/telemeter"
 
 RSpec.describe ChefCLI::Telemeter do
   subject { ChefCLI::Telemeter.instance }
-  let(:dev_mode) { true }
-  let(:config) { double("config") }
   let(:host_platform) { "linux" }
 
   before do
-    allow(config).to receive(:dev).and_return dev_mode
-    allow(ChefCLI::Config).to receive(:telemetry).and_return config
     allow(subject).to receive(:host_platform).and_return host_platform
   end
 
@@ -146,7 +142,6 @@ RSpec.describe ChefCLI::Telemeter do
         payload = subject.make_event_payload(:run, { hello: "world" })
         expect(payload[:event]).to eq :run
         props = payload[:properties]
-        expect(props[:telemetry_mode]).to eq "dev"
         expect(props[:host_platform]).to eq host_platform
         expect(props[:run_timestamp]).to_not eq nil
         expect(props[:hello]).to eq "world"
