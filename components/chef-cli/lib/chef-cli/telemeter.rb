@@ -96,9 +96,6 @@ module ChefCLI
       properties = {
         # We will submit this payload in a future run, so capture the time of actual execution:
         run_timestamp: run_timestamp,
-        # This lets us filter out testing/dev actions, which may not
-        # follow customer usage patterns:
-        telemetry_mode:  ChefCLI::Config.telemetry.dev ? "dev" : "prod",
         host_platform: host_platform,
       }
       { event: name, properties: properties.merge(data) }
