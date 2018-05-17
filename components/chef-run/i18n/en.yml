@@ -61,9 +61,9 @@ cli:
 
       For example:
 
-        chef-run myec2node directory /tmp/test mode="0777" action=create
-        chef-run myec2node,myec2node2 directory /tmp/test mode="0777" action=create
-        chef-run myec2node[1:2] directory /tmp/test mode="0777" action=create
+        chef-run web01 service nginx action=restart
+        chef-run web01,web02 nginx action=restart
+        chef-run web0[1:2] nginx action=restart
 
     chef-run <TARGET[S]> <RECIPE> [FLAGS]
 
@@ -71,10 +71,10 @@ cli:
 
       For example:
 
-        chef-run myec2node path/to/cookbook/recipe.rb
-        chef-run myec2node,myec2node2 path/to/cookbook
-        chef-run myec2node[1:2] cookbook_name
-        chef-run myec2node cookbook_name::recipe_name
+        chef-run web01 path/to/cookbook/recipe.rb
+        chef-run web01,web02 path/to/cookbook
+        chef-run web0[1:2] cookbook_name
+        chef-run web01 cookbook_name::recipe_name
 
     ARGUMENTS:
       <TARGET[S]>       The hosts or IPs to target. Can also be an SSH or WinRM URLs
@@ -260,7 +260,7 @@ errors:
     Cookbook path is '%1'.
 
   CHEFVAL006: |
-    Cookbook '%1' could not be found in any of the following directorys
+    Cookbook '%1' could not be found in any of the following directories
 
     %2
 
