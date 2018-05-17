@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.97 -->
+<!-- latest_release 0.1.98 -->
+## [0.1.98](https://github.com/chef/chef-workstation/tree/0.1.98) (2018-05-17)
+
+#### Merged Pull Requests
+- Update code/instructions for bringing chef.sh up locally  [#140](https://github.com/chef/chef-workstation/pull/140) ([schisamo](https://github.com/schisamo))
+<!-- latest_release -->
+
 ## [0.1.97](https://github.com/chef/chef-workstation/tree/0.1.97) (2018-05-17)
 
 #### Merged Pull Requests
 - Fix failing integration test on help output [#138](https://github.com/chef/chef-workstation/pull/138) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.96](https://github.com/chef/chef-workstation/tree/0.1.96) (2018-05-17)
 
