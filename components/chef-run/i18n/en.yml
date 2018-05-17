@@ -62,8 +62,8 @@ cli:
       For example:
 
         chef-run web01 service nginx action=restart
-        chef-run web01,web02 nginx action=restart
-        chef-run web0[1:2] nginx action=restart
+        chef-run web01,web02 service nginx action=restart
+        chef-run web0[1:2] service nginx action=restart
 
     chef-run <TARGET[S]> <RECIPE> [FLAGS]
 

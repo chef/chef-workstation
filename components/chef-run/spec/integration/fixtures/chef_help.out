@@ -7,9 +7,9 @@ chef-run <TARGET[S]> <RESOURCE> <RESOURCE_NAME> [PROPERTIES] [FLAGS]
 
   For example:
 
-    chef-run myec2node directory /tmp/test mode="0777" action=create
-    chef-run myec2node,myec2node2 directory /tmp/test mode="0777" action=create
-    chef-run myec2node[1:2] directory /tmp/test mode="0777" action=create
+    chef-run web01 service nginx action=restart
+    chef-run web01,web02 service nginx action=restart
+    chef-run web0[1:2] service nginx action=restart
 
 chef-run <TARGET[S]> <RECIPE> [FLAGS]
 
@@ -17,10 +17,10 @@ chef-run <TARGET[S]> <RECIPE> [FLAGS]
 
   For example:
 
-    chef-run myec2node path/to/cookbook/recipe.rb
-    chef-run myec2node,myec2node2 path/to/cookbook
-    chef-run myec2node[1:2] cookbook_name
-    chef-run myec2node cookbook_name::recipe_name
+    chef-run web01 path/to/cookbook/recipe.rb
+    chef-run web01,web02 path/to/cookbook
+    chef-run web0[1:2] cookbook_name
+    chef-run web01 cookbook_name::recipe_name
 
 ARGUMENTS:
   <TARGET[S]>       The hosts or IPs to target. Can also be an SSH or WinRM URLs
@@ -40,7 +40,7 @@ ARGUMENTS:
                        you to specify which recipe to use from the cookbook.
 
 FLAGS:
-    -c, --config PATH                 Location of config file. Defaults to /Users/jmorrow/.chef-workstation/config.toml
+    -c, --config PATH                 Location of config file. Defaults to $HOME/.chef-workstation/config.toml
         --cookbook-repo-paths PATH    Comma separated list of cookbook repository paths.
     -h, --help                        Show help and usage for `chef-run`
     -i, --identity-file PATH          SSH identity file to use when connecting.
