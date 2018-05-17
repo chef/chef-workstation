@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.98 -->
+<!-- latest_release 0.1.99 -->
+## [0.1.99](https://github.com/chef/chef-workstation/tree/0.1.99) (2018-05-17)
+
+#### Merged Pull Requests
+- fix spelling caught during user test. [#137](https://github.com/chef/chef-workstation/pull/137) ([mchiang0610](https://github.com/mchiang0610))
+<!-- latest_release -->
+
 ## [0.1.98](https://github.com/chef/chef-workstation/tree/0.1.98) (2018-05-17)
 
 #### Merged Pull Requests
 - Update code/instructions for bringing chef.sh up locally  [#140](https://github.com/chef/chef-workstation/pull/140) ([schisamo](https://github.com/schisamo))
-<!-- latest_release -->
 
 ## [0.1.97](https://github.com/chef/chef-workstation/tree/0.1.97) (2018-05-17)
 
