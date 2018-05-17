@@ -296,7 +296,7 @@ errors:
     Cookbook path is '%1'.
 
   CHEFVAL006: |
-    Cookbook '%1' could not be found in any of the following directorys
+    Cookbook '%1' could not be found in any of the following directories
 
     %2
 
