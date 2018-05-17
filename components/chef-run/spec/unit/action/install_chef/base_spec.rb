@@ -17,6 +17,7 @@
 
 require "spec_helper"
 require "chef-run/action/install_chef"
+require "chef-run/target_host"
 
 RSpec.describe ChefRun::Action::InstallChef::Base do
   let(:mock_os_name) { "mock" }
@@ -110,6 +111,87 @@ RSpec.describe ChefRun::Action::InstallChef::Base do
       expect(install).to receive(:install_chef_to_target).with("/remote/path")
 
       install.perform_local_install
+    end
+  end
+
+  context "#train_to_mixlib" do
+    let(:platform) { double }
+    before do
+      allow(platform).to receive(:release).and_return "1234"
+      allow(platform).to receive(:name).and_return "beos"
+      allow(platform).to receive(:arch).and_return "ppc"
+    end
+
+    context "when any flavor of windows" do
+      before do
+        allow(platform).to receive(:name).and_return "windows_10_pro_n"
+      end
+
+      it "sets platform name to 'windows'" do
+        mixlib_info = install.train_to_mixlib(platform)
+        expect(mixlib_info[:platform]).to eq "windows"
+      end
+    end
+
+    context "when redhat" do
+      before do
+        allow(platform).to receive(:name).and_return "redhat"
+      end
+
+      it "sets platform name to 'el'" do
+        mixlib_info = install.train_to_mixlib(platform)
+        expect(mixlib_info[:platform]).to eq "el"
+      end
+    end
+
+    context "when centos" do
+      before do
+        allow(platform).to receive(:name).and_return "centos"
+      end
+
+      it "sets platform name to 'el'" do
+        mixlib_info = install.train_to_mixlib(platform)
+        expect(mixlib_info[:platform]).to eq "el"
+      end
+    end
+
+    context "when suse" do
+      before do
+        allow(platform).to receive(:name).and_return "suse"
+      end
+
+      it "sets platform name to 'sles'" do
+        mixlib_info = install.train_to_mixlib(platform)
+        expect(mixlib_info[:platform]).to eq "sles"
+      end
+    end
+    context "when amazon" do
+      before do
+        allow(platform).to receive(:name).and_return "amazon"
+      end
+
+      context "when amazon linux 1.x" do
+        before do
+          allow(platform).to receive(:release).and_return "2017.09"
+        end
+
+        it "sets platform name to 'amazon' and plaform_version to '6'" do
+          mixlib_info = install.train_to_mixlib(platform)
+          expect(mixlib_info[:platform]).to eq "el"
+          expect(mixlib_info[:platform_version]).to eq "6"
+        end
+      end
+      context "when amazon linux 2.x" do
+        before do
+          allow(platform).to receive(:release).and_return "2"
+        end
+
+        it "sets platform name to 'amazon' and plaform_version to '7'" do
+          mixlib_info = install.train_to_mixlib(platform)
+          expect(mixlib_info[:platform]).to eq "el"
+          expect(mixlib_info[:platform_version]).to eq "7"
+        end
+      end
     end
   end
 end

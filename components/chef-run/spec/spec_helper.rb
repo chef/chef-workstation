@@ -74,6 +74,7 @@ RSpec.configure do |config|
   end
 
   config.before(:all) do
+    ChefRun::Log.setup "/dev/null", :error
     ChefRun::UI::Terminal.init(File.open("/dev/null", "w"))
   end
 end

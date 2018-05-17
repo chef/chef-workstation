@@ -116,7 +116,7 @@ module ChefRun
       # the command exectuion completes, then we'll pick up what's left in the next run.
       # We don't, under any circumstances, want to cause the user to encounter noticeable
       # delays when waiting for a command to complete because telemetry hasn't yet finished submitting.
-      Thread.new() { ChefCLI::Telemeter::Sender.new().run }
+      Thread.new() { ChefRun::Telemeter::Sender.new().run }
 
       # Perform a timing and capture of the run. Individual methods and actions may perform
       # nested Telemeter.timed_*_capture or Telemeter.capture calls in their operation, and
@@ -126,14 +126,7 @@ module ChefRun
       #       passwords in host name, or in ad-hoc converge properties.
       Telemeter.timed_run_capture([:redacted]) do
         begin
-          parse_options(@argv)
-          if @argv.empty? || config[:help]
-            show_help
-          elsif config[:version]
-            show_version
-          else
-            perform_run
-          end
+          perform_run
         rescue WrappedError => e
           UI::ErrorPrinter.show_error(e)
           @rc = RC_COMMAND_FAILED
@@ -186,15 +179,22 @@ module ChefRun
     end
 
     def perform_run
-      validate_params(cli_arguments)
-      configure_chef
-      target_hosts = TargetResolver.new(cli_arguments.shift, config).targets
-      temp_cookbook, initial_status_msg = generate_temp_cookbook(cli_arguments)
-      if target_hosts.length == 1
-        run_single_target(initial_status_msg, target_hosts[0], temp_cookbook )
+      parse_options(@argv)
+      if @argv.empty? || config[:help]
+        show_help
+      elsif config[:version]
+        show_version
       else
-        @multi_target = true
-        run_multi_target(initial_status_msg, target_hosts, temp_cookbook)
+        validate_params(cli_arguments)
+        configure_chef
+        target_hosts = TargetResolver.new(cli_arguments.shift, config).targets
+        temp_cookbook, initial_status_msg = generate_temp_cookbook(cli_arguments)
+        if target_hosts.length == 1
+          run_single_target(initial_status_msg, target_hosts[0], temp_cookbook )
+        else
+          @multi_target = true
+          run_multi_target(initial_status_msg, target_hosts, temp_cookbook)
+        end
       end
     rescue => e
       handle_perform_error(e)
@@ -302,9 +302,9 @@ module ChefRun
       properties
     end
 
-      # Incoming properties are always read as a string from the command line.
-      # Depending on their type we should transform them so we do not try and pass
-      # a string to a resource property that expects an integer or boolean.
+    # Incoming properties are always read as a string from the command line.
+    # Depending on their type we should transform them so we do not try and pass
+    # a string to a resource property that expects an integer or boolean.
     def transform_property_value(value)
       case value
       when /^0/
