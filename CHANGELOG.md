@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.94 -->
+<!-- latest_release 0.1.95 -->
+## [0.1.95](https://github.com/chef/chef-workstation/tree/0.1.95) (2018-05-17)
+
+#### Merged Pull Requests
+- Include chef-telemetry in packages from rubygems. [#136](https://github.com/chef/chef-workstation/pull/136) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.94](https://github.com/chef/chef-workstation/tree/0.1.94) (2018-05-16)
 
 #### Merged Pull Requests
 - [SHACK-188] telemetry cleanup tasks [#134](https://github.com/chef/chef-workstation/pull/134) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.93](https://github.com/chef/chef-workstation/tree/0.1.93) (2018-05-16)
 
