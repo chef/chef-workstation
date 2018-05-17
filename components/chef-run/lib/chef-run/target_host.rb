@@ -29,14 +29,20 @@ module ChefRun
     end
 
     def initialize(host_url, opts = {}, logger = nil)
-      cfg = { target: host_url,
-              sudo: opts.has_key?(:root) ? opts[:root] : true,
-              www_form_encoded_password: true,
-              key_files: opts[:identity_file],
-              logger: ChefRun::Log }
+      cfg = opts.dup
+      cfg[:target] = host_url
+      cfg[:sudo] =
+        cfg = { target: host_url,
+                sudo: opts[:sudo] === false ? false : true,
+                www_form_encoded_password: true,
+                key_files: opts[:identity_file],
+                logger: ChefRun::Log }
       if opts.has_key? :ssl
         cfg[:ssl] = opts[:ssl]
-        cfg[:self_signed] = opts[:ssl_verify] == false ? true : false
+        cfg[:self_signed] = (opts[:ssl_verify] === false ? true : false)
+      end
+      [:user, :sudo_password, :sudo, :sudo_command].each do |key|
+        cfg[key] = opts[key] if opts.has_key? key
       end
 
       @config = Train.target_config(cfg)
