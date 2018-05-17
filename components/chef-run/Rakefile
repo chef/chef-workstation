@@ -1,6 +1,5 @@
-#!/usr/bin/env ruby
 #
-# Copyright:: Copyright (c) 2014-2018 Chef Software Inc.
+# Copyright:: Copyright (c) 2018 Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,10 +15,18 @@
 # limitations under the License.
 #
 
-# Set a trap for ctrl-C right away so we don't surface interrupt exceptions inside of rubygems or whatever.
-Kernel.trap(:INT) { print("\n"); exit 1 }
+require "bundler/gem_tasks"
 
-$:.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..", "lib")))
-require "chef-dk/cli"
+task :default => [:spec, :style]
 
-ChefDK::CLI.new(ARGV.clone).run
+require "rspec/core/rake_task"
+RSpec::Core::RakeTask.new(:spec)
+
+require "chefstyle"
+require "rubocop/rake_task"
+desc "Run Chef Ruby style checks"
+RuboCop::RakeTask.new(:chefstyle) do |t|
+  t.options = %w{--display-cop-names}
+end
+
+task :style => :chefstyle

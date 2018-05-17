@@ -28,7 +28,8 @@ fi
 # TODO - pull from components/*/bin/*?
 # We test for the presence of /usr/bin/chef-client to know if this script succeeds,
 # so chef-client must appear as the last item here.
-binaries="berks chef chef-apply chef-shell chef-solo chef-vault cookstyle dco delivery foodcritic inspec kitchen knife ohai push-apply pushy-client pushy-service-manager chef-client"
+chefdk_binaries="berks chef chef-apply chef-shell chef-solo chef-vault cookstyle dco delivery foodcritic inspec kitchen knife ohai push-apply pushy-client pushy-service-manager chef-client"
+binaries="chef-run chefx $chefdk_binaries"
 
 for binary in $binaries; do
   ln -sf $INSTALLER_DIR/bin/$binary $PREFIX/bin || error_exit "Cannot link $binary to $PREFIX/bin"
