@@ -106,7 +106,7 @@ module ChefRun::Action::InstallChef
 
     def download_to_workstation(url_path)
       require "chef-run/file_fetcher"
-      ChefCLI::FileFetcher.fetch(url_path)
+      ChefRun::FileFetcher.fetch(url_path)
     end
 
     def upload_to_target(local_path)
