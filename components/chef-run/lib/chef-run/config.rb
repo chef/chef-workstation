@@ -100,7 +100,7 @@ module ChefRun
 
     config_strict_mode true
 
-    # When working on chef-cli itself,
+    # When working on chef-run itself,
     # developers should set telemetry.dev to true
     # in their local configuration to ensure that dev usage
     # doesn't skew customer telemetry.
