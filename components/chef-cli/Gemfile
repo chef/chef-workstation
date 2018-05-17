@@ -7,8 +7,6 @@ gem "chef-dk", git: "https://github.com/chef/chef-dk.git", branch: "master"
 # Remove this once train 1.4.6 or later is released:
 gem "train", git: "https://github.com/chef/train.git", branch: "v1.4.6"
 
-gem "chef-telemetry", git: "https://github.com/chef/chef-telemetry.git", branch: "master"
-
 group :localdev do
   gem "irbtools-more", require: "irbtools/binding"
 end
