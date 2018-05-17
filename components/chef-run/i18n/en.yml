@@ -16,6 +16,19 @@
 #
 
 cli:
+  telemetry_enabled: |
+    Telemetry has been enabled by default for this beta release
+    of Chef Workstation. The anonymous data we gather is used to
+    determine how we can impove your Chef Workstation experience.
+
+    To disable it, add the following entry to
+    %1:
+
+    [telemetry]
+    enable=false
+
+    For more information about what we data gather and additional opt-out
+    options, please visit https://chef.sh/TODO.
   description: |
     Chef Run is a tool to execute ad-hoc tasks using Chef.
   creating_config: "Creating config file in %1."
@@ -103,7 +116,8 @@ status:
     multi_header: "Converging targets:"
     converging_recipe: Converging local recipe %1 on target...
     converging_resource: Converging %1 on target...
-    creating_remote_policy: Creating remote policy on target...
+    creating_local_policy: Creating local policy...
+    creating_remote_policy: Pushing remote policy to target...
     running_chef: Running Chef on target...
     success: "Successfully converged target!"
     failure: "Failed to converge target."
@@ -263,6 +277,9 @@ errors:
 
     These are the available recipes in '%4':
     %3
+
+  CHEFVAL009: |
+    File extension '%1' is unsupported. Currently recipes must be specified with a `.rb` extension.
 
   # General errors/unknown errors are handled with CHEFINT
   CHEFINT001: |

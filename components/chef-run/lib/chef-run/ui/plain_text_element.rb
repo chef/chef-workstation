@@ -57,7 +57,7 @@ module ChefRun
         params.each_pair do |k, v|
           msg.gsub!(/:#{k}/, v)
         end
-        ChefRUn::Log.send(log_method, msg)
+        ChefRun::Log.send(log_method, msg)
         @output.puts(msg)
       end
 

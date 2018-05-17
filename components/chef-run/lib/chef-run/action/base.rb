@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-require "chef-run/telemetry"
+require "chef-run/telemeter"
 require "chef-run/error"
 
 module ChefRun
@@ -107,17 +107,23 @@ module ChefRun
 
       def run(&block)
         @notification_handler = block
-        Telemetry.timed_capture(:action, name: self.class.name.split("::").last) do
+        Telemeter.timed_action_capture(self) do
           begin
             perform_action
           rescue StandardError => e
             # Give the caller a chance to clean up - if an exception is
-            # raised it'll otherwise get routed through the execution thread,
+            # raised it'll otherwise get routed through the executing thread,
             # providing no means of feedback for the caller's current task.
             notify(:error, e)
-            raise
+            @error = e
           end
         end
+        # Raise outside the block to ensure that the telemetry cpature completes
+        raise @error unless @error.nil?
+      end
+
+      def name
+        self.class.name.split("::").last
       end
 
       def perform_action

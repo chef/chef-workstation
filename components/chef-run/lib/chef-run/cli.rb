@@ -39,7 +39,7 @@ module ChefRun
     RC_COMMAND_FAILED = 1
     RC_ERROR_HANDLING_FAILED = 64
 
-    banner "Command banner not set."
+    banner "TODO: Command banner not set."
 
     option :version,
       :short        => "-v",
@@ -111,23 +111,41 @@ module ChefRun
 
     def run
       setup_cli
-      parse_options(@argv)
-      if @argv.empty? || config[:help]
-        show_help
-      elsif config[:version]
-       show_version
-      else
-        perform_run
+      # Start the process of submitting telemetry data from our previous run:
+      # Note that we do not join on this thread - if it doesn't complete before
+      # the command exectuion completes, then we'll pick up what's left in the next run.
+      # We don't, under any circumstances, want to cause the user to encounter noticeable
+      # delays when waiting for a command to complete because telemetry hasn't yet finished submitting.
+      Thread.new() { ChefCLI::Telemeter::Sender.new().run }
+
+      # Perform a timing and capture of the run. Individual methods and actions may perform
+      # nested Telemeter.timed_*_capture or Telemeter.capture calls in their operation, and
+      # they will be captured in the same telemetry session.
+      # NOTE: We're not currently sending arguments to telemetry because we have not implemented
+      #       pre-parsing of arguemtns to eliminate potentially sensitive data such as
+      #       passwords in host name, or in ad-hoc converge properties.
+      Telemeter.timed_run_capture([:redacted]) do
+        begin
+          parse_options(@argv)
+          if @argv.empty? || config[:help]
+            show_help
+          elsif config[:version]
+            show_version
+          else
+            perform_run
+          end
+        rescue WrappedError => e
+          UI::ErrorPrinter.show_error(e)
+          @rc = RC_COMMAND_FAILED
+        rescue SystemExit => e
+          @rc = e.status
+        rescue Exception => e
+          UI::ErrorPrinter.dump_unexpected_error(e)
+          @rc = RC_ERROR_HANDLING_FAILED
+        end
       end
-    rescue WrappedError => e
-      UI::ErrorPrinter.show_error(e)
-      @rc = RC_COMMAND_FAILED
-    rescue SystemExit => e
-      @rc = e.status
-    rescue => e
-      UI::ErrorPrinter.dump_unexpected_error(e)
-      @rc = RC_ERROR_HANDLING_FAILED
     ensure
+      Telemeter.commit
       exit @rc
     end
 
@@ -136,13 +154,35 @@ module ChefRun
       # Enable CLI output via Terminal. This comes first because we want to supply
       # status output about reading and creating config files
       UI::Terminal.init($stdout)
+      # Creates the tree we need under ~/.chef-workstation
+      # based on config settings:
+      Config.create_directory_tree
+
+      # TODO because we have not loaded a command, we will always be using
+      #      the default location at this step.
       if Config.using_default_location? && !Config.exist?
-        UI::Terminal.output T.creating_config(Config.default_location)
-        Config.create_default_config_file
+        setup_workstation
       end
+
       Config.load
       ChefRun::Log.setup(Config.log.location, Config.log.level.to_sym)
       ChefRun::Log.info("Initialized logger")
+    end
+
+    # These setup steps are run if ".chef-workstation" is missing prior to
+    # the run.  It will set up default configuration, generated an installation id
+    # for telemetry, and report telemetry & config info to the operator.
+    def setup_workstation
+      require "securerandom"
+      installation_id = SecureRandom.uuid
+      File.write(Config.telemetry_installation_identifier_file, installation_id)
+      UI::Terminal.output T.creating_config(Config.default_location)
+      Config.create_default_config_file
+      # Tell the user we're anonymously tracking, give brief opt-out
+      # and a link to detailed information.
+      UI::Terminal.output ""
+      UI::Terminal.output T.telemetry_enabled(Config.default_location)
+      UI::Terminal.output ""
     end
 
     def perform_run
@@ -380,7 +420,7 @@ module ChefRun
     def handle_perform_error(e)
       id = e.respond_to?(:id) ? e.id : e.class.to_s
       message = e.respond_to?(:message) ? e.message : e.to_s
-      # Telemetry.capture(:error, exception: { id: id, message: message })
+      Telemeter.capture(:error, exception: { id: id, message: message })
       wrapper = ChefRun::StandardErrorResolver.wrap_exception(e)
       capture_exception_backtrace(wrapper)
       # Now that our housekeeping is done, allow user-facing handling/formatting
@@ -414,7 +454,36 @@ module ChefRun
     end
 
     def show_help
-      UI::Terminal.output "#{T.description}\n#{T.usage_full}"
+      UI::Terminal.output banner
+      show_help_flags
+    end
+
+    def show_help_flags
+      UI::Terminal.output ""
+      UI::Terminal.output "FLAGS:"
+      justify_length = 0
+      options.each_value do |spec|
+        justify_length = [justify_length, spec[:long].length + 4].max
+      end
+      options.sort.to_h.each_value do |flag_spec|
+        short = flag_spec[:short] || "  "
+        short = short[0, 2] # We only want the flag portion, not the capture portion (if present)
+        if short == "  "
+          short = "    "
+        else
+          short = "#{short}, "
+        end
+        flags = "#{short}#{flag_spec[:long]}"
+        UI::Terminal.write("    #{flags.ljust(justify_length)}    ")
+        ml_padding = " " * (justify_length + 8)
+        first = true
+        flag_spec[:description].split("\n").each do |d|
+          UI::Terminal.write(ml_padding) unless first
+          first = false
+          UI::Terminal.write(d)
+          UI::Terminal.write("\n")
+        end
+      end
     end
 
     def usage

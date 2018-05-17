@@ -17,7 +17,7 @@
 
 require "spec_helper"
 require "chef-run/action/base"
-require "chef-run/telemetry"
+require "chef-run/telemeter"
 require "chef-run/target_host"
 
 RSpec.describe ChefRun::Action::Base do
@@ -26,7 +26,9 @@ RSpec.describe ChefRun::Action::Base do
     p = double("platform", family: family)
     instance_double(ChefRun::TargetHost, platform: p)
   end
-  let(:opts) { { target_host: target_host, other: "something-else" } }
+  let(:opts) do
+    { target_host: target_host,
+      other: "something-else" } end
   subject(:action) { ChefRun::Action::Base.new(opts) }
 
   context "#initialize" do
@@ -38,7 +40,7 @@ RSpec.describe ChefRun::Action::Base do
 
   context "#run" do
     it "runs the underlying action, capturing timing via telemetry" do
-      expect(ChefRun::Telemetry).to receive(:timed_capture).with(:action, name: "Base").and_yield
+      expect(ChefRun::Telemeter).to receive(:timed_action_capture).with(subject).and_yield
       expect(action).to receive(:perform_action)
       action.run
     end
@@ -46,6 +48,7 @@ RSpec.describe ChefRun::Action::Base do
     it "invokes an action handler when actions occur and a handler is provided" do
       @run_action = nil
       @args = nil
+      expect(ChefRun::Telemeter).to receive(:timed_action_capture).with(subject).and_yield
       expect(action).to receive(:perform_action) { action.notify(:test_success, "some arg", "some other arg") }
       action.run { |action, args| @run_action = action; @args = args }
       expect(@run_action).to eq :test_success

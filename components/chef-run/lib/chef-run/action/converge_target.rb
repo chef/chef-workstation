@@ -30,7 +30,6 @@ module ChefRun::Action
       local_cookbook = config.delete :local_cookbook
       remote_tmp = target_host.run_command!(mktemp)
       remote_dir_path = escape_windows_path(remote_tmp.stdout.strip)
-      notify(:creating_remote_policy)
       remote_policy_path = create_remote_policy(local_cookbook, remote_dir_path)
       remote_config_path = create_remote_config(remote_dir_path)
       create_remote_handler(remote_dir_path)
@@ -55,8 +54,10 @@ module ChefRun::Action
     end
 
     def create_remote_policy(local_cookbook, remote_dir_path)
-      local_policy_path = generate_policy(local_cookbook)
+      notify(:creating_local_policy)
+      local_policy_path = create_local_policy(local_cookbook)
       remote_policy_path = File.join(remote_dir_path, File.basename(local_policy_path))
+      notify(:creating_remote_policy)
       begin
         target_host.upload_file(local_policy_path, remote_policy_path)
       rescue RuntimeError
@@ -118,7 +119,7 @@ module ChefRun::Action
       remote_handler_path
     end
 
-    def generate_policy(local_cookbook)
+    def create_local_policy(local_cookbook)
       ChefDK::PolicyfileServices::Install.new(ui: ChefDK::UI.null(),
                                               root_dir: local_cookbook.path).run
       lock_path = File.join(local_cookbook.path, "Policyfile.lock.json")

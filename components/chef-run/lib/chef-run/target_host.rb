@@ -20,7 +20,7 @@ require "chef-run/error"
 require "train"
 module ChefRun
   class TargetHost
-    attr_reader :config, :reporter, :backend
+    attr_reader :config, :reporter, :backend, :transport_type
 
     def self.instance_for_url(target, opts = {})
       target_host = new(target, opts)
@@ -40,8 +40,8 @@ module ChefRun
       end
 
       @config = Train.target_config(cfg)
-      @type = Train.validate_backend(@config)
-      @train_connection = Train.create(@type, config)
+      @transport_type = Train.validate_backend(@config)
+      @train_connection = Train.create(@transport_type, config)
     end
 
     def connect!
@@ -54,6 +54,14 @@ module ChefRun
 
     def hostname
       config[:host]
+    end
+
+    def architecture
+      platform.arch
+    end
+
+    def version
+      platform.release
     end
 
     def base_os
