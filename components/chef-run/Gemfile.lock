@@ -17,17 +17,6 @@ GIT
       solve (> 2.0, < 5.0)
 
 GIT
-  remote: https://github.com/chef/chef-telemetry.git
-  revision: 814206862d756f0090134cff79f05fb192baa768
-  branch: master
-  specs:
-    chef-telemetry (0.1.0)
-      chef-config
-      concurrent-ruby (~> 1.0)
-      ffi-yajl (~> 2.2)
-      http (~> 2.2)
-
-GIT
   remote: https://github.com/chef/train.git
   revision: daefae3357bdaa903ec75da9ab6b222073f6fa07
   branch: v1.4.6
@@ -47,9 +36,10 @@ GIT
 PATH
   remote: .
   specs:
-    chef-run (0.1.94)
+    chef-run (0.1.95)
       chef (>= 14.0)
       chef-dk (>= 3.0)
+      chef-telemetry
       mixlib-cli
       mixlib-config
       mixlib-install
@@ -130,6 +120,11 @@ GEM
       winrm (~> 2.0)
       winrm-elevated (~> 1.0)
       winrm-fs (~> 1.0)
+    chef-telemetry (0.1.0)
+      chef-config
+      concurrent-ruby (~> 1.0)
+      ffi-yajl (~> 2.2)
+      http (~> 2.2)
     chef-zero (14.0.6)
       ffi-yajl (~> 2.2)
       hashie (>= 2.0, < 4.0)
@@ -420,7 +415,6 @@ DEPENDENCIES
   bundler
   chef-dk!
   chef-run!
-  chef-telemetry!
   chefstyle
   irbtools-more
   pry
