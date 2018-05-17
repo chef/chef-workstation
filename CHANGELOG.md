@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.99 -->
+<!-- latest_release 0.1.100 -->
+## [0.1.100](https://github.com/chef/chef-workstation/tree/0.1.100) (2018-05-17)
+
+#### Merged Pull Requests
+- Updating welcome text for mac package. [#141](https://github.com/chef/chef-workstation/pull/141) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.99](https://github.com/chef/chef-workstation/tree/0.1.99) (2018-05-17)
 
 #### Merged Pull Requests
 - fix spelling caught during user test. [#137](https://github.com/chef/chef-workstation/pull/137) ([mchiang0610](https://github.com/mchiang0610))
-<!-- latest_release -->
 
 ## [0.1.98](https://github.com/chef/chef-workstation/tree/0.1.98) (2018-05-17)
 
