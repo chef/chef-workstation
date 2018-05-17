@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/chef/chef-dk.git
-  revision: e14265eec4e092fa947ce4a3347e0a75a05aefae
+  revision: a2c97f9ee3396bfbd561c99aa516b33354c0aee6
   branch: master
   specs:
-    chef-dk (3.0.35)
+    chef-dk (3.0.36)
       addressable (>= 2.3.5, < 2.6)
       chef (~> 14.0)
       chef-provisioning (~> 2.0)
@@ -36,7 +36,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-cli (0.1.95)
+    chef-cli (0.1.96)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       chef-telemetry
