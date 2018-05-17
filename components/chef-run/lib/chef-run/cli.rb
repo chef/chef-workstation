@@ -39,7 +39,7 @@ module ChefRun
     RC_COMMAND_FAILED = 1
     RC_ERROR_HANDLING_FAILED = 64
 
-    banner "TODO: Command banner not set."
+    banner T.description + "\n" + T.usage_full
 
     option :version,
       :short        => "-v",
