@@ -1,6 +1,5 @@
-#!/usr/bin/env ruby
 #
-# Copyright:: Copyright (c) 2014-2018 Chef Software Inc.
+# Copyright:: Copyright (c) 2018 Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,10 +15,6 @@
 # limitations under the License.
 #
 
-# Set a trap for ctrl-C right away so we don't surface interrupt exceptions inside of rubygems or whatever.
-Kernel.trap(:INT) { print("\n"); exit 1 }
-
-$:.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..", "lib")))
-require "chef-dk/cli"
-
-ChefDK::CLI.new(ARGV.clone).run
+module ChefRun
+  VERSION = "0.1.95"
+end
