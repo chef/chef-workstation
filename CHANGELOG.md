@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.101 -->
+<!-- latest_release 0.1.102 -->
+## [0.1.102](https://github.com/chef/chef-workstation/tree/0.1.102) (2018-05-18)
+
+#### Merged Pull Requests
+- Fix policyfile  race condition for multitarget [#145](https://github.com/chef/chef-workstation/pull/145) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.101](https://github.com/chef/chef-workstation/tree/0.1.101) (2018-05-17)
 
 #### Merged Pull Requests
 - Missed a ChefCLI =&gt; ChefRun. [#142](https://github.com/chef/chef-workstation/pull/142) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.100](https://github.com/chef/chef-workstation/tree/0.1.100) (2018-05-17)
 

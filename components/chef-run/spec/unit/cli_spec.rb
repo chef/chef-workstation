@@ -21,6 +21,10 @@ require "chef-run/error"
 require "chef-run/telemeter"
 require "chef-run/ui/terminal"
 
+require "chef-dk/ui"
+require "chef-dk/policyfile_services/export_repo"
+require "chef-dk/policyfile_services/install"
+
 RSpec.describe ChefRun::CLI do
   let(:argv) { [] }
 
@@ -29,6 +33,10 @@ RSpec.describe ChefRun::CLI do
   end
   let(:telemetry) { ChefRun::Telemeter.instance }
 
+  before do
+    # Avoid messy object dumps in failures because subject is an object instance
+    allow(subject).to receive(:inspect).and_return("The subject instance")
+  end
   describe "run" do
     # it "t" do
     #   expect(subject).to receive(:parse_options).with(argv)
@@ -128,55 +136,51 @@ RSpec.describe ChefRun::CLI do
       end
     end
 
-    context "when argv is not empty and no flags" do
+    context "when argv is not empty and no flags are provided" do
       let(:argv) { %w{host resource name} }
+      let(:mock_cb) { instance_double("TempCookbook", delete: nil) }
+      let(:archive) { "archive.tgz" }
       before(:each) do
         allow(subject).to receive(:validate_params)
         allow(subject).to receive(:configure_chef)
-        allow(subject).to receive(:generate_temp_cookbook).and_return([:mock_cb, "test"])
+        allow(subject).to receive(:generate_temp_cookbook).and_return([mock_cb, "test"])
+        allow(subject).to receive(:create_local_policy).and_return(archive)
         allow(subject).to receive(:run_single_target)
         allow(subject).to receive(:run_multi_target)
         allow_any_instance_of(ChefRun::TargetResolver).to receive(:targets).and_return(["host"])
       end
 
-      it "validate params" do
-        expect(subject).to receive(:validate_params)
+      it "validates parameters" do
+        expect(subject).to receive(:validate_params).with(argv)
         subject.perform_run
       end
 
-      it "configure chef" do
-        expect(subject).to receive(:configure_chef)
+      it "performs the steps required to create the local policy" do
+        expect(subject).to receive(:configure_chef).ordered
+        expect(subject).to receive(:generate_temp_cookbook).ordered.and_return([mock_cb, "test"])
+        expect(subject).to receive(:create_local_policy).with(mock_cb).ordered
         subject.perform_run
       end
 
-      it "resolve targets" do
-        expect_any_instance_of(ChefRun::TargetResolver).to receive(:targets)
-        subject.perform_run
-      end
-
-      it "generates the temp cookbook" do
-        expect(subject).to receive(:generate_temp_cookbook)
-        subject.perform_run
-      end
-
-      context "when one target host" do
+      context "and there is a single target host" do
         before do
           allow_any_instance_of(ChefRun::TargetResolver).to receive(:targets).and_return(["host"])
         end
 
         it "calls run_single_target" do
-          expect(subject).to receive(:run_single_target).with("test", "host", :mock_cb)
+          expect(subject).to receive(:run_single_target).with("test", "host", archive)
           subject.perform_run
         end
       end
 
-      context "when one target host" do
+      context "and there are multiple target hosts" do
         before do
           allow_any_instance_of(ChefRun::TargetResolver).to receive(:targets).and_return(%w{host host2})
         end
 
         it "calls run_multi_target" do
-          expect(subject).to receive(:run_multi_target).with("test", %w{host host2}, :mock_cb)
+          expect(subject).to receive(:run_multi_target).with("test", %w{host host2}, archive)
+          expect(mock_cb).to receive(:delete)
           subject.perform_run
         end
       end
@@ -397,6 +401,50 @@ RSpec.describe ChefRun::CLI do
       expect(subject).to receive(:install).with(host2, anything())
       expect(subject).to receive(:converge).exactly(2).times
       subject.run_multi_target("", [host1, host2], {})
+    end
+  end
+
+  describe "#create_local_policy" do
+    let(:cb) do
+      d = Dir.mktmpdir(name)
+      File.open(File.join(d, "metadata.rb"), "w+") do |f|
+        f << "name \"#{name}\""
+      end
+      File.open(File.join(d, "Policyfile.rb"), "w+") do |f|
+        f << "name \"#{name}_policy\"\n"
+        f << "default_source :supermarket\n"
+        f << "run_list \"#{name}::default\"\n"
+        f << "cookbook \"#{name}\", path: \".\"\n"
+      end
+      FileUtils.mkdir(File.join(d, "recipes"))
+      File.open(File.join(d, "recipes", "default.rb"), "w+") do |f|
+        f << SecureRandom.uuid
+      end
+      File.new(d)
+    end
+
+    after do
+      FileUtils.remove_entry cb
+    end
+    context "when the path name is too long" do
+      let(:name) { "THIS_IS_A_REALLY_LONG_STRING111111111111111111111111111111111111111111111111111111" }
+
+      # There is an issue with policyfile generation where, if we have a cookbook with too long
+      # of a name or directory name the policyfile will not generate. This is because the tar
+      # library that ChefDK uses comes from the Rubygems package and is meant for packaging
+      # gems up, so it can impose a 100 character limit. We attempt to solve this by ensuring
+      # that the paths/names we generate with `TempCookbook` are short.
+      #
+      # This is here for documentation
+      # 2018-05-18 mp addendum: this cna take upwards of 15s to run on ci nodes, pending
+      # for now since it's not testing any chef-run functionality.
+      xit "fails to create when there is a long path name" do
+        err = ChefDK::PolicyfileExportRepoError
+        expect { subject.create_local_policy(cb) }.to raise_error(err) do |e|
+          expect(e.cause.class).to eq(Gem::Package::TooLongFileName)
+          expect(e.cause.message).to match(/should be 100 or less/)
+        end
+      end
     end
   end
 end
