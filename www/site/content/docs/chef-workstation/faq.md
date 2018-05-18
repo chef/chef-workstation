@@ -17,7 +17,6 @@ We always welcome (and deeply appreciate!) new contributions to the project. The
 
 We are working on guidelines on how to keep development of the project awesome for all contributors. 
 
-
 #### Operating Systems Supported 
 
 
@@ -35,7 +34,8 @@ We are working on guidelines on how to keep development of the project awesome f
 
 #### Why does Chef Workstation collect usage analytics and bug reports? 
 
-Chef Workstation tracks anonymous errors and analytics to help us understand why things go wrong adn to help us understand how users are interacting with Chef Workstation so we can continously make it better.
+Chef Workstation collects information to help us identify bugs and how users are interacting with Chef Workstation to help us make continous improvements.
+
 ##### What we capture? 
 
 - The Chef specific commands you execute (We do **not** capture any arguments)
@@ -51,7 +51,7 @@ The data collected is only accessible to employees of Chef Software, Inc. and un
 ##### How to opt-out?
 
 - You can stop a single session from being captured by setting the environment variable CHEF_TELEMETRY_OPT_OUT to any value before running chef-cli. 
-- You can disable it completely by adding the following to HOME/.chef-workstation/config.toml 
+- You can disable it completely by adding the following to `$HOME/.chef-workstation/config.toml`
 
 ```
 [telemetry]
