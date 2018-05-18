@@ -19,10 +19,21 @@ We are working on guidelines on how to keep development of the project awesome f
 
 #### Operating Systems Supported 
 
+Supported Host Operating Systems:
 
 | Platform                         | Version  |
 | -------------                    | -----:|
 | Apple macOS                      | 10.11, 10.12, 10.13|
+| Microsoft Windows                | 10, Server 2008 R2, Server 2012, Server 2012 R2, Server 2016 |
+| Red Hat Enterprise Linux / CentOS| 6.x, 7.x |
+| SUSE Enterprise Linux Server     | 11 SP4, 12 SP1+ |
+| Ubuntu                           | 14.04, 16.04, 18.04 |
+| Debian                           | 7.x, 8.x, 9.x |
+
+Supported Target Operating Systems:
+
+| Platform                         | Version  |
+| -------------                    | -----:|
 | Microsoft Windows                | 10, Server 2008 R2, Server 2012, Server 2012 R2, Server 2016 |
 | Red Hat Enterprise Linux         | 6.x, 7.x |
 | SUSE Enterprise Linux Server     | 11 SP4, 12 SP1+ |
