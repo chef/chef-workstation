@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.103 -->
+<!-- latest_release 0.1.104 -->
+## [0.1.104](https://github.com/chef/chef-workstation/tree/0.1.104) (2018-05-18)
+
+#### Merged Pull Requests
+- troubleshooting guide. [#149](https://github.com/chef/chef-workstation/pull/149) ([mchiang0610](https://github.com/mchiang0610))
+<!-- latest_release -->
+
 ## [0.1.103](https://github.com/chef/chef-workstation/tree/0.1.103) (2018-05-18)
 
 #### Merged Pull Requests
 - start of privacy page. [#146](https://github.com/chef/chef-workstation/pull/146) ([mchiang0610](https://github.com/mchiang0610))
-<!-- latest_release -->
 
 ## [0.1.102](https://github.com/chef/chef-workstation/tree/0.1.102) (2018-05-18)
 
