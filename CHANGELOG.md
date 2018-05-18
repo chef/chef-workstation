@@ -1,9 +1,44 @@
-<!-- latest_release 0.1.95 -->
+<!-- latest_release 0.1.102 -->
+## [0.1.102](https://github.com/chef/chef-workstation/tree/0.1.102) (2018-05-18)
+
+#### Merged Pull Requests
+- Fix policyfile  race condition for multitarget [#145](https://github.com/chef/chef-workstation/pull/145) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
+## [0.1.101](https://github.com/chef/chef-workstation/tree/0.1.101) (2018-05-17)
+
+#### Merged Pull Requests
+- Missed a ChefCLI =&gt; ChefRun. [#142](https://github.com/chef/chef-workstation/pull/142) ([jonsmorrow](https://github.com/jonsmorrow))
+
+## [0.1.100](https://github.com/chef/chef-workstation/tree/0.1.100) (2018-05-17)
+
+#### Merged Pull Requests
+- Updating welcome text for mac package. [#141](https://github.com/chef/chef-workstation/pull/141) ([jonsmorrow](https://github.com/jonsmorrow))
+
+## [0.1.99](https://github.com/chef/chef-workstation/tree/0.1.99) (2018-05-17)
+
+#### Merged Pull Requests
+- fix spelling caught during user test. [#137](https://github.com/chef/chef-workstation/pull/137) ([mchiang0610](https://github.com/mchiang0610))
+
+## [0.1.98](https://github.com/chef/chef-workstation/tree/0.1.98) (2018-05-17)
+
+#### Merged Pull Requests
+- Update code/instructions for bringing chef.sh up locally  [#140](https://github.com/chef/chef-workstation/pull/140) ([schisamo](https://github.com/schisamo))
+
+## [0.1.97](https://github.com/chef/chef-workstation/tree/0.1.97) (2018-05-17)
+
+#### Merged Pull Requests
+- Fix failing integration test on help output [#138](https://github.com/chef/chef-workstation/pull/138) ([marcparadise](https://github.com/marcparadise))
+
+## [0.1.96](https://github.com/chef/chef-workstation/tree/0.1.96) (2018-05-17)
+
+#### Merged Pull Requests
+- Shack 199/rename to chef run [#131](https://github.com/chef/chef-workstation/pull/131) ([jonsmorrow](https://github.com/jonsmorrow))
+
 ## [0.1.95](https://github.com/chef/chef-workstation/tree/0.1.95) (2018-05-17)
 
 #### Merged Pull Requests
 - Include chef-telemetry in packages from rubygems. [#136](https://github.com/chef/chef-workstation/pull/136) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.94](https://github.com/chef/chef-workstation/tree/0.1.94) (2018-05-16)
 

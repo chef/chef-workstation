@@ -27,7 +27,17 @@ jobs:
           pushd components/chef-cli
           bundle exec rspec --profile 10 \
                             --format RspecJunitFormatter \
-                            --out ../../test_results/rspec.xml \
+                            --out ../../test_results/chef_cli_rspec.xml \
+                            --format progress \
+                            $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+          bundle exec rake chefstyle
+
+          popd
+
+          pushd components/chef-run
+          bundle exec rspec --profile 10 \
+                            --format RspecJunitFormatter \
+                            --out ../../test_results/chef_run_rspec.xml \
                             --format progress \
                             $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
           bundle exec rake chefstyle
