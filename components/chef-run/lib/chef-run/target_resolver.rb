@@ -26,7 +26,8 @@ module ChefRun
     def initialize(unparsed_target, conn_options)
       @unparsed_target = unparsed_target
       @split_targets = unparsed_target.split(",")
-      @conn_options = conn_options
+      @conn_options = conn_options.dup
+      @default_user = @conn_options.delete(:user)
     end
 
     # Returns the list of targets as an array of strings, after expanding
@@ -60,10 +61,16 @@ module ChefRun
         prefix = "ssh://"
       end
 
-      credentials = ""
+      # This works around a behavior of train where the user name of a url ssh://me@host
+      # is ignored in favor of the :user connection option value.  We
+      # want to have :user be the fallback if no user is given in
+      # the host url
+      credentials = @default_user ? "#{@default_user}@" : ""
       host = target
       # Default greedy-scan of the regex means that
       # $2 will resolve to content after the final "@"
+      # URL credentials will take precedence over the default :user
+      # in @conn_opts
       if target =~ /(.*)@(.*)/
         credentials = $1
         host = $2

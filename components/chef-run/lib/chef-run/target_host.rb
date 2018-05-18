@@ -20,7 +20,7 @@ require "chef-run/error"
 require "train"
 module ChefRun
   class TargetHost
-    attr_reader :config, :reporter, :backend, :transport_type
+    attr_reader :config, :reporter, :backend, :transport_type, :opts
 
     def self.instance_for_url(target, opts = {})
       target_host = new(target, opts)
@@ -41,7 +41,7 @@ module ChefRun
         cfg[:ssl] = opts[:ssl]
         cfg[:self_signed] = (opts[:ssl_verify] === false ? true : false)
       end
-      [:user, :sudo_password, :sudo, :sudo_command].each do |key|
+      [:sudo_password, :sudo, :sudo_command].each do |key|
         cfg[key] = opts[key] if opts.has_key? key
       end
 
