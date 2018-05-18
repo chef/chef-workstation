@@ -38,54 +38,49 @@ RSpec.describe ChefRun::CLI do
     allow(subject).to receive(:inspect).and_return("The subject instance")
   end
   describe "run" do
-    # it "t" do
-    #   expect(subject).to receive(:parse_options).with(argv)
-    #   subject.run
-    # end
+    it "sets up the cli" do
+      expect(subject).to receive(:setup_cli)
+      expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
+    end
 
-    # it "sets up the cli" do
-    #   expect(subject).to receive(:setup_cli)
-    #   expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
-    # end
-    #
-    # # TODO - test for Sender.new.run in thread
-    # it "performs the steps necessary to capture telemetry" do
-    #   expect(telemetry).to receive(:timed_run_capture).and_yield
-    #   expect(telemetry).to receive(:commit)
-    #   expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
-    # end
-    #
-    # it "calls perform_run" do
-    #   expect(subject).to receive(:perform_run)
-    #   expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
-    # end
-    #
-    # context "perform_run raises WrappedError" do
-    #   let(:e) { ChefRun::WrappedError.new(RuntimeError.new("Test"), "host") }
-    #
-    #   it "prints the error and exits" do
-    #     expect(subject).to receive(:perform_run).and_raise(e)
-    #     expect(ChefRun::UI::ErrorPrinter).to receive(:show_error).with(e)
-    #     expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(1) }
-    #   end
-    # end
-    #
-    # context "perform_run raises SystemExit" do
-    #   it "exits with same exit code" do
-    #     expect(subject).to receive(:perform_run).and_raise(SystemExit.new(99))
-    #     expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(99) }
-    #   end
-    # end
-    #
-    # context "perform_run raises any other exception" do
-    #   let(:e) { Exception.new("test") }
-    #
-    #   it "exits with same exit code" do
-    #     expect(subject).to receive(:perform_run).and_raise(e)
-    #     expect(ChefRun::UI::ErrorPrinter).to receive(:dump_unexpected_error).with(e)
-    #     expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(64) }
-    #   end
-    # end
+    # TODO - test for Sender.new.run in thread
+    it "performs the steps necessary to capture telemetry" do
+      expect(telemetry).to receive(:timed_run_capture).and_yield
+      expect(telemetry).to receive(:commit)
+      expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
+    end
+
+    it "calls perform_run" do
+      expect(subject).to receive(:perform_run)
+      expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
+    end
+
+    context "perform_run raises WrappedError" do
+      let(:e) { ChefRun::WrappedError.new(RuntimeError.new("Test"), "host") }
+
+      it "prints the error and exits" do
+        expect(subject).to receive(:perform_run).and_raise(e)
+        expect(ChefRun::UI::ErrorPrinter).to receive(:show_error).with(e)
+        expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(1) }
+      end
+    end
+
+    context "perform_run raises SystemExit" do
+      it "exits with same exit code" do
+        expect(subject).to receive(:perform_run).and_raise(SystemExit.new(99))
+        expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(99) }
+      end
+    end
+
+    context "perform_run raises any other exception" do
+      let(:e) { Exception.new("test") }
+
+      it "exits with same exit code" do
+        expect(subject).to receive(:perform_run).and_raise(e)
+        expect(ChefRun::UI::ErrorPrinter).to receive(:dump_unexpected_error).with(e)
+        expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(64) }
+      end
+    end
   end
 
   describe "#perform_run" do

@@ -69,6 +69,12 @@ module ChefCLI
         else
           run(params)
         end
+      rescue OptionParser::InvalidOption => e
+        # Using nil here is a bit gross but it prevents usage from printing.
+        raise OptionValidationError.new("CHEFVAL010", nil,
+                                        e.message.split(":")[1].strip, # only want the flag
+                                        format_flags.lines[1..-1].join # remove 'FLAGS:' header
+                                       )
       end
 
       # This is normally overridden by the command implementations, but
@@ -153,8 +159,11 @@ module ChefCLI
       end
 
       def show_help_flags
-        UI::Terminal.output ""
-        UI::Terminal.output "FLAGS:"
+        UI::Terminal.output "\n#{format_flags}"
+      end
+
+      def format_flags
+        flag_text = "FLAGS:\n"
         justify_length = 0
         options.each_value do |spec|
           justify_length = [justify_length, spec[:long].length + 4].max
@@ -168,16 +177,16 @@ module ChefCLI
             short = "#{short}, "
           end
           flags = "#{short}#{flag_spec[:long]}"
-          UI::Terminal.write("    #{flags.ljust(justify_length)}    ")
+          flag_text << "    #{flags.ljust(justify_length)}    "
           ml_padding = " " * (justify_length + 8)
           first = true
           flag_spec[:description].split("\n").each do |d|
-            UI::Terminal.write(ml_padding) unless first
+            flag_text << ml_padding unless first
             first = false
-            UI::Terminal.write(d)
-            UI::Terminal.write("\n")
+            flag_text << "#{d}\n"
           end
         end
+        flag_text
       end
 
       def show_help_subcommands
