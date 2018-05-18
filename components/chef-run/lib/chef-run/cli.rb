@@ -189,15 +189,21 @@ module ChefRun
         configure_chef
         target_hosts = TargetResolver.new(cli_arguments.shift, config).targets
         temp_cookbook, initial_status_msg = generate_temp_cookbook(cli_arguments)
+        local_policy_path = create_local_policy(temp_cookbook)
         if target_hosts.length == 1
-          run_single_target(initial_status_msg, target_hosts[0], temp_cookbook )
+          # Note: UX discussed determined that when running with a single target,
+          #       we'll use multiple lines to display status for the target.
+          run_single_target(initial_status_msg, target_hosts[0], local_policy_path)
         else
           @multi_target = true
-          run_multi_target(initial_status_msg, target_hosts, temp_cookbook)
+          # Multi-target will use one line per target.
+          run_multi_target(initial_status_msg, target_hosts, local_policy_path)
         end
       end
     rescue => e
       handle_perform_error(e)
+    ensure
+      temp_cookbook.delete unless temp_cookbook.nil?
     end
 
     # Accepts a target_host and establishes the connection to that host
@@ -226,18 +232,18 @@ module ChefRun
       raise
     end
 
-    def run_single_target(initial_status_msg, target_host, temp_cookbook)
+    def run_single_target(initial_status_msg, target_host, local_policy_path)
       connect_target(target_host)
       prefix = "[#{target_host.hostname}]"
       UI::Terminal.render_job(TS.install_chef.verifying, prefix: prefix) do |reporter|
         install(target_host, reporter)
       end
       UI::Terminal.render_job(initial_status_msg, prefix: "[#{target_host.hostname}]") do |reporter|
-        converge(reporter, temp_cookbook, target_host)
+        converge(reporter, local_policy_path, target_host)
       end
     end
 
-    def run_multi_target(initial_status_msg, target_hosts, temp_cookbook)
+    def run_multi_target(initial_status_msg, target_hosts, local_policy_path)
       # Our multi-host UX does not show a line item per action,
       # but rather a line-item per connection.
       jobs = target_hosts.map do |target_host|
@@ -247,7 +253,7 @@ module ChefRun
           reporter.update(TS.install_chef.verifying)
           install(target_host, reporter)
           reporter.update(initial_status_msg)
-          converge(reporter, temp_cookbook, target_host)
+          converge(reporter, local_policy_path, target_host)
         end
       end
       UI::Terminal.render_parallel_jobs(TS.converge.multi_header, jobs)
@@ -358,6 +364,22 @@ module ChefRun
       cli_arguments.size == 1
     end
 
+    def create_local_policy(local_cookbook)
+      require "chef-dk/ui"
+      require "chef-dk/policyfile_services/export_repo"
+      require "chef-dk/policyfile_services/install"
+      ChefDK::PolicyfileServices::Install.new(ui: ChefDK::UI.null(),
+                                              root_dir: local_cookbook.path).run
+      lock_path = File.join(local_cookbook.path, "Policyfile.lock.json")
+      es = ChefDK::PolicyfileServices::ExportRepo.new(policyfile: lock_path,
+                                                      root_dir: local_cookbook.path,
+                                                      export_dir: File.join(local_cookbook.path, "export"),
+                                                      archive: true,
+                                                      force: true)
+      es.run
+      es.archive_file_location
+    end
+
     # Runs the InstallChef action and renders UI updates as
     # the action reports back
     def install(target_host, reporter)
@@ -395,8 +417,8 @@ module ChefRun
 
     # Runs the Converge action and renders UI updates as
     # the action reports back
-    def converge(reporter, temp_cookbook, target_host)
-      converge_args = { local_cookbook: temp_cookbook, target_host: target_host }
+    def converge(reporter, local_policy_path, target_host)
+      converge_args = { local_policy_path: local_policy_path, target_host: target_host }
       converger = Action::ConvergeTarget.new(converge_args)
       converger.run do |event, data|
         case event
@@ -414,7 +436,6 @@ module ChefRun
           handle_message(event, data, reporter)
         end
       end
-      temp_cookbook.delete
     end
 
     def handle_perform_error(e)

@@ -19,28 +19,23 @@ require "chef-run/action/base"
 require "chef-run/text"
 require "pathname"
 require "tempfile"
-require "chef-dk/ui"
-require "chef-dk/policyfile_services/export_repo"
-require "chef-dk/policyfile_services/install"
 
 module ChefRun::Action
   class ConvergeTarget < Base
 
     def perform_action
-      local_cookbook = config.delete :local_cookbook
+      local_policy_path = config.delete :local_policy_path
       remote_tmp = target_host.run_command!(mktemp)
       remote_dir_path = escape_windows_path(remote_tmp.stdout.strip)
-      remote_policy_path = create_remote_policy(local_cookbook, remote_dir_path)
+      remote_policy_path = create_remote_policy(local_policy_path, remote_dir_path)
       remote_config_path = create_remote_config(remote_dir_path)
       create_remote_handler(remote_dir_path)
 
       notify(:running_chef)
-      c = target_host.run_command(run_chef(
-        remote_dir_path,
-        File.basename(remote_config_path),
-        File.basename(remote_policy_path)
-      ))
-
+      cmd_str = run_chef(remote_dir_path,
+                         File.basename(remote_config_path),
+                         File.basename(remote_policy_path))
+      c = target_host.run_command(cmd_str)
       target_host.run_command!("#{delete_folder} #{remote_dir_path}")
       if c.exit_status == 0
         ChefRun::Log.debug(c.stdout)
@@ -53,14 +48,13 @@ module ChefRun::Action
       end
     end
 
-    def create_remote_policy(local_cookbook, remote_dir_path)
-      notify(:creating_local_policy)
-      local_policy_path = create_local_policy(local_cookbook)
+    def create_remote_policy(local_policy_path, remote_dir_path)
       remote_policy_path = File.join(remote_dir_path, File.basename(local_policy_path))
       notify(:creating_remote_policy)
       begin
         target_host.upload_file(local_policy_path, remote_policy_path)
-      rescue RuntimeError
+      rescue RuntimeError => e
+        ChefRun::Log.error(e)
         raise PolicyUploadFailed.new()
       end
       remote_policy_path
@@ -117,19 +111,6 @@ module ChefRun::Action
         handler_file.unlink
       end
       remote_handler_path
-    end
-
-    def create_local_policy(local_cookbook)
-      ChefDK::PolicyfileServices::Install.new(ui: ChefDK::UI.null(),
-                                              root_dir: local_cookbook.path).run
-      lock_path = File.join(local_cookbook.path, "Policyfile.lock.json")
-      es = ChefDK::PolicyfileServices::ExportRepo.new(policyfile: lock_path,
-                                                      root_dir: local_cookbook.path,
-                                                      export_dir: File.join(local_cookbook.path, "export"),
-                                                      archive: true,
-                                                      force: true)
-      es.run
-      es.archive_file_location
     end
 
     def handle_ccr_error
