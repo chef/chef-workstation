@@ -50,7 +50,7 @@ Chef Workstation collects information to help us identify bugs and how users are
 
 - The Chef specific commands you execute (We do **not** capture any arguments)
 - Connection method (WinRM or SSH)
-- Operating System and version 
+- Host Operating System and version 
 
 ##### Who can view it?
 
