@@ -200,6 +200,13 @@ module ChefRun
           run_multi_target(initial_status_msg, target_hosts, local_policy_path)
         end
       end
+    rescue OptionParser::InvalidOption => e
+      # Using nil here is a bit gross but it prevents usage from printing.
+      ove = OptionValidationError.new("CHEFVAL010", nil,
+                                      e.message.split(":")[1].strip, # only want the flag
+                                      format_flags.lines[1..-1].join # remove 'FLAGS:' header
+                                     )
+      handle_perform_error(ove)
     rescue => e
       handle_perform_error(e)
     ensure
@@ -475,13 +482,17 @@ module ChefRun
     end
 
     def show_help
-      UI::Terminal.output banner
-      show_help_flags
+      UI::Terminal.output format_help
     end
 
-    def show_help_flags
-      UI::Terminal.output ""
-      UI::Terminal.output "FLAGS:"
+    def format_help
+      help_text = banner.clone # This prevents us appending to the banner text
+      help_text << "\n"
+      help_text << format_flags
+    end
+
+    def format_flags
+      flag_text = "FLAGS:\n"
       justify_length = 0
       options.each_value do |spec|
         justify_length = [justify_length, spec[:long].length + 4].max
@@ -495,16 +506,16 @@ module ChefRun
           short = "#{short}, "
         end
         flags = "#{short}#{flag_spec[:long]}"
-        UI::Terminal.write("    #{flags.ljust(justify_length)}    ")
+        flag_text << "    #{flags.ljust(justify_length)}    "
         ml_padding = " " * (justify_length + 8)
         first = true
         flag_spec[:description].split("\n").each do |d|
-          UI::Terminal.write(ml_padding) unless first
+          flag_text << ml_padding unless first
           first = false
-          UI::Terminal.write(d)
-          UI::Terminal.write("\n")
+          flag_text << "#{d}\n"
         end
       end
+      flag_text
     end
 
     def usage
