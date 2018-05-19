@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.105 -->
+<!-- latest_release 0.1.106 -->
+## [0.1.106](https://github.com/chef/chef-workstation/tree/0.1.106) (2018-05-19)
+
+#### Merged Pull Requests
+- Fixes error handling when an invalid flag is passed. [#151](https://github.com/chef/chef-workstation/pull/151) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.105](https://github.com/chef/chef-workstation/tree/0.1.105) (2018-05-19)
 
 #### Merged Pull Requests
 - Add note about Apache license. [#148](https://github.com/chef/chef-workstation/pull/148) ([mchiang0610](https://github.com/mchiang0610))
-<!-- latest_release -->
 
 ## [0.1.104](https://github.com/chef/chef-workstation/tree/0.1.104) (2018-05-18)
 
