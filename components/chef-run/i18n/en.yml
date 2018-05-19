@@ -253,9 +253,44 @@ errors:
 
       %1.
 
-  # CLI Validation errors are prefixed with CHEFVAL
-  CHEFVAL001: |
-    No identity file at '%1'
+  CHEFTRN003: |
+    Password required for sudo.
+
+    This target requires a password to perform sudo operations.  Please provide a
+    password using the --sudo-password option. For example if the sudo password is
+    in the environment variable $CHEF_RUN_SUDO_PASSWORD, you could use:
+
+    --sudo-password $CHEF_RUN_SUDO_PASSWORD
+
+  CHEFTRN004: |
+    Incorrect sudo password provided.
+
+    Please ensure that the password you provided with "--sudo-password" is correct.
+
+  CHEFTRN005: |
+    sudo command '%1' not found.
+
+    Please verify that the --sudo-command '%1' is valid
+    and installed on this node.
+
+  CHEFTRN006: |
+    sudo requires tty on this system
+
+    In order to continue, sudo must be configured to no longer require tty.
+    You can do this by modifying /etc/sudoers -- see below.
+
+    For all users:
+      Defaults !requiretty
+
+    Per-user:
+      Defaults:username !requiretty
+
+  CHEFTRN999: |
+    Connection failed: %1
+
+    The following error occured while attempting to connect and authenticate to the target.
+
+    %1
 
   CHEFVAL002: |
     You must supply <TARGET[S]> and either <RESOURCE> and <RESOURCE_NAME> or <RECIPE>

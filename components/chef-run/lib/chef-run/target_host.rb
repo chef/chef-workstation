@@ -29,33 +29,33 @@ module ChefRun
     end
 
     def initialize(host_url, opts = {}, logger = nil)
-      cfg = opts.dup
-      cfg[:target] = host_url
-      cfg[:sudo] =
-        cfg = { target: host_url,
+      @opts = opts.dup
+      @opts[:target] = host_url
+      @opts = { target: host_url,
                 sudo: opts[:sudo] === false ? false : true,
                 www_form_encoded_password: true,
                 key_files: opts[:identity_file],
                 logger: ChefRun::Log }
       if opts.has_key? :ssl
-        cfg[:ssl] = opts[:ssl]
-        cfg[:self_signed] = (opts[:ssl_verify] === false ? true : false)
+        @opts[:ssl] = opts[:ssl]
+        @opts[:self_signed] = (opts[:ssl_verify] === false ? true : false)
       end
       [:sudo_password, :sudo, :sudo_command].each do |key|
-        cfg[key] = opts[key] if opts.has_key? key
+        @opts[key] = opts[key] if opts.has_key? key
       end
 
-      @config = Train.target_config(cfg)
+      @config = Train.target_config(@opts)
       @transport_type = Train.validate_backend(@config)
       @train_connection = Train.create(@transport_type, config)
     end
 
     def connect!
-      if @backend.nil?
-        @backend = @train_connection.connection
-        @backend.wait_until_ready
-      end
-      nil
+      return unless @backend.nil?
+      @backend = train_connection.connection
+      @backend.wait_until_ready
+    rescue Train::UserError => e
+      # TODO now we have some overlap with the connection error logic in error_printer...
+      raise ConnectionFailure.new(e, opts)
     end
 
     def hostname
@@ -76,6 +76,8 @@ module ChefRun
       elsif platform.linux?
         :linux
       else
+        # TODO - this seems like it shouldn't happen here, when
+        # all the caller is doing is asking about the OS
         raise ChefRun::TargetHost::UnsupportedTargetOS.new(platform.name)
       end
     end
@@ -133,6 +135,12 @@ module ChefRun
       JSON.parse(manifest.content)
     end
 
+    private
+
+    def train_connection
+      @train_connection
+    end
+
     class RemoteExecutionFailed < ChefRun::ErrorNoLogs
       attr_reader :stdout, :stderr
       def initialize(host, command, result)
@@ -144,9 +152,32 @@ module ChefRun
       end
     end
 
+    class ConnectionFailure < ChefRun::ErrorNoLogs
+      # TODO: Currently this only handles sudo-related errors;
+      # we should also look at e.cause for underlying connection errors
+      # which are presently only visible in log files.
+      def initialize(original_exception, connection_opts)
+        sudo_command = connection_opts[:sudo_command]
+        init_params =
+          case original_exception.reason
+          when :sudo_password_required then "CHEFTRN003"
+          when :bad_sudo_password then "CHEFTRN004"
+          when :sudo_command_not_found then ["CHEFTRN005", sudo_command]
+          when :sudo_no_tty then "CHEFTRN006"
+          else
+            case original_exception.message
+            when /No such file/ then ["CHEFTRN005", sudo_command]
+            else
+              ["CHEFTRN999", original_exception.message]
+            end
+          end
+        super(*(Array(init_params).flatten))
+      end
+    end
+
     class ChefNotInstalled < StandardError; end
 
-    class UnsupportedTargetOS < ChefRun::Error
+    class UnsupportedTargetOS < ChefRun::ErrorNoLogs
       def initialize(os_name); super("CHEFTARG001", os_name); end
     end
   end

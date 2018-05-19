@@ -76,6 +76,17 @@ RSpec.describe ChefRun::TargetHost do
     end
   end
 
+  context "connect!" do
+    context "when an Train::UserError occurs" do
+      let(:train_connection_mock) { double("train connection") }
+      it "raises a ConnectionFailure" do
+        allow(train_connection_mock).to receive(:connection).and_raise Train::UserError
+        allow(subject).to receive(:train_connection).and_return(train_connection_mock)
+        expect { subject.connect! }.to raise_error(ChefRun::TargetHost::ConnectionFailure)
+      end
+    end
+  end
+
   context "#run_command!" do
     let(:backend) { double("backend") }
     let(:exit_status) { 0 }
