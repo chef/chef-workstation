@@ -7,13 +7,13 @@ Chef Workstation installs everything you need to get started using Chef on Windo
 
 1. Download Chef Workstation
 
-   * [Download Chef Workstation for Mac](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.103/mac_os_x/10.13/chef-workstation-0.1.103-1.dmg)
+   * [Download Chef Workstation for Mac](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.104/mac_os_x/10.13/chef-workstation-0.1.104-1.dmg)
 
-   * [Download Chef Workstation for Windows](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.103/windows/2016/chef-workstation-0.1.103-1-x64.msi)
+   * [Download Chef Workstation for Windows](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.104/windows/2016/chef-workstation-0.1.104-1-x64.msi)
 
-   * [Download Chef Workstation for Debian](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.103/ubuntu/16.04/chef-workstation_0.1.103-1_amd64.deb)
+   * [Download Chef Workstation for Debian](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.104/ubuntu/16.04/chef-workstation_0.1.104-1_amd64.deb)
 
-   * [Download Chef Workstation for Enterprise Linux](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.103/el/7/chef-workstation-0.1.103-1.el6.x86_64.rpm)
+   * [Download Chef Workstation for Enterprise Linux](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.104/el/7/chef-workstation-0.1.104-1.el6.x86_64.rpm)
 
     ***Note:*** These links are internal and require Chef VPN.
 
@@ -34,12 +34,9 @@ Chef Workstation installs everything you need to get started using Chef on Windo
 
 
 ## Building Chef-Workstation Packages
+
 We use Omnibus to describe our packaging. Please review [chef-workstation/omnibus/README.MD](https://github.com/chef/chef-workstation/tree/master/omnibus) for further details.
 
-## Questions or concerns?
-Please join us in the *#chef-workstation* channel on Slack!
-
 ## Copyright and License
-Copyright 2008-2018, Chef Software, Inc.
 
-**Note:** We are currently not open source. The plan is to make Chef Workstation open source at some point in the future.
+Code released under the [Apache license](LICENSE). Images and any trademarked content are copyrighted by [Chef Software, Inc.](https://www.chef.io).

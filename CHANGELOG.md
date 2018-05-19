@@ -1,9 +1,19 @@
-<!-- latest_release 0.1.103 -->
+<!-- latest_release 0.1.105 -->
+## [0.1.105](https://github.com/chef/chef-workstation/tree/0.1.105) (2018-05-19)
+
+#### Merged Pull Requests
+- Add note about Apache license. [#148](https://github.com/chef/chef-workstation/pull/148) ([mchiang0610](https://github.com/mchiang0610))
+<!-- latest_release -->
+
+## [0.1.104](https://github.com/chef/chef-workstation/tree/0.1.104) (2018-05-18)
+
+#### Merged Pull Requests
+- troubleshooting guide. [#149](https://github.com/chef/chef-workstation/pull/149) ([mchiang0610](https://github.com/mchiang0610))
+
 ## [0.1.103](https://github.com/chef/chef-workstation/tree/0.1.103) (2018-05-18)
 
 #### Merged Pull Requests
 - start of privacy page. [#146](https://github.com/chef/chef-workstation/pull/146) ([mchiang0610](https://github.com/mchiang0610))
-<!-- latest_release -->
 
 ## [0.1.102](https://github.com/chef/chef-workstation/tree/0.1.102) (2018-05-18)
 
