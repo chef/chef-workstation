@@ -237,25 +237,13 @@ module ChefRun
     def connect_target(target_host, reporter = nil)
       if reporter.nil?
         UI::Terminal.render_job(T.status.connecting, prefix: "[#{target_host.config[:host]}]") do |rep|
-          target_host.connect!
-          rep.success(T.status.connected)
+          do_connect(target_host, rep, :success)
         end
       else
         reporter.update(T.status.connecting)
-        target_host.connect!
-        # No success here - if we have a reporter,
-        # it's because it will be used for more actions than our own
-        # and success marks the end.
-        reporter.update(T.status.connected)
+        do_connect(target_host, reporter, :update)
       end
       target_host
-    rescue StandardError => e
-      if reporter.nil?
-        UI::Terminal.output(e.message)
-      else
-        reporter.error(e.message)
-      end
-      raise
     end
 
     def run_single_target(initial_status_msg, target_host, local_policy_path)
@@ -491,7 +479,6 @@ module ChefRun
     def handle_message(message, data, reporter)
       if message == :error # data[0] = exception
         # Mark the current task as failed with whatever data is available to us
-        require "chef-run/ui/error_printer"
         reporter.error(ChefRun::UI::ErrorPrinter.error_summary(data[0]))
       end
     end
@@ -502,6 +489,15 @@ module ChefRun
 
     def show_help
       UI::Terminal.output format_help
+    end
+
+    def do_connect(target_host, reporter, update_method)
+      target_host.connect!
+      reporter.send(update_method, T.status.connected)
+    rescue StandardError => e
+      message = ChefRun::UI::ErrorPrinter.error_summary(e)
+      reporter.error(message)
+      raise
     end
 
     def format_help
