@@ -18,14 +18,16 @@ require "mixlib/cli"
 require "chef/log"
 require "chef-config/config"
 require "chef-config/logger"
-require "chef-run/target_host"
-require "chef-run/action/install_chef"
+
 require "chef-run/action/converge_target"
+require "chef-run/action/install_chef"
 require "chef-run/config"
 require "chef-run/error"
 require "chef-run/log"
 require "chef-run/recipe_lookup"
+require "chef-run/target_host"
 require "chef-run/target_resolver"
+require "chef-run/telemeter"
 require "chef-run/temp_cookbook"
 require "chef-run/text"
 require "chef-run/ui/error_printer"
@@ -111,18 +113,13 @@ module ChefRun
 
     def run
       setup_cli
-      # Start the process of submitting telemetry data from our previous run:
-      # Note that we do not join on this thread - if it doesn't complete before
-      # the command exectuion completes, then we'll pick up what's left in the next run.
-      # We don't, under any circumstances, want to cause the user to encounter noticeable
-      # delays when waiting for a command to complete because telemetry hasn't yet finished submitting.
-      Thread.new() { ChefRun::Telemeter::Sender.new().run }
+      ChefRun::Telemeter::Sender.start_upload_thread()
 
       # Perform a timing and capture of the run. Individual methods and actions may perform
       # nested Telemeter.timed_*_capture or Telemeter.capture calls in their operation, and
       # they will be captured in the same telemetry session.
       # NOTE: We're not currently sending arguments to telemetry because we have not implemented
-      #       pre-parsing of arguemtns to eliminate potentially sensitive data such as
+      #       pre-parsing of arguments to eliminate potentially sensitive data such as
       #       passwords in host name, or in ad-hoc converge properties.
       Telemeter.timed_run_capture([:redacted]) do
         begin
@@ -142,7 +139,6 @@ module ChefRun
       exit @rc
     end
 
-    # private
     def setup_cli
       # Enable CLI output via Terminal. This comes first because we want to supply
       # status output about reading and creating config files
@@ -151,7 +147,7 @@ module ChefRun
       # based on config settings:
       Config.create_directory_tree
 
-      # TODO because we have not loaded a command, we will always be using
+      # TODO because we have not yet parsed arguments, we will always be using
       #      the default location at this step.
       if Config.using_default_location? && !Config.exist?
         setup_workstation
