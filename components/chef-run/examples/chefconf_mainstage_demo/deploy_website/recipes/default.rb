@@ -10,11 +10,11 @@
 #   action :create
 # end
 
-template '/etc/yum.repos.d/nginx.repo' do
-  source 'yum_repo.erb'
+template "/etc/yum.repos.d/nginx.repo" do
+  source "yum_repo.erb"
 end
 
-package 'nginx'
+package "nginx"
 
 file "/etc/nginx/conf.d/default.conf" do
   action :delete
