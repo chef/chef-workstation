@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.108 -->
+<!-- latest_release 0.1.109 -->
+## [0.1.109](https://github.com/chef/chef-workstation/tree/0.1.109) (2018-05-20)
+
+#### Merged Pull Requests
+- Images for OSS Website. [#155](https://github.com/chef/chef-workstation/pull/155) ([ChefRycar](https://github.com/ChefRycar))
+<!-- latest_release -->
+
 ## [0.1.108](https://github.com/chef/chef-workstation/tree/0.1.108) (2018-05-20)
 
 #### Merged Pull Requests
 - Update circleci to bundle install chef-run [#154](https://github.com/chef/chef-workstation/pull/154) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.107](https://github.com/chef/chef-workstation/tree/0.1.107) (2018-05-20)
 
