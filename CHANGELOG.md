@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.107 -->
+<!-- latest_release 0.1.108 -->
+## [0.1.108](https://github.com/chef/chef-workstation/tree/0.1.108) (2018-05-20)
+
+#### Merged Pull Requests
+- Update circleci to bundle install chef-run [#154](https://github.com/chef/chef-workstation/pull/154) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.107](https://github.com/chef/chef-workstation/tree/0.1.107) (2018-05-20)
 
 #### Merged Pull Requests
 - [SHACK-188] resolve regression on telemetry not actually sending data [#150](https://github.com/chef/chef-workstation/pull/150) ([robbkidd](https://github.com/robbkidd))
-<!-- latest_release -->
 
 ## [0.1.106](https://github.com/chef/chef-workstation/tree/0.1.106) (2018-05-19)
 
