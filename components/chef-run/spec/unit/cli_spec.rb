@@ -19,6 +19,7 @@ require "spec_helper"
 require "chef-run/cli"
 require "chef-run/error"
 require "chef-run/telemeter"
+require "chef-run/telemeter/sender"
 require "chef-run/ui/terminal"
 
 require "chef-dk/ui"
@@ -37,22 +38,37 @@ RSpec.describe ChefRun::CLI do
     # Avoid messy object dumps in failures because subject is an object instance
     allow(subject).to receive(:inspect).and_return("The subject instance")
   end
+
   describe "run" do
-    it "sets up the cli" do
-      expect(subject).to receive(:setup_cli)
-      expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
+    before do
+      # Catch all of the calls by default, to prevent the various
+      # startup actions from actually occuring on the workstatoin.
+      allow(subject).to receive(:setup_cli)
+      allow(ChefRun::Telemeter::Sender).to receive(:start_upload_thread)
+      allow(telemetry).to receive(:timed_run_capture).and_yield
+      allow(subject).to receive(:perform_run)
+      allow(telemetry).to receive(:commit)
     end
 
-    # TODO - test for Sender.new.run in thread
-    it "performs the steps necessary to capture telemetry" do
-      expect(telemetry).to receive(:timed_run_capture).and_yield
+    it "spawns the telemetry upload" do
+      expect(ChefRun::Telemeter::Sender).to receive(:start_upload_thread)
+      expect { subject.run }.to exit_with_code(0)
+    end
+
+    it "sets up the cli" do
+      expect(subject).to receive(:setup_cli)
+      expect { subject.run }.to exit_with_code(0)
+    end
+
+    it "captures and commits the run to telemetry" do
+      expect(telemetry).to receive(:timed_run_capture)
       expect(telemetry).to receive(:commit)
-      expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
+      expect { subject.run }.to exit_with_code(0)
     end
 
     it "calls perform_run" do
       expect(subject).to receive(:perform_run)
-      expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(0) }
+      expect { subject.run }.to exit_with_code(0)
     end
 
     context "perform_run raises WrappedError" do
@@ -61,14 +77,14 @@ RSpec.describe ChefRun::CLI do
       it "prints the error and exits" do
         expect(subject).to receive(:perform_run).and_raise(e)
         expect(ChefRun::UI::ErrorPrinter).to receive(:show_error).with(e)
-        expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(1) }
+        expect { subject.run }.to exit_with_code(1)
       end
     end
 
     context "perform_run raises SystemExit" do
       it "exits with same exit code" do
         expect(subject).to receive(:perform_run).and_raise(SystemExit.new(99))
-        expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(99) }
+        expect { subject.run }.to exit_with_code(99)
       end
     end
 
@@ -78,7 +94,7 @@ RSpec.describe ChefRun::CLI do
       it "exits with same exit code" do
         expect(subject).to receive(:perform_run).and_raise(e)
         expect(ChefRun::UI::ErrorPrinter).to receive(:dump_unexpected_error).with(e)
-        expect { subject.run }.to raise_error(SystemExit) { |e| expect(e.status).to eq(64) }
+        expect { subject.run }.to exit_with_code(64)
       end
     end
   end

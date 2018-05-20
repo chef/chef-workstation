@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.106 -->
+<!-- latest_release 0.1.107 -->
+## [0.1.107](https://github.com/chef/chef-workstation/tree/0.1.107) (2018-05-20)
+
+#### Merged Pull Requests
+- [SHACK-188] resolve regression on telemetry not actually sending data [#150](https://github.com/chef/chef-workstation/pull/150) ([robbkidd](https://github.com/robbkidd))
+<!-- latest_release -->
+
 ## [0.1.106](https://github.com/chef/chef-workstation/tree/0.1.106) (2018-05-19)
 
 #### Merged Pull Requests
 - Fixes error handling when an invalid flag is passed. [#151](https://github.com/chef/chef-workstation/pull/151) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.105](https://github.com/chef/chef-workstation/tree/0.1.105) (2018-05-19)
 

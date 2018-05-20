@@ -23,8 +23,15 @@ require "chef-run/version"
 module ChefRun
   class Telemeter
     class Sender
+
+      def self.start_upload_thread
+        sender = Sender.new
+        Thread.new { sender.run }
+      end
+
       def run
         if ChefRun::Telemeter.enabled?
+          ChefRun::Log.info("Telemetry enabled, beginning upload of previous session(s)")
           # dev mode telemetry gets sent to a different location
           if ChefRun::Config.telemetry.dev
             ENV["CHEF_TELEMETRY_ENDPOINT"] ||= "https://telemetry-acceptance.chef.io"
