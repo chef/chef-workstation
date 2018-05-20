@@ -18,14 +18,16 @@ require "mixlib/cli"
 require "chef/log"
 require "chef-config/config"
 require "chef-config/logger"
-require "chef-run/target_host"
-require "chef-run/action/install_chef"
+
 require "chef-run/action/converge_target"
+require "chef-run/action/install_chef"
 require "chef-run/config"
 require "chef-run/error"
 require "chef-run/log"
 require "chef-run/recipe_lookup"
+require "chef-run/target_host"
 require "chef-run/target_resolver"
+require "chef-run/telemeter"
 require "chef-run/temp_cookbook"
 require "chef-run/text"
 require "chef-run/ui/error_printer"
@@ -111,18 +113,13 @@ module ChefRun
 
     def run
       setup_cli
-      # Start the process of submitting telemetry data from our previous run:
-      # Note that we do not join on this thread - if it doesn't complete before
-      # the command exectuion completes, then we'll pick up what's left in the next run.
-      # We don't, under any circumstances, want to cause the user to encounter noticeable
-      # delays when waiting for a command to complete because telemetry hasn't yet finished submitting.
-      Thread.new() { ChefRun::Telemeter::Sender.new().run }
+      ChefRun::Telemeter::Sender.start_upload_thread()
 
       # Perform a timing and capture of the run. Individual methods and actions may perform
       # nested Telemeter.timed_*_capture or Telemeter.capture calls in their operation, and
       # they will be captured in the same telemetry session.
       # NOTE: We're not currently sending arguments to telemetry because we have not implemented
-      #       pre-parsing of arguemtns to eliminate potentially sensitive data such as
+      #       pre-parsing of arguments to eliminate potentially sensitive data such as
       #       passwords in host name, or in ad-hoc converge properties.
       Telemeter.timed_run_capture([:redacted]) do
         begin
@@ -142,7 +139,6 @@ module ChefRun
       exit @rc
     end
 
-    # private
     def setup_cli
       # Enable CLI output via Terminal. This comes first because we want to supply
       # status output about reading and creating config files
@@ -151,7 +147,7 @@ module ChefRun
       # based on config settings:
       Config.create_directory_tree
 
-      # TODO because we have not loaded a command, we will always be using
+      # TODO because we have not yet parsed arguments, we will always be using
       #      the default location at this step.
       if Config.using_default_location? && !Config.exist?
         setup_workstation
@@ -189,15 +185,28 @@ module ChefRun
         configure_chef
         target_hosts = TargetResolver.new(cli_arguments.shift, config).targets
         temp_cookbook, initial_status_msg = generate_temp_cookbook(cli_arguments)
+        local_policy_path = create_local_policy(temp_cookbook)
         if target_hosts.length == 1
-          run_single_target(initial_status_msg, target_hosts[0], temp_cookbook )
+          # Note: UX discussed determined that when running with a single target,
+          #       we'll use multiple lines to display status for the target.
+          run_single_target(initial_status_msg, target_hosts[0], local_policy_path)
         else
           @multi_target = true
-          run_multi_target(initial_status_msg, target_hosts, temp_cookbook)
+          # Multi-target will use one line per target.
+          run_multi_target(initial_status_msg, target_hosts, local_policy_path)
         end
       end
+    rescue OptionParser::InvalidOption => e
+      # Using nil here is a bit gross but it prevents usage from printing.
+      ove = OptionValidationError.new("CHEFVAL010", nil,
+                                      e.message.split(":")[1].strip, # only want the flag
+                                      format_flags.lines[1..-1].join # remove 'FLAGS:' header
+                                     )
+      handle_perform_error(ove)
     rescue => e
       handle_perform_error(e)
+    ensure
+      temp_cookbook.delete unless temp_cookbook.nil?
     end
 
     # Accepts a target_host and establishes the connection to that host
@@ -226,18 +235,18 @@ module ChefRun
       raise
     end
 
-    def run_single_target(initial_status_msg, target_host, temp_cookbook)
+    def run_single_target(initial_status_msg, target_host, local_policy_path)
       connect_target(target_host)
       prefix = "[#{target_host.hostname}]"
       UI::Terminal.render_job(TS.install_chef.verifying, prefix: prefix) do |reporter|
         install(target_host, reporter)
       end
       UI::Terminal.render_job(initial_status_msg, prefix: "[#{target_host.hostname}]") do |reporter|
-        converge(reporter, temp_cookbook, target_host)
+        converge(reporter, local_policy_path, target_host)
       end
     end
 
-    def run_multi_target(initial_status_msg, target_hosts, temp_cookbook)
+    def run_multi_target(initial_status_msg, target_hosts, local_policy_path)
       # Our multi-host UX does not show a line item per action,
       # but rather a line-item per connection.
       jobs = target_hosts.map do |target_host|
@@ -247,7 +256,7 @@ module ChefRun
           reporter.update(TS.install_chef.verifying)
           install(target_host, reporter)
           reporter.update(initial_status_msg)
-          converge(reporter, temp_cookbook, target_host)
+          converge(reporter, local_policy_path, target_host)
         end
       end
       UI::Terminal.render_parallel_jobs(TS.converge.multi_header, jobs)
@@ -358,6 +367,22 @@ module ChefRun
       cli_arguments.size == 1
     end
 
+    def create_local_policy(local_cookbook)
+      require "chef-dk/ui"
+      require "chef-dk/policyfile_services/export_repo"
+      require "chef-dk/policyfile_services/install"
+      ChefDK::PolicyfileServices::Install.new(ui: ChefDK::UI.null(),
+                                              root_dir: local_cookbook.path).run
+      lock_path = File.join(local_cookbook.path, "Policyfile.lock.json")
+      es = ChefDK::PolicyfileServices::ExportRepo.new(policyfile: lock_path,
+                                                      root_dir: local_cookbook.path,
+                                                      export_dir: File.join(local_cookbook.path, "export"),
+                                                      archive: true,
+                                                      force: true)
+      es.run
+      es.archive_file_location
+    end
+
     # Runs the InstallChef action and renders UI updates as
     # the action reports back
     def install(target_host, reporter)
@@ -395,8 +420,8 @@ module ChefRun
 
     # Runs the Converge action and renders UI updates as
     # the action reports back
-    def converge(reporter, temp_cookbook, target_host)
-      converge_args = { local_cookbook: temp_cookbook, target_host: target_host }
+    def converge(reporter, local_policy_path, target_host)
+      converge_args = { local_policy_path: local_policy_path, target_host: target_host }
       converger = Action::ConvergeTarget.new(converge_args)
       converger.run do |event, data|
         case event
@@ -414,7 +439,6 @@ module ChefRun
           handle_message(event, data, reporter)
         end
       end
-      temp_cookbook.delete
     end
 
     def handle_perform_error(e)
@@ -454,13 +478,17 @@ module ChefRun
     end
 
     def show_help
-      UI::Terminal.output banner
-      show_help_flags
+      UI::Terminal.output format_help
     end
 
-    def show_help_flags
-      UI::Terminal.output ""
-      UI::Terminal.output "FLAGS:"
+    def format_help
+      help_text = banner.clone # This prevents us appending to the banner text
+      help_text << "\n"
+      help_text << format_flags
+    end
+
+    def format_flags
+      flag_text = "FLAGS:\n"
       justify_length = 0
       options.each_value do |spec|
         justify_length = [justify_length, spec[:long].length + 4].max
@@ -474,16 +502,16 @@ module ChefRun
           short = "#{short}, "
         end
         flags = "#{short}#{flag_spec[:long]}"
-        UI::Terminal.write("    #{flags.ljust(justify_length)}    ")
+        flag_text << "    #{flags.ljust(justify_length)}    "
         ml_padding = " " * (justify_length + 8)
         first = true
         flag_spec[:description].split("\n").each do |d|
-          UI::Terminal.write(ml_padding) unless first
+          flag_text << ml_padding unless first
           first = false
-          UI::Terminal.write(d)
-          UI::Terminal.write("\n")
+          flag_text << "#{d}\n"
         end
       end
+      flag_text
     end
 
     def usage

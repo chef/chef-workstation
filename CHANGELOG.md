@@ -1,9 +1,44 @@
-<!-- latest_release 0.1.101 -->
+<!-- latest_release 0.1.108 -->
+## [0.1.108](https://github.com/chef/chef-workstation/tree/0.1.108) (2018-05-20)
+
+#### Merged Pull Requests
+- Update circleci to bundle install chef-run [#154](https://github.com/chef/chef-workstation/pull/154) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
+## [0.1.107](https://github.com/chef/chef-workstation/tree/0.1.107) (2018-05-20)
+
+#### Merged Pull Requests
+- [SHACK-188] resolve regression on telemetry not actually sending data [#150](https://github.com/chef/chef-workstation/pull/150) ([robbkidd](https://github.com/robbkidd))
+
+## [0.1.106](https://github.com/chef/chef-workstation/tree/0.1.106) (2018-05-19)
+
+#### Merged Pull Requests
+- Fixes error handling when an invalid flag is passed. [#151](https://github.com/chef/chef-workstation/pull/151) ([jonsmorrow](https://github.com/jonsmorrow))
+
+## [0.1.105](https://github.com/chef/chef-workstation/tree/0.1.105) (2018-05-19)
+
+#### Merged Pull Requests
+- Add note about Apache license. [#148](https://github.com/chef/chef-workstation/pull/148) ([mchiang0610](https://github.com/mchiang0610))
+
+## [0.1.104](https://github.com/chef/chef-workstation/tree/0.1.104) (2018-05-18)
+
+#### Merged Pull Requests
+- troubleshooting guide. [#149](https://github.com/chef/chef-workstation/pull/149) ([mchiang0610](https://github.com/mchiang0610))
+
+## [0.1.103](https://github.com/chef/chef-workstation/tree/0.1.103) (2018-05-18)
+
+#### Merged Pull Requests
+- start of privacy page. [#146](https://github.com/chef/chef-workstation/pull/146) ([mchiang0610](https://github.com/mchiang0610))
+
+## [0.1.102](https://github.com/chef/chef-workstation/tree/0.1.102) (2018-05-18)
+
+#### Merged Pull Requests
+- Fix policyfile  race condition for multitarget [#145](https://github.com/chef/chef-workstation/pull/145) ([marcparadise](https://github.com/marcparadise))
+
 ## [0.1.101](https://github.com/chef/chef-workstation/tree/0.1.101) (2018-05-17)
 
 #### Merged Pull Requests
 - Missed a ChefCLI =&gt; ChefRun. [#142](https://github.com/chef/chef-workstation/pull/142) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.100](https://github.com/chef/chef-workstation/tree/0.1.100) (2018-05-17)
 

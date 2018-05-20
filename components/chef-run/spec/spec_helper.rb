@@ -30,6 +30,34 @@ class ChefRun::MockReporter
   def error(msg); ChefRun::UI::Terminal.output "FAILURE: #{msg}"; end
 end
 
+RSpec::Matchers.define :exit_with_code do |expected_code|
+  actual_code = nil
+  match do |block|
+    begin
+      block.call
+    rescue SystemExit => e
+      actual_code = e.status
+    end
+    actual_code && actual_code == expected_code
+  end
+
+  failure_message do |block|
+    result = actual.nil? ? " did not call exit" : " called exit(#{actual_code})"
+    "expected exit(#{expected_code}) but it #{result}."
+  end
+
+  failure_message_when_negated do |block|
+    "expected exit(#{expected_code}) but it did."
+  end
+
+  description do
+    "expect exit(#{expected_code})"
+  end
+
+  supports_block_expectations do
+    true
+  end
+end
 # TODO would read better to make this a custom matcher.
 # Simulates a recursive string lookup on the Text object
 #

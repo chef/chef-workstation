@@ -317,6 +317,11 @@ errors:
   CHEFVAL009: |
     File extension '%1' is unsupported. Currently recipes must be specified with a `.rb` extension.
 
+  CHEFVAL010: |
+    The flag '%1' does not exist.
+
+      Available flags are:
+    %2
   # General errors/unknown errors are handled with CHEFINT
   CHEFINT001: |
     An unexpected error has occurred:
