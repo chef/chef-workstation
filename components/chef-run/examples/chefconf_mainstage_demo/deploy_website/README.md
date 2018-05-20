@@ -1,4 +1,3 @@
 # deploy_website
 
-TODO: Enter the cookbook description here.
-
+Example cookbook for deploying an nginx site to RedHat 7 hosts.
