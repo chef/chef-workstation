@@ -28,6 +28,7 @@ require "chef-run/recipe_lookup"
 require "chef-run/target_host"
 require "chef-run/target_resolver"
 require "chef-run/telemeter"
+require "chef-run/telemeter/sender"
 require "chef-run/temp_cookbook"
 require "chef-run/text"
 require "chef-run/ui/error_printer"
@@ -38,7 +39,9 @@ module ChefRun
     include Mixlib::CLI
     T = ChefRun::Text.cli
     TS = ChefRun::Text.status
+    RC_OK = 0
     RC_COMMAND_FAILED = 1
+    RC_UNHANDLED_ERROR = 32
     RC_ERROR_HANDLING_FAILED = 64
 
     banner T.description + "\n" + T.usage_full
@@ -130,7 +133,7 @@ module ChefRun
 
     def initialize(argv)
       @argv = argv
-      @rc = 0
+      @rc = RC_OK
       super()
     end
 
@@ -147,19 +150,33 @@ module ChefRun
       Telemeter.timed_run_capture([:redacted]) do
         begin
           perform_run
-        rescue WrappedError => e
-          UI::ErrorPrinter.show_error(e)
-          @rc = RC_COMMAND_FAILED
-        rescue SystemExit => e
-          @rc = e.status
         rescue Exception => e
-          UI::ErrorPrinter.dump_unexpected_error(e)
-          @rc = RC_ERROR_HANDLING_FAILED
+          @rc = handle_run_error(e)
         end
       end
+    rescue => e
+      @rc = handle_run_error(e)
     ensure
       Telemeter.commit
       exit @rc
+    end
+
+    def handle_run_error(e)
+      case e
+      when nil
+        RC_OK
+      when WrappedError
+        UI::ErrorPrinter.show_error(e)
+        RC_COMMAND_FAILED
+      when SystemExit
+        e.status
+      when Exception
+        UI::ErrorPrinter.dump_unexpected_error(e)
+        RC_ERROR_HANDLING_FAILED
+      else
+        UI::ErrorPrinter.dump_unexpected_error(e)
+        RC_UNHANDLED_ERROR
+      end
     end
 
     def setup_cli
