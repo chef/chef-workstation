@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.111 -->
+<!-- latest_release 0.1.112 -->
+## [0.1.112](https://github.com/chef/chef-workstation/tree/0.1.112) (2018-05-21)
+
+#### Merged Pull Requests
+- Fix telemetry race condition [#157](https://github.com/chef/chef-workstation/pull/157) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.111](https://github.com/chef/chef-workstation/tree/0.1.111) (2018-05-21)
 
 #### Merged Pull Requests
 - [SHACK-178] add PowerShell customization and shortcuts to Windows install [#152](https://github.com/chef/chef-workstation/pull/152) ([robbkidd](https://github.com/robbkidd))
-<!-- latest_release -->
 
 ## [0.1.110](https://github.com/chef/chef-workstation/tree/0.1.110) (2018-05-21)
 
