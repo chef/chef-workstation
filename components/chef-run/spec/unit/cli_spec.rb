@@ -249,6 +249,26 @@ RSpec.describe ChefRun::CLI do
     end
   end
 
+  describe "#connect_target" do
+    let(:host) { double("TargetHost", config: {} ) }
+    context "when simulating the multi-host path" do
+      let(:reporter) { double("reporter", update: :ok, success: :ok) }
+      it "invokes do_connect with correct options" do
+        expect(subject).to receive(:do_connect).
+          with(host, reporter, :update)
+        subject.connect_target(host, reporter)
+      end
+    end
+
+    context "when simulating the single-host path" do
+      it "invokes do_connect with correct options" do
+        expect(subject).to receive(:do_connect).
+          with(host, anything(), :success)
+        subject.connect_target(host)
+      end
+    end
+  end
+
   describe "#format_properties" do
     it "parses properties into a hash" do
       provided = %w{key1=value key2=1 key3=true key4=FaLsE key5=0777 key6=https://some.website key7=num1and2digit key_8=underscore}
