@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.109 -->
+<!-- latest_release 0.1.110 -->
+## [0.1.110](https://github.com/chef/chef-workstation/tree/0.1.110) (2018-05-21)
+
+#### Merged Pull Requests
+- [SHACK-42] Add sudo- and auth-related options and text [#139](https://github.com/chef/chef-workstation/pull/139) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.109](https://github.com/chef/chef-workstation/tree/0.1.109) (2018-05-20)
 
 #### Merged Pull Requests
 - Images for OSS Website. [#155](https://github.com/chef/chef-workstation/pull/155) ([ChefRycar](https://github.com/ChefRycar))
-<!-- latest_release -->
 
 ## [0.1.108](https://github.com/chef/chef-workstation/tree/0.1.108) (2018-05-20)
 
