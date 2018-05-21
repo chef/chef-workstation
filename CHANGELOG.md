@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.112 -->
+<!-- latest_release 0.1.113 -->
+## [0.1.113](https://github.com/chef/chef-workstation/tree/0.1.113) (2018-05-21)
+
+#### Merged Pull Requests
+- Ensure that all errors bubble up [#156](https://github.com/chef/chef-workstation/pull/156) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.112](https://github.com/chef/chef-workstation/tree/0.1.112) (2018-05-21)
 
 #### Merged Pull Requests
 - Fix telemetry race condition [#157](https://github.com/chef/chef-workstation/pull/157) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.111](https://github.com/chef/chef-workstation/tree/0.1.111) (2018-05-21)
 
