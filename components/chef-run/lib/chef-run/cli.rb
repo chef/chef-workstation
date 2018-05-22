@@ -471,8 +471,11 @@ module ChefRun
 
     def handle_perform_error(e)
       id = e.respond_to?(:id) ? e.id : e.class.to_s
-      message = e.respond_to?(:message) ? e.message : e.to_s
-      Telemeter.capture(:error, exception: { id: id, message: message })
+      # TODO: This is currently sending host information for certain ssh errors
+      #       post release we need to scrub this data. For now I'm redacting the
+      #       whole message.
+      # message = e.respond_to?(:message) ? e.message : e.to_s
+      Telemeter.capture(:error, exception: { id: id, message: "redacted" })
       wrapper = ChefRun::StandardErrorResolver.wrap_exception(e)
       capture_exception_backtrace(wrapper)
       # Now that our housekeeping is done, allow user-facing handling/formatting
