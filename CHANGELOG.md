@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.116 -->
+<!-- latest_release 0.1.117 -->
+## [0.1.117](https://github.com/chef/chef-workstation/tree/0.1.117) (2018-05-22)
+
+#### Merged Pull Requests
+- Getting started. [#160](https://github.com/chef/chef-workstation/pull/160) ([mchiang0610](https://github.com/mchiang0610))
+<!-- latest_release -->
+
 ## [0.1.116](https://github.com/chef/chef-workstation/tree/0.1.116) (2018-05-22)
 
 #### Merged Pull Requests
 - Start of CLI guide. [#147](https://github.com/chef/chef-workstation/pull/147) ([mchiang0610](https://github.com/mchiang0610))
-<!-- latest_release -->
 
 ## [0.1.115](https://github.com/chef/chef-workstation/tree/0.1.115) (2018-05-22)
 
