@@ -80,7 +80,7 @@ module ChefRun
         entries = content["entries"]
         cli_version = content["version"]
         total = entries.length
-        telemetry = Telemetry.new(product: "chef-workstation-cli",
+        telemetry = Telemetry.new(product: "chef-workstation",
                                   origin: "command-line",
                                   product_version: cli_version,
                                   install_context: "omnibus")
