@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.113 -->
+<!-- latest_release 0.1.114 -->
+## [0.1.114](https://github.com/chef/chef-workstation/tree/0.1.114) (2018-05-22)
+
+#### Merged Pull Requests
+- Revert train to 1.4.6, update sudo error checks [#158](https://github.com/chef/chef-workstation/pull/158) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.113](https://github.com/chef/chef-workstation/tree/0.1.113) (2018-05-21)
 
 #### Merged Pull Requests
 - Ensure that all errors bubble up [#156](https://github.com/chef/chef-workstation/pull/156) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.112](https://github.com/chef/chef-workstation/tree/0.1.112) (2018-05-21)
 
