@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.114 -->
+<!-- latest_release 0.1.115 -->
+## [0.1.115](https://github.com/chef/chef-workstation/tree/0.1.115) (2018-05-22)
+
+#### Merged Pull Requests
+- Telemetry product name is &#39;chef-workstation&#39; [#159](https://github.com/chef/chef-workstation/pull/159) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.114](https://github.com/chef/chef-workstation/tree/0.1.114) (2018-05-22)
 
 #### Merged Pull Requests
 - Revert train to 1.4.6, update sudo error checks [#158](https://github.com/chef/chef-workstation/pull/158) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.113](https://github.com/chef/chef-workstation/tree/0.1.113) (2018-05-21)
 
