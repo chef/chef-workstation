@@ -23,6 +23,7 @@ module ChefRun
     attr_reader :config, :reporter, :backend, :transport_type, :opts
 
     def self.instance_for_url(target, opts = {})
+      opts = { target: @url }
       target_host = new(target, opts)
       target_host.connect!
       target_host
@@ -159,17 +160,21 @@ module ChefRun
       def initialize(original_exception, connection_opts)
         sudo_command = connection_opts[:sudo_command]
         init_params =
-          case original_exception.reason
-          when :sudo_password_required then "CHEFTRN003"
-          when :bad_sudo_password then "CHEFTRN004"
-          when :sudo_command_not_found then ["CHEFTRN005", sudo_command]
-          when :sudo_no_tty then "CHEFTRN006"
+          #  Comments below show the original_exception.reason values to check for instead of strings,
+          #  after train 1.4.12 is consumable.
+          case original_exception.message # original_exception.reason
+          when /Sudo requires a password/ # :sudo_password_required
+            "CHEFTRN003"
+          when /Wrong sudo password/ #:bad_sudo_password
+            "CHEFTRN004"
+          when /Can't find sudo command/, /No such file/, /command not found/ # :sudo_command_not_found
+            # NOTE: In the /No such file/ case, reason will be nil - we still have
+            # to check message text. (Or PR to train to handle this case)
+            ["CHEFTRN005", sudo_command] # :sudo_command_not_found
+          when /Sudo requires a TTY.*/   # :sudo_no_tty
+            "CHEFTRN006"
           else
-            case original_exception.message
-            when /No such file/ then ["CHEFTRN005", sudo_command]
-            else
-              ["CHEFTRN999", original_exception.message]
-            end
+            ["CHEFTRN999", original_exception.message]
           end
         super(*(Array(init_params).flatten))
       end
