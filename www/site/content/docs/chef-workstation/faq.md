@@ -3,7 +3,7 @@ title = "Frequently Asked Questions"
 [menu]
   [menu.docs]
     parent = "Chef Workstation"
-    weight= "100"
+    weight= "30"
 +++
 
 

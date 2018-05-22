@@ -3,7 +3,7 @@ title = "CLI Reference"
 [menu]
   [menu.docs]
     parent = "Chef Workstation"
-    
+    weight = "20"
 +++
 
 Chef-run is a tool to execute ad-hoc tasks using Chef.
