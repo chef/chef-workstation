@@ -16,9 +16,9 @@ Chef-run is a tool to execute ad-hoc tasks using Chef.
   For example:
 
 ```
-    chef-run web01 service nginx action=restart
-    chef-run web01,web02 service nginx action=restart
-    chef-run web0[1:2] service nginx action=restart
+chef-run web01 service nginx
+chef-run web01,web02 service nginx action=restart
+chef-run web[1:2] service nginx priority=20 action=stop
 ```
 
 `chef-run <TARGET[S]> <RECIPE> [FLAGS]`
@@ -28,10 +28,10 @@ Chef-run is a tool to execute ad-hoc tasks using Chef.
   For example:
 
 ```
-    chef-run web01 path/to/cookbook/recipe.rb
-    chef-run web01,web02 path/to/cookbook
-    chef-run web0[1:2] cookbook_name
-    chef-run web01 cookbook_name::recipe_name
+chef-run web01 path/to/cookbook/recipe.rb
+chef-run web01,web02 path/to/cookbook
+chef-run web0[1:2] cookbook_name
+chef-run web01 cookbook_name::recipe_name
 ```
 
 ARGUMENTS:
