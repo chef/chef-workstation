@@ -5,20 +5,9 @@ Chef Workstation installs everything you need to get started using Chef on Windo
 
 ## Getting Started
 
-1. Download Chef Workstation
+1. Download [Chef Workstation](https://downloads.chef.io/chef-workstation)
 
-   * [Download Chef Workstation for Mac](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.115/mac_os_x/10.13/chef-workstation-0.1.115-1.dmg)
-
-   * [Download Chef Workstation for Windows](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.115/windows/2016/chef-workstation-0.1.115-1-x64.msi)
-
-   * [Download Chef Workstation for Debian](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.115/ubuntu/16.04/chef-workstation_0.1.115-1_amd64.deb)
-
-   * [Download Chef Workstation for Enterprise Linux](http://artifactory.chef.co/omnibus-current-local/com/getchef/chef-workstation/0.1.115/el/7/chef-workstation-0.1.115-1.el6.x86_64.rpm)
-
-    ***Note:*** These links are internal and require Chef VPN.
-
-2. Double-click the `.dmg` or `.msi` file to start the install process. Or install
-   the Linux package for your platform.
+2. Double-click the `.dmg` or `.msi` file to start the install process. Or install the Linux package for your platform.
 
 3. Open a command-line terminal, and try out some chef-cli commands
 
