@@ -3,33 +3,34 @@ title = "Getting Started"
 [menu]
   [menu.docs]
     parent = "Chef Workstation"
+    Weight = "1"
 +++
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius ipsum accumsan placerat auctor. Ut in mollis lectus. Ut ac mauris aliquet, blandit metus non, tincidunt orci. Nunc commodo dignissim condimentum. Mauris sit amet congue purus. Duis odio lacus, ultrices vitae orci rutrum, pulvinar scelerisque metus. Suspendisse tempus ligula sit amet dapibus ultricies. Vestibulum a arcu nisl.
+## Overview 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius ipsum accumsan placerat auctor. Ut in mollis lectus. Ut ac mauris aliquet, blandit metus non, tincidunt orci. Nunc commodo dignissim condimentum. Mauris sit amet congue purus. Duis odio lacus, ultrices vitae orci rutrum, pulvinar scelerisque metus. Suspendisse tempus ligula sit amet dapibus ultricies. Vestibulum a arcu nisl.
+Chef Workstation gives you everything you need to get started with Chef. Ad-hoc remote execution, scans and configuration tasks, cookbook creation tools, and robust dependency and testing software all in one easy-to-install package.
 
-![Alt Text](http://placehold.it/750x400 "Title")
+## Install Chef Workstation 
 
-## Lorem ipsum dolor (H2)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius ipsum accumsan placerat auctor. Ut in mollis lectus. Ut ac mauris aliquet, blandit metus non, tincidunt orci. Nunc commodo dignissim condimentum. Mauris sit amet congue purus. Duis odio lacus, ultrices vitae orci rutrum, pulvinar scelerisque metus. Suspendisse tempus ligula sit amet dapibus ultricies. Vestibulum a arcu nisl.
+If you have not installed Chef Workstation, please download and install via https://www.chef.sh. 
 
-### Lorem ipsum dolor (H3)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius ipsum accumsan placerat auctor. Ut in mollis lectus. Ut ac mauris aliquet, blandit metus non, tincidunt orci. Nunc commodo dignissim condimentum. Mauris sit amet congue purus. Duis odio lacus, ultrices vitae orci rutrum, pulvinar scelerisque metus. Suspendisse tempus ligula sit amet dapibus ultricies. Vestibulum a arcu nisl.
+## Check versions 
 
-#### Lorem ipsum dolor (H4)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius ipsum accumsan placerat auctor. Ut in mollis lectus. Ut ac mauris aliquet, blandit metus non, tincidunt orci. Nunc commodo dignissim condimentum. Mauris sit amet congue purus. Duis odio lacus, ultrices vitae orci rutrum, pulvinar scelerisque metus. Suspendisse tempus ligula sit amet dapibus ultricies. Vestibulum a arcu nisl.
+New ad-hoc commands `chef-run` and ChefDK commands such as `chef` are available via Chef Workstation. Your output may differ if you are running different versions. 
 
-##### Lorem ipsum dolor (H5)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius ipsum accumsan placerat auctor. Ut in mollis lectus. Ut ac mauris aliquet, blandit metus non, tincidunt orci. Nunc commodo dignissim condimentum. Mauris sit amet congue purus. Duis odio lacus, ultrices vitae orci rutrum, pulvinar scelerisque metus. Suspendisse tempus ligula sit amet dapibus ultricies. Vestibulum a arcu nisl.
+``` 
+$ chef-run -v 
+chef-run: 0.1.114
 
-###### Lorem ipsum dolor (H6)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius ipsum accumsan placerat auctor. Ut in mollis lectus. Ut ac mauris aliquet, blandit metus non, tincidunt orci. Nunc commodo dignissim condimentum. Mauris sit amet congue purus. Duis odio lacus, ultrices vitae orci rutrum, pulvinar scelerisque metus. Suspendisse tempus ligula sit amet dapibus ultricies. Vestibulum a arcu nisl.
+$ chef -v 
+Chef Development Kit Version: 3.0.36
+chef-client version: 14.1.12
+delivery version: master (7206afaf4cf29a17d2144bb39c55b7212cfafcc7)
+berks version: 7.0.2
+kitchen version: 1.21.2
+inspec version: 2.1.72
+```
 
-* Sed vitae turpis quis ligula eleifend consectetur.
-* Donec accumsan purus vitae felis semper fermentum.
-* Vivamus auctor nisl sit amet tortor luctus dapibus.
-* Nulla fermentum ligula vitae enim maximus bibendum.
+## Ad-hoc remote execution 
 
-This is a [paragraph link](#).
 
