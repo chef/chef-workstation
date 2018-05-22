@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.115 -->
+<!-- latest_release 0.1.116 -->
+## [0.1.116](https://github.com/chef/chef-workstation/tree/0.1.116) (2018-05-22)
+
+#### Merged Pull Requests
+- Start of CLI guide. [#147](https://github.com/chef/chef-workstation/pull/147) ([mchiang0610](https://github.com/mchiang0610))
+<!-- latest_release -->
+
 ## [0.1.115](https://github.com/chef/chef-workstation/tree/0.1.115) (2018-05-22)
 
 #### Merged Pull Requests
 - Telemetry product name is &#39;chef-workstation&#39; [#159](https://github.com/chef/chef-workstation/pull/159) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.114](https://github.com/chef/chef-workstation/tree/0.1.114) (2018-05-22)
 
