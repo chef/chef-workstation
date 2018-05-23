@@ -14,7 +14,7 @@ The build pipeline generally looks like the following:
 1. When the PR is merge Expeditor takes over. It runs the list of tasks we have specified in `.expeditor/config.yml`.
 1.1. These tasks include things like automatically bumping versions, kicking off builds in [Manhattan](http://manhattan.ci.chef.co/), etc. Look at the config file for the current list of [actions](http://expeditor-docs.es.chef.io/actions/).
 1.1. The Manhattan build pipeline is configured via the [opscode-ci](https://github.com/chef-cookbooks/opscode-ci) cookbook.
-1. Notifications from Expeditor will be posted in Slack to #shake-shack (also configured in `.expeditor/config.yml`). Any failures will need to be addressed.
+1. Notifications from Expeditor will be posted in Chef's internal slack to #chef-ws-notify (also configured in `.expeditor/config.yml`). Any failures will need to be addressed.
 1. Builds are automatically placed in the `unstable` channel when first built and automatically promoted by Jenkins to the `current` channel when they pass their test phase in the pipeline.
 1. To promote to the `stable` channel (also called 'releasing') we use the Julia bot. Start a private message with `@julia` in Slack and type `help` for a list of help topics.
 1.1. To promote join the `#releng-support` room and type `@julia artifactory promote chef-workstation 0.1.0` where `0.1.0` is the version of the build you want to promote. This promotes the artifact from the `current` channel to the `stable` channel where it is available for public consumption.
