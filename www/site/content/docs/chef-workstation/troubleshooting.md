@@ -3,7 +3,7 @@ title = "Troubleshooting"
 [menu]
   [menu.docs]
     parent = "Chef Workstation"
-    Weight = "1000"
+    weight = "40"
 +++
 
 ## Chef Workstation Logs 

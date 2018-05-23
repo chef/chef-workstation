@@ -1,9 +1,24 @@
-<!-- latest_release 0.1.117 -->
+<!-- latest_release 0.1.120 -->
+## [0.1.120](https://github.com/chef/chef-workstation/tree/0.1.120) (2018-05-23)
+
+#### Merged Pull Requests
+- Example to use on Chef Conf&#39;s mainstage. [#144](https://github.com/chef/chef-workstation/pull/144) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
+## [0.1.119](https://github.com/chef/chef-workstation/tree/0.1.119) (2018-05-22)
+
+#### Merged Pull Requests
+- page ordering. [#163](https://github.com/chef/chef-workstation/pull/163) ([mchiang0610](https://github.com/mchiang0610))
+
+## [0.1.118](https://github.com/chef/chef-workstation/tree/0.1.118) (2018-05-22)
+
+#### Merged Pull Requests
+- Redacting exception message [#161](https://github.com/chef/chef-workstation/pull/161) ([jonsmorrow](https://github.com/jonsmorrow))
+
 ## [0.1.117](https://github.com/chef/chef-workstation/tree/0.1.117) (2018-05-22)
 
 #### Merged Pull Requests
 - Getting started. [#160](https://github.com/chef/chef-workstation/pull/160) ([mchiang0610](https://github.com/mchiang0610))
-<!-- latest_release -->
 
 ## [0.1.116](https://github.com/chef/chef-workstation/tree/0.1.116) (2018-05-22)
 
