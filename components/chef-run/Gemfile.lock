@@ -36,7 +36,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-run (0.1.123)
+    chef-run (0.1.124)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       chef-telemetry
@@ -167,7 +167,7 @@ GEM
     fancy_irb (1.1.0)
       paint (>= 0.9, < 3.0)
       unicode-display_width (~> 1.1)
-    faraday (0.15.1)
+    faraday (0.15.2)
       multipart-post (>= 1.2, < 3)
     faraday-cookie_jar (0.0.6)
       faraday (>= 0.7.4)

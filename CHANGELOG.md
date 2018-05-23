@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.123 -->
+<!-- latest_release 0.1.124 -->
+## [0.1.124](https://github.com/chef/chef-workstation/tree/0.1.124) (2018-05-23)
+
+#### Merged Pull Requests
+- Update Omnibus Readme [#170](https://github.com/chef/chef-workstation/pull/170) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.123](https://github.com/chef/chef-workstation/tree/0.1.123) (2018-05-23)
 
 #### Merged Pull Requests
 - Update CODEOWNERS to new team name [#169](https://github.com/chef/chef-workstation/pull/169) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.122](https://github.com/chef/chef-workstation/tree/0.1.122) (2018-05-23)
 
