@@ -169,10 +169,176 @@ RSpec.describe ChefRun::TargetResolver do
     end
   end
 
+  context "#make_url_credentials" do
+    let(:default_user) { nil }
+    let(:default_password) { nil }
+    let(:encoded_default_password) { URI.encode_www_form_component(default_password) }
+
+    let(:inline_user) { nil }
+    let(:inline_password) { nil }
+    let(:encoded_inline_password) { URI.encode_www_form_component(inline_password) }
+
+    subject do
+      opts = {}
+      opts[:user] = default_user unless default_user.nil?
+      opts[:password] = default_password unless default_password.nil?
+      resolver = ChefRun::TargetResolver.new("", opts)
+      Proc.new { resolver.make_url_credentials(inline_user, inline_password) }
+    end
+
+    context "when no default user or password is given" do
+      let(:default_user) { nil }
+      let(:default_password) { nil }
+
+      context "and only an inline user is provided" do
+        let(:inline_user) { "aninlineuser" }
+        let(:inline_password) { nil }
+        it "returns the decorated inline user" do
+          expect(subject.call).to eq "aninlineuser:@"
+        end
+      end
+
+      context "and only an inline password is provided" do
+        let(:inline_user) { nil }
+        let(:inline_password) { "inlinepassword4u" }
+        it "returns the decorated encoded inline password" do
+          expect(subject.call).to eq ":#{encoded_inline_password}@"
+        end
+      end
+
+      context "and neither inline user nor inline password is given" do
+        let(:inline_user) { nil }
+        let(:inline_password) { nil }
+        it "returns an empty string" do
+          expect(subject.call).to eq ""
+        end
+      end
+
+      context "and both inline user and inline password are given" do
+        let(:inline_user) { "adefaultuser" }
+        let(:inline_password) { "inlinepassword4u" }
+        it "returns the decorated inline_user and encoded inline password" do
+          expect(subject.call).to eq "#{inline_user}:#{encoded_inline_password}@"
+        end
+      end
+    end
+
+    context "when only a default user is given" do
+      let(:default_user) { "defaultusername" }
+      let(:default_password) { nil }
+
+      context "and only an inline user is provided" do
+        let(:inline_user) { "aninlineuser" }
+        let(:inline_password) { nil }
+        it "returns the decorated inline user" do
+          expect(subject.call).to eq "#{inline_user}:@"
+        end
+      end
+
+      context "and only an inline password is provided" do
+        let(:inline_user) { nil }
+        let(:inline_password) { "inlinepassword4u" }
+        it "returns the decorated default user and inline password" do
+          expect(subject.call).to eq "#{default_user}:#{encoded_inline_password}@"
+        end
+      end
+
+      context "and neither inline user nor inline password is given" do
+        let(:inline_user) { nil }
+        let(:inline_password) { nil }
+        it "returns the decorated default user" do
+          expect(subject.call).to eq "#{default_user}:@"
+        end
+      end
+
+      context "and both inline user and inline password are given" do
+        let(:inline_user) { "adefaultuser" }
+        let(:inline_password) { "inlinepassword4u" }
+        it "returns the decorated inline_user and encoded inline password" do
+          expect(subject.call).to eq "#{inline_user}:#{encoded_inline_password}@"
+        end
+      end
+    end
+
+    context "when only a default password is given" do
+      let(:default_user) { nil }
+      let(:default_password) { "ihasdefaultpassword" }
+
+      context "and only an inline user is provided" do
+        let(:inline_user) { "aninlineuser" }
+        let(:inline_password) { nil }
+        it "returns the decorated inline user and encoded default password" do
+          expect(subject.call).to eq "#{inline_user}:#{encoded_default_password}@"
+        end
+      end
+
+      context "and only an inline password is provided" do
+        let(:inline_user) { nil }
+        let(:inline_password) { "inlinepassword4u" }
+        it "returns the decorated encoded inline password" do
+          expect(subject.call).to eq ":#{encoded_inline_password}@"
+        end
+      end
+
+      context "and neither inline user nor inline password is given" do
+        let(:inline_user) { nil }
+        let(:inline_password) { nil }
+        it "returns the decorated encoded default password" do
+          expect(subject.call).to eq ":#{encoded_default_password}@"
+        end
+      end
+
+      context "and both inline user and inline password are given" do
+        let(:inline_user) { "adefaultuser" }
+        let(:inline_password) { "inlinepassword4u" }
+        it "returns the decorated inline_user and encoded inline password" do
+          expect(subject.call).to eq "#{inline_user}:#{encoded_inline_password}@"
+        end
+      end
+    end
+
+    context "when defaults for both user and password are given" do
+      let(:default_user) { "adefaultuser" }
+      let(:default_password) { "ihasdefaultpassword" }
+
+      context "and only an inline user is provided" do
+        let(:inline_user) { "aninlineuser" }
+        let(:inline_password) { nil }
+        it "returns the decorated inline user and encoded default password" do
+          expect(subject.call).to eq "#{inline_user}:#{encoded_default_password}@"
+        end
+      end
+
+      context "and only an inline password is provided" do
+        let(:inline_user) { nil }
+        let(:inline_password) { "inlinepassword4u" }
+        it "returns the decorated default user and inline password" do
+          expect(subject.call).to eq "#{default_user}:#{encoded_inline_password}@"
+        end
+      end
+
+      context "and neither inline user nor inline password is given" do
+        let(:inline_user) { nil }
+        let(:inline_password) { nil }
+        it "returns the decorated default user and encoded default password" do
+          expect(subject.call).to eq "#{default_user}:#{encoded_default_password}@"
+        end
+      end
+
+      context "and both inline user and inline password are given" do
+        let(:inline_user) { "adefaultuser" }
+        let(:inline_password) { "inlinepassword4u" }
+        it "returns the decorated inline_user and encoded inline password" do
+          expect(subject.call).to eq "#{inline_user}:#{encoded_inline_password}@"
+        end
+      end
+    end
+  end
+
   context "#target_to_valid_url" do
     [ %w{example.com ssh://example.com},
       %w{ssh://example.com ssh://example.com},
-      %w{ssh://user@example.com ssh://user@example.com},
+      %w{ssh://user@example.com ssh://user:@example.com},
       %w{ssh://user:password@example.com ssh://user:password@example.com},
       %w{ssh://user:pas:sw:ord@example.com ssh://user:pas%3Asw%3Aord@example.com},
       %w{ssh://user:!@#$%^&*()|\'\";:/?><.,{}[]+=`~@example.com
@@ -181,7 +347,6 @@ RSpec.describe ChefRun::TargetResolver do
       it "resolves #{values[0]} to #{values[1]}" do
         expect(subject.target_to_valid_url(values[0])).to eq values[1]
       end
-
     end
     it "preserves range specifiers in the host portion while encoding in the password portion" do
       input = "user:pas[1:2]!^@ho[a:b]s[t:z].com"

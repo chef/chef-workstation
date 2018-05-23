@@ -27,6 +27,7 @@ module ChefRun
       @unparsed_target = unparsed_target
       @split_targets = unparsed_target.split(",")
       @conn_options = conn_options.dup
+      @default_password = @conn_options.delete(:password)
       @default_user = @conn_options.delete(:user)
     end
 
@@ -61,28 +62,50 @@ module ChefRun
         prefix = "ssh://"
       end
 
-      # This works around a behavior of train where the user name of a url ssh://me@host
-      # is ignored in favor of the :user connection option value.  We
-      # want to have :user be the fallback if no user is given in
-      # the host url
-      credentials = @default_user ? "#{@default_user}@" : ""
+      inline_password = nil
+      inline_user = nil
       host = target
       # Default greedy-scan of the regex means that
       # $2 will resolve to content after the final "@"
       # URL credentials will take precedence over the default :user
       # in @conn_opts
       if target =~ /(.*)@(.*)/
-        credentials = $1
+        inline_credentials = $1
         host = $2
         # We'll use a non-greedy match to grab everthinmg up to the first ':'
         # as username if there is no :, credentials is just the username
-        if credentials =~ /(.+?):(.*)/
-          credentials = "#{$1}:#{URI.encode_www_form_component($2)}@"
+        if inline_credentials =~ /(.+?):(.*)/
+          inline_user = $1
+          inline_password = $2
         else
-          credentials = "#{credentials}@"
+          inline_user = inline_credentials
         end
       end
+      credentials = make_url_credentials(inline_user, inline_password)
       "#{prefix}#{credentials}#{host}"
+    end
+
+    def make_url_credentials(inline_user, inline_password)
+      user = inline_user || @default_user
+      user = nil if user && user.empty?
+      password = (inline_password || @default_password)
+      password = nil if password && password.empty?
+
+      unless password.nil?
+        password = URI.encode_www_form_component(password)
+      end
+      if user.nil? && password.nil?
+        ""
+      else
+        # This can give us:
+        #  - :password
+        #  - user:
+        #  - user:password
+        # Train parsing (and underlying URI::parse) handles these combinations
+        # correctly, though it's worth noting that it will set the user/password
+        # fields to blank instead of nil for the not-specified case.
+        "#{user}:#{password}@"
+      end
     end
 
     private
