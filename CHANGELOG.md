@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.120 -->
+<!-- latest_release 0.1.121 -->
+## [0.1.121](https://github.com/chef/chef-workstation/tree/0.1.121) (2018-05-23)
+
+#### Merged Pull Requests
+- [DOCS] formatting and copy edits [#165](https://github.com/chef/chef-workstation/pull/165) ([kagarmoe](https://github.com/kagarmoe))
+<!-- latest_release -->
+
 ## [0.1.120](https://github.com/chef/chef-workstation/tree/0.1.120) (2018-05-23)
 
 #### Merged Pull Requests
 - Example to use on Chef Conf&#39;s mainstage. [#144](https://github.com/chef/chef-workstation/pull/144) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.119](https://github.com/chef/chef-workstation/tree/0.1.119) (2018-05-22)
 
