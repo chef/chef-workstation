@@ -15,12 +15,11 @@ Chef Workstation installs everything you need to get started using Chef on Windo
 
    * Want to perform an ad-hoc task? Try
 
-    `chef target converge <Target host|IP|SSH|WinRM> <Resource> <Resource Name> [properties] [flags]`
+    `chef-run <Target host|IP|SSH|WinRM> <Resource> <Resource Name> [properties] [flags]`
 
-    `chef target converge user@hostname user timmy`
+    `chef-run user@hostname user timmy`
 
-    `chef target converge winrm://user@hostname:port user timmy`
-
+    `chef-run winrm://user@hostname:port user timmy`
 
 ## Building Chef-Workstation Packages
 
