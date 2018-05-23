@@ -36,7 +36,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-run (0.1.119)
+    chef-run (0.1.120)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       chef-telemetry
