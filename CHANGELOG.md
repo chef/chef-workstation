@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.121 -->
+<!-- latest_release 0.1.122 -->
+## [0.1.122](https://github.com/chef/chef-workstation/tree/0.1.122) (2018-05-23)
+
+#### Merged Pull Requests
+- Correct run-gif reference in docs [#166](https://github.com/chef/chef-workstation/pull/166) ([tduffield](https://github.com/tduffield))
+<!-- latest_release -->
+
 ## [0.1.121](https://github.com/chef/chef-workstation/tree/0.1.121) (2018-05-23)
 
 #### Merged Pull Requests
 - [DOCS] formatting and copy edits [#165](https://github.com/chef/chef-workstation/pull/165) ([kagarmoe](https://github.com/kagarmoe))
-<!-- latest_release -->
 
 ## [0.1.120](https://github.com/chef/chef-workstation/tree/0.1.120) (2018-05-23)
 
