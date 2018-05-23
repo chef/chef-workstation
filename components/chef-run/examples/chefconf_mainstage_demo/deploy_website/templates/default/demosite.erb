@@ -1,0 +1,10 @@
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+  root /var/www/demosite;
+  index index.html;
+  server_name '<%= node['cloud']['public_ipv4'] %>';
+  location / {
+    try_files $uri $uri/ =404;
+  }
+}
