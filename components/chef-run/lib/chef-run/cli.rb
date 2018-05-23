@@ -28,6 +28,7 @@ require "chef-run/recipe_lookup"
 require "chef-run/target_host"
 require "chef-run/target_resolver"
 require "chef-run/telemeter"
+require "chef-run/telemeter/sender"
 require "chef-run/temp_cookbook"
 require "chef-run/text"
 require "chef-run/ui/error_printer"
@@ -38,41 +39,38 @@ module ChefRun
     include Mixlib::CLI
     T = ChefRun::Text.cli
     TS = ChefRun::Text.status
+    RC_OK = 0
     RC_COMMAND_FAILED = 1
+    RC_UNHANDLED_ERROR = 32
     RC_ERROR_HANDLING_FAILED = 64
 
     banner T.description + "\n" + T.usage_full
 
     option :version,
-      :short        => "-v",
-      :long         => "--version",
-      :description  => T.version.description,
-      :boolean      => true
+      short: "-v",
+      long: "--version",
+      description:  T.version.description,
+      boolean: true
 
     option :help,
-      :short        => "-h",
-      :long         => "--help",
-      :description  => T.help.description,
-      :boolean      => true
+      short: "-h",
+      long: "--help",
+      description:   T.help.description,
+      boolean: true
 
     option :config_path,
-      :short        => "-c PATH",
-      :long         => "--config PATH",
-      :description  => T.default_config_location(ChefRun::Config.default_location),
-      :default      => ChefRun::Config.default_location,
-      :proc         => Proc.new { |path| ChefRun::Config.custom_location(path) }
-
-    option :root,
-      :long => "--[no-]root",
-      :description => T.root_description,
-      :boolean => true,
-      :default => true
+      short: "-c PATH",
+      long: "--config PATH",
+      description: T.default_config_location(ChefRun::Config.default_location),
+      default: ChefRun::Config.default_location,
+      proc: Proc.new { |path| ChefRun::Config.custom_location(path) }
 
     option :identity_file,
-      :long => "--identity-file PATH",
-      :short => "-i PATH",
-      :description => T.identity_file,
-      :proc => (Proc.new do |path|
+      long: "--identity-file PATH",
+      short: "-i PATH",
+      description: T.identity_file,
+      proc: (Proc.new do |paths|
+        path = paths
         unless File.exist?(path)
           raise OptionValidationError.new("CHEFVAL001", self, path)
         end
@@ -80,24 +78,33 @@ module ChefRun
       end)
 
     option :ssl,
-      :long => "--[no-]ssl",
-      :short => "-s",
-      :description => T.ssl.desc(ChefRun::Config.connection.winrm.ssl),
-      :boolean => true,
-      :default => ChefRun::Config.connection.winrm.ssl
+      long: "--[no-]ssl",
+      short: "-s",
+      description:  T.ssl.desc(ChefRun::Config.connection.winrm.ssl),
+      boolean: true,
+      default: ChefRun::Config.connection.winrm.ssl
 
     option :ssl_verify,
-      :long => "--[no-]ssl-verify",
-      :short => "-s",
-      :description => T.ssl.verify_desc(ChefRun::Config.connection.winrm.ssl_verify),
-      :boolean => true,
-      :default => ChefRun::Config.connection.winrm.ssl_verify
+      long: "--[no-]ssl-verify",
+      short: "-s",
+      description:  T.ssl.verify_desc(ChefRun::Config.connection.winrm.ssl_verify),
+      boolean: true,
+      default: ChefRun::Config.connection.winrm.ssl_verify
+
+    option :user,
+      long: "--user <USER>",
+      description: T.user_description,
+      default: "root"
+
+    option :password,
+      long: "--password <PASSWORD>",
+      description: T.password_description
 
     option :cookbook_repo_paths,
-      :long => "--cookbook-repo-paths PATH",
-      :description => T.cookbook_repo_paths,
-      :default => ChefRun::Config.chef.cookbook_repo_paths,
-      :proc => Proc.new { |paths| paths.split(",") }
+      long: "--cookbook-repo-paths PATH",
+      description: T.cookbook_repo_paths,
+      default: ChefRun::Config.chef.cookbook_repo_paths,
+      proc: Proc.new { |paths| paths.split(",") }
 
     option :install,
        long: "--[no-]install",
@@ -105,9 +112,28 @@ module ChefRun
        boolean: true,
        description:  T.install_description(Action::InstallChef::Base::MIN_CHEF_VERSION)
 
+    option :sudo,
+      long: "--[no-]sudo",
+      description: T.sudo.flag_description.sudo,
+      boolean: true,
+      default: true
+
+    option :sudo_command,
+      long: "--sudo-command <COMMAND>",
+      default: "sudo",
+      description: T.sudo.flag_description.command
+
+    option :sudo_password,
+      long: "--sudo-password <PASSWORD>",
+      description: T.sudo.flag_description.password
+
+    option :sudo_options,
+      long: "--sudo-options 'OPTIONS...'",
+      description: T.sudo.flag_description.options
+
     def initialize(argv)
       @argv = argv
-      @rc = 0
+      @rc = RC_OK
       super()
     end
 
@@ -124,19 +150,33 @@ module ChefRun
       Telemeter.timed_run_capture([:redacted]) do
         begin
           perform_run
-        rescue WrappedError => e
-          UI::ErrorPrinter.show_error(e)
-          @rc = RC_COMMAND_FAILED
-        rescue SystemExit => e
-          @rc = e.status
         rescue Exception => e
-          UI::ErrorPrinter.dump_unexpected_error(e)
-          @rc = RC_ERROR_HANDLING_FAILED
+          @rc = handle_run_error(e)
         end
       end
+    rescue => e
+      @rc = handle_run_error(e)
     ensure
       Telemeter.commit
       exit @rc
+    end
+
+    def handle_run_error(e)
+      case e
+      when nil
+        RC_OK
+      when WrappedError
+        UI::ErrorPrinter.show_error(e)
+        RC_COMMAND_FAILED
+      when SystemExit
+        e.status
+      when Exception
+        UI::ErrorPrinter.dump_unexpected_error(e)
+        RC_ERROR_HANDLING_FAILED
+      else
+        UI::ErrorPrinter.dump_unexpected_error(e)
+        RC_UNHANDLED_ERROR
+      end
     end
 
     def setup_cli
@@ -214,25 +254,13 @@ module ChefRun
     def connect_target(target_host, reporter = nil)
       if reporter.nil?
         UI::Terminal.render_job(T.status.connecting, prefix: "[#{target_host.config[:host]}]") do |rep|
-          target_host.connect!
-          rep.success(T.status.connected)
+          do_connect(target_host, rep, :success)
         end
       else
         reporter.update(T.status.connecting)
-        target_host.connect!
-        # No success here - if we have a reporter,
-        # it's because it will be used for more actions than our own
-        # and success marks the end.
-        reporter.update(T.status.connected)
+        do_connect(target_host, reporter, :update)
       end
       target_host
-    rescue StandardError => e
-      if reporter.nil?
-        UI::Terminal.output(e.message)
-      else
-        reporter.error(e.message)
-      end
-      raise
     end
 
     def run_single_target(initial_status_msg, target_host, local_policy_path)
@@ -443,8 +471,11 @@ module ChefRun
 
     def handle_perform_error(e)
       id = e.respond_to?(:id) ? e.id : e.class.to_s
-      message = e.respond_to?(:message) ? e.message : e.to_s
-      Telemeter.capture(:error, exception: { id: id, message: message })
+      # TODO: This is currently sending host information for certain ssh errors
+      #       post release we need to scrub this data. For now I'm redacting the
+      #       whole message.
+      # message = e.respond_to?(:message) ? e.message : e.to_s
+      Telemeter.capture(:error, exception: { id: id, message: "redacted" })
       wrapper = ChefRun::StandardErrorResolver.wrap_exception(e)
       capture_exception_backtrace(wrapper)
       # Now that our housekeeping is done, allow user-facing handling/formatting
@@ -468,7 +499,6 @@ module ChefRun
     def handle_message(message, data, reporter)
       if message == :error # data[0] = exception
         # Mark the current task as failed with whatever data is available to us
-        require "chef-run/ui/error_printer"
         reporter.error(ChefRun::UI::ErrorPrinter.error_summary(data[0]))
       end
     end
@@ -479,6 +509,15 @@ module ChefRun
 
     def show_help
       UI::Terminal.output format_help
+    end
+
+    def do_connect(target_host, reporter, update_method)
+      target_host.connect!
+      reporter.send(update_method, T.status.connected)
+    rescue StandardError => e
+      message = ChefRun::UI::ErrorPrinter.error_summary(e)
+      reporter.error(message)
+      raise
     end
 
     def format_help

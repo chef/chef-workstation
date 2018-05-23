@@ -1,9 +1,59 @@
-<!-- latest_release 0.1.109 -->
+<!-- latest_release 0.1.119 -->
+## [0.1.119](https://github.com/chef/chef-workstation/tree/0.1.119) (2018-05-22)
+
+#### Merged Pull Requests
+- page ordering. [#163](https://github.com/chef/chef-workstation/pull/163) ([mchiang0610](https://github.com/mchiang0610))
+<!-- latest_release -->
+
+## [0.1.118](https://github.com/chef/chef-workstation/tree/0.1.118) (2018-05-22)
+
+#### Merged Pull Requests
+- Redacting exception message [#161](https://github.com/chef/chef-workstation/pull/161) ([jonsmorrow](https://github.com/jonsmorrow))
+
+## [0.1.117](https://github.com/chef/chef-workstation/tree/0.1.117) (2018-05-22)
+
+#### Merged Pull Requests
+- Getting started. [#160](https://github.com/chef/chef-workstation/pull/160) ([mchiang0610](https://github.com/mchiang0610))
+
+## [0.1.116](https://github.com/chef/chef-workstation/tree/0.1.116) (2018-05-22)
+
+#### Merged Pull Requests
+- Start of CLI guide. [#147](https://github.com/chef/chef-workstation/pull/147) ([mchiang0610](https://github.com/mchiang0610))
+
+## [0.1.115](https://github.com/chef/chef-workstation/tree/0.1.115) (2018-05-22)
+
+#### Merged Pull Requests
+- Telemetry product name is &#39;chef-workstation&#39; [#159](https://github.com/chef/chef-workstation/pull/159) ([marcparadise](https://github.com/marcparadise))
+
+## [0.1.114](https://github.com/chef/chef-workstation/tree/0.1.114) (2018-05-22)
+
+#### Merged Pull Requests
+- Revert train to 1.4.6, update sudo error checks [#158](https://github.com/chef/chef-workstation/pull/158) ([marcparadise](https://github.com/marcparadise))
+
+## [0.1.113](https://github.com/chef/chef-workstation/tree/0.1.113) (2018-05-21)
+
+#### Merged Pull Requests
+- Ensure that all errors bubble up [#156](https://github.com/chef/chef-workstation/pull/156) ([marcparadise](https://github.com/marcparadise))
+
+## [0.1.112](https://github.com/chef/chef-workstation/tree/0.1.112) (2018-05-21)
+
+#### Merged Pull Requests
+- Fix telemetry race condition [#157](https://github.com/chef/chef-workstation/pull/157) ([marcparadise](https://github.com/marcparadise))
+
+## [0.1.111](https://github.com/chef/chef-workstation/tree/0.1.111) (2018-05-21)
+
+#### Merged Pull Requests
+- [SHACK-178] add PowerShell customization and shortcuts to Windows install [#152](https://github.com/chef/chef-workstation/pull/152) ([robbkidd](https://github.com/robbkidd))
+
+## [0.1.110](https://github.com/chef/chef-workstation/tree/0.1.110) (2018-05-21)
+
+#### Merged Pull Requests
+- [SHACK-42] Add sudo- and auth-related options and text [#139](https://github.com/chef/chef-workstation/pull/139) ([marcparadise](https://github.com/marcparadise))
+
 ## [0.1.109](https://github.com/chef/chef-workstation/tree/0.1.109) (2018-05-20)
 
 #### Merged Pull Requests
 - Images for OSS Website. [#155](https://github.com/chef/chef-workstation/pull/155) ([ChefRycar](https://github.com/ChefRycar))
-<!-- latest_release -->
 
 ## [0.1.108](https://github.com/chef/chef-workstation/tree/0.1.108) (2018-05-20)
 

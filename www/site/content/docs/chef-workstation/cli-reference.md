@@ -1,28 +1,42 @@
-Chef Run is a tool to execute ad-hoc tasks using Chef.
++++
+title = "CLI Reference"
+[menu]
+  [menu.docs]
+    parent = "Chef Workstation"
+    weight = "20"
++++
 
-chef-run <TARGET[S]> <RESOURCE> <RESOURCE_NAME> [PROPERTIES] [FLAGS]
+Chef-run is a tool to execute ad-hoc tasks using Chef.
+
+`chef-run <TARGET[S]> <RESOURCE> <RESOURCE_NAME> [PROPERTIES] [FLAGS]`
 
   Runs a single <RESOURCE> on the specified <TARGET[S]>.
   [PROPERTIES] should be specified as key=value.
 
   For example:
 
-    chef-run web01 service nginx action=restart
-    chef-run web01,web02 service nginx action=restart
-    chef-run web0[1:2] service nginx action=restart
+```
+chef-run web01 service nginx
+chef-run web01,web02 service nginx action=restart
+chef-run web[1:2] service nginx priority=20 action=stop
+```
 
-chef-run <TARGET[S]> <RECIPE> [FLAGS]
+`chef-run <TARGET[S]> <RECIPE> [FLAGS]`
 
   Runs a single recipe located at <RECIPE> on the specified <TARGET[S]>.
 
   For example:
 
-    chef-run web01 path/to/cookbook/recipe.rb
-    chef-run web01,web02 path/to/cookbook
-    chef-run web0[1:2] cookbook_name
-    chef-run web01 cookbook_name::recipe_name
+```
+chef-run web01 path/to/cookbook/recipe.rb
+chef-run web01,web02 path/to/cookbook
+chef-run web0[1:2] cookbook_name
+chef-run web01 cookbook_name::recipe_name
+```
 
 ARGUMENTS:
+
+```
   <TARGET[S]>       The hosts or IPs to target. Can also be an SSH or WinRM URLs
                     in the form:
 
@@ -38,9 +52,12 @@ ARGUMENTS:
                        cookbook is found we run the default recipe.
                     3. This behaves similarly to 'cookbook name' above, but it also allows
                        you to specify which recipe to use from the cookbook.
+```
 
 FLAGS:
-    -c, --config PATH                  Location of config file. Defaults to $HOME/.chef-workstation/config.toml
+
+```
+    -c, --config PATH                  Location of config file. Defaults to /Users/mchiang/.chef-workstation/config.toml
         --cookbook-repo-paths PATH     Comma separated list of cookbook repository paths.
     -h, --help                         Show help and usage for `chef-run`
     -i, --identity-file PATH           SSH identity file to use when connecting. Keys loaded into ssh-agent will also be used.
@@ -64,3 +81,7 @@ FLAGS:
         --user <USER>                  Username to use for authentication to the target(s). The same
                                        username will be used for all targets.
     -v, --version                      Show the current version of Chef Run.
+```
+
+
+

@@ -20,7 +20,8 @@ require "chef-run/target_resolver"
 
 RSpec.describe ChefRun::TargetResolver do
   let(:target_string) { "" }
-  subject { ChefRun::TargetResolver.new(target_string, {}) }
+  let(:connection_options) { {} }
+  subject { ChefRun::TargetResolver.new(target_string, connection_options) }
 
   context "#targets" do
     context "when no target is provided" do
@@ -55,6 +56,47 @@ RSpec.describe ChefRun::TargetResolver do
         expect(actual_targets[1].config[:host]).to eq "node1"
         expect(actual_targets[2].config[:host]).to eq "machine0"
         expect(actual_targets[3].config[:host]).to eq "machine1"
+      end
+    end
+
+    context "when a mixed list of targets containing user prefix and not are included" do
+
+      let(:target_string) { "test_user1@node1,node2,test_user2:password@node3" }
+
+      context "and the :user option is provided" do
+
+        let(:connection_options) { { user: "defaultuser" } }
+        it "should default to the given :user only for the host that does not include name" do
+          actual_targets = subject.targets
+          tc = actual_targets[0].config
+          expect(tc[:host]).to eq "node1"
+          expect(tc[:user]).to eq "test_user1"
+
+          tc = actual_targets[1].config
+          expect(tc[:host]).to eq "node2"
+          expect(tc[:user]).to eq "defaultuser"
+
+          tc = actual_targets[2].config
+          expect(tc[:host]).to eq "node3"
+          expect(tc[:user]).to eq "test_user2"
+        end
+      end
+      context "and the :user option is not provided" do
+        let(:opts) { {} }
+        it "should default to no user when user is not included with host" do
+          actual_targets = subject.targets
+          tc = actual_targets[0].config
+          expect(tc[:host]).to eq "node1"
+          expect(tc[:user]).to eq "test_user1"
+
+          tc = actual_targets[1].config
+          expect(tc[:host]).to eq "node2"
+          expect(tc[:user]).to eq nil
+
+          tc = actual_targets[2].config
+          expect(tc[:host]).to eq "node3"
+          expect(tc[:user]).to eq "test_user2"
+        end
       end
 
     end
@@ -120,8 +162,8 @@ RSpec.describe ChefRun::TargetResolver do
       expect { subject.expand_targets("[0:1][5:10][10:11]") }.to raise_error(ChefRun::TargetResolver::TooManyRanges)
     end
 
-    context "when the target resolves to more than 24 names" do
-      it "raises TooManyTargets if the target resolves to more than 25 names" do
+    context "when the target resolves to more than #{ChefRun::TargetResolver::MAX_EXPANDED_TARGETS} names" do
+      it "raises TooManyTargets" do
         expect { subject.expand_targets("[0:99999]") }.to raise_error(ChefRun::TargetResolver::TooManyTargets)
       end
     end

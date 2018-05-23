@@ -21,7 +21,6 @@ gemspec
 # TODO when chef-dk 3.0 is released to Rubygems as 3.0 we can get rid of this
 gem "chef-dk", git: "https://github.com/chef/chef-dk.git", branch: "master"
 
-# Remove this once train 1.4.6 or later is released:
 gem "train", git: "https://github.com/chef/train.git", branch: "v1.4.6"
 
 group :localdev do

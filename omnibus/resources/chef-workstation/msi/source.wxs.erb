@@ -44,7 +44,7 @@
                   Return="ignore" />
 
     <InstallExecuteSequence>
-      <Custom Action="FastUnzip" After="InstallFiles">NOT Installed</Custom>
+      <Custom Action="FastUnzip" After="InstallFiles">NOT Installed OR REINSTALL</Custom>
       <Custom Action="Cleanup" After="RemoveFiles">REMOVE~="ALL"</Custom>
     </InstallExecuteSequence>
 
@@ -61,37 +61,119 @@
         <Directory Id="INSTALLLOCATION" Name="opscode">
           <Directory Id="PROJECTLOCATION" Name="chef-workstation">
             <Directory Id="PROJECTLOCATIONBIN" Name="bin">
-              <Component Id="ChefWorkstationPath" Guid="{BC744260-FD5B-4A0F-8EE5-76283072CC09}" >
+              <Component Id="ChefWSPath" Guid="{BC744260-FD5B-4A0F-8EE5-76283072CC09}" >
                 <Environment Id="Environment"
                   Name="PATH" Action="set" Part="last" System="yes" Value="[PROJECTLOCATIONBIN]" />
               </Component>
+              <Component Id="StartChefWS" Guid="{69EF5736-ED67-45B3-887A-FBFC0AB6DA13}" >
+                <File Id="StartChefWSScript" Source="Resources\assets\start-chefws.ps1" KeyPath="yes" />
+              </Component>
+            </Directory>
+            <Directory Id="PSMODULES" Name="modules" >
+              <Component Id="ChefPSModulePath" Guid="{FA4B6948-087F-4460-A741-47E5A5E3B235}" >
+                <Environment Id="ChefPSModulePathEnvironment"
+                             Name="PSModulePath" Action="set" Part="last" System="yes" Value="[PSMODULES]" />
+              </Component>
+              <Component Id="ChefPowerShellRegistryEntries" Guid="{CA712E00-B031-424D-A439-838454AF94C5}">
+                <RegistryKey Root="HKCR" Key="Chef.PowerShell">
+                  <RegistryValue Type="string" Value="Chef.PowerShell" />
+                </RegistryKey>
+                <RegistryKey Root="HKCR" Key="Chef.PowerShell\CLSID">
+                  <RegistryValue Type="string" Value="{9008CA83-83E4-41FF-9C07-696E2CC47B52}" />
+                </RegistryKey>
+                <RegistryKey Root="HKCR" Key="CLSID\{9008CA83-83E4-41FF-9C07-696E2CC47B52}">
+                  <RegistryValue Type="string" Value="Chef.PowerShell" />
+                </RegistryKey>
+                <RegistryKey Root="HKCR" Key="CLSID\{9008CA83-83E4-41FF-9C07-696E2CC47B52}\InprocServer32">
+                  <RegistryValue Type="string" Value="[System64Folder]mscoree.dll" />
+                  <RegistryValue Type="string" Name="ThreadingModel" Value="Both" />
+                  <RegistryValue Type="string" Name="Class" Value="Chef.PowerShell" />
+                  <RegistryValue Type="string" Name="Assembly" Value="Chef.PowerShell, Version=1.0.14.0, Culture=neutral, PublicKeyToken=7def9f799d039a95" />
+                  <RegistryValue Type="string" Name="RuntimeVersion" Value="v4.0.30319" />
+                  <RegistryValue Type="string" Name="CodeBase" Value="[PSMODULES]chef\Chef.PowerShell.dll" />
+                </RegistryKey>
+                <RegistryKey Root="HKCR" Key="CLSID\{9008CA83-83E4-41FF-9C07-696E2CC47B52}\InprocServer32\1.0.0.0">
+                  <RegistryValue Type="string" Name="Class" Value="Chef.PowerShell" />
+                  <RegistryValue Type="string" Name="Assembly" Value="Chef.PowerShell, Version=1.0.14.0, Culture=neutral, PublicKeyToken=7def9f799d039a95" />
+                  <RegistryValue Type="string" Name="RuntimeVersion" Value="v4.0.30319" />
+                  <RegistryValue Type="string" Name="CodeBase" Value="[PSMODULES]chef\Chef.PowerShell.dll" />
+                </RegistryKey>
+                <RegistryKey Root="HKCR" Key="CLSID\{9008CA83-83E4-41FF-9C07-696E2CC47B52}\ProgId">
+                  <RegistryValue Type="string" Value="Chef.PowerShell" />
+                </RegistryKey>
+                <RegistryKey Root="HKCR" Key="CLSID\{9008CA83-83E4-41FF-9C07-696E2CC47B52}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" />
+              </Component>
+            </Directory>
+            <Directory Id="EMBEDDED" Name="embedded" >
+              <Directory Id="EMBEDDEDBIN" Name="bin" >
+                <Component Id="ChefWSEnvHacks" Guid="{3498A65D-33D8-4CF2-BAB8-6FA072A7070D}" >
+                  <Environment Id="EnvHacksEnvironment"
+                               Name="CHEFDK_ENV_FIX" Action="set" System="yes" Value="1" />
+                </Component>
+              </Directory>
             </Directory>
           </Directory>
         </Directory>
       </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Component Id="StartMenuShortcut" Guid="{6DD3FFF3-E009-40E7-B1C2-EF606B941CCD}">
+          <Shortcut Id="StartMenuShortcutDef"
+                    Name="!(loc.ChefWSShortcutDefName)"
+                    Description="!(loc.ChefWSShortcutDefDescription)"
+                    Target="[WindowsFolder]\System32\WindowsPowerShell\v1.0\powershell.exe"
+                    Arguments="-NoProfile -ExecutionPolicy Bypass -File [#StartChefWSScript]"
+                    Show="minimized"
+                    Icon="cws.ico"/>
+        </Component>
+      </Directory>
+
+      <Directory Id="DesktopFolder" Name="Desktop">
+        <Component Id="DesktopShortcut" Guid="{396E22A6-A7B6-4AA1-B63C-83A3DD7007A8}">
+          <Shortcut Id="DesktopShortcutDef"
+                    Name="!(loc.ChefWSShortcutDefName)"
+                    Description="!(loc.ChefWSShortcutDefDescription)"
+                    Target="[WindowsFolder]\System32\WindowsPowerShell\v1.0\powershell.exe"
+                    Arguments="-NoProfile -ExecutionPolicy Bypass -File [#StartChefWSScript]"
+                    Show="minimized"
+                    Icon="cws.ico"/>
+        </Component>
+      </Directory>
     </Directory>
 
     <!-- Set the components defined in our fragment files that will be used for our feature  -->
-    <Feature Id="ChefWorkstationFeature" Title="!(loc.FeatureMainName)" Absent="disallow" AllowAdvertise="no" Level="1" ConfigurableDirectory="INSTALLLOCATION">
+    <Feature Id="ChefWSFeature" Title="!(loc.FeatureMainName)" Absent="disallow" AllowAdvertise="no" Level="1" ConfigurableDirectory="INSTALLLOCATION">
       <ComponentGroupRef Id="ProjectDir" />
-      <ComponentRef Id="ChefWorkstationPath" />
+      <ComponentRef Id="ChefWSPath" />
+      <ComponentRef Id="ChefPSModulePath" />
+      <ComponentRef Id="ChefPowerShellRegistryEntries" />
+    </Feature>
+
+    <Feature Id="ChefWSStartMenuShortcutFeature" Title="!(loc.FeatureChefWSStartMenuShortcut)" Description="!(loc.FeatureChefWSStartMenuShortcutDescription)" Level="1" AllowAdvertise="no" >
+      <ComponentRef Id="StartChefWS" />
+      <ComponentRef Id="StartMenuShortcut" />
+    </Feature>
+
+    <Feature Id="ChefWSDesktopShortcutFeature" Title="!(loc.FeatureChefWSDesktopShortcut)" Description="!(loc.FeatureChefWSDesktopShortcutDescription)" Level="1" AllowAdvertise="no" >
+      <ComponentRef Id="StartChefWS" />
+      <ComponentRef Id="DesktopShortcut" />
+    </Feature>
+
+    <Feature Id="ChefWSEnvHacks" Title="!(loc.FeatureChefWSEnvHacks)" Description="!(loc.FeatureChefWSEnvHacksDesc)" Level="1000" AllowAdvertise="no">
+      <ComponentRef Id="ChefWSEnvHacks" />
     </Feature>
 
     <!--
     UI Stuff
-    TODO: Icon
     -->
-    <Icon Id="project16.ico" SourceFile="Resources\assets\project_16x16.ico"/>
-    <Icon Id="project32.ico" SourceFile="Resources\assets\project_32x32.ico"/>
-    <Icon Id="project.ico" SourceFile="Resources\assets\project.ico"/>
-    <Property Id="ARPPRODUCTICON" Value="project16.ico" />
-    <!-- TODO: chef.sh or chef.io? -->
-
+    <Icon Id="cws16.ico" SourceFile="Resources\assets\cws_16x16.ico"/>
+    <Icon Id="cws32.ico" SourceFile="Resources\assets\cws_32x32.ico"/>
+    <Icon Id="cws.ico" SourceFile="Resources\assets\cws.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="cws16.ico" />
     <Property Id="ARPHELPLINK" Value="https://chef.sh/" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
 
-    <UIRef Id="ChefWorkstationUI_InstallDir"/>
-    <UI Id="ChefWorkstationUI_InstallDir">
+    <UIRef Id="ChefWSUI_InstallDir"/>
+    <UI Id="ChefWSUI_InstallDir">
       <UIRef Id="WixUI_FeatureTree"/>
       <TextStyle Id="WixUI_Font_Normal_White" FaceName="Tahoma" Size="8" Red="255" Green="255" Blue="255" />
       <TextStyle Id="WixUI_Font_Bigger_White" FaceName="Tahoma" Size="12" Red="255" Green="255" Blue="255" />
@@ -102,10 +184,10 @@
     <WixVariable Id="WixUIDialogBmp" Value="Resources\assets\dialog_background.bmp" />
     <WixVariable Id="WixUIBannerBmp" Value="Resources\assets\banner_background.bmp" />
 
-    <WixVariable Id="WixUIExclamationIco" Value="Resources\assets\project_32x32.ico" />
-    <WixVariable Id="WixUIInfoIco" Value="Resources\assets\project_32x32.ico" />
-    <WixVariable Id="WixUINewIco" Value="Resources\assets\project_16x16.ico" />
-    <WixVariable Id="WixUIUpIco" Value="Resources\assets\project_16x16.ico" />
+    <WixVariable Id="WixUIExclamationIco" Value="Resources\assets\cws_32x32.ico" />
+    <WixVariable Id="WixUIInfoIco" Value="Resources\assets\cws_32x32.ico" />
+    <WixVariable Id="WixUINewIco" Value="Resources\assets\cws_16x16.ico" />
+    <WixVariable Id="WixUIUpIco" Value="Resources\assets\cws_16x16.ico" />
 
   </Product>
 </Wix>

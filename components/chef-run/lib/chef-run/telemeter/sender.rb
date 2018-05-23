@@ -23,10 +23,27 @@ require "chef-run/version"
 module ChefRun
   class Telemeter
     class Sender
+      attr_reader :session_files
 
       def self.start_upload_thread
-        sender = Sender.new
+        # Find the files before we spawn the thread - otherwise
+        # we may accidentally pick up the current run's session file if it
+        # finishes before the thread scans for new files
+        session_files = Sender.find_session_files
+        sender = Sender.new(session_files)
         Thread.new { sender.run }
+      end
+
+      def self.find_session_files
+        ChefRun::Log.info("Looking for telemetry data to submit")
+        session_search = File.join(ChefRun::Config.telemetry_path, "telemetry-payload-*.yml")
+        session_files = Dir.glob(session_search)
+        ChefRun::Log.info("Found #{session_files.length} sessions to submit")
+        session_files
+      end
+
+      def initialize(session_files)
+        @session_files = session_files
       end
 
       def run
@@ -48,14 +65,6 @@ module ChefRun
         ChefRun::Log.info("Terminating, nothing more to do.")
       end
 
-      def session_files
-        ChefRun::Log.info("Looking for telemetry data to submit")
-        session_search = File.join(ChefRun::Config.telemetry_path, "telemetry-payload-*.yml")
-        files = Dir.glob(session_search)
-        ChefRun::Log.info("Found #{files.length} sessions to submit")
-        files
-      end
-
       def process_session(path)
         ChefRun::Log.info("Processing telemetry entries from #{path}")
         content = load_and_clear_session(path)
@@ -71,7 +80,7 @@ module ChefRun
         entries = content["entries"]
         cli_version = content["version"]
         total = entries.length
-        telemetry = Telemetry.new(product: "chef-workstation-cli",
+        telemetry = Telemetry.new(product: "chef-workstation",
                                   origin: "command-line",
                                   product_version: cli_version,
                                   install_context: "omnibus")

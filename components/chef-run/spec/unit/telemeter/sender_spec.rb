@@ -21,10 +21,12 @@ require "chef-run/telemeter/sender"
 require "chef-run/config"
 
 RSpec.describe ChefRun::Telemeter::Sender do
-  let(:subject) { ChefRun::Telemeter::Sender.new }
+  let(:session_files) { %w{file1 file2} }
   let(:enabled_flag) { true }
   let(:dev_mode) { false }
   let(:config) { double("config") }
+
+  let(:subject) { ChefRun::Telemeter::Sender.new(session_files) }
 
   before do
     allow(config).to receive(:dev).and_return dev_mode
@@ -37,7 +39,8 @@ RSpec.describe ChefRun::Telemeter::Sender do
   describe "::start_upload_thread" do
     let(:sender_mock) { instance_double(ChefRun::Telemeter::Sender) }
     it "spawns a thread to run the send" do
-      expect(ChefRun::Telemeter::Sender).to receive(:new).and_return sender_mock
+      expect(ChefRun::Telemeter::Sender).to receive(:find_session_files).and_return session_files
+      expect(ChefRun::Telemeter::Sender).to receive(:new).with(session_files).and_return sender_mock
       expect(sender_mock).to receive(:run)
       expect(::Thread).to receive(:new).and_yield
       ChefRun::Telemeter::Sender.start_upload_thread
@@ -45,7 +48,6 @@ RSpec.describe ChefRun::Telemeter::Sender do
   end
 
   describe "#run" do
-    let(:session_files) { %w{file1 file2} }
     before do
       expect(subject).to receive(:session_files).and_return session_files
     end
@@ -92,11 +94,11 @@ RSpec.describe ChefRun::Telemeter::Sender do
     end
   end
 
-  describe "#session_files" do
+  describe "::find_session_files" do
     it "finds all telemetry-payload-*.yml files in the telemetry directory" do
       expect(ChefRun::Config).to receive(:telemetry_path).and_return("/tmp")
       expect(Dir).to receive(:glob).with("/tmp/telemetry-payload-*.yml").and_return []
-      subject.session_files
+      ChefRun::Telemeter::Sender.find_session_files
     end
   end
 
