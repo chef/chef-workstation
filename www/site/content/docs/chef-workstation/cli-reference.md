@@ -10,12 +10,12 @@ Chef-run is a tool to execute ad-hoc tasks using Chef.
 
 `chef-run <TARGET[S]> <RESOURCE> <RESOURCE_NAME> [PROPERTIES] [FLAGS]`
 
-  Runs a single <RESOURCE> on the specified <TARGET[S]>.
-  [PROPERTIES] should be specified as key=value.
+Runs a single <RESOURCE> on the specified <TARGET[S]>.
+[PROPERTIES] specify as key=value.
 
-  For example:
+For example:
 
-```
+```bash
 chef-run web01 service nginx
 chef-run web01,web02 service nginx action=restart
 chef-run web[1:2] service nginx priority=20 action=stop
@@ -23,11 +23,11 @@ chef-run web[1:2] service nginx priority=20 action=stop
 
 `chef-run <TARGET[S]> <RECIPE> [FLAGS]`
 
-  Runs a single recipe located at <RECIPE> on the specified <TARGET[S]>.
+Runs a single recipe located at <RECIPE> on the specified <TARGET[S]>.
 
-  For example:
+For example:
 
-```
+```bash
 chef-run web01 path/to/cookbook/recipe.rb
 chef-run web01,web02 path/to/cookbook
 chef-run web0[1:2] cookbook_name
@@ -36,7 +36,7 @@ chef-run web01 cookbook_name::recipe_name
 
 ARGUMENTS:
 
-```
+```bash
   <TARGET[S]>       The hosts or IPs to target. Can also be an SSH or WinRM URLs
                     in the form:
 
@@ -56,8 +56,8 @@ ARGUMENTS:
 
 FLAGS:
 
-```
-    -c, --config PATH                  Location of config file. Defaults to /Users/mchiang/.chef-workstation/config.toml
+```bash
+    -c, --config PATH                  Location of config file. Defaults to /Users/username/.chef-workstation/config.toml
         --cookbook-repo-paths PATH     Comma separated list of cookbook repository paths.
     -h, --help                         Show help and usage for `chef-run`
     -i, --identity-file PATH           SSH identity file to use when connecting. Keys loaded into ssh-agent will also be used.
@@ -82,6 +82,3 @@ FLAGS:
                                        username will be used for all targets.
     -v, --version                      Show the current version of Chef Run.
 ```
-
-
-
