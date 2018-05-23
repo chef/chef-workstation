@@ -61,7 +61,7 @@ chef-run myhost package ntp action=install
 
 Combined with the InSpec resource to validate whether the package was installed successfully, we have everything we need to define our requirements, and make sure they're met with two simple commands.
 
-![Chef Run NTP Installation](/images/docs/chef-run.gif)
+![Chef Run NTP Installation](/images/chef-workstation/chef-run.gif)
 
 ### Recipe and Multi-Node Convergence
 
