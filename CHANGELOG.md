@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.122 -->
+<!-- latest_release 0.1.123 -->
+## [0.1.123](https://github.com/chef/chef-workstation/tree/0.1.123) (2018-05-23)
+
+#### Merged Pull Requests
+- Update CODEOWNERS to new team name [#169](https://github.com/chef/chef-workstation/pull/169) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.122](https://github.com/chef/chef-workstation/tree/0.1.122) (2018-05-23)
 
 #### Merged Pull Requests
 - Correct run-gif reference in docs [#166](https://github.com/chef/chef-workstation/pull/166) ([tduffield](https://github.com/tduffield))
-<!-- latest_release -->
 
 ## [0.1.121](https://github.com/chef/chef-workstation/tree/0.1.121) (2018-05-23)
 
