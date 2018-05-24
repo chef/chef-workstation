@@ -94,6 +94,13 @@ module ChefRun
       boolean: true,
       default: ChefRun::Config.connection.winrm.ssl_verify
 
+    option :protocol,
+      long: "--protocol",
+      short: "-p",
+      description: T.protocol_description(ChefRun::Config::SUPPORTED_PROTOCOLS.join(" "),
+                                          ChefRun::Config.connection.default_protocol),
+      default: ChefRun::Config.connection.default_protocol
+
     option :user,
       long: "--user <USER>",
       description: T.user_description,

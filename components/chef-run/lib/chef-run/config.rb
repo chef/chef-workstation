@@ -24,6 +24,7 @@ require "chef-config/workstation_config_loader"
 module ChefRun
   class Config
     WS_BASE_PATH = File.join(Dir.home, ".chef-workstation/")
+    SUPPORTED_PROTOCOLS = %w{ssh winrm}
 
     class << self
       @custom_location = nil
@@ -114,6 +115,9 @@ module ChefRun
     end
 
     config_context :connection do
+      default(:default_protocol, "ssh")
+      default(:default_user, "root")
+
       config_context :winrm do
         default(:ssl, false)
         default(:ssl_verify, true)

@@ -49,6 +49,9 @@ FLAGS:
                                        if there is no Chef client on the target(s).
         --password <PASSWORD>          Password to use for authentication to the target(s). The same
                                        password will be used for all targets.
+    -p, --protocol                     The protocol to use for connecting to targets.
+                                       The default is 'ssh', and it can be changed in config.toml by
+                                       setting 'connection.default_protocol' to a supported option.
     -s, --[no-]ssl                     Use SSL for WinRM. Current default: false
     -s, --[no-]ssl-verify              Verify peer certificate when using SSL for WinRM
                                        Use --ssl-no-verify when using SSL for WinRM and

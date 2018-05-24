@@ -20,7 +20,6 @@ require "chef-run/error"
 
 module ChefRun
   class TargetResolver
-    # IDeally, we'd base this on the actual current screen height
     MAX_EXPANDED_TARGETS = 24
 
     def initialize(unparsed_target, conn_options)
@@ -29,6 +28,7 @@ module ChefRun
       @conn_options = conn_options.dup
       @default_password = @conn_options.delete(:password)
       @default_user = @conn_options.delete(:user)
+      @default_proto = @conn_options.delete(:protocol) || ChefRun::Config.connection.default_protocol
     end
 
     # Returns the list of targets as an array of strings, after expanding
@@ -47,20 +47,13 @@ module ChefRun
       do_parse([target.downcase])
     end
 
-    # This method will prefix the target with 'ssh://' if no prefix
-    # is present, and replace the password (if present) with
-    # its www-form-component encoded value.
-    # This allows it to be further passed into Train, which knows
-    # how to deal with www-form encoded passwords.
+    # This method will convert the given target to a fully qualified
+    # url with protocol, user-info, and hostname.
+    # If it is present, it will replace the password with
+    # its www-form-component encoded value.  This allows it to be further
+    # passed into Train, which knows how to deal with www-form encoded passwords.
     def target_to_valid_url(target)
-      if target =~ /^(.+?):\/\/(.*)/
-        # We'll store the existing prefix to avoid it interfering
-        # with the check further below.
-        prefix = "#{$1}://"
-        target = $2
-      else
-        prefix = "ssh://"
-      end
+      prefix, target = prefix_from_target(target)
 
       inline_password = nil
       inline_user = nil
@@ -106,6 +99,22 @@ module ChefRun
         # fields to blank instead of nil for the not-specified case.
         "#{user}:#{password}@"
       end
+    end
+
+    def prefix_from_target(target)
+      if target =~ /^(.+?):\/\/(.*)/
+        # We'll store the existing prefix to avoid it interfering
+        # with the check further below.
+        if ChefRun::Config::SUPPORTED_PROTOCOLS.include? $1.downcase
+          prefix = "#{$1}://"
+          target = $2
+        else
+          raise UnsupportedProtocol.new($1)
+        end
+      else
+        prefix = "#{@default_proto}://"
+      end
+      [prefix, target]
     end
 
     private
@@ -185,6 +194,7 @@ module ChefRun
         super("CHEFRANGE001", unresolved_target, given_range)
       end
     end
+
     class TooManyRanges < ErrorNoLogs
       def initialize(unresolved_target)
         super("CHEFRANGE002", unresolved_target)
@@ -194,6 +204,13 @@ module ChefRun
     class TooManyTargets < ErrorNoLogs
       def initialize(num_top_level_targets, max_targets)
         super("CHEFRANGE003", num_top_level_targets, max_targets)
+      end
+    end
+
+    class UnsupportedProtocol < ErrorNoLogs
+      def initialize(attempted_protocol)
+        super("CHEFVAL011", attempted_protocol,
+              ChefRun::Config::SUPPORTED_PROTOCOLS.join(" "))
       end
     end
   end

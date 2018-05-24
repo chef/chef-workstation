@@ -52,6 +52,10 @@ cli:
   password_description: |
     Password to use for authentication to the target(s). The same
     password will be used for all targets.
+  protocol_description: |
+    The protocol to use for connecting to targets.
+    The default is '%2', and it can be changed in config.toml by
+    setting 'connection.default_protocol' to a supported option.
   sudo:
     flag_description:
       sudo: "Whether to use root permissions on the target. Default: true"
@@ -354,6 +358,13 @@ errors:
 
       Available flags are:
     %2
+
+  CHEFVAL011: |
+    The protocol '%1' is not supported.
+
+    Currently supported remote access protocols are:
+
+      %2
 
   # General errors/unknown errors are handled with CHEFINT
   CHEFINT001: |
