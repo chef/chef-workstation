@@ -7,20 +7,25 @@ Chef Workstation installs everything you need to get started using Chef on Windo
 
 1. Download [Chef Workstation](https://downloads.chef.io/chef-workstation)
 
-2. Double-click the `.dmg` or `.msi` file to start the install process. Or install the Linux package for your platform.
+2. Double-click the `.dmg` or `.msi` file to start the install process, or use the package manager for your Linux distribution.
 
-3. Open a command-line terminal, and try out some chef-cli commands
+3. Open a terminal, and try out an ad-hoc task. Here's the general usage:
 
-   * Run `chef -h` to view the available commands
+    `chef-run  [flags] <Target host|IP|SSH|WinRM> <Resource> <Resource Name> [properties]`
 
-   * Want to perform an ad-hoc task? Try
+  * Install the 'ntp' package on 'hostname' over ssh, using password from the environment:
 
-    `chef target converge <Target host|IP|SSH|WinRM> <Resource> <Resource Name> [properties] [flags]`
+    `chef-run username:$PASSWORD@hostname package ntp`
 
-    `chef target converge user@hostname user timmy`
+  * Create user 'timmy' on 'hostname' over winrm:
 
-    `chef target converge winrm://user@hostname:port user timmy`
+    `chef-run winrm://username@hostname user timmy`
 
+  * Run the recipe 'nginx::passenger' on 'hostname' over ssh:
+
+    `chef-run ssh://hostname nginx::passenger`
+
+4. Use `chef-run -h` for additional information about usage and available flags.
 
 ## Building Chef-Workstation Packages
 
@@ -28,4 +33,4 @@ We use Omnibus to describe our packaging. Please review [chef-workstation/omnibu
 
 ## Copyright and License
 
-Code released under the [Apache license](LICENSE). Images and any trademarked content are copyrighted by [Chef Software, Inc.](https://www.chef.io).
+Code released under the [Apache license](LICENSE). Images and any trademarked content are Copyright 2018 by [Chef Software, Inc.](https://www.chef.io).
