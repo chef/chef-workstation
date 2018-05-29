@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.124 -->
+<!-- latest_release 0.1.125 -->
+## [0.1.125](https://github.com/chef/chef-workstation/tree/0.1.125) (2018-05-29)
+
+#### Merged Pull Requests
+- Added 001 to trouble shooting [#182](https://github.com/chef/chef-workstation/pull/182) ([jjasghar](https://github.com/jjasghar))
+<!-- latest_release -->
+
 ## [0.1.124](https://github.com/chef/chef-workstation/tree/0.1.124) (2018-05-23)
 
 #### Merged Pull Requests
 - Update Omnibus Readme [#170](https://github.com/chef/chef-workstation/pull/170) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.123](https://github.com/chef/chef-workstation/tree/0.1.123) (2018-05-23)
 
