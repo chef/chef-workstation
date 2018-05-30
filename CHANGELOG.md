@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.126 -->
+<!-- latest_release 0.1.127 -->
+## [0.1.127](https://github.com/chef/chef-workstation/tree/0.1.127) (2018-05-30)
+
+#### Merged Pull Requests
+- [SHACK-212] [GH #175] Always expand host to include full user info [#176](https://github.com/chef/chef-workstation/pull/176) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.126](https://github.com/chef/chef-workstation/tree/0.1.126) (2018-05-30)
 
 #### Merged Pull Requests
 - Removed the nonexistent FAF [#187](https://github.com/chef/chef-workstation/pull/187) ([jjasghar](https://github.com/jjasghar))
-<!-- latest_release -->
 
 ## [0.1.125](https://github.com/chef/chef-workstation/tree/0.1.125) (2018-05-29)
 
