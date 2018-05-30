@@ -103,8 +103,8 @@ module ChefRun
     end
 
     def load_config
-      path = determine_config_path
-      Config.custom_location(path)
+      path = custom_config_path
+      Config.custom_location(path) unless path.nil?
       Config.load
     end
 
@@ -112,7 +112,7 @@ module ChefRun
     # Note that we can't use Mixlib::CLI for this.
     # To ensure that ChefRun::CLI initializes with correct
     # option defaults, we need to have configuraton loaded before initializing it.
-    def determine_config_path
+    def custom_config_path
       argv.each_with_index do |arg, index|
         if arg == "--config-path" || arg == "-c"
           next_arg = argv[index + 1]
@@ -121,7 +121,7 @@ module ChefRun
           return next_arg
         end
       end
-      Config.default_location
+      nil
     end
 
     def setup_logging

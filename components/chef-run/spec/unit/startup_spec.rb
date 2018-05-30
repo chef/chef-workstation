@@ -94,11 +94,11 @@ RSpec.describe ChefRun::Startup do
     end
   end
 
-  describe "#determine_config_path" do
+  describe "#custom_config_path" do
     context "when a custom config path is not provided as an option" do
       let(:args) { [] }
-      it "returns the default configuration path" do
-        expect(subject.determine_config_path).to eq ChefRun::Config.default_location
+      it "returns nil" do
+        expect(subject.custom_config_path).to be_nil
       end
     end
 
@@ -106,7 +106,7 @@ RSpec.describe ChefRun::Startup do
       context "but the actual path parameter is not provided" do
         let(:argv) { %w{--config-path} }
         it "raises ConfigPathNotProvided" do
-          expect { subject.determine_config_path }.to raise_error(ChefRun::Startup::ConfigPathNotProvided)
+          expect { subject.custom_config_path }.to raise_error(ChefRun::Startup::ConfigPathNotProvided)
         end
       end
 
@@ -119,7 +119,7 @@ RSpec.describe ChefRun::Startup do
             allow(File).to receive(:file?).with(path).and_return false
           end
           it "raises an error ConfigPathInvalid" do
-            expect { subject.determine_config_path }.to raise_error(ChefRun::Startup::ConfigPathInvalid)
+            expect { subject.custom_config_path }.to raise_error(ChefRun::Startup::ConfigPathInvalid)
           end
         end
 
@@ -133,7 +133,7 @@ RSpec.describe ChefRun::Startup do
               allow(File).to receive(:readable?).with(path).and_return false
             end
             it "raises an error ConfigPathInvalid" do
-              expect { subject.determine_config_path }.to raise_error(ChefRun::Startup::ConfigPathInvalid)
+              expect { subject.custom_config_path }.to raise_error(ChefRun::Startup::ConfigPathInvalid)
             end
 
           end
@@ -143,7 +143,7 @@ RSpec.describe ChefRun::Startup do
               allow(File).to receive(:readable?).with(path).and_return true
             end
             it "returns the custom path" do
-              expect(subject.determine_config_path).to eq path
+              expect(subject.custom_config_path).to eq path
             end
           end
         end
@@ -154,7 +154,7 @@ RSpec.describe ChefRun::Startup do
   describe "#load_config" do
     it "finds the config path, initializes it, and loads config" do
       mock_path = "/tmp/path.file"
-      expect(subject).to receive(:determine_config_path).and_return mock_path
+      expect(subject).to receive(:custom_config_path).and_return mock_path
       expect(ChefRun::Config).to receive(:custom_location).with mock_path
       expect(ChefRun::Config).to receive(:load)
       subject.load_config

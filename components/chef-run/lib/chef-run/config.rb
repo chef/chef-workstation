@@ -56,12 +56,17 @@ module ChefRun
         File.join(WS_BASE_PATH, "installation_id")
       end
 
+      def base_log_directory
+        File.dirname(log.location)
+      end
+
+      # These paths are relative to the log output path, which is user-configurable.
       def error_output_path
-        File.join(File.dirname(log.location), "errors.txt")
+        File.join(base_log_directory, "errors.txt")
       end
 
       def stack_trace_path
-        File.join(File.dirname(log.location), "stack-trace.log")
+        File.join(base_log_directory, "stack-trace.log")
       end
 
       def using_default_location?
@@ -78,16 +83,6 @@ module ChefRun
 
       def exist?
         File.exist? location
-      end
-
-      def create_directory_tree
-        FileUtils.mkdir_p(File.dirname(default_location))
-        FileUtils.mkdir_p(File.dirname(stack_trace_path))
-        FileUtils.mkdir_p(telemetry_path)
-      end
-
-      def create_default_config_file
-        FileUtils.touch(default_location)
       end
 
       def reset
