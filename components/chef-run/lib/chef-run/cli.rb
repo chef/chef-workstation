@@ -58,6 +58,9 @@ module ChefRun
       description:   T.help.description,
       boolean: true
 
+    # Special note:
+    # config_path is pre-processed in startup.rb, and is shown here only
+    # for purpoess of rendering help text.
     option :config_path,
       short: "-c PATH",
       long: "--config PATH",
@@ -132,15 +135,12 @@ module ChefRun
       description: T.sudo.flag_description.options
 
     def initialize(argv)
-      @argv = argv
+      @argv = argv.clone
       @rc = RC_OK
       super()
     end
 
     def run
-      setup_cli
-      ChefRun::Telemeter::Sender.start_upload_thread()
-
       # Perform a timing and capture of the run. Individual methods and actions may perform
       # nested Telemeter.timed_*_capture or Telemeter.capture calls in their operation, and
       # they will be captured in the same telemetry session.
@@ -177,41 +177,6 @@ module ChefRun
         UI::ErrorPrinter.dump_unexpected_error(e)
         RC_UNHANDLED_ERROR
       end
-    end
-
-    def setup_cli
-      # Enable CLI output via Terminal. This comes first because we want to supply
-      # status output about reading and creating config files
-      UI::Terminal.init($stdout)
-      # Creates the tree we need under ~/.chef-workstation
-      # based on config settings:
-      Config.create_directory_tree
-
-      # TODO because we have not yet parsed arguments, we will always be using
-      #      the default location at this step.
-      if Config.using_default_location? && !Config.exist?
-        setup_workstation
-      end
-
-      Config.load
-      ChefRun::Log.setup(Config.log.location, Config.log.level.to_sym)
-      ChefRun::Log.info("Initialized logger")
-    end
-
-    # These setup steps are run if ".chef-workstation" is missing prior to
-    # the run.  It will set up default configuration, generated an installation id
-    # for telemetry, and report telemetry & config info to the operator.
-    def setup_workstation
-      require "securerandom"
-      installation_id = SecureRandom.uuid
-      File.write(Config.telemetry_installation_identifier_file, installation_id)
-      UI::Terminal.output T.creating_config(Config.default_location)
-      Config.create_default_config_file
-      # Tell the user we're anonymously tracking, give brief opt-out
-      # and a link to detailed information.
-      UI::Terminal.output ""
-      UI::Terminal.output T.telemetry_enabled(Config.default_location)
-      UI::Terminal.output ""
     end
 
     def perform_run

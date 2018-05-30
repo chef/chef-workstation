@@ -43,21 +43,9 @@ RSpec.describe ChefRun::CLI do
     before do
       # Catch all of the calls by default, to prevent the various
       # startup actions from actually occuring on the workstatoin.
-      allow(subject).to receive(:setup_cli)
-      allow(ChefRun::Telemeter::Sender).to receive(:start_upload_thread)
       allow(telemetry).to receive(:timed_run_capture).and_yield
       allow(subject).to receive(:perform_run)
       allow(telemetry).to receive(:commit)
-    end
-
-    it "spawns the telemetry upload" do
-      expect(ChefRun::Telemeter::Sender).to receive(:start_upload_thread)
-      expect { subject.run }.to exit_with_code(0)
-    end
-
-    it "sets up the cli" do
-      expect(subject).to receive(:setup_cli)
-      expect { subject.run }.to exit_with_code(0)
     end
 
     it "captures and commits the run to telemetry" do
@@ -91,7 +79,7 @@ RSpec.describe ChefRun::CLI do
     context "perform_run raises any other exception" do
       let(:e) { Exception.new("test") }
 
-      it "exits with same exit code" do
+      it "exits with code 64" do
         expect(subject).to receive(:perform_run).and_raise(e)
         expect(ChefRun::UI::ErrorPrinter).to receive(:dump_unexpected_error).with(e)
         expect { subject.run }.to exit_with_code(64)
@@ -371,40 +359,6 @@ RSpec.describe ChefRun::CLI do
     it "sets ChefConfig.ogger to ChefRun.log" do
       subject.configure_chef
       expect(ChefConfig.logger).to eq(ChefRun::Log)
-    end
-  end
-
-  describe "#setup_cli" do
-    it "initializes ChefRun::UI::Terminal" do
-      expect(ChefRun::UI::Terminal).to receive(:init).with($stdout)
-      subject.setup_cli
-    end
-
-    it "creates config directory tree" do
-      expect(ChefRun::Config).to receive(:create_directory_tree)
-      subject.setup_cli
-    end
-
-    it "creates loads config" do
-      expect(ChefRun::Config).to receive(:load)
-      subject.setup_cli
-    end
-
-    it "sets up logging" do
-      allow(ChefRun::Config).to receive_message_chain(:log, :location).and_return("test")
-      allow(ChefRun::Config).to receive_message_chain(:log, :level).and_return("test")
-      expect(ChefRun::Log).to receive(:setup).with("test", :test)
-      expect(ChefRun::Log).to receive(:info).with("Initialized logger")
-      subject.setup_cli
-    end
-
-    context "when using default config location and config does not exist" do
-      it "sets up the workstation" do
-        allow(ChefRun::Config).to receive(:using_default_location?).and_return(true)
-        allow(ChefRun::Config).to receive(:exist?).and_return(false)
-        expect(subject).to receive(:setup_workstation)
-        subject.setup_cli
-      end
     end
   end
 
