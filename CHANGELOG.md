@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.125 -->
+<!-- latest_release 0.1.126 -->
+## [0.1.126](https://github.com/chef/chef-workstation/tree/0.1.126) (2018-05-30)
+
+#### Merged Pull Requests
+- Removed the nonexistent FAF [#187](https://github.com/chef/chef-workstation/pull/187) ([jjasghar](https://github.com/jjasghar))
+<!-- latest_release -->
+
 ## [0.1.125](https://github.com/chef/chef-workstation/tree/0.1.125) (2018-05-29)
 
 #### Merged Pull Requests
 - Added 001 to trouble shooting [#182](https://github.com/chef/chef-workstation/pull/182) ([jjasghar](https://github.com/jjasghar))
-<!-- latest_release -->
 
 ## [0.1.124](https://github.com/chef/chef-workstation/tree/0.1.124) (2018-05-23)
 
