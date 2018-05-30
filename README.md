@@ -31,10 +31,6 @@ Chef Workstation installs everything you need to get started using Chef on Windo
 
 We use Omnibus to describe our packaging. Please review [chef-workstation/omnibus/README.MD](https://github.com/chef/chef-workstation/tree/master/omnibus) for further details.
 
-## Frequently Asked Questions
-
-Please check out the doc [here](./FAQ.md).
-
 ## Copyright and License
 
 Code released under the [Apache license](LICENSE). Images and any trademarked content are Copyright 2018 by [Chef Software, Inc.](https://www.chef.io).
