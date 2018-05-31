@@ -195,7 +195,9 @@ module ChefRun
       else
         validate_params(cli_arguments)
         configure_chef
-        target_hosts = TargetResolver.new(cli_arguments.shift, config).targets
+        target_hosts = TargetResolver.new(cli_arguments.shift,
+                                          config.delete(:default_protocol),
+                                          config).targets
         temp_cookbook, initial_status_msg = generate_temp_cookbook(cli_arguments)
         local_policy_path = create_local_policy(temp_cookbook)
         if target_hosts.length == 1

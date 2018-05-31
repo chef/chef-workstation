@@ -20,8 +20,9 @@ require "chef-run/target_resolver"
 
 RSpec.describe ChefRun::TargetResolver do
   let(:target_string) { "" }
+  let(:default_protocol) { "ssh" }
   let(:connection_options) { {} }
-  subject { ChefRun::TargetResolver.new(target_string, connection_options) }
+  subject { ChefRun::TargetResolver.new(target_string, default_protocol, connection_options) }
 
   context "#targets" do
     context "when no target is provided" do
@@ -182,7 +183,7 @@ RSpec.describe ChefRun::TargetResolver do
       opts = {}
       opts[:user] = default_user unless default_user.nil?
       opts[:password] = default_password unless default_password.nil?
-      resolver = ChefRun::TargetResolver.new("", opts)
+      resolver = ChefRun::TargetResolver.new("", default_protocol, opts)
       Proc.new { resolver.make_url_credentials(inline_user, inline_password) }
     end
 
@@ -357,13 +358,9 @@ RSpec.describe ChefRun::TargetResolver do
   end
 
   context "#prefix_from_target" do
-    after do
-      ChefRun::Config.reset
-    end
-
     context "when no protocol is provided" do
+      let(:default_protocol) { "badproto" }
       it "uses the default from configuration" do
-        ChefRun::Config.connection.default_protocol = "badproto"
         expect(subject.prefix_from_target("host.com")).to eq %w{badproto:// host.com}
       end
     end

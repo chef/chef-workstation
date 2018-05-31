@@ -22,13 +22,13 @@ module ChefRun
   class TargetResolver
     MAX_EXPANDED_TARGETS = 24
 
-    def initialize(unparsed_target, conn_options)
-      @unparsed_target = unparsed_target
-      @split_targets = unparsed_target.split(",")
+    def initialize(target, default_protocol, conn_options)
+      @default_proto = default_protocol
+      @unparsed_target = target
+      @split_targets = @unparsed_target.split(",")
       @conn_options = conn_options.dup
       @default_password = @conn_options.delete(:password)
       @default_user = @conn_options.delete(:user)
-      @default_proto = @conn_options.delete(:protocol) || ChefRun::Config.connection.default_protocol
     end
 
     # Returns the list of targets as an array of strings, after expanding
