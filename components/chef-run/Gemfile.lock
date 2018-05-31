@@ -36,7 +36,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-run (0.1.127)
+    chef-run (0.1.128)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       chef-telemetry
@@ -56,13 +56,13 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.4.0)
-    aws-sdk (2.11.58)
-      aws-sdk-resources (= 2.11.58)
-    aws-sdk-core (2.11.58)
+    aws-sdk (2.11.60)
+      aws-sdk-resources (= 2.11.60)
+    aws-sdk-core (2.11.60)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.58)
-      aws-sdk-core (= 2.11.58)
+    aws-sdk-resources (2.11.60)
+      aws-sdk-core (= 2.11.60)
     aws-sigv4 (1.0.2)
     azure_mgmt_resources (0.16.0)
       ms_rest_azure (~> 0.10.0)
@@ -241,7 +241,7 @@ GEM
     minitar (0.6.1)
     mixlib-archive (0.4.6)
       mixlib-log
-    mixlib-authentication (2.0.0)
+    mixlib-authentication (2.1.0)
     mixlib-cli (1.7.0)
     mixlib-config (2.2.6)
       tomlrb

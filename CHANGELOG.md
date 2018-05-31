@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.127 -->
+<!-- latest_release 0.1.128 -->
+## [0.1.128](https://github.com/chef/chef-workstation/tree/0.1.128) (2018-05-31)
+
+#### Merged Pull Requests
+- [SHACK-210] [GH #180] Perform startup tasks outside of main CLI handling [#183](https://github.com/chef/chef-workstation/pull/183) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.127](https://github.com/chef/chef-workstation/tree/0.1.127) (2018-05-30)
 
 #### Merged Pull Requests
 - [SHACK-212] [GH #175] Always expand host to include full user info [#176](https://github.com/chef/chef-workstation/pull/176) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.126](https://github.com/chef/chef-workstation/tree/0.1.126) (2018-05-30)
 
