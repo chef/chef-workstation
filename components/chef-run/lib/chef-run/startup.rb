@@ -26,13 +26,12 @@ module ChefRun
     def initialize(argv)
       @term_init = false
       @argv = argv.clone
+      # Enable CLI output via Terminal. This comes first because other startup steps may
+      # need to output to the terminal.
+      init_terminal
     end
 
     def run
-      # Enable CLI output via Terminal. This comes first because we want to supply
-      # status output about reading and creating config files
-      init_terminal
-
       # Some tasks we do only once in an installation:
       first_run_tasks
 
@@ -56,10 +55,8 @@ module ChefRun
       # Launch the actual chef-run behavior
       start_chef_run
     rescue ConfigPathInvalid => e
-      init_terminal
       UI::Terminal.output(T.error.bad_config_file(e.path))
     rescue ConfigPathNotProvided
-      init_terminal
       UI::Terminal.output(T.error.missing_config_path)
     end
 

@@ -6,11 +6,24 @@ RSpec.describe ChefRun::Startup do
   subject do
     ChefRun::Startup.new(argv)
   end
+  before do
+    allow(ChefRun::UI::Terminal).to receive(:init)
+  end
+
+  after do
+    ChefRun::Config.reset
+  end
+
+  describe "#initalize" do
+    it "initializes the terminal" do
+      expect_any_instance_of(ChefRun::Startup).to receive(:init_terminal)
+      ChefRun::Startup.new([])
+    end
+  end
 
   describe "#run" do
     it "performs ordered startup tasks and invokes the CLI" do
-      ordered_messages = [:init_terminal,
-                          :first_run_tasks,
+      ordered_messages = [:first_run_tasks,
                           :setup_workstation_user_directories,
                           :load_config,
                           :setup_logging,
@@ -152,13 +165,27 @@ RSpec.describe ChefRun::Startup do
   end
 
   describe "#load_config" do
-    it "finds the config path, initializes it, and loads config" do
-      mock_path = "/tmp/path.file"
-      expect(subject).to receive(:custom_config_path).and_return mock_path
-      expect(ChefRun::Config).to receive(:custom_location).with mock_path
-      expect(ChefRun::Config).to receive(:load)
-      subject.load_config
+    context "when a custom configuraton path is provided" do
+      let(:config_path) { nil }
+      it "loads the config at the custom path" do
+        expect(subject).to receive(:custom_config_path).and_return config_path
+        expect(ChefRun::Config).to receive(:custom_location).with config_path
+        expect(ChefRun::Config).to receive(:load)
+        subject.load_config
+      end
+      let(:config_path) { "/tmp/workstation-mock-config.toml" }
     end
+
+    context "when no custom configuration path is provided" do
+      let(:config_path) { nil }
+      it "loads it at the default configuration path" do
+        expect(subject).to receive(:custom_config_path).and_return config_path
+        expect(ChefRun::Config).not_to receive(:custom_location)
+        expect(ChefRun::Config).to receive(:load)
+        subject.load_config
+      end
+    end
+
   end
 
   describe "#setup_logging" do
@@ -167,10 +194,6 @@ RSpec.describe ChefRun::Startup do
     before do
       ChefRun::Config.log.location = log_path
       ChefRun::Config.log.level = log_level
-    end
-
-    after do
-      ChefRun::Config.reset
     end
 
     it "sets up the logger with the correct log path" do
