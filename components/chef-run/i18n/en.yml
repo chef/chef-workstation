@@ -108,6 +108,23 @@ cli:
                            cookbook is found we run the default recipe.
                         3. This behaves similarly to 'cookbook name' above, but it also allows
                            you to specify which recipe to use from the cookbook.
+  error:
+    bad_config_file: |
+
+      The path '%1' is not a valid file, or it cannot be read.
+
+      Please verify that the path is correct, and that permissions
+      on the file allow it to be read by your user account.
+
+    missing_config_path: |
+
+      Missing configuration file.
+
+      Please provide the path to a valid chef-run configuration file
+      as an argument to --config-path. For example:
+
+        --config-path /home/user1/.chef-workstation/config.toml
+
   version:
     description: Show the current version of Chef Run.
     show: "chef-run: %1"

@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-require "chef-run/cli"
+require "chef-run/startup"
 require "chef-run/version"
 
 # Create the chef configuration directory and touch the config
@@ -41,7 +41,7 @@ FileUtils.touch(conf) unless File.exist?(conf)
 # usage:
 #   expect {run_with_cli("blah")}.to output("blah").to_stdout
 def run_cli_with(args)
-  ChefRun::CLI.new(args.split(" ")).run
+  ChefRun::Startup.new(args.split(" ")).run
 rescue SystemExit
 end
 
