@@ -129,6 +129,26 @@ cli:
 
         --config-path /home/user1/.chef-workstation/config.toml
 
+    invalid_config_key: |
+
+      Invalid configuration entry.
+
+      When loading '%2',
+      the configuration entry '%1' was not recognized.
+
+      Please check the spelling and ensure that the value is correct.
+
+    unknown_config_error: |
+
+      Error in configuration file.
+
+      When loading '%2',
+      the following error occurred:
+        %1
+
+      Please verify that the configuration file is correct. If the
+      problem continues, contact beta@chef.io for further assistance.
+
   version:
     description: Show the current version of Chef Run.
     show: "chef-run: %1"
