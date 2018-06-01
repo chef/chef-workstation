@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.128 -->
+<!-- latest_release 0.1.129 -->
+## [0.1.129](https://github.com/chef/chef-workstation/tree/0.1.129) (2018-06-01)
+
+#### Merged Pull Requests
+- [SHACK-213] [GH-178] Add --protocol flag [#181](https://github.com/chef/chef-workstation/pull/181) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.128](https://github.com/chef/chef-workstation/tree/0.1.128) (2018-05-31)
 
 #### Merged Pull Requests
 - [SHACK-210] [GH #180] Perform startup tasks outside of main CLI handling [#183](https://github.com/chef/chef-workstation/pull/183) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.127](https://github.com/chef/chef-workstation/tree/0.1.127) (2018-05-30)
 
