@@ -20,8 +20,9 @@ require "chef-run/target_resolver"
 
 RSpec.describe ChefRun::TargetResolver do
   let(:target_string) { "" }
+  let(:default_protocol) { "ssh" }
   let(:connection_options) { {} }
-  subject { ChefRun::TargetResolver.new(target_string, connection_options) }
+  subject { ChefRun::TargetResolver.new(target_string, default_protocol, connection_options) }
 
   context "#targets" do
     context "when no target is provided" do
@@ -182,7 +183,7 @@ RSpec.describe ChefRun::TargetResolver do
       opts = {}
       opts[:user] = default_user unless default_user.nil?
       opts[:password] = default_password unless default_password.nil?
-      resolver = ChefRun::TargetResolver.new("", opts)
+      resolver = ChefRun::TargetResolver.new("", default_protocol, opts)
       Proc.new { resolver.make_url_credentials(inline_user, inline_password) }
     end
 
@@ -348,10 +349,34 @@ RSpec.describe ChefRun::TargetResolver do
         expect(subject.target_to_valid_url(values[0])).to eq values[1]
       end
     end
+
     it "preserves range specifiers in the host portion while encoding in the password portion" do
       input = "user:pas[1:2]!^@ho[a:b]s[t:z].com"
       output = "ssh://user:pas%5B1%3A2%5D%21%5E@ho[a:b]s[t:z].com"
       expect(subject.target_to_valid_url(input)).to eq output
+    end
+  end
+
+  context "#prefix_from_target" do
+    context "when no protocol is provided" do
+      let(:default_protocol) { "badproto" }
+      it "uses the default from configuration" do
+        expect(subject.prefix_from_target("host.com")).to eq %w{badproto:// host.com}
+      end
+    end
+
+    context "when protocol is provided" do
+      context "and it is valid" do
+        it "keeps the protocol" do
+          expect(subject.prefix_from_target("ssh://host.com")).to eq %w{ssh:// host.com}
+        end
+      end
+      context "and it is not valid" do
+        it "raises an error" do
+          expect { subject.prefix_from_target("bad://host.com") }.
+            to raise_error(ChefRun::TargetResolver::UnsupportedProtocol)
+        end
+      end
     end
   end
 
