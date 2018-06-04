@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.129 -->
+<!-- latest_release 0.1.130 -->
+## [0.1.130](https://github.com/chef/chef-workstation/tree/0.1.130) (2018-06-04)
+
+#### Merged Pull Requests
+- [SHACK-195] Handle bad configuration errors gracefully. [#190](https://github.com/chef/chef-workstation/pull/190) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.129](https://github.com/chef/chef-workstation/tree/0.1.129) (2018-06-01)
 
 #### Merged Pull Requests
 - [SHACK-213] [GH-178] Add --protocol flag [#181](https://github.com/chef/chef-workstation/pull/181) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.128](https://github.com/chef/chef-workstation/tree/0.1.128) (2018-05-31)
 

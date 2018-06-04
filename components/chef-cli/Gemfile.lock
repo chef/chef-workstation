@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/chef/chef-dk.git
-  revision: 148826310ae97e3b0a2874d2b9b2868ab82d5831
+  revision: fb663fc09d38df9435a9ecbfd5c1c021e107ea2c
   branch: master
   specs:
-    chef-dk (3.0.38)
+    chef-dk (3.0.39)
       addressable (>= 2.3.5, < 2.6)
       chef (~> 14.0)
       chef-provisioning (~> 2.0)
@@ -36,7 +36,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-cli (0.1.129)
+    chef-cli (0.1.130)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       chef-telemetry
@@ -56,13 +56,13 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.4.0)
-    aws-sdk (2.11.60)
-      aws-sdk-resources (= 2.11.60)
-    aws-sdk-core (2.11.60)
+    aws-sdk (2.11.61)
+      aws-sdk-resources (= 2.11.61)
+    aws-sdk-core (2.11.61)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.60)
-      aws-sdk-core (= 2.11.60)
+    aws-sdk-resources (2.11.61)
+      aws-sdk-core (= 2.11.61)
     aws-sigv4 (1.0.2)
     azure_mgmt_resources (0.16.0)
       ms_rest_azure (~> 0.10.0)
