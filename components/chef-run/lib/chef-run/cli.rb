@@ -19,6 +19,7 @@ require "chef/log"
 require "chef-config/config"
 require "chef-config/logger"
 
+require "chef-run/cli_options"
 require "chef-run/action/converge_target"
 require "chef-run/action/install_chef"
 require "chef-run/config"
@@ -30,7 +31,6 @@ require "chef-run/target_resolver"
 require "chef-run/telemeter"
 require "chef-run/telemeter/sender"
 require "chef-run/temp_cookbook"
-require "chef-run/text"
 require "chef-run/ui/terminal"
 require "chef-run/ui/error_printer"
 require "chef-run/version"
@@ -38,109 +38,12 @@ require "chef-run/version"
 module ChefRun
   class CLI
     include Mixlib::CLI
-    T = ChefRun::Text.cli
-    TS = ChefRun::Text.status
+    include ChefRun::CLIOptions
+
     RC_OK = 0
     RC_COMMAND_FAILED = 1
     RC_UNHANDLED_ERROR = 32
     RC_ERROR_HANDLING_FAILED = 64
-
-    banner T.description + "\n" + T.usage_full
-
-    option :version,
-      short: "-v",
-      long: "--version",
-      description:  T.version.description,
-      boolean: true
-
-    option :help,
-      short: "-h",
-      long: "--help",
-      description:   T.help.description,
-      boolean: true
-
-    # Special note:
-    # config_path is pre-processed in startup.rb, and is shown here only
-    # for purpoess of rendering help text.
-    option :config_path,
-      short: "-c PATH",
-      long: "--config PATH",
-      description: T.default_config_location(ChefRun::Config.default_location),
-      default: ChefRun::Config.default_location,
-      proc: Proc.new { |path| ChefRun::Config.custom_location(path) }
-
-    option :identity_file,
-      long: "--identity-file PATH",
-      short: "-i PATH",
-      description: T.identity_file,
-      proc: (Proc.new do |paths|
-        path = paths
-        unless File.exist?(path)
-          raise OptionValidationError.new("CHEFVAL001", self, path)
-        end
-        path
-      end)
-
-    option :ssl,
-      long: "--[no-]ssl",
-      short: "-s",
-      description:  T.ssl.desc(ChefRun::Config.connection.winrm.ssl),
-      boolean: true,
-      default: ChefRun::Config.connection.winrm.ssl
-
-    option :ssl_verify,
-      long: "--[no-]ssl-verify",
-      short: "-s",
-      description:  T.ssl.verify_desc(ChefRun::Config.connection.winrm.ssl_verify),
-      boolean: true,
-      default: ChefRun::Config.connection.winrm.ssl_verify
-
-    option :protocol,
-      long: "--protocol <PROTOCOL>",
-      short: "-p",
-      description: T.protocol_description(ChefRun::Config::SUPPORTED_PROTOCOLS.join(" "),
-                                          ChefRun::Config.connection.default_protocol),
-      default: ChefRun::Config.connection.default_protocol
-
-    option :user,
-      long: "--user <USER>",
-      description: T.user_description,
-      default: "root"
-
-    option :password,
-      long: "--password <PASSWORD>",
-      description: T.password_description
-
-    option :cookbook_repo_paths,
-      long: "--cookbook-repo-paths PATH",
-      description: T.cookbook_repo_paths,
-      default: ChefRun::Config.chef.cookbook_repo_paths,
-      proc: Proc.new { |paths| paths.split(",") }
-
-    option :install,
-       long: "--[no-]install",
-       default: true,
-       boolean: true,
-       description:  T.install_description(Action::InstallChef::Base::MIN_CHEF_VERSION)
-
-    option :sudo,
-      long: "--[no-]sudo",
-      description: T.sudo.flag_description.sudo,
-      boolean: true,
-      default: true
-
-    option :sudo_command,
-      long: "--sudo-command <COMMAND>",
-      default: "sudo",
-      description: T.sudo.flag_description.command
-
-    option :sudo_password,
-      long: "--sudo-password <PASSWORD>",
-      description: T.sudo.flag_description.password
-
-    option :sudo_options,
-      long: "--sudo-options 'OPTIONS...'",
-      description: T.sudo.flag_description.options
 
     def initialize(argv)
       @argv = argv.clone
@@ -189,16 +92,16 @@ module ChefRun
 
     def perform_run
       parse_options(@argv)
-      if @argv.empty? || config[:help]
+      if @argv.empty? || parsed_options[:help]
         show_help
-      elsif config[:version]
+      elsif parsed_options[:version]
         show_version
       else
         validate_params(cli_arguments)
         configure_chef
         target_hosts = TargetResolver.new(cli_arguments.shift,
-                                          config.delete(:protocol),
-                                          config).targets
+                                          parsed_options.delete(:protocol),
+                                          parsed_options).targets
         temp_cookbook, initial_status_msg = generate_temp_cookbook(cli_arguments)
         local_policy_path = nil
         UI::Terminal.render_job(TS.generate_policyfile.generating) do |reporter|
@@ -351,7 +254,7 @@ module ChefRun
           ChefRun::Log.debug("#{recipe_specifier} is a valid path to a recipe")
           recipe_path = recipe_specifier
         else
-          rl = RecipeLookup.new(config[:cookbook_repo_paths])
+          rl = RecipeLookup.new(parsed_options[:cookbook_repo_paths])
           cookbook_path_or_name, optional_recipe_name = rl.split(recipe_specifier)
           cookbook = rl.load_cookbook(cookbook_path_or_name)
           recipe_path = rl.find_recipe(cookbook, optional_recipe_name)
@@ -400,7 +303,7 @@ module ChefRun
     # Runs the InstallChef action and renders UI updates as
     # the action reports back
     def install(target_host, reporter)
-      installer = Action::InstallChef.instance_for_target(target_host, check_only: !config[:install])
+      installer = Action::InstallChef.instance_for_target(target_host, check_only: !parsed_options[:install])
       context = TS.install_chef
       installer.run do |event, data|
         case event

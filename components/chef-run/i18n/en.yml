@@ -32,7 +32,7 @@ cli:
   description: |
     Chef Run is a tool to execute ad-hoc tasks using Chef.
   creating_config: "Creating config file in %1."
-  default_config_location: "Location of config file. Defaults to %1"
+  default_config_location: "Location of config file. Default: %1"
   identity_file: "SSH identity file to use when connecting. Keys loaded into ssh-agent will also be used."
   ssl:
     desc: "Use SSL for WinRM. Current default: %1"

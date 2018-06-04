@@ -40,7 +40,7 @@ ARGUMENTS:
                        you to specify which recipe to use from the cookbook.
 
 FLAGS:
-    -c, --config PATH                  Location of config file. Defaults to $HOME/.chef-workstation/config.toml
+    -c, --config PATH                  Location of config file. Default: $HOME/.chef-workstation/config.toml
         --cookbook-repo-paths PATH     Comma separated list of cookbook repository paths.
     -h, --help                         Show help and usage for `chef-run`
     -i, --identity-file PATH           SSH identity file to use when connecting. Keys loaded into ssh-agent will also be used.
@@ -52,8 +52,8 @@ FLAGS:
     -p, --protocol <PROTOCOL>          The protocol to use for connecting to targets.
                                        The default is 'ssh', and it can be changed in config.toml by
                                        setting 'connection.default_protocol' to a supported option.
-    -s, --[no-]ssl                     Use SSL for WinRM. Current default: false
-    -s, --[no-]ssl-verify              Verify peer certificate when using SSL for WinRM
+        --[no-]ssl                     Use SSL for WinRM. Current default: false
+        --[no-]ssl-verify              Verify peer certificate when using SSL for WinRM
                                        Use --ssl-no-verify when using SSL for WinRM and
                                        the remote host is using a self-signed certificate.
                                        Current default: true
