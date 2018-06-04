@@ -54,10 +54,30 @@ module ChefRun
 
       # Launch the actual chef-run behavior
       start_chef_run
+
+    # NOTE: Because these exceptions occur outside of the
+    #       CLI handling, they won't be tracked in telemtry.
+    #       We can revisit this once the pending error handling rework
+    #       is underway.
     rescue ConfigPathInvalid => e
       UI::Terminal.output(T.error.bad_config_file(e.path))
     rescue ConfigPathNotProvided
       UI::Terminal.output(T.error.missing_config_path)
+    rescue Mixlib::Config::UnknownConfigOptionError => e
+      # Ideally we'd update the exception in mixlib to include
+      # a field with the faulty value, line number, and nested context -
+      # it's less fragile than depending on text parsing, which
+      # is what we'll do for now.
+      if e.message =~ /.*unsupported config value (.*)[.]+$/
+        # TODO - levenshteinian distance to figure out
+        # what they may have meant instead.
+        UI::Terminal.output(T.error.invalid_config_key($1, Config.location))
+      else
+        # Safety net in case the error text changes from under us.
+        UI::Terminal.output(T.error.unknown_config_error(e.message, Config.location))
+      end
+    rescue Tomlrb::ParseError => e
+      UI::Terminal.output(T.error.unknown_config_error(e.message, Config.location))
     end
 
     def init_terminal

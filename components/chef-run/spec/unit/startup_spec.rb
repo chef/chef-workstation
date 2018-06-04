@@ -1,4 +1,6 @@
 require "chef-run/startup"
+require "chef-run/text"
+require "chef-run/ui/terminal"
 
 RSpec.describe ChefRun::Startup do
   let(:argv) { [] }
@@ -32,8 +34,71 @@ RSpec.describe ChefRun::Startup do
       ordered_messages.each do |msg|
         expect(subject).to receive(msg).ordered
       end
-
       subject.run()
+    end
+    context "when errors happen" do
+      let(:error) { nil }
+      let(:error_text) { ChefRun::Text.cli.error }
+      before do
+        # Force the error to happen in first_run_tasks, since it's always... well, first.
+        expect(subject).to receive(:first_run_tasks).and_raise(error)
+      end
+
+      context "when an UnknownConfigOptionError is raised" do
+        let(:bad_path) { "bad/path" }
+        let(:bad_option) { "bad_option" }
+
+        context "and it matches the expected text form" do
+          let(:error) { Mixlib::Config::UnknownConfigOptionError.new("unsupported config value #{bad_option}.") }
+          it "shows the correct error" do
+            expected_text = error_text.invalid_config_key(bad_option, ChefRun::Config.location)
+            expect(ChefRun::UI::Terminal).to receive(:output).with(expected_text)
+            subject.run
+          end
+        end
+
+        context "and it does not match the expeted text form" do
+          let(:msg) { "something bad happened" }
+          let(:error) { Mixlib::Config::UnknownConfigOptionError.new(msg) }
+          it "shows the correct error" do
+            expected_text = error_text.unknown_config_error(msg, ChefRun::Config.location)
+            expect(ChefRun::UI::Terminal).to receive(:output).with(expected_text)
+            subject.run
+          end
+        end
+      end
+
+      context "when a ConfigPathInvalid is raised" do
+        let(:bad_path) { "bad/path" }
+        let(:error) { ChefRun::Startup::ConfigPathInvalid.new(bad_path) }
+
+        it "shows the correct error" do
+          expected_text = error_text.bad_config_file(bad_path)
+          expect(ChefRun::UI::Terminal).to receive(:output).with(expected_text)
+          subject.run
+        end
+      end
+
+      context "when a ConfigPathNotProvided is raised" do
+        let(:error) { ChefRun::Startup::ConfigPathNotProvided.new }
+
+        it "shows the correct error" do
+          expected_text = error_text.missing_config_path
+          expect(ChefRun::UI::Terminal).to receive(:output).with(expected_text)
+          subject.run
+        end
+      end
+
+      context "when a Tomlrb::ParserError is raised" do
+        let(:msg) { "Parse failed." }
+        let(:error) { Tomlrb::ParseError.new(msg) }
+
+        it "shows the correct error" do
+          expected_text = error_text.unknown_config_error(msg, ChefRun::Config.location)
+          expect(ChefRun::UI::Terminal).to receive(:output).with(expected_text)
+          subject.run
+        end
+      end
     end
   end
   describe "#init_terminal" do
@@ -136,7 +201,7 @@ RSpec.describe ChefRun::Startup do
           end
         end
 
-        context "and the path exists and is a fvalid" do
+        context "and the path exists and is a valid file" do
           before do
             allow(File).to receive(:file?).with(path).and_return true
           end
@@ -148,7 +213,6 @@ RSpec.describe ChefRun::Startup do
             it "raises an error ConfigPathInvalid" do
               expect { subject.custom_config_path }.to raise_error(ChefRun::Startup::ConfigPathInvalid)
             end
-
           end
 
           context "and it is readable" do
