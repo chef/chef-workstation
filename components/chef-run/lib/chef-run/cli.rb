@@ -95,7 +95,7 @@ module ChefRun
       default: ChefRun::Config.connection.winrm.ssl_verify
 
     option :protocol,
-      long: "--protocol",
+      long: "--protocol <PROTOCOL>",
       short: "-p",
       description: T.protocol_description(ChefRun::Config::SUPPORTED_PROTOCOLS.join(" "),
                                           ChefRun::Config.connection.default_protocol),
@@ -196,7 +196,7 @@ module ChefRun
         validate_params(cli_arguments)
         configure_chef
         target_hosts = TargetResolver.new(cli_arguments.shift,
-                                          config.delete(:default_protocol),
+                                          config.delete(:protocol),
                                           config).targets
         temp_cookbook, initial_status_msg = generate_temp_cookbook(cli_arguments)
         local_policy_path = create_local_policy(temp_cookbook)
