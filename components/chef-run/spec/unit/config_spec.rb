@@ -46,4 +46,25 @@ RSpec.describe ChefRun::Config do
       expect(config.telemetry.dev).to eq(true)
     end
   end
+  describe "#load" do
+    before do
+      expect(subject).to receive(:exist?).and_return(exists)
+    end
+
+    context "when the config file exists" do
+      let(:exists) { true }
+      it "loads the file" do
+        expect(subject).to receive(:from_file)
+        subject.load
+      end
+    end
+
+    context "when the config file does not exist" do
+      let(:exists) { false }
+      it "does not try to load the file" do
+        expect(subject).to_not receive(:from_file)
+        subject.load
+      end
+    end
+  end
 end

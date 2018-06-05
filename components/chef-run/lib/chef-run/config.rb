@@ -79,7 +79,9 @@ module ChefRun
       end
 
       def load
-        from_file(location)
+        if exist?
+          from_file(location)
+        end
       end
 
       def exist?
