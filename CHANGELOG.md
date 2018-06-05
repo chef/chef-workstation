@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.131 -->
+<!-- latest_release 0.1.132 -->
+## [0.1.132](https://github.com/chef/chef-workstation/tree/0.1.132) (2018-06-05)
+
+#### Merged Pull Requests
+- Fix error that occurs when config file deleted. [#193](https://github.com/chef/chef-workstation/pull/193) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.131](https://github.com/chef/chef-workstation/tree/0.1.131) (2018-06-04)
 
 #### Merged Pull Requests
 - Pass correct config value for protocol [#191](https://github.com/chef/chef-workstation/pull/191) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.130](https://github.com/chef/chef-workstation/tree/0.1.130) (2018-06-04)
 
