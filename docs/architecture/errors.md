@@ -154,3 +154,56 @@ The Startup class runs outside of the main error handling, and does its own form
 of the errors it expects to see.
 
 
+#### Proposed Changes
+
+This needs to be simpler and with fewer nested of handling.  The current
+structure makes it difficult to find out when and where certain clsases of
+errors occur (anything that's more 'compile' related). In addition, there's a bit of a feeling
+of "what's going to happen to this?" whenever you raise an exception.
+
+
+
+Target state:
+
+To meet the requirements above (which are not fully met now),
+proposed changes are:
+
+1. remove the wrapped exceptions-
+  - the intent was to provide a common place to both map standard errors,
+    and supplement the error with additional information around curently running
+    teask, target host, etc.
+    - it hasn't really worked out that way.
+    - let's move everything that's in WrappedException to the base Error class and
+      fix the fallout.
+2. remove the two-layer handling to the extent possible (ensuring telemetry
+   calls complete and multi-threading may make this hard to do entirely)
+3. move error handling up a level so that startup errors are handled with the same  patterns
+4. Modify the base Error class:
+   - Move to ChefRun::Errors namespace
+   - use option hash for initializer
+5. Consolidate the single-target/multi-target run behaviors so that the thing running the command
+   doesn't have to worry about handling errors differently just becaues it's running more than one command.
+6. Ensure that errors at no time cause telemetry from other running jobs to be lost.
+7. Better train error mapping - sometimes we provide very helpful information (sudo -related issues)
+   and sometimes we just pass along the message that we get, which often does not include
+   sufficient detail to be helpful (particularly for auth and connection failures)
+8. Interrupt handling via registerd callback - right now it's hit or miss whether you see a stack trace if you ctrl-c
+   depending on what's runing and where it's happening (foreground/background)
+9. The only blanket/unguarded exception handling should exist at the top-most level
+   and used only as a last resort. Currently we have this in a few places.
+
+Unknowns
+* how to best handle the mapping of external error types to internal ux-focused errors?
+   - currently we handle some of this black-box style in the global error handling,
+     while other parts get handled by specific classes that throw the errors, and still
+     others do so within the exceptions they create when handling expected failrue modes.
+
+Things to keep:
+0. (Maybe?) global handling and rendering for consistency
+  * this is a maybe because the global handling is also what leads to having
+    to do nested handling.
+1. i18n-based rendering error detail
+2. convenience classes like ErrorNoLogs which just makes it an erro that won't show any log
+   information in the footer.
+
+
