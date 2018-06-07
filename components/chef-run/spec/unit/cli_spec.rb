@@ -139,6 +139,7 @@ RSpec.describe ChefRun::CLI do
       let(:argv) { %w{host resource name} }
       let(:mock_cb) { instance_double("TempCookbook", delete: nil) }
       let(:archive) { "archive.tgz" }
+      let(:reporter) { double("reporter") }
       before(:each) do
         allow(subject).to receive(:validate_params)
         allow(subject).to receive(:configure_chef)
@@ -157,7 +158,11 @@ RSpec.describe ChefRun::CLI do
       it "performs the steps required to create the local policy" do
         expect(subject).to receive(:configure_chef).ordered
         expect(subject).to receive(:generate_temp_cookbook).ordered.and_return([mock_cb, "test"])
+        generating = ChefRun::Text.status.generate_policyfile.generating
+        expect(ChefRun::UI::Terminal).to receive(:render_job).with(generating).and_yield(reporter)
         expect(subject).to receive(:create_local_policy).with(mock_cb).ordered
+        success = ChefRun::Text.status.generate_policyfile.success
+        expect(reporter).to receive(:success).with(success)
         subject.perform_run
       end
 
@@ -390,6 +395,7 @@ RSpec.describe ChefRun::CLI do
   end
 
   describe "#create_local_policy" do
+    let(:name) { "1" }
     let(:cb) do
       d = Dir.mktmpdir(name)
       File.open(File.join(d, "metadata.rb"), "w+") do |f|
@@ -411,6 +417,16 @@ RSpec.describe ChefRun::CLI do
     after do
       FileUtils.remove_entry cb
     end
+
+    context "when PolicyfileServices raises an error" do
+      let(:installer) { instance_double(ChefDK::PolicyfileServices::Install) }
+      it "reraises as PolicyfileInstallError" do
+        expect(ChefDK::PolicyfileServices::Install).to receive(:new).and_return(installer)
+        expect(installer).to receive(:run).and_raise(ChefDK::PolicyfileInstallError.new("", nil))
+        expect { subject.create_local_policy(cb) }.to raise_error(ChefRun::CLI::PolicyfileInstallError)
+      end
+    end
+
     context "when the path name is too long" do
       let(:name) { "THIS_IS_A_REALLY_LONG_STRING111111111111111111111111111111111111111111111111111111" }
 

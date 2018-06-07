@@ -31,6 +31,7 @@ require "chef-run/telemeter"
 require "chef-run/telemeter/sender"
 require "chef-run/temp_cookbook"
 require "chef-run/text"
+require "chef-run/ui/terminal"
 require "chef-run/ui/error_printer"
 require "chef-run/version"
 
@@ -199,7 +200,11 @@ module ChefRun
                                           config.delete(:protocol),
                                           config).targets
         temp_cookbook, initial_status_msg = generate_temp_cookbook(cli_arguments)
-        local_policy_path = create_local_policy(temp_cookbook)
+        local_policy_path = nil
+        UI::Terminal.render_job(TS.generate_policyfile.generating) do |reporter|
+          local_policy_path = create_local_policy(temp_cookbook)
+          reporter.success(TS.generate_policyfile.success)
+        end
         if target_hosts.length == 1
           # Note: UX discussed determined that when running with a single target,
           #       we'll use multiple lines to display status for the target.
@@ -373,8 +378,15 @@ module ChefRun
       require "chef-dk/ui"
       require "chef-dk/policyfile_services/export_repo"
       require "chef-dk/policyfile_services/install"
-      ChefDK::PolicyfileServices::Install.new(ui: ChefDK::UI.null(),
-                                              root_dir: local_cookbook.path).run
+      policyfile_installer = ChefDK::PolicyfileServices::Install.new(
+        ui: ChefDK::UI.null(),
+        root_dir: local_cookbook.path
+      )
+      begin
+        policyfile_installer.run
+      rescue ChefDK::PolicyfileInstallError => e
+        raise PolicyfileInstallError.new(e)
+      end
       lock_path = File.join(local_cookbook.path, "Policyfile.lock.json")
       es = ChefDK::PolicyfileServices::ExportRepo.new(policyfile: lock_path,
                                                       root_dir: local_cookbook.path,
@@ -543,6 +555,10 @@ module ChefRun
         @decorate = false
         @command = calling_command
       end
+    end
+
+    class PolicyfileInstallError < ChefRun::Error
+      def initialize(cause_err); super("CHEFPOLICY001", cause_err.message); end
     end
   end
 end

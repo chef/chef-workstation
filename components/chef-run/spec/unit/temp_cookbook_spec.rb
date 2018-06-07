@@ -111,14 +111,32 @@ RSpec.describe ChefRun::TempCookbook do
   end
 
   describe "#generate_policyfile" do
-    it "generates a policyfile in the temp cookbook" do
-      f = tc.generate_policyfile("foo", "bar")
-      expect(File.read(f)).to eq <<-EOD.gsub(/^ {6}/, "")
-      name "foo_policy"
-      default_source :supermarket
-      run_list "foo::bar"
-      cookbook "foo", path: "."
-      EOD
+    context "when there is no existing policyfile" do
+      it "generates a policyfile in the temp cookbook" do
+        f = tc.generate_policyfile("foo", "bar")
+        expect(File.read(f)).to eq <<-EOD.gsub(/^ {8}/, "")
+        name "foo_policy"
+        default_source :supermarket
+        run_list "foo::bar"
+        cookbook "foo", path: "."
+        EOD
+      end
+    end
+
+    context "when there is an existing policyfile" do
+      before do
+        File.open(File.join(tc.path, "Policyfile.rb"), "a") do |f|
+          f << "this is a policyfile"
+        end
+      end
+      it "only overrides the existing run_list in the policyfile" do
+        f = tc.generate_policyfile("foo", "bar")
+        expect(File.read(f)).to eq <<-EOD.gsub(/^ {8}/, "")
+        this is a policyfile
+        # Overriding run_list with command line specified value
+        run_list "foo::bar"
+        EOD
+      end
     end
   end
 

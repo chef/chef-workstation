@@ -158,6 +158,9 @@ cli:
     connection_failed: "Connection failed: %1"
 
 status:
+  generate_policyfile:
+    generating:  Generating local policyfile...
+    success: Generated local policyfile
   install_chef:
     installing: Installing Chef client version %1.
     checking_for_client: Checking for Chef client.
@@ -206,6 +209,14 @@ errors:
     requires a minimum version of %2.
 
     Please upgrade the Chef client on this node to version %2 or later.
+
+  # Local errors trying to create policy to send to target
+  CHEFPOLICY001: |
+    Could not create local Policyfile bundle.
+
+    The following error was reported:
+
+      %1
 
   # Remote execution and file operation errors are prefixed CHEFRMT
   CHEFRMT001: |
@@ -333,6 +344,7 @@ errors:
 
     %1
 
+  # CLI argument validation errors
   CHEFVAL002: |
     You must supply <TARGET[S]> and either <RESOURCE> and <RESOURCE_NAME> or <RECIPE>
 
@@ -424,6 +436,7 @@ errors:
       [connection.winrm]
       ssl_verify=false
 
+  # Errors specifying target ranges
   CHEFRANGE001: |
     The target '%1' contains an invalid range.
 
@@ -445,6 +458,7 @@ errors:
 
       At this time there is a limit of %2 hosts in a single operation.
 
+  # Errors related to multi-target execution
   CHEFMULTI001: |
     One or more actions has failed.
 
