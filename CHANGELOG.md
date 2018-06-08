@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.132 -->
+<!-- latest_release 0.1.133 -->
+## [0.1.133](https://github.com/chef/chef-workstation/tree/0.1.133) (2018-06-08)
+
+#### Merged Pull Requests
+- Updating omnibus-software definitions [#195](https://github.com/chef/chef-workstation/pull/195) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.132](https://github.com/chef/chef-workstation/tree/0.1.132) (2018-06-05)
 
 #### Merged Pull Requests
 - Fix error that occurs when config file deleted. [#193](https://github.com/chef/chef-workstation/pull/193) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.131](https://github.com/chef/chef-workstation/tree/0.1.131) (2018-06-04)
 

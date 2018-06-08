@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/chef/chef-dk.git
-  revision: fb663fc09d38df9435a9ecbfd5c1c021e107ea2c
+  revision: 960075b0b6a7ef4a54a0f7e2664b7d3657d9178a
   branch: master
   specs:
-    chef-dk (3.0.39)
+    chef-dk (3.0.41)
       addressable (>= 2.3.5, < 2.6)
       chef (~> 14.0)
       chef-provisioning (~> 2.0)
@@ -36,7 +36,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-run (0.1.132)
+    chef-run (0.1.133)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       chef-telemetry
@@ -56,13 +56,13 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.4.0)
-    aws-sdk (2.11.62)
-      aws-sdk-resources (= 2.11.62)
-    aws-sdk-core (2.11.62)
+    aws-sdk (2.11.64)
+      aws-sdk-resources (= 2.11.64)
+    aws-sdk-core (2.11.64)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.62)
-      aws-sdk-core (= 2.11.62)
+    aws-sdk-resources (2.11.64)
+      aws-sdk-core (= 2.11.64)
     aws-sigv4 (1.0.2)
     azure_mgmt_resources (0.16.0)
       ms_rest_azure (~> 0.10.0)
@@ -73,20 +73,20 @@ GEM
     builder (3.2.3)
     byebug (10.0.2)
     cd (1.0.1)
-    chef (14.1.12)
+    chef (14.2.0)
       addressable
       bundler (>= 1.10)
-      chef-config (= 14.1.12)
+      chef-config (= 14.2.0)
       chef-zero (>= 13.0)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)
-      ffi (< 1.9.22)
+      ffi (~> 1.9, >= 1.9.25)
       ffi-yajl (~> 2.2)
       highline (~> 1.6, >= 1.6.9)
       iniparse (~> 1.4)
       iso8601 (~> 0.9.1)
       mixlib-archive (~> 0.4)
-      mixlib-authentication (~> 2.0)
+      mixlib-authentication (~> 2.1)
       mixlib-cli (~> 1.7)
       mixlib-log (~> 2.0, >= 2.0.3)
       mixlib-shellout (~> 2.0)
@@ -104,7 +104,7 @@ GEM
       specinfra (~> 2.10)
       syslog-logger (~> 1.6)
       uuidtools (~> 2.1.5)
-    chef-config (14.1.12)
+    chef-config (14.2.0)
       addressable
       fuzzyurl
       mixlib-config (~> 2.0)
@@ -172,7 +172,7 @@ GEM
     faraday-cookie_jar (0.0.6)
       faraday (>= 0.7.4)
       http-cookie (~> 1.0.0)
-    ffi (1.9.21)
+    ffi (1.9.25)
     ffi-yajl (2.3.1)
       libyajl2 (~> 1.2)
     fuzzyurl (0.9.0)
@@ -239,7 +239,7 @@ GEM
     method_source (0.9.0)
     methodfinder (2.2.1)
     minitar (0.6.1)
-    mixlib-archive (0.4.6)
+    mixlib-archive (0.4.7)
       mixlib-log
     mixlib-authentication (2.1.0)
     mixlib-cli (1.7.0)
