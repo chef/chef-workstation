@@ -36,7 +36,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-run (0.1.134)
+    chef-run (0.1.135)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       chef-telemetry
@@ -376,7 +376,7 @@ GEM
     timeliness (0.3.8)
     toml-rb (1.1.1)
       citrus (~> 3.0, > 3.0)
-    tomlrb (1.2.6)
+    tomlrb (1.2.7)
     tty-color (0.4.2)
     tty-cursor (0.5.0)
     tty-spinner (0.8.0)

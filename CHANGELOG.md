@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.134 -->
+<!-- latest_release 0.1.135 -->
+## [0.1.135](https://github.com/chef/chef-workstation/tree/0.1.135) (2018-06-12)
+
+#### Merged Pull Requests
+- We should be loading default config using workstation config loader [#153](https://github.com/chef/chef-workstation/pull/153) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.134](https://github.com/chef/chef-workstation/tree/0.1.134) (2018-06-12)
 
 #### Merged Pull Requests
 - [SHACK-233] Do not overwrite existing Policyfile [#196](https://github.com/chef/chef-workstation/pull/196) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.133](https://github.com/chef/chef-workstation/tree/0.1.133) (2018-06-08)
 
