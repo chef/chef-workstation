@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/chef/chef-dk.git
-  revision: 960075b0b6a7ef4a54a0f7e2664b7d3657d9178a
+  revision: 25e5f0da0192ebb839152396ed38e2c1ca0c167f
   branch: master
   specs:
-    chef-dk (3.0.41)
+    chef-dk (3.0.43)
       addressable (>= 2.3.5, < 2.6)
       chef (~> 14.0)
       chef-provisioning (~> 2.0)
@@ -36,7 +36,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-run (0.1.133)
+    chef-run (0.1.134)
       chef (>= 14.0)
       chef-dk (>= 3.0)
       chef-telemetry
@@ -56,13 +56,13 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.4.0)
-    aws-sdk (2.11.64)
-      aws-sdk-resources (= 2.11.64)
-    aws-sdk-core (2.11.64)
+    aws-sdk (2.11.66)
+      aws-sdk-resources (= 2.11.66)
+    aws-sdk-core (2.11.66)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.64)
-      aws-sdk-core (= 2.11.64)
+    aws-sdk-resources (2.11.66)
+      aws-sdk-core (= 2.11.66)
     aws-sigv4 (1.0.2)
     azure_mgmt_resources (0.16.0)
       ms_rest_azure (~> 0.10.0)
@@ -241,7 +241,7 @@ GEM
     minitar (0.6.1)
     mixlib-archive (0.4.7)
       mixlib-log
-    mixlib-authentication (2.1.0)
+    mixlib-authentication (2.1.1)
     mixlib-cli (1.7.0)
     mixlib-config (2.2.6)
       tomlrb
@@ -257,7 +257,7 @@ GEM
       concurrent-ruby (~> 1.0)
       faraday (~> 0.9)
       timeliness (~> 0.3)
-    ms_rest_azure (0.10.7)
+    ms_rest_azure (0.10.8)
       concurrent-ruby (~> 1.0)
       faraday (~> 0.9)
       faraday-cookie_jar (~> 0.0.6)

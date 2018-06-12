@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.133 -->
+<!-- latest_release 0.1.134 -->
+## [0.1.134](https://github.com/chef/chef-workstation/tree/0.1.134) (2018-06-12)
+
+#### Merged Pull Requests
+- [SHACK-233] Do not overwrite existing Policyfile [#196](https://github.com/chef/chef-workstation/pull/196) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.133](https://github.com/chef/chef-workstation/tree/0.1.133) (2018-06-08)
 
 #### Merged Pull Requests
 - Updating omnibus-software definitions [#195](https://github.com/chef/chef-workstation/pull/195) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.132](https://github.com/chef/chef-workstation/tree/0.1.132) (2018-06-05)
 
