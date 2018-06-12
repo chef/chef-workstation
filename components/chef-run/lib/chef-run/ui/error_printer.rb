@@ -236,6 +236,7 @@ module ChefRun::UI
         if backtrace_length > cause_trace.length
           out.print "\t... #{backtrace_length - cause_trace.length} more"
         end
+        out.print "\n"
         current_backtrace = cause.backtrace
         cause = cause.cause
       end

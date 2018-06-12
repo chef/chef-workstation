@@ -115,11 +115,21 @@ module ChefRun
 
     def generate_policyfile(name, recipe_name)
       policy_file = File.join(path, "Policyfile.rb")
-      File.open(policy_file, "w+") do |f|
-        f.print("name \"#{name}_policy\"\n")
-        f.print("default_source :supermarket\n")
-        f.print("run_list \"#{name}::#{recipe_name}\"\n")
-        f.print("cookbook \"#{name}\", path: \".\"\n")
+      if File.exist?(policy_file)
+        File.open(policy_file, "a") do |f|
+          # We override the specified run_list with the run_list we want.
+          # We append and put this at the end of the file so it overrides
+          # any specified run_list.
+          f.print("\n# Overriding run_list with command line specified value\n")
+          f.print("run_list \"#{name}::#{recipe_name}\"\n")
+        end
+      else
+        File.open(policy_file, "w+") do |f|
+          f.print("name \"#{name}_policy\"\n")
+          f.print("default_source :supermarket\n")
+          f.print("run_list \"#{name}::#{recipe_name}\"\n")
+          f.print("cookbook \"#{name}\", path: \".\"\n")
+        end
       end
       policy_file
     end

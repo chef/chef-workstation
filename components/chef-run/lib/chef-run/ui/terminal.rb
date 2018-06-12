@@ -65,7 +65,7 @@ module ChefRun
         def render_parallel_jobs(header, actions, prefix: "")
           multispinner = TTY::Spinner::Multi.new("[:spinner] #{header}")
           actions.each do |a|
-            multispinner.register(":spinner #{a.prefix} :status") do |spinner|
+            multispinner.register(spinner_prefix(prefix)) do |spinner|
               reporter = StatusReporter.new(spinner, prefix: prefix, key: :status)
               a.run(reporter)
             end
@@ -77,10 +77,16 @@ module ChefRun
         #      between render_job and render_parallel
         def render_job(msg, prefix: "", &block)
           klass = ChefRun::UI.const_get(ChefRun::Config.dev.spinner)
-          spinner = klass.new("[:spinner] :prefix :status", output: @location)
+          spinner = klass.new(spinner_prefix(prefix), output: @location)
           reporter = StatusReporter.new(spinner, prefix: prefix, key: :status)
           reporter.update(msg)
           spinner.run { yield(reporter) }
+        end
+
+        def spinner_prefix(prefix)
+          spinner_msg = "[:spinner] "
+          spinner_msg += ":prefix " unless prefix.empty?
+          spinner_msg + ":status"
         end
       end
     end
