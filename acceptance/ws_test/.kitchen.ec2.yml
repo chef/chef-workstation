@@ -1,0 +1,30 @@
+driver:
+  name: ec2
+  instance_type: c4.large
+  retryable_sleep: 15
+
+provisioner:
+  name: chef_zero
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos-6
+  - name: centos-7
+  - name: rhel-7
+  - name: rhel-6
+  - name: sles-12
+  - name: ubuntu-14.04
+  - name: ubuntu-16.04
+  - name: windows-2012r2
+  - name: windows-2016
+
+suites:
+  - name: default
+    run_list:
+    - recipe[ws_test]
+    excludes:
+    - windows-2012r2
+    - windows-2016
+
