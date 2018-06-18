@@ -38,6 +38,3 @@ merge_actions:
         - "Expeditor: Skip Build"
         - "Expeditor: Skip All"
       only_if: built_in:bump_version
-artifact_actions:
-  promoted_to_current:
-    - bash:.expeditor/update_readme_download_urls.sh

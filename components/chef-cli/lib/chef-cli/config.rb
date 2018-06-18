@@ -70,6 +70,7 @@ module ChefCLI
       end
 
       def create_default_config_file
+        FileUtils.mkdir_p(WS_BASE_PATH)
         FileUtils.touch(default_location)
       end
 

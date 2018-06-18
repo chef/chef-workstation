@@ -93,6 +93,7 @@ module ChefRun
     def create_default_config
       UI::Terminal.output T.creating_config(Config.default_location)
       UI::Terminal.output ""
+      FileUtils.mkdir_p(Config::WS_BASE_PATH)
       FileUtils.touch(Config.default_location)
     end
 
