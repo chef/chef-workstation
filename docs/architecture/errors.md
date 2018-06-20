@@ -161,10 +161,6 @@ structure makes it difficult to find out when and where certain clsases of
 errors occur (anything that's more 'compile' related). In addition, there's a bit of a feeling
 of "what's going to happen to this?" whenever you raise an exception.
 
-
-
-Target state:
-
 To meet the requirements above (which are not fully met now),
 proposed changes are:
 
@@ -192,13 +188,13 @@ proposed changes are:
 9. The only blanket/unguarded exception handling should exist at the top-most level
    and used only as a last resort. Currently we have this in a few places.
 
-Unknowns
+##### Unknowns
 * how to best handle the mapping of external error types to internal ux-focused errors?
    - currently we handle some of this black-box style in the global error handling,
      while other parts get handled by specific classes that throw the errors, and still
      others do so within the exceptions they create when handling expected failrue modes.
 
-Things to keep:
+##### Things to keep
 0. (Maybe?) global handling and rendering for consistency
   * this is a maybe because the global handling is also what leads to having
     to do nested handling.
