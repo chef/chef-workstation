@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.136 -->
+<!-- latest_release 0.1.137 -->
+## [0.1.137](https://github.com/chef/chef-workstation/tree/0.1.137) (2018-06-20)
+
+#### Merged Pull Requests
+- We no longer need to install bundler because lita workers have ChefDK installed [#206](https://github.com/chef/chef-workstation/pull/206) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.136](https://github.com/chef/chef-workstation/tree/0.1.136) (2018-06-15)
 
 #### Merged Pull Requests
 - Create ~/.chef-workstation before config file [#197](https://github.com/chef/chef-workstation/pull/197) ([TrevorBramble](https://github.com/TrevorBramble))
-<!-- latest_release -->
 
 ## [0.1.135](https://github.com/chef/chef-workstation/tree/0.1.135) (2018-06-12)
 
