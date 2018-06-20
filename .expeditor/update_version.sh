@@ -6,14 +6,9 @@
 
 set -evx
 
-sed -i -r "s/VERSION = \".*\"/VERSION = \"$(cat VERSION)\"/"  components/chef-cli/lib/chef-cli/version.rb
 sed -i -r "s/VERSION = \".*\"/VERSION = \"$(cat VERSION)\"/"  components/chef-run/lib/chef-run/version.rb
 
 # Ensure our Gemfile.lock reflects the new version
-cd components/chef-cli
-bundle update chef-cli
-cd ../..
-
 cd components/chef-run
 bundle update chef-run
 cd ../..
