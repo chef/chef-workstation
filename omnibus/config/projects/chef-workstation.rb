@@ -80,7 +80,6 @@ dependency "delivery-cli"
 dependency "rust-uninstall"
 
 dependency "chef-run"
-dependency "chef-cli"
 
 dependency "gem-permissions"
 dependency "rubygems-customization"
