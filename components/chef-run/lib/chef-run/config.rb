@@ -119,7 +119,7 @@ module ChefRun
 
     config_context :connection do
       default(:default_protocol, "ssh")
-      default(:default_user, "root")
+      default(:default_user, nil)
 
       config_context :winrm do
         default(:ssl, false)
