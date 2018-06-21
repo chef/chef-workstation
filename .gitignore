@@ -2,6 +2,9 @@
 test_results/
 tags
 .DS_Store
+.kitchen
+
+Berksfile.lock
 
 # chef.sh website
 www/site/public
