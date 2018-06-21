@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.137 -->
+<!-- latest_release 0.1.138 -->
+## [0.1.138](https://github.com/chef/chef-workstation/tree/0.1.138) (2018-06-21)
+
+#### Merged Pull Requests
+- Remove chef-cli library [#205](https://github.com/chef/chef-workstation/pull/205) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.137](https://github.com/chef/chef-workstation/tree/0.1.137) (2018-06-20)
 
 #### Merged Pull Requests
 - We no longer need to install bundler because lita workers have ChefDK installed [#206](https://github.com/chef/chef-workstation/pull/206) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.136](https://github.com/chef/chef-workstation/tree/0.1.136) (2018-06-15)
 

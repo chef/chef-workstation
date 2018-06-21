@@ -16,5 +16,5 @@
 #
 
 module ChefRun
-  VERSION = "0.1.137"
+  VERSION = "0.1.138"
 end
