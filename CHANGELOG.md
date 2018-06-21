@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.138 -->
+<!-- latest_release 0.1.139 -->
+## [0.1.139](https://github.com/chef/chef-workstation/tree/0.1.139) (2018-06-21)
+
+#### Merged Pull Requests
+- Found some missed chef-cli references [#207](https://github.com/chef/chef-workstation/pull/207) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.138](https://github.com/chef/chef-workstation/tree/0.1.138) (2018-06-21)
 
 #### Merged Pull Requests
 - Remove chef-cli library [#205](https://github.com/chef/chef-workstation/pull/205) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.137](https://github.com/chef/chef-workstation/tree/0.1.137) (2018-06-20)
 
