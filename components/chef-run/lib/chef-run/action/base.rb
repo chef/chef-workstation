@@ -60,6 +60,10 @@ module ChefRun
           windows: "%TEMP%",
           other: "$TMPDIR",
         },
+        mkdir: {
+          windows: "New-Item -ItemType Directory -Force -Path ",
+          other: "mkdir -p ",
+        },
         # TODO this is duplicating some stuff in the install_chef folder
         # TODO maybe we start to break these out into actual functions, so
         # we don't have to try and make really long one-liners

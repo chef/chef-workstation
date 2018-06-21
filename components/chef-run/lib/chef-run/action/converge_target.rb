@@ -25,11 +25,12 @@ module ChefRun::Action
 
     def perform_action
       local_policy_path = config.delete :local_policy_path
-      remote_tmp = target_host.run_command!(mktemp)
+      remote_tmp = target_host.run_command!(mktemp, true)
       remote_dir_path = escape_windows_path(remote_tmp.stdout.strip)
       remote_policy_path = create_remote_policy(local_policy_path, remote_dir_path)
       remote_config_path = create_remote_config(remote_dir_path)
       create_remote_handler(remote_dir_path)
+      upload_trusted_certs(remote_dir_path)
 
       notify(:running_chef)
       cmd_str = run_chef(remote_dir_path,
@@ -111,6 +112,18 @@ module ChefRun::Action
         handler_file.unlink
       end
       remote_handler_path
+    end
+
+    def upload_trusted_certs(dir)
+      remote_tcd = "#{dir}/trusted_certs"
+      target_host.run_command("#{mkdir} #{remote_tcd}", true)
+      local_tcd = ChefRun::Config.chef["trusted_certs_dir"]
+      certs = Dir.glob(File.join(Chef::Util::PathHelper.escape_glob_dir(local_tcd),
+                                 "*.{crt,pem}"))
+      notify(:uploading_trusted_certs) unless certs.empty?
+      certs.each do |cert_file|
+        target_host.upload_file(cert_file, "#{remote_tcd}/#{File.basename(cert_file)}")
+      end
     end
 
     def handle_ccr_error
