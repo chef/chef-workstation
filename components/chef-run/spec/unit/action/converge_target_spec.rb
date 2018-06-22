@@ -159,6 +159,44 @@ RSpec.describe ChefRun::Action::ConvergeTarget do
     end
   end
 
+  describe "#upload_trusted_certs" do
+    let(:remote_folder) { "/tmp/foo" }
+    let(:remote_tcd) { File.join(remote_folder, "trusted_certs") }
+    let(:tmpdir) { Dir.mktmpdir }
+    let(:certs_dir) { File.join(tmpdir, "weird/glob/chars[/") }
+
+    before do
+      ChefRun::Config.chef.trusted_certs_dir = certs_dir
+      FileUtils.mkdir_p(certs_dir)
+    end
+
+    after do
+      ChefRun::Config.reset
+      FileUtils.remove_entry tmpdir
+    end
+
+    context "when there are local certificates" do
+      let!(:cert1) { FileUtils.touch(File.join(certs_dir, "1.crt"))[0] }
+      let!(:cert2) { FileUtils.touch(File.join(certs_dir, "2.pem"))[0] }
+
+      it "uploads the local certs" do
+        expect(target_host).to receive(:run_command).with("#{subject.mkdir} #{remote_tcd}", true)
+        expect(target_host).to receive(:upload_file).with(cert1, File.join(remote_tcd, File.basename(cert1)))
+        expect(target_host).to receive(:upload_file).with(cert2, File.join(remote_tcd, File.basename(cert2)))
+        subject.upload_trusted_certs(remote_folder)
+      end
+    end
+
+    context "when there are no local certificates" do
+      it "does not upload any certs" do
+        expect(target_host).to_not receive(:run_command)
+        expect(target_host).to_not receive(:upload_file)
+        subject.upload_trusted_certs(remote_folder)
+      end
+    end
+
+  end
+
   describe "#perform_action" do
     let(:remote_folder) { "/tmp/foo" }
     let(:remote_archive) { File.join(remote_folder, File.basename(archive)) }
@@ -166,7 +204,7 @@ RSpec.describe ChefRun::Action::ConvergeTarget do
     let(:remote_handler) { "#{remote_folder}/reporter.rb" }
     let(:tmpdir) { double("tmpdir", exit_status: 0, stdout: remote_folder) }
     before do
-      expect(target_host).to receive(:run_command!).with(subject.mktemp).and_return(tmpdir)
+      expect(target_host).to receive(:run_command!).with(subject.mktemp, true).and_return(tmpdir)
     end
     let(:result) { double("command result", exit_status: 0, stdout: "") }
 
@@ -174,6 +212,7 @@ RSpec.describe ChefRun::Action::ConvergeTarget do
       expect(action).to receive(:create_remote_policy).with(local_policy_path, remote_folder).and_return(remote_archive)
       expect(action).to receive(:create_remote_config).with(remote_folder).and_return(remote_config)
       expect(action).to receive(:create_remote_handler).with(remote_folder).and_return(remote_handler)
+      expect(action).to receive(:upload_trusted_certs).with(remote_folder)
       expect(target_host).to receive(:run_command).with(/chef-client.+#{archive}/).and_return(result)
       expect(target_host).to receive(:run_command!)
         .with("#{subject.delete_folder} #{remote_folder}")
@@ -191,6 +230,7 @@ RSpec.describe ChefRun::Action::ConvergeTarget do
         expect(action).to receive(:create_remote_policy).with(local_policy_path, remote_folder).and_return(remote_archive)
         expect(action).to receive(:create_remote_config).with(remote_folder).and_return(remote_config)
         expect(action).to receive(:create_remote_handler).with(remote_folder).and_return(remote_handler)
+        expect(action).to receive(:upload_trusted_certs).with(remote_folder)
         expect(target_host).to receive(:run_command).with(/chef-client.+#{archive}/).and_return(result)
         expect(target_host).to receive(:run_command!)
           .with("#{subject.delete_folder} #{remote_folder}")
@@ -215,6 +255,7 @@ RSpec.describe ChefRun::Action::ConvergeTarget do
         expect(action).to receive(:create_remote_policy).with(local_policy_path, remote_folder).and_return(remote_archive)
         expect(action).to receive(:create_remote_config).with(remote_folder).and_return(remote_config)
         expect(action).to receive(:create_remote_handler).with(remote_folder).and_return(remote_handler)
+        expect(action).to receive(:upload_trusted_certs).with(remote_folder)
         expect(target_host).to receive(:run_command).with(/chef-client.+#{archive}/).and_return(result)
         expect(target_host).to receive(:run_command!)
           .with("#{subject.delete_folder} #{remote_folder}")
@@ -233,6 +274,7 @@ RSpec.describe ChefRun::Action::ConvergeTarget do
           expect(action).to receive(:create_remote_policy).with(local_policy_path, remote_folder).and_return(remote_archive)
           expect(action).to receive(:create_remote_config).with(remote_folder).and_return(remote_config)
           expect(action).to receive(:create_remote_handler).with(remote_folder).and_return(remote_handler)
+          expect(action).to receive(:upload_trusted_certs).with(remote_folder)
           expect(target_host).to receive(:run_command).with(/chef-client.+#{archive}/).and_return(result)
           expect(target_host).to receive(:run_command!)
             .with("#{subject.delete_folder} #{remote_folder}")
