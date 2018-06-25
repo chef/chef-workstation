@@ -44,7 +44,6 @@ module ChefRun
       [:sudo_password, :sudo, :sudo_command, :password, :user].each do |key|
         @opts[key] = opts[key] if opts.has_key? key
       end
-
       @config = Train.target_config(@opts)
       @transport_type = Train.validate_backend(@config)
       @train_connection = Train.create(@transport_type, config)
@@ -55,8 +54,13 @@ module ChefRun
       @backend = train_connection.connection
       @backend.wait_until_ready
     rescue Train::UserError => e
+
       # TODO now we have some overlap with the connection error logic in error_printer...
       raise ConnectionFailure.new(e, opts)
+    rescue Train::Error => e
+      # These are typically wrapper errors for other problems,
+      # so we'll prefer to use e.cause over e if available.
+      raise ConnectionFailure.new(e.cause || e, opts)
     end
 
     def hostname
