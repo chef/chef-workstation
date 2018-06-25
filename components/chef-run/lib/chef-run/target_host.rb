@@ -31,17 +31,17 @@ module ChefRun
 
     def initialize(host_url, opts = {}, logger = nil)
       @opts = opts.dup
-      @opts[:target] = host_url
       @opts = { target: host_url,
                 sudo: opts[:sudo] === false ? false : true,
                 www_form_encoded_password: true,
                 key_files: opts[:identity_file],
                 logger: ChefRun::Log }
+
       if opts.has_key? :ssl
         @opts[:ssl] = opts[:ssl]
         @opts[:self_signed] = (opts[:ssl_verify] === false ? true : false)
       end
-      [:sudo_password, :sudo, :sudo_command].each do |key|
+      [:sudo_password, :sudo, :sudo_command, :password, :user].each do |key|
         @opts[key] = opts[key] if opts.has_key? key
       end
 
