@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.139 -->
+<!-- latest_release 0.1.140 -->
+## [0.1.140](https://github.com/chef/chef-workstation/tree/0.1.140) (2018-06-25)
+
+#### Merged Pull Requests
+- Support Automate self signed certs (short term) [#208](https://github.com/chef/chef-workstation/pull/208) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.139](https://github.com/chef/chef-workstation/tree/0.1.139) (2018-06-21)
 
 #### Merged Pull Requests
 - Found some missed chef-cli references [#207](https://github.com/chef/chef-workstation/pull/207) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.138](https://github.com/chef/chef-workstation/tree/0.1.138) (2018-06-21)
 

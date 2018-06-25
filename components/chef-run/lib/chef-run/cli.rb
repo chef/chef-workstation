@@ -348,6 +348,8 @@ module ChefRun
           reporter.error(TS.converge.failure)
         when :creating_remote_policy
           reporter.update(TS.converge.creating_remote_policy)
+        when :uploading_trusted_certs
+          reporter.update(TS.converge.uploading_trusted_certs)
         when :running_chef
           reporter.update(TS.converge.running_chef)
         when :reboot

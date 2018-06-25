@@ -20,20 +20,20 @@ require "ostruct"
 require "chef-run/target_host"
 
 RSpec.describe ChefRun::TargetHost do
-  let(:host) { "mock://example.com" }
+  let(:host) { "mock://user@example.com" }
   let(:sudo) { true }
   let(:logger) { nil }
-  subject { ChefRun::TargetHost.new(host, sudo: sudo, logger: logger) }
+  let(:family) { "windows" }
+  let(:is_linux) { false }
+  let(:platform_mock) { double("platform", linux?: is_linux, family: family, name: "an os") }
+  subject do
+    s = ChefRun::TargetHost.new(host, sudo: sudo, logger: logger)
+    allow(s).to receive(:platform).and_return(platform_mock)
+    s
+  end
 
   context "#base_os" do
-    before do
-      platform_mock = double("platform", linux?: is_linux, family: family, name: "an os")
-      allow(subject).to receive(:platform).and_return platform_mock
-    end
-
     context "for a windows os" do
-      let(:family) { "windows" }
-      let(:is_linux) { false }
       it "reports :windows" do
         expect(subject.base_os).to eq :windows
       end
@@ -91,15 +91,26 @@ RSpec.describe ChefRun::TargetHost do
     let(:backend) { double("backend") }
     let(:exit_status) { 0 }
     let(:result) { RemoteExecResult.new(exit_status, "", "an error occurred") }
+    let(:command) { "cmd" }
 
     before do
       allow(subject).to receive(:backend).and_return(backend)
-      allow(backend).to receive(:run_command).and_return(result)
+      allow(backend).to receive(:run_command).with(command).and_return(result)
     end
+
     context "when no error occurs" do
       let(:exit_status) { 0 }
       it "returns the result" do
-        expect(subject.run_command!("valid")).to eq result
+        expect(subject.run_command!(command)).to eq result
+      end
+
+      context "when sudo_as_user is true" do
+        let(:family) { "debian" }
+        let(:is_linux) { true }
+        it "returns the result" do
+          expect(backend).to receive(:run_command).with("-u user #{command}").and_return(result)
+          expect(subject.run_command!(command, true)).to eq result
+        end
       end
     end
 
@@ -107,7 +118,7 @@ RSpec.describe ChefRun::TargetHost do
       let(:exit_status) { 1 }
       it "raises a RemoteExecutionFailed error" do
         expected_error = ChefRun::TargetHost::RemoteExecutionFailed
-        expect { subject.run_command!("invalid") }.to raise_error(expected_error)
+        expect { subject.run_command!(command) }.to raise_error(expected_error)
       end
     end
   end

@@ -132,11 +132,13 @@ module ChefRun
     end
 
     config_context :chef do
-      # We want to use any configured chef repo paths in ~/.chef/knife.rb on the user's
-      # workstation. But because they could have config that could mess up our Policyfile
-      # creation later we reset the ChefConfig back to default after loading that.
+      # We want to use any configured chef repo paths or trusted certs in
+      # ~/.chef/knife.rb on the user's workstation. But because they could have
+      # config that could mess up our Policyfile creation later we reset the
+      # ChefConfig back to default after loading that.
       ChefConfig::WorkstationConfigLoader.new(nil, ChefRun::Log).load
       default(:cookbook_repo_paths, [ChefConfig::Config[:cookbook_path]].flatten)
+      default(:trusted_certs_dir, ChefConfig::Config[:trusted_certs_dir])
       ChefConfig::Config.reset
     end
 
