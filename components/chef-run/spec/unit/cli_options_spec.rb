@@ -20,6 +20,8 @@ require "mixlib/cli"
 require "chef-run/cli_options"
 require "chef-config/config"
 
+ChefRun::Config.load
+
 module ChefRun
   module CLIOptions
     class TestClass
@@ -61,7 +63,7 @@ RSpec.describe ChefRun::CLIOptions do
     expect(ChefRun::Config.connection.winrm.ssl).to eq(false)
     expect(ChefRun::Config.connection.winrm.ssl_verify).to eq(true)
     expect(ChefRun::Config.connection.default_protocol).to eq("ssh")
-    expect(ChefRun::Config.chef.cookbook_repo_paths).to eq(ChefConfig::Config[:cookbook_path])
+    expect(ChefRun::Config.chef.cookbook_repo_paths).to_not be_empty
     # Then we set the values and check they are changed
     klass.parse_options(["--ssl", "--no-ssl-verify", "--protocol", "winrm", "--cookbook-repo-paths", "a,b"])
     expect(ChefRun::Config.connection.winrm.ssl).to eq(true)

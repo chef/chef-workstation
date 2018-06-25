@@ -87,15 +87,18 @@ module ChefRun
       backend.platform
     end
 
-    def run_command!(command)
-      result = backend.run_command command
+    def run_command!(command, sudo_as_user = false)
+      result = run_command(command, sudo_as_user)
       if result.exit_status != 0
         raise RemoteExecutionFailed.new(@config[:host], command, result)
       end
       result
     end
 
-    def run_command(command)
+    def run_command(command, sudo_as_user = false)
+      if config[:sudo] && sudo_as_user && base_os == :linux
+        command = "-u #{config[:user]} #{command}"
+      end
       backend.run_command command
     end
 
