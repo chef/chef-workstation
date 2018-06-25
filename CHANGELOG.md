@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.140 -->
+<!-- latest_release 0.1.141 -->
+## [0.1.141](https://github.com/chef/chef-workstation/tree/0.1.141) (2018-06-25)
+
+#### Merged Pull Requests
+- [SHACK-268] Fix telemetry data not being sent [#210](https://github.com/chef/chef-workstation/pull/210) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.140](https://github.com/chef/chef-workstation/tree/0.1.140) (2018-06-25)
 
 #### Merged Pull Requests
 - Support Automate self signed certs (short term) [#208](https://github.com/chef/chef-workstation/pull/208) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.139](https://github.com/chef/chef-workstation/tree/0.1.139) (2018-06-21)
 
