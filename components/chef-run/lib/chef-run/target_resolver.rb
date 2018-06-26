@@ -31,29 +31,22 @@ module ChefRun
       @default_user = @conn_options.delete(:user)
     end
 
-    # Returns the list of targets as an array of strings, after expanding
-    # them to account for ranges embedded in the target.
+    # Returns the list of targets as an array of TargetHost instances,
+    # them to account for ranges embedded in the target name.
     def targets
       return @targets unless @targets.nil?
-      hostnames = []
+      expanded_urls = []
       @split_targets.each do |target|
-        hostnames = (hostnames | expand_targets(target_to_valid_url(target)))
+        expanded_urls = (expanded_urls | expand_targets(target))
       end
-      @targets = hostnames.map { |host| TargetHost.new(host, @conn_options) }
+      @targets = expanded_urls.map do |url|
+        config = @conn_options.merge(config_for_target(url))
+        TargetHost.new(config.delete(:url), config)
+      end
     end
 
-    def expand_targets(target)
-      @current_target = target # Hold onto this for error reporting
-      do_parse([target.downcase])
-    end
-
-    # This method will convert the given target to a fully qualified
-    # url with protocol, user-info, and hostname.
-    # If it is present, it will replace the password with
-    # its www-form-component encoded value.  This allows it to be further
-    # passed into Train, which knows how to deal with www-form encoded passwords.
-    def target_to_valid_url(target)
-      prefix, target = prefix_from_target(target)
+    def config_for_target(url)
+      prefix, target = prefix_from_target(url)
 
       inline_password = nil
       inline_user = nil
@@ -74,31 +67,20 @@ module ChefRun
           inline_user = inline_credentials
         end
       end
-      credentials = make_url_credentials(inline_user, inline_password)
-      "#{prefix}#{credentials}#{host}"
+      user, password = make_credentials(inline_user, inline_password)
+      { url: "#{prefix}#{host}",
+        user: user,
+        password: password }
     end
 
-    def make_url_credentials(inline_user, inline_password)
+    # Merge the inline user/pass with the default user/pass, giving
+    # precedence to inline.
+    def make_credentials(inline_user, inline_password)
       user = inline_user || @default_user
       user = nil if user && user.empty?
       password = (inline_password || @default_password)
       password = nil if password && password.empty?
-
-      unless password.nil?
-        password = URI.encode_www_form_component(password)
-      end
-      if user.nil? && password.nil?
-        ""
-      else
-        # This can give us:
-        #  - :password
-        #  - user:
-        #  - user:password
-        # Train parsing (and underlying URI::parse) handles these combinations
-        # correctly, though it's worth noting that it will set the user/password
-        # fields to blank instead of nil for the not-specified case.
-        "#{user}:#{password}@"
-      end
+      [user, password]
     end
 
     def prefix_from_target(target)
@@ -117,6 +99,11 @@ module ChefRun
       [prefix, target]
     end
 
+    def expand_targets(target)
+      @current_target = target # Hold onto this for error reporting
+      do_parse([target.downcase])
+    end
+
     private
 
     # A string matching PREFIX[x:y]POSTFIX:
@@ -127,9 +114,7 @@ module ChefRun
     TARGET_WITH_RANGE = /^(.*)\[([\p{Alnum}]+):([\p{Alnum}]+)\](.*)/
 
     def do_parse(targets, depth = 0)
-      if depth > 2
-        raise TooManyRanges.new(@current_target)
-      end
+      raise TooManyRanges.new(@current_target) if depth > 2
       new_targets = []
       done = false
       targets.each do |target|
@@ -137,11 +122,11 @@ module ChefRun
           # $1 - prefix; $2 - x, $3 - y, $4 unprocessed/remaining text
           expand_range(new_targets, $1, $2, $3, $4)
         else
+          # Nothing more to expand
           done = true
           new_targets << target
         end
       end
-
       if done
         new_targets
       else

@@ -31,20 +31,19 @@ module ChefRun
 
     def initialize(host_url, opts = {}, logger = nil)
       @opts = opts.dup
-      @opts[:target] = host_url
       @opts = { target: host_url,
                 sudo: opts[:sudo] === false ? false : true,
                 www_form_encoded_password: true,
                 key_files: opts[:identity_file],
                 logger: ChefRun::Log }
+
       if opts.has_key? :ssl
         @opts[:ssl] = opts[:ssl]
         @opts[:self_signed] = (opts[:ssl_verify] === false ? true : false)
       end
-      [:sudo_password, :sudo, :sudo_command].each do |key|
+      [:sudo_password, :sudo, :sudo_command, :password, :user].each do |key|
         @opts[key] = opts[key] if opts.has_key? key
       end
-
       @config = Train.target_config(@opts)
       @transport_type = Train.validate_backend(@config)
       @train_connection = Train.create(@transport_type, config)
@@ -55,8 +54,13 @@ module ChefRun
       @backend = train_connection.connection
       @backend.wait_until_ready
     rescue Train::UserError => e
+
       # TODO now we have some overlap with the connection error logic in error_printer...
       raise ConnectionFailure.new(e, opts)
+    rescue Train::Error => e
+      # These are typically wrapper errors for other problems,
+      # so we'll prefer to use e.cause over e if available.
+      raise ConnectionFailure.new(e.cause || e, opts)
     end
 
     def hostname

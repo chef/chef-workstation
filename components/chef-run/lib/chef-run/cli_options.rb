@@ -94,8 +94,7 @@ module ChefRun
 
       klass.option :user,
         long: "--user <USER>",
-        description: T.user_description,
-        default: "root"
+        description: T.user_description
 
       klass.option :password,
         long: "--password <PASSWORD>",
