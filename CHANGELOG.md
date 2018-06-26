@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.141 -->
+<!-- latest_release 0.1.142 -->
+## [0.1.142](https://github.com/chef/chef-workstation/tree/0.1.142) (2018-06-26)
+
+#### Merged Pull Requests
+- [SHACK-252] Ensure that .ssh/config settings are used when not overridden.  [#212](https://github.com/chef/chef-workstation/pull/212) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.141](https://github.com/chef/chef-workstation/tree/0.1.141) (2018-06-25)
 
 #### Merged Pull Requests
 - [SHACK-268] Fix telemetry data not being sent [#210](https://github.com/chef/chef-workstation/pull/210) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.140](https://github.com/chef/chef-workstation/tree/0.1.140) (2018-06-25)
 
