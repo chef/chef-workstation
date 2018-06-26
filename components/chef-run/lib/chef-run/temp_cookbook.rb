@@ -126,6 +126,9 @@ module ChefRun
       else
         File.open(policy_file, "w+") do |f|
           f.print("name \"#{name}_policy\"\n")
+          ChefRun::Config.chef.cookbook_repo_paths.each do |p|
+            f.print("default_source :chef_repo, \"#{p}\"\n")
+          end
           f.print("default_source :supermarket\n")
           f.print("run_list \"#{name}::#{recipe_name}\"\n")
           f.print("cookbook \"#{name}\", path: \".\"\n")

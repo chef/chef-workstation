@@ -105,8 +105,8 @@ module ChefRun
         description: T.cookbook_repo_paths,
         default: ChefRun::Config.chef.cookbook_repo_paths,
         proc: (Proc.new do |paths|
-          ChefRun::Config.chef.cookbook_repo_paths(paths)
           paths = paths.split(",")
+          ChefRun::Config.chef.cookbook_repo_paths(paths)
           paths
         end)
 
