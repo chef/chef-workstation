@@ -20,7 +20,11 @@ require "chef-run/error"
 require "train"
 module ChefRun
   class TargetHost
-    attr_reader :config, :reporter, :backend, :transport_type, :opts
+    attr_reader :config, :reporter, :backend, :transport_type
+    # These values may exist in .ssh/config but will be ignored by train
+    # in favor of its defaults unless we specify them explicitly.
+    # See #apply_ssh_config
+    SSH_CONFIG_OVERRIDE_KEYS = [:user, :port, :proxy]
 
     def self.instance_for_url(target, opts = {})
       opts = { target: @url }
@@ -30,23 +34,42 @@ module ChefRun
     end
 
     def initialize(host_url, opts = {}, logger = nil)
-      @opts = opts.dup
-      @opts = { target: host_url,
-                sudo: opts[:sudo] === false ? false : true,
-                www_form_encoded_password: true,
-                key_files: opts[:identity_file],
-                logger: ChefRun::Log }
-
-      if opts.has_key? :ssl
-        @opts[:ssl] = opts[:ssl]
-        @opts[:self_signed] = (opts[:ssl_verify] === false ? true : false)
-      end
-      [:sudo_password, :sudo, :sudo_command, :password, :user].each do |key|
-        @opts[key] = opts[key] if opts.has_key? key
-      end
-      @config = Train.target_config(@opts)
+      @config = connection_config(host_url, opts, logger)
       @transport_type = Train.validate_backend(@config)
+      apply_ssh_config(@config, opts) if @transport_type == "ssh"
       @train_connection = Train.create(@transport_type, config)
+    end
+
+    def connection_config(host_url, opts_in, logger)
+      connection_opts = { target: host_url,
+                          sudo: opts_in[:sudo] === false ? false : true,
+                          www_form_encoded_password: true,
+                          key_files: opts_in[:identity_file],
+                          logger: ChefRun::Log }
+      if opts_in.has_key? :ssl
+        connection_opts[:ssl] = opts_in[:ssl]
+        connection_opts[:self_signed] = (opts_in[:ssl_verify] === false ? true : false)
+      end
+
+      [:sudo_password, :sudo, :sudo_command, :password, :user].each do |key|
+        connection_opts[key] = opts_in[key] if opts_in.has_key? key
+      end
+      Train.target_config(connection_opts)
+    end
+
+    def apply_ssh_config(config, opts_in)
+      # If we don't provide certain options, they will be defaulted
+      # within train - in the case of ssh, this will prevent the .ssh/config
+      # values from being picked up.
+      # Here we'll modify the returned @config to specify
+      # values that we get out of .ssh/config, when they haven't
+      # been explicitly given.
+      host_cfg = ssh_config_for_host(config[:host])
+      SSH_CONFIG_OVERRIDE_KEYS.each do |key|
+        if host_cfg.has_key?(key) && opts_in[key].nil?
+          config[key] = host_cfg[key]
+        end
+      end
     end
 
     def connect!
@@ -54,13 +77,16 @@ module ChefRun
       @backend = train_connection.connection
       @backend.wait_until_ready
     rescue Train::UserError => e
-
-      # TODO now we have some overlap with the connection error logic in error_printer...
-      raise ConnectionFailure.new(e, opts)
+      raise ConnectionFailure.new(e, config)
     rescue Train::Error => e
       # These are typically wrapper errors for other problems,
       # so we'll prefer to use e.cause over e if available.
       raise ConnectionFailure.new(e.cause || e, opts)
+    end
+
+    # Returns the user being used to connect
+    def user
+      config[:user]
     end
 
     def hostname
@@ -147,6 +173,11 @@ module ChefRun
 
     def train_connection
       @train_connection
+    end
+
+    def ssh_config_for_host(host)
+      require "net/ssh"
+      Net::SSH::Config.for(host)
     end
 
     class RemoteExecutionFailed < ChefRun::ErrorNoLogs
