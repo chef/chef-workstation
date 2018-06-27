@@ -64,12 +64,12 @@ RSpec.describe ChefRun::TempCookbook do
       it "copies the whole cookbook" do
         tc.from_existing_recipe(existing_recipe.path)
         expect(File.read(File.join(tc.path, "recipes/default.rb"))).to eq(uuid)
-        expect(File.read(File.join(tc.path, "Policyfile.rb"))).to eq <<-EOD.gsub(/^ {10}/, "")
+        expect(File.read(File.join(tc.path, "Policyfile.rb"))).to eq <<~EXPECTED_POLICYFILE
           name "foo_policy"
           default_source :supermarket
           run_list "foo::default"
           cookbook "foo", path: "."
-        EOD
+        EXPECTED_POLICYFILE
         expect(File.read(File.join(tc.path, "metadata.rb"))).to eq("name \"foo\"")
       end
     end
@@ -91,12 +91,12 @@ RSpec.describe ChefRun::TempCookbook do
         recipe_filename = File.basename(existing_recipe.path)
         recipe_name = File.basename(recipe_filename, File.extname(recipe_filename))
         expect(File.read(File.join(tc.path, "recipes/", recipe_filename))).to eq(uuid)
-        expect(File.read(File.join(tc.path, "Policyfile.rb"))).to eq <<-EOD.gsub(/^ {10}/, "")
+        expect(File.read(File.join(tc.path, "Policyfile.rb"))).to eq <<~EXPECTED_POLICYFILE
           name "cw_recipe_policy"
           default_source :supermarket
           run_list "cw_recipe::#{recipe_name}"
           cookbook "cw_recipe", path: "."
-        EOD
+        EXPECTED_POLICYFILE
         expect(File.read(File.join(tc.path, "metadata.rb"))).to eq("name \"cw_recipe\"\n")
       end
     end
@@ -120,12 +120,12 @@ RSpec.describe ChefRun::TempCookbook do
     context "when there is no existing policyfile" do
       it "generates a policyfile in the temp cookbook" do
         f = tc.generate_policyfile("foo", "bar")
-        expect(File.read(f)).to eq <<-EOD.gsub(/^ {8}/, "")
-        name "foo_policy"
-        default_source :supermarket
-        run_list "foo::bar"
-        cookbook "foo", path: "."
-        EOD
+        expect(File.read(f)).to eq <<~EXPECTED_POLICYFILE
+          name "foo_policy"
+          default_source :supermarket
+          run_list "foo::bar"
+          cookbook "foo", path: "."
+        EXPECTED_POLICYFILE
       end
 
       context "when there are configured cookbook_repo_paths" do
@@ -152,11 +152,11 @@ RSpec.describe ChefRun::TempCookbook do
       end
       it "only overrides the existing run_list in the policyfile" do
         f = tc.generate_policyfile("foo", "bar")
-        expect(File.read(f)).to eq <<-EOD.gsub(/^ {8}/, "")
-        this is a policyfile
-        # Overriding run_list with command line specified value
-        run_list "foo::bar"
-        EOD
+        expect(File.read(f)).to eq <<~EXPECTED_POLICYFILE
+          this is a policyfile
+          # Overriding run_list with command line specified value
+          run_list "foo::bar"
+        EXPECTED_POLICYFILE
       end
     end
   end
@@ -183,7 +183,7 @@ RSpec.describe ChefRun::TempCookbook do
       end
 
       it "converts the properties to chef-client args" do
-        expected = <<-EOH.gsub(/^\s{10}/, "")
+        expected = <<~EXPECTED_RESOURCE
           directory '/tmp' do
             key1 'value'
             key2 0.1
@@ -191,7 +191,7 @@ RSpec.describe ChefRun::TempCookbook do
             key4 true
             key_with_underscore 'value'
           end
-          EOH
+        EXPECTED_RESOURCE
         expect(tc.create_resource(r1, r2, props)).to eq(expected)
       end
     end
