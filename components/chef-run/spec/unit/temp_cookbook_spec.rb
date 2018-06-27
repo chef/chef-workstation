@@ -24,7 +24,13 @@ RSpec.describe ChefRun::TempCookbook do
   subject(:tc) { ChefRun::TempCookbook.new }
   let(:uuid) { SecureRandom.uuid }
 
+  before do
+    @repo_paths = ChefRun::Config.chef.cookbook_repo_paths
+    ChefRun::Config.chef.cookbook_repo_paths = []
+  end
+
   after do
+    ChefRun::Config.chef.cookbook_repo_paths = @repo_paths
     tc.delete
   end
 
@@ -120,6 +126,21 @@ RSpec.describe ChefRun::TempCookbook do
         run_list "foo::bar"
         cookbook "foo", path: "."
         EOD
+      end
+
+      context "when there are configured cookbook_repo_paths" do
+        it "generates a policyfile in the temp cookbook" do
+          ChefRun::Config.chef.cookbook_repo_paths = %w{one two}
+          f = tc.generate_policyfile("foo", "bar")
+          expect(File.read(f)).to eq <<~EXPECTED_POLICYFILE
+            name "foo_policy"
+            default_source :chef_repo, "one"
+            default_source :chef_repo, "two"
+            default_source :supermarket
+            run_list "foo::bar"
+            cookbook "foo", path: "."
+          EXPECTED_POLICYFILE
+        end
       end
     end
 

@@ -69,7 +69,7 @@ RSpec.describe ChefRun::CLIOptions do
     expect(ChefRun::Config.connection.winrm.ssl).to eq(true)
     expect(ChefRun::Config.connection.winrm.ssl_verify).to eq(false)
     expect(ChefRun::Config.connection.default_protocol).to eq("winrm")
-    expect(ChefRun::Config.chef.cookbook_repo_paths).to eq("a,b")
+    expect(ChefRun::Config.chef.cookbook_repo_paths).to eq(%w{a b})
   end
 
 end
