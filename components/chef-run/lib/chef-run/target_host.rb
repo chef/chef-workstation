@@ -62,7 +62,7 @@ module ChefRun
       # within train - in the case of ssh, this will prevent the .ssh/config
       # values from being picked up.
       # Here we'll modify the returned @config to specify
-      # values that we get out of .ssh/config, when they haven't
+      # values that we get out of .ssh/config if present and if they haven't
       # been explicitly given.
       host_cfg = ssh_config_for_host(config[:host])
       SSH_CONFIG_OVERRIDE_KEYS.each do |key|
@@ -81,12 +81,15 @@ module ChefRun
     rescue Train::Error => e
       # These are typically wrapper errors for other problems,
       # so we'll prefer to use e.cause over e if available.
-      raise ConnectionFailure.new(e.cause || e, opts)
+      raise ConnectionFailure.new(e.cause || e, config)
     end
 
-    # Returns the user being used to connect
+    # Returns the user being used to connect. Defaults to train's default user if not specified
+    # defaulted in .ssh/config (for ssh connections), as set up in '#apply_ssh_config'.
     def user
-      config[:user]
+      return config[:user] unless config[:user].nil?
+      require "train/transports/ssh"
+      Train::Transports::SSH.default_options[:user][:default]
     end
 
     def hostname
