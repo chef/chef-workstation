@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.144 -->
+<!-- latest_release 0.1.145 -->
+## [0.1.145](https://github.com/chef/chef-workstation/tree/0.1.145) (2018-06-28)
+
+#### Merged Pull Requests
+- Fix &#39;unexpected error&#39; on auth failure; ensure auth user always shows on connect [#217](https://github.com/chef/chef-workstation/pull/217) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.144](https://github.com/chef/chef-workstation/tree/0.1.144) (2018-06-28)
 
 #### Merged Pull Requests
 - [SHACK-272] Prefer .ssh/config default values over train&#39;s defaults. [#215](https://github.com/chef/chef-workstation/pull/215) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.143](https://github.com/chef/chef-workstation/tree/0.1.143) (2018-06-27)
 
