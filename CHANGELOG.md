@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.143 -->
+<!-- latest_release 0.1.144 -->
+## [0.1.144](https://github.com/chef/chef-workstation/tree/0.1.144) (2018-06-28)
+
+#### Merged Pull Requests
+- [SHACK-272] Prefer .ssh/config default values over train&#39;s defaults. [#215](https://github.com/chef/chef-workstation/pull/215) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.143](https://github.com/chef/chef-workstation/tree/0.1.143) (2018-06-27)
 
 #### Merged Pull Requests
 - [SHACK-256] We should be pulling cookbooks from locally configured coookbook repos [#213](https://github.com/chef/chef-workstation/pull/213) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.142](https://github.com/chef/chef-workstation/tree/0.1.142) (2018-06-26)
 
