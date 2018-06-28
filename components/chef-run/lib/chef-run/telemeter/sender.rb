@@ -16,6 +16,7 @@
 #
 
 require "telemetry"
+require "chef-run/telemeter"
 require "chef-run/telemeter/patch"
 require "chef-run/log"
 require "chef-run/version"
@@ -63,6 +64,8 @@ module ChefRun
         end
         FileUtils.rm_rf(ChefRun::Config.telemetry_session_file)
         ChefRun::Log.info("Terminating, nothing more to do.")
+      rescue => e
+        ChefRun::Log.fatal "Sender thread aborted: '#{e}' failed at  #{e.backtrace[0]}"
       end
 
       def process_session(path)

@@ -94,8 +94,7 @@ module ChefRun
 
       klass.option :user,
         long: "--user <USER>",
-        description: T.user_description,
-        default: "root"
+        description: T.user_description
 
       klass.option :password,
         long: "--password <PASSWORD>",
@@ -106,8 +105,8 @@ module ChefRun
         description: T.cookbook_repo_paths,
         default: ChefRun::Config.chef.cookbook_repo_paths,
         proc: (Proc.new do |paths|
-          ChefRun::Config.chef.cookbook_repo_paths(paths)
           paths = paths.split(",")
+          ChefRun::Config.chef.cookbook_repo_paths(paths)
           paths
         end)
 

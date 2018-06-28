@@ -16,7 +16,6 @@
 #
 
 require "spec_helper"
-require "chef-run/telemeter"
 require "chef-run/telemeter/sender"
 require "chef-run/config"
 
@@ -89,6 +88,14 @@ RSpec.describe ChefRun::Telemeter::Sender do
         expect(subject).to receive(:process_session).with("file1")
         expect(subject).to receive(:process_session).with("file2")
         expect(FileUtils).to receive(:rm_rf).with(ChefRun::Config.telemetry_session_file)
+        subject.run
+      end
+    end
+
+    context "when an error occurrs" do
+      it "logs it" do
+        allow(config).to receive(:enabled?).and_raise("Failed")
+        expect(ChefRun::Log).to receive(:fatal)
         subject.run
       end
     end
