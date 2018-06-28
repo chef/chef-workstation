@@ -134,12 +134,13 @@ module ChefRun
     # Accepts a target_host and establishes the connection to that host
     # while providing visual feedback via the Terminal API.
     def connect_target(target_host, reporter = nil)
+      connect_message = T.status.connecting(target_host.user)
       if reporter.nil?
-        UI::Terminal.render_job(T.status.connecting, prefix: "[#{target_host.config[:host]}]") do |rep|
+        UI::Terminal.render_job(connect_message, prefix: "[#{target_host.config[:host]}]") do |rep|
           do_connect(target_host, rep, :success)
         end
       else
-        reporter.update(T.status.connecting)
+        reporter.update(connect_message)
         do_connect(target_host, reporter, :update)
       end
       target_host

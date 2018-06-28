@@ -77,12 +77,38 @@ RSpec.describe ChefRun::TargetHost do
   end
 
   context "connect!" do
+    let(:train_connection_mock) { double("train connection") }
+    before do
+      allow(subject).to receive(:train_connection).and_return(train_connection_mock)
+    end
     context "when an Train::UserError occurs" do
-      let(:train_connection_mock) { double("train connection") }
       it "raises a ConnectionFailure" do
         allow(train_connection_mock).to receive(:connection).and_raise Train::UserError
-        allow(subject).to receive(:train_connection).and_return(train_connection_mock)
         expect { subject.connect! }.to raise_error(ChefRun::TargetHost::ConnectionFailure)
+      end
+    end
+    context "when a Train::Error occurs" do
+      it "raises a ConnectionFailure" do
+        allow(train_connection_mock).to receive(:connection).and_raise Train::Error
+        expect { subject.connect! }.to raise_error(ChefRun::TargetHost::ConnectionFailure)
+      end
+    end
+  end
+
+  context "#user" do
+    before do
+      allow(subject).to receive(:config).and_return(user: user)
+    end
+    context "when a user has been configured" do
+      let(:user) { "testuser" }
+      it "returns that user" do
+        expect(subject.user).to eq user
+      end
+    end
+    context "when no user has been configured" do
+      let(:user) { nil }
+      it "returns the correct default from train" do
+        expect(subject.user).to eq Train::Transports::SSH.default_options[:user][:default]
       end
     end
   end
@@ -176,4 +202,30 @@ RSpec.describe ChefRun::TargetHost do
       end
     end
   end
+
+  context "#apply_ssh_config" do
+    let(:ssh_host_config) { { user: "testuser", port: 1000, proxy: double("Net:SSH::Proxy::Command") } }
+    let(:connection_config) { { user: "user1", port: 8022, proxy: nil } }
+    before do
+      allow(subject).to receive(:ssh_config_for_host).and_return ssh_host_config
+    end
+
+    ChefRun::TargetHost::SSH_CONFIG_OVERRIDE_KEYS.each do |key|
+      context "when a value is not explicitly provided in options" do
+        it "replaces config config[:#{key}] with the ssh config value" do
+          subject.apply_ssh_config(connection_config, key => nil)
+          expect(connection_config[key]).to eq(ssh_host_config[key])
+        end
+      end
+
+      context "when a value is explicitly provided in options" do
+        it "the connection configuration isnot updated with a value from ssh config" do
+          original_config = connection_config.clone
+          subject.apply_ssh_config(connection_config, { key => "testvalue" } )
+          expect(connection_config[key]).to eq original_config[key]
+        end
+      end
+    end
+  end
+
 end
