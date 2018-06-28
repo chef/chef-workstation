@@ -176,4 +176,30 @@ RSpec.describe ChefRun::TargetHost do
       end
     end
   end
+
+  context "#apply_ssh_config" do
+    let(:ssh_host_config) { { user: "testuser", port: 1000, proxy: double("Net:SSH::Proxy::Command") } }
+    let(:connection_config) { { user: "user1", port: 8022, proxy: nil } }
+    before do
+      allow(subject).to receive(:ssh_config_for_host).and_return ssh_host_config
+    end
+
+    ChefRun::TargetHost::SSH_CONFIG_OVERRIDE_KEYS.each do |key|
+      context "when a value is not explicitly provided in options" do
+        it "replaces config config[:#{key}] with the ssh config value" do
+          subject.apply_ssh_config(connection_config, key => nil)
+          expect(connection_config[key]).to eq(ssh_host_config[key])
+        end
+      end
+
+      context "when a value is explicitly provided in options" do
+        it "the connection configuration isnot updated with a value from ssh config" do
+          original_config = connection_config.clone
+          subject.apply_ssh_config(connection_config, { key => "testvalue" } )
+          expect(connection_config[key]).to eq original_config[key]
+        end
+      end
+    end
+  end
+
 end

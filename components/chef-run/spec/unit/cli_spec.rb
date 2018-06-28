@@ -243,7 +243,7 @@ RSpec.describe ChefRun::CLI do
   end
 
   describe "#connect_target" do
-    let(:host) { double("TargetHost", config: {} ) }
+    let(:host) { double("TargetHost", config: {}, user: "root" ) }
     context "when simulating the multi-host path" do
       let(:reporter) { double("reporter", update: :ok, success: :ok) }
       it "invokes do_connect with correct options" do
