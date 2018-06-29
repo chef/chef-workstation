@@ -40,7 +40,8 @@ build_iteration 1
 override :bundler,        version: "1.16.1"
 override :rubygems,       version: "2.7.6"
 override :ruby,           version: "2.5.1"
-override :"chef-dk",      version: "master"
+# Pinning to the 3_1 branch until that is release successfully, then we can re-float on master
+override :"chef-dk",      version: "3_1"
 
 # DK's overrides; god have mercy on my soul
 # This comes from DK's ./omnibus_overrides.rb
