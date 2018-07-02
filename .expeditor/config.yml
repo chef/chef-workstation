@@ -18,31 +18,23 @@ github:
   # Delete the PR branch after successfully merged into release branch.
   delete_branch_on_merge: true
 
-buffers:
-  - build:
-      type: delay
-      workload_type: pull_request
-      delay: 600
-      max_deferments: 5
-      actions:
-        - built_in:bump_version:
-            ignore_labels:
-              - "Version: Skip Bump"
-              - "Expeditor: Skip Version Bump"
-              - "Expeditor: Skip All"
-        - bash:.expeditor/update_version.sh:
-            only_if: built_in:bump_version
-        - built_in:update_changelog:
-            ignore_labels:
-              - "Meta: Exclude From Changelog"
-              - "Expeditor: Exclude From Changelog"
-              - "Expeditor: Skip All"
-        - built_in:trigger_omnibus_release_build:
-            ignore_labels:
-              - "Omnibus: Skip Build"
-              - "Expeditor: Skip Build"
-              - "Expeditor: Skip All"
-            only_if: built_in:bump_version
-
+# These actions are taken, in order they are specified, anytime a Pull Request is merged.
 merge_actions:
-  - buffer:build
+  - built_in:bump_version:
+      ignore_labels:
+        - "Version: Skip Bump"
+        - "Expeditor: Skip Version Bump"
+        - "Expeditor: Skip All"
+  - bash:.expeditor/update_version.sh:
+      only_if: built_in:bump_version
+  - built_in:update_changelog:
+      ignore_labels:
+        - "Meta: Exclude From Changelog"
+        - "Expeditor: Exclude From Changelog"
+        - "Expeditor: Skip All"
+  - built_in:trigger_omnibus_release_build:
+      ignore_labels:
+        - "Omnibus: Skip Build"
+        - "Expeditor: Skip Build"
+        - "Expeditor: Skip All"
+      only_if: built_in:bump_version
