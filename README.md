@@ -1,7 +1,10 @@
 Chef Workstation
 ==================================
 
-Chef Workstation installs everything you need to get started using Chef on Windows, Mac and Linux; and is currently focused around performing ad-hoc tasks on your server.
+Chef Workstation installs everything you need to get started using Chef on Windows, Mac and Linux. 
+It includes:
+- chef-run, a new tool for executing ad-hoc tasks against your servers
+- ChefDK, all the tool you know and love
 
 ## Getting Started
 
