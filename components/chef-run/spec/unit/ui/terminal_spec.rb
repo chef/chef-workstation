@@ -20,6 +20,9 @@ require "chef-run/ui/terminal"
 
 RSpec.describe ChefRun::UI::Terminal do
   Terminal = ChefRun::UI::Terminal
+  # Lets send our Terminal output somewhere so it does not clutter the
+  # test output
+  Terminal.location = StringIO.new
 
   it "correctly outputs a message" do
     expect { Terminal.output("test") }

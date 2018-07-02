@@ -62,11 +62,11 @@ module ChefRun
           @location.puts msg
         end
 
-        def render_parallel_jobs(header, actions, prefix: "")
-          multispinner = TTY::Spinner::Multi.new("[:spinner] #{header}")
-          actions.each do |a|
-            multispinner.register(spinner_prefix(prefix)) do |spinner|
-              reporter = StatusReporter.new(spinner, prefix: prefix, key: :status)
+        def render_parallel_jobs(header, jobs)
+          multispinner = TTY::Spinner::Multi.new("[:spinner] #{header}", output: @location)
+          jobs.each do |a|
+            multispinner.register(spinner_prefix(a.prefix)) do |spinner|
+              reporter = StatusReporter.new(spinner, prefix: a.prefix, key: :status)
               a.run(reporter)
             end
           end
