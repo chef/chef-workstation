@@ -338,6 +338,19 @@ errors:
     Per-user:
       Defaults:username !requiretty
 
+  CHEFTRN007: |
+    No authentication methods available.
+
+    No password or key files have been provided, and no keys have been found
+    from your SSH agent.
+
+    To connect, please provide a password (--password) or key (--identity-file),
+    or enable ssh-agent and add your key files to that.
+
+    For more details around resolving this, please visit:
+
+    https://www.chef.sh/docs/chef-workstation/troubleshooting/#error-code-cheftrn007
+
   CHEFTRN999: |
     Connection failed: %1
 

@@ -54,6 +54,7 @@ module ChefRun
       [:sudo_password, :sudo, :sudo_command, :password, :user].each do |key|
         connection_opts[key] = opts_in[key] if opts_in.has_key? key
       end
+
       Train.target_config(connection_opts)
     end
 
@@ -214,6 +215,8 @@ module ChefRun
             ["CHEFTRN005", sudo_command] # :sudo_command_not_found
           when /Sudo requires a TTY.*/   # :sudo_no_tty
             "CHEFTRN006"
+          when /has no keys added/
+            "CHEFTRN007"
           else
             ["CHEFTRN999", original_exception.message]
           end
