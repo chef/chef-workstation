@@ -330,7 +330,7 @@ errors:
     sudo requires tty on this system
 
     In order to continue, sudo must be configured to no longer require tty.
-    You can do this by modifying /etc/sudoers -- see below.
+    You can do this by modifying /etc/sudoers:
 
     For all users:
       Defaults !requiretty
@@ -341,13 +341,13 @@ errors:
   CHEFTRN007: |
     No authentication methods available.
 
-    No password or key files have been provided, and no keys have been found
-    from your SSH agent.
+    Try...
+    - Provide a password with "--password PASSWORD"
+    - Provide a key with "-identity-file PATH/TO/FILE"
+    - Enable ssh-agent and add keys
+    - Add a host entry to your ssh configuration
 
-    To connect, please provide a password (--password) or key (--identity-file),
-    or enable ssh-agent and add your key files to that.
-
-    For more details around resolving this, please visit:
+    Additional instructions can be found in the troubleshooting documentation:
 
     https://www.chef.sh/docs/chef-workstation/troubleshooting/#error-code-cheftrn007
 
