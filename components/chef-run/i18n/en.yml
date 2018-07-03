@@ -330,13 +330,26 @@ errors:
     sudo requires tty on this system
 
     In order to continue, sudo must be configured to no longer require tty.
-    You can do this by modifying /etc/sudoers -- see below.
+    You can do this by modifying /etc/sudoers:
 
     For all users:
       Defaults !requiretty
 
     Per-user:
       Defaults:username !requiretty
+
+  CHEFTRN007: |
+    No authentication methods available.
+
+    Try...
+    - Provide a password with "--password PASSWORD"
+    - Provide a key with "-identity-file PATH/TO/FILE"
+    - Enable ssh-agent and add keys
+    - Add a host entry to your ssh configuration
+
+    Additional instructions can be found in the troubleshooting documentation:
+
+    https://www.chef.sh/docs/chef-workstation/troubleshooting/#error-code-cheftrn007
 
   CHEFTRN999: |
     Connection failed: %1
