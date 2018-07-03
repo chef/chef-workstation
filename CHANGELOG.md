@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.146 -->
+<!-- latest_release 0.1.148 -->
+## [0.1.148](https://github.com/chef/chef-workstation/tree/0.1.148) (2018-07-03)
+
+#### Merged Pull Requests
+- Provide instructions via error message when no auth method is available. [#226](https://github.com/chef/chef-workstation/pull/226) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.146](https://github.com/chef/chef-workstation/tree/0.1.146) (2018-07-02)
 
 #### Merged Pull Requests
 - Revert &quot;Adding expeditor buffers&quot; to fix pipeline [#223](https://github.com/chef/chef-workstation/pull/223) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.145](https://github.com/chef/chef-workstation/tree/0.1.145) (2018-06-28)
 
