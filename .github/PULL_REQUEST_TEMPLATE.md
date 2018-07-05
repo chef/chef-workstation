@@ -11,5 +11,9 @@ StackOverflow discussion that's relevant]
 
 - [ ] New functionality includes tests
 - [ ] All tests pass
-- [ ] All commits have been signed-off for the [Developer Certificate of Origin](https://github.com/chef/chef/blob/master/CONTRIBUTING.md#developer-certification-of-origin-dco).
 - [ ] PR title is a worthy inclusion in the CHANGELOG
+- [ ] You have locally validated the change
+- [ ] `www/site/content/docs/` has been updated with any relevant changes:
+  - * new or changed error messages in 'troubleshooting.md'
+  - * new or changed CLI flags in cli-reference.md
+
