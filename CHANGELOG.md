@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.148 -->
+<!-- latest_release 0.1.149 -->
+## [0.1.149](https://github.com/chef/chef-workstation/tree/0.1.149) (2018-07-06)
+
+#### Merged Pull Requests
+- Add docs to the PR template checklist [#227](https://github.com/chef/chef-workstation/pull/227) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.148](https://github.com/chef/chef-workstation/tree/0.1.148) (2018-07-03)
 
 #### Merged Pull Requests
 - Provide instructions via error message when no auth method is available. [#226](https://github.com/chef/chef-workstation/pull/226) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.146](https://github.com/chef/chef-workstation/tree/0.1.146) (2018-07-02)
 
