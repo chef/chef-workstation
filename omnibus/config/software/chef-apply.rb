@@ -14,22 +14,12 @@
 # limitations under the License.
 #
 
-name "chef-run"
-default_version "local_source"
+name "chef-apply"
+default_version "master"
 
 license :project_license
 
-# For the specific super-special version "local_source", build the source from
-# the local git checkout. This is what you'd want to occur by default if you
-# just ran omnibus build locally.
-version("local_source") do
-  source path: File.expand_path("#{project.files_path}/../../components/chef-run")
-end
-
-# For any version other than "local_source", fetch from github.
-if version != "local_source"
-  source git: "https://github.com/chef/chef-workstation.git"
-end
+source git: "https://github.com/chef/chef-apply.git"
 
 dependency "rubygems"
 dependency "bundler"
@@ -37,18 +27,16 @@ dependency "ruby"
 dependency "appbundler"
 dependency "chef-dk"
 
-relative_path "components/chef-run"
-
 build do
   # Setup a default environment from Omnibus - you should use this Omnibus
   # helper everywhere. It will become the default in the future.
   env = with_standard_compiler_flags(with_embedded_path)
   bundle "install --without development", env: env
-  gem "build chef-run.gemspec", env: env
-  gem "install chef-run*.gem" \
+  gem "build chef-apply.gemspec", env: env
+  gem "install chef-apply*.gem" \
       " --no-ri --no-rdoc" \
       " --force" \
       " --verbose --without development", env: env
 
-  appbundle "chef-run", lockdir: project_dir, without: %w{development localdev}, gem: 'chef-run', env: env
+  appbundle "chef-apply", lockdir: project_dir, without: %w{development localdev}, gem: 'chef-apply', env: env
 end
