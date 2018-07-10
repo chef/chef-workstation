@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.149 -->
+<!-- latest_release 0.1.150 -->
+## [0.1.150](https://github.com/chef/chef-workstation/tree/0.1.150) (2018-07-10)
+
+#### Merged Pull Requests
+- [SHACK-250] Pull in new chef-apply gem [#228](https://github.com/chef/chef-workstation/pull/228) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.149](https://github.com/chef/chef-workstation/tree/0.1.149) (2018-07-06)
 
 #### Merged Pull Requests
 - Add docs to the PR template checklist [#227](https://github.com/chef/chef-workstation/pull/227) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.148](https://github.com/chef/chef-workstation/tree/0.1.148) (2018-07-03)
 
