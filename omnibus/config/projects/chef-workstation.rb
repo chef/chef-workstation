@@ -37,10 +37,6 @@ end
 build_version Omnibus::BuildVersion.semver
 build_iteration 1
 
-override :bundler,        version: "1.16.1"
-override :rubygems,       version: "2.7.6"
-override :ruby,           version: "2.5.1"
-# Pinning to the 3_1 branch until that is release successfully, then we can re-float on master
 override :"chef-dk",      version: "master"
 
 # DK's overrides; god have mercy on my soul
@@ -53,7 +49,7 @@ override "libffi", version: "3.2.1"
 override "libiconv", version: "1.15"
 override "liblzma", version: "5.2.3"
 override "libtool", version: "2.4.2"
-override "libxml2", version: "2.9.7"
+override "libxml2", version: "2.9.8"
 override "libxslt", version: "1.1.30"
 override "libyaml", version: "0.1.7"
 override "makedepend", version: "1.0.5"
@@ -80,7 +76,7 @@ dependency "delivery-cli"
 # This is a build-time dependency, so we won't leave it behind:
 dependency "rust-uninstall"
 
-dependency "chef-apply"
+dependency "chef-dk"
 
 dependency "gem-permissions"
 dependency "rubygems-customization"

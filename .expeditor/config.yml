@@ -18,7 +18,9 @@ github:
   # Delete the PR branch after successfully merged into release branch.
   delete_branch_on_merge: true
 
-# These actions are taken, in order they are specified, anytime a Pull Request is merged.
+# https://expeditor.chef.io/docs/getting-started/subscriptions/#merge-actions
+# The `merge_actions` key is a shortcut for the
+# `pull_request_merged:<GITHUB_REPO>:<RELEASE_BRANCH>:*` subscription.
 merge_actions:
   - built_in:bump_version:
       ignore_labels:
@@ -36,3 +38,23 @@ merge_actions:
         - "Expeditor: Skip Build"
         - "Expeditor: Skip All"
       only_if: built_in:bump_version
+
+# I copied the `ignore_labels` from the chef-dk expeditor config
+# since the labels apply to that workload (not the chef-workstation
+# workload like the `merge_actions` block)
+subscriptions:
+  - workload: chef/chef-dk:master_completed:pull_request_merged:chef/chef-dk:master:*
+    actions:
+      - built_in:bump_version:
+          ignore_labels:
+            - "Expeditor: Skip Version Bump"
+            - "Expeditor: Skip All"
+      - built_in:update_changelog:
+          ignore_labels:
+            - "Expeditor: Exclude From Changelog"
+            - "Expeditor: Skip All"
+      - built_in:trigger_omnibus_release_build:
+          ignore_labels:
+            - "Expeditor: Skip Build"
+            - "Expeditor: Skip All"
+          only_if: built_in:bump_version
