@@ -37,10 +37,21 @@ end
 build_version Omnibus::BuildVersion.semver
 build_iteration 1
 
-override :bundler,        version: "1.16.1"
-override :rubygems,       version: "2.7.6"
-override :ruby,           version: "2.5.1"
-# Pinning to the 3_1 branch until that is release successfully, then we can re-float on master
+# One problem with the ChefDK today is that it includes a shit load of gem dependencies. We resolve all those dependencies in 1 location today - in the ChefDK repo (with its `Gemfile.lock`).
+
+# We eventually want to fix that problem as part of implementing the Chef Workstation RFC (https://github.com/chef/chef-rfc/pull/308). But until we do we need to pull `chef-apply` in as a gem dependency of the ChefDK.
+
+# This means the promotion process for getting new Chef Apply changes out is:
+# 1. Merge the Chef Apply PR which causes expeditor to build a new gem
+# 2. Update the dependencies in the ChefDK with a PR
+# 3. Perform a new build of Chef Workstation. Because it pulls in ChefDK from `master` it will get the latest ChefDK and transitively the latest update to Chef Apply.
+
+# I've automated steps 1 and 3. This means that the _new_ process for promoting Chef Apply changes is:
+# 1. Update the dependencies in the ChefDK with a PR
+# 2. After Chef Workstation gets a new build triggered and completed, promote Chef Workstation as normal
+
+# I realize this is not ideal but I think its the best way forward today. We could try and do something sneaky/cute where we pull Chef Apply into Chef Workstation as a separate dependency but that exposes the risk that we break dependency resolution for the ChefDK (and transitively Chef Workstation)
+
 override :"chef-dk",      version: "master"
 
 # DK's overrides; god have mercy on my soul
@@ -53,7 +64,7 @@ override "libffi", version: "3.2.1"
 override "libiconv", version: "1.15"
 override "liblzma", version: "5.2.3"
 override "libtool", version: "2.4.2"
-override "libxml2", version: "2.9.7"
+override "libxml2", version: "2.9.8"
 override "libxslt", version: "1.1.30"
 override "libyaml", version: "0.1.7"
 override "makedepend", version: "1.0.5"
@@ -80,7 +91,7 @@ dependency "delivery-cli"
 # This is a build-time dependency, so we won't leave it behind:
 dependency "rust-uninstall"
 
-dependency "chef-apply"
+dependency "chef-dk"
 
 dependency "gem-permissions"
 dependency "rubygems-customization"
