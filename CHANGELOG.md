@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.151 -->
+<!-- latest_release 0.1.152 -->
+## [0.1.152](https://github.com/chef/chef-workstation/tree/0.1.152) (2018-07-31)
+
+#### Merged Pull Requests
+- [SHACK-304] Subscribe to ChefDK merges in expeditor [#232](https://github.com/chef/chef-workstation/pull/232) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.151](https://github.com/chef/chef-workstation/tree/0.1.151) (2018-07-18)
 
 #### Merged Pull Requests
 - Minimize Github Issue/PR templates now that Chef Apply is separate project [#229](https://github.com/chef/chef-workstation/pull/229) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.150](https://github.com/chef/chef-workstation/tree/0.1.150) (2018-07-10)
 
