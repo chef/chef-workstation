@@ -1,7 +1,8 @@
-<!-- latest_release unreleased -->
-## Unreleased
+<!-- latest_release 0.1.154 -->
+## [0.1.154](https://github.com/chef/chef-workstation/tree/0.1.154) (2018-08-01)
 
 #### Merged Pull Requests
+- Update train to remove google-cloud gem dep [#1640](https://github.com/chef/chef-dk/pull/1640) ([tas50](https://github.com/tas50))
 - Bump version to 3.2.0 [#1639](https://github.com/chef/chef-dk/pull/1639) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
