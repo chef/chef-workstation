@@ -1,15 +1,5 @@
 <!-- latest_release 0.1.154 -->
-## [0.1.154](https://github.com/chef/chef-workstation/tree/0.1.154) (2018-08-01)
-
-#### Merged Pull Requests
-- Update train to remove google-cloud gem dep [#1640](https://github.com/chef/chef-dk/pull/1640) ([tas50](https://github.com/tas50))
-- Bump version to 3.2.0 [#1639](https://github.com/chef/chef-dk/pull/1639) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
-
-## [0.1.153](https://github.com/chef/chef-workstation/tree/0.1.153) (2018-08-01)
-
-#### Merged Pull Requests
-- [SHACK-304] Expeditor version update needs to only update the ChefDK version [#1637](https://github.com/chef/chef-dk/pull/1637) ([tyler-ball](https://github.com/tyler-ball))
 
 ## [0.1.152](https://github.com/chef/chef-workstation/tree/0.1.152) (2018-07-31)
 
