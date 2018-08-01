@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.152 -->
+<!-- latest_release 0.1.153 -->
+## [0.1.153](https://github.com/chef/chef-workstation/tree/0.1.153) (2018-08-01)
+
+#### Merged Pull Requests
+- [SHACK-304] Expeditor version update needs to only update the ChefDK version [#1637](https://github.com/chef/chef-dk/pull/1637) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.152](https://github.com/chef/chef-workstation/tree/0.1.152) (2018-07-31)
 
 #### Merged Pull Requests
 - [SHACK-304] Subscribe to ChefDK merges in expeditor [#232](https://github.com/chef/chef-workstation/pull/232) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.151](https://github.com/chef/chef-workstation/tree/0.1.151) (2018-07-18)
 
