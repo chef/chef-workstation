@@ -1,5 +1,11 @@
-<!-- latest_release 0.1.154 -->
+<!-- latest_release 0.1.156 -->
+## [0.1.156](https://github.com/chef/chef-workstation/tree/0.1.156) (2018-08-03)
+
+#### Merged Pull Requests
+- [SHACK-304] Do not update Chef Workstation changelog for ChefDK changes [#233](https://github.com/chef/chef-workstation/pull/233) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
+
+
 
 ## [0.1.152](https://github.com/chef/chef-workstation/tree/0.1.152) (2018-07-31)
 
