@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.165 -->
+<!-- latest_release 0.1.169 -->
+## [0.1.169](https://github.com/chef/chef-workstation/tree/0.1.169) (2018-08-20)
+
+#### Merged Pull Requests
+- Capitalization issue in Windows package (wix) [#235](https://github.com/chef/chef-workstation/pull/235) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.165](https://github.com/chef/chef-workstation/tree/0.1.165) (2018-08-14)
 
 #### Merged Pull Requests
 - Updating OpenSSL to 1.0.2p to fix CVEs [#234](https://github.com/chef/chef-workstation/pull/234) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.1.156](https://github.com/chef/chef-workstation/tree/0.1.156) (2018-08-03)
 
