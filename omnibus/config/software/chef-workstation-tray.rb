@@ -11,23 +11,25 @@ build do
   # and put it in helpful place.
   # This is a temporary solution until we make final packaging/distribution decisions.
   # We run this in a block because non-DSL operations will otherwise happen before the
-  # fetcher has had a ch ance to update the target.
+  # fetcher has had a chance to update the target.
   block "do_build" do
     version = File.read(File.join(project_dir, "VERSION")).chomp
     use_ext = true
     if mac_os_x?
       source_file = "chef-workstation-#{version}.dmg"
-      target_dir = "installers"
     elsif windows?
       source_file = "chef-workstation-#{version}.msi"
-      target_dir = "installers"
     else
-      source_file = "chef-workstation-#{version}-x86_64.AppImage"
-      use_ext = false
-      # The AppImage is directly executable, and is not an installer.
-      target_dir = "bin"
+      p = Omnibus::Packager.for_current_system.first
+      if p == Omnibus::Packager::RPM
+        source_file = "chef-workstation-#{version}-x86_64.rpm"
+      elsif p == Omnibus::Packager::DEB
+        source_file = "chef-workstation-#{version}-amd64.deb"
+      else
+        raise "Unexpected packager for linux: #{p}"
+      end
     end
-    target_dir = File.join(install_dir, target_dir)
+    target_dir = File.join(install_dir, "instalers")
 
     # Auto-follow redirects because github release artifact urls always do.
     redirect_getter = Proc.new  do |uri, fetcher|
