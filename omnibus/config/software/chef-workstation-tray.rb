@@ -7,30 +7,12 @@ source git: "https://github.com/chef/chef-workstation-tray"
 default_version "master"
 
 build do
-  # Use the package.json to get current version, then (for now) we'll download the installer
-  # and put it in helpful place.
-  # This is a temporary solution until we make final packaging/distribution decisions.
+  # This download the current tray app installer by querying the github API to determine
+  # the most recently released version.  It places the installer in #{install_dir}/installers
   # We run this in a block because non-DSL operations will otherwise happen before the
   # fetcher has had a chance to update the target.
   block "do_build" do
-    version = File.read(File.join(project_dir, "VERSION")).chomp
-    use_ext = true
-    if mac_os_x?
-      source_file = "chef-workstation-#{version}.dmg"
-    elsif windows?
-      source_file = "chef-workstation-#{version}.msi"
-    else
-      p = Omnibus::Packager.for_current_system.first
-      if p == Omnibus::Packager::RPM
-        source_file = "chef-workstation-#{version}-x86_64.rpm"
-      elsif p == Omnibus::Packager::DEB
-        source_file = "chef-workstation-#{version}-amd64.deb"
-      else
-        raise "Unexpected packager for linux: #{p}"
-      end
-    end
-    target_dir = File.join(install_dir, "instalers")
-
+    target_dir = File.join(install_dir, "installers")
     # Auto-follow redirects because github release artifact urls always do.
     redirect_getter = Proc.new  do |uri, fetcher|
       response = Net::HTTP.get_response(URI(uri))
@@ -44,17 +26,40 @@ build do
         response.value
       end
     end
+    packager = Omnibus::Packager.for_current_system.first
+    # Can't use 'case' here - 'packager' is a class and not an instance,
+    # so it will always compare 'Class'
+    package_type = if packager == Omnibus::Packager::RPM
+                     "rpm"
+                   elsif packager == Omnibus::Packager::PKG
+                     "dmg"
+                   elsif packager == Omnibus::Packager::MSI || p == Omnibus::Packager::APPX
+                     "msi"
+                   elsif packager == Omnibus::Packager::DEB
+                     "deb"
+                   else
+                     raise "Unexpected packager: #{p}"
+                   end
+    version_doc = redirect_getter.call("https://api.github.com/repos/chef/chef-workstation-tray/releases/latest", redirect_getter)
+    version_info = JSON.parse(version_doc.body)
+    version = version_info['name']
+    download_url = nil
+    version_info["assets"].each do |asset|
+      if asset['browser_download_url'] =~ /.*\.#{package_type}/
+        download_url = asset['browser_download_url']
+        break
+      end
+    end
+
+    if download_url.nil?
+      raise "Trying to download tray #{version}, Could not find package type #{package_type} for packager #{p}"
+    end
+
 
     FileUtils.mkdir_p target_dir
-    target_path = File.join(target_dir, "chef-tray#{use_ext ? File.extname(source_file) : ""}")
-    resp = redirect_getter.call("https://github.com/chef/chef-workstation-tray/releases/download/v#{version}/#{source_file}", redirect_getter)
+    target_path = File.join(target_dir, "chef-tray.#{package_type}")
+    resp = redirect_getter.call(download_url, redirect_getter)
     File.open(target_path, "wb") { |file|  file.write(resp.body) }
     File.chmod(0755, target_path)
   end
 end
-
-
-# TODO build cleanup step to remove python from the package - I think it's only
-# here as  a result of nodejs
-
-
