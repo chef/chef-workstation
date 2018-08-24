@@ -35,6 +35,20 @@ for binary in $binaries; do
   ln -sf $INSTALLER_DIR/bin/$binary $PREFIX/bin || error_exit "Cannot link $binary to $PREFIX/bin"
 done
 
+# Our chef-tray installer is in INSTALLER_DIR/installers; it will have only the package
+# for this platform, eg chef_tray.msi/deb/rpm/dmg
+# MSI handling will be done in the installer itself, since this script is only run for mac and linux packages.
+if [ -f $INSTALLER_DIR/installers/chef-tray.dmg ]; then
+  hdiutil attach $INSTALLER_DIR/installers/chef-tray.dmg
+  cp -rf "/Volumes/chef-workstation.app" "/Applications"
+  hdiutil detach "/Volumes/chef-workstation.app"
+elif [ -f $INSTALLER_DIR/installers/chef-tray.rpm ]; then
+  rpm -Uvh "$INSTALLER_DIR/installers/chef-tray.rpm"
+elif [ -f $INSTALLER_DIR/installers/chef-tray.deb ]; then
+  dpkg -i "$INSTALLER_DIR/installers/chef-tray.deb"
+fi
+
+
 echo "Thank you for installing Chef Workstation!"
 echo "You can find some tips on getting started at https://chef.sh/"
 
