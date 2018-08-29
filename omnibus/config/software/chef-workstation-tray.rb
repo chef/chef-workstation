@@ -16,7 +16,7 @@ build do
 
     env = with_standard_compiler_flags(with_embedded_path)
     platform_name, artifact_path = if mac_os_x?
-                                     ["darwin", "Chef Workstation App-#{app_version}-mac.7z"]
+                                     ["mac", "Chef Workstation App-#{app_version}-mac.7z"]
                                    elsif linux?
                                      ["linux", "chef-workstation-app-#{app_version}.7z"]
                                    elsif windows?
