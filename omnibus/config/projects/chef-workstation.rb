@@ -125,7 +125,12 @@ if windows?
   dependency "ruby-windows-system-libraries"
 end
 
+# Including the dep for nodejs-binary here forces ordering and prevents
+# setup/removal of nodejs binary from triggering unrelated components due to
+# omnibus internal ordering.
+dependency "nodejs-binary"
 dependency "chef-workstation-tray"
+# TODO dependency "nodejs-binary-cleanup"
 
 exclude "**/.git"
 exclude "**/bundler/git"
