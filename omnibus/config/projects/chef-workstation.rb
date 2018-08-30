@@ -129,8 +129,8 @@ end
 # setup/removal of nodejs binary from triggering unrelated components due to
 # omnibus internal ordering.
 dependency "nodejs-binary"
-dependency "chef-workstation-tray"
-# TODO dependency "nodejs-binary-cleanup"
+dependency "chef-workstation-app"
+dependency "nodejs-binary-cleanup"
 
 exclude "**/.git"
 exclude "**/bundler/git"
