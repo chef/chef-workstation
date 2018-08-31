@@ -1,5 +1,5 @@
-# TODO rename file, component, repo
 name "chef-workstation-app"
+depends "nodejs-binary"
 license "Apache-2.0"
 skip_transitive_dependency_licensing
 license_file "LICENSE"
