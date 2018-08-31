@@ -54,7 +54,9 @@ platform_name, platform_ext = if mac_os_x?
 source url: "https://nodejs.org/dist/v#{version}/node-v#{version}-#{platform_name}-x64.#{platform_ext}"
 relative_path "node-v#{version}-#{platform_name}-x64"
 
-build do
-  mkdir "#{install_dir}/embedded/nodejs"
-  sync "#{project_dir}/", "#{install_dir}/embedded/nodejs"
-end
+# Messy way to tell chef-workstation-app.rb what path it will need to use
+# to find this binary. This avoids copying it into the installation and deleting it,
+# and corrects issues that can occur when nodejs-binary is cached and does not build -
+# preventing it from 'installing' binaries needed to continue the build.
+ENV['omnibus_nodejs_bindir'] = project_dir
+
