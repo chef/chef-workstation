@@ -1,5 +1,4 @@
 name "chef-workstation-app"
-depends "nodejs-binary"
 license "Apache-2.0"
 skip_transitive_dependency_licensing
 license_file "LICENSE"
@@ -32,7 +31,12 @@ build do
     # This allows us to use the binaries from the extraction path without having to temporarily
     # copy them into our installation.
     node_tools_dir = ENV['omnibus_nodejs_bindir']
-    node_bin_path = File.join(node_tools_dir, "bin")
+    if windows?
+      node_bin_path = node_tools_dir
+    else
+      node_bin_path = File.join(node_tools_dir, "bin")
+    end
+
     env[path_key] = "#{env[path_key]}#{separator}#{node_bin_path}"
 
 
