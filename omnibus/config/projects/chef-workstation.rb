@@ -37,20 +37,30 @@ end
 build_version Omnibus::BuildVersion.semver
 build_iteration 1
 
-# One problem with the ChefDK today is that it includes a shit load of gem dependencies. We resolve all those dependencies in 1 location today - in the ChefDK repo (with its `Gemfile.lock`).
+# One problem with the ChefDK today is that it includes a shit load of gem
+# dependencies.  We resolve all those dependencies in 1 location today - in the
+# ChefDK repo (with its `Gemfile.lock`).
 
-# We eventually want to fix that problem as part of implementing the Chef Workstation RFC (https://github.com/chef/chef-rfc/pull/308). But until we do we need to pull `chef-apply` in as a gem dependency of the ChefDK.
+# We eventually want to fix that problem as part of implementing the Chef
+# Workstation RFC (https://github.com/chef/chef-rfc/pull/308). But until we do
+# we need to pull `chef-apply` in as a gem dependency of the ChefDK.
 
 # This means the promotion process for getting new Chef Apply changes out is:
 # 1. Merge the Chef Apply PR which causes expeditor to build a new gem
 # 2. Update the dependencies in the ChefDK with a PR
-# 3. Perform a new build of Chef Workstation. Because it pulls in ChefDK from `master` it will get the latest ChefDK and transitively the latest update to Chef Apply.
+# 3. Perform a new build of Chef Workstation. Because it pulls in ChefDK from
+# `master` it will get the latest ChefDK and transitively the latest update
+# to Chef Apply.
 
-# I've automated steps 1 and 3. This means that the _new_ process for promoting Chef Apply changes is:
+# I've automated steps 1 and 3. This means that the _new_ process for promoting
+# Chef Apply changes is:
 # 1. Update the dependencies in the ChefDK with a PR
 # 2. After Chef Workstation gets a new build triggered and completed, promote Chef Workstation as normal
 
-# I realize this is not ideal but I think its the best way forward today. We could try and do something sneaky/cute where we pull Chef Apply into Chef Workstation as a separate dependency but that exposes the risk that we break dependency resolution for the ChefDK (and transitively Chef Workstation)
+# I realize this is not ideal but I think its the best way forward today. We
+# could try and do something sneaky/cute where we pull Chef Apply into
+# Chef Workstation as a separate dependency but that exposes the risk that we
+# break dependency resolution for the ChefDK (and transitively Chef Workstation)
 
 override :"chef-dk",      version: "master"
 
@@ -77,7 +87,7 @@ override "xproto", version: "7.0.28"
 override "zlib", version: "1.2.11"
 override "libzmq", version: "4.0.7"
 override "openssl", version: "1.0.2p"
-
+override "nodejs", version: "10.9.0"
 dependency "preparation"
 
 if windows?
@@ -114,6 +124,9 @@ if windows?
   dependency "ruby-windows-devkit-bash"
   dependency "ruby-windows-system-libraries"
 end
+
+dependency "nodejs-binary"
+dependency "chef-workstation-app"
 
 exclude "**/.git"
 exclude "**/bundler/git"

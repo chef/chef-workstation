@@ -12,7 +12,9 @@ build do
     app_version = JSON.parse(File.read(File.join(project_dir, "package.json")))["version"]
     node_tools_dir = ENV['omnibus_nodejs_dir']
     node_bin_path = windows? ? node_tools_dir : File.join(node_tools_dir, "bin")
-    env['PATH'] = "#{env['PATH']}#{separator}#{node_bin_path}"
+    path_key = windows? ? "Path" : "PATH"
+    separator = File::PATH_SEPARATOR || ":"
+    env[path_key] = "#{env[path_key]}#{separator}#{node_bin_path}"
 
     platform_name, artifact_name = if mac_os_x?
                                      ["mac", "Chef Workstation App-#{app_version}-mac.zip"]
@@ -31,9 +33,10 @@ build do
     # Ensure no leftover artifacts from a previous build -
     # electron-builder will recreate it:
     delete dist_dir
+    npm_bin = File.join(node_bin_path, "npm")
 
-    command "npm install", env: env
-    command "npm install run-script build-#{platform_name}", env: env
+    command "#{npm_bin} install", env: env
+    command "#{npm_bin} run-script build-#{platform_name}", env: env
 
     if linux?
       # For linux we're using directories - electron-builder's packageer
