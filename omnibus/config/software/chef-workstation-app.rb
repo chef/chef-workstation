@@ -4,7 +4,8 @@ skip_transitive_dependency_licensing
 license_file "LICENSE"
 
 source git: "https://github.com/chef/chef-workstation-tray"
-default_version "SHACK-322/omnibusify-chef-workstation-app"
+#default_version "SHACK-322/omnibusify-chef-workstation-app"
+default_version "mp/dir-mode-win-test"
 
 build do
   block "do_build" do
@@ -21,7 +22,7 @@ build do
                                    elsif linux?
                                      ["linux", "linux-unpacked"]
                                    elsif windows?
-                                     ["win", "Chef Workstation App-#{app_version}-win.zip"]
+                                     ["win", "win-unpacked"]
                                    end
 
 
@@ -45,7 +46,10 @@ build do
       # Instead, we'll manually create this archive as part of the build for linux.
       target = File.join(installer_dir, "chef-workstation-app-#{platform_name}.tar.gz")
       command "tar -f #{target} -C #{artifact_path} -cz .", env: env
+    elsif windows?
+      sync  artifact_path, installer_dir
     else
+
       target = File.join(installer_dir, "chef-workstation-app-#{platform_name}.zip")
       copy artifact_path, target
     end
