@@ -51,7 +51,13 @@
     <UI>
       <ProgressText Action="FastUnzip">!(loc.FileExtractionProgress)</ProgressText>
     </UI>
-    <% end %>
+  <% end %>
+
+  <!-- For now, using COMMON_ALTSTARTUP which is the global auto-start folder. Note that this
+  may cause some trouble - we haven't yet looked into how the App should behave when multiple
+  instances are running. We can instead use WIXDIR_ALTSTARTUP which is per-user - but that means
+  if it's installed on a shared server, only one user will get the tray app be default. -->
+  <PropertyRef Id="WIX_DIR_COMMON_ALTSTARTUP" />
 
     <CustomActionRef Id="WixBroadcastSettingChange" />
     <CustomActionRef Id="WixBroadcastEnvironmentChange" />
@@ -105,6 +111,15 @@
                 <RegistryKey Root="HKCR" Key="CLSID\{9008CA83-83E4-41FF-9C07-696E2CC47B52}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" />
               </Component>
             </Directory>
+            <Directory Id="COMPONENTS" Name="components">
+              <Directory Id="WSAPPDIR" Name="chef-workstation-app">
+                <!--
+                <Component Id="ChefWSApp" Guid="{25563def-6137-4af0-8d9d-733638fe8954}">
+                  <File Id="ChefWSAppExe" Source=".\Chef Workstation App.exe" KeyPath="yes" />
+                </Component>
+                -->
+              </Directory>
+            </Directory>
             <Directory Id="EMBEDDED" Name="embedded" >
               <Directory Id="EMBEDDEDBIN" Name="bin" >
                 <Component Id="ChefWSEnvHacks" Guid="{3498A65D-33D8-4CF2-BAB8-6FA072A7070D}" >
@@ -125,6 +140,22 @@
                     Arguments="-NoProfile -ExecutionPolicy Bypass -File [#StartChefWSScript]"
                     Show="minimized"
                     Icon="cws.ico"/>
+          <Shortcut Id="StartMenuWSAppShortcutDef"
+                    Name="!(loc.ChefWSShortcutAppName)"
+                    Description="!(loc.ChefWSShortcutAppDescription)"
+                    Target="[WSAPPDIR]\Chef Workstation App.exe"
+                    Icon="cws.ico"/>
+        </Component>
+      </Directory>
+
+    <!-- This component puts the WS App in the common autostart folder [if the Feature is selected] -->
+    <Directory Id="WIX_DIR_COMMON_ALTSTARTUP" >
+        <Component Id="ChefWSAutostartShortcut" Guid="{DF9613D2-4BCA-4D81-8BFA-989070EF1633}">
+          <Shortcut Id="ChefWSAutostartShortcutDef"
+            Name="!(loc.ChefWSShortcutAppName)"
+            Description="!(loc.ChefWSShortcutAppDescription)"
+            Target="[WSAPPDIR]\Chef Workstation App.exe"
+            Icon="cws.ico"/>
         </Component>
       </Directory>
 
@@ -161,6 +192,10 @@
 
     <Feature Id="ChefWSEnvHacks" Title="!(loc.FeatureChefWSEnvHacks)" Description="!(loc.FeatureChefWSEnvHacksDesc)" Level="1000" AllowAdvertise="no">
       <ComponentRef Id="ChefWSEnvHacks" />
+    </Feature>
+
+    <Feature Id="ChefWSAutostartOnLoginFeature" Title="!(loc.FeatureChefWSAppAutostart)" Description="!(loc.FeatureChefWSAppAutostartDescription)" Level="1" AllowAdvertise="no" >
+      <ComponentRef Id="ChefWSAutostartShortcut" />
     </Feature>
 
     <!--
