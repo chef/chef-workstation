@@ -19,20 +19,35 @@
   <String Id="VerifyReadyDlgInstallTitle">{\WixUI_Font_Title_White}Ready to install [ProductName]</String>
 
   <String Id="FeatureMainName"><%= friendly_name %></String>
+  <String Id="FeatureMainDesc">Install <%= friendly_name %> to this system.</String>
   <String Id="FeaturePSModuleName"><%= friendly_name %> PowerShell wrappers</String>
-  <String Id="FeatureChefWSEnvHacks">ChefWorkstation Environment Customizations</String>
-  <String Id="FeatureChefWSEnvHacksDesc">Allows ChefWorkstation to try to find a suitable HOME drive when running Ruby programs.</String>
 
-  <String Id="ChefWSShortcutDefName"><%= friendly_name %></String>
-  <String Id="ChefWSShortcutDefDescription"><%= friendly_name %> Command Prompt</String>
+  <String Id="FeatureChefWSEnvHacks">Environment Customizations</String>
+  <String Id="FeatureChefWSEnvHacksDesc">Allows <%= friendly_name %> to try to find a suitable HOME drive when running Ruby programs.</String>
 
-  <String Id="FeatureChefWSStartMenuShortcut">Start Menu Shortcut</String>
-  <String Id="FeatureChefWSStartMenuShortcutDescription">Install a ChefWorkstation shortcut on the user's Start Menu.</String>
-  <String Id="FeatureChefWSDesktopShortcut">Desktop Shortcut</String>
-  <String Id="FeatureChefWSDesktopShortcutDescription">Install a ChefWorkstation shortcut on the user's Desktop.</String>
+  <String Id="ChefWSPowershellShortcutDefName"><%= friendly_name %> PowerShell Prompt</String>
+  <String Id="ChefWSPowershellShortcutDefDesc">A PowerShell prompt pre-configured to allow you to work with <%= friendly_name %>'s included suite of tools.</String>
 
+  <String Id="ChefWSAppShortcutName"><%= friendly_name %> App [Experimental]</String>
+  <String Id="ChefWSAppShortcutDesc">Manage <%= friendly_name %> preferences, feedback, and updates.</String>
+
+  <String Id="FeatureChefWSStartMenuPSShortcut">Start Menu PowerShell Shortcut</String>
+  <String Id="FeatureChefWSStartMenuPSShortcutDesc">Install a <%= friendly_name %> shortcut to the Start menu.</String>
+
+  <String Id="FeatureChefWSDesktopPSShortcut">Desktop PowerShell Shortcut</String>
+  <String Id="FeatureChefWSDesktopPSShortcutDesc">Install a <%= friendly_name %> PowerShell shortcut to your Desktop.</String>
+
+	<String Id="FeatureExperimental">Install Experimental Features</String>
+	<String Id="FeatureExperimentalDesc">These features may be incomplete or unstable</String>
+
+  <String Id="FeatureExperimentalChefWS"><%= friendly_name %> App</String>
+  <String Id="FeatureExperimentalChefWSDesc">Enable the <%= friendly_name %> App</String>
+
+  <String Id="FeatureChefWSAppAutostart">Start on login</String>
+  <String Id="FeatureChefWSAppAutostartDesc">Configure the <%= friendly_name %> App to autostart on login</String>
 
   <String Id="MinimumOSVersionMessage">This package requires minimum OS version: Windows 7/Windows Server 2008 R2 or greater.</String>
   <String Id="DowngradeErrorMessage">A newer version of [ProductName] is already installed.</String>
   <String Id="FileExtractionProgress">Extracting files, please wait...</String>
 </WixLocalization>
+

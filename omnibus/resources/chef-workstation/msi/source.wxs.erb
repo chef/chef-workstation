@@ -9,9 +9,9 @@
     Name is made of localized product name and version number.
   -->
   <Product Id="*" Name="!(loc.ProductName) v$(var.DisplayVersionNumber)" Language="!(loc.LANG)"
-          Version="$(var.VersionNumber)" Manufacturer="!(loc.ManufacturerName)" UpgradeCode="$(var.UpgradeCode)">
+    Version="$(var.VersionNumber)" Manufacturer="!(loc.ManufacturerName)" UpgradeCode="$(var.UpgradeCode)">
     <Package InstallerVersion="200" InstallPrivileges="elevated"
-             Compressed="yes" InstallScope="perMachine" />
+      Compressed="yes" InstallScope="perMachine" />
 
     <Media Id="1" Cabinet="ChefWorkstation.cab" EmbedCab="yes" CompressionLevel="high" />
     <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeErrorMessage)" />
@@ -22,26 +22,26 @@
     -->
     <% if fastmsi %>
     <SetProperty Id="FastUnzip"
-                 Value="FASTZIPDIR=[INSTALLLOCATION];FASTZIPAPPNAME=chef-workstation"
-                 Sequence="execute"
-                 Before="FastUnzip" />
+      Value="FASTZIPDIR=[INSTALLLOCATION];FASTZIPAPPNAME=chef-workstation"
+      Sequence="execute"
+      Before="FastUnzip" />
 
     <CustomAction Id="FastUnzip"
-                  BinaryKey="CustomActionFastMsiDLL"
-                  DllEntry="FastUnzip"
-                  Execute="deferred"
-                  Impersonate="no"
-                  Return="check" />
+      BinaryKey="CustomActionFastMsiDLL"
+      DllEntry="FastUnzip"
+      Execute="deferred"
+      Impersonate="no"
+      Return="check" />
 
     <Binary Id="CustomActionFastMsiDLL"
-            SourceFile="CustomActionFastMsi.CA.dll" />
+      SourceFile="CustomActionFastMsi.CA.dll" />
 
     <CustomAction Id="Cleanup"
-                  Directory="INSTALLLOCATION"
-                  ExeCommand="cmd /C &quot;rd /S /Q chef-workstation&quot;"
-                  Execute="deferred"
-                  Impersonate="no"
-                  Return="ignore" />
+      Directory="INSTALLLOCATION"
+      ExeCommand="cmd /C &quot;rd /S /Q chef-workstation&quot;"
+      Execute="deferred"
+      Impersonate="no"
+      Return="ignore" />
 
     <InstallExecuteSequence>
       <Custom Action="FastUnzip" After="InstallFiles">NOT Installed OR REINSTALL</Custom>
@@ -53,27 +53,37 @@
     </UI>
     <% end %>
 
-    <CustomActionRef Id="WixBroadcastSettingChange" />
-    <CustomActionRef Id="WixBroadcastEnvironmentChange" />
+    <!-- TODO
+       For now, using COMMON_ALTSTARTUP which is the global auto-start folder. Note that this
+       may cause some trouble - we haven't yet looked into how the App should behave when multiple
+       instances are running. We can instead use WIXDIR_ALTSTARTUP which is per-user - but that means
+       if it's installed on a shared server, only one user will get the tray app be default.
+  -->
+  <PropertyRef Id="WIX_DIR_COMMON_ALTSTARTUP" />
 
-    <SetDirectory Id="WINDOWSVOLUME" Value="[WindowsVolume]"/>
-    <Directory Id="TARGETDIR" Name="SourceDir">
-      <Directory Id="WINDOWSVOLUME">
-        <Directory Id="INSTALLLOCATION" Name="opscode">
-          <Directory Id="PROJECTLOCATION" Name="chef-workstation">
-            <Directory Id="PROJECTLOCATIONBIN" Name="bin">
-              <Component Id="ChefWSPath" Guid="{BC744260-FD5B-4A0F-8EE5-76283072CC09}" >
-                <Environment Id="Environment"
-                  Name="PATH" Action="set" Part="last" System="yes" Value="[PROJECTLOCATIONBIN]" />
-              </Component>
-              <Component Id="StartChefWS" Guid="{69EF5736-ED67-45B3-887A-FBFC0AB6DA13}" >
+  <CustomActionRef Id="WixBroadcastSettingChange" />
+  <CustomActionRef Id="WixBroadcastEnvironmentChange" />
+
+  <SetDirectory Id="WINDOWSVOLUME" Value="[WindowsVolume]"/>
+  <Directory Id="TARGETDIR" Name="SourceDir">
+    <Directory Id="WINDOWSVOLUME">
+      <Directory Id="INSTALLLOCATION" Name="opscode">
+        <Directory Id="PROJECTLOCATION" Name="chef-workstation">
+          <Directory Id="PROJECTLOCATIONBIN" Name="bin">
+            <Component Id="ChefWSPath" Guid="{BC744260-FD5B-4A0F-8EE5-76283072CC09}" >
+              <Environment Id="Environment"
+                Name="PATH" Action="set" Part="last" System="yes" Value="[PROJECTLOCATIONBIN]" />
+            </Component>
+            <Component Id="StartChefWSPowershellShortcut" Guid="{69EF5736-ED67-45B3-887A-FBFC0AB6DA13}" >
+              <!-- Note that this refers to a Source relative to the package build directory,
+                     and not in the zip file which contains all of the chef-workstation build -->
                 <File Id="StartChefWSScript" Source="Resources\assets\start-chefws.ps1" KeyPath="yes" />
               </Component>
             </Directory>
             <Directory Id="PSMODULES" Name="modules" >
               <Component Id="ChefPSModulePath" Guid="{FA4B6948-087F-4460-A741-47E5A5E3B235}" >
                 <Environment Id="ChefPSModulePathEnvironment"
-                             Name="PSModulePath" Action="set" Part="last" System="yes" Value="[PSMODULES]" />
+                  Name="PSModulePath" Action="set" Part="last" System="yes" Value="[PSMODULES]" />
               </Component>
               <Component Id="ChefPowerShellRegistryEntries" Guid="{CA712E00-B031-424D-A439-838454AF94C5}">
                 <RegistryKey Root="HKCR" Key="Chef.PowerShell">
@@ -105,11 +115,15 @@
                 <RegistryKey Root="HKCR" Key="CLSID\{9008CA83-83E4-41FF-9C07-696E2CC47B52}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" />
               </Component>
             </Directory>
+            <Directory Id="COMPONENTS" Name="components">
+              <Directory Id="WSAPPDIR" Name="chef-workstation-app">
+              </Directory>
+            </Directory>
             <Directory Id="EMBEDDED" Name="embedded" >
               <Directory Id="EMBEDDEDBIN" Name="bin" >
                 <Component Id="ChefWSEnvHacks" Guid="{3498A65D-33D8-4CF2-BAB8-6FA072A7070D}" >
                   <Environment Id="EnvHacksEnvironment"
-                               Name="CHEFDK_ENV_FIX" Action="set" System="yes" Value="1" />
+                    Name="CHEFDK_ENV_FIX" Action="set" System="yes" Value="1" />
                 </Component>
               </Directory>
             </Directory>
@@ -117,50 +131,95 @@
         </Directory>
       </Directory>
       <Directory Id="ProgramMenuFolder">
-        <Component Id="StartMenuShortcut" Guid="{6DD3FFF3-E009-40E7-B1C2-EF606B941CCD}">
-          <Shortcut Id="StartMenuShortcutDef"
-                    Name="!(loc.ChefWSShortcutDefName)"
-                    Description="!(loc.ChefWSShortcutDefDescription)"
-                    Target="[WindowsFolder]\System32\WindowsPowerShell\v1.0\powershell.exe"
-                    Arguments="-NoProfile -ExecutionPolicy Bypass -File [#StartChefWSScript]"
-                    Show="minimized"
-                    Icon="cws.ico"/>
+        <!-- Place shortcuts grouped in a "Chef Workstation" folder in the Start menu -->
+        <Directory Id="ChefWorkstationFolder" Name="Chef Workstation">
+          <Component Id="PowershellStartMenuShortcut" Guid="{6DD3FFF3-E009-40E7-B1C2-EF606B941CCD}">
+            <Shortcut Id="PowershellStartMenuShortcutDef"
+              Name="!(loc.ChefWSPowershellShortcutDefName)"
+              Description="!(loc.ChefWSPowershellShortcutDefDesc)"
+              Target="[WindowsFolder]\System32\WindowsPowerShell\v1.0\powershell.exe"
+              Arguments="-NoProfile -ExecutionPolicy Bypass -File [#StartChefWSScript]"
+              Show="minimized"
+              Icon="cws.ico"/>
+          </Component>
+          <Component Id="ChefWSAppStartMenuShortcut" Guid="{6CFD92E5-B45F-48F2-AC17-54B647D65E66}">
+            <Shortcut Id="ChefWSAppStartMenuShortcutDef"
+              Name="!(loc.ChefWSAppShortcutName)"
+              Description="!(loc.ChefWSAppShortcutDesc)"
+              Target="[WSAPPDIR]\Chef Workstation App.exe"
+              Icon="cws.ico"/>
+          </Component>
+        </Directory>
+      </Directory>
+
+      <!-- This component puts the WS App in the common autostart folder [if the Feature is selected] -->
+      <Directory Id="WIX_DIR_COMMON_ALTSTARTUP" >
+        <Component Id="ChefWSAppAutostartShortcut" Guid="{DF9613D2-4BCA-4D81-8BFA-989070EF1633}">
+          <Shortcut Id="ChefAppWSAutostartShortcutDef"
+            Name="!(loc.ChefWSAppShortcutName)"
+            Description="!(loc.ChefWSAppShortcutDesc)"
+            Target="[WSAPPDIR]\Chef Workstation App.exe"
+            Icon="cws.ico"/>
         </Component>
       </Directory>
 
       <Directory Id="DesktopFolder" Name="Desktop">
-        <Component Id="DesktopShortcut" Guid="{396E22A6-A7B6-4AA1-B63C-83A3DD7007A8}">
-          <Shortcut Id="DesktopShortcutDef"
-                    Name="!(loc.ChefWSShortcutDefName)"
-                    Description="!(loc.ChefWSShortcutDefDescription)"
-                    Target="[WindowsFolder]\System32\WindowsPowerShell\v1.0\powershell.exe"
-                    Arguments="-NoProfile -ExecutionPolicy Bypass -File [#StartChefWSScript]"
-                    Show="minimized"
-                    Icon="cws.ico"/>
+        <Component Id="PowershellDesktopShortcut" Guid="{396E22A6-A7B6-4AA1-B63C-83A3DD7007A8}">
+          <Shortcut Id="PowershellDesktopShortcutDef"
+            Name="!(loc.ChefWSPowershellShortcutDefName)"
+            Description="!(loc.ChefWSPowershellShortcutDefDesc)"
+            Target="[WindowsFolder]\System32\WindowsPowerShell\v1.0\powershell.exe"
+            Arguments="-NoProfile -ExecutionPolicy Bypass -File [#StartChefWSScript]"
+            Show="minimized"
+            Icon="cws.ico"/>
+        </Component>
+
+        <Component Id="ChefWSAppDesktopShortcut" Guid="91f753ca-d87b-4ef2-915c-2183bef16177">
+          <Shortcut Id="ChefWSAppDesktopShortcutDef"
+            Name="!(loc.ChefWSAppShortcutName)"
+            Description="!(loc.ChefWSAppShortcutDesc)"
+            Target="[WSAPPDIR]\Chef Workstation App.exe"
+            Icon="cws.ico"/>
         </Component>
       </Directory>
     </Directory>
 
     <!-- Set the components defined in our fragment files that will be used for our feature  -->
-    <Feature Id="ChefWSFeature" Title="!(loc.FeatureMainName)" Absent="disallow" AllowAdvertise="no" Level="1" ConfigurableDirectory="INSTALLLOCATION">
+    <!-- Renders the following install options
+         [x] Chef Workstation
+           [x] Start Menu Shortcut
+           [x] Desktop Shortcut
+         [x] Experimental Features
+           [x] Chef Workstation App (includes shortcuts and autostart)
+    -->
+    <Feature Id="ChefWSFeature" Title="!(loc.FeatureMainName)"
+      Description="!(loc.FeatureMainDesc)"
+      Absent="disallow" AllowAdvertise="no" Level="1" ConfigurableDirectory="INSTALLLOCATION">
       <ComponentGroupRef Id="ProjectDir" />
       <ComponentRef Id="ChefWSPath" />
       <ComponentRef Id="ChefPSModulePath" />
       <ComponentRef Id="ChefPowerShellRegistryEntries" />
+      <Feature Id="ChefWSStartMenuPSShortcutFeature" Title="!(loc.FeatureChefWSStartMenuPSShortcut)"
+        Description="!(loc.FeatureChefWSStartMenuPSShortcutDesc)" Level="1" AllowAdvertise="no" >
+        <ComponentRef Id="StartChefWSPowershellShortcut" />
+        <ComponentRef Id="PowershellStartMenuShortcut" />
+      </Feature>
+      <Feature Id="ChefWSDesktopPSShortcutFeature" Title="!(loc.FeatureChefWSDesktopPSShortcut)"
+        Description="!(loc.FeatureChefWSDesktopPSShortcutDesc)" Level="1" AllowAdvertise="no" >
+        <ComponentRef Id="StartChefWSPowershellShortcut" />
+        <ComponentRef Id="PowershellDesktopShortcut" />
+      </Feature>
+      <Feature Id="ChefWSEnvHacks" Title="!(loc.FeatureChefWSEnvHacks)" Description="!(loc.FeatureChefWSEnvHacksDesc)" Level="1000" AllowAdvertise="no">
+        <ComponentRef Id="ChefWSEnvHacks" />
+      </Feature>
     </Feature>
 
-    <Feature Id="ChefWSStartMenuShortcutFeature" Title="!(loc.FeatureChefWSStartMenuShortcut)" Description="!(loc.FeatureChefWSStartMenuShortcutDescription)" Level="1" AllowAdvertise="no" >
-      <ComponentRef Id="StartChefWS" />
-      <ComponentRef Id="StartMenuShortcut" />
-    </Feature>
-
-    <Feature Id="ChefWSDesktopShortcutFeature" Title="!(loc.FeatureChefWSDesktopShortcut)" Description="!(loc.FeatureChefWSDesktopShortcutDescription)" Level="1" AllowAdvertise="no" >
-      <ComponentRef Id="StartChefWS" />
-      <ComponentRef Id="DesktopShortcut" />
-    </Feature>
-
-    <Feature Id="ChefWSEnvHacks" Title="!(loc.FeatureChefWSEnvHacks)" Description="!(loc.FeatureChefWSEnvHacksDesc)" Level="1000" AllowAdvertise="no">
-      <ComponentRef Id="ChefWSEnvHacks" />
+    <Feature Id="ExperimentalFeatures" Title="!(loc.FeatureExperimental)" Description="!(loc.FeatureExperimentalDesc)" Level="1000" AllowAdvertise="no" Display="collapse">
+      <Feature Id="ExperimentalChefWSApp" Title="!(loc.FeatureExperimentalChefWS)" Description="!(loc.FeatureExperimentalChefWSDesc)">
+        <ComponentRef Id="ChefWSAppAutostartShortcut" />
+        <ComponentRef Id="ChefWSAppStartMenuShortcut" />
+        <ComponentRef Id="ChefWSAppDesktopShortcut" />
+      </Feature>
     </Feature>
 
     <!--
@@ -172,7 +231,6 @@
     <Property Id="ARPPRODUCTICON" Value="cws16.ico" />
     <Property Id="ARPHELPLINK" Value="https://chef.sh/" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
-
     <UIRef Id="ChefWSUI_InstallDir"/>
     <UI Id="ChefWSUI_InstallDir">
       <UIRef Id="WixUI_FeatureTree"/>
@@ -185,6 +243,8 @@
     <WixVariable Id="WixUIDialogBmp" Value="Resources\assets\dialog_background.bmp" />
     <WixVariable Id="WixUIBannerBmp" Value="Resources\assets\banner_background.bmp" />
 
+<!-- TODO these icons serve different purposes in the installer UX, and should probably not all
+     be set to the same icon. -->
     <WixVariable Id="WixUIExclamationIco" Value="Resources\assets\cws_32x32.ico" />
     <WixVariable Id="WixUIInfoIco" Value="Resources\assets\cws_32x32.ico" />
     <WixVariable Id="WixUINewIco" Value="Resources\assets\cws_16x16.ico" />

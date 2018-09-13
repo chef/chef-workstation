@@ -37,20 +37,20 @@ build do
                                    elsif linux?
                                      ["linux", "linux-unpacked"]
                                    elsif windows?
-                                     ["win", "Chef Workstation App-#{app_version}-win.zip"]
+                                     ["win", "win-unpacked"]
                                    end
 
 
     dist_dir = File.join(project_dir, "dist")
-    installer_dir = "#{install_dir}/installers"
-
     artifact_path = File.join(dist_dir, artifact_name)
-    mkdir installer_dir
+    app_install_path = "#{install_dir}/components/chef-workstation-app"
+    mkdir app_install_path
+
     # Ensure no leftover artifacts from a previous build -
     # electron-builder will recreate it:
     delete dist_dir
-    npm_bin = File.join(node_bin_path, "npm")
 
+    npm_bin = File.join(node_bin_path, "npm")
     command "#{npm_bin} install", env: env
     command "#{npm_bin} run-script build-#{platform_name}", env: env
 
@@ -59,10 +59,13 @@ build do
       # fails on RHEL6 because of a missing GLIBC version for electron-builder's
       # included compression utilities (7z, tar, etc) during build.
       # Instead, we'll manually create this archive as part of the build for linux.
-      target = File.join(installer_dir, "chef-workstation-app-#{platform_name}.tar.gz")
+      target = File.join(app_install_path, "chef-workstation-app-#{platform_name}.tar.gz")
       command "tar -f #{target} -C #{artifact_path} -cz .", env: env
+    elsif windows?
+      sync artifact_path, app_install_path
     else
-      target = File.join(installer_dir, "chef-workstation-app-#{platform_name}.zip")
+
+      target = File.join(app_install_path, "chef-workstation-app-#{platform_name}.zip")
       copy artifact_path, target
     end
   end
