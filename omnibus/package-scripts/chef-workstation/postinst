@@ -25,9 +25,6 @@ else
     PREFIX="/usr"
 fi
 
-# TODO - pull from components/*/bin/*?
-# We test for the presence of /usr/bin/chef-client to know if this script succeeds,
-# so chef-client must appear as the last item here.
 chefdk_binaries="berks chef chef-apply chef-shell chef-solo chef-vault cookstyle dco delivery foodcritic inspec kitchen knife ohai push-apply pushy-client pushy-service-manager chef-client"
 binaries="chef-run chefx $chefdk_binaries"
 
@@ -35,7 +32,33 @@ for binary in $binaries; do
   ln -sf $INSTALLER_DIR/bin/$binary $PREFIX/bin || error_exit "Cannot link $binary to $PREFIX/bin"
 done
 
+if is_darwin; then
+  echo "TODO: mac CWA setup is not implemented"
+else # linux - postinst does not run for windows.
+  cwa_app_path="$INSTALLER_DIR/components/chef-workstation-app/chef-workstation-app"
+
+  ldd "$cwa_app_path" | grep "not found" >/dev/null 2>&1
+  # 0 rc means grep found 'not found' text - and we have missing deps.
+  if [ $? -eq 1 ]; then
+    echo ""
+    echo "To run the experimental Chef Workstation App, use your"
+    echo "platform's package manager to install these dependencies:"
+    echo ""
+    ldd "$cwa_app_path" | grep "not found" 2>&1
+    echo "You can then launch the App by running 'chef-workstation-app'."
+    echo "The App will then be available in the system tray."
+  else
+    echo ""
+    echo "The experimental Chef Workstation App is available for you to try."
+    echo ""
+    echo "Launch the App by running 'chef-workstation-app'."
+    echo "The App will then be available in the system tray."
+  fi
+  ln -sf $cwa_app_path $PREFIX/bin
+fi
+
+echo ""
 echo "Thank you for installing Chef Workstation!"
 echo "You can find some tips on getting started at https://chef.sh/"
-
+echo ""
 exit 0

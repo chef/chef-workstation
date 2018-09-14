@@ -19,8 +19,19 @@ license "Apache-2.0"
 skip_transitive_dependency_licensing
 license_file "LICENSE"
 
-source git: "https://github.com/chef/chef-workstation-tray"
+source git: "https://github.com/chef/chef-workstation-app"
 default_version "master"
+
+# These electron dependencies are pulled in/created
+# by this build. They may have dependendcies that aren't met
+# on the install target - in which case the tray application
+# will not be runnable.  That does not affect the rest of
+# the chef-workstation installation, so we will whitelist the
+# dependencies to allow it to continue in any case.
+if linux?
+  whitelist_file(/components\/chef-workstation-app\/libffmpeg\.so/)
+  whitelist_file(/components\/chef-workstation-app\/chef-workstation-app/)
+end
 
 build do
   block "do_build" do
@@ -54,19 +65,11 @@ build do
     command "#{npm_bin} install", env: env
     command "#{npm_bin} run-script build-#{platform_name}", env: env
 
-    if linux?
-      # For linux we're using directories - electron-builder's packageer
-      # fails on RHEL6 because of a missing GLIBC version for electron-builder's
-      # included compression utilities (7z, tar, etc) during build.
-      # Instead, we'll manually create this archive as part of the build for linux.
-      target = File.join(app_install_path, "chef-workstation-app-#{platform_name}.tar.gz")
-      command "tar -f #{target} -C #{artifact_path} -cz .", env: env
-    elsif windows?
-      sync artifact_path, app_install_path
-    else
-
+    if mac?
       target = File.join(app_install_path, "chef-workstation-app-#{platform_name}.zip")
       copy artifact_path, target
+    else
+      sync artifact_path, app_install_path
     end
   end
 end
