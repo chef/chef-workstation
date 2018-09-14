@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.189 -->
+<!-- latest_release 0.1.190 -->
+## [0.1.190](https://github.com/chef/chef-workstation/tree/0.1.190) (2018-09-14)
+
+#### Merged Pull Requests
+- [SHACK-348] Enable CWA on linux [#242](https://github.com/chef/chef-workstation/pull/242) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.189](https://github.com/chef/chef-workstation/tree/0.1.189) (2018-09-13)
 
 #### Merged Pull Requests
 - [SHACK-353] Enable CWA on Windows [#241](https://github.com/chef/chef-workstation/pull/241) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.188](https://github.com/chef/chef-workstation/tree/0.1.188) (2018-09-08)
 
