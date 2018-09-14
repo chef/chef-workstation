@@ -33,10 +33,18 @@ for binary in $binaries; do
 done
 
 if is_darwin; then
-  echo "TODO: mac CWA setup is not implemented"
+  # chef-workstation-app is configured to build Mac as a zip file instead
+  # of a directory. Otherwise, the mac pkgbuild command will find the Chef Workstation App
+  # within the larger Chef Workstatoin package, and will not include it in the Chef Workstation
+  # package directly.
+  echo "Moving Chef Workstation App to the Applications folder"
+  pushd $INSTALLER_DIR/components/chef-workstation-app
+  unzip chef-workstation-app-mac.zip
+  sudo mv "mac/Chef Workstation App.app" /Applications
+  rm -r mac
+  popd
 else # linux - postinst does not run for windows.
   cwa_app_path="$INSTALLER_DIR/components/chef-workstation-app/chef-workstation-app"
-
   ldd "$cwa_app_path" | grep "not found" >/dev/null 2>&1
   # 0 rc means grep found 'not found' text - and we have missing deps.
   if [ $? -eq 1 ]; then
