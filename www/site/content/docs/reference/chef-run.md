@@ -3,7 +3,7 @@ linkTitle = "chef-run"
 title = "chef-run"
 [menu]
   [menu.docs]
-    parent = "Tools Reference"
+    parent = "Reference"
     weight = "400"
 +++
 `chef-run` is a tool to execute ad-hoc tasks on one or more target nodes using Chef.

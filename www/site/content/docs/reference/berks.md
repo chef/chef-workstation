@@ -3,7 +3,7 @@ title = "berks"
 linkTitle = "berks"
 [menu]
   [menu.docs]
-    parent = "Tools Reference"
+    parent = "Reference"
     weight = "100"
 +++
 

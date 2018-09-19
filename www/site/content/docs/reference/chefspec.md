@@ -3,7 +3,7 @@ title = "chefspec"
 linkTitle = "chefspec"
 [menu]
   [menu.docs]
-    parent = "Tools Reference"
+    parent = "Reference"
     weight = "300"
 +++
 

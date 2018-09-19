@@ -5,7 +5,7 @@ title = "chef.sh (Chef Workstation)"
 theme = "chef"
 staticDir = ["./static", "../chef-sh"]
 
-sectionPagesMenu = ["main", "tools-reference"]
+sectionPagesMenu = "main"
 
 # To develop against a local copy of the chef hugo theme, uncomment this line
 # and set the value to the parent directory of where you have checked out the

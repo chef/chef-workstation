@@ -86,6 +86,6 @@ chef-run myhost[1:20] my_cookbook::my_recipe
 
 #### Further Reading
 
-* [Chef Run CLI Reference](https://chef.sh/docs/tools-reference/chef-run/)
+* [Chef Run CLI Reference](https://chef.sh/docs/reference/chef-run/)
 * [Introducing Chef Workstation](https://blog.chef.io/2018/05/23/introducing-chef-workstation/)
 * [Chef Workstation - How We Made that Demo](https://blog.chef.io/2018/06/25/chef-workstation-how-we-made-that-demo/)
