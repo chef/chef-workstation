@@ -1,12 +1,12 @@
 +++
-title = "CLI Reference"
+linkTitle = "chef-run"
+title = "chef-run"
 [menu]
   [menu.docs]
-    parent = "Chef Workstation"
-    weight = "20"
+    parent = "Tools Reference"
+    weight = "400"
 +++
-
-Chef-run is a tool to execute ad-hoc tasks using Chef.
+`chef-run` is a tool to execute ad-hoc tasks on one or more target nodes using Chef.
 
 `chef-run <TARGET[S]> <RESOURCE> <RESOURCE_NAME> [PROPERTIES] [FLAGS]`
 
