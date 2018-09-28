@@ -39,18 +39,7 @@ merge_actions:
         - "Expeditor: Skip All"
       only_if: built_in:bump_version
 
-# I copied the `ignore_labels` from the chef-dk expeditor config
-# since the labels apply to that workload (not the chef-workstation
-# workload like the `merge_actions` block)
 subscriptions:
-  - workload: chef/chef-dk:master_completed:pull_request_merged:chef/chef-dk:master:*
+  - workload: artifact_published:stable:chefdk:3*
     actions:
-      - built_in:bump_version:
-          ignore_labels:
-            - "Expeditor: Skip Version Bump"
-            - "Expeditor: Skip All"
-      - built_in:trigger_omnibus_release_build:
-          ignore_labels:
-            - "Expeditor: Skip Build"
-            - "Expeditor: Skip All"
-          only_if: built_in:bump_version
+      - bash:.expeditor/update_chefdk_to_stable.sh
