@@ -36,6 +36,13 @@
     <Binary Id="CustomActionFastMsiDLL"
       SourceFile="CustomActionFastMsi.CA.dll" />
 
+    <Property Id="WixQuietExecCmdLine" Value='"[WindowsFolder]\System32\taskkill.exe" /T /F /IM "Chef Workstation App*"' />
+    <CustomAction Id="TaskKill"
+      BinaryKey="WixCA"
+      DllEntry="WixQuietExec"
+      Execute="immediate"
+      Return="ignore" />
+
     <CustomAction Id="Cleanup"
       Directory="INSTALLLOCATION"
       ExeCommand="cmd /C &quot;rd /S /Q chef-workstation&quot;"
@@ -44,6 +51,7 @@
       Return="ignore" />
 
     <InstallExecuteSequence>
+      <Custom Action="TaskKill" After="InstallInitialize">1</Custom>
       <Custom Action="FastUnzip" After="InstallFiles">NOT Installed OR REINSTALL</Custom>
       <Custom Action="Cleanup" After="RemoveFiles">REMOVE~="ALL"</Custom>
     </InstallExecuteSequence>
