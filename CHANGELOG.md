@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.191 -->
+<!-- latest_release 0.1.214 -->
+## [0.1.214](https://github.com/chef/chef-workstation/tree/0.1.214) (2018-10-01)
+
+#### Merged Pull Requests
+- [SHACK-361] Different look for icons on win desktop [#248](https://github.com/chef/chef-workstation/pull/248) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.191](https://github.com/chef/chef-workstation/tree/0.1.191) (2018-09-14)
 
 #### Merged Pull Requests
 - [SHACK-352] Enable CWA on Mac OS X [#243](https://github.com/chef/chef-workstation/pull/243) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.190](https://github.com/chef/chef-workstation/tree/0.1.190) (2018-09-14)
 
