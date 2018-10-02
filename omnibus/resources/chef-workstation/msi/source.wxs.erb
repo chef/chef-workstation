@@ -36,6 +36,13 @@
     <Binary Id="CustomActionFastMsiDLL"
       SourceFile="CustomActionFastMsi.CA.dll" />
 
+    <Property Id="WixQuietExecCmdLine" Value='"[WindowsFolder]\System32\taskkill.exe" /T /F /IM "Chef Workstation App*"' />
+    <CustomAction Id="TaskKill"
+      BinaryKey="WixCA"
+      DllEntry="WixQuietExec"
+      Execute="immediate"
+      Return="ignore" />
+
     <CustomAction Id="Cleanup"
       Directory="INSTALLLOCATION"
       ExeCommand="cmd /C &quot;rd /S /Q chef-workstation&quot;"
@@ -44,6 +51,7 @@
       Return="ignore" />
 
     <InstallExecuteSequence>
+      <Custom Action="TaskKill" After="InstallInitialize">1</Custom>
       <Custom Action="FastUnzip" After="InstallFiles">NOT Installed OR REINSTALL</Custom>
       <Custom Action="Cleanup" After="RemoveFiles">REMOVE~="ALL"</Custom>
     </InstallExecuteSequence>
@@ -140,7 +148,7 @@
               Target="[WindowsFolder]\System32\WindowsPowerShell\v1.0\powershell.exe"
               Arguments="-NoProfile -ExecutionPolicy Bypass -File [#StartChefWSScript]"
               Show="minimized"
-              Icon="cws.ico"/>
+              Icon="cwsps.ico"/>
           </Component>
           <Component Id="ChefWSAppStartMenuShortcut" Guid="{6CFD92E5-B45F-48F2-AC17-54B647D65E66}">
             <Shortcut Id="ChefWSAppStartMenuShortcutDef"
@@ -171,7 +179,7 @@
             Target="[WindowsFolder]\System32\WindowsPowerShell\v1.0\powershell.exe"
             Arguments="-NoProfile -ExecutionPolicy Bypass -File [#StartChefWSScript]"
             Show="minimized"
-            Icon="cws.ico"/>
+            Icon="cwsps.ico"/>
         </Component>
 
         <Component Id="ChefWSAppDesktopShortcut" Guid="91f753ca-d87b-4ef2-915c-2183bef16177">
@@ -228,6 +236,7 @@
     <Icon Id="cws16.ico" SourceFile="Resources\assets\cws_16x16.ico"/>
     <Icon Id="cws32.ico" SourceFile="Resources\assets\cws_32x32.ico"/>
     <Icon Id="cws.ico" SourceFile="Resources\assets\cws.ico"/>
+    <Icon Id="cwsps.ico" SourceFile="Resources\assets\cwsps.ico"/>
     <Property Id="ARPPRODUCTICON" Value="cws16.ico" />
     <Property Id="ARPHELPLINK" Value="https://chef.sh/" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
