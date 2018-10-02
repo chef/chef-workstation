@@ -1,9 +1,19 @@
-<!-- latest_release 0.1.215 -->
+<!-- latest_release 0.1.217 -->
+## [0.1.217](https://github.com/chef/chef-workstation/tree/0.1.217) (2018-10-02)
+
+#### Merged Pull Requests
+- [SHACK-358] update docs and navigation for chef.sh [#245](https://github.com/chef/chef-workstation/pull/245) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
+## [0.1.216](https://github.com/chef/chef-workstation/tree/0.1.216) (2018-10-01)
+
+#### Merged Pull Requests
+- [SHACK-357] Include latest stable release of ChefDK [#247](https://github.com/chef/chef-workstation/pull/247) ([tyler-ball](https://github.com/tyler-ball))
+
 ## [0.1.215](https://github.com/chef/chef-workstation/tree/0.1.215) (2018-10-01)
 
 #### Merged Pull Requests
 - Add taskkill action to windows install [#246](https://github.com/chef/chef-workstation/pull/246) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.214](https://github.com/chef/chef-workstation/tree/0.1.214) (2018-10-01)
 

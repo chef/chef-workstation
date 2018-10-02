@@ -45,24 +45,11 @@ build_iteration 1
 # Workstation RFC (https://github.com/chef/chef-rfc/pull/308). But until we do
 # we need to pull `chef-apply` in as a gem dependency of the ChefDK.
 
-# This means the promotion process for getting new Chef Apply changes out is:
-# 1. Merge the Chef Apply PR which causes expeditor to build a new gem
-# 2. Update the dependencies in the ChefDK with a PR
-# 3. Perform a new build of Chef Workstation. Because it pulls in ChefDK from
-# `master` it will get the latest ChefDK and transitively the latest update
-# to Chef Apply.
+# The ChefDK version is pinned by Expeditor. Whenever ChefDK is promoted to stable
+# then Expeditor takes that version, runs a script to replace it here and pushes
+# a new commit / build through.
 
-# I've automated steps 1 and 3. This means that the _new_ process for promoting
-# Chef Apply changes is:
-# 1. Update the dependencies in the ChefDK with a PR
-# 2. After Chef Workstation gets a new build triggered and completed, promote Chef Workstation as normal
-
-# I realize this is not ideal but I think its the best way forward today. We
-# could try and do something sneaky/cute where we pull Chef Apply into
-# Chef Workstation as a separate dependency but that exposes the risk that we
-# break dependency resolution for the ChefDK (and transitively Chef Workstation)
-
-override :"chef-dk",      version: "master"
+override :"chef-dk", version: "v3.3.23"
 
 # DK's overrides; god have mercy on my soul
 # This comes from DK's ./omnibus_overrides.rb
