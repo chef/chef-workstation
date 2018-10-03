@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.217 -->
+<!-- latest_release 0.1.218 -->
+## [0.1.218](https://github.com/chef/chef-workstation/tree/0.1.218) (2018-10-03)
+
+#### Merged Pull Requests
+- [SHACK-354] windows install: capture install path to registry  [#249](https://github.com/chef/chef-workstation/pull/249) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.217](https://github.com/chef/chef-workstation/tree/0.1.217) (2018-10-02)
 
 #### Merged Pull Requests
 - [SHACK-358] update docs and navigation for chef.sh [#245](https://github.com/chef/chef-workstation/pull/245) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.216](https://github.com/chef/chef-workstation/tree/0.1.216) (2018-10-01)
 
