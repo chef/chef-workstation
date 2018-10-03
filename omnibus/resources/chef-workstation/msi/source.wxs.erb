@@ -82,6 +82,12 @@
               <Environment Id="Environment"
                 Name="PATH" Action="set" Part="last" System="yes" Value="[PROJECTLOCATIONBIN]" />
             </Component>
+            <Component Id="ChefWSRegistryEntries" Guid="{67E30C25-5311-4584-9A17-5D47AC28F9CD}">
+              <RegistryKey Root="HKLM" Key="Software\Chef\Chef Workstation">
+                <RegistryValue Type="string" Name="InstallDir" Value="[PROJECTLOCATION]" />
+                <RegistryValue Type="string" Name="BinDir" Value="[PROJECTLOCATIONBIN]" />
+              </RegistryKey>
+            </Component>
             <Component Id="StartChefWSPowershellShortcut" Guid="{69EF5736-ED67-45B3-887A-FBFC0AB6DA13}" >
               <!-- Note that this refers to a Source relative to the package build directory,
                      and not in the zip file which contains all of the chef-workstation build -->
@@ -207,6 +213,7 @@
       <ComponentRef Id="ChefWSPath" />
       <ComponentRef Id="ChefPSModulePath" />
       <ComponentRef Id="ChefPowerShellRegistryEntries" />
+      <ComponentRef Id="ChefWSRegistryEntries" />
       <Feature Id="ChefWSStartMenuPSShortcutFeature" Title="!(loc.FeatureChefWSStartMenuPSShortcut)"
         Description="!(loc.FeatureChefWSStartMenuPSShortcutDesc)" Level="1" AllowAdvertise="no" >
         <ComponentRef Id="StartChefWSPowershellShortcut" />
