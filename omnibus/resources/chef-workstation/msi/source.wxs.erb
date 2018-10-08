@@ -231,7 +231,10 @@
 
     <Feature Id="ExperimentalFeatures" Title="!(loc.FeatureExperimental)" Description="!(loc.FeatureExperimentalDesc)" Level="1000" AllowAdvertise="no" Display="collapse">
       <Feature Id="ExperimentalChefWSApp" Title="!(loc.FeatureExperimentalChefWS)" Description="!(loc.FeatureExperimentalChefWSDesc)">
-        <ComponentRef Id="ChefWSAppAutostartShortcut" />
+        <!-- 2018-10-08  disabling automstart until we're ready to enable it for all platforms
+
+             <ComponentRef Id="ChefWSAppAutostartShortcut" />
+         -->
         <ComponentRef Id="ChefWSAppStartMenuShortcut" />
         <ComponentRef Id="ChefWSAppDesktopShortcut" />
       </Feature>
