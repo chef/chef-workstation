@@ -20,7 +20,7 @@ skip_transitive_dependency_licensing
 license_file "LICENSE"
 
 source git: "https://github.com/chef/chef-workstation-app"
-default_version "master"
+default_version "SHACK-354/omnitruck-update-checks"
 
 # These electron dependencies are pulled in/created
 # by this build. They may have dependendcies that aren't met
