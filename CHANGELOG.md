@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.220 -->
+<!-- latest_release 0.1.221 -->
+## [0.1.221](https://github.com/chef/chef-workstation/tree/0.1.221) (2018-10-10)
+
+#### Merged Pull Requests
+- Subscribe to Workstation App pr merges [#255](https://github.com/chef/chef-workstation/pull/255) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.220](https://github.com/chef/chef-workstation/tree/0.1.220) (2018-10-10)
 
 #### Merged Pull Requests
 - Update CHANGELOG.md to capture PR #251 [#253](https://github.com/chef/chef-workstation/pull/253) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.219](https://github.com/chef/chef-workstation/tree/0.1.219) (2018-10-10)
 
