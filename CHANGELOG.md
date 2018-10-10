@@ -3,6 +3,7 @@
 
 #### Merged Pull Requests
 - [SHACK-370] Disable windows chef workstation app autostart [#250](https://github.com/chef/chef-workstation/pull/250) ([marcparadise](https://github.com/marcparadise))
+- [SHACK-371] Uninstall ChefDK on OSX [#251](https://github.com/chef/chef-workstation/pull/251) ([jonsmorrow](https://github.com/jonsmorrow))
 <!-- latest_release -->
 
 ## [0.1.218](https://github.com/chef/chef-workstation/tree/0.1.218) (2018-10-03)
