@@ -1,9 +1,40 @@
-<!-- latest_release 0.1.218 -->
+<!-- latest_release 0.1.224 -->
+## [0.1.224](https://github.com/chef/chef-workstation/tree/0.1.224) (2018-10-10)
+
+#### Merged Pull Requests
+- Bump Chef Workstation App to 0.0.29 [#259](https://github.com/chef/chef-workstation/pull/259) ([chef-ci](https://github.com/chef-ci))
+<!-- latest_release -->
+
+## [0.1.223](https://github.com/chef/chef-workstation/tree/0.1.223) (2018-10-10)
+
+#### Merged Pull Requests
+- Bump Chef Workstation App to 0.0.28 [#258](https://github.com/chef/chef-workstation/pull/258) ([chef-ci](https://github.com/chef-ci))
+
+## [0.1.222](https://github.com/chef/chef-workstation/tree/0.1.222) (2018-10-10)
+
+#### Merged Pull Requests
+- Wait for chef-workstation-app merge_actions to finish. [#257](https://github.com/chef/chef-workstation/pull/257) ([jonsmorrow](https://github.com/jonsmorrow))
+
+## [0.1.221](https://github.com/chef/chef-workstation/tree/0.1.221) (2018-10-10)
+
+#### Merged Pull Requests
+- Subscribe to Workstation App pr merges [#255](https://github.com/chef/chef-workstation/pull/255) ([jonsmorrow](https://github.com/jonsmorrow))
+
+## [0.1.220](https://github.com/chef/chef-workstation/tree/0.1.220) (2018-10-10)
+
+#### Merged Pull Requests
+- Update CHANGELOG.md to capture PR #251 [#253](https://github.com/chef/chef-workstation/pull/253) ([jonsmorrow](https://github.com/jonsmorrow))
+
+## [0.1.219](https://github.com/chef/chef-workstation/tree/0.1.219) (2018-10-10)
+
+#### Merged Pull Requests
+- [SHACK-370] Disable windows chef workstation app autostart [#250](https://github.com/chef/chef-workstation/pull/250) ([marcparadise](https://github.com/marcparadise))
+- [SHACK-371] Uninstall ChefDK on OSX [#251](https://github.com/chef/chef-workstation/pull/251) ([jonsmorrow](https://github.com/jonsmorrow))
+
 ## [0.1.218](https://github.com/chef/chef-workstation/tree/0.1.218) (2018-10-03)
 
 #### Merged Pull Requests
 - [SHACK-354] windows install: capture install path to registry  [#249](https://github.com/chef/chef-workstation/pull/249) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.217](https://github.com/chef/chef-workstation/tree/0.1.217) (2018-10-02)
 
