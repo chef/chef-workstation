@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# Perform necessary steps to remove dk
+# before package is installed.
+#
+
+PROGNAME=`basename $0`
+
+error_exit()
+{
+  echo "${PROGNAME}: ${1:-"Unknown Error"}" 1>&2
+  exit 1
+}
+
+is_darwin()
+{
+  uname -v | grep "^Darwin" 2>&1 >/dev/null
+}
+
+if is_darwin; then
+    pkgId='com.getchef.pkg.chefdk'
+    echo "Checking for ChefDK installation"
+    if pkgutil --pkgs=$pkgId; then
+      echo "ChefDK installation found"
+      echo "Uninstalling ChefDK"
+      echo "Removing files"
+      rm -rf '/opt/chefdk'
+      echo "Removing binary links in /usr/local/bin"
+      find /usr/local/bin -lname '/opt/chefdk/*' -delete
+      echo "Forgeting $pkgId"
+      pkgutil --forget $pkgId
+    fi
+fi
