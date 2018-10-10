@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.225 -->
+<!-- latest_release 0.1.226 -->
+## [0.1.226](https://github.com/chef/chef-workstation/tree/0.1.226) (2018-10-10)
+
+#### Merged Pull Requests
+- Bump Chef Workstation App to 0.0.30 [#261](https://github.com/chef/chef-workstation/pull/261) ([chef-ci](https://github.com/chef-ci))
+<!-- latest_release -->
+
 ## [0.1.225](https://github.com/chef/chef-workstation/tree/0.1.225) (2018-10-10)
 
 #### Merged Pull Requests
 - Slim down the package and install sizes [#252](https://github.com/chef/chef-workstation/pull/252) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
 
 ## [0.1.224](https://github.com/chef/chef-workstation/tree/0.1.224) (2018-10-10)
 
