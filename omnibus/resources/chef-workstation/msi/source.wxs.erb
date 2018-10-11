@@ -53,7 +53,15 @@
 
     <!-- Detect if ChefDK is installed - this upgrade GUID is specified in
          chef-dk/omnibus/projects/chef-dk.rb. We don't look for a specific version -
-         we are incompatible with *any* DK version -->
+         we are incompatible with *any* DK version
+
+         This element will set the property CHEFDK_PRESENT, We use the CHEFDK_PRESENT property in
+         the installer UI, to determine whether or not to show the notification that ChefDK is
+         being replaced with Workstation.
+
+         With OnlyDetect set to 'no', it will also uninstall ChefDK as part of the actionns performed
+         during CW installation.
+      -->
     <Upgrade Id="AB1D6FBD-F9DC-4395-BDAD-26C4541168E7">
       <UpgradeVersion OnlyDetect="no" Minimum="0.0.0" IncludeMinimum="yes" Property="CHEFDK_PRESENT"/>
     </Upgrade>
@@ -270,7 +278,7 @@
 
   </Product>
 
-    <!-- We copied this fragment in fromn WixUI_FeatureTsee, based on the instructions here:
+    <!-- We copied this fragment in fromn WixUI_FeatureTree, based on the instructions here:
          http://wixtoolset.org/documentation/manual/v3/wixui/wixui_customizations.html#inserting-a-custom-dialog-into-a-built-in-dialog-set
 
          It's modified to inject the ChefDK warning (if DK is present) prior to the VerifyReadyDlg -->
