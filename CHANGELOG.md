@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.227 -->
+<!-- latest_release 0.1.228 -->
+## [0.1.228](https://github.com/chef/chef-workstation/tree/0.1.228) (2018-10-11)
+
+#### Merged Pull Requests
+- Uninstall ChefDK when installing CWS on Windows [#262](https://github.com/chef/chef-workstation/pull/262) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.227](https://github.com/chef/chef-workstation/tree/0.1.227) (2018-10-11)
 
 #### Merged Pull Requests
 - Bump Chef Workstation App to 0.0.31 [#263](https://github.com/chef/chef-workstation/pull/263) ([chef-ci](https://github.com/chef-ci))
-<!-- latest_release -->
 
 ## [0.1.226](https://github.com/chef/chef-workstation/tree/0.1.226) (2018-10-10)
 
