@@ -35,7 +35,6 @@ inspec version: 2.1.72
 
 The `chef-run` utility allows you to execute ad-hoc configuration updates on the systems you manage without needing to first set up a Chef server. With chef-run, you connect to servers over SSH or WinRM, and can apply single resources, recipes, or entire cookbooks directly from your local workstation.
 
-
 ### Example: Installing NTP Server
 
 Chef Workstation combines the power of InSpec and chef-run to give you the ability to easily detect and correct issues on any target instance. A common task that an environment maintainer performs is ensuring that the Network Time Protocol (NTP) is installed, so clocks are kept in sync between servers. InSpec allows us to simply query whether the package is installed via its package resource:
