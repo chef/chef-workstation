@@ -120,6 +120,7 @@ end
 
 dependency "nodejs-binary"
 dependency "chef-workstation-app"
+dependency "uninstall-scripts"
 dependency "chef-cleanup"
 
 exclude "**/.git"
