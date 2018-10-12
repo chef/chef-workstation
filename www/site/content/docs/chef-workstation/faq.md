@@ -1,22 +1,26 @@
 +++
-title = "Frequently Asked Questions"
+title = "About Chef Workstation"
 [menu]
   [menu.docs]
     parent = "Chef Workstation"
     weight= "30"
 +++
 
-#### Is Chef Workstation open source?
+Start your infrastructure automation quickly and easily with Chef Workstation. Chef Workstation give you everything you need to get started with Chef--ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software--all in one easy-to-install package.
 
-Yes! Our source code is available on [GitHub](https://github.com/chef/chef-workstation). Chef Workstation is open source software released under the [Apache 2.0 license](https://github.com/chef/chef-workstation/blob/master/LICENSE).
+Chef Workstation replaces ChefDK, combining all the existing features with the added Chef Workstation feature of running ad-hoc tasks. In the future, Chef will develop and improve Chef Workstation and maintain ChefDK in its current state.
 
-#### How can I contribute to Chef Workstation?
+## Open Source
 
-We always welcome (and deeply appreciate!) new contributions to the project. The best way to start contributing to Chef Workstation is to provide us with in-depth feedback by creating GitHub issues or sending your feedback to <workstation@chef.io>.
+We're keeping the tradition of open source development in Chef. You'll find the Chef Workstation source code on [GitHub](https://github.com/chef/chef-workstation). We're releasing Chef Workstation under the open source [Apache 2.0 license](https://github.com/chef/chef-workstation/blob/master/LICENSE).
 
-We are working on guidelines on how to keep development of the project awesome for all contributors.
+#### Contributing to Chef Workstation
 
-#### Operating Systems Supported
+We always welcome (and deeply appreciate!) new contributions to the project. The best way to start contributing to Chef Workstation is to provide us with in-depth feedback by creating GitHub issues.
+
+See the guidelines for [community contributions](https://docs.chef.io/community_contributions.html) and our [community guidelines](https://docs.chef.io/community_guidelines.html) for keeping the development of the project awesome for all contributors.
+
+#### Supported Platforms
 
 Supported Host Operating Systems:
 
@@ -38,31 +42,3 @@ Supported Target Operating Systems:
 | SUSE Enterprise Linux Server     | 11 SP4, 12 SP1+ |
 | Ubuntu                           | 14.04, 16.04, 18.04 |
 | Debian                           | 7.x, 8.x, 9.x |
-
-* Note: Supported platforms and versions for Chef Workstation are subject to change for the duration of the beta program.
-
-#### Why does Chef Workstation collect usage analytics and bug reports?
-
-Chef Workstation collects information to help us identify bugs and how users are interacting with Chef Workstation to help us make continuous improvements.
-
-##### What does Chef Workstation capture?
-
-* The Chef specific commands you execute (We do **not** capture any arguments)
-* Connection method (WinRM or SSH)
-* Host Operating System and version
-
-##### Who can view it?
-
-You can view the analytics we collect before it is sent. Telemetry from previous run(s) is sent when you start chef-run. Find--and remove it, your data--from the `HOME/.chef-workstation/telemetry/` folder.
-
-Your data collected is only accessible to employees of Chef Software, Inc. We will never sell, re-sell, or use your data in a malicious manner.
-
-##### How to opt-out?
-
-* You can stop a single session from being captured by setting the environment variable CHEF_TELEMETRY_OPT_OUT to any value before running chef-run.
-* You can disable telemetry by adding the following to `$HOME/.chef-workstation/config.toml`
-
-```bash
-[telemetry]
-enabled=false
-```
