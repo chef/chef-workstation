@@ -12,7 +12,7 @@ Yes! Our source code is available on [GitHub](https://github.com/chef/chef-works
 
 #### How can I contribute to Chef Workstation?
 
-We always welcome (and deeply appreciate!) new contributions to the project. The best way to start contributing to Chef Workstation during the beta period is to provide us with in-depth feedback by creating GitHub issues or sending your feedback to <beta@chef.io>.
+We always welcome (and deeply appreciate!) new contributions to the project. The best way to start contributing to Chef Workstation is to provide us with in-depth feedback by creating GitHub issues or sending your feedback to <workstation@chef.io>.
 
 We are working on guidelines on how to keep development of the project awesome for all contributors.
 
