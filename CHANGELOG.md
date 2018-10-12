@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.229 -->
+<!-- latest_release 0.1.230 -->
+## [0.1.230](https://github.com/chef/chef-workstation/tree/0.1.230) (2018-10-12)
+
+#### Merged Pull Requests
+- Clean up user messaging order in uninstall script [#265](https://github.com/chef/chef-workstation/pull/265) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.229](https://github.com/chef/chef-workstation/tree/0.1.229) (2018-10-12)
 
 #### Merged Pull Requests
 - Mac uninstall program [#264](https://github.com/chef/chef-workstation/pull/264) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.228](https://github.com/chef/chef-workstation/tree/0.1.228) (2018-10-11)
 
