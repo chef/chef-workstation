@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.230 -->
+<!-- latest_release 0.1.231 -->
+## [0.1.231](https://github.com/chef/chef-workstation/tree/0.1.231) (2018-10-15)
+
+#### Merged Pull Requests
+- Updating maintainer email to remove beta since Workstation is going GA [#271](https://github.com/chef/chef-workstation/pull/271) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.1.230](https://github.com/chef/chef-workstation/tree/0.1.230) (2018-10-12)
 
 #### Merged Pull Requests
 - Clean up user messaging order in uninstall script [#265](https://github.com/chef/chef-workstation/pull/265) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.229](https://github.com/chef/chef-workstation/tree/0.1.229) (2018-10-12)
 
