@@ -8,14 +8,11 @@ title = "Privacy and Telemetry"
 
 ## Chef Workstation Telemetry
 
-Chef Workstation collects information to help us identify bugs and how users
-are interacting with Chef Workstation to help us make continuous improvements.
+Chef Workstation collects information to help us identify bugs and user interactions with Chef Workstation to help us continually improve.
 
 We capture:
 
-* A unique installation-id that is not connected to any customer data. This helps us track
-  the number of active Chef Workstation installations without needing to perform
-  IP-based tracking.
+* A unique installation-id that isn't connected to user data. This helps us track the number of active Chef Workstation installations without needing to perform IP-based tracking.
 * The Chef-specific commands you execute, **without** any of the arguments you pass.
 * Your host operating system and version.
 * A SHA256 sum of any hostname that you're connecting to via `chef-run`.
@@ -25,7 +22,7 @@ We capture:
 ## Usage of Your Data
 
 We use this data to track Chef Workstation usage patterns, identify bugs, and
-iterate development based on the aggregate feedback it providesa
+iterate development based real aggregated feedback.
 
 Only Chef Software, Inc employees have access to your data. We will never sell,
 re-sell, or use your data in a malicious manner.
@@ -35,9 +32,11 @@ re-sell, or use your data in a malicious manner.
 * To stop the capture of telemetry data from a single session, set the
   environment variable `CHEF_TELEMETRY_OPT_OUT` to any value before running
   chef-run, for example:
-  ```
+
+  ```bash
   CHEF_TELEMETRY_OPT_OUT=1 chef-run -h
   ```
+
 *  Disable telemetry entirely by adding the following to
    `$HOME/.chef-workstation/config.toml`:
 
