@@ -16,7 +16,7 @@ If you have not installed Chef Workstation, download and install it from the [ch
 
 ## Check versions
 
-New ad-hoc commands `chef-run` and ChefDK CLI commands such as `chef` are available via Chef Workstation. See your installed version of Chef Workstation with `chef-run -v` and your installed version of the Chef tools with `chef -v`. You can also check your Workstation version by selecting "About Chef Workstation" from the Chef Workstation tray app.
+New ad-hoc commands `chef-run` and ChefDK CLI commands such as `chef` are available via Chef Workstation. See your installed version of Chef Workstation with `chef-run -v` and your installed version of the Chef tools with `chef -v`. You can also check your Workstation version by selecting "About Chef Workstation" from the Chef Workstation App.
 
 ```bash
 $ chef-run -v
