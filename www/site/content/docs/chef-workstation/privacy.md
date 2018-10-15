@@ -12,7 +12,7 @@ Chef Workstation collects information to help us identify bugs and how users are
 
 We capture:
 
-* The Chef-specific commands you execute, but **not** any of the arguments you pass.
+* The Chef-specific commands you execute, **without** any of the arguments you pass.
 * How you connect, either WinRM or SSH.
 * Your host operating system and version.
 
