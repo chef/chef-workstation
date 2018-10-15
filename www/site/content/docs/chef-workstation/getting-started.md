@@ -16,7 +16,7 @@ If you have not installed Chef Workstation, download and install it from the [ch
 
 ## Check versions
 
-New ad-hoc commands `chef-run` and ChefDK CLI commands such as `chef` are available via Chef Workstation. See your installed version of Chef Workstation with `chef-run -v` and your installed version of the Chef tools with `chef -v`.
+New ad-hoc commands `chef-run` and ChefDK CLI commands such as `chef` are available via Chef Workstation. See your installed version of Chef Workstation with `chef-run -v` and your installed version of the Chef tools with `chef -v`. You can also check your Workstation version by selecting "About Chef Workstation" from the Chef Workstation tray app.
 
 ```bash
 $ chef-run -v
@@ -37,7 +37,7 @@ The `chef-run` utility allows you to execute ad-hoc configuration updates on the
 
 ### Example: Installing NTP Server
 
-Chef Workstation combines the power of InSpec and `chef-run`, giving you the ability to easily detect and correct issues on any target instance. One common task that administrators perform in their environments is installing the Network Time Protocol (NTP), which keeps the clocks in sync between servers. InSpec allows us to check if the package is installed with a simple query, using the InSpec `package` resource:
+Chef Workstation combines the power of InSpec and `chef-run`, giving you the ability to easily detect and correct issues on any target instance. One common task that administrators perform in their environments is installing the Network Time Protocol (NTP), which keeps the clocks in sync between servers. InSpec allows us to check if the package is installed with a query, using the InSpec `package` resource:
 
 ```ruby
 describe package('ntp') do
@@ -59,8 +59,7 @@ With `chef-run`, you can run the resource directly from the command-line, conver
 chef-run myhost package ntp action=install
 ```
 
-Combined with executing an InSpec scan to validate if the package was successfully installed, we have everything we need to define our requirements, and make sure they're met with two simple commands, either locally or remotely.
-
+Combined with executing an InSpec scan to validate successful package installation, we have everything we need to define our requirements, and make sure they're met with two simple commands, either locally or remotely.
 
 ```ruby
 inspec exec ntp-check -t ssh://myuser@myhost -i ~/.ssh/mykey
@@ -78,7 +77,7 @@ Use `chef-run` to execute Chef recipes and cookbooks as well, and run it against
 
 #### Example: Recipe execution on multiple targets
 
-Run the default recipe from the defined cookbook against two servers: myhost1 & myhost2.
+Run the default recipe from the defined cookbook against two resources: myhost1 & myhost2.
 
 ```bash
 chef-run myhost1,myhost2 /path/to/my/cookbook
@@ -86,7 +85,7 @@ chef-run myhost1,myhost2 /path/to/my/cookbook
 
 #### Example: Alternate Recipe syntax and targets defined by a range
 
-Run the `my_cookbook::my_recipe` cookbook against twenty servers: myhost1 through myhost20
+Run the `my_cookbook::my_recipe` cookbook against twenty resources: myhost1 through myhost20
 
 ```bash
 chef-run myhost[1:20] my_cookbook::my_recipe
