@@ -6,9 +6,9 @@ title = "Privacy and Telemetry"
     weight = "50"
 +++
 
-## Chef Workstation Telemetry
-
 In order to continually improve Chef Workstation, we collect information to help us identify bugs and understand how people interact with Chef Workstation.
+
+## What We Collect
 
 We capture:
 
@@ -19,7 +19,7 @@ We capture:
 * How you connect to a remote host via `chef-run`, either WinRM or SSH.
 * Target operating system of any hosts connected to via `chef-run`.
 
-## Usage of Your Data
+## How We Use Your Data
 
 We use this data to track Chef Workstation usage patterns, identify bugs, and iterate development based real aggregated feedback.
 
@@ -44,7 +44,7 @@ enabled=false
 ## See Your Data
 
 You can view the analytics we collect before it is sent.
-Find--and remove--your data in the `HOME/.chef-workstation/telemetry/` folder.
+Find&#8212;and remove&#8212;your data in the `HOME/.chef-workstation/telemetry/` folder.
 We save the data from a current `chef-run` in the telemetry folder and collect it at the start of the next `chef-run`.
 
 When telemetry is disabled, we won't collect your previously stored analytics.
