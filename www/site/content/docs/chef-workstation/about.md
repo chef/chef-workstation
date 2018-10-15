@@ -14,13 +14,13 @@ Chef Workstation replaces ChefDK, combining all the existing features with the a
 
 We're keeping the tradition of open source development in Chef. You'll find the Chef Workstation source code on [GitHub](https://github.com/chef/chef-workstation). We're releasing Chef Workstation under the open source [Apache 2.0 license](https://github.com/chef/chef-workstation/blob/master/LICENSE).
 
-#### Contributing to Chef Workstation
+### Contributing to Chef Workstation
 
 We always welcome (and deeply appreciate!) new contributions to the project. The best way to start contributing to Chef Workstation is to provide us with in-depth feedback by creating GitHub issues.
 
 See the guidelines for [community contributions](https://docs.chef.io/community_contributions.html) and our [community guidelines](https://docs.chef.io/community_guidelines.html) for keeping the development of the project awesome for all contributors.
 
-#### Supported Platforms
+### Supported Platforms
 
 Supported Host Operating Systems:
 
