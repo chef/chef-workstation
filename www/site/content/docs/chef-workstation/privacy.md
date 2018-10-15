@@ -28,7 +28,7 @@ We will never sell, re-sell, or use your data in a malicious manner.
 
 ## Opting out
 
-* To stop the capture of telemetry data from a single session, set the environment variable `CHEF_TELEMETRY_OPT_OUT` to any value before running chef-run, for example:
+* To stop the capture of telemetry data from a single session, set the environment variable `CHEF_TELEMETRY_OPT_OUT` to any value before running `chef-run`, for example:
 
   ```bash
   CHEF_TELEMETRY_OPT_OUT=1 chef-run -h
@@ -45,6 +45,6 @@ enabled=false
 
 You can view the analytics we collect before it is sent.
 Find--and remove--your data in the `HOME/.chef-workstation/telemetry/` folder.
-We save the data from a current chef-run in the telemetry folder and collect it at the start of the next chef-run.
+We save the data from a current `chef-run` in the telemetry folder and collect it at the start of the next `chef-run`.
 
 When telemetry is disabled, we won't collect your previously stored analytics.
