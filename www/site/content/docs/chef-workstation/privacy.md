@@ -8,12 +8,12 @@ title = "Privacy and Telemetry"
 
 ## Chef Workstation Telemetry
 
-In order to continually improve Chef Workstation, we collect information to help us identify bugs and understand how users interact with Chef Workstation.
+In order to continually improve Chef Workstation, we collect information to help us identify bugs and understand how people interact with Chef Workstation.
 
 We capture:
 
 * A unique installation-id that isn't connected to user data. This helps us track the number of active Chef Workstation installations without needing to perform IP-based tracking.
-* The Chef-specific commands you execute, **without** any of the arguments you pass.
+* The Chef-specific commands you execute, but **none** of the arguments you pass.
 * Your host operating system and version.
 * A SHA256 sum of any hostname that you're connecting to via `chef-run`.
 * How you connect to a remote host via `chef-run`, either WinRM or SSH.
