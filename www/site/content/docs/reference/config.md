@@ -70,13 +70,12 @@ location="C:\Users\jdoe\chef-workstation.log"
 #### Option: `level`
   * Description: determines what kind of messages are logged from locally-run Chef Workstation commands to the to the local log file.
   * Default: `"warn"`
-  * Valid values: "debug", "warn", "info", "error", "fatal"
+  * Valid values: `"debug"`, `"warn"`, `"info"`, `"error"`, `"fatal"`
   * Used by: `chef-run`
 
 #### Option: `location`
   * Description: The location of the local Chef Workstation log file.
   * Default: `"$USERHOME/.chef-workstation/logs/default.log"`
-  * Type: String
   * Valid values: Value must be a valid, writable file path.
   * Used by: `chef-run`
 
@@ -165,7 +164,7 @@ cookbook_repo_paths = [
 
 #### Option: `trusted_certs_dir`
   * Description: Describes where to find Chef's trusted certificates. Used to ensure trusted certs are provided to the `chef-client` run on target nodes.
-  * Default:  Look first for `.chef/config.rb` and use that value if provided; otherwise `"/opt/chef-workstation/embedded/ssl/certs/"
+  * Default:  Look first for `.chef/config.rb` and use that value if provided; otherwise `"/opt/chef-workstation/embedded/ssl/certs/"`
   * Valid values: A directory containing the trusted certificates for use in the Chef ecosystem.
   * Used by: `chef-run`
 
@@ -241,6 +240,6 @@ spinner=false
 #### Option: `spinner`
 
   * Description: Use animated spinners and progress indicators in the terminal output
-  * Default: true
+  * Default: `true`
   * Valid Values: `true`, `false`
   * Used by: `chef-run`
