@@ -49,7 +49,7 @@ build_iteration 1
 # then Expeditor takes that version, runs a script to replace it here and pushes
 # a new commit / build through.
 
-override :"chef-dk", version: "v3.3.23"
+override :"chef-dk", version: "v3.4.18"
 
 # The Chef Workstation App version is pinned by Expeditor. Whenever Chef Workstation
 # App is merged then Expeditor takes the latest tag, runs a script to replace it here
