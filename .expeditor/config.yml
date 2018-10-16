@@ -17,6 +17,9 @@ github:
   changelog_file: "CHANGELOG.md"
   # Delete the PR branch after successfully merged into release branch.
   delete_branch_on_merge: true
+  # allow bumping the minor release via label
+  minor_bump_labels:
+    - "Expeditor: Bump Minor Version"
 
 # https://expeditor.chef.io/docs/getting-started/subscriptions/#merge-actions
 # The `merge_actions` key is a shortcut for the
@@ -43,3 +46,6 @@ subscriptions:
   - workload: artifact_published:stable:chefdk:3*
     actions:
       - bash:.expeditor/update_chefdk_to_stable.sh
+  - workload: chef/chef-workstation-app:master_completed:pull_request_merged:chef/chef-workstation-app:master:*
+    actions:
+      - bash:.expeditor/update_chef-workstation-app_to_latest.sh

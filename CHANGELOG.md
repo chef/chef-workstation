@@ -1,9 +1,74 @@
-<!-- latest_release 0.1.220 -->
+<!-- latest_release 0.1.233 -->
+## [0.1.233](https://github.com/chef/chef-workstation/tree/0.1.233) (2018-10-16)
+
+#### Merged Pull Requests
+- Update privacy.md [#277](https://github.com/chef/chef-workstation/pull/277) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
+## [0.1.232](https://github.com/chef/chef-workstation/tree/0.1.232) (2018-10-15)
+
+#### Merged Pull Requests
+- Creates about page, edits privacy, edits getting-started [#268](https://github.com/chef/chef-workstation/pull/268) ([kagarmoe](https://github.com/kagarmoe))
+
+## [0.1.231](https://github.com/chef/chef-workstation/tree/0.1.231) (2018-10-15)
+
+#### Merged Pull Requests
+- Updating maintainer email to remove beta since Workstation is going GA [#271](https://github.com/chef/chef-workstation/pull/271) ([tyler-ball](https://github.com/tyler-ball))
+
+## [0.1.230](https://github.com/chef/chef-workstation/tree/0.1.230) (2018-10-12)
+
+#### Merged Pull Requests
+- Clean up user messaging order in uninstall script [#265](https://github.com/chef/chef-workstation/pull/265) ([jonsmorrow](https://github.com/jonsmorrow))
+
+## [0.1.229](https://github.com/chef/chef-workstation/tree/0.1.229) (2018-10-12)
+
+#### Merged Pull Requests
+- Mac uninstall program [#264](https://github.com/chef/chef-workstation/pull/264) ([jonsmorrow](https://github.com/jonsmorrow))
+
+## [0.1.228](https://github.com/chef/chef-workstation/tree/0.1.228) (2018-10-11)
+
+#### Merged Pull Requests
+- Uninstall ChefDK when installing CWS on Windows [#262](https://github.com/chef/chef-workstation/pull/262) ([marcparadise](https://github.com/marcparadise))
+
+## [0.1.227](https://github.com/chef/chef-workstation/tree/0.1.227) (2018-10-11)
+
+#### Merged Pull Requests
+- Bump Chef Workstation App to 0.0.31 [#263](https://github.com/chef/chef-workstation/pull/263) ([chef-ci](https://github.com/chef-ci))
+
+## [0.1.226](https://github.com/chef/chef-workstation/tree/0.1.226) (2018-10-10)
+
+#### Merged Pull Requests
+- Bump Chef Workstation App to 0.0.30 [#261](https://github.com/chef/chef-workstation/pull/261) ([chef-ci](https://github.com/chef-ci))
+
+## [0.1.225](https://github.com/chef/chef-workstation/tree/0.1.225) (2018-10-10)
+
+#### Merged Pull Requests
+- Slim down the package and install sizes [#252](https://github.com/chef/chef-workstation/pull/252) ([tas50](https://github.com/tas50))
+
+## [0.1.224](https://github.com/chef/chef-workstation/tree/0.1.224) (2018-10-10)
+
+#### Merged Pull Requests
+- Bump Chef Workstation App to 0.0.29 [#259](https://github.com/chef/chef-workstation/pull/259) ([chef-ci](https://github.com/chef-ci))
+
+## [0.1.223](https://github.com/chef/chef-workstation/tree/0.1.223) (2018-10-10)
+
+#### Merged Pull Requests
+- Bump Chef Workstation App to 0.0.28 [#258](https://github.com/chef/chef-workstation/pull/258) ([chef-ci](https://github.com/chef-ci))
+
+## [0.1.222](https://github.com/chef/chef-workstation/tree/0.1.222) (2018-10-10)
+
+#### Merged Pull Requests
+- Wait for chef-workstation-app merge_actions to finish. [#257](https://github.com/chef/chef-workstation/pull/257) ([jonsmorrow](https://github.com/jonsmorrow))
+
+## [0.1.221](https://github.com/chef/chef-workstation/tree/0.1.221) (2018-10-10)
+
+#### Merged Pull Requests
+- Subscribe to Workstation App pr merges [#255](https://github.com/chef/chef-workstation/pull/255) ([jonsmorrow](https://github.com/jonsmorrow))
+
 ## [0.1.220](https://github.com/chef/chef-workstation/tree/0.1.220) (2018-10-10)
 
 #### Merged Pull Requests
 - Update CHANGELOG.md to capture PR #251 [#253](https://github.com/chef/chef-workstation/pull/253) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.219](https://github.com/chef/chef-workstation/tree/0.1.219) (2018-10-10)
 

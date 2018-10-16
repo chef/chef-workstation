@@ -12,11 +12,11 @@ Chef Workstation gives you everything you need to get started with Chef. Ad-hoc 
 
 ## Install Chef Workstation
 
-If you have not installed Chef Workstation, download and install it via https://www.chef.sh.
+If you have not installed Chef Workstation, download and install it from the [chef.sh](https://www.chef.sh) website.
 
 ## Check versions
 
-New ad-hoc commands `chef-run` and ChefDK commands such as `chef` are available via Chef Workstation. Your output may differ if you are running different versions.
+New ad-hoc commands `chef-run` and ChefDK CLI commands such as `chef` are available via Chef Workstation. See your installed version of Chef Workstation with `chef-run -v` and your installed version of the Chef tools with `chef -v`. You can also check your Workstation version by selecting "About Chef Workstation" from the Chef Workstation App.
 
 ```bash
 $ chef-run -v
@@ -33,12 +33,11 @@ inspec version: 2.1.72
 
 ## Ad-hoc remote execution with `chef-run`
 
-The `chef-run` utility allows you to execute ad-hoc configuration updates on the systems you manage without needing to first set up a Chef server. With chef-run, you connect to servers over SSH or WinRM, and can apply single resources, recipes, or entire cookbooks directly from your local workstation.
-
+The `chef-run` utility allows you to execute ad-hoc configuration updates on the systems you manage without setting up a Chef server. With `chef-run`, you connect to servers over SSH or WinRM, and you can apply single resources, recipes, or even entire cookbooks directly from the command line.
 
 ### Example: Installing NTP Server
 
-Chef Workstation combines the power of InSpec and chef-run to give you the ability to easily detect and correct issues on any target instance. A common task that an environment maintainer performs is ensuring that the Network Time Protocol (NTP) is installed, so clocks are kept in sync between servers. InSpec allows us to simply query whether the package is installed via its package resource:
+Chef Workstation combines the power of InSpec and `chef-run`, giving you the ability to easily detect and correct issues on any target instance. One common task that administrators perform in their environments is installing the Network Time Protocol (NTP), which keeps the clocks in sync between servers. InSpec allows us to check if the package is installed with a query, using the InSpec `package` resource:
 
 ```ruby
 describe package('ntp') do
@@ -46,7 +45,7 @@ describe package('ntp') do
 end
  ```
 
-Chef provides a similar single-resource solution for ensuring the package is installed:
+Chef also provides a single-resource solution to install the Network Time Protocol package:
 
 ```ruby
 package 'ntp' do
@@ -54,23 +53,31 @@ package 'ntp' do
 end
 ```
 
-Use chef-run, to converge targets against a single resource without needing to create a cookbook or recipe -- run the resource directly from the command-line:
+With `chef-run`, you can run the resource directly from the command-line, converging your targets with a single resource, without creating a cookbook or recipe:
 
 ```bash
 chef-run myhost package ntp action=install
 ```
 
-Combined with the InSpec resource to validate whether the package was installed successfully, we have everything we need to define our requirements, and make sure they're met with two simple commands.
+Combined with executing an InSpec scan to validate successful package installation, we have everything we need to define our requirements, and make sure they're met with two simple commands, either locally or remotely.
+
+```ruby
+inspec exec ntp-check -t ssh://myuser@myhost -i ~/.ssh/mykey
+```
+
+```bash
+chef-run -i ~/.ssh/mykey myuser@myhost package ntp action=install
+```
 
 ![Chef Run NTP Installation](/images/chef-workstation/chef-run.gif)
 
 ### Recipe and Multi-Node Convergence
 
-`chef-run` can execute Chef recipes and cookbooks as well, and run against multiple targets in parallel. Here are a few other examples of chef-run in action.
+Use `chef-run` to execute Chef recipes and cookbooks as well, and run it against multiple targets in parallel. Here are a few  examples of chef-run in action:
 
 #### Example: Recipe execution on multiple targets
 
-Runs the default recipe from the defined cookbook against myhost1 & myhost2
+Run the default recipe from the defined cookbook against two resources: myhost1 & myhost2.
 
 ```bash
 chef-run myhost1,myhost2 /path/to/my/cookbook
@@ -78,7 +85,7 @@ chef-run myhost1,myhost2 /path/to/my/cookbook
 
 #### Example: Alternate Recipe syntax and targets defined by a range
 
-Runs the `my_cookbook::my_recipe` cookbook against servers myhost1 through myhost20
+Run the `my_cookbook::my_recipe` cookbook against twenty resources: myhost1 through myhost20
 
 ```bash
 chef-run myhost[1:20] my_cookbook::my_recipe
