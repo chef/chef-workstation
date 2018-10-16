@@ -1,9 +1,14 @@
-<!-- latest_release 0.2.5 -->
+<!-- latest_release 0.2.6 -->
+## [0.2.6](https://github.com/chef/chef-workstation/tree/0.2.6) (2018-10-16)
+
+#### Merged Pull Requests
+- Bump DK version to v3.4.18 [#284](https://github.com/chef/chef-workstation/pull/284) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.2.5](https://github.com/chef/chef-workstation/tree/0.2.5) (2018-10-16)
 
 #### Merged Pull Requests
 - Adds in-flight install/upgrade/remove page under Workstation heading [#274](https://github.com/chef/chef-workstation/pull/274) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.2.4](https://github.com/chef/chef-workstation/tree/0.2.4) (2018-10-16)
 
