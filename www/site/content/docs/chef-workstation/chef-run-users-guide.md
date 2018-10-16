@@ -1,5 +1,5 @@
 +++
-title = "chef-run User's Guide"
+title = "chef-run Guide"
 [menu]
   [menu.docs]
     parent = "Chef Workstation"
@@ -36,7 +36,7 @@ One choice for specifying your `chef-run` command is:
 chef-run host1 directory /tmp/foo
 ```
 
-To use password authentication instead of an identity file, specify it as part of the connection information or using the command line flag:
+To use password authentication instead of an identity file, specify the identity file location as part of the connection information or using the command line flag:
 
 ```bash
 chef-run my_user:a_password@host1:2222 directory /tmp/foo
@@ -51,7 +51,7 @@ To target WinRM you must specify the `winrm` protocol as part of the connection 
 chef-run 'winrm://my_user:c0mplexP@ssword#!@host:5986' directory /tmp/foo
 ```
 
-WinRM connections only support password authentication. It will not read default information from the SSH config so all connection information must be specified on the command line. The port only needs to be specified if the target machine has it set to a non-default port (5986).
+WinRM connections only support password authentication and does not read default information from the SSH configuration. When using WinRM, specify all connection information on the command line. Only specify the connection port if be specified if the target machine uses a non-default port (default:5986).
 
 `chef-run` over winrm does not support certificate authentication. It also does not support connecting over HTTPS.
 
