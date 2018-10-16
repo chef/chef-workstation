@@ -149,4 +149,4 @@ messages
     reachable before trying again.
     .n
     If you are not able to resolve this issue, please contact Chef support
-    at beta@chef.io
+    at workstation@chef.io

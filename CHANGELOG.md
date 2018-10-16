@@ -1,9 +1,40 @@
-<!-- latest_release 0.1.230 -->
+<!-- latest_release 0.2.3 -->
+## [0.2.3](https://github.com/chef/chef-workstation/tree/0.2.3) (2018-10-16)
+
+#### Merged Pull Requests
+- Adds chef-run user guide under Workstation [#275](https://github.com/chef/chef-workstation/pull/275) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
+## [0.2.2](https://github.com/chef/chef-workstation/tree/0.2.2) (2018-10-16)
+
+#### Merged Pull Requests
+- Updates &quot;about.md&quot; for Workstation [#276](https://github.com/chef/chef-workstation/pull/276) ([marcparadise](https://github.com/marcparadise))
+
+## [0.2.1](https://github.com/chef/chef-workstation/tree/0.2.1) (2018-10-16)
+
+#### Merged Pull Requests
+- Fix reversed condition for CWA lib detection [#266](https://github.com/chef/chef-workstation/pull/266) ([marcparadise](https://github.com/marcparadise))
+- [SHACK-367] Bump minor version for GA [#254](https://github.com/chef/chef-workstation/pull/254) ([jonsmorrow](https://github.com/jonsmorrow))
+
+## [0.1.233](https://github.com/chef/chef-workstation/tree/0.1.233) (2018-10-16)
+
+#### Merged Pull Requests
+- Update privacy.md [#277](https://github.com/chef/chef-workstation/pull/277) ([marcparadise](https://github.com/marcparadise))
+
+## [0.1.232](https://github.com/chef/chef-workstation/tree/0.1.232) (2018-10-15)
+
+#### Merged Pull Requests
+- Creates about page, edits privacy, edits getting-started [#268](https://github.com/chef/chef-workstation/pull/268) ([kagarmoe](https://github.com/kagarmoe))
+
+## [0.1.231](https://github.com/chef/chef-workstation/tree/0.1.231) (2018-10-15)
+
+#### Merged Pull Requests
+- Updating maintainer email to remove beta since Workstation is going GA [#271](https://github.com/chef/chef-workstation/pull/271) ([tyler-ball](https://github.com/tyler-ball))
+
 ## [0.1.230](https://github.com/chef/chef-workstation/tree/0.1.230) (2018-10-12)
 
 #### Merged Pull Requests
 - Clean up user messaging order in uninstall script [#265](https://github.com/chef/chef-workstation/pull/265) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.1.229](https://github.com/chef/chef-workstation/tree/0.1.229) (2018-10-12)
 
