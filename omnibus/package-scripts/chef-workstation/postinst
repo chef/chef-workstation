@@ -49,7 +49,7 @@ else # linux - postinst does not run for windows.
   cwa_app_path="$INSTALLER_DIR/components/chef-workstation-app/chef-workstation-app"
   ldd "$cwa_app_path" | grep "not found" >/dev/null 2>&1
   # 0 rc means grep found 'not found' text - and we have missing deps.
-  if [ $? -eq 1 ]; then
+  if [ $? -eq 0 ]; then
     echo ""
     echo "To run the experimental Chef Workstation App, use your"
     echo "platform's package manager to install these dependencies:"
