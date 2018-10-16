@@ -13,11 +13,11 @@ This document covers some common usage scenarios for `chef-run`
 To start with, familiarize yourself with `chef-run`'s arguments and flags
 by running `chef-run -h`.
 
-## Apply a resource to a single node over SSH
+## Apply a Resource to a Single Node over SSH
 
 In its simplest form, `chef-run` targets a single machine and execute a single resource on that machine.
 
-When using SSH `chef-run` attempts to read defaults from your `~/.ssh/config` file. Given the following SSH config:
+When using SSH `chef-run` attempts to read defaults from your `~/.ssh/config` file. Given the following SSH configuration:
 
 ```bash
 $ chef-run my_user@host1:2222 directory /tmp/foo --identity-file ~/.ssh/id_rsa
@@ -72,9 +72,9 @@ chef-run host1 user action=remove
 
 See the documentation for each resource to see what attributes are available to customize. As shown in the previous example you can quote the `key=value` pair if you want to have a value with a character that would be interpreted by the shell.
 
-## Running a recipe
+## Running a Recipe
 
-If you want to run multiple resources run them from a recipe. Recipes can be specified as the path to the recipe:
+To run multiple resources from a recipe. Specify a recipe using its path:
 
 ```bash
 chef-run host1 /path/to/recipe.rb
@@ -90,7 +90,7 @@ chef-run host1 /cookbooks/my_cookbook
 
 If you specify the path to the cookbook `chef-run` will execute the default recipe from the cookbook on the target node.
 
-`chef-run` also supports looking up your cookbook in a local cookbook repo. Assuming you have your cookbook repo at `/cookbooks`,  run:
+`chef-run` also supports looking up your cookbook in a local cookbook repository. Assuming you have your cookbook repository at `/cookbooks`,  run:
 
 ```bash
 cd /cookbooks
@@ -98,21 +98,21 @@ chef-run host1 my_cookbook
 chef-run host1 my_cookbook::non_default_recipe
 ```
 
-Specifying `::recipe_name` tells `chef-run` to run a different recipe than the default one. `chef-run` will read your local `~/.chef/config.rb` and look for cookbooks in the paths specified to `cookbook_path`. That config value is an array and can look something like
+`::recipe_name` tells `chef-run` to run a different recipe than the default one. `chef-run` reads your local `~/.chef/config.rb` and looks for cookbooks in the paths specified as `cookbook_path`. That configuration value is an array and looks something like
 
 ```bash
 cookbook_path ['/path/1', '/path/b']
 ```
 
-If you try to run `chef-run host1 my_cookbook` and in the current directory does not have a cookbook named `my_cookbook`, then `chef-run` searches the specified paths in the `cookbook_path`. This configuration is read out of your existing Chef config instead of from the Chef Workstation config.
+If you run `chef-run host1 my_cookbook` and the current directory does not have a cookbook named `my_cookbook`, then `chef-run` searches the paths specified in the `cookbook_path`. These paths are read out of your existing Chef configuration instead of from the Chef Workstation configuration.
 
-If you do not have or want that config file and want to specify the search paths as command line arguments:
+To specify the search paths as command line arguments instead of using a configuration file, use:
 
 ```bash
 chef-run host1 my_cookbook --cookbook-repo-paths '/path/1,/path/b'
 ```
 
-## Configuring cookbook dependencies and sources
+## Configuring Cookbook Dependencies and Sources
 
 When converging a target node `chef-run` creates a policyfile bundle that includes the cookbook specified. If the cookbook you specified has its own [`Policyfile.rb`](https://docs.chef.io/config_rb_policyfile.html) that will be respected.
 
@@ -143,15 +143,15 @@ log "lets include some stuff"
 include_recipe "pretty_simple::second"
 ```
 
-If you ran `chef-run host1 really_complicated::first` then it would collect all the `really_complicated` cookbook dependencies (`pretty_simple`) in preparation for converging the target node. When running on that node the `first` recipe would find its local dependency on the `pretty_simple` cookbook and run its `second` recipe.
+Running `chef-run host1 really_complicated::first` collects all the `really_complicated` cookbook dependencies (`pretty_simple`) first, in preparation for converging the target node. When running on that node the `first` recipe finds its local dependency on the `pretty_simple` cookbook and then runs its `second` recipe.
 
 You can specify different cookbook sources in `Policyfile.rb`. [Private supermarket documentation](https://docs.chef.io/config_rb_policyfile.html)
 
 ## Connecting to Automate 2
 
-Remote nodes that are managed with `chef-run` can be configured to send run information to Automate. First, [generate an auth token](https://automate.chef.io/docs/admin/#creating-a-standard-api-token).
+You can configure remote nodes managed with `chef-run` for sending run information to Automate. First, [generate an auth token](https://automate.chef.io/docs/admin/#creating-a-standard-api-token).
 
-Then add the token to  [config.toml](TODO: link to config page), specifying the appropriate data [collection address](https://automate.chef.io/docs/data-collection/) and [token](https://automate.chef.io/docs/api-tokens/#creating-a-standard-api-token) for the automate server:
+Next, add the token to [config.toml](TODO: link to configuration page), specifying the appropriate [data collection address](https://automate.chef.io/docs/data-collection/) and [token](https://automate.chef.io/docs/api-tokens/#creating-a-standard-api-token) for the automate server:
 
 ```toml
 [data_collector]
@@ -159,4 +159,4 @@ url="https://127.0.0.1/data-collector/v0/"
 token="abc123="
 ```
 
-The target nodes will need network access to that Automate instance on port 443 to send the chef-client run information.
+Target nodes need network access on port 443 to that Automate instance for sending `chef-client` run information.
