@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.232 -->
+<!-- latest_release 0.1.233 -->
+## [0.1.233](https://github.com/chef/chef-workstation/tree/0.1.233) (2018-10-16)
+
+#### Merged Pull Requests
+- Update privacy.md [#277](https://github.com/chef/chef-workstation/pull/277) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.1.232](https://github.com/chef/chef-workstation/tree/0.1.232) (2018-10-15)
 
 #### Merged Pull Requests
 - Creates about page, edits privacy, edits getting-started [#268](https://github.com/chef/chef-workstation/pull/268) ([kagarmoe](https://github.com/kagarmoe))
-<!-- latest_release -->
 
 ## [0.1.231](https://github.com/chef/chef-workstation/tree/0.1.231) (2018-10-15)
 
