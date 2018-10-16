@@ -1,9 +1,14 @@
-<!-- latest_release 0.1.233 -->
+<!-- latest_release unreleased -->
+## Unreleased
+
+#### Merged Pull Requests
+- [SHACK-367] Bump minor version for GA [#254](https://github.com/chef/chef-workstation/pull/254) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.1.233](https://github.com/chef/chef-workstation/tree/0.1.233) (2018-10-16)
 
 #### Merged Pull Requests
 - Update privacy.md [#277](https://github.com/chef/chef-workstation/pull/277) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.1.232](https://github.com/chef/chef-workstation/tree/0.1.232) (2018-10-15)
 
