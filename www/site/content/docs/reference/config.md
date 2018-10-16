@@ -28,7 +28,7 @@ Chef Workstation looks for the `config.toml` in a default location.
 
 ## Settings
 
-### [telemetry]
+### Telemetry
 
 Configure telemetry behaviors for Chef Workstation components.
 
@@ -39,6 +39,49 @@ Configure telemetry behaviors for Chef Workstation components.
 enable=true
 dev=false
 ```
+#### enable
+
+Description
+: When `true`, anonymous usage data and bug reports are sent to Chef. See Chef's [Privacy Statement](https://www.chef.sh/docs/chef-workstation/privacy/) for the type and usage of gathered data.
+
+Used by
+: `chef-run`.
+
+Value
+: `true`, `false`.
+
+Default
+: `true`.
+
+Environment
+: `CHEF_TELEMETRY_OPT_OUT`
+
+|Description|When `true`, anonymous usage data and bug reports are sent to Chef. See Chef's [Privacy Statement](https://www.chef.sh/docs/chef-workstation/privacy/) for the type and usage of gathered data.|
+|Used by| `chef-run`|
+|Value|`true`, `false`|
+|Default|`true`|
+|Environment| `CHEF_TELEMETRY_OPT_OUT`|
+
+#### dev
+
+Description
+: When set to any value, `chef-run` will not capture or send telemetry data. Only set this if you have access to Chef's internal QA environment - otherwise the telemetry data will not be successfully captured by Chef.
+
+Used by
+: `chef-run`, `Chef Workstation App`.
+
+Values
+: `true`, `false`. 
+
+Default
+: `false`.
+
+dev
+: When `dev` and `enable` are both true, anonymous data is reported to Chef's QA environment.
+* 
+* Valid 
+* 
+
 
 #### Option: enable
 
@@ -46,8 +89,15 @@ dev=false
 * Default: `true`
 * Valid values: `true`, `false`
 * Environment:
-* `CHEF_TELEMETRY_OPT_OUT`: when set to any value, `chef-run` will not capture or send telemetry data.* Notes:
-* See Chef's [Privacy Statement](https://www.chef.sh/docs/chef-workstation/privacy/) for the type and usage of gathered data.* Used by: `chef-run`
+* `CHEF_TELEMETRY_OPT_OUT`: when set to any value, `chef-run` will not capture or send telemetry data.
+* Notes: See Chef's [Privacy Statement](https://www.chef.sh/docs/chef-workstation/privacy/) for the type and usage of gathered data.
+* Used by: `chef-run`
+
+enable
+: Description: When `true`, anonymous usage data and bug reports are sent to Chef. See Chef's [Privacy Statement](https://www.chef.sh/docs/chef-workstation/privacy/) for the type and usage of gathered data. Used by: `chef-run`. Values: `true`, `false`. Default: `true`.
+
+CHEF_TELEMETRY_OPT_OUT
+: when set to any value, `chef-run` will not capture or send telemetry data.
 
 #### Option: dev
 
