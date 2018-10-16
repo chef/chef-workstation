@@ -1,9 +1,14 @@
-<!-- latest_release 0.2.3 -->
+<!-- latest_release 0.2.4 -->
+## [0.2.4](https://github.com/chef/chef-workstation/tree/0.2.4) (2018-10-16)
+
+#### Merged Pull Requests
+- Adds the in-flight Chef Workstation App doc page [#273](https://github.com/chef/chef-workstation/pull/273) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.2.3](https://github.com/chef/chef-workstation/tree/0.2.3) (2018-10-16)
 
 #### Merged Pull Requests
 - Adds chef-run user guide under Workstation [#275](https://github.com/chef/chef-workstation/pull/275) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.2.2](https://github.com/chef/chef-workstation/tree/0.2.2) (2018-10-16)
 
