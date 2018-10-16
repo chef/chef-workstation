@@ -1,7 +1,8 @@
-<!-- latest_release unreleased -->
-## Unreleased
+<!-- latest_release 0.2.1 -->
+## [0.2.1](https://github.com/chef/chef-workstation/tree/0.2.1) (2018-10-16)
 
 #### Merged Pull Requests
+- Fix reversed condition for CWA lib detection [#266](https://github.com/chef/chef-workstation/pull/266) ([marcparadise](https://github.com/marcparadise))
 - [SHACK-367] Bump minor version for GA [#254](https://github.com/chef/chef-workstation/pull/254) ([jonsmorrow](https://github.com/jonsmorrow))
 <!-- latest_release -->
 
