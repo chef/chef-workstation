@@ -44,71 +44,33 @@ dev=false
 Description
 : When `true`, anonymous usage data and bug reports are sent to Chef. See Chef's [Privacy Statement](https://www.chef.sh/docs/chef-workstation/privacy/) for the type and usage of gathered data.
 
-Used by
-: `chef-run`.
-
 Value
-: `true`, `false`.
+: `true`, `false`
 
 Default
-: `true`.
+: `true`
 
-Environment
-: `CHEF_TELEMETRY_OPT_OUT`
+Used by
+: `chef-run`
 
-|Description|When `true`, anonymous usage data and bug reports are sent to Chef. See Chef's [Privacy Statement](https://www.chef.sh/docs/chef-workstation/privacy/) for the type and usage of gathered data.|
-|Used by| `chef-run`|
-|Value|`true`, `false`|
-|Default|`true`|
-|Environment| `CHEF_TELEMETRY_OPT_OUT`|
+`CHEF_TELEMETRY_OPT_OUT`
+: When set to any value, `chef-run` will not capture or send telemetry data.
 
 #### dev
 
 Description
-: When set to any value, `chef-run` will not capture or send telemetry data. Only set this if you have access to Chef's internal QA environment - otherwise the telemetry data will not be successfully captured by Chef.
-
-Used by
-: `chef-run`, `Chef Workstation App`.
+: When set to any value, `chef-run` will not capture or send telemetry data. Only set this if you have access to Chef's internal QA environment - otherwise the telemetry data will not be successfully captured by Chef. If you have access to Chef's internal QA environment, if `dev` and `enable` are both `true`, anonymous data is reported to Chef's QA environment.
 
 Values
-: `true`, `false`. 
+: `true`, `false`
 
 Default
-: `false`.
+: `false`
 
-dev
-: When `dev` and `enable` are both true, anonymous data is reported to Chef's QA environment.
-* 
-* Valid 
-* 
+Used by
+: `chef-run`, `Chef Workstation App`
 
-
-#### Option: enable
-
-* Description: When `true`, anonymous usage data and bug reports are sent to Chef.
-* Default: `true`
-* Valid values: `true`, `false`
-* Environment:
-* `CHEF_TELEMETRY_OPT_OUT`: when set to any value, `chef-run` will not capture or send telemetry data.
-* Notes: See Chef's [Privacy Statement](https://www.chef.sh/docs/chef-workstation/privacy/) for the type and usage of gathered data.
-* Used by: `chef-run`
-
-enable
-: Description: When `true`, anonymous usage data and bug reports are sent to Chef. See Chef's [Privacy Statement](https://www.chef.sh/docs/chef-workstation/privacy/) for the type and usage of gathered data. Used by: `chef-run`. Values: `true`, `false`. Default: `true`.
-
-CHEF_TELEMETRY_OPT_OUT
-: when set to any value, `chef-run` will not capture or send telemetry data.
-
-#### Option: dev
-
-* Description: When this and `enable` are true, anonymous data is reported to Chef's QA environment.
-* Default: `false`
-* Valid values: `true`, `false`
-* Used by: `chef-run`, `Chef Workstation App`
-* Notes:
-  * Only set this if you have access to Chef's internal QA environment - otherwise the telemetry data will not be successfully captured by Chef.
-
-### [log]
+### Log
 
 Control logging level and location.
 
@@ -120,21 +82,35 @@ level="debug"
 location="C:\Users\username\chef-workstation.log"
 ```
 
-#### Option: level
+#### level
 
-* Description: determines what kind of messages are logged from locally-run Chef Workstation commands to the to the local log file.
-* Default: `"warn"`
-* Valid values: `"debug"`, `"warn"`, `"info"`, `"error"`, `"fatal"`
-* Used by: `chef-run`
+Description
+: Determines what messages are logged from locally-run Chef Workstation commands to the to the local log file.
 
-#### Option: location
+Values
+: `"debug"`, `"warn"`, `"info"`, `"error"`, `"fatal"`
 
-* Description: The location of the local Chef Workstation log file.
-* Default: `"$USERHOME/.chef-workstation/logs/default.log"`
-* Valid values: Value must be a valid, writable file path.
-* Used by: `chef-run`
+Default
+: `"warn"`
 
-### [cache]
+Used by
+: `chef-run`
+
+#### location
+
+Description
+: The location of the local Chef Workstation log file.
+
+Values
+: Value must be a valid, writable file path.
+
+Default
+: `"$USERHOME/.chef-workstation/logs/default.log"
+
+Used by
+: `chef-run`
+
+### cache
 
 Configure caching options.
 
@@ -145,14 +121,21 @@ Configure caching options.
 path="/home/users/username/.cache/chef-workstation"
 ```
 
-#### Option: path
+#### path
 
-* Description: The base path used to store cached cookbooks and downloads.
-* Default: `$USERHOME/.chef-workstation/cache`
-* Valid values: This must reference a valid, writable directory.
-* Used by: `chef-run`
+Description
+: The base path used to store cached cookbooks and downloads.
 
-### [connection]
+Default
+: `$USERHOME/.chef-workstation/cache`
+
+Values
+: This must reference a valid, writable directory.
+
+Used by
+: `chef-run`
+
+### Connection
 
 Control default connection behaviors.
 
@@ -164,23 +147,41 @@ default_protocol="winrm"
 default_user="username"
 ```
 
-#### Option: default_protocol
+#### default_protocol
 
-* Description: Default protocol for connecting to target hosts.
-* Default: `"ssh"`
-* Valid values: `"ssh"`, `"winrm"`
-* CLI flag: `--protocol PROTO`
-* Used by: `chef-run`
+Description
+: Default protocol for connecting to target hosts.
 
-#### Option: default_user
+Values
+: `"ssh"`, `"winrm"`
 
-* Description: Default username for target host authentication
-* Default: `root` (Linux),  `administrator` (Windows)
-* Valid values: A username that exists on the target hosts.
-* CLI flag: `--user USERNAME`
-* Used by: `chef-run`
+Default
+: `"ssh"`
 
-### [connection.winrm]
+Used by
+: `chef-run`
+
+CLI flag
+: `--protocol PROTO`
+
+#### default_user
+
+Description
+: Default username for target host authentication.
+
+Values
+: A username that exists on the target hosts.
+
+Default
+: `root` (Linux),  `administrator` (Windows)
+
+Used by
+: `chef-run`
+
+CLI flag
+: `--user USERNAME`
+
+### Connection.winrm
 
 Control connection behaviors for the WinRM protocol.
 
@@ -192,24 +193,41 @@ ssl=true
 ssl_verify=false
 ```
 
-#### Option: ssl
+#### ssl
 
-* Description: Enable SSL for WinRM session encryption
-* Default: `false`
-* Valid values: `true`, `false`
-* CLI flag: `--[no]-ssl`
-* Used by: `chef-run`
+Description
+: Enable SSL for WinRM session encryption
 
-#### Option: ssl_verify
+Values
+: `true`, `false`
 
-* Description:
-* Default: `true`
-* Valid values: `true`, `false`
-* CLI flag: --ssl-[no]-verify
-* Used by: `chef-run`
-* Notes: Intended for use in testing environments that use self-signed certificates on Windows nodes.
+Default
+: `false`
 
-### [chef]
+Used by
+: `chef-run`
+
+CLI flag
+: `--[no]-ssl`
+
+#### ssl_verify
+
+Description
+:Intended for use in testing environments that use self-signed certificates on Windows nodes.
+
+Default
+: `true`
+
+Values
+: `true`, `false`
+
+Used by
+: `chef-run`
+
+CLI flag
+: --ssl-[no]-verify
+
+### chef
 
 Configure remote Chef running on instances.
 
@@ -224,25 +242,38 @@ cookbook_repo_paths = [
 ]
 ```
 
-#### Option: trusted_certs_dir
+#### trusted_certs_dir
 
-* Description: Describes where to find Chef's trusted certificates. Used to ensure trusted certs are provided to the `chef-client` run on target nodes.
-* Default:  Look first for `.chef/config.rb` and use that value if provided; otherwise `"/opt/chef-workstation/embedded/ssl/certs/"`
-* Valid values: A directory containing the trusted certificates for use in the Chef ecosystem.
-* Used by: `chef-run`
+Description
+: Describes where to find Chef's trusted certificates. Used to ensure trusted certs are provided to the `chef-client` run on target nodes.
 
-#### Option: cookbook_repo_paths
+Values
+: A directory containing the trusted certificates for use in the Chef ecosystem.
 
-* Description: Path or paths to use for cookbook resolution.
-* Default: `cookbook_path` value from `.chef/config.rb`, otherwise not fou
-* Valid values: A string referencing a valid cookbook path, or an array of such strings.  See example for syntax.
-* CLI flag: `--cookbook-repo-paths PATH1,PATH2,..PATHn`
-* Used by: `chef-run`
-* Notes:
-  * When multiple cookbook paths are provided and a cookbook exists in more than one of them, the cookbook found in the last-most directory will be used. Considering the example, when resolving cookbook `mycb`: if `mycb` existed in both `/home/username/cookbooks` and `/var/chef/cookbooks`, `mycb` in `/var/chef/cookbooks` will be used.
-  * See [link and desc here] for more details around how cookbook path is determined.
+Default
+:  Look first for `.chef/config.rb` and use that value if provided; otherwise `"/opt/chef-workstation/embedded/ssl/certs/"`
 
-### [updates]
+Used by
+: `chef-run`
+
+#### cookbook_repo_paths
+
+Description
+: Path or paths to use for cookbook resolution. When multiple cookbook paths are provided and a cookbook exists in more than one of them, the cookbook found in the last-most directory will be used. Considering the example, when resolving cookbook `mycb`: if `mycb` existed in both `/home/username/cookbooks` and `/var/chef/cookbooks`, `mycb` in `/var/chef/cookbooks` will be used.
+
+Values
+: A string referencing a valid cookbook path, or an array of such strings.  See example for syntax.
+
+Default
+: `cookbook_path` value from `.chef/config.rb`, otherwise not found
+
+Used by
+: `chef-run`
+
+CLI flag
+: `--cookbook-repo-paths PATH1,PATH2,..PATHn`
+
+### updates
 
 Control the behavior of automatic update checking for Chef Workstation.
 
@@ -254,19 +285,35 @@ enable=true
 channel="current"
 ```
 
-#### Option: enable
+#### enable
 
-* Description: Enable update checking for Chef Workstation updates.* Default: `true`* Valid values: `true`, `false`* Used by: Chef Workstation App
+Description
+: Enable update checking for Chef Workstation updates.
 
-#### Option: channel
+Values
+: `true`, `false`
 
-* Description: Set the update channel to use when checking for Chef Workstation updates
-* Default: `"stable"`
-* Valid values: `"stable"`, `"current"`
-* Used by: Chef Workstation App
-* Notes: `"stable"` is the recommended value. Switch to `"current"` is not guaranteed to be stable, and should only be used if you are comfortable with the risks associated.
+Default
+: `true`
 
-### [data_collector]
+Used by
+: Chef Workstation App
+
+#### channel
+
+Description
+: Set the update channel to use when checking for Chef Workstation updates. `"stable"` is the recommended value. Switch to `"current"` is not guaranteed to be stable, and should only be used if you are comfortable with the risks associated.
+
+Values
+: `"stable"`, `"current"`
+
+Default
+: `"stable"`
+
+Used by
+: Chef Workstation App
+
+### data_collector
 
 Configure reporting of `chef-client` runs triggered via `chef-run`.
 
@@ -278,23 +325,35 @@ url="https://1.1.1.1/data-collector/v0/"
 token="ABCDEF0123456789"
 ```
 
-#### Option: url
+#### url
 
-* Description: URL of an Automate [data collection](https://automate.chef.io/docs/data-collection/) endpoint.  This URL is provided to the target host, allowing them to report in to Automate when `chef-run` is used to converge the targets.
-* Default: not set
-* Valid values: A valid automate data collector endpoint.
-* Used by: `chef-run`
-* Notes: A valid token generated by automate is required.
+Description
+: URL of an Automate [data collection](https://automate.chef.io/docs/data-collection/) endpoint.  This URL is provided to the target host, allowing them to report in to Automate when `chef-run` is used to converge the targets. A valid token generated by automate is required.
 
-#### Option: token
+Values
+: A valid automate data collector endpoint.
 
-* Description: An Automate [API token](https://automate.chef.io/docs/api-tokens/#creating-a-standard-api-token), used on target host to authenticate to the `url` provided.
-* Default: not set
-* Valid values: A valid token generated by Automate.
-* Used by: `chef-run`
-* Notes:
+Default
+: not set.
 
-### [dev]
+Used by
+: `chef-run`
+
+#### token
+
+Description
+: An Automate [API token](https://automate.chef.io/docs/api-tokens/#creating-a-standard-api-token), used on target host to authenticate to the `url` provided.
+
+Values
+: A valid token generated by Automate.
+
+Default
+: not set.
+
+Used by
+: `chef-run`
+
+### dev
 
 These options are intended for development and troubleshooting of Chef Workstation tools. Their usage is not supported and is subject to change.
 
@@ -305,9 +364,16 @@ These options are intended for development and troubleshooting of Chef Workstati
 spinner=false
 ```
 
-#### Option: spinner
+#### spinner
 
-* Description: Use animated spinners and progress indicators in the terminal output
-* Default: `true`
-* Valid Values: `true`, `false`
-* Used by: `chef-run`
+Description
+: Use animated spinners and progress indicators in the terminal output.
+
+Values
+: `true`, `false`
+
+Default
+: `true`
+
+Used by
+: `chef-run`
