@@ -15,7 +15,7 @@ by running `chef-run -h`.
 
 ## Apply a resource to a single node over SSH
 
-In its simplest form, `chef-run` can target a single machine and execute a single resource on that machine.
+In its simplest form, `chef-run` targets a single machine and execute a single resource on that machine.
 
 When using SSH `chef-run` attempts to read defaults from your `~/.ssh/config` file. Given the following SSH config:
 
@@ -23,7 +23,7 @@ When using SSH `chef-run` attempts to read defaults from your `~/.ssh/config` fi
 $ chef-run my_user@host1:2222 directory /tmp/foo --identity-file ~/.ssh/id_rsa
 ```
 
-```toml
+```text
 Host host1
   IdentityFile /Users/me/.ssh/id_rsa
   User my_user
@@ -36,7 +36,7 @@ One choice for specifying your `chef-run` command is:
 chef-run host1 directory /tmp/foo
 ```
 
-To use password authentication instead of an identity file, specify the identity file location as part of the connection information or using the command line flag:
+To use password authentication instead of an identity file, specify the identity file location as part of the connection information or by using the command line flag:
 
 ```bash
 chef-run my_user:a_password@host1:2222 directory /tmp/foo
@@ -51,13 +51,13 @@ To target WinRM you must specify the `winrm` protocol as part of the connection 
 chef-run 'winrm://my_user:c0mplexP@ssword#!@host:5986' directory /tmp/foo
 ```
 
-WinRM connections only support password authentication and does not read default information from the SSH configuration. When using WinRM, specify all connection information on the command line. Only specify the connection port if be specified if the target machine uses a non-default port (default:5986).
+WinRM connections only support password authentication and do not read default information from the SSH configuration. When using WinRM, specify all connection information on the command line. Only specify the connection port if the target machine uses a non-default port (default:5986).
 
-`chef-run` over winrm does not support certificate authentication. It also does not support connecting over HTTPS.
+`chef-run` over WinRM does not support certificate authentication. It also does not support connecting over HTTPS.
 
 ## Specifying resource attributes and actions
 
-All [chef core resources](https://docs.chef.io/resource_reference.html)can be specified on the command line. The second argument to the `chef-run` command is the resource type and the third is the resource name (which is typically the default value of the primary attribute). For example:
+All [chef core resources](https://docs.chef.io/resource_reference.html)can be specified on the command line. Use the `chef-run` command first, followed by the resource type in the second place, and the resource name in the third place. For example:
 
 ```bash
 chef-run host1 group the_avengers
