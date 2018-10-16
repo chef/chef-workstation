@@ -1,9 +1,14 @@
-<!-- latest_release 0.2.2 -->
+<!-- latest_release 0.2.3 -->
+## [0.2.3](https://github.com/chef/chef-workstation/tree/0.2.3) (2018-10-16)
+
+#### Merged Pull Requests
+- Adds chef-run user guide under Workstation [#275](https://github.com/chef/chef-workstation/pull/275) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.2.2](https://github.com/chef/chef-workstation/tree/0.2.2) (2018-10-16)
 
 #### Merged Pull Requests
 - Updates &quot;about.md&quot; for Workstation [#276](https://github.com/chef/chef-workstation/pull/276) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.2.1](https://github.com/chef/chef-workstation/tree/0.2.1) (2018-10-16)
 
