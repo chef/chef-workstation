@@ -31,7 +31,6 @@ Red Hat, CentOS, and related:
 
 ```bash
 sudo rpm -U /path-to/chef-workstation.rpm
-
 ```
 
 ## Upgrading
