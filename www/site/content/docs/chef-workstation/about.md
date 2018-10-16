@@ -7,9 +7,9 @@ title = "About Chef Workstation"
 +++
 
 Start your infrastructure automation quickly and easily with Chef Workstation.
-Chef Workstation give you everything you need to get started with Chef--ad hoc
+Chef Workstation give you everything you need to get started with Chef &#8212; ad hoc
 remote execution, remote scanning, configuration tasks, cookbook creation tools
-as well as robust dependency and testing software--all in one easy-to-install
+as well as robust dependency and testing software &#8212; all in one easy-to-install
 package.
 
 Chef Workstation replaces ChefDK, combining all the existing features with the
@@ -31,9 +31,8 @@ We always welcome (and deeply appreciate!) new contributions to the project.
 The best way to start contributing to Chef Workstation is to provide us with
 in-depth feedback by creating GitHub issues.
 
-See the guidelines for [community
-contributions](https://docs.chef.io/community_contributions.html) and our
-[community guidelines](https://docs.chef.io/community_guidelines.html) for
+See the [Community Contribution Guidelines](https://docs.chef.io/community_contributions.html)
+and our [community guidelines](https://docs.chef.io/community_guidelines.html) for
 keeping the development of the project awesome for all contributors.
 
 ## Supported Platforms
