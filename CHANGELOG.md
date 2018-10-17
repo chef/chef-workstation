@@ -1,9 +1,14 @@
-<!-- latest_release 0.2.17 -->
+<!-- latest_release 0.2.18 -->
+## [0.2.18](https://github.com/chef/chef-workstation/tree/0.2.18) (2018-10-17)
+
+#### Merged Pull Requests
+- Add tray to installer welcome text on mac. [#287](https://github.com/chef/chef-workstation/pull/287) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.2.17](https://github.com/chef/chef-workstation/tree/0.2.17) (2018-10-17)
 
 #### Merged Pull Requests
 - Update omnibus to use ruby-cleanup [#294](https://github.com/chef/chef-workstation/pull/294) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
 
 ## [0.2.16](https://github.com/chef/chef-workstation/tree/0.2.16) (2018-10-17)
 
