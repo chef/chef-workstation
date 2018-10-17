@@ -353,7 +353,7 @@ Default
 Used by
 : `chef-run`
 
-### dev
+### Dev
 
 These options are intended for development and troubleshooting of Chef Workstation tools. Their usage is not supported and is subject to change.
 
