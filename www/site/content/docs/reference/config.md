@@ -273,7 +273,7 @@ Used by
 CLI flag
 : `--cookbook-repo-paths PATH1,PATH2,..PATHn`
 
-### updates
+### Updates
 
 Control the behavior of automatic update checking for Chef Workstation.
 
