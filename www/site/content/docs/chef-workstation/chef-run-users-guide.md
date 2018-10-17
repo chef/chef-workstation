@@ -180,17 +180,17 @@ preparation for converging the target node. When running on that node the
 `first` recipe finds its local dependency on the `pretty_simple` cookbook and
 then runs its `second` recipe.
 
-You can specify different cookbook sources in `Policyfile.rb`, including a private supermarket. See the [Policyfile documentation](https://docs.chef.io/config_rb_policyfile.html) for examples.
+You can specify different cookbook sources in `Policyfile.rb`, including a
+private supermarket. See the [Policyfile
+documentation](https://docs.chef.io/config_rb_policyfile.html) for examples.
 
 ## Connecting to Automate 2
 
 You can configure remote nodes managed with `chef-run` to send run
-information to Automate. First, [generate an auth
-token](https://automate.chef.io/docs/admin/#creating-a-standard-api-token).
+information to Automate. First, [generate an auth token](https://automate.chef.io/docs/admin/#creating-a-standard-api-token).
 
-Next, add the token to [config.toml](TODO: link to configuration page),
-specifying the appropriate [data collection
-address](https://automate.chef.io/docs/data-collection/) and
+Next, add the token to [config.toml]({{< ref "../workstation/config.md#data_collector),
+specifying the appropriate [url] (https://automate.chef.io/docs/data-collection/) and
 [token](https://automate.chef.io/docs/api-tokens/#creating-a-standard-api-token)
 for the automate server:
 

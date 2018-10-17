@@ -66,7 +66,9 @@ Supported Target Operating Systems:
 
 * RAM: 2GB
 * Disk: 4GB
-* Running minimum settings may limit your ability to take advantage of Chef Workstation tools such as Test Kitchen which creates and manages virtualized test environments.
+* Running minimum settings may limit your ability to take advantage of Chef
+  Workstation tools such as Test Kitchen which creates and manages virtualized
+  test environments.
 
 #### Recommended
 
@@ -75,10 +77,9 @@ Supported Target Operating Systems:
 
 #### Chef Workstation App
 
-* Linux:
-  * You must have a graphical window manager running
-  * the libraries TODO and TODO must be installed in order to run the included
-      Chef Workstation App. Install these using your distribution's package
-      manager.
 * Windows: No additional requirements
 * Mac: No additional requirements
+* Linux:
+  * You must have a graphical window manager running
+  * Additional libraries may be required. See [Running the Chef Workstation App]({{< ref "chef-workstation-app.md#linux" >}})
+    for more details.
