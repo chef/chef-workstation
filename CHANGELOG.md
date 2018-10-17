@@ -1,9 +1,14 @@
-<!-- latest_release 0.2.18 -->
+<!-- latest_release 0.2.19 -->
+## [0.2.19](https://github.com/chef/chef-workstation/tree/0.2.19) (2018-10-17)
+
+#### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.3 [#295](https://github.com/chef/chef-workstation/pull/295) ([chef-ci](https://github.com/chef-ci))
+<!-- latest_release -->
+
 ## [0.2.18](https://github.com/chef/chef-workstation/tree/0.2.18) (2018-10-17)
 
 #### Merged Pull Requests
 - Add tray to installer welcome text on mac. [#287](https://github.com/chef/chef-workstation/pull/287) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.2.17](https://github.com/chef/chef-workstation/tree/0.2.17) (2018-10-17)
 
