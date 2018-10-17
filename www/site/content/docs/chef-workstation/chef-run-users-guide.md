@@ -189,7 +189,7 @@ documentation](https://docs.chef.io/config_rb_policyfile.html) for examples.
 You can configure remote nodes managed with `chef-run` to send run
 information to Automate. First, [generate an auth token](https://automate.chef.io/docs/admin/#creating-a-standard-api-token).
 
-Next, add the token to [config.toml]({{< ref "../reference/config.md#data_collector" >}}),
+Next, add the token to [config.toml]({{< ref "../reference/config.md#data-collector" >}}),
 specifying the appropriate [url] (https://automate.chef.io/docs/data-collection/) and
 [token](https://automate.chef.io/docs/api-tokens/#creating-a-standard-api-token)
 for the automate server:
