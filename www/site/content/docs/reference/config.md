@@ -227,7 +227,7 @@ Used by
 CLI flag
 : --ssl-[no]-verify
 
-### chef
+### Chef
 
 Configure remote Chef running on instances.
 
