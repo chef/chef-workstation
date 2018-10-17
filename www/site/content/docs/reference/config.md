@@ -313,7 +313,7 @@ Default
 Used by
 : Chef Workstation App
 
-### data_collector
+### Data_collector
 
 Configure reporting of `chef-client` runs triggered via `chef-run`.
 
