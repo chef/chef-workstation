@@ -1,9 +1,14 @@
-<!-- latest_release 0.2.7 -->
+<!-- latest_release 0.2.8 -->
+## [0.2.8](https://github.com/chef/chef-workstation/tree/0.2.8) (2018-10-17)
+
+#### Merged Pull Requests
+- Upgrade on linux [#283](https://github.com/chef/chef-workstation/pull/283) ([jonsmorrow](https://github.com/jonsmorrow))
+<!-- latest_release -->
+
 ## [0.2.7](https://github.com/chef/chef-workstation/tree/0.2.7) (2018-10-16)
 
 #### Merged Pull Requests
 - Fixes tray app upgrades on mac [#282](https://github.com/chef/chef-workstation/pull/282) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.2.6](https://github.com/chef/chef-workstation/tree/0.2.6) (2018-10-16)
 
