@@ -1,9 +1,19 @@
-<!-- latest_release 0.2.8 -->
+<!-- latest_release 0.2.10 -->
+## [0.2.10](https://github.com/chef/chef-workstation/tree/0.2.10) (2018-10-17)
+
+#### Merged Pull Requests
+- Removing some copyrighted names from examples [#285](https://github.com/chef/chef-workstation/pull/285) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
+## [0.2.9](https://github.com/chef/chef-workstation/tree/0.2.9) (2018-10-17)
+
+#### Merged Pull Requests
+- Add config reference doc [#288](https://github.com/chef/chef-workstation/pull/288) ([marcparadise](https://github.com/marcparadise))
+
 ## [0.2.8](https://github.com/chef/chef-workstation/tree/0.2.8) (2018-10-17)
 
 #### Merged Pull Requests
 - Upgrade on linux [#283](https://github.com/chef/chef-workstation/pull/283) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.2.7](https://github.com/chef/chef-workstation/tree/0.2.7) (2018-10-16)
 
