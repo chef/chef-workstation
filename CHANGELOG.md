@@ -1,9 +1,14 @@
-<!-- latest_release 0.2.14 -->
+<!-- latest_release 0.2.15 -->
+## [0.2.15](https://github.com/chef/chef-workstation/tree/0.2.15) (2018-10-17)
+
+#### Merged Pull Requests
+- Fixing a bad link in documentation [#292](https://github.com/chef/chef-workstation/pull/292) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.2.14](https://github.com/chef/chef-workstation/tree/0.2.14) (2018-10-17)
 
 #### Merged Pull Requests
 - Fix bad copy-pasta in link address [#291](https://github.com/chef/chef-workstation/pull/291) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.2.13](https://github.com/chef/chef-workstation/tree/0.2.13) (2018-10-17)
 
