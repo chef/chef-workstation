@@ -1,9 +1,14 @@
-<!-- latest_release 0.2.16 -->
+<!-- latest_release 0.2.17 -->
+## [0.2.17](https://github.com/chef/chef-workstation/tree/0.2.17) (2018-10-17)
+
+#### Merged Pull Requests
+- Update omnibus to use ruby-cleanup [#294](https://github.com/chef/chef-workstation/pull/294) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
+
 ## [0.2.16](https://github.com/chef/chef-workstation/tree/0.2.16) (2018-10-17)
 
 #### Merged Pull Requests
 - Bump Chef Workstation App to 0.1.2 [#293](https://github.com/chef/chef-workstation/pull/293) ([chef-ci](https://github.com/chef-ci))
-<!-- latest_release -->
 
 ## [0.2.15](https://github.com/chef/chef-workstation/tree/0.2.15) (2018-10-17)
 
