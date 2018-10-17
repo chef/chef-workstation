@@ -124,7 +124,7 @@ end
 dependency "nodejs-binary"
 dependency "chef-workstation-app"
 dependency "uninstall-scripts"
-dependency "chef-cleanup"
+dependency "ruby-cleanup"
 
 exclude "**/.git"
 exclude "**/bundler/git"
