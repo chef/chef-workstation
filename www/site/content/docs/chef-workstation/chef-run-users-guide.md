@@ -19,11 +19,11 @@ In its simplest form, `chef-run` targets a single machine and execute a single
 resource on that machine:
 
 ```bash
-chef-run my_user@host1:2222 directory /tmp/foo --identity-file ~/.ssh/id_rsa
+chef-run ssh://my_user@host1:2222 directory /tmp/foo --identity-file ~/.ssh/id_rsa
 ```
 
-When using SSH, `chef-run` attempts to read defaults from your `~/.ssh/config`
-file. Given the following SSH configuration:
+SSH is the default protocol. When using SSH, `chef-run` attempts to read defaults
+from your `~/.ssh/config` file. Given the following SSH configuration:
 
 ```text
 Host host1
@@ -64,12 +64,6 @@ HTTPS connections are supported by providing the `--ssl` flag.
 `chef-run` over WinRM does not support certifcate-based authentication to
 target hosts.
 
-To target WinRM you must specify the `winrm` protocol as part of the connection information:
-
-```shell
-chef-run 'winrm://my_user:c0mplexP@ssword#!@host:5986' directory /tmp/foo
-```
-
 ## Specifying resource attributes and actions
 
 All [Chef core resources](https://docs.chef.io/resource_reference.html) can be
@@ -78,15 +72,16 @@ the resource type in the second place, and the resource name in the third
 place. For example:
 
 ```bash
-chef-run host1 group the_avengers
+chef-run host1 group awesome_group
 ```
 
-The command above specifies the `group` resource with a name of `the_avengers`.
+This command specifies the `group` resource with a name of `awesome_group`.
 To specify properties and actions, use a `key=value` syntax:
 
 ```bash
-chef-run host1 user deadpool gid=1001 'password=complex=p@ssword!!'
-chef-run host1 user action=remove
+chef-run host1 group awesome_group gid=1001
+chef-run host1 user super_person gid=1001 'password=complex=p@ssword!!'
+chef-run host1 user super_person action=remove
 ```
 
 See the documentation for each resource to see available properties available to
@@ -185,8 +180,7 @@ preparation for converging the target node. When running on that node the
 `first` recipe finds its local dependency on the `pretty_simple` cookbook and
 then runs its `second` recipe.
 
-You can specify different cookbook sources in `Policyfile.rb`. [Private
-supermarket documentation](https://docs.chef.io/config_rb_policyfile.html)
+You can specify different cookbook sources in `Policyfile.rb`, including a private supermarket. See the [Policyfile documentation](https://docs.chef.io/config_rb_policyfile.html) for examples.
 
 ## Connecting to Automate 2
 
