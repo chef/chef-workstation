@@ -58,7 +58,7 @@ override :"chef-dk", version: "v3.4.18"
 # App is merged then Expeditor takes the latest tag, runs a script to replace it here
 # and pushes a new commit / build through.
 
-override :"chef-workstation-app", version: "v0.1.1"
+override :"chef-workstation-app", version: "v0.1.2"
 
 # DK's overrides; god have mercy on my soul
 # This comes from DK's ./omnibus_overrides.rb
