@@ -1,9 +1,14 @@
-<!-- latest_release 0.2.11 -->
+<!-- latest_release 0.2.12 -->
+## [0.2.12](https://github.com/chef/chef-workstation/tree/0.2.12) (2018-10-17)
+
+#### Merged Pull Requests
+- post-merge doc updates [#289](https://github.com/chef/chef-workstation/pull/289) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.2.11](https://github.com/chef/chef-workstation/tree/0.2.11) (2018-10-17)
 
 #### Merged Pull Requests
 - Bump Chef Workstation App to 0.1.0 [#286](https://github.com/chef/chef-workstation/pull/286) ([chef-ci](https://github.com/chef-ci))
-<!-- latest_release -->
 
 ## [0.2.10](https://github.com/chef/chef-workstation/tree/0.2.10) (2018-10-17)
 
