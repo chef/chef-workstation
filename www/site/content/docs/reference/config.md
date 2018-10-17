@@ -110,7 +110,7 @@ Default
 Used by
 : `chef-run`
 
-### cache
+### Cache
 
 Configure caching options.
 
