@@ -23,7 +23,6 @@ license "Apache-2.0"
 license_file "../LICENSE"
 
 conflict  "chefdk"
-replace   "chefdk"
 
 # Defaults to C:/chef-workstation on Windows
 # and /opt/chef-workstation on all other platforms
