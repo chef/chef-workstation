@@ -1,9 +1,14 @@
-<!-- latest_release 0.2.21 -->
+<!-- latest_release 0.2.22 -->
+## [0.2.22](https://github.com/chef/chef-workstation/tree/0.2.22) (2018-10-18)
+
+#### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.4 [#301](https://github.com/chef/chef-workstation/pull/301) ([chef-ci](https://github.com/chef-ci))
+<!-- latest_release -->
+
 ## [0.2.21](https://github.com/chef/chef-workstation/tree/0.2.21) (2018-10-18)
 
 #### Merged Pull Requests
 - Do not &#39;replace&#39; chefdk in linux packaging for now [#298](https://github.com/chef/chef-workstation/pull/298) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.2.20](https://github.com/chef/chef-workstation/tree/0.2.20) (2018-10-18)
 
