@@ -20,7 +20,13 @@ skip_transitive_dependency_licensing
 license_file "LICENSE"
 
 source git: "https://github.com/chef/chef-workstation-app"
-default_version "master"
+
+# DO NOT MODIFY
+# The Chef Workstation App version is pinned by Expeditor. Whenever Chef Workstation
+# App is merged then Expeditor takes the latest tag, runs a script to replace it here
+# and pushes a new commit / build through.
+default_version "v0.1.4"
+# /DO NOT MODIFY
 
 # These electron dependencies are pulled in/created
 # by this build. They may have dependendcies that aren't met
