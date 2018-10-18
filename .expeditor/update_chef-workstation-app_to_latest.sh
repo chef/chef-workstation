@@ -16,7 +16,7 @@ version=$(get_github_file $REPO master VERSION)
 branch="expeditor/chef_workstation_app_${version}"
 git checkout -b "$branch"
 
-sed -i -r "s/^default_version .*/default_version \"v${version}\"/" omnibus/config/projects/chef-workstation.rb
+sed -i -r "s/^default_version .*/default_version \"v${version}\"/" omnibus/config/software/chef-workstation.rb
 
 git add .
 
