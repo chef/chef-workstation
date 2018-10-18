@@ -35,9 +35,34 @@ sudo rpm -U /path-to/chef-workstation.rpm
 
 ## Upgrading
 
-### From Chef Workstation or ChefDK
+### From Chef Workstation
 
-For all platforms, follow the same steps as listed under [Installing]({{< ref "#installing" >}}).
+For all platforms, follow the steps provided under [Installing]({{< ref "#installing" >}}).
+
+### From ChefDK
+
+#### Linux
+
+The Chef Workstation package conflicts with an installed ChefDK package to prevent
+unintentional upgrades.
+
+Prior to installing Chef Workstation, first uninstall ChefDK:
+
+Ubuntu, Debian, and related:
+
+```bash
+sudo dpkg -P chefdk
+```
+
+Red Hat, CentOS, and related:
+
+```bash
+sudo rpm -e chefdk
+```
+
+#### Other
+
+For other platforms, follow the same steps as listed under [Installing]({{< ref "#installing" >}}).
 
 ## Uninstalling
 
