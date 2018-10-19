@@ -4,7 +4,7 @@
 # What is this script?
 #
 # Chef Workstation uses Expeditor to manage the bundled version of the
-# Chef Workstation App. Currently we always want to include the latest version 
+# Chef Workstation App. Currently we always want to include the latest version
 # of Chef Workstation App inside Workstation, so this script takes that version
 # and uses sed to insert it into the omnibus project definition. Then it commits
 # that change and opens a pull request for review and merge.
@@ -13,11 +13,10 @@
 set -evx
 
 version=$(get_github_file $REPO master VERSION)
-
 branch="expeditor/chef_workstation_app_${version}"
 git checkout -b "$branch"
 
-sed -i -r "s/override :\"chef-workstation-app\",\s+version: \"v[^\"]+\"/override :\"chef-workstation-app\", version: \"v${version}\"/" omnibus/config/projects/chef-workstation.rb
+sed -i -r "s/^default_version .*/default_version \"v${version}\"/" omnibus/config/software/chef-workstation.rb
 
 git add .
 
