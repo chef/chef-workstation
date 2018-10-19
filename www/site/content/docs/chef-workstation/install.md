@@ -62,7 +62,7 @@ sudo rpm -e chefdk
 
 #### Other
 
-For other platforms, follow the same steps as listed under [Installing]({{< ref "#installing" >}}).
+For other platforms, follow the steps provided under [Installing]({{< ref "#installing" >}}).
 
 ## Uninstalling
 
