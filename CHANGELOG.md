@@ -1,9 +1,14 @@
-<!-- latest_release 0.2.23 -->
+<!-- latest_release 0.2.24 -->
+## [0.2.24](https://github.com/chef/chef-workstation/tree/0.2.24) (2018-10-19)
+
+#### Merged Pull Requests
+- Remove chef-workstation-app link on uninstall [#300](https://github.com/chef/chef-workstation/pull/300) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
+
 ## [0.2.23](https://github.com/chef/chef-workstation/tree/0.2.23) (2018-10-18)
 
 #### Merged Pull Requests
 - Pin chef-workstation-app version in its software definition [#299](https://github.com/chef/chef-workstation/pull/299) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_release -->
 
 ## [0.2.22](https://github.com/chef/chef-workstation/tree/0.2.22) (2018-10-18)
 
