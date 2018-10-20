@@ -61,6 +61,13 @@ dependency "google-protobuf"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
+  # Patch cli.rb show_version function and add token we can later use to swap in the build_version.
+  patch source: "cli.patch", target: "./lib/chef-dk/cli.rb"
+
+  # Cross platform way to sed. Need to cleanup the backup fail.
+  command("sed -i.bak 's/\\$CHEF_WS_VERSION\\$/#{project.build_version}/' #{project_dir}/lib/chef-dk/cli.rb", env: env)
+  command("rm #{project_dir}/lib/chef-dk/cli.rb.bak")
+
   excluded_groups = %w{server docgen maintenance pry travis integration ci}
   excluded_groups << "ruby_prof" if aix?
   excluded_groups << "ruby_shadow" if aix?
