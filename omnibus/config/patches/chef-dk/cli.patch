@@ -1,0 +1,33 @@
+diff --git a/lib/chef-dk/cli.rb b/lib/chef-dk/cli.rb
+index d789b075..4bf739ee 100644
+--- a/lib/chef-dk/cli.rb
++++ b/lib/chef-dk/cli.rb
+@@ -95,15 +95,22 @@ BANNER
+     end
+ 
+     def show_version
+-      msg("Chef Development Kit Version: #{ChefDK::VERSION}")
+-
+-      ["chef-client", "delivery", "berks", "kitchen", "inspec"].each do |component|
+-        result = Bundler.with_clean_env { shell_out("#{component} --version") }
++      msg("Chef Workstation: $CHEF_WS_VERSION$")
++
++      {
++        "chef-run": "chef-run", 
++        "chef-client": "chef-client",
++        "delivery-cli": "delivery",
++        "berks": "berks",
++        "test-kitchen": "kitchen",
++        "inspec": "inspec"
++      }.each do |component, cmd|
++        result = Bundler.with_clean_env { shell_out("#{cmd} --version") }
+         if result.exitstatus != 0
+-          msg("#{component} version: ERROR")
++          msg("  #{component}: ERROR")
+         else
+           version = result.stdout.lines.first.scan(/(?:master\s)?[\d+\.\(\)]+\S+/).join("\s")
+-          msg("#{component} version: #{version}")
++          msg("  #{component}: #{version}")
+         end
+       end
+     end
