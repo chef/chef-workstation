@@ -1,0 +1,13 @@
+# Hugo
+public
+
+# markdownlint
+.markdownlint.json
+
+# chef-www-acceptance.cd.chef.co content
+chef-sh
+
+# upstream repos
+chef-www
+site/themes/chef
+site/layouts
