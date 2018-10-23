@@ -42,6 +42,10 @@ merge_actions:
         - "Expeditor: Skip All"
       only_if: built_in:bump_version
 
+pipelines:
+  - verify:
+      description: Pull Request validation tests
+
 subscriptions:
   - workload: artifact_published:stable:chefdk:3*
     actions:
