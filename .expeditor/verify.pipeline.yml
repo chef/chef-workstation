@@ -1,0 +1,17 @@
+steps:
+  - label: ":hugo:"
+    command:
+      - .expeditor/buildkite/hugo_lint.sh
+      - configure-github-account chef-ci
+      - cd www && make lint
+    agents:
+      queue: 'docker-privileged'
+    timeout_in_minutes: 10
+    retry:
+      automatic:
+        limit: 1
+    plugins:
+      docker#v1.1.1:
+        image: "chefes/buildkite"
+        environment:
+          - CHEF_CI_GITHUB_TOKEN
