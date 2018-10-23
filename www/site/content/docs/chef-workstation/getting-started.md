@@ -12,7 +12,7 @@ Chef Workstation gives you everything you need to get started with Chef. Ad-hoc 
 
 ## Install Chef Workstation
 
-If you have not installed Chef Workstation, download and install it from the [chef.sh](https://www.chef.sh) website.
+If you have not installed Chef Workstation, <a href="#" data-omnitruck-download="chef-workstation">download</a> and [install]({{< ref "../chef-workstation/install.md#installing" >}}) it.
 
 ## Check versions
 
