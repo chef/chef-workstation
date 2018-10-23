@@ -1,9 +1,14 @@
-<!-- latest_release 0.2.27 -->
+<!-- latest_release 0.2.28 -->
+## [0.2.28](https://github.com/chef/chef-workstation/tree/0.2.28) (2018-10-23)
+
+#### Merged Pull Requests
+- README updated: fixed typo and expanded an example [#307](https://github.com/chef/chef-workstation/pull/307) ([stefanwb](https://github.com/stefanwb))
+<!-- latest_release -->
+
 ## [0.2.27](https://github.com/chef/chef-workstation/tree/0.2.27) (2018-10-22)
 
 #### Merged Pull Requests
 - Display workstation version in `chef -v` [#304](https://github.com/chef/chef-workstation/pull/304) ([jonsmorrow](https://github.com/jonsmorrow))
-<!-- latest_release -->
 
 ## [0.2.26](https://github.com/chef/chef-workstation/tree/0.2.26) (2018-10-22)
 
