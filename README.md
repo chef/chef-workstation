@@ -4,7 +4,7 @@ Chef Workstation
 Chef Workstation installs everything you need to get started using Chef on Windows, Mac and Linux. 
 It includes:
 - chef-run, a new tool for executing ad-hoc tasks against your servers
-- ChefDK, all the tool you know and love
+- ChefDK, all the tools you know and love
 
 ## Getting Started
 
@@ -24,9 +24,9 @@ It includes:
 
     `chef-run winrm://username@hostname user timmy`
 
-  * Run the recipe 'nginx::passenger' on 'hostname' over ssh:
+  * Run the recipe 'nginx::passenger' on 'hostname' over ssh on port 2222 using a keyfile:
 
-    `chef-run ssh://hostname nginx::passenger`
+    `chef-run ssh://hostname:2222 -i ~/.ssh/id_rsa nginx::passenger`
 
 4. Use `chef-run -h` for additional information about usage and available flags.
 
