@@ -44,7 +44,7 @@ dev=false
 #### enable
 
 Description
-: When `true`, anonymous usage data and bug reports are sent to Chef. See Chef's [Privacy Statement](https://www.chef.sh/docs/chef-workstation/privacy/) for the type and usage of gathered data.
+: When `true`, anonymous usage data and bug reports are sent to Chef. See Chef's [Privacy Statement]({{< ref "../chef-workstation/privacy.md" >}}) for the type and usage of gathered data.
 
 Value
 : `true`, `false`

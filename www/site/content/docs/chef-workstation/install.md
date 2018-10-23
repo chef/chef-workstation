@@ -6,8 +6,8 @@ title = "Installing, Upgrading and Removing"
     weight = "999"
 +++
 
-Start by downloading the latest [Chef Workstation
-package](https://downloads.chef.io/chef-workstation)
+Start by downloading the latest <a href="#" data-omnitruck-download="chef-workstation">Chef Workstation
+package</a>.
 
 ## Installing
 
