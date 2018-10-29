@@ -1,9 +1,14 @@
-<!-- latest_release 0.2.29 -->
-## [0.2.29](https://github.com/chef/chef-workstation/tree/0.2.29) (2018-10-29)
+<!-- latest_release 0.2.30 -->
+## [0.2.30](https://github.com/chef/chef-workstation/tree/0.2.30) (2018-10-29)
 
 #### Merged Pull Requests
 - Bump ChefDK to 3.4.38 [#309](https://github.com/chef/chef-workstation/pull/309) ([chef-ci](https://github.com/chef-ci))
 <!-- latest_release -->
+
+## [0.2.29](https://github.com/chef/chef-workstation/tree/0.2.29) (2018-10-29)
+
+#### Merged Pull Requests
+- Bump ChefDK to 3.4.38 [#309](https://github.com/chef/chef-workstation/pull/309) ([chef-ci](https://github.com/chef-ci))
 
 ## [0.2.28](https://github.com/chef/chef-workstation/tree/0.2.28) (2018-10-23)
 
