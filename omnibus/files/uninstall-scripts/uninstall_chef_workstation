@@ -19,7 +19,7 @@ is_darwin()
 
 if is_darwin; then
   echo "This uninstaller will remove Chef Workstation."
-  sudo -s -- <<EOF
+  sudo /bin/sh -s <<'EOF'
 if [ $(osascript -e 'application "Chef Workstation App" is running') = 'true' ]; then
   echo "Closing Chef Workstation App..."
   osascript -e 'quit app "Chef Workstation App"' > /dev/null 2>&1;
