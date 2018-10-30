@@ -51,6 +51,7 @@ subscriptions:
     actions:
       - bash:.expeditor/publish-release-notes.sh
       - bash:.expeditor/purge-cdn.sh
+      - bash:.expeditor/announce-release.sh
   - workload: artifact_published:stable:chefdk:3*
     actions:
       - bash:.expeditor/update_chefdk_to_stable.sh
