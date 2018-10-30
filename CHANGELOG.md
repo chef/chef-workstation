@@ -1,9 +1,14 @@
-<!-- latest_release 0.2.30 -->
+<!-- latest_release 0.2.31 -->
+## [0.2.31](https://github.com/chef/chef-workstation/tree/0.2.31) (2018-10-30)
+
+#### Merged Pull Requests
+- Making uninstall script work on fish shell [#310](https://github.com/chef/chef-workstation/pull/310) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
+
 ## [0.2.30](https://github.com/chef/chef-workstation/tree/0.2.30) (2018-10-29)
 
 #### Merged Pull Requests
 - Bump ChefDK to 3.4.38 [#309](https://github.com/chef/chef-workstation/pull/309) ([chef-ci](https://github.com/chef-ci))
-<!-- latest_release -->
 
 ## [0.2.29](https://github.com/chef/chef-workstation/tree/0.2.29) (2018-10-29)
 
