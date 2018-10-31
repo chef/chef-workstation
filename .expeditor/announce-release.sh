@@ -12,23 +12,9 @@ $(cat release-notes.md)
 ---
 ## Get the Build
 
-As always, you can download binaries directly from [downloads.chef.io](https://downloads.chef.io/$product_key/$version) or by using the \`mixlib-install\` :
+If you are running the experimental application you can download this version from the menu after the app next update check. You can also download binaries directly from [downloads.chef.io](https://downloads.chef.io/$product_key/$version).
 
-\`\`\`
-$ mixlib-install download $product_key -v $version
-\`\`\`
-
-Alternatively, you can install Chef Workstation using one of the following command options:
-
-\`\`\`
-# In Shell
-$ curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P $product_key -v $version
-
-# In Windows Powershell
-. { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project $product_key -version $version
-\`\`\`
-
-As always, we welcome your feedback and invite you to contact us directly or share your [feedback online](https://www.chef.io/feedback/). Thanks for using Chef Workstation!
+As always, we welcome your feedback and invite you to contact us directly or share your [email](mailto:workstation@chef.io). Thanks for using Chef Workstation!
 EOH
 )
 

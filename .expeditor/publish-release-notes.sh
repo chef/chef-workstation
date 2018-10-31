@@ -6,11 +6,11 @@ git clone https://github.com/chef/chef-workstation.wiki.git
 
 pushd ./chef-workstation.wiki
   # Publish release notes to S3
-  aws s3 cp Stable-Release-Notes.md "s3://chef-automate-artifacts/release-notes/${product_key}/${version}.md" --acl public-read --content-type "text/plain" --profile chef-cd
-  aws s3 cp Stable-Release-Notes.md "s3://chef-automate-artifacts/${channel}/latest/${product_key}/release-notes.md" --acl public-read --content-type "text/plain" --profile chef-cd
+  aws s3 cp Pending-Release-Notes.md "s3://chef-automate-artifacts/release-notes/${product_key}/${version}.md" --acl public-read --content-type "text/plain" --profile chef-cd
+  aws s3 cp Pending-Release-Notes.md "s3://chef-automate-artifacts/${channel}/latest/${product_key}/release-notes.md" --acl public-read --content-type "text/plain" --profile chef-cd
 
   # Reset "Stable Release Notes" wiki page
-  cat >./Stable-Release-Notes.md <<EOH
+  cat >./Pending-Release-Notes.md <<EOH
 ## New Features
 -
 ## Improvements
