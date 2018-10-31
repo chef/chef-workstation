@@ -1,9 +1,14 @@
-<!-- latest_release 0.2.31 -->
+<!-- latest_release 0.2.32 -->
+## [0.2.32](https://github.com/chef/chef-workstation/tree/0.2.32) (2018-10-31)
+
+#### Merged Pull Requests
+- Introduce Release Notes process; Announce releases on discourse.chef.io [#312](https://github.com/chef/chef-workstation/pull/312) ([schisamo](https://github.com/schisamo))
+<!-- latest_release -->
+
 ## [0.2.31](https://github.com/chef/chef-workstation/tree/0.2.31) (2018-10-30)
 
 #### Merged Pull Requests
 - Making uninstall script work on fish shell [#310](https://github.com/chef/chef-workstation/pull/310) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_release -->
 
 ## [0.2.30](https://github.com/chef/chef-workstation/tree/0.2.30) (2018-10-29)
 
