@@ -118,6 +118,7 @@ dependency "nodejs-binary"
 dependency "chef-workstation-app"
 dependency "uninstall-scripts"
 dependency "ruby-cleanup"
+dependency "chef-workstation-release-notes"
 
 exclude "**/.git"
 exclude "**/bundler/git"
