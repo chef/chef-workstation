@@ -1,19 +1,19 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.2.32 -->
-## [0.2.32](https://github.com/chef/chef-workstation/tree/0.2.32) (2018-10-31)
+<!-- latest_release 0.2.33 -->
+## [0.2.33](https://github.com/chef/chef-workstation/tree/0.2.33) (2018-11-01)
 
 #### Merged Pull Requests
-- Introduce Release Notes process; Announce releases on discourse.chef.io [#312](https://github.com/chef/chef-workstation/pull/312) ([schisamo](https://github.com/schisamo))
+- Begin using release rollup in CHANGELOG [#314](https://github.com/chef/chef-workstation/pull/314) ([schisamo](https://github.com/schisamo))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=0.2.29 -->
 ### Changes since latest stable release
 
 #### Merged Pull Requests
+- Begin using release rollup in CHANGELOG [#314](https://github.com/chef/chef-workstation/pull/314) ([schisamo](https://github.com/schisamo)) <!-- 0.2.33 -->
 - Introduce Release Notes process; Announce releases on discourse.chef.io [#312](https://github.com/chef/chef-workstation/pull/312) ([schisamo](https://github.com/schisamo))
 - Making uninstall script work on fish shell [#310](https://github.com/chef/chef-workstation/pull/310) ([tyler-ball](https://github.com/tyler-ball))
 - Bump ChefDK to 3.4.38 [#309](https://github.com/chef/chef-workstation/pull/309) ([chef-ci](https://github.com/chef-ci))
-
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
