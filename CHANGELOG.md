@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.2.33 -->
-## [0.2.33](https://github.com/chef/chef-workstation/tree/0.2.33) (2018-11-01)
+<!-- latest_release 0.2.34 -->
+## [0.2.34](https://github.com/chef/chef-workstation/tree/0.2.34) (2018-11-02)
 
 #### Merged Pull Requests
-- Begin using release rollup in CHANGELOG [#314](https://github.com/chef/chef-workstation/pull/314) ([schisamo](https://github.com/schisamo))
+- Bug - expeditor pointing at wrong file [#315](https://github.com/chef/chef-workstation/pull/315) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.2.29 -->
 ### Changes since latest stable release
 
 #### Merged Pull Requests
+- Bug - expeditor pointing at wrong file [#315](https://github.com/chef/chef-workstation/pull/315) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.2.34 -->
 - Begin using release rollup in CHANGELOG [#314](https://github.com/chef/chef-workstation/pull/314) ([schisamo](https://github.com/schisamo)) <!-- 0.2.33 -->
 - Introduce Release Notes process; Announce releases on discourse.chef.io [#312](https://github.com/chef/chef-workstation/pull/312) ([schisamo](https://github.com/schisamo))
 - Making uninstall script work on fish shell [#310](https://github.com/chef/chef-workstation/pull/310) ([tyler-ball](https://github.com/tyler-ball))
