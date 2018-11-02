@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	// Can't do this one until/unless the a2 repo becomes public:
+	// TODO Can't do this one until/unless the a2 repo becomes public:
 	// "github.com/chef/a2/lib/logger"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
@@ -17,6 +17,7 @@ type App struct {
 func (a *App) Initialize(appdir string) {
 	a.initializeConfig(appdir)
 	a.initializeLogging()
+	StartTelemetrySender(a.log, a.config)
 }
 
 func (a *App) initializeLogging() {

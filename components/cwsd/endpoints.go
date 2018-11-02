@@ -26,51 +26,23 @@ func InitEndpoints(log *logrus.Logger, config *viper.Viper, router *mux.Router) 
 
 func (e *Endpoints) SetConfigValue(w http.ResponseWriter, req *http.Request) {
 	var i interface{}
+	params := mux.Vars(req)
+	key := params["key"]
 	err := json.NewDecoder(req.Body).Decode(&i)
 	if err != nil {
 		e.log.Error(err)
 	}
 	m := i.(map[string]interface{})
-	params := mux.Vars(req)
-	key := params["key"]
+	// Lots of assumptions here around data - we'll wnat to validate, and possibly
+	// find a way to map this to a struct.  It's a bit challenging because the value data type
+	// is very variable. We could probably refer to it as interface{} in a struct, but that won't
+	// really buy us anything over this.
 	value := m["value"]
 	e.config.Set(key, value)
 
+	// TODO - not shippable, this loses comments and original formatting in config.
 	e.config.WriteConfig()
-	// TODO - would rather use typed struct, but the value is variable
-	//        based on the key.   Borrwewd this bit from the 'json and go' page
-	//for k, v := range m {
-	// switch vv := value.(type) {
-	// case string:
-	//   fmt.Println(key, "is string", vv)
-	// case bool:
-	//   fmt.Println(key, "is bool", vv)
-	// case float64:
-	//   fmt.Println(key, "is float64", vv)
-	// Disabling this - right now the config values we set cna't contain an array.
-	// we don't have any of these
-	// case []interface{}:
-	//   fmt.Println(key, "is an array:"
-	//   for i, u := range vv {
-	//     fmt.Println(i, u)
-	//   }
-
-	// default:
-	//   // TODO failure http response
-	//   fmt.Println(key, "is of a type I don't know how to handle", vv)
-	// }
-	//}
 }
-
-// e.config.Set(key, value)
-// e.config.WriteConfig()
-// params := mux.Vars(req)
-//
-// w.WriteHeader(http.StatusOK)
-//_ = json.NewDecoder(req.Body).Decode(&person)
-// decode(interface{}) {
-//   switch vv
-//}
 
 func (e *Endpoints) GetConfigValue(w http.ResponseWriter, req *http.Request) {
 	// e.config.Get(key)
@@ -84,6 +56,9 @@ func (e *Endpoints) GetConfigValue(w http.ResponseWriter, req *http.Request) {
 		"key":   key,
 		"value": value,
 	}
+	// TODO: validation - something like this may be our best bet - key-specific
+	//	typecasting (outbound) and  validation (inbound):
+
 	// switch key {
 	// case "telemetry.enable":
 	// case string:
@@ -92,9 +67,8 @@ func (e *Endpoints) GetConfigValue(w http.ResponseWriter, req *http.Request) {
 	//   fmt.Println(key, "is bool", vv)
 	// case float64:
 	//   fmt.Println(key, "is float64", vv)
-	// Disabling this - right now the config values we set cna't contain an array.
-	// we don't have any of these
-	// case []interface{}:
+	// case {}interface{}: // nested hash
+	// case []interface{}: // array - such as for cookbook_paths...
 	// }
 	// switch vv := value.(type) {
 	json.NewEncoder(w).Encode(resp)
