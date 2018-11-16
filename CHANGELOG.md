@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.2.34 -->
-## [0.2.34](https://github.com/chef/chef-workstation/tree/0.2.34) (2018-11-02)
+<!-- latest_release 0.2.35 -->
+## [0.2.35](https://github.com/chef/chef-workstation/tree/0.2.35) (2018-11-16)
 
 #### Merged Pull Requests
-- Bug - expeditor pointing at wrong file [#315](https://github.com/chef/chef-workstation/pull/315) ([tyler-ball](https://github.com/tyler-ball))
+- Bump ChefDK to 3.5.13 [#317](https://github.com/chef/chef-workstation/pull/317) ([chef-ci](https://github.com/chef-ci))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.2.29 -->
 ### Changes since latest stable release
 
 #### Merged Pull Requests
+- Bump ChefDK to 3.5.13 [#317](https://github.com/chef/chef-workstation/pull/317) ([chef-ci](https://github.com/chef-ci)) <!-- 0.2.35 -->
 - Bug - expeditor pointing at wrong file [#315](https://github.com/chef/chef-workstation/pull/315) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.2.34 -->
 - Begin using release rollup in CHANGELOG [#314](https://github.com/chef/chef-workstation/pull/314) ([schisamo](https://github.com/schisamo)) <!-- 0.2.33 -->
 - Introduce Release Notes process; Announce releases on discourse.chef.io [#312](https://github.com/chef/chef-workstation/pull/312) ([schisamo](https://github.com/schisamo))
