@@ -51,7 +51,7 @@ build_iteration 1
 # then Expeditor takes that version, runs a script to replace it here and pushes
 # a new commit / build through.
 
-override :"chef-dk", version: "v3.4.38"
+override :"chef-dk", version: "v3.5.13"
 
 # DK's overrides; god have mercy on my soul
 # This comes from DK's ./omnibus_overrides.rb
