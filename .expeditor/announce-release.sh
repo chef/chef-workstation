@@ -3,7 +3,7 @@
 set -eou pipefail
 
 # Download the release-notes for our specific build
-curl -o release-notes.md "https://packages.chef.io/release-notes/${product_key}/${version}.md"
+curl -o release-notes.md "https://packages.chef.io/release-notes/chef-workstation/${version}.md"
 
 topic_title="Chef Workstation $version Released!"
 topic_body=$(cat <<EOH
