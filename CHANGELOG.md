@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.2.36 -->
-## [0.2.36](https://github.com/chef/chef-workstation/tree/0.2.36) (2018-11-21)
+<!-- latest_release 0.2.37 -->
+## [0.2.37](https://github.com/chef/chef-workstation/tree/0.2.37) (2018-11-26)
 
 #### Merged Pull Requests
-- CoC and Contrib docs [#321](https://github.com/chef/chef-workstation/pull/321) ([marcparadise](https://github.com/marcparadise))
+- Fix environment variables in release scripts [#323](https://github.com/chef/chef-workstation/pull/323) ([schisamo](https://github.com/schisamo))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.2.29 -->
 ### Changes since latest stable release
 
 #### Merged Pull Requests
+- Fix environment variables in release scripts [#323](https://github.com/chef/chef-workstation/pull/323) ([schisamo](https://github.com/schisamo)) <!-- 0.2.37 -->
 - CoC and Contrib docs [#321](https://github.com/chef/chef-workstation/pull/321) ([marcparadise](https://github.com/marcparadise)) <!-- 0.2.36 -->
 - Bump ChefDK to 3.5.13 [#317](https://github.com/chef/chef-workstation/pull/317) ([chef-ci](https://github.com/chef-ci)) <!-- 0.2.35 -->
 - Bug - expeditor pointing at wrong file [#315](https://github.com/chef/chef-workstation/pull/315) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.2.34 -->
