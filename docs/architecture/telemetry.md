@@ -11,8 +11,14 @@ we will extend Chef Workstation App to provide a simple telemetry API over REST.
 * user opt-in preferences must be respected in all cases.
 * transient opt-out via environment variable `CHEF_TELEMETRY_OPT_OUT` must be respected
 
-The telemetry service in CWA will listen on configurable local port 21000.  Clients and server must respect the
-configured port,
+## Configuration
+The telemetry service in CWA will listen on configurable local port 21000. Configuration will be live
+`~/.chef-workstation/config.toml`:
+
+```
+[chef-workstation-tray]
+local_port=21000
+```
 
 
 ## Service
@@ -22,8 +28,8 @@ the service will start asynchronous preparation of the final payload and return 
 The caller will not receive success/failure notification of the payload's final upstream disposition.
 
 If the payload field `TELEMETRY_OPT_OUT` contains any value other than nil, or the config key `telemetry.enabled` is `false`,
-the telemetry payload will be dropped without further processing. This lets us limit the opt-out checks to live only
-in the service, without the clients having to make decisions based on its presence.
+the telemetry payload will be dropped without further processing. This lets centralize all opt-in/out
+checks in the service without spreading that logic into client libraries.
 
 The outbound telemetry payload is a JSON object that complies with
 the [es-telemetry-pipeline event schema](https://github.com/chef/es-telemetry-pipeline/blob/master/schema/event.schema.json).
@@ -77,12 +83,25 @@ Failures will be logged.
        / \
 ```
 
+## Security
+
+Because this is listening on a local TCP port, XSRF from a browser is possible.  To protect against this,
+each request must include a `token` query parameter.  The value must match the contents of `$CONFIG_PATH/telemetry/token`
+or the request will be rejected with a 403.
+
+`$CONFIG_PATH/telemetry/token` will be initialized with a new GUID if missing by the client library.
+The server and client will both read this file with every request.
+
+This method relies on the browser keeping the local filesytem secure from an attacker seeking the
+content of specific files (such as the telemetry token).
+
 ## REST API
 
 ### POST /telemetry
 
-A collection of one or more events is submitted to this endpoint as JSON.  Applications should wait until
-all events are complete before submitting to ensure that all events are captured under the same session identifier.
+A collection of one or more events is submitted to this endpoint as JSON.  Applications should
+wait until all events are complete before submitting to ensure that all events are captured under
+the same session identifier.
 
 #### Sample Payload
 ```
@@ -164,7 +183,9 @@ Source: telemetry-seq.puml, generated via `java -jar plantuml.jar -txt telemetry
 ## Client
 
 A client interface is already defined in ``ChefApply::Telemeter``.  This will need modification to POST to an endpoint instead of
-writing payloads to YML files. The JSON format above is slightly different than what it's currently sending - fields like `installation_id`, `run_timestamp`,
+writing payloads to YML files and to manage `$CONFIG_PATH/telemetry/token` as described above.
+
+The JSON format above is slightly different than what it's currently sending - fields like `installation_id`, `run_timestamp`,
 `host_platform` have been removed.
 
 Client will be responsible for POSTing the complete session to the `telemetry` endpoint. The client will handle any failures by logging errors as they occur;
