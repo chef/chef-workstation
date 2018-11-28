@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.2.37 -->
-## [0.2.37](https://github.com/chef/chef-workstation/tree/0.2.37) (2018-11-26)
+<!-- latest_release 0.2.38 -->
+## [0.2.38](https://github.com/chef/chef-workstation/tree/0.2.38) (2018-11-28)
 
 #### Merged Pull Requests
-- Fix environment variables in release scripts [#323](https://github.com/chef/chef-workstation/pull/323) ([schisamo](https://github.com/schisamo))
+- Pinning ChefDK to unreleased 3.6 to get new bundled gem changes we want [#324](https://github.com/chef/chef-workstation/pull/324) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.2.29 -->
 ### Changes since latest stable release
 
 #### Merged Pull Requests
+- Pinning ChefDK to unreleased 3.6 to get new bundled gem changes we want [#324](https://github.com/chef/chef-workstation/pull/324) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.2.38 -->
 - Fix environment variables in release scripts [#323](https://github.com/chef/chef-workstation/pull/323) ([schisamo](https://github.com/schisamo)) <!-- 0.2.37 -->
 - CoC and Contrib docs [#321](https://github.com/chef/chef-workstation/pull/321) ([marcparadise](https://github.com/marcparadise)) <!-- 0.2.36 -->
 - Bump ChefDK to 3.5.13 [#317](https://github.com/chef/chef-workstation/pull/317) ([chef-ci](https://github.com/chef-ci)) <!-- 0.2.35 -->
