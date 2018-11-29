@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.2.38 -->
-## [0.2.38](https://github.com/chef/chef-workstation/tree/0.2.38) (2018-11-28)
+<!-- latest_release 0.2.39 -->
+## [0.2.39](https://github.com/chef/chef-workstation/tree/0.2.39) (2018-11-29)
 
 #### Merged Pull Requests
-- Pinning ChefDK to unreleased 3.6 to get new bundled gem changes we want [#324](https://github.com/chef/chef-workstation/pull/324) ([tyler-ball](https://github.com/tyler-ball))
+- [ChefDK to 3.6.4] Add kitchen-ec2 support for arm64 architecture [#325](https://github.com/chef/chef-workstation/pull/325) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.2.29 -->
 ### Changes since latest stable release
 
 #### Merged Pull Requests
+- [ChefDK to 3.6.4] Add kitchen-ec2 support for arm64 architecture [#325](https://github.com/chef/chef-workstation/pull/325) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.2.39 -->
 - Pinning ChefDK to unreleased 3.6 to get new bundled gem changes we want [#324](https://github.com/chef/chef-workstation/pull/324) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.2.38 -->
 - Fix environment variables in release scripts [#323](https://github.com/chef/chef-workstation/pull/323) ([schisamo](https://github.com/schisamo)) <!-- 0.2.37 -->
 - CoC and Contrib docs [#321](https://github.com/chef/chef-workstation/pull/321) ([marcparadise](https://github.com/marcparadise)) <!-- 0.2.36 -->
