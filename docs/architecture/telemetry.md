@@ -146,17 +146,17 @@ the same session identifier.
 ```
 {
   "component": "chef-run",
+  "workstation_version": "1.2.3",
+  "component_version", "2.3.4",
   "local_opt_out": "",  # the value of the CHEF_TELEMETRY_OPT_OUT environment variable at run time
   "entries": [
     {
       "event": "run",
       "sequence": 1,
       "properties": {
-        "event_data": {
-          "mode": "resource"
-          "num_targets": 1
-          "duration": 13.99565049802186
-        }
+        "mode": "resource",
+        "num_targets": 1,
+        "duration": 13.99565049802186,
       }
     },
     {
@@ -220,7 +220,7 @@ plantuml.jar can be downloaded from http://plantuml.com.</sub>
 
 A client interface is already defined in ``ChefApply::Telemeter``.  This will need
 modification to POST to an endpoint instead of writing payloads to YML files and to
-manage `$CONFIG_PATH/telemetry/token` as described above.
+manage `$CONFIG_PATH/telemetry/token` as described in Security.
 
 The JSON format above is slightly different than what it's currently sending - fields
 `installation_id`, `run_timestamp`, `host_platform` have been removed.
