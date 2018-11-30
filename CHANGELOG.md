@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.2.40 -->
-## [0.2.40](https://github.com/chef/chef-workstation/tree/0.2.40) (2018-11-29)
+<!-- latest_release 0.2.41 -->
+## [0.2.41](https://github.com/chef/chef-workstation/tree/0.2.41) (2018-11-30)
 
 #### Merged Pull Requests
-- Fix env var capitalization in purge-cdn.sh [#326](https://github.com/chef/chef-workstation/pull/326) ([schisamo](https://github.com/schisamo))
+- Fixing expeditor failure - wrong variable capitalization [#327](https://github.com/chef/chef-workstation/pull/327) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.2.29 -->
 ### Changes since latest stable release
 
 #### Merged Pull Requests
+- Fixing expeditor failure - wrong variable capitalization [#327](https://github.com/chef/chef-workstation/pull/327) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.2.41 -->
 - Fix env var capitalization in purge-cdn.sh [#326](https://github.com/chef/chef-workstation/pull/326) ([schisamo](https://github.com/schisamo)) <!-- 0.2.40 -->
 - [ChefDK to 3.6.4] Add kitchen-ec2 support for arm64 architecture [#325](https://github.com/chef/chef-workstation/pull/325) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.2.39 -->
 - Pinning ChefDK to unreleased 3.6 to get new bundled gem changes we want [#324](https://github.com/chef/chef-workstation/pull/324) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.2.38 -->
