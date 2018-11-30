@@ -7,12 +7,12 @@ curl -o release-notes.md "https://packages.chef.io/release-notes/${PRODUCT_KEY}/
 
 topic_title="Chef Workstation $VERSION Released!"
 topic_body=$(cat <<EOH
-We are delighted to announce the availability of version $version of Chef Workstation.
+We are delighted to announce the availability of version $VERSION of Chef Workstation.
 $(cat release-notes.md)
 ---
 ## Get the Build
 
-If you are running the experimental application you can download this version from the menu after the app next update check. You can also download binaries directly from [downloads.chef.io](https://downloads.chef.io/$product_key/$version).
+If you are running the experimental application you can download this version from the menu after the app next update check. You can also download binaries directly from [downloads.chef.io](https://downloads.chef.io/$PRODUCT_KEY/$VERSION).
 
 As always, we welcome your feedback and invite you to contact us directly or share your [email](mailto:workstation@chef.io). Thanks for using Chef Workstation!
 EOH
