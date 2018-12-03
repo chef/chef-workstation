@@ -1,36 +1,30 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.2.41 -->
-## [0.2.41](https://github.com/chef/chef-workstation/tree/0.2.41) (2018-11-30)
-
-#### Merged Pull Requests
-- Fixing expeditor failure - wrong variable capitalization [#327](https://github.com/chef/chef-workstation/pull/327) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.2.29 -->
-### Changes since latest stable release
-
-#### Merged Pull Requests
-- Fixing expeditor failure - wrong variable capitalization [#327](https://github.com/chef/chef-workstation/pull/327) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.2.41 -->
-- Fix env var capitalization in purge-cdn.sh [#326](https://github.com/chef/chef-workstation/pull/326) ([schisamo](https://github.com/schisamo)) <!-- 0.2.40 -->
-- [ChefDK to 3.6.4] Add kitchen-ec2 support for arm64 architecture [#325](https://github.com/chef/chef-workstation/pull/325) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.2.39 -->
-- Pinning ChefDK to unreleased 3.6 to get new bundled gem changes we want [#324](https://github.com/chef/chef-workstation/pull/324) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.2.38 -->
-- Fix environment variables in release scripts [#323](https://github.com/chef/chef-workstation/pull/323) ([schisamo](https://github.com/schisamo)) <!-- 0.2.37 -->
-- CoC and Contrib docs [#321](https://github.com/chef/chef-workstation/pull/321) ([marcparadise](https://github.com/marcparadise)) <!-- 0.2.36 -->
-- Bump ChefDK to 3.5.13 [#317](https://github.com/chef/chef-workstation/pull/317) ([chef-ci](https://github.com/chef-ci)) <!-- 0.2.35 -->
-- Bug - expeditor pointing at wrong file [#315](https://github.com/chef/chef-workstation/pull/315) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.2.34 -->
-- Begin using release rollup in CHANGELOG [#314](https://github.com/chef/chef-workstation/pull/314) ([schisamo](https://github.com/schisamo)) <!-- 0.2.33 -->
-- Introduce Release Notes process; Announce releases on discourse.chef.io [#312](https://github.com/chef/chef-workstation/pull/312) ([schisamo](https://github.com/schisamo))
-- Making uninstall script work on fish shell [#310](https://github.com/chef/chef-workstation/pull/310) ([tyler-ball](https://github.com/tyler-ball))
-- Bump ChefDK to 3.4.38 [#309](https://github.com/chef/chef-workstation/pull/309) ([chef-ci](https://github.com/chef-ci))
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.2.41](https://github.com/chef/chef-workstation/tree/0.2.41) (2018-12-03)
+
+#### Merged Pull Requests
+- Begin using release rollup in CHANGELOG [#314](https://github.com/chef/chef-workstation/pull/314) ([schisamo](https://github.com/schisamo))
+- Bug - expeditor pointing at wrong file [#315](https://github.com/chef/chef-workstation/pull/315) ([tyler-ball](https://github.com/tyler-ball))
+- Bump ChefDK to 3.5.13 [#317](https://github.com/chef/chef-workstation/pull/317) ([chef-ci](https://github.com/chef-ci))
+- CoC and Contrib docs [#321](https://github.com/chef/chef-workstation/pull/321) ([marcparadise](https://github.com/marcparadise))
+- Fix environment variables in release scripts [#323](https://github.com/chef/chef-workstation/pull/323) ([schisamo](https://github.com/schisamo))
+- Pinning ChefDK to unreleased 3.6 to get new bundled gem changes we want [#324](https://github.com/chef/chef-workstation/pull/324) ([tyler-ball](https://github.com/tyler-ball))
+- [ChefDK to 3.6.4] Add kitchen-ec2 support for arm64 architecture [#325](https://github.com/chef/chef-workstation/pull/325) ([tyler-ball](https://github.com/tyler-ball))
+- Fix env var capitalization in purge-cdn.sh [#326](https://github.com/chef/chef-workstation/pull/326) ([schisamo](https://github.com/schisamo))
+- Fixing expeditor failure - wrong variable capitalization [#327](https://github.com/chef/chef-workstation/pull/327) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_stable_release -->
+
 ## [0.2.29](https://github.com/chef/chef-workstation/tree/0.2.29) (2018-10-29)
 
 #### Merged Pull Requests
 - Bump ChefDK to 3.4.38 [#309](https://github.com/chef/chef-workstation/pull/309) ([chef-ci](https://github.com/chef-ci))
 - README updated: fixed typo and expanded an example [#307](https://github.com/chef/chef-workstation/pull/307) ([stefanwb](https://github.com/stefanwb))
-<!-- latest_stable_release -->
 
 ## [0.2.27](https://github.com/chef/chef-workstation/tree/0.2.27) (2018-10-22)
 
