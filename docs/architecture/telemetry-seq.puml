@@ -1,0 +1,19 @@
+# Generate with java -jar plantuml.jar -txt telemetry-seq.puml
+# plantuml.jar can be downloaded from plantuml.com
+@startuml
+title Chef Workstation App - Telemetry Service
+
+actor Human
+Human -> "CLI Tool" : execute
+"CLI Tool" -> CWA : POST /telemetry
+
+activate CWA
+CWA --> "CLI Tool" : http response 201
+deactivate CWA
+CWA -> CWA : prepare envelope
+CWA -> "telemetry.chef.io" : POST payload
+activate "telemetry.chef.io"
+"telemetry.chef.io" -> CWA : http response
+deactivate "telemetry.chef.io"
+
+@enduml
