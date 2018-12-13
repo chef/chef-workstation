@@ -17,8 +17,8 @@ The telemetry service in CWA will listen on configurable local port 21000. Confi
 `~/.chef-workstation/config.toml`:
 
 ```
-[chef-workstation-tray]
-local_port=21000
+[app]
+service_port=21000
 ```
 
 ## Service
