@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 0.2.42 -->
+## [0.2.42](https://github.com/chef/chef-workstation/tree/0.2.42) (2018-12-13)
+
+#### Merged Pull Requests
+- [SHACK-402] Design for local telemetry service [#322](https://github.com/chef/chef-workstation/pull/322) ([marcparadise](https://github.com/marcparadise))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=0.2.41 -->
+### Changes since 0.2.41 release
+
+#### Merged Pull Requests
+- [SHACK-402] Design for local telemetry service [#322](https://github.com/chef/chef-workstation/pull/322) ([marcparadise](https://github.com/marcparadise)) <!-- 0.2.42 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
