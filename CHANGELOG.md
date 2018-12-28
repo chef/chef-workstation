@@ -1,20 +1,18 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.2.43 -->
-## [0.2.43](https://github.com/chef/chef-workstation/tree/0.2.43) (2018-12-27)
-
-#### Merged Pull Requests
-- Bump ChefDK to 3.6.57 [#330](https://github.com/chef/chef-workstation/pull/330) ([chef-ci](https://github.com/chef-ci))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.2.41 -->
-### Changes since 0.2.41 release
-
-#### Merged Pull Requests
-- Bump ChefDK to 3.6.57 [#330](https://github.com/chef/chef-workstation/pull/330) ([chef-ci](https://github.com/chef-ci)) <!-- 0.2.43 -->
-- [SHACK-402] Design for local telemetry service [#322](https://github.com/chef/chef-workstation/pull/322) ([marcparadise](https://github.com/marcparadise)) <!-- 0.2.42 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.2.43](https://github.com/chef/chef-workstation/tree/0.2.43) (2018-12-28)
+
+#### Merged Pull Requests
+- [SHACK-402] Design for local telemetry service [#322](https://github.com/chef/chef-workstation/pull/322) ([marcparadise](https://github.com/marcparadise))
+- Bump ChefDK to 3.6.57 [#330](https://github.com/chef/chef-workstation/pull/330) ([chef-ci](https://github.com/chef-ci))
+<!-- latest_stable_release -->
+
 ## [0.2.41](https://github.com/chef/chef-workstation/tree/0.2.41) (2018-12-03)
 
 #### Merged Pull Requests
@@ -27,7 +25,6 @@
 - [ChefDK to 3.6.4] Add kitchen-ec2 support for arm64 architecture [#325](https://github.com/chef/chef-workstation/pull/325) ([tyler-ball](https://github.com/tyler-ball))
 - Fix env var capitalization in purge-cdn.sh [#326](https://github.com/chef/chef-workstation/pull/326) ([schisamo](https://github.com/schisamo))
 - Fixing expeditor failure - wrong variable capitalization [#327](https://github.com/chef/chef-workstation/pull/327) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_stable_release -->
 
 ## [0.2.29](https://github.com/chef/chef-workstation/tree/0.2.29) (2018-10-29)
 
