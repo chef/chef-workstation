@@ -52,6 +52,7 @@ build_iteration 1
 # a new commit / build through.
 
 override :"chef-dk", version: "v3.6.57"
+override "delivery-cli", version: "0.0.45"
 
 # DK's overrides; god have mercy on my soul
 # This comes from DK's ./omnibus_overrides.rb
