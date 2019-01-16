@@ -1,6 +1,6 @@
-# Documentation available at https://expeditor-docs.es.chef.io/
+# Documentation available at https://expeditor.chef.io/docs/getting-started/
 
-# The name of the product keys for this product
+# The name of the product keys for this product (from mixlib-install)
 product_key:
   - chef-workstation
 
@@ -19,7 +19,7 @@ github:
   delete_branch_on_merge: true
   # allow bumping the minor release via label
   minor_bump_labels:
-    - "Expeditor: Bump Minor Version"
+    - "Expeditor: Bump Version Minor"
 
 # https://expeditor.chef.io/docs/getting-started/subscriptions/#merge-actions
 # The `merge_actions` key is a shortcut for the
@@ -27,18 +27,15 @@ github:
 merge_actions:
   - built_in:bump_version:
       ignore_labels:
-        - "Version: Skip Bump"
         - "Expeditor: Skip Version Bump"
         - "Expeditor: Skip All"
   - built_in:update_changelog:
       ignore_labels:
-        - "Meta: Exclude From Changelog"
-        - "Expeditor: Exclude From Changelog"
+        - "Expeditor: Skip Changelog"
         - "Expeditor: Skip All"
   - built_in:trigger_omnibus_release_build:
       ignore_labels:
-        - "Omnibus: Skip Build"
-        - "Expeditor: Skip Build"
+        - "Expeditor: Skip Omnibus"
         - "Expeditor: Skip All"
       only_if: built_in:bump_version
 
