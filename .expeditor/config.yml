@@ -56,3 +56,6 @@ subscriptions:
   - workload: chef/chef-workstation-app:master_completed:pull_request_merged:chef/chef-workstation-app:master:*
     actions:
       - bash:.expeditor/update_chef-workstation-app_to_latest.sh
+  - workload: chef/delivery-cli:master_completed:pull_request_merged:chef/delivery-cli:master:*
+    actions:
+      - bash:.expeditor/update_delivery-cli_to_latest.sh
