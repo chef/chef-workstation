@@ -4,10 +4,9 @@
 # What is this script?
 #
 # Chef Workstation uses Expeditor to manage the bundled version of the ChefDK.
-# Currently we always want to include the stable version of ChefDK inside
-# Workstation, so this script takes that version and uses sed to insert
-# it into the omnibus project definition. Then it commits that change
-# and opens a pull request for review and merge.
+# Currently we always want to include the stable version of ChefDK inside Workstation,
+# so this script takes that version and uses sed to insert it into the omnibus_overrides.rb
+# file. Then it commits that change and opens a pull request for review and merge.
 ############################################################################
 
 set -evx
@@ -15,7 +14,7 @@ set -evx
 branch="expeditor/chef_dk_${VERSION}"
 git checkout -b "$branch"
 
-sed -i -r "s/override :\"chef-dk\",\s+version: \"v[^\"]+\"/override :\"chef-dk\", version: \"v${VERSION}\"/" omnibus/config/projects/chef-workstation.rb
+sed -i -r "s/override :\"chef-dk\",\s+version: \"v[^\"]+\"/override :\"chef-dk\", version: \"v${VERSION}\"/" omnibus_overrides.rb
 
 git add .
 

@@ -47,36 +47,12 @@ build_iteration 1
 # Workstation RFC (https://github.com/chef/chef-rfc/pull/308). But until we do
 # we need to pull `chef-apply` in as a gem dependency of the ChefDK.
 
-# The ChefDK version is pinned by Expeditor. Whenever ChefDK is promoted to stable
-# then Expeditor takes that version, runs a script to replace it here and pushes
-# a new commit / build through.
+# In order to prevent unecessary cache expiration,
+# package and package version overrides, build_version
+# and build_iteration are kept in <project-root>/omnibus_overrides.rb
+overrides_path = File.expand_path("../../../../omnibus_overrides.rb", __FILE__)
+instance_eval(IO.read(overrides_path), overrides_path)
 
-override :"chef-dk", version: "v3.6.57"
-
-# DK's overrides; god have mercy on my soul
-# This comes from DK's ./omnibus_overrides.rb
-# If this stays, may need to duplicate that file and the rake
-# tasks for updating dependencies
-override :rubygems, version: "2.7.6"
-override :bundler, version: "1.16.1"
-override "libffi", version: "3.2.1"
-override "libiconv", version: "1.15"
-override "liblzma", version: "5.2.3"
-override "libtool", version: "2.4.2"
-override "libxml2", version: "2.9.8"
-override "libxslt", version: "1.1.30"
-override "libyaml", version: "0.1.7"
-override "makedepend", version: "1.0.5"
-override "ncurses", version: "5.9"
-override "pkg-config-lite", version: "0.28-1"
-override "ruby", version: "2.5.1"
-override "ruby-windows-devkit-bash", version: "3.1.23-4-msys-1.0.18"
-override "util-macros", version: "1.19.0"
-override "xproto", version: "7.0.28"
-override "zlib", version: "1.2.11"
-override "libzmq", version: "4.0.7"
-override "openssl", version: "1.0.2p"
-override "nodejs", version: "10.9.0"
 dependency "preparation"
 
 if windows?
