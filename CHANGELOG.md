@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.2.44 -->
-## [0.2.44](https://github.com/chef/chef-workstation/tree/0.2.44) (2019-01-16)
+<!-- latest_release 0.2.45 -->
+## [0.2.45](https://github.com/chef/chef-workstation/tree/0.2.45) (2019-01-24)
 
 #### Merged Pull Requests
-- Pin delivery-cli version and add subscription [#331](https://github.com/chef/chef-workstation/pull/331) ([jonsmorrow](https://github.com/jonsmorrow))
+- Bump Delivery CLI to 0.0.48 [#337](https://github.com/chef/chef-workstation/pull/337) ([chef-ci](https://github.com/chef-ci))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.2.43 -->
 ### Changes since 0.2.43 release
 
 #### Merged Pull Requests
+- Bump Delivery CLI to 0.0.48 [#337](https://github.com/chef/chef-workstation/pull/337) ([chef-ci](https://github.com/chef-ci)) <!-- 0.2.45 -->
 - Pin delivery-cli version and add subscription [#331](https://github.com/chef/chef-workstation/pull/331) ([jonsmorrow](https://github.com/jonsmorrow)) <!-- 0.2.44 -->
 <!-- release_rollup -->
 
