@@ -64,7 +64,7 @@ HTTPS connections are supported by providing the `--ssl` flag.
 `chef-run` over WinRM does not support certifcate-based authentication to
 target hosts.
 
-## Specifying resource attributes and actions
+## Specifying resource properties and actions
 
 All [Chef core resources](https://docs.chef.io/resource_reference.html) can be
 specified on the command line. Use the `chef-run` command first, followed by
