@@ -5,7 +5,7 @@
 # a new commit / build through.
 override :"chef-dk", version: "v3.6.57"
 override "delivery-cli", version: "0.0.50"
-override "chef-workstation-app", version: "v0.1.6"
+override "chef-workstation-app", version: "v0.1.7"
 # /DO NOT MODIFY
 
 # DK's overrides; god have mercy on my soul
