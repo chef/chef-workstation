@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.2.47 -->
-## [0.2.47](https://github.com/chef/chef-workstation/tree/0.2.47) (2019-01-31)
+<!-- latest_release 0.2.48 -->
+## [0.2.48](https://github.com/chef/chef-workstation/tree/0.2.48) (2019-01-31)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.7 [#343](https://github.com/chef/chef-workstation/pull/343) ([chef-ci](https://github.com/chef-ci))
+- Bump ChefDK to 3.7.23 [#342](https://github.com/chef/chef-workstation/pull/342) ([chef-ci](https://github.com/chef-ci))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.2.43 -->
 ### Changes since 0.2.43 release
 
 #### Merged Pull Requests
+- Bump ChefDK to 3.7.23 [#342](https://github.com/chef/chef-workstation/pull/342) ([chef-ci](https://github.com/chef-ci)) <!-- 0.2.48 -->
 - Bump Chef Workstation App to 0.1.7 [#343](https://github.com/chef/chef-workstation/pull/343) ([chef-ci](https://github.com/chef-ci)) <!-- 0.2.47 -->
 - Bump Delivery CLI to 0.0.50 [#341](https://github.com/chef/chef-workstation/pull/341) ([chef-ci](https://github.com/chef-ci)) <!-- 0.2.46 -->
 - Bump Delivery CLI to 0.0.48 [#337](https://github.com/chef/chef-workstation/pull/337) ([chef-ci](https://github.com/chef-ci)) <!-- 0.2.45 -->
