@@ -121,4 +121,9 @@ package :msi do
   signing_identity 'E05FF095D07F233B78EB322132BFF0F035E11B5B', machine_store: true
 end
 
+# We don't support appx builds, and they eat a lot of time.
+package :appx do
+  skip_packager true
+end
+
 compress :dmg
