@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 0.2.49 -->
+## [0.2.49](https://github.com/chef/chef-workstation/tree/0.2.49) (2019-02-04)
+
+#### Merged Pull Requests
+- disable appx packages; update to latest omnibus [#344](https://github.com/chef/chef-workstation/pull/344) ([marcparadise](https://github.com/marcparadise))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=0.2.48 -->
+### Changes since 0.2.48 release
+
+#### Merged Pull Requests
+- disable appx packages; update to latest omnibus [#344](https://github.com/chef/chef-workstation/pull/344) ([marcparadise](https://github.com/marcparadise)) <!-- 0.2.49 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
