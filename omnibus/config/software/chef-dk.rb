@@ -1,5 +1,5 @@
 name "chef-dk"
-default_version "local_source"
+default_version "mp/chef-apply-refactor-build"
 
 license :project_license
 
