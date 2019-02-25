@@ -3,9 +3,9 @@
 set -eou pipefail
 
 # Download the release-notes for our specific build
-curl -o release-notes.md "https://packages.chef.io/release-notes/${PRODUCT_KEY}/${VERSION}.md"
+curl -o release-notes.md "https://packages.chef.io/release-notes/${EXPEDITOR_PRODUCT_KEY}/${EXPEDITOR_VERSION}.md"
 
-topic_title="Chef Workstation $VERSION Released!"
+topic_title="Chef Workstation $EXPEDITOR_VERSION Released!"
 topic_body=$(cat <<EOH
 We are delighted to announce the availability of version $VERSION of Chef Workstation.
 $(cat release-notes.md)

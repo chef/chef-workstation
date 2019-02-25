@@ -12,7 +12,7 @@
 
 set -evx
 
-version=$(get_github_file $REPO master VERSION)
+version=$(get_github_file $EXPEDITOR_REPO master VERSION)
 branch="expeditor/delivery-cli_${version}"
 git checkout -b "$branch"
 

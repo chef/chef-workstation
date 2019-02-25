@@ -11,16 +11,16 @@
 
 set -evx
 
-branch="expeditor/chef_dk_${VERSION}"
+branch="expeditor/chef_dk_${EXPEDITOR_VERSION}"
 git checkout -b "$branch"
 
-sed -i -r "s/override :\"chef-dk\",\s+version: \"v[^\"]+\"/override :\"chef-dk\", version: \"v${VERSION}\"/" omnibus_overrides.rb
+sed -i -r "s/override :\"chef-dk\",\s+version: \"v[^\"]+\"/override :\"chef-dk\", version: \"v${EXPEDITOR_VERSION}\"/" omnibus_overrides.rb
 
 git add .
 
 # give a friendly message for the commit and make sure it's noted for any future audit of our codebase that no
 # DCO sign-off is needed for this sort of PR since it contains no intellectual property
-git commit --message "Bump ChefDK to $VERSION" --message "This pull request was triggered automatically via Expeditor when ChefDK $VERSION was promoted to stable." --message "This change falls under the obvious fix policy so no Developer Certificate of Origin (DCO) sign-off is required."
+git commit --message "Bump ChefDK to $EXPEDITOR_VERSION" --message "This pull request was triggered automatically via Expeditor when ChefDK $EXPEDITOR_VERSION was promoted to stable." --message "This change falls under the obvious fix policy so no Developer Certificate of Origin (DCO) sign-off is required."
 
 open_pull_request
 
