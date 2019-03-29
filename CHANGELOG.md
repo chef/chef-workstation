@@ -1,23 +1,21 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.2.53 -->
-## [0.2.53](https://github.com/chef/chef-workstation/tree/0.2.53) (2019-03-28)
-
-#### Merged Pull Requests
-- omnibus 6.0.19 -&gt; 6.0.21 [#356](https://github.com/chef/chef-workstation/pull/356) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.2.48 -->
-### Changes since 0.2.48 release
-
-#### Merged Pull Requests
-- omnibus 6.0.19 -&gt; 6.0.21 [#356](https://github.com/chef/chef-workstation/pull/356) ([marcparadise](https://github.com/marcparadise)) <!-- 0.2.53 -->
-- Update omnibus and omnibus-software. Also, add pin for rust version. [#354](https://github.com/chef/chef-workstation/pull/354) ([jonsmorrow](https://github.com/jonsmorrow)) <!-- 0.2.52 -->
-- Bump ChefDK to 3.8.14 [#352](https://github.com/chef/chef-workstation/pull/352) ([chef-ci](https://github.com/chef-ci)) <!-- 0.2.51 -->
-- Bump Delivery CLI to 0.0.52 [#351](https://github.com/chef/chef-workstation/pull/351) ([chef-ci](https://github.com/chef-ci)) <!-- 0.2.50 -->
-- disable appx packages; update to latest omnibus [#344](https://github.com/chef/chef-workstation/pull/344) ([marcparadise](https://github.com/marcparadise)) <!-- 0.2.49 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.2.53](https://github.com/chef/chef-workstation/tree/0.2.53) (2019-03-29)
+
+#### Merged Pull Requests
+- disable appx packages; update to latest omnibus [#344](https://github.com/chef/chef-workstation/pull/344) ([marcparadise](https://github.com/marcparadise))
+- Bump Delivery CLI to 0.0.52 [#351](https://github.com/chef/chef-workstation/pull/351) ([chef-ci](https://github.com/chef-ci))
+- Bump ChefDK to 3.8.14 [#352](https://github.com/chef/chef-workstation/pull/352) ([chef-ci](https://github.com/chef-ci))
+- Update omnibus and omnibus-software. Also, add pin for rust version. [#354](https://github.com/chef/chef-workstation/pull/354) ([jonsmorrow](https://github.com/jonsmorrow))
+- omnibus 6.0.19 -&gt; 6.0.21 [#356](https://github.com/chef/chef-workstation/pull/356) ([marcparadise](https://github.com/marcparadise))
+<!-- latest_stable_release -->
+
 ## [0.2.48](https://github.com/chef/chef-workstation/tree/0.2.48) (2019-01-31)
 
 #### Merged Pull Requests
@@ -26,7 +24,6 @@
 - Bump Delivery CLI to 0.0.50 [#341](https://github.com/chef/chef-workstation/pull/341) ([chef-ci](https://github.com/chef-ci))
 - Bump Chef Workstation App to 0.1.7 [#343](https://github.com/chef/chef-workstation/pull/343) ([chef-ci](https://github.com/chef-ci))
 - Bump ChefDK to 3.7.23 [#342](https://github.com/chef/chef-workstation/pull/342) ([chef-ci](https://github.com/chef-ci))
-<!-- latest_stable_release -->
 
 ## [0.2.43](https://github.com/chef/chef-workstation/tree/0.2.43) (2018-12-28)
 
