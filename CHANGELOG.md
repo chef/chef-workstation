@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 0.2.54 -->
+## [0.2.54](https://github.com/chef/chef-workstation/tree/0.2.54) (2019-03-30)
+
+#### Merged Pull Requests
+- Bump bundler/rubygems/openssl [#357](https://github.com/chef/chef-workstation/pull/357) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=0.2.53 -->
+### Changes since 0.2.53 release
+
+#### Merged Pull Requests
+- Bump bundler/rubygems/openssl [#357](https://github.com/chef/chef-workstation/pull/357) ([tas50](https://github.com/tas50)) <!-- 0.2.54 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
