@@ -8,9 +8,9 @@ GIT
 
 GIT
   remote: https://github.com/chef/omnibus.git
-  revision: c824e911af6dab44e9866a5e05d2e0217518a76f
+  revision: 096b70201d073a4aaca8f3b9faf76d4c648d05d5
   specs:
-    omnibus (6.0.21)
+    omnibus (6.0.22)
       aws-sdk-s3 (~> 1)
       chef-sugar (>= 3.3)
       cleanroom (~> 1.0)
@@ -39,7 +39,7 @@ GEM
     aws-sdk-kms (1.16.0)
       aws-sdk-core (~> 3, >= 3.48.2)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.35.0)
+    aws-sdk-s3 (1.36.0)
       aws-sdk-core (~> 3, >= 3.48.2)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.0)
