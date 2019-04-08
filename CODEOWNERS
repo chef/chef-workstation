@@ -1,5 +1,0 @@
-# Order is important. The last matching pattern has the most precedence.
-
-*                                   @chef/chef-workstation
-components/chef-cli/i18n/** @chef/user-experience
-docs @chef/docs-team
