@@ -11,9 +11,7 @@ package_file="$(install-omnibus-product -c "$channel" -P "$product" -v "$version
 echo "--- Verifying omnibus package is signed"
 check-omnibus-package-signed "$package_file"
 
-echo "--- Testing $channel $product $version"
-
-echo "Verifying ownership of package files"
+echo "--- Verifying ownership of package files"
 
 export INSTALL_DIR=/opt/chef-workstation
 NONROOT_FILES="$(find "$INSTALL_DIR" ! -uid 0 -print)"
@@ -25,7 +23,7 @@ else
   exit 1
 fi
 
-echo "Running verification for $product"
+echo "--- Running verification for $channel $product $version"
 
 # chef version ensures our bin ends up on path and the basic ruby env is working.
 chef-run --version
