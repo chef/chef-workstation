@@ -27,9 +27,7 @@ Else {
 Write-Output "--- Installing $channel $product $version"
 Start-Process "$package_file" /quiet -Wait
 
-Write-Output "--- Testing $channel $product $version"
-
-Write-Output "Running verification for $product"
+Write-Output "--- Running verification for $channel $product $version"
 
 # reload Env:PATH to ensure it gets any changes that the install made (e.g. C:\opscode\chef-workstation\bin\ )
 $Env:PATH = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
