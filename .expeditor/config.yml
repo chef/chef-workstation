@@ -42,6 +42,11 @@ merge_actions:
 pipelines:
   - verify:
       description: Pull Request validation tests
+  - omnibus/release
+  - omnibus/adhoc:
+      definition: .expeditor/release.omnibus.yml
+      env:
+        - ADHOC: true
 
 subscriptions:
   - workload: artifact_published:stable:chef-workstation:{{version_constraint}}
