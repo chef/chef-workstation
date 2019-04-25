@@ -77,7 +77,7 @@ build do
 
   gem "build chef-dk.gemspec", env: env
 
-  gem "install chef*.gem --no-ri --no-rdoc --verbose", env: env
+  gem "install chef*.gem --no-document --verbose", env: env
 
   env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
 
