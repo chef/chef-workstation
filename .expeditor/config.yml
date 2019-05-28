@@ -8,19 +8,18 @@ product_key:
 slack:
   notify_channel: chef-ws-notify
 
+docker_images:
+  - chefworkstation
+
 github:
-  # The file where the MAJOR.MINOR.PATCH version is kept. The version in this file
-  # is bumped automatically via the `built_in:bump_version` merge_action.
-  version_file: "VERSION"
-  # The file where our CHANGELOG is kept. This file is updated automatically with
-  # details from the Pull Request via the `built_in:update_changelog` merge_action.
-  changelog_file: "CHANGELOG.md"
-  # Delete the PR branch after successfully merged into release branch.
+  # This deletes the GitHub PR branch after successfully merged into the release branch
   delete_branch_on_merge: true
   # allow bumping the minor release via label
   minor_bump_labels:
     - "Expeditor: Bump Version Minor"
-
+  # allow bumping the major release via label
+  major_bump_labels:
+    - "Expeditor: Bump Version Major"
 # https://expeditor.chef.io/docs/getting-started/subscriptions/#merge-actions
 # The `merge_actions` key is a shortcut for the
 # `pull_request_merged:<GITHUB_REPO>:<RELEASE_BRANCH>:*` subscription.
@@ -49,9 +48,17 @@ pipelines:
         - ADHOC: true
 
 subscriptions:
+  - workload: artifact_published:unstable:chef-workstation:{{version_constraint}}
+    actions:
+      - built_in:build_docker_image
+  - workload: artifact_published:current:chef-workstation:{{version_constraint}}
+    actions:
+      - built_in:tag_docker_image
   - workload: artifact_published:stable:chef-workstation:{{version_constraint}}
     actions:
       - built_in:rollover_changelog
+      - bash:.expeditor/update_dockerfile.sh
+      - built_in:tag_docker_image   
       - bash:.expeditor/publish-release-notes.sh
       - bash:.expeditor/purge-cdn.sh
       - bash:.expeditor/announce-release.sh
