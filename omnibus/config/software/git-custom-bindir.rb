@@ -50,17 +50,6 @@ build do
   # clever.
   make "distclean", env: env
 
-  # AIX needs /opt/freeware/bin only for patch
-  if aix?
-    patch_env = env.dup
-    patch_env["PATH"] = "/opt/freeware/bin:#{env['PATH']}"
-
-    # But only needs the below for 1.9.5
-    if version == "1.9.5"
-      patch source: "aix-strcmp-in-dirc.patch", plevel: 1, env: patch_env
-    end
-  end
-
   config_hash = {
     # Universal options
     NO_GETTEXT: "YesPlease",
@@ -83,19 +72,6 @@ build do
     config_hash["USE_ST_TIMESPEC"] = "YesPlease"
     config_hash["HAVE_BSD_SYSCTL"] = "YesPlease"
     config_hash["NO_R_TO_GCC_LINKER"] = "YesPlease"
-  elsif solaris?
-    env["CC"] = "gcc"
-    env["SHELL_PATH"] = "#{install_dir}/embedded/bin/bash"
-    config_hash["NEEDS_SOCKET"] = "YesPlease"
-    config_hash["NO_R_TO_GCC_LINKER"] = "YesPlease"
-  elsif aix?
-    env["CC"] = "xlc_r"
-    env["INSTALL"] = "/opt/freeware/bin/install"
-    # xlc doesn't understand the '-Wl,-rpath' syntax at all so... we don't enable
-    # the NO_R_TO_GCC_LINKER flag. This means that it will try to use the
-    # old style -R for libraries and as a result, xlc will ignore it. In this case, we
-    # we want that to happen because we explicitly set the libpath with the correct
-    # command line argument in omnibus itself.
   else
     # Linux things!
     config_hash["HAVE_PATHS_H"] = "YesPlease"
