@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.2.58 -->
-## [0.2.58](https://github.com/chef/chef-workstation/tree/0.2.58) (2019-05-02)
+<!-- latest_release 0.2.59 -->
+## [0.2.59](https://github.com/chef/chef-workstation/tree/0.2.59) (2019-05-28)
 
 #### Merged Pull Requests
-- remove chefx symlink references [#367](https://github.com/chef/chef-workstation/pull/367) ([jtimberman](https://github.com/jtimberman))
+- Bump ChefDK to 3.10.1 [#372](https://github.com/chef/chef-workstation/pull/372) ([chef-ci](https://github.com/chef-ci))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.2.53 -->
 ### Changes since 0.2.53 release
 
 #### Merged Pull Requests
+- Bump ChefDK to 3.10.1 [#372](https://github.com/chef/chef-workstation/pull/372) ([chef-ci](https://github.com/chef-ci)) <!-- 0.2.59 -->
 - remove chefx symlink references [#367](https://github.com/chef/chef-workstation/pull/367) ([jtimberman](https://github.com/jtimberman)) <!-- 0.2.58 -->
 - Build with chef 14.12 in omnibus [#364](https://github.com/chef/chef-workstation/pull/364) ([tas50](https://github.com/tas50)) <!-- 0.2.57 -->
 - Update rubygems to 2.7.9 [#363](https://github.com/chef/chef-workstation/pull/363) ([tas50](https://github.com/tas50)) <!-- 0.2.56 -->
