@@ -10,8 +10,17 @@ If ([string]::IsNullOrEmpty($product)) { $product = "chef-workstation" }
 $version = "$Env:VERSION"
 If ([string]::IsNullOrEmpty($version)) { $version = "latest" }
 
+. C:\buildkite-agent\bin\load-omnibus-toolchain.ps1
+
+If ($env:OMNIBUS_WINDOWS_ARCH -eq "x86") {
+  $architecture = "i386"
+}
+ElseIf ($env:OMNIBUS_WINDOWS_ARCH -eq "x64") {
+  $architecture = "x86_64"
+}
+
 Write-Output "--- Downloading $channel $product $version"
-$download_url = C:\opscode\omnibus-toolchain\embedded\bin\mixlib-install.bat download --url --channel "$channel" "$product" --version "$version"
+$download_url = C:\opscode\omnibus-toolchain\embedded\bin\mixlib-install.bat download --url --channel "$channel" "$product" --version "$version" --architecture "$architecture"
 $package_file = "$Env:Temp\$(Split-Path -Path $download_url -Leaf)"
 Invoke-WebRequest -OutFile "$package_file" -Uri "$download_url"
 
