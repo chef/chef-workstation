@@ -67,9 +67,11 @@ dependency "delivery-cli"
 dependency "rust-uninstall"
 
 dependency "chef-dk"
+dependency "chef-dk-gem-versions"
 
 dependency "gem-permissions"
 dependency "rubygems-customization"
+dependency "shebang-cleanup"
 
 if windows?
   dependency "chef-dk-env-customization"
@@ -77,7 +79,6 @@ if windows?
 end
 
 dependency "version-manifest"
-dependency "clean-static-libs"
 dependency "openssl-customization"
 
 dependency "stunnel" if fips_mode?
