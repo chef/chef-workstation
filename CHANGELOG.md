@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.3.1 -->
-## [0.3.1](https://github.com/chef/chef-workstation/tree/0.3.1) (2019-05-30)
+<!-- latest_release 0.3.2 -->
+## [0.3.2](https://github.com/chef/chef-workstation/tree/0.3.2) (2019-05-31)
 
 #### Merged Pull Requests
-- Adding missing software definition for omnibus build [#380](https://github.com/chef/chef-workstation/pull/380) ([tyler-ball](https://github.com/tyler-ball))
+- Bump ChefDK to 3.11.3 [#381](https://github.com/chef/chef-workstation/pull/381) ([chef-ci](https://github.com/chef-ci))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.2.53 -->
 ### Changes since 0.2.53 release
 
 #### Merged Pull Requests
+- Bump ChefDK to 3.11.3 [#381](https://github.com/chef/chef-workstation/pull/381) ([chef-ci](https://github.com/chef-ci)) <!-- 0.3.2 -->
 - Adding missing software definition for omnibus build [#380](https://github.com/chef/chef-workstation/pull/380) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.3.1 -->
 - Copying in the latest ChefDK 3 omnibus definitions to fix the Workstation build [#379](https://github.com/chef/chef-workstation/pull/379) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.3.0 -->
 - Misc omnibus cleanup from DK [#375](https://github.com/chef/chef-workstation/pull/375) ([tas50](https://github.com/tas50)) <!-- 0.2.60 -->
