@@ -3,7 +3,7 @@
 # Whenever ChefDK is promoted to stable or workstation app and delivery cli are merged
 # to master then Expeditor takes that version, runs a script to replace it here and pushes
 # a new commit / build through.
-override :"chef-dk", version: "v3.10.1"
+override :"chef-dk", version: "v3.11.3"
 override "delivery-cli", version: "0.0.52"
 override "chef-workstation-app", version: "v0.1.7"
 # /DO NOT MODIFY
