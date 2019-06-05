@@ -41,10 +41,16 @@ Write-Output "--- Running verification for $channel $product $version"
 # reload Env:PATH to ensure it gets any changes that the install made (e.g. C:\opscode\chef-workstation\bin\ )
 $Env:PATH = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
 
+$Env:CHEF_LICENSE = "accept-no-persist"
+
 # chef-run version ensures our bin ends up on path and the basic ruby env is working.
 chef-run --version
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
 # Ensure our ChefDK works
 chef env
+If ($lastexitcode -ne 0) { Exit $lastexitcode }
+
+# Run ChefDK verification suite to ensure it still works
+chef verify
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
