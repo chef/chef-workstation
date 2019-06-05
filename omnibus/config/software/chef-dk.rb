@@ -64,6 +64,9 @@ build do
   # Patch cli.rb show_version function and add token we can later use to swap in the build_version.
   patch source: "cli.patch", target: "./lib/chef-dk/cli.rb"
 
+  # Change the license to be accepted for Chef Workstation instead of ChefDK
+  patch source: "base.patch", target: "./lib/chef-dk/command/base.rb"
+
   # Cross platform way to sed. Need to cleanup the backup fail.
   command("sed -i.bak 's/\\$CHEF_WS_VERSION\\$/#{project.build_version}/' #{project_dir}/lib/chef-dk/cli.rb", env: env)
   command("rm #{project_dir}/lib/chef-dk/cli.rb.bak")
