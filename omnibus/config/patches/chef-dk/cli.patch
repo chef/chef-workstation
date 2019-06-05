@@ -1,10 +1,10 @@
 diff --git a/lib/chef-dk/cli.rb b/lib/chef-dk/cli.rb
-index d789b075..4bf739ee 100644
+index 3f991041..1fbf7778 100644
 --- a/lib/chef-dk/cli.rb
 +++ b/lib/chef-dk/cli.rb
-@@ -95,15 +95,22 @@ BANNER
+@@ -95,15 +95,22 @@ module ChefDK
      end
- 
+
      def show_version
 -      msg("Chef Development Kit Version: #{ChefDK::VERSION}")
 -
@@ -13,7 +13,7 @@ index d789b075..4bf739ee 100644
 +      msg("Chef Workstation: $CHEF_WS_VERSION$")
 +
 +      {
-+        "chef-run": "chef-run", 
++        "chef-run": "chef-run",
 +        "chef-client": "chef-client",
 +        "delivery-cli": "delivery",
 +        "berks": "berks",

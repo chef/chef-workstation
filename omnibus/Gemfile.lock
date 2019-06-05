@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: 4187714031ef65026ea91a38ce2b6b2087f8be7f
+  revision: 998efe24bb8ad79fcd09cdef74b67a2787591d14
   branch: master
   specs:
     omnibus-software (4.0.0)
@@ -9,10 +9,10 @@ GIT
 
 GIT
   remote: https://github.com/chef/omnibus.git
-  revision: 968307c129ee54416f5a4d07ca8f8ca2d2b12825
+  revision: 8bb13d8340822417dacd7f8d1820e78a3d6e56b2
   branch: master
   specs:
-    omnibus (6.0.27)
+    omnibus (6.0.28)
       aws-sdk-s3 (~> 1)
       chef-sugar (>= 3.3)
       cleanroom (~> 1.0)
@@ -32,8 +32,8 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     awesome_print (1.8.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.167.0)
-    aws-sdk-core (3.53.1)
+    aws-partitions (1.172.0)
+    aws-sdk-core (3.54.2)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.1)
@@ -41,10 +41,10 @@ GEM
     aws-sdk-kms (1.21.0)
       aws-sdk-core (~> 3, >= 3.53.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.40.0)
+    aws-sdk-s3 (1.42.0)
       aws-sdk-core (~> 3, >= 3.53.0)
       aws-sdk-kms (~> 1)
-      aws-sigv4 (~> 1.0)
+      aws-sigv4 (~> 1.1)
     aws-sigv4 (1.1.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
     bcrypt_pbkdf (1.0.1)
@@ -219,7 +219,7 @@ GEM
     molinillo (0.6.6)
     multi_json (1.13.1)
     multipart-post (2.0.0)
-    necromancer (0.4.0)
+    necromancer (0.5.0)
     net-scp (2.0.0)
       net-ssh (>= 2.6.5, < 6.0.0)
     net-sftp (2.1.2)
@@ -292,7 +292,6 @@ GEM
       winrm-elevated (~> 1.0)
       winrm-fs (~> 1.1)
     thor (0.20.3)
-    timers (4.3.0)
     toml-rb (1.1.2)
       citrus (~> 3.0, > 3.0)
     tomlrb (1.2.8)
@@ -303,23 +302,21 @@ GEM
       net-ssh (>= 2.9, < 6.0)
       winrm (~> 2.0)
       winrm-fs (~> 1.0)
-    tty-box (0.3.0)
+    tty-box (0.4.0)
       pastel (~> 0.7.2)
-      strings (~> 0.1.4)
-      tty-cursor (~> 0.6.0)
+      strings (~> 0.1.5)
+      tty-cursor (~> 0.7)
     tty-color (0.4.3)
-    tty-cursor (0.6.1)
-    tty-prompt (0.18.1)
-      necromancer (~> 0.4.0)
+    tty-cursor (0.7.0)
+    tty-prompt (0.19.0)
+      necromancer (~> 0.5.0)
       pastel (~> 0.7.0)
-      timers (~> 4.0)
-      tty-cursor (~> 0.6.0)
-      tty-reader (~> 0.5.0)
-    tty-reader (0.5.0)
-      tty-cursor (~> 0.6.0)
-      tty-screen (~> 0.6.4)
+      tty-reader (~> 0.6.0)
+    tty-reader (0.6.0)
+      tty-cursor (~> 0.7)
+      tty-screen (~> 0.7)
       wisper (~> 2.0.0)
-    tty-screen (0.6.5)
+    tty-screen (0.7.0)
     unicode-display_width (1.6.0)
     unicode_utils (1.4.0)
     uuidtools (2.1.5)

@@ -1,0 +1,13 @@
+diff --git a/lib/chef-dk/command/base.rb b/lib/chef-dk/command/base.rb
+index 5d4d74d5..d91f70a7 100644
+--- a/lib/chef-dk/command/base.rb
++++ b/lib/chef-dk/command/base.rb
+@@ -79,7 +79,7 @@ module ChefDK
+       end
+
+       def check_license_acceptance
+-        LicenseAcceptance::Acceptor.check_and_persist!("chef-dk", ChefDK::VERSION.to_s)
++        LicenseAcceptance::Acceptor.check_and_persist!("chef-workstation", ChefDK::VERSION.to_s)
+       end
+
+     end
