@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.4.0 -->
-## [0.4.0](https://github.com/chef/chef-workstation/tree/0.4.0) (2019-06-05)
+<!-- latest_release 0.4.1 -->
+## [0.4.1](https://github.com/chef/chef-workstation/tree/0.4.1) (2019-06-07)
 
 #### Merged Pull Requests
-- Preparing for Chef Workstation 0.4 release - EULA support [#383](https://github.com/chef/chef-workstation/pull/383) ([tyler-ball](https://github.com/tyler-ball))
+- Adding back Jenkins verification scripts temporarily to enable release [#384](https://github.com/chef/chef-workstation/pull/384) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.3.2 -->
 ### Changes since 0.3.2 release
 
 #### Merged Pull Requests
+- Adding back Jenkins verification scripts temporarily to enable release [#384](https://github.com/chef/chef-workstation/pull/384) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.4.1 -->
 - Preparing for Chef Workstation 0.4 release - EULA support [#383](https://github.com/chef/chef-workstation/pull/383) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.4.0 -->
 <!-- release_rollup -->
 
