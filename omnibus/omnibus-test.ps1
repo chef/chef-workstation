@@ -41,6 +41,10 @@ Write-Output "--- Running verification for $channel $product $version"
 # reload Env:PATH to ensure it gets any changes that the install made (e.g. C:\opscode\chef-workstation\bin\ )
 $Env:PATH = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
 
+# Ensure user variables are set in git config
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
 $Env:CHEF_LICENSE = "accept-no-persist"
 
 # chef-run version ensures our bin ends up on path and the basic ruby env is working.
