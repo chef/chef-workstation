@@ -25,6 +25,10 @@ fi
 
 echo "--- Running verification for $channel $product $version"
 
+# Ensure user variables are set in git config
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
 export CHEF_LICENSE="accept-no-persist"
 
 # chef version ensures our bin ends up on path and the basic ruby env is working.

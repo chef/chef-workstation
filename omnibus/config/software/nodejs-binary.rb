@@ -39,8 +39,7 @@
 #   node_tools_dir = ENV['omnibus_nodejs_dir']
 #   node_bin_path = windows? ? node_tools_dir : File.join(node_tools_dir, "bin")
 #   separator = File::PATH_SEPARATOR || ":"
-#   path_key = windows? ? 'Path' : 'PATH'
-#   env[path_key] = "#{env[path_key]}#{separator}#{node_bin_path}"
+#   env['PATH'] = "#{env['PATH']}#{separator}#{node_bin_path}"
 #   command "npm build", env: env
 #  end
 # end

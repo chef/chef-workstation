@@ -45,9 +45,8 @@ build do
     app_version = JSON.parse(File.read(File.join(project_dir, "package.json")))["version"]
     node_tools_dir = ENV['omnibus_nodejs_dir']
     node_bin_path = windows? ? node_tools_dir : File.join(node_tools_dir, "bin")
-    path_key = windows? ? "Path" : "PATH"
     separator = File::PATH_SEPARATOR || ":"
-    env[path_key] = "#{env[path_key]}#{separator}#{node_bin_path}"
+    env['PATH'] = "#{env['PATH']}#{separator}#{node_bin_path}"
 
     platform_name, artifact_name = if mac_os_x?
                                      ["mac", "Chef Workstation App-#{app_version}-mac.zip"]
