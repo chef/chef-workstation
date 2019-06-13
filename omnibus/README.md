@@ -8,15 +8,16 @@ We use Omnibus to describe our packaging. [Expeditor](https://expeditor.chef.io/
 
 The build pipeline generally looks like the following:
 
-1. User opens a PR. Unit tests run in Buildkite. Reviews occur in Github.
+1. User opens a PR. Unit tests run in Buildkite. Reviews occur in GitHub.
 1. When the PR is merge Expeditor takes over. It runs the list of tasks we have specified in `.expeditor/config.yml`.
-1.1. These tasks include things like automatically bumping versions, kicking off builds in Buildkite, etc. Look at the config file for the current list of [actions](http://expeditor-docs.es.chef.io/actions/).
+1.1. These tasks include things like automatically bumping versions, updating the changelog, kicking off builds in Buildkite, etc. Look at the config file for the current list of [actions](https://expeditor.chef.io/docs/reference/built_in/).
 1.1. The Buildkite build pipeline is configured in `.expeditor/release.omnibus.yml`
 1. Notifications from Expeditor will be posted in Chef's internal slack to #chef-ws-notify (also configured in `.expeditor/config.yml`). Any failures will need to be addressed.
-1. Builds are automatically placed in the `unstable` channel when first built and automatically promoted by Jenkins to the `current` channel when they pass their test phase in the pipeline.
-1. To promote to the `stable` channel (also called 'releasing') we use Expeditor. `/expeditor promote chef/chef-workstation:master 1.0.2` would promote a 1.0.2 build from current to stable.
+1. Builds are automatically placed in the `unstable` channel when first built and automatically promoted by Buildkite to the `current` channel when they pass their test phase in the pipeline.
+1. To promote to the `stable` channel (also called 'releasing') we use Expeditor.
+1.1. `/expeditor promote chef/chef-workstation:master 1.0.2` would promote a 1.0.2 build from current to stable.
 1. Packages are available via...
-1.1. mixlib-install, omnitruck, downloads.chef.io
+1.1. mixlib-install, omnitruck, downloads.chef.io, Habitat Depot, Dockerhub
 1. Come to `#releng-support` if any of these things cause issues
 
 ## Installation
@@ -35,7 +36,7 @@ $ bundle install --binstubs
 You create a platform-specific package using the `build project` command:
 
 ```shell
-$ bin/omnibus build chef-workstation
+$ sudo bin/omnibus build chef-workstation
 ```
 
 The platform/architecture type of the package created will match the platform where the `build project` command is invoked. For example, running this command on a MacBook Pro will generate a macOS package. After the build completes packages will be available in the `pkg/` folder.
