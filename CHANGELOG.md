@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.4.4 -->
-## [0.4.4](https://github.com/chef/chef-workstation/tree/0.4.4) (2019-06-17)
+<!-- latest_release 0.4.5 -->
+## [0.4.5](https://github.com/chef/chef-workstation/tree/0.4.5) (2019-06-17)
 
 #### Merged Pull Requests
-- Update the omnibus readme to reflect reality [#388](https://github.com/chef/chef-workstation/pull/388) ([tas50](https://github.com/tas50))
+- Stop building on Ubuntu 14.04 [#386](https://github.com/chef/chef-workstation/pull/386) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.4.1 -->
 ### Changes since 0.4.1 release
 
 #### Merged Pull Requests
+- Stop building on Ubuntu 14.04 [#386](https://github.com/chef/chef-workstation/pull/386) ([tas50](https://github.com/tas50)) <!-- 0.4.5 -->
 - Update the omnibus readme to reflect reality [#388](https://github.com/chef/chef-workstation/pull/388) ([tas50](https://github.com/tas50)) <!-- 0.4.4 -->
 - Add a chefworkstation docker container [#376](https://github.com/chef/chef-workstation/pull/376) ([tas50](https://github.com/tas50)) <!-- 0.4.3 -->
 - Make sure we properly appbundler Chef and InSpec gems [#385](https://github.com/chef/chef-workstation/pull/385) ([tas50](https://github.com/tas50)) <!-- 0.4.2 -->
