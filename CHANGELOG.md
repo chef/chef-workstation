@@ -6,23 +6,27 @@
 - Stop building on Ubuntu 14.04 [#386](https://github.com/chef/chef-workstation/pull/386) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup since=0.4.1 -->
-### Changes since 0.4.1 release
+<!-- release_rollup since=0.4.2 -->
+### Changes since 0.4.2 release
 
 #### Merged Pull Requests
-- Stop building on Ubuntu 14.04 [#386](https://github.com/chef/chef-workstation/pull/386) ([tas50](https://github.com/tas50)) <!-- 0.4.5 -->
-- Update the omnibus readme to reflect reality [#388](https://github.com/chef/chef-workstation/pull/388) ([tas50](https://github.com/tas50)) <!-- 0.4.4 -->
 - Add a chefworkstation docker container [#376](https://github.com/chef/chef-workstation/pull/376) ([tas50](https://github.com/tas50)) <!-- 0.4.3 -->
-- Make sure we properly appbundler Chef and InSpec gems [#385](https://github.com/chef/chef-workstation/pull/385) ([tas50](https://github.com/tas50)) <!-- 0.4.2 -->
+- Update the omnibus readme to reflect reality [#388](https://github.com/chef/chef-workstation/pull/388) ([tas50](https://github.com/tas50)) <!-- 0.4.4 -->
+- Stop building on Ubuntu 14.04 [#386](https://github.com/chef/chef-workstation/pull/386) ([tas50](https://github.com/tas50)) <!-- 0.4.5 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.4.2](https://github.com/chef/chef-workstation/tree/0.4.2) (2019-06-20)
+
+#### Merged Pull Requests
+- Make sure we properly appbundler Chef and InSpec gems [#385](https://github.com/chef/chef-workstation/pull/385) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [0.4.1](https://github.com/chef/chef-workstation/tree/0.4.1) (2019-06-07)
 
 #### Merged Pull Requests
 - Preparing for Chef Workstation 0.4 release - EULA support [#383](https://github.com/chef/chef-workstation/pull/383) ([tyler-ball](https://github.com/tyler-ball))
 - Adding back Jenkins verification scripts temporarily to enable release [#384](https://github.com/chef/chef-workstation/pull/384) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_stable_release -->
 
 ## [0.3.2](https://github.com/chef/chef-workstation/tree/0.3.2) (2019-05-31)
 
