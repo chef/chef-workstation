@@ -26,12 +26,17 @@ platforms:
 
 suites:
   - name: default
-    run_list: chef-workstation-builder::default
-    attributes:
-      omnibus:
-        build_user:          vagrant
-        build_user_group:    vagrant
-        build_user_password: vagrant
-        build_user_home:     /home/vagrant
-        build_dir:           /home/vagrant/chef-workstation/omnibus
-        install_dir:         /opt/chef-workstation
+
+# suites:
+#     run_list:
+#       - omnibus::default
+#   - name: chef-dk
+#     run_list: chef-workstation-builder::default
+#     attributes:
+#       omnibus:
+#         build_user:          vagrant
+#         build_user_group:    vagrant
+#         build_user_password: vagrant
+#         build_user_home:     /home/vagrant
+#         build_dir:           /home/vagrant/chef-workstation/omnibus
+#         install_dir:         /opt/chef-dk

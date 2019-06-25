@@ -14,8 +14,12 @@ build do
     dlls = [
       "libwinpthread-1",
       "libstdc++-6",
-      "libgcc_s_seh-1",
     ]
+    if windows_arch_i386?
+      dlls << "libgcc_s_dw2-1"
+    else
+      dlls << "libgcc_s_seh-1"
+    end
     dlls.each do |dll|
       mingw = ENV["MSYSTEM"].downcase
       msys_path = ENV["OMNIBUS_TOOLCHAIN_INSTALL_DIR"] ? "#{ENV["OMNIBUS_TOOLCHAIN_INSTALL_DIR"]}/embedded/bin" : "C:/msys2"

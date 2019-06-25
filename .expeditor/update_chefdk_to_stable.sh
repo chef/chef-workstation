@@ -15,6 +15,7 @@ branch="expeditor/chef_dk_${EXPEDITOR_VERSION}"
 git checkout -b "$branch"
 
 sed -i -r "s/override :\"chef-dk\",\s+version: \"v[^\"]+\"/override :\"chef-dk\", version: \"v${EXPEDITOR_VERSION}\"/" omnibus_overrides.rb
+echo -n "${EXPEDITOR_VERSION}" > DKVERSION
 
 git add .
 
