@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #
 # Copyright 2014-2019, Chef Software Inc.
 #
@@ -38,6 +39,7 @@ end
 if version != "local_source"
   source git: "https://github.com/chef/chef-dk.git"
 end
+
 
 # For nokogiri
 dependency "libxml2"
