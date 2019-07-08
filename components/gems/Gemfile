@@ -93,7 +93,7 @@ group(:omnibus_package) do
   gem "ed25519"
   gem "bcrypt_pbkdf"
 
-  #gem "chef-cli"
+  gem "chef-cli", ">= 1.0.3"
 
   gem "chef-apply"
 

@@ -211,6 +211,18 @@ GEM
       tty-spinner
     chef-bin (15.0.300)
       chef (= 15.0.300)
+    chef-cli (1.0.3)
+      addressable (>= 2.3.5, < 2.6)
+      chef (~> 15.0)
+      cookbook-omnifetch (~> 0.5)
+      diff-lcs (~> 1.0)
+      ffi-yajl (>= 1.0, < 3.0)
+      license-acceptance (~> 1.0, >= 1.0.11)
+      minitar (~> 0.6)
+      mixlib-cli (>= 1.7, < 3.0)
+      mixlib-shellout (>= 2.0, < 4.0)
+      paint (~> 1.0)
+      solve (> 2.0, < 5.0)
     chef-config (15.0.300)
       addressable
       fuzzyurl
@@ -891,6 +903,7 @@ DEPENDENCIES
   chef (= 15.0.300)
   chef-apply
   chef-bin (= 15.0.300)
+  chef-cli (>= 1.0.3)
   chef-sugar
   chef-vault (>= 3.4.1)
   cheffish (>= 14.0.1)
