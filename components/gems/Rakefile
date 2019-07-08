@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright (c) 2016-2018 Chef Software Inc.
+# Copyright:: Copyright (c) 2019 Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,63 +15,17 @@
 # limitations under the License.
 #
 
-begin
-  require_relative "tasks/dependencies"
-  require_relative "tasks/announce"
-rescue LoadError
-  puts "Additional rake tasks not found. If you require these rake tasks run Rake from the git repo not the installation files!"
+task :default do
+  puts "There is no default task. You probably want 'bundle exec rake update'"
 end
 
-namespace :style do
-  begin
-    require "rubocop/rake_task"
-
-    desc "Run Cookbook Ruby style checks"
-    RuboCop::RakeTask.new(:cookstyle) do |t|
-      t.requires = ["cookstyle"]
-      t.patterns = ["lib/chef-dk/skeletons/code_generator"]
-      t.options = ["--display-cop-names"]
-    end
-  rescue LoadError => e
-    puts ">>> Gem load error: #{e}, omitting #{task.name}" unless ENV["CI"]
-  end
-
-  begin
-    require "rubocop/rake_task"
-
-    ignore_dirs = Regexp.union(%w{
-      lib/chef-dk/skeletons/code_generator
-      spec/unit/fixtures/chef-runner-cookbooks
-      spec/unit/fixtures/cookbook_cache
-      spec/unit/fixtures/example_cookbook
-      spec/unit/fixtures/example_cookbook_metadata_json_only
-      spec/unit/fixtures/example_cookbook_no_metadata
-      spec/unit/fixtures/local_path_cookbooks
-    })
-
-    desc "Run Chef Ruby style checks"
-    RuboCop::RakeTask.new(:chefstyle) do |t|
-      t.requires = ["chefstyle"]
-      t.patterns = `rubocop --list-target-files`.split("\n").reject { |f| f =~ ignore_dirs }
-      t.options = ["--display-cop-names"]
-    end
-  rescue LoadError => e
-    puts ">>> Gem load error: #{e}, omitting #{task.name}" unless ENV["CI"]
-  end
-
-  begin
-    require "foodcritic"
-
-    desc "Run Chef Cookbook (Foodcritic) style checks"
-    FoodCritic::Rake::LintTask.new(:foodcritic) do |t|
-      t.options = {
-        fail_tags: ["any"],
-        tags: ["~FC071", "~supermarket", "~FC031"],
-        cookbook_paths: ["lib/chef-dk/skeletons/code_generator"],
-        progress: true,
-      }
-    end
-  rescue LoadError => e
-    puts ">>> Gem load error: #{e}, omitting #{task.name}" unless ENV["CI"]
+desc "Update the One True Gemfile.lock in this directory with the latest dependencies."
+task :update do
+  require 'bundler'
+  Bundler.with_clean_env do
+    rm_f "Gemfile.lock"
+    sh "bundle lock --update --add-platform ruby"
+    sh "bundle lock --update --add-platform x64-mingw32"
+    sh "bundle lock --update --add-platform x86-mingw32"
   end
 end
