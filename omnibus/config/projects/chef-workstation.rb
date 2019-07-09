@@ -19,8 +19,8 @@ friendly_name "Chef Workstation"
 maintainer    "Chef Software, Inc. <maintainers@chef.io>"
 homepage      "https://chef.sh"
 
-license "Apache-2.0"
-license_file "../LICENSE"
+license "Chef EULA"
+license_file "CHEF-EULA.md"
 
 conflict  "chefdk"
 
