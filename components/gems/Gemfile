@@ -95,7 +95,7 @@ group(:omnibus_package) do
 
   gem "chef-cli", ">= 1.0.3"
 
-  gem "chef-apply"
+  gem "chef-apply", ">= 0.3.3"
 
   # For Delivery build node
   gem "chef-sugar"

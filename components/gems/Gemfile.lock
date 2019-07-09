@@ -15,7 +15,7 @@ GEM
     artifactory (3.0.0)
     ast (2.4.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.184.0)
+    aws-partitions (1.185.0)
     aws-sdk-autoscaling (1.22.0)
       aws-sdk-core (~> 3, >= 3.52.1)
       aws-sigv4 (~> 1.1)
@@ -195,9 +195,9 @@ GEM
     chef-api (0.9.0)
       logify (~> 0.1)
       mime-types
-    chef-apply (0.3.0)
+    chef-apply (0.3.3)
       chef (>= 15.0)
-      chef-dk (>= 4.0)
+      chef-cli (>= 1.0.3)
       chef-telemetry
       license-acceptance (~> 1.0, >= 1.0.11)
       mixlib-cli
@@ -229,18 +229,6 @@ GEM
       mixlib-config (>= 2.2.12, < 4.0)
       mixlib-shellout (>= 2.0, < 4.0)
       tomlrb (~> 1.2)
-    chef-dk (4.0.60)
-      addressable (>= 2.3.5, < 2.6)
-      chef (~> 15.0)
-      cookbook-omnifetch (~> 0.5)
-      diff-lcs (~> 1.0)
-      ffi-yajl (>= 1.0, < 3.0)
-      license-acceptance (~> 1.0, >= 1.0.11)
-      minitar (~> 0.6)
-      mixlib-cli (>= 1.7, < 3.0)
-      mixlib-shellout (>= 2.0, < 4.0)
-      paint (~> 1.0)
-      solve (> 2.0, < 5.0)
     chef-sugar (5.0.1)
     chef-telemetry (0.1.8)
       chef-config
@@ -269,7 +257,7 @@ GEM
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     concurrent-ruby (1.1.5)
-    cookbook-omnifetch (0.8.1)
+    cookbook-omnifetch (0.9.0)
       mixlib-archive (>= 0.4, < 2.0)
     cookstyle (4.0.0)
       rubocop (= 0.62.0)
@@ -901,7 +889,7 @@ DEPENDENCIES
   berkshelf (>= 7.0.5)
   bundler
   chef (= 15.0.300)
-  chef-apply
+  chef-apply (>= 0.3.3)
   chef-bin (= 15.0.300)
   chef-cli (>= 1.0.3)
   chef-sugar
