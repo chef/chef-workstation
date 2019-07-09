@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.4.5 -->
-## [0.4.5](https://github.com/chef/chef-workstation/tree/0.4.5) (2019-06-17)
+<!-- latest_release 0.4.6 -->
+## [0.4.6](https://github.com/chef/chef-workstation/tree/0.4.6) (2019-07-09)
 
 #### Merged Pull Requests
-- Stop building on Ubuntu 14.04 [#386](https://github.com/chef/chef-workstation/pull/386) ([tas50](https://github.com/tas50))
+- Bump ChefDK to 4.1.7 [#397](https://github.com/chef/chef-workstation/pull/397) ([chef-ci](https://github.com/chef-ci))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.4.2 -->
 ### Changes since 0.4.2 release
 
 #### Merged Pull Requests
+- Bump ChefDK to 4.1.7 [#397](https://github.com/chef/chef-workstation/pull/397) ([chef-ci](https://github.com/chef-ci)) <!-- 0.4.6 -->
 - Add a chefworkstation docker container [#376](https://github.com/chef/chef-workstation/pull/376) ([tas50](https://github.com/tas50)) <!-- 0.4.3 -->
 - Update the omnibus readme to reflect reality [#388](https://github.com/chef/chef-workstation/pull/388) ([tas50](https://github.com/tas50)) <!-- 0.4.4 -->
 - Stop building on Ubuntu 14.04 [#386](https://github.com/chef/chef-workstation/pull/386) ([tas50](https://github.com/tas50)) <!-- 0.4.5 -->
