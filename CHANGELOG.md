@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.4.8 -->
-## [0.4.8](https://github.com/chef/chef-workstation/tree/0.4.8) (2019-07-09)
+<!-- latest_release 0.5.0 -->
+## [0.5.0](https://github.com/chef/chef-workstation/tree/0.5.0) (2019-07-09)
 
 #### Merged Pull Requests
-- Patch the DK dist file now that we have one [#399](https://github.com/chef/chef-workstation/pull/399) ([tas50](https://github.com/tas50))
+- Update the omnibus build license to the Chef EULA [#403](https://github.com/chef/chef-workstation/pull/403) ([btm](https://github.com/btm))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.4.2 -->
 ### Changes since 0.4.2 release
 
 #### Merged Pull Requests
+- Update the omnibus build license to the Chef EULA [#403](https://github.com/chef/chef-workstation/pull/403) ([btm](https://github.com/btm)) <!-- 0.5.0 -->
 - Patch the DK dist file now that we have one [#399](https://github.com/chef/chef-workstation/pull/399) ([tas50](https://github.com/tas50)) <!-- 0.4.8 -->
 - Update rubygems to 3.0.4 and curl to 7.65.1 [#398](https://github.com/chef/chef-workstation/pull/398) ([tas50](https://github.com/tas50)) <!-- 0.4.7 -->
 - Bump ChefDK to 4.1.7 [#397](https://github.com/chef/chef-workstation/pull/397) ([chef-ci](https://github.com/chef-ci)) <!-- 0.4.6 -->
