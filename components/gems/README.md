@@ -7,5 +7,5 @@ of shipped gems.
 
 To update the Gemfile.lock, run the rake task:
 
-`bundle exec rake dependencies:update_gemfile_lock`
+`bundle exec rake update`
 
