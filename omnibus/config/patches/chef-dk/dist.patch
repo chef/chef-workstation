@@ -1,0 +1,11 @@
+--- dist.rb	2019-07-01 19:33:20.000000000 -0700
++++ dist2.rb	2019-07-08 21:23:06.000000000 -0700
+@@ -3,7 +3,7 @@
+     # This class is not fully implemented, depending on it is not recommended!
+ 
+     # The full marketing name of the product
+-    PRODUCT = "ChefDK".freeze
++    PRODUCT = "Chef Workstation".freeze
+ 
+     # The chef executable, as in `chef gem install` or `chef generate cookbook`
+     EXEC = "chef".freeze

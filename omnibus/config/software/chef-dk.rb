@@ -1,3 +1,19 @@
+#
+# Copyright 2014-2019, Chef Software Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
 name "chef-dk"
 default_version "local_source"
 
@@ -20,7 +36,7 @@ end
 
 # For any version other than "local_source", fetch from github.
 if version != "local_source"
-  source git: "git://github.com/chef/chef-dk.git"
+  source git: "https://github.com/chef/chef-dk.git"
 end
 
 # For nokogiri
@@ -62,7 +78,7 @@ build do
   env = with_standard_compiler_flags(with_embedded_path)
 
   # Patch cli.rb show_version function and add token we can later use to swap in the build_version.
-  patch source: "cli.patch", target: "./lib/chef-dk/cli.rb"
+  patch source: "dist.patch", target: "./lib/chef-dk/dist.rb"
 
   # Change the license to be accepted for Chef Workstation instead of ChefDK
   patch source: "base.patch", target: "./lib/chef-dk/command/base.rb"
@@ -71,7 +87,7 @@ build do
   command("sed -i.bak 's/\\$CHEF_WS_VERSION\\$/#{project.build_version}/' #{project_dir}/lib/chef-dk/cli.rb", env: env)
   command("rm #{project_dir}/lib/chef-dk/cli.rb.bak")
 
-  excluded_groups = %w{server docgen maintenance pry travis integration ci}
+  excluded_groups = %w{server docgen maintenance pry integration ci}
 
   # install the whole bundle first
   bundle "install --without #{excluded_groups.join(' ')}", env: env
