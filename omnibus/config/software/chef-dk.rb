@@ -77,8 +77,10 @@ dependency "google-protobuf"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
-  # Patch cli.rb show_version function and add token we can later use to swap in the build_version.
+  # Patch cli.rb show_version function to add token we can later use to swap in the build_version
+  # and also patch dist.rb to change the PRODUCT constant from ChefDK to Chef Workstation
   patch source: "dist.patch", target: "./lib/chef-dk/dist.rb"
+  patch source: "cli.patch", target: "./lib/chef-dk/cli.rb"
 
   # Change the license to be accepted for Chef Workstation instead of ChefDK
   patch source: "base.patch", target: "./lib/chef-dk/command/base.rb"
