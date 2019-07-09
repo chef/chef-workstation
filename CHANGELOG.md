@@ -1,31 +1,28 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.5.1 -->
-## [0.5.1](https://github.com/chef/chef-workstation/tree/0.5.1) (2019-07-09)
-
-#### Merged Pull Requests
-- Fix the chef --version command showing the old DK version [#401](https://github.com/chef/chef-workstation/pull/401) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.4.2 -->
-### Changes since 0.4.2 release
-
-#### Merged Pull Requests
-- Fix the chef --version command showing the old DK version [#401](https://github.com/chef/chef-workstation/pull/401) ([tas50](https://github.com/tas50)) <!-- 0.5.1 -->
-- Update the omnibus build license to the Chef EULA [#403](https://github.com/chef/chef-workstation/pull/403) ([btm](https://github.com/btm)) <!-- 0.5.0 -->
-- Patch the DK dist file now that we have one [#399](https://github.com/chef/chef-workstation/pull/399) ([tas50](https://github.com/tas50)) <!-- 0.4.8 -->
-- Update rubygems to 3.0.4 and curl to 7.65.1 [#398](https://github.com/chef/chef-workstation/pull/398) ([tas50](https://github.com/tas50)) <!-- 0.4.7 -->
-- Bump ChefDK to 4.1.7 [#397](https://github.com/chef/chef-workstation/pull/397) ([chef-ci](https://github.com/chef-ci)) <!-- 0.4.6 -->
-- Add a chefworkstation docker container [#376](https://github.com/chef/chef-workstation/pull/376) ([tas50](https://github.com/tas50)) <!-- 0.4.3 -->
-- Update the omnibus readme to reflect reality [#388](https://github.com/chef/chef-workstation/pull/388) ([tas50](https://github.com/tas50)) <!-- 0.4.4 -->
-- Stop building on Ubuntu 14.04 [#386](https://github.com/chef/chef-workstation/pull/386) ([tas50](https://github.com/tas50)) <!-- 0.4.5 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.5.1](https://github.com/chef/chef-workstation/tree/0.5.1) (2019-07-09)
+
+#### Merged Pull Requests
+- Stop building on Ubuntu 14.04 [#386](https://github.com/chef/chef-workstation/pull/386) ([tas50](https://github.com/tas50))
+- Update the omnibus readme to reflect reality [#388](https://github.com/chef/chef-workstation/pull/388) ([tas50](https://github.com/tas50))
+- Add a chefworkstation docker container [#376](https://github.com/chef/chef-workstation/pull/376) ([tas50](https://github.com/tas50))
+- Bump ChefDK to 4.1.7 [#397](https://github.com/chef/chef-workstation/pull/397) ([chef-ci](https://github.com/chef-ci))
+- Update rubygems to 3.0.4 and curl to 7.65.1 [#398](https://github.com/chef/chef-workstation/pull/398) ([tas50](https://github.com/tas50))
+- Patch the DK dist file now that we have one [#399](https://github.com/chef/chef-workstation/pull/399) ([tas50](https://github.com/tas50))
+- Update the omnibus build license to the Chef EULA [#403](https://github.com/chef/chef-workstation/pull/403) ([btm](https://github.com/btm))
+- Fix the chef --version command showing the old DK version [#401](https://github.com/chef/chef-workstation/pull/401) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [0.4.2](https://github.com/chef/chef-workstation/tree/0.4.2) (2019-06-20)
 
 #### Merged Pull Requests
 - Make sure we properly appbundler Chef and InSpec gems [#385](https://github.com/chef/chef-workstation/pull/385) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [0.4.1](https://github.com/chef/chef-workstation/tree/0.4.1) (2019-06-07)
 
