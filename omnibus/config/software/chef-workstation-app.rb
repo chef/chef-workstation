@@ -41,5 +41,40 @@ end
 
 build do
   block "do_build" do
+    env = with_standard_compiler_flags(with_embedded_path)
+    app_version = JSON.parse(File.read(File.join(project_dir, "package.json")))["version"]
+    node_tools_dir = ENV['omnibus_nodejs_dir']
+    node_bin_path = windows? ? node_tools_dir : File.join(node_tools_dir, "bin")
+    separator = File::PATH_SEPARATOR || ":"
+    env['PATH'] = "#{env['PATH']}#{separator}#{node_bin_path}"
+
+    platform_name, artifact_name = if mac_os_x?
+                                     ["mac", "Chef Workstation App-#{app_version}-mac.zip"]
+                                   elsif linux?
+                                     ["linux", "linux-unpacked"]
+                                   elsif windows?
+                                     ["win", "win-unpacked"]
+                                   end
+
+
+    dist_dir = File.join(project_dir, "dist")
+    artifact_path = File.join(dist_dir, artifact_name)
+    app_install_path = "#{install_dir}/components/chef-workstation-app"
+    mkdir app_install_path
+
+    # Ensure no leftover artifacts from a previous build -
+    # electron-builder will recreate it:
+    delete dist_dir
+
+    npm_bin = File.join(node_bin_path, "npm")
+    command "#{npm_bin} install", env: env
+    command "#{npm_bin} run-script build-#{platform_name}", env: env
+
+    if mac?
+      target = File.join(app_install_path, "chef-workstation-app-#{platform_name}.zip")
+      copy artifact_path, target
+    else
+      sync artifact_path, app_install_path
+    end
   end
 end
