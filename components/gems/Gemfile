@@ -73,15 +73,15 @@ group(:omnibus_package) do
   gem "knife-ec2", ">= 1.0"
   gem "knife-google", ">= 3.3.3"
   gem "knife-tidy", ">= 1.2.0"
-  gem "knife-windows", ">= 1.9.1"
+  gem "knife-windows", ">= 3.0"
   gem "knife-opc", ">= 0.4.0"
   gem "knife-vsphere", ">= 2.1.1"
   gem "mixlib-archive", ">= 0.4.16"
   gem "ohai", ">= 14"
   gem "net-ssh", ">= 4.2.0"
-  gem "test-kitchen", ">= 1.23"
+  gem "test-kitchen", ">= 2.0"
   gem "listen"
-  gem "dco"
+  gem "dco"   # TODO - dksplit - Planned for removal
 
   # many layers down these bring in ethon which uses ffi / libcurl and breaks on windows
   # we want to get this working, but for now it's disabled so we can get a build out
@@ -106,7 +106,7 @@ group(:omnibus_package) do
   gem "knife-push"
 
   # All of the following used to be software definitions we included:
-  gem "knife-spork"
+  gem "knife-spork"    # TODO - dksplit - Planned for removal
   gem "mixlib-install"
   gem "nokogiri"
   gem "pry-byebug"
@@ -116,7 +116,7 @@ group(:omnibus_package) do
   gem "rubocop"
   gem "winrm-fs"
   gem "winrm-elevated"
-  gem "cucumber"
+  gem "cucumber"       # TODO - dksplit - Planned for removal
   gem "stove"
 end
 
