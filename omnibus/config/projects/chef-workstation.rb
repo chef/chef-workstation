@@ -87,6 +87,8 @@ end
 dependency "version-manifest"
 dependency "openssl-customization"
 
+dependency "stunnel" if fips_mode?
+
 # This *has* to be last, as it mutates the build environment and causes all
 # compilations that use ./configure et all (the msys env) to break
 if windows?
