@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.6.1 -->
-## [0.6.1](https://github.com/chef/chef-workstation/tree/0.6.1) (2019-07-12)
+<!-- latest_release 0.6.2 -->
+## [0.6.2](https://github.com/chef/chef-workstation/tree/0.6.2) (2019-07-12)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.8 [#406](https://github.com/chef/chef-workstation/pull/406) ([chef-ci](https://github.com/chef-ci))
+- Enable RHEL 8 packages [#407](https://github.com/chef/chef-workstation/pull/407) ([jaymalasinha](https://github.com/jaymalasinha))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.5.1 -->
 ### Changes since 0.5.1 release
 
 #### Merged Pull Requests
+- Enable RHEL 8 packages [#407](https://github.com/chef/chef-workstation/pull/407) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 0.6.2 -->
 - Bump Chef Workstation App to 0.1.8 [#406](https://github.com/chef/chef-workstation/pull/406) ([chef-ci](https://github.com/chef-ci)) <!-- 0.6.1 -->
 - Bump ChefDK to 4.2.0 [#408](https://github.com/chef/chef-workstation/pull/408) ([chef-ci](https://github.com/chef-ci)) <!-- 0.6.0 -->
 <!-- release_rollup -->
