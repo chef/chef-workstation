@@ -1,5 +1,5 @@
-# DO NOT MODIFY
-# The ChefDK, delivery-cli, and workstation app versions are pinned by Expeditor.
+# DO NOT MODIFY THIS SECTION
+# The delivery-cli, and workstation app versions are pinned by Expeditor.
 # Whenever ChefDK is promoted to stable or workstation app and delivery cli are merged
 # to master then Expeditor takes that version, runs a script to replace it here and pushes
 # a new commit / build through.
