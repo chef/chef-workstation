@@ -1,21 +1,19 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.6.2 -->
-## [0.6.2](https://github.com/chef/chef-workstation/tree/0.6.2) (2019-07-12)
-
-#### Merged Pull Requests
-- Enable RHEL 8 packages [#407](https://github.com/chef/chef-workstation/pull/407) ([jaymalasinha](https://github.com/jaymalasinha))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.5.1 -->
-### Changes since 0.5.1 release
-
-#### Merged Pull Requests
-- Enable RHEL 8 packages [#407](https://github.com/chef/chef-workstation/pull/407) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 0.6.2 -->
-- Bump Chef Workstation App to 0.1.8 [#406](https://github.com/chef/chef-workstation/pull/406) ([chef-ci](https://github.com/chef-ci)) <!-- 0.6.1 -->
-- Bump ChefDK to 4.2.0 [#408](https://github.com/chef/chef-workstation/pull/408) ([chef-ci](https://github.com/chef-ci)) <!-- 0.6.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.6.2](https://github.com/chef/chef-workstation/tree/0.6.2) (2019-07-15)
+
+#### Merged Pull Requests
+- Bump ChefDK to 4.2.0 [#408](https://github.com/chef/chef-workstation/pull/408) ([chef-ci](https://github.com/chef-ci))
+- Bump Chef Workstation App to 0.1.8 [#406](https://github.com/chef/chef-workstation/pull/406) ([chef-ci](https://github.com/chef-ci))
+- Enable RHEL 8 packages [#407](https://github.com/chef/chef-workstation/pull/407) ([jaymalasinha](https://github.com/jaymalasinha))
+<!-- latest_stable_release -->
+
 ## [0.5.1](https://github.com/chef/chef-workstation/tree/0.5.1) (2019-07-09)
 
 #### Merged Pull Requests
@@ -27,7 +25,6 @@
 - Patch the DK dist file now that we have one [#399](https://github.com/chef/chef-workstation/pull/399) ([tas50](https://github.com/tas50))
 - Update the omnibus build license to the Chef EULA [#403](https://github.com/chef/chef-workstation/pull/403) ([btm](https://github.com/btm))
 - Fix the chef --version command showing the old DK version [#401](https://github.com/chef/chef-workstation/pull/401) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [0.4.2](https://github.com/chef/chef-workstation/tree/0.4.2) (2019-06-20)
 
