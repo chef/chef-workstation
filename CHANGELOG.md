@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.7.0 -->
-## [0.7.0](https://github.com/chef/chef-workstation/tree/0.7.0) (2019-07-15)
+<!-- latest_release 0.7.1 -->
+## [0.7.1](https://github.com/chef/chef-workstation/tree/0.7.1) (2019-07-15)
 
 #### Merged Pull Requests
-- Build Chef Workstation as a self contained project w/o depending on the ChefDK project [#400](https://github.com/chef/chef-workstation/pull/400) ([marcparadise](https://github.com/marcparadise))
+- Pin Rubygems to 3.0.3 to prevent double bundler [#409](https://github.com/chef/chef-workstation/pull/409) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.6.2 -->
 ### Changes since 0.6.2 release
 
 #### Merged Pull Requests
+- Pin Rubygems to 3.0.3 to prevent double bundler [#409](https://github.com/chef/chef-workstation/pull/409) ([tas50](https://github.com/tas50)) <!-- 0.7.1 -->
 - Build Chef Workstation as a self contained project w/o depending on the ChefDK project [#400](https://github.com/chef/chef-workstation/pull/400) ([marcparadise](https://github.com/marcparadise)) <!-- 0.7.0 -->
 <!-- release_rollup -->
 
