@@ -76,4 +76,4 @@ platform_name, platform_ext = if mac_os_x?
 source url: "https://nodejs.org/dist/v#{version}/node-v#{version}-#{platform_name}-x64.#{platform_ext}"
 relative_path "node-v#{version}-#{platform_name}-x64"
 
-ENV['omnibus_nodejs_dir'] = project_dir
+ENV["omnibus_nodejs_dir"] = project_dir

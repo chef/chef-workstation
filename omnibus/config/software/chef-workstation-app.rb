@@ -35,27 +35,26 @@ default_version "v0.1.5"
 # the chef-workstation installation, so we will whitelist the
 # dependencies to allow it to continue in any case.
 if linux?
-  whitelist_file(/components\/chef-workstation-app\/libffmpeg\.so/)
-  whitelist_file(/components\/chef-workstation-app\/chef-workstation-app/)
+  whitelist_file(%r{components/chef-workstation-app/libffmpeg\.so})
+  whitelist_file(%r{components/chef-workstation-app/chef-workstation-app})
 end
 
 build do
   block "do_build" do
     env = with_standard_compiler_flags(with_embedded_path)
     app_version = JSON.parse(File.read(File.join(project_dir, "package.json")))["version"]
-    node_tools_dir = ENV['omnibus_nodejs_dir']
+    node_tools_dir = ENV["omnibus_nodejs_dir"]
     node_bin_path = windows? ? node_tools_dir : File.join(node_tools_dir, "bin")
     separator = File::PATH_SEPARATOR || ":"
-    env['PATH'] = "#{env['PATH']}#{separator}#{node_bin_path}"
+    env["PATH"] = "#{env["PATH"]}#{separator}#{node_bin_path}"
 
     platform_name, artifact_name = if mac_os_x?
                                      ["mac", "Chef Workstation App-#{app_version}-mac.zip"]
                                    elsif linux?
-                                     ["linux", "linux-unpacked"]
+                                     %w{linux linux-unpacked}
                                    elsif windows?
-                                     ["win", "win-unpacked"]
+                                     %w{win win-unpacked}
                                    end
-
 
     dist_dir = File.join(project_dir, "dist")
     artifact_path = File.join(dist_dir, artifact_name)

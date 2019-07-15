@@ -1,14 +1,23 @@
 steps:
-  - label: ":hugo:"
-    command:
-      - .expeditor/buildkite/hugo_lint.sh
-      - cd www && make lint
-    timeout_in_minutes: 10
-    retry:
-      automatic:
-        limit: 1
-    expeditor:
-      accounts:
-        - github
-      executor:
-        docker:
+- label: chefstyle-tests-ruby-2.6
+  command:
+    - export USER="root"
+    - bundle install --jobs=7 --retry=3
+    - bundle exec rake style
+  expeditor:
+    executor:
+      docker:
+        image: ruby:2.6-stretch
+- label: ":hugo:"
+  command:
+    - .expeditor/buildkite/hugo_lint.sh
+    - cd www && make lint
+  timeout_in_minutes: 10
+  retry:
+    automatic:
+      limit: 1
+  expeditor:
+    accounts:
+      - github
+    executor:
+      docker:

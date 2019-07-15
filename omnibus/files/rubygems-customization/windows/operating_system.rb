@@ -62,7 +62,7 @@ Gem.pre_install do |gem_installer|
   unless gem_installer.spec.extensions.empty?
     unless ENV["PATH"].include?("#{win_install_dir}\\embedded\\mingw\\bin")
       Gem.ui.say "Temporarily enhancing PATH to include DevKit..." if Gem.configuration.verbose
-      ENV["PATH"] = "#{win_install_dir}\\embedded\\bin;#{win_install_dir}\\embedded\\mingw\\bin;#{ENV['PATH']}"
+      ENV["PATH"] = "#{win_install_dir}\\embedded\\bin;#{win_install_dir}\\embedded\\mingw\\bin;#{ENV["PATH"]}"
     end
     ENV["RI_DEVKIT"] = "#{win_install_dir}\\embedded"
     ENV["CC"] = "gcc"
