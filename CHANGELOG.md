@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.7.3 -->
-## [0.7.3](https://github.com/chef/chef-workstation/tree/0.7.3) (2019-07-15)
+<!-- latest_release 0.7.4 -->
+## [0.7.4](https://github.com/chef/chef-workstation/tree/0.7.4) (2019-07-15)
 
 #### Merged Pull Requests
-- downgrade rubygems to 3.0.3 [#412](https://github.com/chef/chef-workstation/pull/412) ([afiune](https://github.com/afiune))
+- Update to the latest omnibus-software for double bundler detection [#413](https://github.com/chef/chef-workstation/pull/413) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.6.2 -->
 ### Changes since 0.6.2 release
 
 #### Merged Pull Requests
+- Update to the latest omnibus-software for double bundler detection [#413](https://github.com/chef/chef-workstation/pull/413) ([tas50](https://github.com/tas50)) <!-- 0.7.4 -->
 - downgrade rubygems to 3.0.3 [#412](https://github.com/chef/chef-workstation/pull/412) ([afiune](https://github.com/afiune)) <!-- 0.7.3 -->
 - Revert changes that switched to workstation as the point of truth [#411](https://github.com/chef/chef-workstation/pull/411) ([afiune](https://github.com/afiune)) <!-- 0.7.2 -->
 - Pin Rubygems to 3.0.3 to prevent double bundler [#409](https://github.com/chef/chef-workstation/pull/409) ([tas50](https://github.com/tas50)) <!-- 0.7.1 -->
