@@ -4,8 +4,8 @@ driver:
   synced_folders:
     - ['..', '/home/vagrant/chef-workstation']
   customize:
-    cpus: 2
-    memory: 2048
+    cpus: 6
+    memory: 4096
     storagectl:
       - name: SATA Controller
         hostiocache: "on"
