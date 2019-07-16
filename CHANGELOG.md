@@ -1,30 +1,27 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.7.4 -->
-## [0.7.4](https://github.com/chef/chef-workstation/tree/0.7.4) (2019-07-15)
-
-#### Merged Pull Requests
-- Update to the latest omnibus-software for double bundler detection [#413](https://github.com/chef/chef-workstation/pull/413) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.6.2 -->
-### Changes since 0.6.2 release
-
-#### Merged Pull Requests
-- Update to the latest omnibus-software for double bundler detection [#413](https://github.com/chef/chef-workstation/pull/413) ([tas50](https://github.com/tas50)) <!-- 0.7.4 -->
-- downgrade rubygems to 3.0.3 [#412](https://github.com/chef/chef-workstation/pull/412) ([afiune](https://github.com/afiune)) <!-- 0.7.3 -->
-- Revert changes that switched to workstation as the point of truth [#411](https://github.com/chef/chef-workstation/pull/411) ([afiune](https://github.com/afiune)) <!-- 0.7.2 -->
-- Pin Rubygems to 3.0.3 to prevent double bundler [#409](https://github.com/chef/chef-workstation/pull/409) ([tas50](https://github.com/tas50)) <!-- 0.7.1 -->
-- Build Chef Workstation as a self contained project w/o depending on the ChefDK project [#400](https://github.com/chef/chef-workstation/pull/400) ([marcparadise](https://github.com/marcparadise)) <!-- 0.7.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.7.4](https://github.com/chef/chef-workstation/tree/0.7.4) (2019-07-16)
+
+#### Merged Pull Requests
+- Build Chef Workstation as a self contained project w/o depending on the ChefDK project [#400](https://github.com/chef/chef-workstation/pull/400) ([marcparadise](https://github.com/marcparadise))
+- Pin Rubygems to 3.0.3 to prevent double bundler [#409](https://github.com/chef/chef-workstation/pull/409) ([tas50](https://github.com/tas50))
+- Revert changes that switched to workstation as the point of truth [#411](https://github.com/chef/chef-workstation/pull/411) ([afiune](https://github.com/afiune))
+- downgrade rubygems to 3.0.3 [#412](https://github.com/chef/chef-workstation/pull/412) ([afiune](https://github.com/afiune))
+- Update to the latest omnibus-software for double bundler detection [#413](https://github.com/chef/chef-workstation/pull/413) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [0.6.2](https://github.com/chef/chef-workstation/tree/0.6.2) (2019-07-15)
 
 #### Merged Pull Requests
 - Bump ChefDK to 4.2.0 [#408](https://github.com/chef/chef-workstation/pull/408) ([chef-ci](https://github.com/chef-ci))
 - Bump Chef Workstation App to 0.1.8 [#406](https://github.com/chef/chef-workstation/pull/406) ([chef-ci](https://github.com/chef-ci))
 - Enable RHEL 8 packages [#407](https://github.com/chef/chef-workstation/pull/407) ([jaymalasinha](https://github.com/jaymalasinha))
-<!-- latest_stable_release -->
 
 ## [0.5.1](https://github.com/chef/chef-workstation/tree/0.5.1) (2019-07-09)
 
