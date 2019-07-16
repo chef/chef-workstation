@@ -9,3 +9,6 @@ www/chef-sh
 
 # ruby
 Gemfile.lock
+
+# Habitat
+results/
