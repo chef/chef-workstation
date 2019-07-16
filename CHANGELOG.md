@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 0.7.5 -->
+## [0.7.5](https://github.com/chef/chef-workstation/tree/0.7.5) (2019-07-16)
+
+#### Merged Pull Requests
+- Add Windows 2019 build verification [#415](https://github.com/chef/chef-workstation/pull/415) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=0.7.4 -->
+### Changes since 0.7.4 release
+
+#### Merged Pull Requests
+- Add Windows 2019 build verification [#415](https://github.com/chef/chef-workstation/pull/415) ([tas50](https://github.com/tas50)) <!-- 0.7.5 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
