@@ -55,6 +55,7 @@ instance_eval(IO.read(overrides_path), overrides_path)
 
 dependency "preparation"
 
+
 if windows?
   dependency "git-windows"
 else
@@ -66,7 +67,11 @@ dependency "delivery-cli"
 # This is a build-time dependency, so we won't leave it behind:
 dependency "rust-uninstall"
 
-dependency "chef-dk"
+# This internal component (source in components/gems)
+# builds all gems that we ship with Workstation.
+# No gems get shipped that are not declared in components/gems/Gemfile
+dependency "gems"
+
 dependency "chef-dk-gem-versions"
 
 dependency "gem-permissions"
@@ -77,6 +82,7 @@ if windows?
   dependency "chef-dk-env-customization"
   dependency "chef-dk-powershell-scripts"
 end
+
 
 dependency "version-manifest"
 dependency "openssl-customization"
