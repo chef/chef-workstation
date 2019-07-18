@@ -49,10 +49,6 @@ dependency "google-protobuf"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  # Cross platform way to sed. Need to cleanup the backup fail.
-  # TODO - check what our version output/bheaviors look like then figure out best approach
-  # command("sed -i.bak 's/\\$CHEF_WS_VERSION\\$/#{project.build_version}/' #{project_dir}/lib/chef-dk/cli.rb", env: env)
-  # command("rm #{project_dir}/lib/chef-dk/cli.rb.bak")
 
   # TODO - reevaluate groups
   excluded_groups = %w{server docgen maintenance pry travis integration ci}
@@ -62,15 +58,22 @@ build do
   # install the whole bundle first
   bundle "install --jobs 10 --without #{excluded_groups.join(" ")}", env: env
 
+  # TODO - we'll want a better way to manage this - likely some kind of callback
+  # from chef-cli so that we can hook in our own version output.
+  #
+  # Cross platform way to sed. Need to cleanup the backup fail.
+  # command("sed -i.bak 's/\\$CHEF_WS_VERSION\\$/#{project.build_version}/' #{project_dir}/lib/chef-dk/cli.rb", env: env)
+  # command("rm #{project_dir}/lib/chef-dk/cli.rb.bak")
   appbundle "chef", lockdir: project_dir, gem: "chef", without: %w{docgen chefstyle}, env: env
 
-  appbundle "foodcritic", lockdir: project_dir, gem: "foodcritic", without: %w{development}, env: env
+  appbundle "foodcritic", lockdir: project_dir, gem: "foodcritic", without: %w{development test}, env: env
   appbundle "test-kitchen", lockdir: project_dir, gem: "test-kitchen", without: %w{changelog debug docs}, env: env
   appbundle "inspec", lockdir: project_dir, gem: "inspec-bin", without: %w{deploy tools maintenance integration}, env: env
   appbundle "chef-run", lockdir: project_dir, gem: "chef-apply", without: %w{changelog docs debug}, env: env
   appbundle "chef-cli", lockdir: project_dir, gem: "chef-cli", without: %w{changelog docs debug}, env: env
 
-  %w{chef-bin chef-apply chef-vault ohai opscode-pushy-client cookstyle dco berkshelf}.each do |gem|
+  # Note - 'chef-apply' gem provides 'chef-run', not 'chef-apply' which ships with chef-bin...
+  %w{chef-bin chef-apply chef-vault ohai opscode-pushy-client cookstyle berkshelf}.each do |gem|
     appbundle gem, lockdir: project_dir, gem: gem, without: %w{changelog}, env: env
   end
 
