@@ -19,7 +19,7 @@ source "https://rubygems.org"
 
 # gemspec
 
-gem "bundler"
+gem "bundler", "< 2"
 
 group(:omnibus_package, :development, :test) do
   # we pin these gems as they are installed in the ruby source and if we let them
@@ -129,8 +129,7 @@ end
 
 gem "chefstyle", group: :test
 
-# TODO delete this when we figure out how to include the pushy windows dependencies
-# correctly
+# Ensure support for push-client on Windows
 platforms :mswin, :mingw do
   gem "rdp-ruby-wmi"
   gem "windows-pr"

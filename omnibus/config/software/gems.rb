@@ -21,8 +21,8 @@ license :project_license
 
 dependency "ruby"
 dependency "rubygems"
-# Removed - r26 ships with bundler
-# dependency "bundler" # technically a gem, but we gotta solve the chicken-egg problem here
+# Remove? - r26 ships with bundler
+dependency "bundler" # technically a gem, but we gotta solve the chicken-egg problem here
 
 #
 # NOTE: Do not add any gem dependencies here.  This will cause gemsets to solve without
@@ -67,13 +67,14 @@ build do
   appbundle "chef", lockdir: project_dir, gem: "chef", without: %w{docgen chefstyle}, env: env
 
   appbundle "foodcritic", lockdir: project_dir, gem: "foodcritic", without: %w{development test}, env: env
-  appbundle "test-kitchen", lockdir: project_dir, gem: "test-kitchen", without: %w{changelog debug docs}, env: env
+  appbundle "test-kitchen", lockdir: project_dir, gem: "test-kitchen", without: %w{changelog debug docs development}, env: env
   appbundle "inspec", lockdir: project_dir, gem: "inspec-bin", without: %w{deploy tools maintenance integration}, env: env
   appbundle "chef-run", lockdir: project_dir, gem: "chef-apply", without: %w{changelog docs debug}, env: env
   appbundle "chef-cli", lockdir: project_dir, gem: "chef-cli", without: %w{changelog docs debug}, env: env
+  appbundle "berkshelf", lockdir: project_dir, gem: "berkshelf", without: %w{changelog docs debug development}, env: env
 
   # Note - 'chef-apply' gem provides 'chef-run', not 'chef-apply' which ships with chef-bin...
-  %w{chef-bin chef-apply chef-vault ohai opscode-pushy-client cookstyle berkshelf}.each do |gem|
+  %w{chef-bin chef-apply chef-vault ohai opscode-pushy-client cookstyle}.each do |gem|
     appbundle gem, lockdir: project_dir, gem: gem, without: %w{changelog}, env: env
   end
 
