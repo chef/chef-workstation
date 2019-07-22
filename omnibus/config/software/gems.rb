@@ -14,12 +14,10 @@
 # limitations under the License.
 #
 
-
 # This component builds all gems that we distribute as part of chef-workstation.
 name "gems"
 source path: File.join("#{project.files_path}", "../../components/gems")
 license :project_license
-
 
 dependency "ruby"
 dependency "rubygems"
@@ -38,6 +36,7 @@ dependency "libxml2"
 dependency "libxslt"
 dependency "liblzma"
 dependency "zlib"
+dependency "libarchive"
 
 # For berkshelf
 dependency "libarchive"
@@ -47,7 +46,6 @@ dependency "libzmq"
 
 # for train
 dependency "google-protobuf"
-
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
@@ -62,7 +60,7 @@ build do
   env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
 
   # install the whole bundle first
-  bundle "install --jobs 10 --without #{excluded_groups.join(' ')}", env: env
+  bundle "install --jobs 10 --without #{excluded_groups.join(" ")}", env: env
 
   appbundle "chef", lockdir: project_dir, gem: "chef", without: %w{docgen chefstyle}, env: env
 

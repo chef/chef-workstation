@@ -22,7 +22,7 @@ homepage      "https://chef.sh"
 license "Chef EULA"
 license_file "CHEF-EULA.md"
 
-conflict  "chefdk"
+conflict "chefdk"
 
 # Defaults to C:/chef-workstation on Windows
 # and /opt/chef-workstation on all other platforms
@@ -55,7 +55,6 @@ instance_eval(IO.read(overrides_path), overrides_path)
 
 dependency "preparation"
 
-
 if windows?
   dependency "git-windows"
 else
@@ -82,7 +81,6 @@ if windows?
   dependency "chef-dk-env-customization"
   dependency "chef-dk-powershell-scripts"
 end
-
 
 dependency "version-manifest"
 dependency "openssl-customization"
@@ -123,9 +121,9 @@ end
 
 package :msi do
   fast_msi true
-  upgrade_code '9870C512-DF2C-43D9-8C28-7ACD60ABBE27'
-  wix_light_extension 'WixUtilExtension'
-  signing_identity 'E05FF095D07F233B78EB322132BFF0F035E11B5B', machine_store: true
+  upgrade_code "9870C512-DF2C-43D9-8C28-7ACD60ABBE27"
+  wix_light_extension "WixUtilExtension"
+  signing_identity "E05FF095D07F233B78EB322132BFF0F035E11B5B", machine_store: true
 end
 
 # We don't support appx builds, and they eat a lot of time.

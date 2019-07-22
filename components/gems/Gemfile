@@ -17,7 +17,7 @@
 
 source "https://rubygems.org"
 
-#gemspec
+# gemspec
 
 gem "bundler"
 
@@ -81,7 +81,7 @@ group(:omnibus_package) do
   gem "net-ssh", ">= 4.2.0"
   gem "test-kitchen", ">= 2.0"
   gem "listen"
-  gem "dco"   # TODO - dksplit - Planned for removal
+  gem "dco" # TODO - dksplit - Planned for removal
 
   # many layers down these bring in ethon which uses ffi / libcurl and breaks on windows
   # we want to get this working, but for now it's disabled so we can get a build out
