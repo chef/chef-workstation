@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.7.6 -->
-## [0.7.6](https://github.com/chef/chef-workstation/tree/0.7.6) (2019-07-17)
+<!-- latest_release 0.7.7 -->
+## [0.7.7](https://github.com/chef/chef-workstation/tree/0.7.7) (2019-07-22)
 
 #### Merged Pull Requests
--  Build Chef Workstation as a self contained project w/o depending on the ChefDK project [un-revert] [#414](https://github.com/chef/chef-workstation/pull/414) ([marcparadise](https://github.com/marcparadise))
+- Wire up Chefstyle in Buildkite [#410](https://github.com/chef/chef-workstation/pull/410) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.7.4 -->
 ### Changes since 0.7.4 release
 
 #### Merged Pull Requests
+- Wire up Chefstyle in Buildkite [#410](https://github.com/chef/chef-workstation/pull/410) ([tas50](https://github.com/tas50)) <!-- 0.7.7 -->
 -  Build Chef Workstation as a self contained project w/o depending on the ChefDK project [un-revert] [#414](https://github.com/chef/chef-workstation/pull/414) ([marcparadise](https://github.com/marcparadise)) <!-- 0.7.6 -->
 - Add Windows 2019 build verification [#415](https://github.com/chef/chef-workstation/pull/415) ([tas50](https://github.com/tas50)) <!-- 0.7.5 -->
 <!-- release_rollup -->
