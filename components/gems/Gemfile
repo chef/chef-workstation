@@ -19,7 +19,7 @@ source "https://rubygems.org"
 
 # gemspec
 
-gem "bundler"
+gem "bundler", "< 2"
 
 group(:omnibus_package, :development, :test) do
   # we pin these gems as they are installed in the ruby source and if we let them
@@ -81,7 +81,6 @@ group(:omnibus_package) do
   gem "net-ssh", ">= 4.2.0"
   gem "test-kitchen", ">= 2.0"
   gem "listen"
-  gem "dco" # TODO - dksplit - Planned for removal
 
   # many layers down these bring in ethon which uses ffi / libcurl and breaks on windows
   # we want to get this working, but for now it's disabled so we can get a build out
@@ -93,7 +92,7 @@ group(:omnibus_package) do
   gem "ed25519"
   gem "bcrypt_pbkdf"
 
-  gem "chef-cli", ">= 1.0.3"
+  gem "chef-cli", ">= 1.0.9"
 
   gem "chef-apply", ">= 0.3.3"
 
@@ -106,7 +105,6 @@ group(:omnibus_package) do
   gem "knife-push"
 
   # All of the following used to be software definitions we included:
-  gem "knife-spork"    # TODO - dksplit - Planned for removal
   gem "mixlib-install"
   gem "nokogiri"
   gem "pry-byebug"
@@ -116,7 +114,6 @@ group(:omnibus_package) do
   gem "rubocop"
   gem "winrm-fs"
   gem "winrm-elevated"
-  gem "cucumber"       # TODO - dksplit - Planned for removal
   gem "stove"
 end
 
@@ -132,8 +129,7 @@ end
 
 gem "chefstyle", group: :test
 
-# TODO delete this when we figure out how to include the pushy windows dependencies
-# correctly
+# Ensure support for push-client on Windows
 platforms :mswin, :mingw do
   gem "rdp-ruby-wmi"
   gem "windows-pr"

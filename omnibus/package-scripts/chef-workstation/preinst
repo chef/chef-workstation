@@ -27,7 +27,7 @@ if is_darwin; then
       rm -rf '/opt/chefdk'
       echo "Removing binary links in /usr/local/bin"
       find /usr/local/bin -lname '/opt/chefdk/*' -delete
-      echo "Forgeting $pkgId"
+      echo "Forgetting $pkgId"
       pkgutil --forget $pkgId
     fi
 fi
