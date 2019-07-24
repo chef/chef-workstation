@@ -132,7 +132,7 @@ do_install() {
     appbundle "chef-vault" "changelog"
     wrap_ruby_bin "chef-vault"
 
-    appbundle "opcsode-pushy-client" "changelog"
+    appbundle "opscode-pushy-client" "changelog"
     wrap_ruby_bin "pushy-client"
     wrap_ruby_bin "push-apply"
     wrap_ruby_bin "pushy-service-manager"
@@ -160,7 +160,7 @@ do_clean() {
   # Don't leave this behind - our bundle options will create this
   # owned by root, making it an annoying cleanup if you're also
   # doing a 'bundle install' outside of hab.
-  rm -rf "components/gems/.bundler"
+  rm -rf "components/gems/.bundle"
 }
 
 # Stubs
