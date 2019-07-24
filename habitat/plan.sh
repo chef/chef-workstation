@@ -93,16 +93,44 @@ do_install() {
   mkdir -p $pkg_prefix/ruby-bin
   pushd "components/gems"
 
-    appbundle chef-cli
-    appbundle chef-bin
-    appbundle inspec-bin
-    appbundle ohai
-    appbundle foodcritic
-    appbundle test-kitchen
-    appbundle berkshelf
-    appbundle cookstyle
-    appbundle chef-vault
-    appbundle chef-apply # really, chef-run
+    appbundle "chef-cli"  "changelog,docs,debug"
+    wrap_ruby_bin "chef"
+
+    appbundle "chef-bin" "docgen,chefstyle"
+    wrap_ruby_bin "chef-client"
+    wrap_ruby_bin "chef-solo"
+    wrap_ruby_bin "chef-resource-inspector"
+    wrap_ruby_bin "chef-shell"
+    wrap_ruby_bin "knife"
+
+    appbundle "inspec-bin" "changelog,debug,docs,development"
+    wrap_ruby_bin "inspec"
+
+    appbundle ohai "changelog"
+    wrap_ruby_bin "ohai"
+
+    appbundle "foodcritic" "development,test"
+    wrap_ruby_bin "foodcritic"
+
+    appbundle "test-kitchen" "changelog,debug,docs,development"
+    wrap_ruby_bin "kitchen"
+
+    appbundle "berkshelf" "changelog,debug,docs,development"
+    wrap_ruby_bin "berks"
+
+    appbundle cookstyle "changelog"
+    wrap_ruby_bin "cookstyle"
+
+    appbundle "chef-vault" "changelog"
+    wrap_ruby_bin "chef-vault"
+
+    appbundle "opsode-pushy-client" "changelog"
+    wrap_ruby_bin "pushy-client"
+    wrap_ruby_bin "push-apply"
+    wrap_ruby_bin "pushy-service-manager"
+
+    appbundle chef-apply "changelog,docs,debug" # really, chef-run
+    wrap_ruby_bin "chef-run"
 
     if [[ `readlink /usr/bin/env` = "$(pkg_path_for coreutils)/bin/env" ]]; then
       build_line "Removing the symlink we created for '/usr/bin/env'"
@@ -111,25 +139,12 @@ do_install() {
 
     mkdir -p $pkg_prefix/bin
 
-    # Does not include: _original_ chef-apply, dco, chef-solo
-    wrap_ruby_bin "chef"
-    wrap_ruby_bin "chef-client"
-    wrap_ruby_bin "chef-run"
-    wrap_ruby_bin "chef-shell"
-    wrap_ruby_bin "ohai"
-    wrap_ruby_bin "knife"
-    wrap_ruby_bin "kitchen"
-    wrap_ruby_bin "berks"
-    wrap_ruby_bin "foodcritic"
-    wrap_ruby_bin "inspec"
-    wrap_ruby_bin "chef-resource-inspector"
-    # TODO anything form chef-vault?
   popd
 
 }
 
 appbundle() {
-  bundle exec appbundler . $pkg_prefix/ruby-bin $1
+  bundle exec appbundler . $pkg_prefix/ruby-bin $1 --without $2
 }
 
 do_clean() {
