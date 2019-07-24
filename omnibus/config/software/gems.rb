@@ -50,7 +50,17 @@ dependency "google-protobuf"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
-  # TODO - reevaluate groups
+  #######################################################
+  # !!!              IMPORTANT REMINDER             !!! #
+  #######################################################
+  # Any changes to the gem component ('without' flags,  #
+  # additions/removals) must also be updated in in      #
+  # habitat/plan.sh                                     #
+  #######################################################
+
+  # TODO - reevaluate groups - would like to universally exclude development,
+  # testing but we'll need to make sure that's safe and doesn't remove
+  # gems that the various applications need for day-to-day functionality.
   excluded_groups = %w{server docgen maintenance pry travis integration ci}
 
   env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"

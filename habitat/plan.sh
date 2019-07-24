@@ -89,6 +89,14 @@ do_build() {
 
 }
 
+#######################################################
+# !!!              IMPORTANT REMINDER             !!! #
+#######################################################
+# Any changes to plan.sh related to installed gems    #
+# (eg 'without' flags, additions/removals) must       #
+# also be updated in omnibus/config/software/gems.rb  #
+#######################################################
+
 do_install() {
   mkdir -p $pkg_prefix/ruby-bin
   pushd "components/gems"
@@ -124,7 +132,7 @@ do_install() {
     appbundle "chef-vault" "changelog"
     wrap_ruby_bin "chef-vault"
 
-    appbundle "opsode-pushy-client" "changelog"
+    appbundle "opcsode-pushy-client" "changelog"
     wrap_ruby_bin "pushy-client"
     wrap_ruby_bin "push-apply"
     wrap_ruby_bin "pushy-service-manager"
