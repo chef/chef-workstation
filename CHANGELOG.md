@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.8.0 -->
-## [0.8.0](https://github.com/chef/chef-workstation/tree/0.8.0) (2019-07-22)
+<!-- latest_release 0.8.1 -->
+## [0.8.1](https://github.com/chef/chef-workstation/tree/0.8.1) (2019-07-29)
 
 #### Merged Pull Requests
-- Remove cucumber, dco, knife-spork [#417](https://github.com/chef/chef-workstation/pull/417) ([marcparadise](https://github.com/marcparadise))
+- Update depedencies to current [#422](https://github.com/chef/chef-workstation/pull/422) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.7.4 -->
 ### Changes since 0.7.4 release
 
 #### Merged Pull Requests
+- Update depedencies to current [#422](https://github.com/chef/chef-workstation/pull/422) ([tas50](https://github.com/tas50)) <!-- 0.8.1 -->
 - Remove cucumber, dco, knife-spork [#417](https://github.com/chef/chef-workstation/pull/417) ([marcparadise](https://github.com/marcparadise)) <!-- 0.8.0 -->
 - Wire up Chefstyle in Buildkite [#410](https://github.com/chef/chef-workstation/pull/410) ([tas50](https://github.com/tas50)) <!-- 0.7.7 -->
 -  Build Chef Workstation as a self contained project w/o depending on the ChefDK project [un-revert] [#414](https://github.com/chef/chef-workstation/pull/414) ([marcparadise](https://github.com/marcparadise)) <!-- 0.7.6 -->
