@@ -17,8 +17,6 @@
 
 source "https://rubygems.org"
 
-# gemspec
-
 gem "bundler", "< 2"
 
 group(:omnibus_package, :development, :test) do
