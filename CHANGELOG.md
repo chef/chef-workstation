@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.8.2 -->
-## [0.8.2](https://github.com/chef/chef-workstation/tree/0.8.2) (2019-08-06)
+<!-- latest_release 0.8.3 -->
+## [0.8.3](https://github.com/chef/chef-workstation/tree/0.8.3) (2019-08-08)
 
 #### Merged Pull Requests
-- Update InSpec, kitchen-vagrant, and kitchen-azurerm to the latest [#424](https://github.com/chef/chef-workstation/pull/424) ([tas50](https://github.com/tas50))
+- Bump kitchen-ec2 to 3.1.0 and knife-ec2  to 1.0.11 [#426](https://github.com/chef/chef-workstation/pull/426) ([chef-ci](https://github.com/chef-ci))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.7.4 -->
 ### Changes since 0.7.4 release
 
 #### Merged Pull Requests
+- Bump kitchen-ec2 to 3.1.0 and knife-ec2  to 1.0.11 [#426](https://github.com/chef/chef-workstation/pull/426) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.3 -->
 - Update InSpec, kitchen-vagrant, and kitchen-azurerm to the latest [#424](https://github.com/chef/chef-workstation/pull/424) ([tas50](https://github.com/tas50)) <!-- 0.8.2 -->
 - Update depedencies to current [#422](https://github.com/chef/chef-workstation/pull/422) ([tas50](https://github.com/tas50)) <!-- 0.8.1 -->
 - Remove cucumber, dco, knife-spork [#417](https://github.com/chef/chef-workstation/pull/417) ([marcparadise](https://github.com/marcparadise)) <!-- 0.8.0 -->
