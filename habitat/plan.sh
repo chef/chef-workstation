@@ -113,6 +113,8 @@ do_install() {
     wrap_ruby_bin "chef-solo"
     wrap_ruby_bin "chef-resource-inspector"
     wrap_ruby_bin "chef-shell"
+
+    appbundle "chef" "docgen,chefstyle"
     wrap_ruby_bin "knife"
 
     appbundle "inspec-bin" "changelog,debug,docs,development"
