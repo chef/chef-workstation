@@ -12,13 +12,7 @@ pkg_build_deps=(
   core/pkg-config
 )
 
-
 ruby_pkg="core/ruby26"
-RUBY_MAJOR_MINOR_VERSION=2.6
-RUBY_PATCH_VERSION=3
-
-RUBY_VERSION=$RUBY_MAJOR_MINOR_VERSION.$RUBY_PATCH_VERSION
-RUBYGEM_VERSION=$RUBY_MAJOR_MINOR_VERSION.0
 
 pkg_deps=(
   core/glibc
@@ -55,6 +49,8 @@ do_prepare() {
   export OPENSSL_LIB_DIR=$(pkg_path_for openssl)/lib
   export OPENSSL_INCLUDE_DIR=$(pkg_path_for openssl)/include
   export SSL_CERT_FILE=$(pkg_path_for cacerts)/ssl/cert.pem
+  export RUBY_ABI_VERSION=$(ls $(pkg_path_for ${ruby_pkg})/lib/ruby/gems)
+  build_line "Using Ruby ABI version '${RUBY_ABI_VERSION}'"
 
   build_line "Setting link for /usr/bin/env to 'coreutils'"
   [[ ! -f /usr/bin/env ]] && ln -s $(pkg_path_for coreutils)/bin/env /usr/bin/env
@@ -183,17 +179,20 @@ wrap_ruby_bin() {
   cat <<EOF > "$wrapper"
 #!$(pkg_interpreter_for core/bash bin/sh)
 set -e
-if test -n "$DEBUG"; then set -x; fi
-export VIA_HABITAT="true"
-export HAB_WS_BIN_DIR="$pkg_prefix/bin"
-export HAB_WS_EMBEDDED_DIR="$pkg_prefix/ruby-bin:$(hab pkg path core/bundler):$(hab pkg path $ruby_pkg)/bin"
-export GEM_HOME="$pkg_prefix/ruby/$RUBYGEM_VERSION"
-export GEM_PATH="$(pkg_path_for $ruby_pkg)/lib/ruby/gems/$RUBYGEM_VERSION:$(pkg_path_for core/bundler):$pkg_prefix/ruby/$RUBYGEM_VERSION:$GEM_HOME"
+if test -n "\$DEBUG"; then set -x; fi
+# Inform Chef-Workstation that is running from a habitat install
+export HAB_WS_PATH="$pkg_prefix"
+export HAB_WS_EMBEDDED_DIR="${ruby_bin_dir}:$(hab pkg path core/bundler):$(hab pkg path $ruby_pkg)/bin"
+
+export GEM_HOME="$pkg_prefix/ruby/$RUBY_ABI_VERSION"
+export GEM_PATH="$(pkg_path_for $ruby_pkg)/lib/ruby/gems/${RUBY_ABI_VERSION}:$(pkg_path_for core/bundler):${pkg_prefix}/ruby/${RUBY_ABI_VERSION}:${pkg_prefix}"
 export SSL_CERT_FILE=$(pkg_path_for core/cacerts)/ssl/cert.pem
+
 # Tell the appbundler bin not to reset GEM_HOME and GEM_PATH. Has nothing to do with RVM.
 export APPBUNDLER_ALLOW_RVM=true
 unset RUBYOPT GEMRC
 exec $(pkg_path_for $ruby_pkg)/bin/ruby ${real_cmd} \$@
+exec $(pkg_path_for $ruby_pkg)/bin/ruby ${real_cmd} "\$@"
 EOF
   chmod -v 755 "$wrapper"
 }
