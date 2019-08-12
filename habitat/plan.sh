@@ -4,15 +4,14 @@ pkg_maintainer="The Chef Maintainers <humans@chef.io>"
 pkg_description="Chef Workstation - Opinionated tools for getting the most out of the Chef ecosystem"
 pkg_license=('Apache-2.0')
 pkg_bin_dirs=(bin)
+pkg_svc_user=root
+ruby_pkg="core/ruby26"
 pkg_build_deps=(
   core/make
   core/gcc
   core/gcc-libs
   core/pkg-config
 )
-
-ruby_pkg="core/ruby26"
-
 pkg_deps=(
   core/glibc
   core/bash
@@ -29,8 +28,6 @@ pkg_deps=(
   core/coreutils
   core/git
 )
-
-pkg_svc_user=root
 
 pkg_version() {
   cat /src/VERSION
@@ -61,25 +58,34 @@ do_prepare() {
 do_build() {
   export CPPFLAGS="${CPPFLAGS} ${CFLAGS}"
 
-  local _bundler_dir=$(pkg_path_for bundler)
-  local _libxml2_dir=$(pkg_path_for libxml2)
-  local _libxslt_dir=$(pkg_path_for libxslt)
-  local _zlib_dir=$(pkg_path_for zlib)
+  local _bundler_dir
+  local _libxml2_dir
+  local _libxslt_dir
+  local _zlib_dir
+  export NOKOGIRI_CONFIG
+  export GEM_HOME
+  export GEM_PATH
 
+  _bundler_dir=$(pkg_path_for bundler)
+  _libxml2_dir=$(pkg_path_for libxml2)
+  _libxslt_dir=$(pkg_path_for libxslt)
+  _zlib_dir=$(pkg_path_for zlib)
+
+  NOKOGIRI_CONFIG="--use-system-libraries \
+    --with-zlib-dir=${_zlib_dir} \
+    --with-xslt-dir=${_libxslt_dir} \
+    --with-xml2-include=${_libxml2_dir}/include/libxml2 \
+    --with-xml2-lib=${_libxml2_dir}/lib \
+    --without-iconv"
   # TODO this appears to give us no depsolver? What are the effects?
-  export GEM_HOME=${pkg_prefix}
-  export GEM_PATH=${_bundler_dir}:${GEM_HOME}
+  GEM_HOME="$pkg_prefix"
+  GEM_PATH="${_bundler_dir}:${GEM_HOME}"
 
-  nokogiri_config="--use-system-libraries --with-zlib-dir=${_zlib_dir} --with-xslt-dir=${_libxslt_dir} --with-xml2-dir=${_libxml2_dir} --with-xml2-include=${_libxml2_dir}/include/libxml2 --with-xml2-lib=${_libxml2_dir}/lib --without-iconv"
-
-  pushd "components/gems"
-    bundle config --local build.nokogiri "${nokogiri_config}"
+  ( cd "${SRC_PATH}/components/gems" || exit_with "unable to enter components/gems directory" 1
+    bundle config --local build.nokogiri "$NOKOGIRI_CONFIG"
     bundle config --local silence_root_warning 1
-
-    bundle install --without dep_selector --no-deployment --jobs 10 --retry 5 --path $pkg_prefix
-
-  popd
-
+    bundle install --without dep_selector --no-deployment --jobs 10 --retry 5 --path "$pkg_prefix"
+  )
 }
 
 #######################################################
@@ -98,8 +104,7 @@ do_install() {
   mkdir -p "$ruby_bin_dir"
   mkdir -p "$pkg_prefix/bin"
 
-  pushd "components/gems"
-
+  ( cd "${SRC_PATH}/components/gems" || exit_with "unable to enter components/gems directory" 1
     appbundle "chef-cli"  "changelog,docs,debug"
     wrap_ruby_bin "chef"
 
@@ -138,16 +143,17 @@ do_install() {
 
     appbundle chef-apply "changelog,docs,debug" # really, chef-run
     wrap_ruby_bin "chef-run"
+  )
 
-    if [[ `readlink /usr/bin/env` = "$(pkg_path_for coreutils)/bin/env" ]]; then
-      build_line "Removing the symlink we created for '/usr/bin/env'"
-      rm /usr/bin/env
-    fi
-  popd
+  if [ "$(readlink /usr/bin/env)" = "$(pkg_interpreter_for core/coreutils bin/env)" ]; then
+    build_line "Removing the symlink created for '/usr/bin/env'"
+    rm /usr/bin/env
+  fi
 }
 
 appbundle() {
-  bundle exec appbundler . "$ruby_bin_dir" $1 --without $2
+  build_line "AppBundling gem: '$1' without: '$2'"
+  bundle exec appbundler . "$ruby_bin_dir" "$1" --without "$2" >/dev/null
 }
 
 do_end() {
