@@ -96,7 +96,13 @@ do_build() {
 #######################################################
 
 do_install() {
-  mkdir -p $pkg_prefix/ruby-bin
+  export ruby_bin_dir
+  ruby_bin_dir="$pkg_prefix/ruby-bin"
+
+  build_line "Creating bin directories"
+  mkdir -p "$ruby_bin_dir"
+  mkdir -p "$pkg_prefix/bin"
+
   pushd "components/gems"
 
     appbundle "chef-cli"  "changelog,docs,debug"
@@ -142,15 +148,11 @@ do_install() {
       build_line "Removing the symlink we created for '/usr/bin/env'"
       rm /usr/bin/env
     fi
-
-    mkdir -p $pkg_prefix/bin
-
   popd
-
 }
 
 appbundle() {
-  bundle exec appbundler . $pkg_prefix/ruby-bin $1 --without $2
+  bundle exec appbundler . "$ruby_bin_dir" $1 --without $2
 }
 
 do_clean() {
@@ -168,11 +170,16 @@ do_strip() {
 
 # Copied from https://github.com/habitat-sh/core-plans/blob/f84832de42b300a64f1b38c54d659c4f6d303c95/bundler/plan.sh#L32
 wrap_ruby_bin() {
-  local bin_basename="$1"
-  local real_cmd="$pkg_prefix/ruby-bin/$bin_basename"
-  local wrapper="$pkg_prefix/bin/$bin_basename"
+  local bin_basename
+  local real_cmd
+  local wrapper
+  bin_basename="$1"
+  real_cmd="$ruby_bin_dir/$bin_basename"
+  wrapper="$pkg_prefix/bin/$bin_basename"
 
-  build_line "Adding wrapper $wrapper for $real_cmd"
+  build_line "Adding wrapper for $bin_basename."
+  build_line " - from: $wrapper"
+  build_line " -   to: $real_cmd"
   cat <<EOF > "$wrapper"
 #!$(pkg_interpreter_for core/bash bin/sh)
 set -e
