@@ -151,12 +151,12 @@ appbundle() {
   bundle exec appbundler . "$ruby_bin_dir" $1 --without $2
 }
 
-do_clean() {
-  do_default_clean
+do_end() {
+  do_default_end
   # Don't leave this behind - our bundle options will create this
   # owned by root, making it an annoying cleanup if you're also
   # doing a 'bundle install' outside of hab.
-  rm -rf "components/gems/.bundle"
+  rm -rf "${SRC_PATH}/components/gems/.bundle"
 }
 
 # Stubs
