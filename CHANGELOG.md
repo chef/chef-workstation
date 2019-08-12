@@ -1,15 +1,21 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.8.0 -->
-## [0.8.0](https://github.com/chef/chef-workstation/tree/0.8.0) (2019-07-22)
+<!-- latest_release 0.8.6 -->
+## [0.8.6](https://github.com/chef/chef-workstation/tree/0.8.6) (2019-08-12)
 
 #### Merged Pull Requests
-- Remove cucumber, dco, knife-spork [#417](https://github.com/chef/chef-workstation/pull/417) ([marcparadise](https://github.com/marcparadise))
+- Update Chef to 15.2.20 [#429](https://github.com/chef/chef-workstation/pull/429) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.7.4 -->
 ### Changes since 0.7.4 release
 
 #### Merged Pull Requests
+- Update Chef to 15.2.20 [#429](https://github.com/chef/chef-workstation/pull/429) ([tas50](https://github.com/tas50)) <!-- 0.8.6 -->
+- Bump nokogiri to 1.10.4 [#428](https://github.com/chef/chef-workstation/pull/428) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.5 -->
+- Bump cookstyle to 5.1.19 and ohai to 15.2.5 [#427](https://github.com/chef/chef-workstation/pull/427) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.4 -->
+- Bump kitchen-ec2 to 3.1.0 and knife-ec2  to 1.0.11 [#426](https://github.com/chef/chef-workstation/pull/426) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.3 -->
+- Update InSpec, kitchen-vagrant, and kitchen-azurerm to the latest [#424](https://github.com/chef/chef-workstation/pull/424) ([tas50](https://github.com/tas50)) <!-- 0.8.2 -->
+- Update depedencies to current [#422](https://github.com/chef/chef-workstation/pull/422) ([tas50](https://github.com/tas50)) <!-- 0.8.1 -->
 - Remove cucumber, dco, knife-spork [#417](https://github.com/chef/chef-workstation/pull/417) ([marcparadise](https://github.com/marcparadise)) <!-- 0.8.0 -->
 - Wire up Chefstyle in Buildkite [#410](https://github.com/chef/chef-workstation/pull/410) ([tas50](https://github.com/tas50)) <!-- 0.7.7 -->
 -  Build Chef Workstation as a self contained project w/o depending on the ChefDK project [un-revert] [#414](https://github.com/chef/chef-workstation/pull/414) ([marcparadise](https://github.com/marcparadise)) <!-- 0.7.6 -->
