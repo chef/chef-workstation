@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.8.6 -->
-## [0.8.6](https://github.com/chef/chef-workstation/tree/0.8.6) (2019-08-12)
+<!-- latest_release 0.8.7 -->
+## [0.8.7](https://github.com/chef/chef-workstation/tree/0.8.7) (2019-08-12)
 
 #### Merged Pull Requests
-- Update Chef to 15.2.20 [#429](https://github.com/chef/chef-workstation/pull/429) ([tas50](https://github.com/tas50))
+- Bump knife-ec2 to 1.0.12 [#430](https://github.com/chef/chef-workstation/pull/430) ([chef-ci](https://github.com/chef-ci))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.7.4 -->
 ### Changes since 0.7.4 release
 
 #### Merged Pull Requests
+- Bump knife-ec2 to 1.0.12 [#430](https://github.com/chef/chef-workstation/pull/430) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.7 -->
 - Update Chef to 15.2.20 [#429](https://github.com/chef/chef-workstation/pull/429) ([tas50](https://github.com/tas50)) <!-- 0.8.6 -->
 - Bump nokogiri to 1.10.4 [#428](https://github.com/chef/chef-workstation/pull/428) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.5 -->
 - Bump cookstyle to 5.1.19 and ohai to 15.2.5 [#427](https://github.com/chef/chef-workstation/pull/427) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.4 -->
