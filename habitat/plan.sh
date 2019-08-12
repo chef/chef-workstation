@@ -8,7 +8,6 @@ pkg_build_deps=(
   core/make
   core/gcc
   core/gcc-libs
-  core/coreutils
   core/pkg-config
 )
 
@@ -27,6 +26,7 @@ pkg_deps=(
   core/cacerts
   core/libffi
   core/libarchive
+  core/coreutils
   core/git
 )
 
@@ -58,7 +58,6 @@ do_prepare() {
   fi
 }
 
-vendor_path=abspath "$CACHE_PATH/vendor"
 do_build() {
   export CPPFLAGS="${CPPFLAGS} ${CFLAGS}"
 
