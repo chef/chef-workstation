@@ -53,9 +53,9 @@ do_prepare() {
   build_line "Using Ruby ABI version '${RUBY_ABI_VERSION}'"
 
   build_line "Setting link for /usr/bin/env to 'coreutils'"
-  [[ ! -f /usr/bin/env ]] && ln -s $(pkg_path_for coreutils)/bin/env /usr/bin/env
-
-  return 0
+  if [ ! -f /usr/bin/env ]; then
+    ln -s "$(pkg_interpreter_for core/coreutils bin/env)" /usr/bin/env
+  fi
 }
 
 vendor_path=abspath "$CACHE_PATH/vendor"
