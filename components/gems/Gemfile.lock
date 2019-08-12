@@ -191,11 +191,11 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
     byebug (11.0.1)
-    chef (15.1.36)
+    chef (15.2.20)
       addressable
       bcrypt_pbkdf (~> 1.0)
       bundler (>= 1.10)
-      chef-config (= 15.1.36)
+      chef-config (= 15.2.20)
       chef-zero (>= 14.0.11)
       diff-lcs (~> 1.2, >= 1.2.4)
       ed25519 (~> 1.2)
@@ -221,11 +221,11 @@ GEM
       train-core (~> 2.0, >= 2.0.12)
       tty-screen (~> 0.6)
       uuidtools (~> 2.1.5)
-    chef (15.1.36-universal-mingw32)
+    chef (15.2.20-universal-mingw32)
       addressable
       bcrypt_pbkdf (~> 1.0)
       bundler (>= 1.10)
-      chef-config (= 15.1.36)
+      chef-config (= 15.2.20)
       chef-zero (>= 14.0.11)
       diff-lcs (~> 1.2, >= 1.2.4)
       ed25519 (~> 1.2)
@@ -280,8 +280,8 @@ GEM
       toml-rb
       train
       tty-spinner
-    chef-bin (15.1.36)
-      chef (= 15.1.36)
+    chef-bin (15.2.20)
+      chef (= 15.2.20)
     chef-cli (1.0.11)
       addressable (>= 2.3.5, < 2.6)
       chef (>= 14.0)
@@ -294,7 +294,7 @@ GEM
       mixlib-shellout (>= 2.0, < 4.0)
       paint (~> 1.0)
       solve (> 2.0, < 5.0)
-    chef-config (15.1.36)
+    chef-config (15.2.20)
       addressable
       fuzzyurl
       mixlib-config (>= 2.2.12, < 4.0)
@@ -942,9 +942,9 @@ DEPENDENCIES
   bcrypt_pbkdf
   berkshelf (>= 7.0.8)
   bundler (< 2)
-  chef (= 15.1.36)
+  chef (= 15.2.20)
   chef-apply (>= 0.3.3)
-  chef-bin (= 15.1.36)
+  chef-bin (= 15.2.20)
   chef-cli (>= 1.0.9)
   chef-sugar
   chef-vault (>= 3.4.1)
@@ -960,8 +960,8 @@ DEPENDENCIES
   ffi-rzmq-core
   foodcritic (>= 16.0)
   guard
-  inspec (~> 4.3)
-  inspec-bin (~> 4.3)
+  inspec (~> 4.10)
+  inspec-bin (~> 4.10)
   kitchen-azurerm (>= 0.14)
   kitchen-digitalocean (>= 0.10.0)
   kitchen-dokken (>= 2.6.7)
