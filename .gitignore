@@ -12,3 +12,6 @@ Gemfile.lock
 
 # Habitat
 results/
+
+# ruby
+*.swp

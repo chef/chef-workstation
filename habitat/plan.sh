@@ -22,7 +22,7 @@ RUBYGEM_VERSION=$RUBY_MAJOR_MINOR_VERSION.0
 
 pkg_deps=(
   core/glibc
-  core/busybox-static
+  core/bash
   ${ruby_pkg}
   core/libxml2
   core/libxslt
@@ -50,8 +50,6 @@ do_before() {
 do_verify() {
   return 0
 }
-
-
 
 do_prepare() {
   export OPENSSL_LIB_DIR=$(pkg_path_for openssl)/lib
@@ -176,7 +174,7 @@ wrap_ruby_bin() {
 
   build_line "Adding wrapper $wrapper for $real_cmd"
   cat <<EOF > "$wrapper"
-#!$(pkg_path_for busybox-static)/bin/sh
+#!$(pkg_interpreter_for core/bash bin/sh)
 set -e
 if test -n "$DEBUG"; then set -x; fi
 export VIA_HABITAT="true"
