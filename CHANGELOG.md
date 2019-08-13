@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 0.8.8 -->
+## [0.8.8](https://github.com/chef/chef-workstation/tree/0.8.8) (2019-08-13)
+
+#### Merged Pull Requests
+- Begin signing MSI&#39;s with renewed Windows Signing Cert [#431](https://github.com/chef/chef-workstation/pull/431) ([schisamo](https://github.com/schisamo))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=0.8.7 -->
+### Changes since 0.8.7 release
+
+#### Merged Pull Requests
+- Begin signing MSI&#39;s with renewed Windows Signing Cert [#431](https://github.com/chef/chef-workstation/pull/431) ([schisamo](https://github.com/schisamo)) <!-- 0.8.8 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
