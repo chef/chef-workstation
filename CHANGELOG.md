@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.8.8 -->
-## [0.8.8](https://github.com/chef/chef-workstation/tree/0.8.8) (2019-08-13)
+<!-- latest_release 0.8.9 -->
+## [0.8.9](https://github.com/chef/chef-workstation/tree/0.8.9) (2019-08-15)
 
 #### Merged Pull Requests
-- Begin signing MSI&#39;s with renewed Windows Signing Cert [#431](https://github.com/chef/chef-workstation/pull/431) ([schisamo](https://github.com/schisamo))
+- Bump kitchen-inspec to 1.2.0 [#434](https://github.com/chef/chef-workstation/pull/434) ([chef-ci](https://github.com/chef-ci))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Bump kitchen-inspec to 1.2.0 [#434](https://github.com/chef/chef-workstation/pull/434) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.9 -->
 - Begin signing MSI&#39;s with renewed Windows Signing Cert [#431](https://github.com/chef/chef-workstation/pull/431) ([schisamo](https://github.com/schisamo)) <!-- 0.8.8 -->
 <!-- release_rollup -->
 
