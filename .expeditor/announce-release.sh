@@ -8,7 +8,9 @@ curl -o release-notes.md "https://packages.chef.io/release-notes/${EXPEDITOR_PRO
 topic_title="Chef Workstation $EXPEDITOR_VERSION Released!"
 topic_body=$(cat <<EOH
 We are delighted to announce the availability of version $EXPEDITOR_VERSION of Chef Workstation.
+
 $(cat release-notes.md)
+
 ---
 ## Get the Build
 
