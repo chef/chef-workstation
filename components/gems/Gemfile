@@ -116,6 +116,7 @@ group(:omnibus_package) do
   gem "stove"
   gem "berkshelf", ">= 7.0.8"
   gem "chef-vault", ">= 3.4.1"
+  gem "mdl"
 end
 
 # Everything except AIX
