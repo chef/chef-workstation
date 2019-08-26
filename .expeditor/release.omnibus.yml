@@ -12,7 +12,7 @@ builder-to-testers-map:
   el-7-x86_64:
     - el-7-x86_64
     - el-8-x86_64
-  mac_os_x-10.12-x86_64:
+  mac_os_x-10.13-x86_64: # 10.13 is required to notorize the build, but we support 10.12
     - mac_os_x-10.12-x86_64
     - mac_os_x-10.13-x86_64
     - mac_os_x-10.14-x86_64
