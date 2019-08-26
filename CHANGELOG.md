@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.8.15 -->
-## [0.8.15](https://github.com/chef/chef-workstation/tree/0.8.15) (2019-08-26)
+<!-- latest_release 0.8.16 -->
+## [0.8.16](https://github.com/chef/chef-workstation/tree/0.8.16) (2019-08-26)
 
 #### Merged Pull Requests
-- Add libGlesV2 to whitelist chef-workstation-app. [#450](https://github.com/chef/chef-workstation/pull/450) ([marcparadise](https://github.com/marcparadise))
+- Bump test-kitchen to 2.3.1 [#452](https://github.com/chef/chef-workstation/pull/452) ([chef-ci](https://github.com/chef-ci))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Bump test-kitchen to 2.3.1 [#452](https://github.com/chef/chef-workstation/pull/452) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.16 -->
 - Add libGlesV2 to whitelist chef-workstation-app. [#450](https://github.com/chef/chef-workstation/pull/450) ([marcparadise](https://github.com/marcparadise)) <!-- 0.8.15 -->
 - Bump cookstyle to 5.3.6 [#446](https://github.com/chef/chef-workstation/pull/446) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.14 -->
 - Bump Chef Workstation App to 0.1.11 [#445](https://github.com/chef/chef-workstation/pull/445) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.13 -->
