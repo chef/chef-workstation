@@ -1,8 +1,8 @@
 ---
 project-name: chef-workstation
 config: omnibus/omnibus.rb
-test-path: omnibus/omnibus-test.sh
-test-path-windows: omnibus/omnibus-test.ps1
+test-path: omnibus/tests/verify-install.sh
+test-path-windows: omnibus/tests/verify-install.ps1
 fips-platforms:
   - el-*-x86_64
   - windows-*

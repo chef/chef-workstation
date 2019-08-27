@@ -82,6 +82,7 @@ build do
   # but chef-client still needs git-checked-out gems)
   block "Delete bundler git installs" do
     gemdir = shellout!("#{install_dir}/embedded/bin/gem environment gemdir", env: env).stdout.chomp
-    remove_directory "#{gemdir}/bundler"
+    #remove_directory "#{gemdir}/bundler"
+    remove_directory "#{gemdir}/.bundle"
   end
 end
