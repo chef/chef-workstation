@@ -62,19 +62,25 @@ subscriptions:
       - bash:.expeditor/purge-cdn.sh
       - bash:.expeditor/announce-release.sh
       - built_in:tag_docker_image
-  - workload: artifact_published:stable:chefdk:4*
-    actions:
-      - bash:.expeditor/update_chefdk_to_stable.sh
   - workload: chef/chef-workstation-app:master_completed:pull_request_merged:chef/chef-workstation-app:master:*
     actions:
       - bash:.expeditor/update_chef-workstation-app_to_latest.sh
   - workload: chef/delivery-cli:master_completed:pull_request_merged:chef/delivery-cli:master:*
     actions:
       - bash:.expeditor/update_delivery-cli_to_latest.sh
+  - workload: artifact_published:stable:chef:15*
+    actions:
+      # update our pinned version for chef/chef-bin in Gemfile
+      - bash:.expeditor/update_chef.sh
+      # update gemfile.lock and make it a PR
+      - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:appbundler-*
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:berkshelf-*
+    actions:
+       - bash:.expeditor/update_dep.sh
+  - workload: ruby_gem_published:chef-cli-*
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:chef-apply-*
