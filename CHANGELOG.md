@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.8.17 -->
-## [0.8.17](https://github.com/chef/chef-workstation/tree/0.8.17) (2019-08-27)
+<!-- latest_release 0.8.18 -->
+## [0.8.18](https://github.com/chef/chef-workstation/tree/0.8.18) (2019-08-29)
 
 #### Merged Pull Requests
-- Bump knife-ec2 to 1.0.14 [#456](https://github.com/chef/chef-workstation/pull/456) ([chef-ci](https://github.com/chef-ci))
+- Deprecate macOS 10.12 and add macOS 10.15 support [#455](https://github.com/chef/chef-workstation/pull/455) ([jaymalasinha](https://github.com/jaymalasinha))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Deprecate macOS 10.12 and add macOS 10.15 support [#455](https://github.com/chef/chef-workstation/pull/455) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 0.8.18 -->
 - Bump knife-ec2 to 1.0.14 [#456](https://github.com/chef/chef-workstation/pull/456) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.17 -->
 - Bump test-kitchen to 2.3.1 [#452](https://github.com/chef/chef-workstation/pull/452) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.16 -->
 - Add libGlesV2 to whitelist chef-workstation-app. [#450](https://github.com/chef/chef-workstation/pull/450) ([marcparadise](https://github.com/marcparadise)) <!-- 0.8.15 -->
