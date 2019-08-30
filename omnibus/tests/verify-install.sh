@@ -1,11 +1,39 @@
 #!/bin/bash
-set -e
+set -ueo pipefail
 
 # Ensure user variables are set in git config
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 
+channel="${CHANNEL:-unstable}"
+product="${PRODUCT:-chef-workstation}"
+version="${VERSION:-latest}"
+# Still allow the test to be run locally by skipping package install if we're not in the Ci env.
+if [ -f /opt/omnibus-toolchain/bin/install-omnibus-product  ]; then
 
+  echo "--- Installing $channel $product $version"
+  package_file="$(/opt/omnibus-toolchain/bin/install-omnibus-product -c "$channel" -P "$product" -v "$version" | tail -n 1)"
+
+  echo "--- Verifying omnibus package is signed"
+  /opt/omnibus-toolchain/bin/check-omnibus-package-signed "$package_file"
+
+  sudo rm -f "$package_file"
+
+  echo "--- Verifying ownership of package files"
+
+  export INSTALL_DIR=/opt/chef-workstation
+  NONROOT_FILES="$(find "$INSTALL_DIR" ! -user 0 -print)"
+  if [[ "$NONROOT_FILES" == "" ]]; then
+    echo "Packages files are owned by root.  Continuing verification."
+  else
+    echo "Exiting with an error because the following files are not owned by root:"
+    echo "$NONROOT_FILES"
+    exit 1
+  fi
+
+fi
+
+echo "--- Running verification for $channel $product $version"
 # These environment vars were set by default
 export CHEF_LICENSE="accept-no-persist"
 export PATH=/opt/chef-workstation/bin:/opt/chef-workstation/embedded/bin:$PATH
@@ -25,10 +53,10 @@ export_temp_dir() {
 }
 
 cleanup_temp_dir() {
-  if [ -d "$temp_dir" ]; then
+  if [ -v $temp_dir ]; then
     rm -rf "$temp_dir"
+    unset temp_dir
   fi
-  unset temp_dir
 }
 
 
@@ -112,24 +140,19 @@ pushd "$gem_location"
   bundle install --quiet --with=development
 
   echo "Running unit tests for test-kitchen"
-  # Nope - they skip because we don't have cucumber
   bundle exec rake unit
 
   echo "Running integration tests for test-kitchen"
-  # Nope - it fails locally because we don't have vagrant installed?
-  #        this should work just fine
   bundle exec rake features
 
-  # But this one works.  I wonder if we should have verify _just_ verify
-  # that the different commands run correctly, on the theory that we wouldn't
-  # pull the gem in if it weren't promoted, and it would not be promoted if
-  # tests were failing?
   echo "Running smoke test for test-kitchen"
   export_temp_dir
   pushd "$temp_dir"
-  #   # NOte that now we're directly running our packaged kitchen, and not via the bundle isntall above.
+
+  # Note that now we're directly running our packaged kitchen, and not via the bundle isntall above.
   kitchen init --create-gemfile
   popd
+
   cleanup_temp_dir
 popd
 
