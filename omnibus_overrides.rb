@@ -4,7 +4,7 @@
 # to master then Expeditor takes that version, runs a script to replace it here and pushes
 # a new commit / build through.
 
-override "delivery-cli", version: "0.0.52"
+override "delivery-cli", version: "0.0.53"
 override "chef-workstation-app", version: "v0.1.11"
 # /DO NOT MODIFY
 
