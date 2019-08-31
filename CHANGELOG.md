@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.9.1 -->
-## [0.9.1](https://github.com/chef/chef-workstation/tree/0.9.1) (2019-08-31)
+<!-- latest_release 0.9.2 -->
+## [0.9.2](https://github.com/chef/chef-workstation/tree/0.9.2) (2019-08-31)
 
 #### Merged Pull Requests
-- Bump chefstyle to 0.13.3 [#462](https://github.com/chef/chef-workstation/pull/462) ([chef-ci](https://github.com/chef-ci))
+- Update to Ruby 2.6.4 to address 2 CVEs [#457](https://github.com/chef/chef-workstation/pull/457) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Update to Ruby 2.6.4 to address 2 CVEs [#457](https://github.com/chef/chef-workstation/pull/457) ([tas50](https://github.com/tas50)) <!-- 0.9.2 -->
 - Bump chefstyle to 0.13.3 [#462](https://github.com/chef/chef-workstation/pull/462) ([chef-ci](https://github.com/chef-ci)) <!-- 0.9.1 -->
 - Bump cookstyle to 5.4.13 [#461](https://github.com/chef/chef-workstation/pull/461) ([chef-ci](https://github.com/chef-ci)) <!-- 0.9.0 -->
 - Bump Delivery CLI to 0.0.53 [#460](https://github.com/chef/chef-workstation/pull/460) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.20 -->
