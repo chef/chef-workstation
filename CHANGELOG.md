@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.8.19 -->
-## [0.8.19](https://github.com/chef/chef-workstation/tree/0.8.19) (2019-08-29)
+<!-- latest_release 0.8.20 -->
+## [0.8.20](https://github.com/chef/chef-workstation/tree/0.8.20) (2019-08-31)
 
 #### Merged Pull Requests
-- Bump inspec-bin to 4.16.0 [#459](https://github.com/chef/chef-workstation/pull/459) ([chef-ci](https://github.com/chef-ci))
+- Bump Delivery CLI to 0.0.53 [#460](https://github.com/chef/chef-workstation/pull/460) ([chef-ci](https://github.com/chef-ci))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Bump Delivery CLI to 0.0.53 [#460](https://github.com/chef/chef-workstation/pull/460) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.20 -->
 - Bump inspec-bin to 4.16.0 [#459](https://github.com/chef/chef-workstation/pull/459) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.19 -->
 - Deprecate macOS 10.12 and add macOS 10.15 support [#455](https://github.com/chef/chef-workstation/pull/455) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 0.8.18 -->
 - Bump knife-ec2 to 1.0.14 [#456](https://github.com/chef/chef-workstation/pull/456) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.17 -->
