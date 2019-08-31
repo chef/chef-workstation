@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.8.20 -->
-## [0.8.20](https://github.com/chef/chef-workstation/tree/0.8.20) (2019-08-31)
+<!-- latest_release 0.9.0 -->
+## [0.9.0](https://github.com/chef/chef-workstation/tree/0.9.0) (2019-08-31)
 
 #### Merged Pull Requests
-- Bump Delivery CLI to 0.0.53 [#460](https://github.com/chef/chef-workstation/pull/460) ([chef-ci](https://github.com/chef-ci))
+- Bump cookstyle to 5.4.13 [#461](https://github.com/chef/chef-workstation/pull/461) ([chef-ci](https://github.com/chef-ci))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Bump cookstyle to 5.4.13 [#461](https://github.com/chef/chef-workstation/pull/461) ([chef-ci](https://github.com/chef-ci)) <!-- 0.9.0 -->
 - Bump Delivery CLI to 0.0.53 [#460](https://github.com/chef/chef-workstation/pull/460) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.20 -->
 - Bump inspec-bin to 4.16.0 [#459](https://github.com/chef/chef-workstation/pull/459) ([chef-ci](https://github.com/chef-ci)) <!-- 0.8.19 -->
 - Deprecate macOS 10.12 and add macOS 10.15 support [#455](https://github.com/chef/chef-workstation/pull/455) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 0.8.18 -->
