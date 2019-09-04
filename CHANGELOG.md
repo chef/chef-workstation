@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.9.3 -->
-## [0.9.3](https://github.com/chef/chef-workstation/tree/0.9.3) (2019-09-03)
+<!-- latest_release 0.9.4 -->
+## [0.9.4](https://github.com/chef/chef-workstation/tree/0.9.4) (2019-09-04)
 
 #### Merged Pull Requests
-- Bump Delivery CLI to 0.0.54 [#463](https://github.com/chef/chef-workstation/pull/463) ([chef-ci](https://github.com/chef-ci))
+- Bump mixlib-install to 3.11.21 [#464](https://github.com/chef/chef-workstation/pull/464) ([chef-ci](https://github.com/chef-ci))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Bump mixlib-install to 3.11.21 [#464](https://github.com/chef/chef-workstation/pull/464) ([chef-ci](https://github.com/chef-ci)) <!-- 0.9.4 -->
 - Bump Delivery CLI to 0.0.54 [#463](https://github.com/chef/chef-workstation/pull/463) ([chef-ci](https://github.com/chef-ci)) <!-- 0.9.3 -->
 - Update to Ruby 2.6.4 to address 2 CVEs [#457](https://github.com/chef/chef-workstation/pull/457) ([tas50](https://github.com/tas50)) <!-- 0.9.2 -->
 - Bump chefstyle to 0.13.3 [#462](https://github.com/chef/chef-workstation/pull/462) ([chef-ci](https://github.com/chef-ci)) <!-- 0.9.1 -->
