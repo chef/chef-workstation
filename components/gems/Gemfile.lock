@@ -270,7 +270,7 @@ GEM
     chef-api (0.9.0)
       logify (~> 0.1)
       mime-types
-    chef-apply (0.3.3)
+    chef-apply (0.4.6)
       chef (>= 15.0)
       chef-cli (>= 1.0.3)
       chef-telemetry
@@ -282,7 +282,8 @@ GEM
       pastel
       r18n-desktop
       toml-rb
-      train
+      train (~> 3.0)
+      train-winrm
       tty-spinner
     chef-bin (15.2.20)
       chef (= 15.2.20)
@@ -638,7 +639,7 @@ GEM
       shellany (~> 0.0)
     octokit (4.14.0)
       sawyer (~> 0.8.0, >= 0.5.3)
-    ohai (15.2.5)
+    ohai (15.3.1)
       chef-config (>= 12.8, < 16)
       ffi (~> 1.9)
       ffi-yajl (~> 2.2)
