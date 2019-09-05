@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.9.7 -->
-## [0.9.7](https://github.com/chef/chef-workstation/tree/0.9.7) (2019-09-05)
+<!-- latest_release 0.9.8 -->
+## [0.9.8](https://github.com/chef/chef-workstation/tree/0.9.8) (2019-09-05)
 
 #### Merged Pull Requests
-- Bump ohai to 15.3.1 [#468](https://github.com/chef/chef-workstation/pull/468) ([chef-ci](https://github.com/chef-ci))
+- Update Test Kitchen, mixlib-shellout, and libarchive to the latest [#469](https://github.com/chef/chef-workstation/pull/469) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Update Test Kitchen, mixlib-shellout, and libarchive to the latest [#469](https://github.com/chef/chef-workstation/pull/469) ([tas50](https://github.com/tas50)) <!-- 0.9.8 -->
 - Bump ohai to 15.3.1 [#468](https://github.com/chef/chef-workstation/pull/468) ([chef-ci](https://github.com/chef-ci)) <!-- 0.9.7 -->
 - Bump chef-cli to 1.0.13 [#466](https://github.com/chef/chef-workstation/pull/466) ([chef-ci](https://github.com/chef-ci)) <!-- 0.9.6 -->
 - Bump train-winrm to 0.2.4 [#465](https://github.com/chef/chef-workstation/pull/465) ([chef-ci](https://github.com/chef-ci)) <!-- 0.9.5 -->
