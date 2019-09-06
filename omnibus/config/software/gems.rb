@@ -28,6 +28,9 @@ dependency "bundler" # technically a gem, but we gotta solve the chicken-egg pro
 # NOTE: Do not add any gem dependencies here.  This will cause gemsets to solve without
 # the full constrains of chef-workstation, which can result in multiple gem versions
 # shipping in the omnibus package.
+#
+# If a new top-level gem is to be added, do so in ../../components/gems/Gemfile
+# and add it to the appbundler list below.
 
 # However, for gems that depend on c-libs, we must include the c-libraries directly here.
 
@@ -65,23 +68,17 @@ build do
 
   env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
 
-  # install the whole bundle first
+  # install the whole bundle first. This will build the lock file
+  # appbundler uses to resolve dependencies.
   bundle "install --jobs 10 --without #{excluded_groups.join(" ")}", env: env
 
-  # TODO - we'll want a better way to manage this - likely some kind of callback
-  # from chef-cli so that we can hook in our own version output.
-  #
-  # Cross platform way to sed. Need to cleanup the backup fail.
-  # command("sed -i.bak 's/\\$CHEF_WS_VERSION\\$/#{project.build_version}/' #{project_dir}/lib/chef-dk/cli.rb", env: env)
-  # command("rm #{project_dir}/lib/chef-dk/cli.rb.bak")
   appbundle "chef", lockdir: project_dir, gem: "chef", without: %w{docgen chefstyle}, env: env
-
   appbundle "foodcritic", lockdir: project_dir, gem: "foodcritic", without: %w{development test}, env: env
-  appbundle "test-kitchen", lockdir: project_dir, gem: "test-kitchen", without: %w{changelog debug docs development}, env: env
+  appbundle "test-kitchen", lockdir: project_dir, gem: "test-kitchen", without: %w{changelog debug docs}, env: env
   appbundle "inspec", lockdir: project_dir, gem: "inspec-bin", without: %w{deploy tools maintenance integration}, env: env
   appbundle "chef-run", lockdir: project_dir, gem: "chef-apply", without: %w{changelog docs debug}, env: env
   appbundle "chef-cli", lockdir: project_dir, gem: "chef-cli", without: %w{changelog docs debug}, env: env
-  appbundle "berkshelf", lockdir: project_dir, gem: "berkshelf", without: %w{changelog docs debug development}, env: env
+  appbundle "berkshelf", lockdir: project_dir, gem: "berkshelf", without: %w{changelog docs debug}, env: env
 
   # Note - 'chef-apply' gem provides 'chef-run', not 'chef-apply' which ships with chef-bin...
   %w{chef-bin chef-apply chef-vault ohai opscode-pushy-client cookstyle}.each do |gem|
