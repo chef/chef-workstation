@@ -50,7 +50,7 @@ build do
     env["PATH"] = "#{env["PATH"]}#{separator}#{node_bin_path}"
 
     platform_name, artifact_name = if mac_os_x?
-                                     ["mac", "Chef Workstation App-#{app_version}-mac.zip"]
+                                     ["mac", "'Chef Workstation App-#{app_version}-mac.zip'"]
                                    elsif linux?
                                      %w{linux linux-unpacked}
                                    elsif windows?
