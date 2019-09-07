@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.9.10 -->
-## [0.9.10](https://github.com/chef/chef-workstation/tree/0.9.10) (2019-09-06)
+<!-- latest_release 0.9.11 -->
+## [0.9.11](https://github.com/chef/chef-workstation/tree/0.9.11) (2019-09-06)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.13 [#475](https://github.com/chef/chef-workstation/pull/475) ([chef-ci](https://github.com/chef-ci))
+- Update Cookstyle to 5.5 [#478](https://github.com/chef/chef-workstation/pull/478) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Update Cookstyle to 5.5 [#478](https://github.com/chef/chef-workstation/pull/478) ([tas50](https://github.com/tas50)) <!-- 0.9.11 -->
 - Bump Chef Workstation App to 0.1.13 [#475](https://github.com/chef/chef-workstation/pull/475) ([chef-ci](https://github.com/chef-ci)) <!-- 0.9.10 -->
 - Bump Chef Workstation App to 0.1.12 [#470](https://github.com/chef/chef-workstation/pull/470) ([chef-ci](https://github.com/chef-ci)) <!-- 0.9.9 -->
 - Update Test Kitchen, mixlib-shellout, and libarchive to the latest [#469](https://github.com/chef/chef-workstation/pull/469) ([tas50](https://github.com/tas50)) <!-- 0.9.8 -->
