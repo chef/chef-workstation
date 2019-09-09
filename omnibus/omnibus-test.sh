@@ -49,5 +49,6 @@ chef verify
 
 # Verify that the chef-workstation-app was installed (MacOS only)
 if is_darwin; then
+  echo "Verifying that chef-workstation-app exist in /Applications directory"
   test -d "/Applications/Chef Workstation App.app"
 fi
