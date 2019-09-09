@@ -5,6 +5,11 @@ channel="${CHANNEL:-unstable}"
 product="${PRODUCT:-chef-workstation}"
 version="${VERSION:-latest}"
 
+is_darwin()
+{
+  uname -v | grep "^Darwin" >/dev/null 2>&1
+}
+
 echo "--- Installing $channel $product $version"
 package_file="$(/opt/omnibus-toolchain/bin/install-omnibus-product -c "$channel" -P "$product" -v "$version" | tail -n 1)"
 
@@ -41,3 +46,8 @@ chef env
 
 # Run Chef Workstation verification suite to ensure it still works
 chef verify
+
+# Verify that the chef-workstation-app was installed (MacOS only)
+if is_darwin; then
+  test -d "/Applications/Chef Workstation App.app"
+fi
