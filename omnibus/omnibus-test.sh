@@ -36,8 +36,8 @@ export CHEF_LICENSE="accept-no-persist"
 # chef version ensures our bin ends up on path and the basic ruby env is working.
 chef-run --version
 
-# Ensure our ChefDK works
+# Ensure our Chef Workstation works
 chef env
 
-# Run ChefDK verification suite to ensure it still works
+# Run Chef Workstation verification suite to ensure it still works
 chef verify

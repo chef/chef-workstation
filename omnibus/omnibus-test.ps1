@@ -31,10 +31,10 @@ $Env:CHEF_LICENSE = "accept-no-persist"
 chef-run --version
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
-# Ensure our ChefDK works
+# Ensure our Chef Workstation works
 chef env
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
-# Run ChefDK verification suite to ensure it still works
+# Run Chef Workstation verification suite to ensure it still works
 chef verify
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
