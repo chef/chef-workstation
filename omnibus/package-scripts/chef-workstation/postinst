@@ -47,9 +47,7 @@ if is_darwin; then
   pushd "$INSTALLER_DIR/components/chef-workstation-app"
   unzip chef-workstation-app-mac.zip
   sudo rm -rf "/Applications/Chef Workstation App.app"
-  # @afiune For some reason the zip file and the content has single quotes in the file name. Ugly!
   sudo mv "Chef Workstation App.app" /Applications/
-  rm -r mac
   rm -f chef-workstation-app-mac.zip
   popd
 
