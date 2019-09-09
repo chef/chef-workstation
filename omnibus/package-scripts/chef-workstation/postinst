@@ -44,11 +44,11 @@ if is_darwin; then
   # within the larger Chef Workstatoin package, and will not include it in the Chef Workstation
   # package directly.
   echo "Moving Chef Workstation App to the Applications folder"
-  pushd $INSTALLER_DIR/components/chef-workstation-app
+  pushd "$INSTALLER_DIR/components/chef-workstation-app"
   unzip chef-workstation-app-mac.zip
   sudo rm -rf "/Applications/Chef Workstation App.app"
-  sudo mv "mac/Chef Workstation App.app" /Applications
-  rm -r mac
+  sudo mv "Chef Workstation App.app" /Applications/
+  rm -f chef-workstation-app-mac.zip
   popd
 
   ln -sf $INSTALLER_DIR/bin/uninstall_chef_workstation $PREFIX/bin || error_exit "Cannot link uninstall_chef_workstation to $PREFIX/bin"
