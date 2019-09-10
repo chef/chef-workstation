@@ -35,6 +35,5 @@ If ($lastexitcode -ne 0) { Exit $lastexitcode }
 chef env
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
-# Run Chef Workstation verification suite to ensure it still works
-chef verify
+C:/opscode/chef-workstation/embedded/bin/ruby.exe omnibus/verification/verify.rb
 If ($lastexitcode -ne 0) { Exit $lastexitcode }

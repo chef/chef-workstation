@@ -38,17 +38,20 @@ git config --global user.name "Your Name"
 
 export CHEF_LICENSE="accept-no-persist"
 
-# chef version ensures our bin ends up on path and the basic ruby env is working.
+# Ensure our chef cli works, and
+chef env
+
+# TODO - is this still a helpful thing?
 chef-run --version
 
 # Ensure our Chef Workstation works
 chef env
-
-# Run Chef Workstation verification suite to ensure it still works
-chef verify
 
 # Verify that the chef-workstation-app was installed (MacOS only)
 if is_darwin; then
   echo "Verifying that chef-workstation-app exist in /Applications directory"
   test -d "/Applications/Chef Workstation App.app"
 fi
+
+# Run ChefDK verification suite to ensure it still works
+/opt/chef-workstation/embedded/bin/ruby omnibus/verification/verify.rb
