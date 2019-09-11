@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.9.12 -->
-## [0.9.12](https://github.com/chef/chef-workstation/tree/0.9.12) (2019-09-09)
+<!-- latest_release 0.9.13 -->
+## [0.9.13](https://github.com/chef/chef-workstation/tree/0.9.13) (2019-09-11)
 
 #### Merged Pull Requests
-- Fix unzip of chef-workstation-app (Electron-App) [#477](https://github.com/chef/chef-workstation/pull/477) ([afiune](https://github.com/afiune))
+- Add kitchen-vcenter and knife-vcenter [#480](https://github.com/chef/chef-workstation/pull/480) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Add kitchen-vcenter and knife-vcenter [#480](https://github.com/chef/chef-workstation/pull/480) ([tas50](https://github.com/tas50)) <!-- 0.9.13 -->
 - Fix unzip of chef-workstation-app (Electron-App) [#477](https://github.com/chef/chef-workstation/pull/477) ([afiune](https://github.com/afiune)) <!-- 0.9.12 -->
 - Update Cookstyle to 5.5 [#478](https://github.com/chef/chef-workstation/pull/478) ([tas50](https://github.com/tas50)) <!-- 0.9.11 -->
 - Bump Chef Workstation App to 0.1.13 [#475](https://github.com/chef/chef-workstation/pull/475) ([chef-ci](https://github.com/chef-ci)) <!-- 0.9.10 -->
