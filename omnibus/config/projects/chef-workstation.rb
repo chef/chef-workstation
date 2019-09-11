@@ -77,8 +77,8 @@ dependency "rubygems-customization"
 dependency "shebang-cleanup"
 
 if windows?
-  dependency "chef-dk-env-customization"
-  dependency "chef-dk-powershell-scripts"
+  dependency "windows-env-customization"
+  dependency "powershell-scripts"
 end
 
 dependency "version-manifest"
