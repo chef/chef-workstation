@@ -9,9 +9,7 @@ Gem::ConfigFile::OPERATING_SYSTEM_DEFAULTS["update"] = "--user"
 
 # We will inject our hacks in if the user will allow it.
 begin
-  if (ENV["CHEFWS_ENV_FIX"] || "0").to_i != 0
-    require "env_customization"
-  elsif (ENV["CHEFDK_ENV_FIX"] || "0").to_i != 0
+  if ENV["CHEFDK_ENV_FIX"] != "0" && ENV["CHEFWS_ENV_FIX"] != "0"
     # TODO remove support for CHEFDK_ENV_FIX as part of 1.0 bump
     require "env_customization"
   end

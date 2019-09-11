@@ -19,7 +19,7 @@
 # so they are easy to locate and do not need to invoke ruby to determine or
 # parse a gemfile.lock
 
-name "chef-dk-gem-versions"
+name "gem-version-manifest"
 
 skip_transitive_dependency_licensing true
 license :project_license
