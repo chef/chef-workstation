@@ -71,8 +71,7 @@ dependency "rust-uninstall"
 # No gems get shipped that are not declared in components/gems/Gemfile
 dependency "gems"
 
-dependency "chef-dk-gem-versions"
-
+dependency "gem-version-manifest"
 dependency "gem-permissions"
 dependency "rubygems-customization"
 dependency "shebang-cleanup"
