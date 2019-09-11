@@ -48,7 +48,7 @@ if !ENV["HOME"] || !File.exist?(ENV["HOME"])
   STDERR.puts <<~EOF
 
     If you would not like Chef Workstation to try to fix the HOME environment
-    variable, check the CHEFDK_ENV_FIX environment variable. Setting this value
+    variable, check the CHEFWS_ENV_FIX environment variable. Setting this value
     to 0 prevent this modification to your HOME environment variable.
 
   EOF
