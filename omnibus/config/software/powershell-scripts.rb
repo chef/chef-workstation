@@ -17,7 +17,7 @@
 
 # This is a windows only dependency
 
-name "chef-dk-powershell-scripts"
+name "powershell-scripts"
 
 skip_transitive_dependency_licensing true
 license :project_license
