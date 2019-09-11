@@ -1,4 +1,5 @@
-## Environment hacks for running Ruby with ChefDK ##
+## Environment hacks for running Ruby with Chef Workstation ##
+#
 # ENV['HOME'] is not set by default on Windows. We need to set this to
 # something sensible since a lot of Ruby code depends on it. It is important
 # for this directory to exist and be available, so we are introducing logic
@@ -24,8 +25,8 @@ if !ENV["HOME"] || !File.exist?(ENV["HOME"])
   STDERR.puts <<~EOF
     The HOME (#{old_home}) environment variable was not set, or was set to
     an inaccessible location. Because this can prevent you from running many
-    of the programs included with ChefDK, we will attempt to find another
-    suitable location.
+    of the programs included with Chef Workstation, we will attempt to find
+    another suitable location.
 
   EOF
 
@@ -46,9 +47,9 @@ if !ENV["HOME"] || !File.exist?(ENV["HOME"])
 
   STDERR.puts <<~EOF
 
-    If you would not like ChefDK to try to fix the HOME environment variable,
-    check the CHEFDK_ENV_FIX environment variable. Setting this value to 0
-    prevent this modification to your HOME environment variable.
+    If you would not like Chef Workstation to try to fix the HOME environment
+    variable, check the CHEFDK_ENV_FIX environment variable. Setting this value
+    to 0 prevent this modification to your HOME environment variable.
 
   EOF
 end

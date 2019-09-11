@@ -17,7 +17,7 @@
 
 # This is a windows only dependency
 
-name "chef-dk-env-customization"
+name "windows-env-customization"
 
 skip_transitive_dependency_licensing true
 license :project_license
@@ -28,8 +28,8 @@ dependency "ruby"
 
 build do
   # lazied because we need ruby to get installed first
-  block "Add chefdk_env_customization file" do
-    source_customization_file = "#{project_dir}/windows/chefdk_env_customization.rb"
+  block "Add windows env_customization file" do
+    source_customization_file = "#{project_dir}/windows/env_customization.rb"
 
     site_ruby = Bundler.with_clean_env do
       ruby = windows_safe_path("#{install_dir}/embedded/bin/ruby")
