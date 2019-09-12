@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.9.15 -->
-## [0.9.15](https://github.com/chef/chef-workstation/tree/0.9.15) (2019-09-11)
+<!-- latest_release 0.9.16 -->
+## [0.9.16](https://github.com/chef/chef-workstation/tree/0.9.16) (2019-09-12)
 
 #### Merged Pull Requests
-- Update gem-version-manifest software definition [#481](https://github.com/chef/chef-workstation/pull/481) ([afiune](https://github.com/afiune))
+- Updating Chef to 15.3.14 because that was released [#484](https://github.com/chef/chef-workstation/pull/484) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Updating Chef to 15.3.14 because that was released [#484](https://github.com/chef/chef-workstation/pull/484) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.9.16 -->
 - Update gem-version-manifest software definition [#481](https://github.com/chef/chef-workstation/pull/481) ([afiune](https://github.com/afiune)) <!-- 0.9.15 -->
 - Rename Windows build customizations [#482](https://github.com/chef/chef-workstation/pull/482) ([afiune](https://github.com/afiune)) <!-- 0.9.14 -->
 - Add kitchen-vcenter and knife-vcenter [#480](https://github.com/chef/chef-workstation/pull/480) ([tas50](https://github.com/tas50)) <!-- 0.9.13 -->
