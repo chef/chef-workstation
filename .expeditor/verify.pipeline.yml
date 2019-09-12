@@ -8,6 +8,15 @@ steps:
     executor:
       docker:
         image: ruby:2.6-stretch
+- label: verification-unit-tests-ruby-2.6
+  command:
+    - export USER="root"
+    - bundle install --jobs=7 --retry=3
+    - bundle exec rspec omnibus/verification
+  expeditor:
+    executor:
+      docker:
+        image: ruby:2.6-stretch
 - label: ":hugo:"
   command:
     - .expeditor/buildkite/hugo_lint.sh
