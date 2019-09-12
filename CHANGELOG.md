@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.9.16 -->
-## [0.9.16](https://github.com/chef/chef-workstation/tree/0.9.16) (2019-09-12)
+<!-- latest_release 0.9.17 -->
+## [0.9.17](https://github.com/chef/chef-workstation/tree/0.9.17) (2019-09-12)
 
 #### Merged Pull Requests
-- Updating Chef to 15.3.14 because that was released [#484](https://github.com/chef/chef-workstation/pull/484) ([tyler-ball](https://github.com/tyler-ball))
+- Bump Chef Workstation App to 0.1.14 [#485](https://github.com/chef/chef-workstation/pull/485) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.14 [#485](https://github.com/chef/chef-workstation/pull/485) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.17 -->
 - Updating Chef to 15.3.14 because that was released [#484](https://github.com/chef/chef-workstation/pull/484) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.9.16 -->
 - Update gem-version-manifest software definition [#481](https://github.com/chef/chef-workstation/pull/481) ([afiune](https://github.com/afiune)) <!-- 0.9.15 -->
 - Rename Windows build customizations [#482](https://github.com/chef/chef-workstation/pull/482) ([afiune](https://github.com/afiune)) <!-- 0.9.14 -->
