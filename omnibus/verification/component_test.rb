@@ -40,6 +40,12 @@ if Object.const_defined?(:Bundler) &&
 end
 
 module ChefWorkstation
+  class MissingComponentError < RuntimeError
+    def initialize(component_name, reason)
+      super("Component #{component_name} is missing.\nReason: #{reason}")
+    end
+  end
+
   class ComponentTest
     class NullTestResult
       def exitstatus

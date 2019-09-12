@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 
+# NOTE: Verify.run is invoked from omnibus-test.ps1 and omnibus-test.sh
+
 require "chef"
 require "chef-cli"
 require "chef-cli/dist"
@@ -545,5 +547,3 @@ module ChefWorkstation
   end
 end
 
-exit_code = ChefWorkstation::Command::Verify.new.run(ARGV)
-exit exit_code

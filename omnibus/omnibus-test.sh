@@ -53,5 +53,5 @@ if is_darwin; then
   test -d "/Applications/Chef Workstation App.app"
 fi
 
-# Run ChefDK verification suite to ensure it still works
-/opt/chef-workstation/embedded/bin/ruby omnibus/verification/verify.rb
+# Run Workstation verification suite
+/opt/chef-workstation/embedded/bin/ruby -e "load 'omnibus/verification/verify.rb'; exit ChefWorkstation::Command::Verify.new.run([])"
