@@ -22,7 +22,7 @@ name "windows-env-customization"
 skip_transitive_dependency_licensing true
 license :project_license
 
-source path: "#{project.files_path}/#{name}"
+source path: "#{project.files_path}/env-customization"
 
 dependency "ruby"
 
