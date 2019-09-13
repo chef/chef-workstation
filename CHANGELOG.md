@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.9.19 -->
-## [0.9.19](https://github.com/chef/chef-workstation/tree/0.9.19) (2019-09-13)
+<!-- latest_release 0.9.20 -->
+## [0.9.20](https://github.com/chef/chef-workstation/tree/0.9.20) (2019-09-13)
 
 #### Merged Pull Requests
-- Fixing a broken path in the omnibus build [#488](https://github.com/chef/chef-workstation/pull/488) ([tyler-ball](https://github.com/tyler-ball))
+- Bump Chef Workstation App to 0.1.16 [#489](https://github.com/chef/chef-workstation/pull/489) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.16 [#489](https://github.com/chef/chef-workstation/pull/489) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.20 -->
 - Fixing a broken path in the omnibus build [#488](https://github.com/chef/chef-workstation/pull/488) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.9.19 -->
 - Bump Chef Workstation App to 0.1.15 [#486](https://github.com/chef/chef-workstation/pull/486) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.18 -->
 - Bump Chef Workstation App to 0.1.14 [#485](https://github.com/chef/chef-workstation/pull/485) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.17 -->
