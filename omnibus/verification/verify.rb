@@ -92,14 +92,10 @@ module ChefWorkstation
           sh("#{embedded_bin("bundle")} exec #{embedded_bin("rspec")} --color --format progress spec/unit --tag ~graphviz")
         end
 
-        # See older versions of this file in git to retrieve
-        # our cucumber test command for berkshelf.
-        # We had to remove them because we no longer bundle These tests cannot be run unless we bundle cucumber
-        # TODO mp 2019-09-09 disabled this until we get cucumber sorted.
-        # c.integration_test do
-        #   bundle_install_mutex.synchronize { sh("#{embedded_bin("bundle")} install") }
-        #   sh("#{embedded_bin("bundle")} exec #{embedded_bin("cucumber")} --color --format progress --tags ~@no_run --tags ~@spawn --tags ~@graphviz --strict")
-        # end
+        c.integration_test do
+          bundle_install_mutex.synchronize { sh("#{embedded_bin("bundle")} install") }
+          sh("#{embedded_bin("bundle")} exec #{embedded_bin("cucumber")} --color --format progress --tags ~@no_run --tags ~@spawn --tags ~@graphviz --strict")
+        end
 
         c.smoke_test do
           tmpdir do |cwd|
@@ -115,11 +111,11 @@ module ChefWorkstation
           bundle_install_mutex.synchronize { sh("#{embedded_bin("bundle")} install") }
           sh("#{embedded_bin("bundle")} exec rake unit")
         end
-        # TODO mp 2019-09-09 disabled this until we get cucumber sorted.
-        # c.integration_test do
-        #   bundle_install_mutex.synchronize { sh("#{embedded_bin("bundle")} install") }
-        #   sh("#{embedded_bin("bundle")} exec rake features")
-        # end
+
+        c.integration_test do
+          bundle_install_mutex.synchronize { sh("#{embedded_bin("bundle")} install") }
+          sh("#{embedded_bin("bundle")} exec rake features")
+        end
 
         # NOTE: By default, kitchen tries to be helpful and install a driver
         # gem for you. This causes a race condition when running the tests
@@ -457,10 +453,10 @@ module ChefWorkstation
 
         verification_status
       end
-      # Removed - no override needed for our usgae
-      # def omnibus_root
-      #   config[:omnibus_dir] || super
-      # end
+
+      def omnibus_root
+        config[:omnibus_dir] || super
+      end
 
       def validate_components!
         components.each do |component|
