@@ -38,13 +38,7 @@ git config --global user.name "Your Name"
 
 export CHEF_LICENSE="accept-no-persist"
 
-# Ensure our chef cli works, and
-chef env
-
-# TODO - is this still a helpful thing?
-chef-run --version
-
-# Ensure our Chef Workstation works
+# Ensure our chef cli works
 chef env
 
 # Verify that the chef-workstation-app was installed (MacOS only)
@@ -54,4 +48,4 @@ if is_darwin; then
 fi
 
 # Run Workstation verification suite
-/opt/chef-workstation/embedded/bin/ruby -e "load 'omnibus/verification/verify.rb'; exit ChefWorkstation::Command::Verify.new.run([])"
+/opt/chef-workstation/embedded/bin/ruby omnibus/verification/run.rb --unit
