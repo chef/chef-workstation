@@ -64,7 +64,7 @@ else # linux - postinst does not run for windows.
   # 0 rc means grep found 'not found' text - and we have missing deps.
   if [ $? -eq 0 ]; then
     echo ""
-    echo "To run the experimental Chef Workstation App, use your"
+    echo "To run the Chef Workstation App, use your"
     echo "platform's package manager to install these dependencies:"
     echo ""
     ldd "$cwa_app_path" | grep "not found" 2>&1
@@ -72,7 +72,7 @@ else # linux - postinst does not run for windows.
     echo "The App will then be available in the system tray."
   else
     echo ""
-    echo "The experimental Chef Workstation App is available for you to try."
+    echo "The Chef Workstation App is available for you to try."
     echo ""
     echo "Launch the App by running 'chef-workstation-app'."
     echo "The App will then be available in the system tray."
