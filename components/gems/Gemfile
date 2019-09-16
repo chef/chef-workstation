@@ -85,7 +85,7 @@ group(:omnibus_package) do
   gem "knife-windows", ">= 3.0"
   gem "knife-opc", ">= 0.4.0"
   gem "knife-vcenter", ">= 2.0"
-  gem "knife-vsphere", ">= 2.1.1"
+  gem "knife-vsphere", ">= 4.0"
 
   # ed25519 ssh key support done here as it's a native gem we can't put in train
   gem "ed25519"

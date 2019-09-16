@@ -176,7 +176,7 @@ subscriptions:
   - workload: ruby_gem_published:knife-vsphere-*
     actions:
        - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:knife-vsphere-*
+  - workload: ruby_gem_published:knife-vcenter-*
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:knife-windows-*
