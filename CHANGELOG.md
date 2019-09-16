@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.9.23 -->
-## [0.9.23](https://github.com/chef/chef-workstation/tree/0.9.23) (2019-09-16)
+<!-- latest_release 0.9.24 -->
+## [0.9.24](https://github.com/chef/chef-workstation/tree/0.9.24) (2019-09-16)
 
 #### Merged Pull Requests
-- Update git on windows to 2.23.0 [#498](https://github.com/chef/chef-workstation/pull/498) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.19 [#499](https://github.com/chef/chef-workstation/pull/499) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.19 [#499](https://github.com/chef/chef-workstation/pull/499) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.24 -->
 - Update git on windows to 2.23.0 [#498](https://github.com/chef/chef-workstation/pull/498) ([tas50](https://github.com/tas50)) <!-- 0.9.23 -->
 - Bump Chef Workstation App to 0.1.18 [#496](https://github.com/chef/chef-workstation/pull/496) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.22 -->
 - Bump knife-ec2 to 1.0.16 [#494](https://github.com/chef/chef-workstation/pull/494) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.21 -->
