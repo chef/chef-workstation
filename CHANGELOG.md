@@ -1,15 +1,18 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.9.28 -->
-## [0.9.28](https://github.com/chef/chef-workstation/tree/0.9.28) (2019-09-17)
+<!-- latest_release 0.9.31 -->
+## [0.9.31](https://github.com/chef/chef-workstation/tree/0.9.31) (2019-09-17)
 
 #### Merged Pull Requests
-- Update cookstyle to 5.6.2 [#506](https://github.com/chef/chef-workstation/pull/506) ([tas50](https://github.com/tas50))
+- Bump kitchen-ec2 to 3.2.0 [#512](https://github.com/chef/chef-workstation/pull/512) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Bump kitchen-ec2 to 3.2.0 [#512](https://github.com/chef/chef-workstation/pull/512) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.31 -->
+- Remove the unused ChefDK patches [#507](https://github.com/chef/chef-workstation/pull/507) ([tas50](https://github.com/tas50)) <!-- 0.9.30 -->
+- Simplify the builder cookbook [#509](https://github.com/chef/chef-workstation/pull/509) ([tas50](https://github.com/tas50)) <!-- 0.9.29 -->
 - Update cookstyle to 5.6.2 [#506](https://github.com/chef/chef-workstation/pull/506) ([tas50](https://github.com/tas50)) <!-- 0.9.28 -->
 - Update knife-vsphere and kitchen-vcenter to the latest [#505](https://github.com/chef/chef-workstation/pull/505) ([tas50](https://github.com/tas50)) <!-- 0.9.27 -->
 - Bump Chef Workstation App to 0.1.20 [#501](https://github.com/chef/chef-workstation/pull/501) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.26 -->
