@@ -30,4 +30,4 @@ override "openssl", version: "1.0.2s"
 override "rust", version: "1.37.0"
 
 # For workstation app
-override "nodejs", version: "10.9.0"
+override "nodejs", version: "10.16.3"
