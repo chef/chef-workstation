@@ -8,7 +8,8 @@ steps:
     executor:
       docker:
         image: ruby:2.6-stretch
-- label: verification-unit-tests-ruby-2.6
+# This tests that our verify.rb script (and dependencies) can successfully test components included in CW
+- label: component-test-tests-ruby-2.6
   command:
     - export USER="root"
     - bundle install --jobs=7 --retry=3
