@@ -17,4 +17,4 @@
 
 require_relative "verify"
 exit_code = ChefWorkstation::Command::Verify.new.run(ARGV)
-exit exit_code
+exit! exit_code
