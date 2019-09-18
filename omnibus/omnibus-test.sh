@@ -48,4 +48,4 @@ if is_darwin; then
 fi
 
 # Run Workstation verification suite
-/opt/chef-workstation/embedded/bin/ruby omnibus/verification/run.rb --unit
+/opt/chef-workstation/embedded/bin/ruby omnibus/verification/run.rb

@@ -32,5 +32,5 @@ chef env
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
 # Run Workstation verification suite
-C:/opscode/chef-workstation/embedded/bin/ruby.exe omnibus/verification/run.rb --unit
+C:/opscode/chef-workstation/embedded/bin/ruby.exe omnibus/verification/run.rb
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
