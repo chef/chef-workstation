@@ -86,7 +86,7 @@ subscriptions:
   - workload: ruby_gem_published:chef-apply-*
     actions:
        - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:chef-sugar-*
+  - workload: ruby_gem_published:chef-sugar-ng-*
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:chef-telemetry-*
