@@ -17,8 +17,8 @@ GEM
     artifactory (3.0.5)
     ast (2.4.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.214.0)
-    aws-sdk-apigateway (1.34.0)
+    aws-partitions (1.215.0)
+    aws-sdk-apigateway (1.35.0)
       aws-sdk-core (~> 3, >= 3.61.1)
       aws-sigv4 (~> 1.1)
     aws-sdk-apigatewayv2 (1.13.0)
@@ -310,7 +310,7 @@ GEM
       mixlib-config (>= 2.2.12, < 4.0)
       mixlib-shellout (>= 2.0, < 4.0)
       tomlrb (~> 1.2)
-    chef-sugar (5.0.1)
+    chef-sugar-ng (5.0.4)
     chef-telemetry (0.1.8)
       chef-config
       concurrent-ruby (~> 1.0)
@@ -1014,7 +1014,7 @@ DEPENDENCIES
   chef-apply (>= 0.3.3)
   chef-bin (= 15.3.14)
   chef-cli (>= 1.0.9)
-  chef-sugar
+  chef-sugar-ng
   chef-vault (>= 3.4.1)
   cheffish (>= 14.0.1)
   chefspec (>= 8.0.0)
