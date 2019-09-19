@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.9.34 -->
-## [0.9.34](https://github.com/chef/chef-workstation/tree/0.9.34) (2019-09-18)
+<!-- latest_release 0.9.35 -->
+## [0.9.35](https://github.com/chef/chef-workstation/tree/0.9.35) (2019-09-19)
 
 #### Merged Pull Requests
-- Bump test-kitchen to 2.3.3 [#514](https://github.com/chef/chef-workstation/pull/514) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Transplant verify functionality from chef-cli [#479](https://github.com/chef/chef-workstation/pull/479) ([marcparadise](https://github.com/marcparadise))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Transplant verify functionality from chef-cli [#479](https://github.com/chef/chef-workstation/pull/479) ([marcparadise](https://github.com/marcparadise)) <!-- 0.9.35 -->
 - Bump test-kitchen to 2.3.3 [#514](https://github.com/chef/chef-workstation/pull/514) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.34 -->
 - Bump chef-cli to 1.0.16 [#513](https://github.com/chef/chef-workstation/pull/513) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.33 -->
 - Update nodejs to 10.16.3 [#508](https://github.com/chef/chef-workstation/pull/508) ([tas50](https://github.com/tas50)) <!-- 0.9.32 -->
