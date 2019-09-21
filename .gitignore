@@ -11,3 +11,6 @@ www/chef-sh
 
 # ruby
 Gemfile.lock
+
+# dev binaries
+bin/
