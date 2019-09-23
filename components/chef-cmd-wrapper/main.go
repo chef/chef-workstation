@@ -10,7 +10,7 @@ func main() {
 	// No arguments provided, display usage
 	if len(os.Args) <= 1 {
 		usage()
-		os.Exit(3)
+		os.Exit(0)
 	}
 	var (
 		subCommand = os.Args[1]
