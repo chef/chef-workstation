@@ -14,7 +14,7 @@ func main() {
 	}
 	var (
 		subCommand = os.Args[1]
-		allArgs    = os.Args[1:]
+		allArgs    = os.Args[2:]
 		cmd        *exec.Cmd
 	)
 
@@ -22,8 +22,14 @@ func main() {
 	// 'chef' CLI binary that was renamed to 'chef-cli`
 	switch subCommand {
 	default:
+		// When we land in the default case where we run the old 'chef' cli binary,
+		// we need to send the sub-command as well as all the arguments.
+		allArgs = append([]string{subCommand}, allArgs...)
 		cmd = exec.Command("chef-cli", allArgs...)
 	}
+
+	debugLog(fmt.Sprintf("Bin: %s", cmd.Path))
+	debugLog(fmt.Sprintf("Args: %v", allArgs))
 
 	cmd.Env = os.Environ()
 	cmd.Stdout = os.Stdout
@@ -31,10 +37,14 @@ func main() {
 
 	// TODO @afiune handle the errors in a way better manner
 	if err := cmd.Run(); err != nil {
-		// @afiune This might be only needed when doing debugging
-		if os.Getenv("DEBUG") == "true" {
-			fmt.Printf("ERROR FROM MAIN WRAPPER:\n%s", err)
+		if exitError, ok := err.(*exec.ExitError); ok {
+			os.Exit(exitError.ExitCode())
 		}
+		// @afiune This might only be needed when doing debugging
+		// because if we got here it means we have a different error
+		// other than a 'ExitError' so print
+		debugLog(fmt.Sprintf("Unexpected Error: \n%s", err))
+		os.Exit(7)
 	}
 }
 
@@ -47,4 +57,10 @@ func usage() {
     chef command [arguments...] [options...]
 
 `)
+}
+
+func debugLog(msg string) {
+	if os.Getenv("DEBUG") == "true" {
+		fmt.Println(msg)
+	}
 }
