@@ -59,8 +59,7 @@ func main() {
 		cmd = exec.Command("chef-cli", allArgs...)
 	}
 
-	debugLog(fmt.Sprintf("Bin: %s", cmd.Path))
-	debugLog(fmt.Sprintf("Args: %v", allArgs))
+	debugLog(fmt.Sprintf("Bin: %s\nArgs: %v", cmd.Path, allArgs))
 
 	cmd.Env = os.Environ()
 	cmd.Stdout = os.Stdout
