@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.9.40 -->
-## [0.9.40](https://github.com/chef/chef-workstation/tree/0.9.40) (2019-09-25)
+<!-- latest_release 0.9.41 -->
+## [0.9.41](https://github.com/chef/chef-workstation/tree/0.9.41) (2019-09-25)
 
 #### Merged Pull Requests
-- Update train-winrm and vmware api gems [#527](https://github.com/chef/chef-workstation/pull/527) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.26 [#528](https://github.com/chef/chef-workstation/pull/528) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.26 [#528](https://github.com/chef/chef-workstation/pull/528) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.41 -->
 - Update train-winrm and vmware api gems [#527](https://github.com/chef/chef-workstation/pull/527) ([tas50](https://github.com/tas50)) <!-- 0.9.40 -->
 - Switch from zip to tar.gz for the chef-workstation-app [#525](https://github.com/chef/chef-workstation/pull/525) ([tas50](https://github.com/tas50)) <!-- 0.9.39 -->
 - Bump Chef Workstation App to 0.1.25 [#526](https://github.com/chef/chef-workstation/pull/526) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.38 -->
