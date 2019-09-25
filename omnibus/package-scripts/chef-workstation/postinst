@@ -39,16 +39,16 @@ if is_darwin; then
     echo "Closing Chef Workstation App..."
     osascript -e 'quit app "Chef Workstation App"' > /dev/null 2>&1;
   fi
-  # chef-workstation-app is configured to build Mac as a zip file instead
+  # chef-workstation-app is configured to build Mac as a tar.xz file instead
   # of a directory. Otherwise, the mac pkgbuild command will find the Chef Workstation App
   # within the larger Chef Workstatoin package, and will not include it in the Chef Workstation
   # package directly.
   echo "Moving Chef Workstation App to the Applications folder"
   pushd "$INSTALLER_DIR/components/chef-workstation-app"
-  unzip chef-workstation-app-mac.zip
+  tar -xzf chef-workstation-app-mac.tar.xz
   sudo rm -rf "/Applications/Chef Workstation App.app"
   sudo mv "Chef Workstation App.app" /Applications/
-  rm -f chef-workstation-app-mac.zip
+  rm -f chef-workstation-app-mac.tar.xz
   popd
 
   ln -sf $INSTALLER_DIR/bin/uninstall_chef_workstation $PREFIX/bin || error_exit "Cannot link uninstall_chef_workstation to $PREFIX/bin"
