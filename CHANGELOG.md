@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.9.38 -->
-## [0.9.38](https://github.com/chef/chef-workstation/tree/0.9.38) (2019-09-25)
+<!-- latest_release 0.9.39 -->
+## [0.9.39](https://github.com/chef/chef-workstation/tree/0.9.39) (2019-09-25)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.25 [#526](https://github.com/chef/chef-workstation/pull/526) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Switch from zip to tar.gz for the chef-workstation-app [#525](https://github.com/chef/chef-workstation/pull/525) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Switch from zip to tar.gz for the chef-workstation-app [#525](https://github.com/chef/chef-workstation/pull/525) ([tas50](https://github.com/tas50)) <!-- 0.9.39 -->
 - Bump Chef Workstation App to 0.1.25 [#526](https://github.com/chef/chef-workstation/pull/526) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.38 -->
 - Bump Chef Workstation App to 0.1.24 [#524](https://github.com/chef/chef-workstation/pull/524) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.37 -->
 - Updating gems to non-yanked versions [#517](https://github.com/chef/chef-workstation/pull/517) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.9.36 -->
