@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.9.36 -->
-## [0.9.36](https://github.com/chef/chef-workstation/tree/0.9.36) (2019-09-20)
+<!-- latest_release 0.9.37 -->
+## [0.9.37](https://github.com/chef/chef-workstation/tree/0.9.37) (2019-09-25)
 
 #### Merged Pull Requests
-- Updating gems to non-yanked versions [#517](https://github.com/chef/chef-workstation/pull/517) ([tyler-ball](https://github.com/tyler-ball))
+- Bump Chef Workstation App to 0.1.24 [#524](https://github.com/chef/chef-workstation/pull/524) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.8.7 -->
 ### Changes since 0.8.7 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.24 [#524](https://github.com/chef/chef-workstation/pull/524) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.37 -->
 - Updating gems to non-yanked versions [#517](https://github.com/chef/chef-workstation/pull/517) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.9.36 -->
 - Transplant verify functionality from chef-cli [#479](https://github.com/chef/chef-workstation/pull/479) ([marcparadise](https://github.com/marcparadise)) <!-- 0.9.35 -->
 - Bump test-kitchen to 2.3.3 [#514](https://github.com/chef/chef-workstation/pull/514) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.34 -->
