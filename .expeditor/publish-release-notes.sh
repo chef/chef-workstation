@@ -2,7 +2,7 @@
 
 set -eou pipefail
 
-git clone https://github.com/chef/chef-workstation.wiki.git
+git clone https://x-access-token:${GITHUB_TOKEN}@github.com/chef/chef-workstation.wiki.git
 
 pushd ./chef-workstation.wiki
   # Publish release notes to S3
