@@ -15,7 +15,8 @@
 #
 
 name "chef-analyze"
-default_version "master"
+# TODO @afiune point to master when SPIKE is done: cphttps://github.com/chef/chef-workstation/issues/497
+default_version "1abd9d66682f42707eff0dd0652ddb791953b30c"
 license "Apache-2.0"
 license_file "LICENSE"
 source git: "https://github.com/chef/chef-analyze.git"
@@ -25,6 +26,6 @@ dependency "go"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
   env["CGO_ENABLED"] = "0"
-  file_extension = windows? ? ".exe" : ""
-  command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/#{name}#{file_extension}", env: env
+  mkdir "#{install_dir}/bin"
+  command "go build -o #{install_dir}/bin/#{name}", env: env
 end

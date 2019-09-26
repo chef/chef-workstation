@@ -61,6 +61,9 @@ else
   dependency "git-custom-bindir"
 end
 
+# @afiune Experimental Go binary. (SPIKE https://github.com/chef/chef-workstation/issues/497)
+dependency "chef-analyze"
+
 # For the Delivery build nodes
 dependency "delivery-cli"
 # This is a build-time dependency, so we won't leave it behind:
