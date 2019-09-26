@@ -63,6 +63,8 @@ end
 
 # @afiune Experimental Go binary. (SPIKE https://github.com/chef/chef-workstation/issues/497)
 dependency "chef-analyze"
+# @afiune This main wrapper will be our new 'chef' binary!
+dependency "main-chef-wrapper"
 
 # For the Delivery build nodes
 dependency "delivery-cli"
