@@ -1,21 +1,3 @@
-GIT
-  remote: https://github.com/chef/chef-cli.git
-  revision: fa4a1454ee8791097413b2f5fc4e7c6049aae839
-  branch: afiune/spike/rename-binary
-  specs:
-    chef-cli (1.0.16)
-      addressable (>= 2.3.5, < 2.6)
-      chef (>= 14.0)
-      cookbook-omnifetch (~> 0.5)
-      diff-lcs (~> 1.0)
-      ffi-yajl (>= 1.0, < 3.0)
-      license-acceptance (~> 1.0, >= 1.0.11)
-      minitar (~> 0.6)
-      mixlib-cli (>= 1.7, < 3.0)
-      mixlib-shellout (>= 2.0, < 4.0)
-      paint (~> 1.0)
-      solve (> 2.0, < 5.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -307,6 +289,18 @@ GEM
       tty-spinner
     chef-bin (15.3.14)
       chef (= 15.3.14)
+    chef-cli (1.0.16)
+      addressable (>= 2.3.5, < 2.6)
+      chef (>= 14.0)
+      cookbook-omnifetch (~> 0.5)
+      diff-lcs (~> 1.0)
+      ffi-yajl (>= 1.0, < 3.0)
+      license-acceptance (~> 1.0, >= 1.0.11)
+      minitar (~> 0.6)
+      mixlib-cli (>= 1.7, < 3.0)
+      mixlib-shellout (>= 2.0, < 4.0)
+      paint (~> 1.0)
+      solve (> 2.0, < 5.0)
     chef-config (15.3.14)
       addressable
       fuzzyurl
@@ -1019,7 +1013,7 @@ DEPENDENCIES
   chef (= 15.3.14)
   chef-apply (>= 0.3.3)
   chef-bin (= 15.3.14)
-  chef-cli!
+  chef-cli (>= 1.0.9)
   chef-stove
   chef-sugar-ng
   chef-vault (>= 3.4.1)
