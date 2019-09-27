@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 0.9.43 -->
+## [0.9.43](https://github.com/chef/chef-workstation/tree/0.9.43) (2019-09-27)
+
+#### Merged Pull Requests
+- Bump inspec to 4.17.7 [#531](https://github.com/chef/chef-workstation/pull/531) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=0.9.42 -->
+### Changes since 0.9.42 release
+
+#### Merged Pull Requests
+- Bump inspec to 4.17.7 [#531](https://github.com/chef/chef-workstation/pull/531) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.43 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
