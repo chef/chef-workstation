@@ -61,11 +61,6 @@ else
   dependency "git-custom-bindir"
 end
 
-# @afiune Experimental Go binary. (SPIKE https://github.com/chef/chef-workstation/issues/497)
-dependency "chef-analyze"
-# @afiune This main wrapper will be our new 'chef' binary!
-dependency "main-chef-wrapper"
-
 # For the Delivery build nodes
 dependency "delivery-cli"
 # This is a build-time dependency, so we won't leave it behind:
@@ -104,10 +99,10 @@ dependency "chef-workstation-app"
 dependency "uninstall-scripts"
 dependency "ruby-cleanup"
 
-dependency "go"
+# @afiune Experimental Go binary. (SPIKE https://github.com/chef/chef-workstation/issues/497)
 dependency "chef-analyze"
-# removes the go language installed at embedded/go
-dependency "go-uninstall"
+# @afiune This main wrapper will be our new 'chef' binary!
+dependency "main-chef-wrapper"
 
 exclude "**/.git"
 exclude "**/bundler/git"
