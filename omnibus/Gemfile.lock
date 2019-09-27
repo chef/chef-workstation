@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: e42cc004a1ed376d97d3a96b82e4b877d2a1b80f
+  revision: 6e01a09699c22cff6142d6c6a31146b34d24234b
   branch: afiune/add-golang
   specs:
     omnibus-software (4.0.0)
