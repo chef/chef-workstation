@@ -29,5 +29,12 @@ build do
   env = with_standard_compiler_flags(with_embedded_path)
   env["CGO_ENABLED"] = "0"
   mkdir "#{install_dir}/bin"
+
+  # @afiune Instead of using the chef-cli binary rename from https://github.com/chef/chef-cli/pull/35
+  # I am making space by moving the binary. Once we can rename that binary we can remove this.
+  if File.exist?("#{install_dir}/bin/chef")
+    move "#{install_dir}/bin/chef", "#{install_dir}/bin/chef-cli"
+  end
+
   command "go build -o #{install_dir}/bin/chef", env: env
 end
