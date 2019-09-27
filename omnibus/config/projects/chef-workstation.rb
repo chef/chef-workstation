@@ -99,10 +99,11 @@ dependency "chef-workstation-app"
 dependency "uninstall-scripts"
 dependency "ruby-cleanup"
 
+#dependency "go"
 # @afiune Experimental Go binary. (SPIKE https://github.com/chef/chef-workstation/issues/497)
-dependency "chef-analyze"
+#dependency "chef-analyze"
 # @afiune This main wrapper will be our new 'chef' binary!
-dependency "main-chef-wrapper"
+#dependency "main-chef-wrapper"
 
 exclude "**/.git"
 exclude "**/bundler/git"
