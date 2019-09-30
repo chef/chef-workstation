@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.0 -->
-## [0.10.0](https://github.com/chef/chef-workstation/tree/0.10.0) (2019-09-30)
+<!-- latest_release 0.10.1 -->
+## [0.10.1](https://github.com/chef/chef-workstation/tree/0.10.1) (2019-09-30)
 
 #### Merged Pull Requests
-- Bump chefspec to 8.0.1 [#544](https://github.com/chef/chef-workstation/pull/544) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump inspec to 4.17.14 [#545](https://github.com/chef/chef-workstation/pull/545) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Bump inspec to 4.17.14 [#545](https://github.com/chef/chef-workstation/pull/545) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.1 -->
 - Bump chefspec to 8.0.1 [#544](https://github.com/chef/chef-workstation/pull/544) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.0 -->
 - [Security] Bump rubyzip from 1.2.4 to 1.3.0 in /omnibus [#534](https://github.com/chef/chef-workstation/pull/534) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.9.45 -->
 - Bump inspec-bin to 4.17.11 [#533](https://github.com/chef/chef-workstation/pull/533) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.9.44 -->
