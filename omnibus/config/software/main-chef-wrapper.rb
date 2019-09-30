@@ -36,5 +36,13 @@ build do
     move "#{install_dir}/bin/chef", "#{install_dir}/bin/chef-cli"
   end
 
-  command "go build -o #{install_dir}/bin/chef", env: env
+  # Windows does not support symlinks, so we need to use
+  # the full path of the Go binary
+  if windows?
+    go_build_cmd = "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/chef.exe"
+  else
+    go_build_cmd = "go build -o #{install_dir}/bin/chef"
+  end
+
+  command go_build_cmd, env: env
 end
