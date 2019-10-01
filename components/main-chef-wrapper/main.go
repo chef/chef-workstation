@@ -1,3 +1,19 @@
+//
+// Copyright 2019 Chef Software, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
 package main
 
 import (
@@ -18,40 +34,29 @@ func main() {
 		cmd        *exec.Cmd
 	)
 
-	// At the very beginning we want to pass every sub-command to the old 'chef'
-	// CLI binary that was renamed to 'chef-cli`, which is our default case.
 	switch subCommand {
-	// @afiune Adding a few example of the usability of this new top-level binary:
-	//
 	// 1) On the creation of new CLIs, for instance, a new CLI called chef-analyze that
 	// will provide some analyze capabilities, as a user, you can run the binary directly
-	// chef-analyze foo or through our main Chef CLI wrapper chef analyze foo.
+	// 'chef-analyze foo' or through our main Chef CLI wrapper 'chef analyze foo'.
 	// Both ways would be running the same underlying binary.
 	case "analyze":
 		cmd = exec.Command("chef-analyze", allArgs...)
 
-	// 2) Redirecting existing binaries to a single point for further improments, this
+	// 2) Redirecting existing binaries to a single point for further improvements, this
 	// could be the case of improving, for example, our knife tool that could take a few
 	// seconds to run simple API searches like 'knife node list'  or 'knife cookbook list'
-	case "knife":
-		cmd = exec.Command("knife", allArgs...)
+	//
+	// TODO @afiune Propose this new behavior with the Team
+	//case "knife":
+	//cmd = exec.Command("knife", allArgs...)
 
 	// 3) On replacements of current functionality, for example, if we would like to improve
 	// the existing chef generate foo command, we would create a binary called chef-generate
 	// that users can run individually like chef-generate foo and then redirect the top-level
 	// CLI to run that same binary on any 'chef generate XYZ' execution.
-	case "generate":
-		// TODO @afiune design a better way to isolate single sub-commands that we want to
-		// replace/improve, for instance we might not want to rewrite the entire 'chef generate'
-		// sub-command but a section of it.
-		//
-		// Example of a sub-command overwrite
-		if len(os.Args) > 2 && os.Args[2] == "build-cookbook" {
-			fmt.Println("The sub-command 'chef generate build-cookbook' has been deprecated.")
-			os.Exit(0)
-		}
-		fallthrough
 
+	// We want to pass every sub-command to the old 'chef' CLI binary that was renamed to
+	// 'chef-cli`, which is our default case.
 	default:
 		// When we land in the default case where we run the old 'chef' cli binary,
 		// we need to send the sub-command as well as all the arguments.
@@ -59,13 +64,13 @@ func main() {
 		cmd = exec.Command("chef-cli", allArgs...)
 	}
 
-	debugLog(fmt.Sprintf("Bin: %s\nArgs: %v", cmd.Path, allArgs))
+	debugLog(fmt.Sprintf("Chef binary: %s\nArguments: %v", cmd.Path, allArgs))
 
 	cmd.Env = os.Environ()
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
-	// TODO @afiune handle the errors in a way better manner
+	// TODO @afiune handle the errors in a better way
 	if err := cmd.Run(); err != nil {
 		if exitError, ok := err.(*exec.ExitError); ok {
 			os.Exit(exitError.ExitCode())
@@ -106,9 +111,8 @@ Available Commands:
     undelete                Undo a delete command
     describe-cookbook       Prints cookbook checksum information used for cookbook identifier
 
-Available Experimental Commands:
-    chef-analyse            Analyze your Chef inventory
-    knife                   The old school knife command
+Experimental Commands:
+    analyze                 Analyze your Chef inventory
 `)
 }
 

@@ -84,10 +84,4 @@ build do
     gemdir = shellout!("#{install_dir}/embedded/bin/gem environment gemdir", env: env).stdout.chomp
     remove_directory "#{gemdir}/bundler"
   end
-
-  # @afiune Instead of using the chef-cli binary rename from https://github.com/chef/chef-cli/pull/35
-  # I am making space by moving the binary. Once we can rename that binary we can remove this.
-  if File.exist?("#{install_dir}/bin/chef")
-    move "#{install_dir}/bin/chef", "#{install_dir}/bin/chef-cli"
-  end
 end

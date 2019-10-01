@@ -14,7 +14,6 @@
 # limitations under the License.
 #
 
-#
 # @afiune This main wrapper will be our new 'chef' binary!
 #
 # It will understand the entire ecosystem in the Workstation world,
@@ -28,21 +27,6 @@ dependency "go"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
   env["CGO_ENABLED"] = "0"
-  mkdir "#{install_dir}/bin"
-
-  # @afiune Instead of using the chef-cli binary rename from https://github.com/chef/chef-cli/pull/35
-  # I am making space by moving the binary. Once we can rename that binary we can remove this.
-  if File.exist?("#{install_dir}/bin/chef")
-    move "#{install_dir}/bin/chef", "#{install_dir}/bin/chef-cli"
-  end
-
-  # Windows does not support symlinks, so we need to use
-  # the full path of the Go binary
-  if windows?
-    go_build_cmd = "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/chef.exe"
-  else
-    go_build_cmd = "go build -o #{install_dir}/bin/chef"
-  end
-
-  command go_build_cmd, env: env
+  file_extension = windows? ? ".exe" : ""
+  command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/chef#{file_extension}", env: env
 end
