@@ -31,6 +31,10 @@ for binary in $binaries; do
   ln -sf "$INSTALLER_DIR/bin/$binary" $PREFIX/bin || error_exit "Cannot link $binary to $PREFIX/bin"
 done
 
+# We will be replacing `chef` soon , but let's keep a working `chef` binary in the package
+# until we do.
+ln -sf "$INSTALLER_DIR/bin/chef-cli" $PREFIX/bin/chef || error_exit "Cannot link $binary to $PREFIX/bin"
+
 if is_darwin; then
   restart_required=false
   # Close the app if it is running.
