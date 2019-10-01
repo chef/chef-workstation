@@ -99,9 +99,9 @@ dependency "chef-workstation-app"
 dependency "uninstall-scripts"
 dependency "ruby-cleanup"
 
-# Go binary
+dependency "go"
 dependency "chef-analyze"
-# This is a build-time dependency, so we won't leave it behind:
+# removes the go language installed at embedded/go
 dependency "go-uninstall"
 
 exclude "**/.git"
