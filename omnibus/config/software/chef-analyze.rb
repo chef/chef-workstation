@@ -25,15 +25,6 @@ dependency "go"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
   env["CGO_ENABLED"] = "0"
-  mkdir "#{install_dir}/bin"
-
-  # Windows does not support symlinks, so we need to use
-  # the full path of the Go binary
-  if windows?
-    go_build_cmd = "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/#{name}.exe"
-  else
-    go_build_cmd = "go build -o #{install_dir}/bin/#{name}"
-  end
-
-  command go_build_cmd, env: env
+  file_extension = windows? ? "" : ".exe"
+  command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/#{name}#{file_extension}", env: env
 end
