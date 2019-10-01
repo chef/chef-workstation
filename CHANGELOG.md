@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.2 -->
-## [0.10.2](https://github.com/chef/chef-workstation/tree/0.10.2) (2019-09-30)
+<!-- latest_release 0.10.3 -->
+## [0.10.3](https://github.com/chef/chef-workstation/tree/0.10.3) (2019-10-01)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `ae2a2f1` to `63602e1` in /omnibus [#547](https://github.com/chef/chef-workstation/pull/547) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump Chef Workstation App to 0.1.27 [#548](https://github.com/chef/chef-workstation/pull/548) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.27 [#548](https://github.com/chef/chef-workstation/pull/548) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.3 -->
 - Bump omnibus-software from `ae2a2f1` to `63602e1` in /omnibus [#547](https://github.com/chef/chef-workstation/pull/547) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.10.2 -->
 - Bump inspec to 4.17.14 [#545](https://github.com/chef/chef-workstation/pull/545) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.1 -->
 - Bump chefspec to 8.0.1 [#544](https://github.com/chef/chef-workstation/pull/544) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.0 -->
