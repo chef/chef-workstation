@@ -38,12 +38,15 @@ git config --global user.name "Your Name"
 
 export CHEF_LICENSE="accept-no-persist"
 
-# Ensure our chef cli works
+echo "--- Ensure the 'chef' cli works (chef env)"
 chef env
+
+echo "--- Ensure the 'chef-analyze' cli works (chef-analyze help)"
+chef-analyze help
 
 # Verify that the chef-workstation-app was installed (MacOS only)
 if is_darwin; then
-  echo "Verifying that chef-workstation-app exist in /Applications directory"
+  echo "--- Verifying that chef-workstation-app exist in /Applications directory"
   test -d "/Applications/Chef Workstation App.app"
 fi
 
