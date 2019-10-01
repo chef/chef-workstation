@@ -99,6 +99,11 @@ dependency "chef-workstation-app"
 dependency "uninstall-scripts"
 dependency "ruby-cleanup"
 
+# Go binary
+dependency "chef-analyze"
+# This is a build-time dependency, so we won't leave it behind:
+dependency "go-uninstall"
+
 exclude "**/.git"
 exclude "**/bundler/git"
 
