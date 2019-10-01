@@ -39,7 +39,7 @@ git config --global user.name "Your Name"
 export CHEF_LICENSE="accept-no-persist"
 
 # Ensure our chef cli works
-chef env
+chef-cli env
 
 # Verify that the chef-workstation-app was installed (MacOS only)
 if is_darwin; then
