@@ -42,9 +42,9 @@ func main() {
 	case "analyze":
 		cmd = exec.Command("chef-analyze", allArgs...)
 
-	// 2) Redirecting existing binaries to a single point for further improvements, this
-	// could be the case of improving, for example, our knife tool that could take a few
-	// seconds to run simple API searches like 'knife node list'  or 'knife cookbook list'
+	// 2) Redirecting existing binaries to a single point for further improvements, this gives
+	// the potential to transition some commands at a more granular level too - for example
+	// 'knife search' can run a different a different binary than 'knife bootstrap'.
 	//
 	// TODO @afiune Propose this new behavior with the Team
 	//case "knife":
