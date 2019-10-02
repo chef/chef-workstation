@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.7 -->
-## [0.10.7](https://github.com/chef/chef-workstation/tree/0.10.7) (2019-10-02)
+<!-- latest_release 0.10.8 -->
+## [0.10.8](https://github.com/chef/chef-workstation/tree/0.10.8) (2019-10-02)
 
 #### Merged Pull Requests
-- Update new chef-cli binary [#551](https://github.com/chef/chef-workstation/pull/551) ([afiune](https://github.com/afiune))
+- Stop calling the workstation toolbar experimental [#491](https://github.com/chef/chef-workstation/pull/491) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Stop calling the workstation toolbar experimental [#491](https://github.com/chef/chef-workstation/pull/491) ([tas50](https://github.com/tas50)) <!-- 0.10.8 -->
 - Update new chef-cli binary [#551](https://github.com/chef/chef-workstation/pull/551) ([afiune](https://github.com/afiune)) <!-- 0.10.7 -->
 - Updates omnibus-software to have Go [#554](https://github.com/chef/chef-workstation/pull/554) ([afiune](https://github.com/afiune)) <!-- 0.10.6 -->
 - Bump inspec to 4.17.15 [#549](https://github.com/chef/chef-workstation/pull/549) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.5 -->
