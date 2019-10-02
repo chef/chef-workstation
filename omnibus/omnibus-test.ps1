@@ -28,7 +28,7 @@ git config --global user.name "Your Name"
 $Env:CHEF_LICENSE = "accept-no-persist"
 
 # Ensure our Chef Workstation works
-chef-cli env
+chef env
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
 # Run Workstation verification suite
