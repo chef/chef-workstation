@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.9 -->
-## [0.10.9](https://github.com/chef/chef-workstation/tree/0.10.9) (2019-10-02)
+<!-- latest_release 0.10.10 -->
+## [0.10.10](https://github.com/chef/chef-workstation/tree/0.10.10) (2019-10-02)
 
 #### Merged Pull Requests
-- Bump chef-cli to 2.0.0 [#555](https://github.com/chef/chef-workstation/pull/555) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Package new `chef-analyze` binary [#553](https://github.com/chef/chef-workstation/pull/553) ([afiune](https://github.com/afiune))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Package new `chef-analyze` binary [#553](https://github.com/chef/chef-workstation/pull/553) ([afiune](https://github.com/afiune)) <!-- 0.10.10 -->
 - Bump chef-cli to 2.0.0 [#555](https://github.com/chef/chef-workstation/pull/555) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.9 -->
 - Stop calling the workstation toolbar experimental [#491](https://github.com/chef/chef-workstation/pull/491) ([tas50](https://github.com/tas50)) <!-- 0.10.8 -->
 - Update new chef-cli binary [#551](https://github.com/chef/chef-workstation/pull/551) ([afiune](https://github.com/afiune)) <!-- 0.10.7 -->
