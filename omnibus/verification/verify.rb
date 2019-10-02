@@ -188,7 +188,7 @@ module ChefWorkstation
           sh("#{embedded_bin("bundle")} exec #{embedded_bin("rspec")}")
         end
         c.smoke_test do
-          run_in_tmpdir("#{bin("chef")} generate cookbook example")
+          run_in_tmpdir("#{bin("chef-cli")} generate cookbook example")
         end
       end
 
@@ -237,7 +237,7 @@ module ChefWorkstation
         c.gem_base_dir = "chef-cli"
         c.smoke_test do
           tmpdir do |cwd|
-            sh("#{bin("chef")} generate cookbook example", cwd: cwd)
+            sh("#{bin("chef-cli")} generate cookbook example", cwd: cwd)
             cb_cwd = File.join(cwd, "example")
             sh(embedded_bin("rspec"), cwd: cb_cwd)
           end
@@ -263,7 +263,7 @@ module ChefWorkstation
 
           if File.directory?(usr_bin_prefix)
             sh!("#{usr_bin_path("berks")} -v")
-            sh!("#{usr_bin_path("chef")} -v")
+            sh!("#{usr_bin_path("chef-cli")} -v")
             sh!("#{usr_bin_path("chef-client")} -v")
             sh!("#{usr_bin_path("chef-solo")} -v")
             sh!("#{usr_bin_path("delivery")} -V") unless Chef::Platform.windows?
@@ -345,7 +345,7 @@ module ChefWorkstation
               INSPEC_TEST
             end
             # TODO when we appbundle inspec, no longer `chef exec`
-            sh("#{bin("chef")} exec #{embedded_bin("inspec")} exec .", cwd: cwd)
+            sh("#{bin("chef-cli")} exec #{embedded_bin("inspec")} exec .", cwd: cwd)
           end
         end
       end
