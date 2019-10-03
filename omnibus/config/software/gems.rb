@@ -78,6 +78,8 @@ build do
     appbundle gem, lockdir: project_dir, gem: gem, without: %w{changelog}, env: env
   end
 
+  copy "#{install_dir}/bin/chef-cli", "#{install_dir}/bin/chef"
+
   # Clear git-checked-out gems (most of this cleanup has been moved into the chef-cleanup omnibus-software definition,
   # but chef-client still needs git-checked-out gems)
   block "Delete bundler git installs" do
