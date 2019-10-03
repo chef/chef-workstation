@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.12 -->
-## [0.10.12](https://github.com/chef/chef-workstation/tree/0.10.12) (2019-10-03)
+<!-- latest_release 0.10.13 -->
+## [0.10.13](https://github.com/chef/chef-workstation/tree/0.10.13) (2019-10-03)
 
 #### Merged Pull Requests
-- Bump inspec-bin to 4.17.17 [#559](https://github.com/chef/chef-workstation/pull/559) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `ab6655d` to `3e90169` in /omnibus [#558](https://github.com/chef/chef-workstation/pull/558) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Bump omnibus-software from `ab6655d` to `3e90169` in /omnibus [#558](https://github.com/chef/chef-workstation/pull/558) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.10.13 -->
 - Bump inspec-bin to 4.17.17 [#559](https://github.com/chef/chef-workstation/pull/559) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.12 -->
 - Bump cookstyle to 5.6.5 [#557](https://github.com/chef/chef-workstation/pull/557) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.11 -->
 - Package new `chef-analyze` binary [#553](https://github.com/chef/chef-workstation/pull/553) ([afiune](https://github.com/afiune)) <!-- 0.10.10 -->
