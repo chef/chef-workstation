@@ -64,7 +64,8 @@ func main() {
 		cmd = exec.Command("chef-cli", allArgs...)
 	}
 
-	debugLog(fmt.Sprintf("Chef binary: %s\nArguments: %v", cmd.Path, allArgs))
+	debugLog(fmt.Sprintf("Chef binary: %s", cmd.Path))
+	debugLog(fmt.Sprintf("Arguments: %v", allArgs))
 
 	cmd.Env = os.Environ()
 	cmd.Stdout = os.Stdout
@@ -118,6 +119,6 @@ Experimental Commands:
 
 func debugLog(msg string) {
 	if os.Getenv("DEBUG") == "true" {
-		fmt.Fprintln(os.Stderr, msg)
+		fmt.Fprintln(os.Stderr, "DEBUG: "+msg)
 	}
 }
