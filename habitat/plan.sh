@@ -30,7 +30,7 @@ pkg_deps=(
 )
 
 pkg_version() {
-  cat /src/VERSION
+  cat "${SRC_PATH}/VERSION"
 }
 
 do_before() {
