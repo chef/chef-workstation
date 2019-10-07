@@ -118,6 +118,6 @@ Experimental Commands:
 
 func debugLog(msg string) {
 	if os.Getenv("DEBUG") == "true" {
-		fmt.Println(msg)
+		fmt.Fprintln(os.Stderr, msg)
 	}
 }
