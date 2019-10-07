@@ -13,10 +13,10 @@ cleanup_symlinks() {
   # Keep removed symlinks in this list, so that removal of upgraded packages still cleans up
   # leftovers from older versions.
   chefdk_binaries="berks chef chef-cli chef-apply chef-shell chef-solo chef-vault cookstyle dco delivery foodcritic inspec kitchen knife ohai push-apply pushy-client pushy-service-manager chef-client"
-  binaries="chef-run chef-workstation-app $chefdk_binaries"
+  binaries="chef-run chef-workstation-app $chefdk_binaries chef-analyze"
 
   for binary in $binaries; do
-    rm -f $PREFIX/bin/$binary
+    rm -f "$PREFIX/bin/$binary"
   done
 }
 

@@ -1,15 +1,23 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.6 -->
-## [0.10.6](https://github.com/chef/chef-workstation/tree/0.10.6) (2019-10-01)
+<!-- latest_release 0.10.14 -->
+## [0.10.14](https://github.com/chef/chef-workstation/tree/0.10.14) (2019-10-04)
 
 #### Merged Pull Requests
-- Updates omnibus-software to have Go [#554](https://github.com/chef/chef-workstation/pull/554) ([afiune](https://github.com/afiune))
+- Bump cookstyle to 5.7.0 [#561](https://github.com/chef/chef-workstation/pull/561) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Bump cookstyle to 5.7.0 [#561](https://github.com/chef/chef-workstation/pull/561) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.14 -->
+- Bump omnibus-software from `ab6655d` to `3e90169` in /omnibus [#558](https://github.com/chef/chef-workstation/pull/558) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.10.13 -->
+- Bump inspec-bin to 4.17.17 [#559](https://github.com/chef/chef-workstation/pull/559) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.12 -->
+- Bump cookstyle to 5.6.5 [#557](https://github.com/chef/chef-workstation/pull/557) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.11 -->
+- Package new `chef-analyze` binary [#553](https://github.com/chef/chef-workstation/pull/553) ([afiune](https://github.com/afiune)) <!-- 0.10.10 -->
+- Bump chef-cli to 2.0.0 [#555](https://github.com/chef/chef-workstation/pull/555) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.9 -->
+- Stop calling the workstation toolbar experimental [#491](https://github.com/chef/chef-workstation/pull/491) ([tas50](https://github.com/tas50)) <!-- 0.10.8 -->
+- Update new chef-cli binary [#551](https://github.com/chef/chef-workstation/pull/551) ([afiune](https://github.com/afiune)) <!-- 0.10.7 -->
 - Updates omnibus-software to have Go [#554](https://github.com/chef/chef-workstation/pull/554) ([afiune](https://github.com/afiune)) <!-- 0.10.6 -->
 - Bump inspec to 4.17.15 [#549](https://github.com/chef/chef-workstation/pull/549) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.5 -->
 - Bump inspec-bin to 4.17.15 [#550](https://github.com/chef/chef-workstation/pull/550) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.4 -->
