@@ -8,7 +8,7 @@ source "$(hab pkg path chef/studio-common)/bin/studio-common"
 function build_cross_platform() {
   install_if_missing core/go go
   install_if_missing core/gox gox
-  ( cd /src/components/chef-cmd-wrapper || exit 1
+  ( cd /src/components/main-chef-wrapper || exit 1
     gox -output="../../bin/chef_{{.OS}}_{{.Arch}}" \
         -os="darwin linux windows" \
         -arch="amd64 386"
