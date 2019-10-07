@@ -1,5 +1,3 @@
-*.swp
-
 # temp things
 test_results/
 tags
@@ -12,8 +10,9 @@ www/chef-sh
 # ruby
 Gemfile.lock
 
-# Habitat
-results/
-
 # vi
 *.swp
+
+# Habitat
+results/
+bin/

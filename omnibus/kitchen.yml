@@ -3,6 +3,8 @@ driver:
   forward_agent: yes
   synced_folders:
     - ['..', '/home/vagrant/chef-workstation']
+    - ['../../omnibus', '/home/vagrant/omnibus']
+    - ['../../omnibus-software', '/home/vagrant/omnibus-software']
   customize:
     cpus: 6
     memory: 4096
@@ -23,6 +25,21 @@ platforms:
   - name: debian-9
   - name: ubuntu-16.04
   - name: ubuntu-18.04
+  # By adding an `i386` to the name the Omnibus cookbook's `load-omnibus-toolchain.bat`
+  # will load the 32-bit version of the MinGW toolchain.
+  - name: windows-2012r2-standard-i386
+    provisioner:
+      attributes:
+        omnibus:
+          build_user_group:    Administrators
+    driver:
+      box: chef/windows-server-2012r2-standard # private
+      synced_folders:
+      # We have to mount this repos enclosing folder as the Omnibus build
+      # gets cranky if the mounted ChefDK source folder is a symlink. This
+      # mounts at `C:\vagrant\code` and the ChefDK source folder is available
+      # at `C:\vagrant\code\chef-dk`
+      - ['../..', '/vagrant/code']
 
 suites:
   - name: default

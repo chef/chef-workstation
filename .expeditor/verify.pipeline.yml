@@ -18,6 +18,20 @@ steps:
     executor:
       docker:
         image: ruby:2.6-stretch
+- label: ":linux: :darwin: :windows: top-level chef cmd"
+  command:
+    - hab studio run "source .studiorc && build_cross_platform"
+  timeout_in_minutes: 10
+  retry:
+    automatic:
+      limit: 1
+  expeditor:
+    executor:
+      docker:
+        privileged: true
+        environment:
+          - HAB_STUDIO_SUP=false
+          - HAB_NONINTERACTIVE=true
 - label: ":hugo:"
   command:
     - .expeditor/buildkite/hugo_lint.sh
