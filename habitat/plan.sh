@@ -57,29 +57,19 @@ do_prepare() {
 
 do_build() {
   export CPPFLAGS="${CPPFLAGS} ${CFLAGS}"
-
-  local _bundler_dir
-  local _libxml2_dir
-  local _libxslt_dir
-  local _zlib_dir
-  export NOKOGIRI_CONFIG
   export GEM_HOME
   export GEM_PATH
-
-  _bundler_dir=$(pkg_path_for bundler)
-  _libxml2_dir=$(pkg_path_for libxml2)
-  _libxslt_dir=$(pkg_path_for libxslt)
-  _zlib_dir=$(pkg_path_for zlib)
-
-  NOKOGIRI_CONFIG="--use-system-libraries \
-    --with-zlib-dir=${_zlib_dir} \
-    --with-xslt-dir=${_libxslt_dir} \
-    --with-xml2-include=${_libxml2_dir}/include/libxml2 \
-    --with-xml2-lib=${_libxml2_dir}/lib \
-    --without-iconv"
   # TODO this appears to give us no depsolver? What are the effects?
   GEM_HOME="$pkg_prefix"
-  GEM_PATH="${_bundler_dir}:${GEM_HOME}"
+  GEM_PATH="$(pkg_path_for bundler):${GEM_HOME}"
+
+  export NOKOGIRI_CONFIG
+  NOKOGIRI_CONFIG="--use-system-libraries \
+    --with-zlib-dir=$(pkg_path_for zlib) \
+    --with-xslt-dir=$(pkg_path_for libxslt) \
+    --with-xml2-include=$(pkg_path_for libxml2)/include/libxml2 \
+    --with-xml2-lib=$(pkg_path_for libxml2)/lib \
+    --without-iconv"
 
   ( cd "${SRC_PATH}/components/gems" || exit_with "unable to enter components/gems directory" 1
     bundle config --local build.nokogiri "$NOKOGIRI_CONFIG"
