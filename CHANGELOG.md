@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.15 -->
-## [0.10.15](https://github.com/chef/chef-workstation/tree/0.10.15) (2019-10-07)
+<!-- latest_release 0.10.16 -->
+## [0.10.16](https://github.com/chef/chef-workstation/tree/0.10.16) (2019-10-07)
 
 #### Merged Pull Requests
-- Update Ruby to 2.6.5 [#563](https://github.com/chef/chef-workstation/pull/563) ([tas50](https://github.com/tas50))
+- Top-level chef CMD wrapper [#519](https://github.com/chef/chef-workstation/pull/519) ([afiune](https://github.com/afiune))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Top-level chef CMD wrapper [#519](https://github.com/chef/chef-workstation/pull/519) ([afiune](https://github.com/afiune)) <!-- 0.10.16 -->
 - Update Ruby to 2.6.5 [#563](https://github.com/chef/chef-workstation/pull/563) ([tas50](https://github.com/tas50)) <!-- 0.10.15 -->
 - Bump cookstyle to 5.7.0 [#561](https://github.com/chef/chef-workstation/pull/561) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.14 -->
 - Bump omnibus-software from `ab6655d` to `3e90169` in /omnibus [#558](https://github.com/chef/chef-workstation/pull/558) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.10.13 -->
