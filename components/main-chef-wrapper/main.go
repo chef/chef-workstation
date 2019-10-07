@@ -76,10 +76,9 @@ func main() {
 		if exitError, ok := err.(*exec.ExitError); ok {
 			os.Exit(exitError.ExitCode())
 		}
-		// @afiune This might only be needed when doing debugging
-		// because if we got here it means we have a different error
-		// other than a 'ExitError' so print
-		debugLog(fmt.Sprintf("Unexpected Error: \n%s", err))
+		// @afiune if we got here it means we have a different error
+		// other than a 'ExitError', things like 'executable not found'
+		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
 		os.Exit(7)
 	}
 }
