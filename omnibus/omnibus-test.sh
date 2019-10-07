@@ -5,6 +5,11 @@ channel="${CHANNEL:-unstable}"
 product="${PRODUCT:-chef-workstation}"
 version="${VERSION:-latest}"
 
+is_darwin()
+{
+  uname -v | grep "^Darwin" >/dev/null 2>&1
+}
+
 echo "--- Installing $channel $product $version"
 package_file="$(/opt/omnibus-toolchain/bin/install-omnibus-product -c "$channel" -P "$product" -v "$version" | tail -n 1)"
 
@@ -33,11 +38,17 @@ git config --global user.name "Your Name"
 
 export CHEF_LICENSE="accept-no-persist"
 
-# chef version ensures our bin ends up on path and the basic ruby env is working.
-chef-run --version
-
-# Ensure our ChefDK works
+echo "--- Ensure the 'chef' cli works (chef env)"
 chef env
 
-# Run ChefDK verification suite to ensure it still works
-chef verify
+echo "--- Ensure the 'chef-analyze' cli works (chef-analyze help)"
+chef-analyze help
+
+# Verify that the chef-workstation-app was installed (MacOS only)
+if is_darwin; then
+  echo "--- Verifying that chef-workstation-app exist in /Applications directory"
+  test -d "/Applications/Chef Workstation App.app"
+fi
+
+# Run Workstation verification suite
+/opt/chef-workstation/embedded/bin/ruby omnibus/verification/run.rb

@@ -27,14 +27,14 @@ git config --global user.name "Your Name"
 
 $Env:CHEF_LICENSE = "accept-no-persist"
 
-# chef-run version ensures our bin ends up on path and the basic ruby env is working.
-chef-run --version
-If ($lastexitcode -ne 0) { Exit $lastexitcode }
-
-# Ensure our ChefDK works
+Write-Output "--- Ensure the 'chef' cli works (chef env)"
 chef env
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
-# Run ChefDK verification suite to ensure it still works
-chef verify
+Write-Output "--- Ensure the 'chef-analyze' cli works (chef-analyze help)"
+chef-analyze help
+If ($lastexitcode -ne 0) { Exit $lastexitcode }
+
+# Run Workstation verification suite
+C:/opscode/chef-workstation/embedded/bin/ruby.exe omnibus/verification/run.rb
 If ($lastexitcode -ne 0) { Exit $lastexitcode }

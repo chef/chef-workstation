@@ -25,11 +25,15 @@ else
     PREFIX="/usr"
 fi
 
-binaries="chef-run berks chef chef-apply chef-shell chef-solo chef-vault cookstyle delivery foodcritic inspec kitchen knife ohai push-apply pushy-client pushy-service-manager chef-client"
+binaries="chef-run berks chef-cli chef-apply chef-shell chef-solo chef-vault cookstyle delivery foodcritic inspec kitchen knife ohai push-apply pushy-client pushy-service-manager chef-client chef-analyze"
 
 for binary in $binaries; do
   ln -sf "$INSTALLER_DIR/bin/$binary" $PREFIX/bin || error_exit "Cannot link $binary to $PREFIX/bin"
 done
+
+# We will be replacing `chef` soon , but let's keep a working `chef` binary in the package
+# until we do.
+ln -sf "$INSTALLER_DIR/bin/chef-cli" $PREFIX/bin/chef || error_exit "Cannot link $binary to $PREFIX/bin"
 
 if is_darwin; then
   restart_required=false
@@ -44,11 +48,11 @@ if is_darwin; then
   # within the larger Chef Workstatoin package, and will not include it in the Chef Workstation
   # package directly.
   echo "Moving Chef Workstation App to the Applications folder"
-  pushd $INSTALLER_DIR/components/chef-workstation-app
+  pushd "$INSTALLER_DIR/components/chef-workstation-app"
   unzip chef-workstation-app-mac.zip
   sudo rm -rf "/Applications/Chef Workstation App.app"
-  sudo mv "mac/Chef Workstation App.app" /Applications
-  rm -r mac
+  sudo mv "Chef Workstation App.app" /Applications/
+  rm -f chef-workstation-app-mac.zip
   popd
 
   ln -sf $INSTALLER_DIR/bin/uninstall_chef_workstation $PREFIX/bin || error_exit "Cannot link uninstall_chef_workstation to $PREFIX/bin"
@@ -64,7 +68,7 @@ else # linux - postinst does not run for windows.
   # 0 rc means grep found 'not found' text - and we have missing deps.
   if [ $? -eq 0 ]; then
     echo ""
-    echo "To run the experimental Chef Workstation App, use your"
+    echo "To run the Chef Workstation App, use your"
     echo "platform's package manager to install these dependencies:"
     echo ""
     ldd "$cwa_app_path" | grep "not found" 2>&1
@@ -72,7 +76,7 @@ else # linux - postinst does not run for windows.
     echo "The App will then be available in the system tray."
   else
     echo ""
-    echo "The experimental Chef Workstation App is available for you to try."
+    echo "The Chef Workstation App is available for you to try."
     echo ""
     echo "Launch the App by running 'chef-workstation-app'."
     echo "The App will then be available in the system tray."

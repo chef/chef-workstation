@@ -1,5 +1,5 @@
-# Print all the gems installed in the ChefDK omnibus as a JSON hash. This is
-# stored in the root of the ChefDK install next to the `version-manifest.json`.
+# Print all the gems installed in the Chef Workstation omnibus as a JSON hash. This is
+# stored in the root of the Chef Workstation install next to the `version-manifest.json`.
 
 all_gems = {}
 

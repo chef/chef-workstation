@@ -4,8 +4,8 @@
 # to master then Expeditor takes that version, runs a script to replace it here and pushes
 # a new commit / build through.
 
-override "delivery-cli", version: "0.0.52"
-override "chef-workstation-app", version: "v0.1.8"
+override "delivery-cli", version: "0.0.54"
+override "chef-workstation-app", version: "v0.1.27"
 # /DO NOT MODIFY
 
 override :rubygems, version: "3.0.3" # rubygems ships its own bundler which may differ from bundler defined below and then we get double bundler which results in performance issues / CLI warnings. Make sure these versions match before bumping either.
@@ -20,14 +20,14 @@ override "libyaml", version: "0.1.7"
 override "makedepend", version: "1.0.5"
 override "ncurses", version: "5.9"
 override "pkg-config-lite", version: "0.28-1"
-override "ruby", version: "2.6.3"
+override "ruby", version: "2.6.4"
 override "ruby-windows-devkit-bash", version: "3.1.23-4-msys-1.0.18"
 override "util-macros", version: "1.19.0"
 override "xproto", version: "7.0.28"
 override "zlib", version: "1.2.11"
 override "libzmq", version: "4.0.7"
 override "openssl", version: "1.0.2s"
-override "rust", version: "1.32.0"
+override "rust", version: "1.37.0"
 
 # For workstation app
-override "nodejs", version: "10.9.0"
+override "nodejs", version: "10.16.3"

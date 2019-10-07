@@ -71,15 +71,14 @@ dependency "rust-uninstall"
 # No gems get shipped that are not declared in components/gems/Gemfile
 dependency "gems"
 
-dependency "chef-dk-gem-versions"
-
+dependency "gem-version-manifest"
 dependency "gem-permissions"
 dependency "rubygems-customization"
 dependency "shebang-cleanup"
 
 if windows?
-  dependency "chef-dk-env-customization"
-  dependency "chef-dk-powershell-scripts"
+  dependency "windows-env-customization"
+  dependency "powershell-scripts"
 end
 
 dependency "version-manifest"
@@ -99,6 +98,11 @@ dependency "nodejs-binary"
 dependency "chef-workstation-app"
 dependency "uninstall-scripts"
 dependency "ruby-cleanup"
+
+dependency "go"
+dependency "chef-analyze"
+# removes the go language installed at embedded/go
+dependency "go-uninstall"
 
 exclude "**/.git"
 exclude "**/bundler/git"

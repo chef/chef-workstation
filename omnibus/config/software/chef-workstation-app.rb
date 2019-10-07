@@ -36,6 +36,7 @@ default_version "v0.1.5"
 # dependencies to allow it to continue in any case.
 if linux?
   whitelist_file(%r{components/chef-workstation-app/libffmpeg\.so})
+  whitelist_file(%r{components/chef-workstation-app/libGLESv2\.so})
   whitelist_file(%r{components/chef-workstation-app/chef-workstation-app})
 end
 

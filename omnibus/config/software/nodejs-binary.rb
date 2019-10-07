@@ -1,5 +1,5 @@
 #
-# Copyright 2018 Chef Software, Inc.
+# Copyright 2018-2019 Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -46,19 +46,19 @@
 # ```
 
 name "nodejs-binary"
-default_version "10.9.0"
+default_version "10.16.3"
 
 license "MIT"
 license_file "LICENSE"
 skip_transitive_dependency_licensing true
 
-version "10.9.0" do
+version "10.16.3" do
   source_hash = if mac_os_x?
-                  "3c4fe75dacfcc495a432a7ba2dec9045cff359af2a5d7d0429c84a424ef686fc"
+                  "6febc571e1543c2845fa919c6d06b36a24e4e142c91aedbe28b6ff7d296119e4"
                 elsif linux?
-                  "d061760884e4705adfc858eb669c44eb66cd57e8cdf6d5d57a190e76723af416"
+                  "2f0397bb81c1d0c9901b9aff82a933257bf60f3992227b86107111a75b9030d9"
                 elsif windows?
-                  "6a75cdbb69d62ed242d6cbf0238a470bcbf628567ee339d4d098a5efcda2401e"
+                  "19aa47de7c5950d7bd71a1e878013b98d93871cc311d7185f5472e6d3f633146"
                 else
                   raise "nodejs-binary does not have configuration for this build platform"
                 end
