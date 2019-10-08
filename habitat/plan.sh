@@ -12,6 +12,10 @@ pkg_build_deps=(
   core/go
   core/gcc-libs
   core/pkg-config
+  # We make this a build dependency since we are going to import
+  # the generated binary into our list of binaries.
+  # @afiune: Not sure if this is the right pattern but it works.
+  chef/chef-analyze
 )
 pkg_deps=(
   core/glibc
@@ -147,6 +151,9 @@ do_install() {
     build_line "Removing the symlink created for '/usr/bin/env'"
     rm /usr/bin/env
   fi
+
+  build_line "Installing 'chef-analyze' binary"
+  cp "$(pkg_path_for chef-analyze)/bin/chef-analyze" "$pkg_prefix/bin"
 }
 
 appbundle() {
