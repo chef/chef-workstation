@@ -9,6 +9,7 @@ ruby_pkg="core/ruby26"
 pkg_build_deps=(
   core/make
   core/gcc
+  core/go
   core/gcc-libs
   core/pkg-config
 )
@@ -76,6 +77,11 @@ do_build() {
     bundle config --local silence_root_warning 1
     bundle install --without dep_selector --no-deployment --jobs 10 --retry 5 --path "$pkg_prefix"
   )
+
+  build_line "Building top-level 'chef' CMD wrapper"
+  ( cd "${SRC_PATH}/components/main-chef-wrapper" || exit_with "unable to enter main-chef-wrapper directory" 1
+    CGO_ENABLED=0 go build -o "$pkg_prefix/bin/chef"
+  )
 }
 
 #######################################################
@@ -92,7 +98,6 @@ do_install() {
 
   build_line "Creating bin directories"
   mkdir -p "$ruby_bin_dir"
-  mkdir -p "$pkg_prefix/bin"
 
   # TODO @afiune we need to add the 'chef' top-level command
   ( cd "${SRC_PATH}/components/gems" || exit_with "unable to enter components/gems directory" 1
