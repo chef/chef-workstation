@@ -384,8 +384,6 @@ GEM
       http-cookie (~> 1.0.0)
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
-    fauxhai (7.4.0)
-      net-ssh
     fauxhai-ng (7.5.0)
       net-ssh
     ffi (1.11.1)
@@ -1018,13 +1016,13 @@ DEPENDENCIES
   chef-sugar-ng
   chef-vault (>= 3.4.1)
   cheffish (>= 14.0.1)
-  chefspec (>= 8.0.0)
+  chefspec (>= 9.0.0, < 10.0)
   chefstyle
   cookstyle (~> 5.0)
   dep-selector-libgecode
   dep_selector
   ed25519
-  fauxhai (~> 7.0)
+  fauxhai-ng (~> 7.0)
   ffi-libarchive
   ffi-rzmq-core
   foodcritic (>= 16.0)
