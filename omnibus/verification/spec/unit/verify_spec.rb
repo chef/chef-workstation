@@ -45,7 +45,7 @@ describe ChefWorkstation::Command::Verify do
       "chef-apply",
       "chefspec",
       "generated-cookbooks-pass-chefspec",
-      "fauxhai",
+      "fauxhai-ng",
       "kitchen-vagrant",
       "package installation",
       "openssl",
