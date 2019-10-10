@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.22 -->
-## [0.10.22](https://github.com/chef/chef-workstation/tree/0.10.22) (2019-10-10)
+<!-- latest_release 0.10.25 -->
+## [0.10.25](https://github.com/chef/chef-workstation/tree/0.10.25) (2019-10-10)
 
 #### Merged Pull Requests
-- Bump train-core to 3.1.4 [#573](https://github.com/chef/chef-workstation/pull/573) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Pin chef-analyze version and add subscription [#581](https://github.com/chef/chef-workstation/pull/581) ([afiune](https://github.com/afiune))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Pin chef-analyze version and add subscription [#581](https://github.com/chef/chef-workstation/pull/581) ([afiune](https://github.com/afiune)) <!-- 0.10.25 -->
 - Bump train-core to 3.1.4 [#573](https://github.com/chef/chef-workstation/pull/573) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.22 -->
 - Enable habitat packages for linux. [#416](https://github.com/chef/chef-workstation/pull/416) ([marcparadise](https://github.com/marcparadise)) <!-- 0.10.21 -->
 - Bump knife-vsphere to 4.0.3 [#571](https://github.com/chef/chef-workstation/pull/571) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.20 -->
