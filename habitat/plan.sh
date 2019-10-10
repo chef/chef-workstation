@@ -103,9 +103,8 @@ do_install() {
   build_line "Creating bin directories"
   mkdir -p "$ruby_bin_dir"
 
-  # TODO @afiune we need to add the 'chef' top-level command
   ( cd "${SRC_PATH}/components/gems" || exit_with "unable to enter components/gems directory" 1
-    appbundle "chef-cli"  "changelog,docs,debug"
+    appbundle "chef-cli" "changelog,docs,debug"
     wrap_ruby_bin "chef-cli"
 
     appbundle "chef-bin" "docgen,chefstyle"
