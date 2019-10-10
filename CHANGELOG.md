@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.19 -->
-## [0.10.19](https://github.com/chef/chef-workstation/tree/0.10.19) (2019-10-09)
+<!-- latest_release 0.10.20 -->
+## [0.10.20](https://github.com/chef/chef-workstation/tree/0.10.20) (2019-10-10)
 
 #### Merged Pull Requests
-- Depend on ChefSpec 9 and swap the faxhai dep [#570](https://github.com/chef/chef-workstation/pull/570) ([tas50](https://github.com/tas50))
+- Bump knife-vsphere to 4.0.3 [#571](https://github.com/chef/chef-workstation/pull/571) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Bump knife-vsphere to 4.0.3 [#571](https://github.com/chef/chef-workstation/pull/571) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.20 -->
 - Depend on ChefSpec 9 and swap the faxhai dep [#570](https://github.com/chef/chef-workstation/pull/570) ([tas50](https://github.com/tas50)) <!-- 0.10.19 -->
 - Bump chefspec to 9.0.0 [#569](https://github.com/chef/chef-workstation/pull/569) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.18 -->
 - Fix typo in PATH /opt/chefworkstation -&gt; /opt/chef-workstation [#567](https://github.com/chef/chef-workstation/pull/567) ([ls-brentsmith](https://github.com/ls-brentsmith)) <!-- 0.10.17 -->
