@@ -183,9 +183,7 @@ wrap_ruby_bin() {
   real_cmd="$ruby_bin_dir/$bin_basename"
   wrapper="$pkg_prefix/bin/$bin_basename"
 
-  build_line "Adding wrapper for $bin_basename."
-  build_line " - from: $wrapper"
-  build_line " -   to: $real_cmd"
+  build_line "Adding wrapper for '$bin_basename': $wrapper -> $real_cmd"
   cat <<EOF > "$wrapper"
 #!$(pkg_interpreter_for core/bash bin/sh)
 set -e
