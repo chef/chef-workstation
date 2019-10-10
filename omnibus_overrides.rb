@@ -1,10 +1,11 @@
 # DO NOT MODIFY
-# The ChefDK, delivery-cli, and workstation app versions are pinned by Expeditor.
-# Whenever ChefDK is promoted to stable or workstation app and delivery cli are merged
-# to master then Expeditor takes that version, runs a script to replace it here and pushes
-# a new commit / build through.
+# The delivery-cli, chef-analyze and workstation app versions are pinned by Expeditor.
+# Whenever chef-analyze, workstation-app and delivery cli are merged to master then
+# Expeditor takes that version, runs a script to replace it here and pushes a new
+# commit / build through.
 
 override "delivery-cli", version: "0.0.54"
+override "chef-analyze", version: "0.1.3"
 override "chef-workstation-app", version: "v0.1.27"
 # /DO NOT MODIFY
 

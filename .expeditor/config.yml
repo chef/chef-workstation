@@ -68,6 +68,9 @@ subscriptions:
   - workload: chef/delivery-cli:master_completed:pull_request_merged:chef/delivery-cli:master:*
     actions:
       - bash:.expeditor/update_delivery-cli_to_latest.sh
+  - workload: chef/chef-analyze:master_completed:pull_request_merged:chef/chef-analyze:master:*
+    actions:
+      - bash:.expeditor/update_chef-analyze_to_latest.sh
   - workload: artifact_published:stable:chef:15*
     actions:
       # update our pinned version for chef/chef-bin in Gemfile
