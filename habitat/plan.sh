@@ -61,7 +61,6 @@ do_prepare() {
 }
 
 do_build() {
-  export CPPFLAGS="${CPPFLAGS} ${CFLAGS}"
   export GEM_HOME
   export GEM_PATH
   # TODO this appears to give us no depsolver? What are the effects?
