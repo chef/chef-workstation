@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.21 -->
-## [0.10.21](https://github.com/chef/chef-workstation/tree/0.10.21) (2019-10-10)
+<!-- latest_release 0.10.22 -->
+## [0.10.22](https://github.com/chef/chef-workstation/tree/0.10.22) (2019-10-10)
 
 #### Merged Pull Requests
-- Enable habitat packages for linux. [#416](https://github.com/chef/chef-workstation/pull/416) ([marcparadise](https://github.com/marcparadise))
+- Bump train-core to 3.1.4 [#573](https://github.com/chef/chef-workstation/pull/573) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Bump train-core to 3.1.4 [#573](https://github.com/chef/chef-workstation/pull/573) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.22 -->
 - Enable habitat packages for linux. [#416](https://github.com/chef/chef-workstation/pull/416) ([marcparadise](https://github.com/marcparadise)) <!-- 0.10.21 -->
 - Bump knife-vsphere to 4.0.3 [#571](https://github.com/chef/chef-workstation/pull/571) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.20 -->
 - Depend on ChefSpec 9 and swap the faxhai dep [#570](https://github.com/chef/chef-workstation/pull/570) ([tas50](https://github.com/tas50)) <!-- 0.10.19 -->
