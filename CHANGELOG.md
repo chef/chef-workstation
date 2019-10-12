@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.26 -->
-## [0.10.26](https://github.com/chef/chef-workstation/tree/0.10.26) (2019-10-12)
+<!-- latest_release 0.10.27 -->
+## [0.10.27](https://github.com/chef/chef-workstation/tree/0.10.27) (2019-10-12)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.29 [#575](https://github.com/chef/chef-workstation/pull/575) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump inspec to 4.18.0 [#579](https://github.com/chef/chef-workstation/pull/579) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Bump inspec to 4.18.0 [#579](https://github.com/chef/chef-workstation/pull/579) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.27 -->
 - Bump Chef Workstation App to 0.1.29 [#575](https://github.com/chef/chef-workstation/pull/575) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.26 -->
 - Pin chef-analyze version and add subscription [#581](https://github.com/chef/chef-workstation/pull/581) ([afiune](https://github.com/afiune)) <!-- 0.10.25 -->
 - Bump train-core to 3.1.4 [#573](https://github.com/chef/chef-workstation/pull/573) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.22 -->
