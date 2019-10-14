@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.27 -->
-## [0.10.27](https://github.com/chef/chef-workstation/tree/0.10.27) (2019-10-12)
+<!-- latest_release 0.10.28 -->
+## [0.10.28](https://github.com/chef/chef-workstation/tree/0.10.28) (2019-10-14)
 
 #### Merged Pull Requests
-- Bump inspec to 4.18.0 [#579](https://github.com/chef/chef-workstation/pull/579) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update knife-vcenter, cookstyle, knife-google, and knife-cloud &amp; use stove again [#584](https://github.com/chef/chef-workstation/pull/584) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Update knife-vcenter, cookstyle, knife-google, and knife-cloud &amp; use stove again [#584](https://github.com/chef/chef-workstation/pull/584) ([tas50](https://github.com/tas50)) <!-- 0.10.28 -->
 - Bump inspec to 4.18.0 [#579](https://github.com/chef/chef-workstation/pull/579) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.27 -->
 - Bump Chef Workstation App to 0.1.29 [#575](https://github.com/chef/chef-workstation/pull/575) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.26 -->
 - Pin chef-analyze version and add subscription [#581](https://github.com/chef/chef-workstation/pull/581) ([afiune](https://github.com/afiune)) <!-- 0.10.25 -->
