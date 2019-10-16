@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.29 -->
-## [0.10.29](https://github.com/chef/chef-workstation/tree/0.10.29) (2019-10-15)
+<!-- latest_release 0.10.30 -->
+## [0.10.30](https://github.com/chef/chef-workstation/tree/0.10.30) (2019-10-16)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.4 [#585](https://github.com/chef/chef-workstation/pull/585) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 5.9.3 [#588](https://github.com/chef/chef-workstation/pull/588) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Bump cookstyle to 5.9.3 [#588](https://github.com/chef/chef-workstation/pull/588) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.30 -->
 - Bump chef-analyze CLI to 0.1.4 [#585](https://github.com/chef/chef-workstation/pull/585) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.29 -->
 - Update knife-vcenter, cookstyle, knife-google, and knife-cloud &amp; use stove again [#584](https://github.com/chef/chef-workstation/pull/584) ([tas50](https://github.com/tas50)) <!-- 0.10.28 -->
 - Bump inspec to 4.18.0 [#579](https://github.com/chef/chef-workstation/pull/579) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.27 -->
