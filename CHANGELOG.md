@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.33 -->
-## [0.10.33](https://github.com/chef/chef-workstation/tree/0.10.33) (2019-10-17)
+<!-- latest_release 0.10.34 -->
+## [0.10.34](https://github.com/chef/chef-workstation/tree/0.10.34) (2019-10-22)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.6 [#592](https://github.com/chef/chef-workstation/pull/592) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.30 [#597](https://github.com/chef/chef-workstation/pull/597) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.30 [#597](https://github.com/chef/chef-workstation/pull/597) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.34 -->
 - Bump chef-analyze CLI to 0.1.6 [#592](https://github.com/chef/chef-workstation/pull/592) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.33 -->
 - Bump omnibus-software from `3d99fdf` to `39acd5f` in /omnibus [#590](https://github.com/chef/chef-workstation/pull/590) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.10.32 -->
 - Bump kitchen-dokken to 2.8.0 [#589](https://github.com/chef/chef-workstation/pull/589) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.31 -->
