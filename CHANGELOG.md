@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.38 -->
-## [0.10.38](https://github.com/chef/chef-workstation/tree/0.10.38) (2019-10-23)
+<!-- latest_release 0.10.39 -->
+## [0.10.39](https://github.com/chef/chef-workstation/tree/0.10.39) (2019-10-23)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.7 [#603](https://github.com/chef/chef-workstation/pull/603) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Removes the analyze command from the help message [#604](https://github.com/chef/chef-workstation/pull/604) ([afiune](https://github.com/afiune))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Removes the analyze command from the help message [#604](https://github.com/chef/chef-workstation/pull/604) ([afiune](https://github.com/afiune)) <!-- 0.10.39 -->
 - Bump chef-analyze CLI to 0.1.7 [#603](https://github.com/chef/chef-workstation/pull/603) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.38 -->
 - Update Chef to 15.4 and remove explicit rubocop from the Gemfile [#601](https://github.com/chef/chef-workstation/pull/601) ([tas50](https://github.com/tas50)) <!-- 0.10.37 -->
 - Bump kitchen-digitalocean to 0.10.5 [#598](https://github.com/chef/chef-workstation/pull/598) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.36 -->
