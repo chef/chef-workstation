@@ -110,9 +110,6 @@ Available Commands:
     delete-policy           Delete all revisions of a policy on the Chef Infra Server
     undelete                Undo a delete command
     describe-cookbook       Prints cookbook checksum information used for cookbook identifier
-
-Experimental Commands:
-    analyze                 Analyze your Chef inventory
 `)
 }
 
