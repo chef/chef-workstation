@@ -193,11 +193,11 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
     byebug (11.0.1)
-    chef (15.3.14)
+    chef (15.4.45)
       addressable
       bcrypt_pbkdf (~> 1.0)
       bundler (>= 1.10)
-      chef-config (= 15.3.14)
+      chef-config (= 15.4.45)
       chef-zero (>= 14.0.11)
       diff-lcs (~> 1.2, >= 1.2.4)
       ed25519 (~> 1.2)
@@ -220,15 +220,15 @@ GEM
       plist (~> 3.2)
       proxifier (~> 1.0)
       syslog-logger (~> 1.6)
-      train-core (~> 3.0)
-      train-winrm
+      train-core (~> 3.1)
+      train-winrm (>= 0.2.5)
       tty-screen (~> 0.6)
       uuidtools (~> 2.1.5)
-    chef (15.3.14-universal-mingw32)
+    chef (15.4.45-universal-mingw32)
       addressable
       bcrypt_pbkdf (~> 1.0)
       bundler (>= 1.10)
-      chef-config (= 15.3.14)
+      chef-config (= 15.4.45)
       chef-zero (>= 14.0.11)
       diff-lcs (~> 1.2, >= 1.2.4)
       ed25519 (~> 1.2)
@@ -252,8 +252,8 @@ GEM
       plist (~> 3.2)
       proxifier (~> 1.0)
       syslog-logger (~> 1.6)
-      train-core (~> 3.0)
-      train-winrm
+      train-core (~> 3.1)
+      train-winrm (>= 0.2.5)
       tty-screen (~> 0.6)
       uuidtools (~> 2.1.5)
       win32-api (~> 1.5.3)
@@ -285,8 +285,8 @@ GEM
       train (~> 3.0)
       train-winrm
       tty-spinner
-    chef-bin (15.3.14)
-      chef (= 15.3.14)
+    chef-bin (15.4.45)
+      chef (= 15.4.45)
     chef-cli (2.0.0)
       addressable (>= 2.3.5, < 2.6)
       chef (>= 14.0)
@@ -299,7 +299,7 @@ GEM
       mixlib-shellout (>= 2.0, < 4.0)
       paint (~> 1.0)
       solve (> 2.0, < 5.0)
-    chef-config (15.3.14)
+    chef-config (15.4.45)
       addressable
       fuzzyurl
       mixlib-config (>= 2.2.12, < 4.0)
@@ -998,9 +998,9 @@ DEPENDENCIES
   bcrypt_pbkdf
   berkshelf (>= 7.0.8)
   bundler (< 2)
-  chef (= 15.3.14)
+  chef (= 15.4.45)
   chef-apply (>= 0.3.3)
-  chef-bin (= 15.3.14)
+  chef-bin (= 15.4.45)
   chef-cli (>= 1.0.9)
   chef-sugar-ng
   chef-vault (>= 3.4.1)
@@ -1054,7 +1054,6 @@ DEPENDENCIES
   rb-readline
   rdoc (<= 6.0.1)
   rdp-ruby-wmi
-  rubocop
   ruby-prof
   ruby-shadow
   stove (>= 7.1.5)
