@@ -113,7 +113,7 @@ group(:omnibus_package) do
   gem "rubocop"
   gem "winrm-fs"
   gem "winrm-elevated"
-  gem "stove"
+  gem "stove", ">= 7.1.5"
   gem "berkshelf", ">= 7.0.8"
   gem "chef-vault", ">= 3.4.1"
 end
