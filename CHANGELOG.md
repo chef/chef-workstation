@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.40 -->
-## [0.10.40](https://github.com/chef/chef-workstation/tree/0.10.40) (2019-10-23)
+<!-- latest_release 0.10.41 -->
+## [0.10.41](https://github.com/chef/chef-workstation/tree/0.10.41) (2019-10-24)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.8 [#605](https://github.com/chef/chef-workstation/pull/605) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.9 [#607](https://github.com/chef/chef-workstation/pull/607) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.9.42 -->
 ### Changes since 0.9.42 release
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.9 [#607](https://github.com/chef/chef-workstation/pull/607) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.41 -->
 - Bump chef-analyze CLI to 0.1.8 [#605](https://github.com/chef/chef-workstation/pull/605) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.40 -->
 - Removes the analyze command from the help message [#604](https://github.com/chef/chef-workstation/pull/604) ([afiune](https://github.com/afiune)) <!-- 0.10.39 -->
 - Bump chef-analyze CLI to 0.1.7 [#603](https://github.com/chef/chef-workstation/pull/603) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.38 -->
