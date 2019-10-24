@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.42 -->
-## [0.10.42](https://github.com/chef/chef-workstation/tree/0.10.42) (2019-10-24)
+<!-- latest_release 0.10.43 -->
+## [0.10.43](https://github.com/chef/chef-workstation/tree/0.10.43) (2019-10-24)
 
 #### Merged Pull Requests
-- Bump cookstyle to 5.10.11 [#608](https://github.com/chef/chef-workstation/pull/608) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.31 [#599](https://github.com/chef/chef-workstation/pull/599) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.10.41 -->
 ### Changes since 0.10.41 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.31 [#599](https://github.com/chef/chef-workstation/pull/599) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.43 -->
 - Bump cookstyle to 5.10.11 [#608](https://github.com/chef/chef-workstation/pull/608) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.42 -->
 <!-- release_rollup -->
 
