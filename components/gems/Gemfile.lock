@@ -1046,7 +1046,7 @@ DEPENDENCIES
   knife-vsphere (>= 4.0)
   knife-windows (>= 3.0)
   listen
-  mdl
+  mdl (>= 0.7.0)
   minitest (<= 5.10.3)
   mixlib-archive (>= 0.4.16)
   mixlib-install
