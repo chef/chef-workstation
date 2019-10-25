@@ -39,14 +39,6 @@ end
 build_version Omnibus::BuildVersion.semver
 build_iteration 1
 
-# One problem with the ChefDK today is that it includes a shit load of gem
-# dependencies.  We resolve all those dependencies in 1 location today - in the
-# ChefDK repo (with its `Gemfile.lock`).
-
-# We eventually want to fix that problem as part of implementing the Chef
-# Workstation RFC (https://github.com/chef/chef-rfc/pull/308). But until we do
-# we need to pull `chef-apply` in as a gem dependency of the ChefDK.
-
 # In order to prevent unecessary cache expiration,
 # package and package version overrides, build_version
 # and build_iteration are kept in <project-root>/omnibus_overrides.rb
