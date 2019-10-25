@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.46 -->
-## [0.10.46](https://github.com/chef/chef-workstation/tree/0.10.46) (2019-10-25)
+<!-- latest_release 0.10.47 -->
+## [0.10.47](https://github.com/chef/chef-workstation/tree/0.10.47) (2019-10-25)
 
 #### Merged Pull Requests
-- Bump cookstyle to 5.10.13 [#611](https://github.com/chef/chef-workstation/pull/611) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.13 [#617](https://github.com/chef/chef-workstation/pull/617) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.10.41 -->
 ### Changes since 0.10.41 release
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.13 [#617](https://github.com/chef/chef-workstation/pull/617) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.47 -->
 - Bump cookstyle to 5.10.13 [#611](https://github.com/chef/chef-workstation/pull/611) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.46 -->
 - Bump Chef Workstation App to 0.1.32 [#610](https://github.com/chef/chef-workstation/pull/610) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.45 -->
 - Include `mdl` markdown linter. [#606](https://github.com/chef/chef-workstation/pull/606) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.10.44 -->
