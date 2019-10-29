@@ -20,6 +20,8 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+
+	"github.com/chef/go-libs/featflag"
 )
 
 func main() {
@@ -40,7 +42,16 @@ func main() {
 	// 'chef-analyze foo' or through our main Chef CLI wrapper 'chef analyze foo'.
 	// Both ways would be running the same underlying binary.
 	case "analyze":
-		cmd = exec.Command("chef-analyze", allArgs...)
+		if featflag.ChefFeatAnalyze.Enabled() {
+			cmd = exec.Command("chef-analyze", allArgs...)
+		} else {
+			fmt.Println("\nThis fuctionality is still under development and is cosidered experimental.")
+			fmt.Println("\nYou can enable this feature through the environment varible:\n")
+			fmt.Printf("%s=true", featflag.ChefFeatAnalyze.Env())
+			fmt.Println("\n\nOr, to enable this feature permanently, modify your $HOME/.chef-workstation/config.toml with:")
+			fmt.Printf("\n[features]\n%s = true\n\n", featflag.ChefFeatAnalyze.Key())
+			os.Exit(0)
+		}
 
 	// 2) Redirecting existing binaries to a single point for further improvements, this gives
 	// the potential to transition some commands at a more granular level too - for example
@@ -87,7 +98,7 @@ func main() {
 func usage() {
 	// TODO @afiune add actual usage, this might only list top level sub-commands
 	// we should avoid to add specific options per sub-command
-	fmt.Printf(`Usage:
+	msg := `Usage:
     chef -h/--help
     chef -v/--version
     chef command [arguments...] [options...]
@@ -111,11 +122,20 @@ Available Commands:
     delete-policy           Delete all revisions of a policy on the Chef Infra Server
     undelete                Undo a delete command
     describe-cookbook       Prints cookbook checksum information used for cookbook identifier
-`)
+`
+
+	if featflag.ChefFeatAnalyze.Enabled() {
+		// add the experimental section to the usage message
+		msg = msg + `
+Experimental Commands:
+    analyze                 A CLI to analyze artifacts from a Chef Infra Server
+`
+	}
+	fmt.Printf(msg)
 }
 
 func debugLog(msg string) {
-	if os.Getenv("DEBUG") == "true" {
+	if os.Getenv("CHEF_DEBUG") != "" {
 		fmt.Fprintln(os.Stderr, "DEBUG: "+msg)
 	}
 }
