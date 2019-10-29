@@ -67,7 +67,7 @@ build do
     delete dist_dir
 
     npm_bin = File.join(node_bin_path, "npm")
-    command "#{npm_bin} install", env: env
+    command "#{npm_bin} install --unsafe-perm=true --allow-root", env: env
     command "#{npm_bin} run-script build-#{platform_name}", env: env
 
     if mac?
