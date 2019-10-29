@@ -27,6 +27,17 @@ dependency "go"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
   env["CGO_ENABLED"] = "0"
-  file_extension = windows? ? ".exe" : ""
-  command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/chef#{file_extension}", env: env
+
+  if windows?
+    # Windows systems requires an extention (EXE)
+    command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/chef.exe", env: env
+
+    # Generate a 'chef' file that redirects to the 'chef.exe' executable
+    File.open("#{install_dir}/bin/chef", "w") do |f|
+      f.write("@ECHO OFF\n\"%~dpn0.exe\" %*")
+    end
+  else
+    # Unix systems has no extention
+    command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/chef", env: env
+  end
 end
