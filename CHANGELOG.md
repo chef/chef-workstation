@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.10.48 -->
-## [0.10.48](https://github.com/chef/chef-workstation/tree/0.10.48) (2019-10-29)
+<!-- latest_release 0.11.0 -->
+## [0.11.0](https://github.com/chef/chef-workstation/tree/0.11.0) (2019-10-29)
 
 #### Merged Pull Requests
-- Fix Workstation App Build [#628](https://github.com/chef/chef-workstation/pull/628) ([jonsmorrow](https://github.com/jonsmorrow))
+- Bump fauxhai-ng to 7.5.1 and vsphere-automation-sdk to 0.4.6 [#632](https://github.com/chef/chef-workstation/pull/632) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.10.41 -->
 ### Changes since 0.10.41 release
 
 #### Merged Pull Requests
+- Bump fauxhai-ng to 7.5.1 and vsphere-automation-sdk to 0.4.6 [#632](https://github.com/chef/chef-workstation/pull/632) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.0 -->
 - Fix Workstation App Build [#628](https://github.com/chef/chef-workstation/pull/628) ([jonsmorrow](https://github.com/jonsmorrow)) <!-- 0.10.48 -->
 - Bump chef-analyze CLI to 0.1.13 [#617](https://github.com/chef/chef-workstation/pull/617) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.47 -->
 - Bump cookstyle to 5.10.13 [#611](https://github.com/chef/chef-workstation/pull/611) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.46 -->
