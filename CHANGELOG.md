@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.2 -->
-## [0.11.2](https://github.com/chef/chef-workstation/tree/0.11.2) (2019-10-29)
+<!-- latest_release 0.11.3 -->
+## [0.11.3](https://github.com/chef/chef-workstation/tree/0.11.3) (2019-10-30)
 
 #### Merged Pull Requests
-- Bump omnibus from `ac881b7` to `e066879` in /omnibus [#629](https://github.com/chef/chef-workstation/pull/629) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump kitchen-inspec to 1.3.1 [#635](https://github.com/chef/chef-workstation/pull/635) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.10.41 -->
 ### Changes since 0.10.41 release
 
 #### Merged Pull Requests
+- Bump kitchen-inspec to 1.3.1 [#635](https://github.com/chef/chef-workstation/pull/635) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.3 -->
 - Bump omnibus from `ac881b7` to `e066879` in /omnibus [#629](https://github.com/chef/chef-workstation/pull/629) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.11.2 -->
 - Bump omnibus-software from `39acd5f` to `433a18f` in /omnibus [#630](https://github.com/chef/chef-workstation/pull/630) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.11.1 -->
 - Bump fauxhai-ng to 7.5.1 and vsphere-automation-sdk to 0.4.6 [#632](https://github.com/chef/chef-workstation/pull/632) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.0 -->
