@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.6 -->
-## [0.11.6](https://github.com/chef/chef-workstation/tree/0.11.6) (2019-10-31)
+<!-- latest_release 0.11.7 -->
+## [0.11.7](https://github.com/chef/chef-workstation/tree/0.11.7) (2019-10-31)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.14 [#639](https://github.com/chef/chef-workstation/pull/639) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update Mac installer text to list the current components of Workstation [#614](https://github.com/chef/chef-workstation/pull/614) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.10.41 -->
 ### Changes since 0.10.41 release
 
 #### Merged Pull Requests
+- Update Mac installer text to list the current components of Workstation [#614](https://github.com/chef/chef-workstation/pull/614) ([tas50](https://github.com/tas50)) <!-- 0.11.7 -->
 - Bump chef-analyze CLI to 0.1.14 [#639](https://github.com/chef/chef-workstation/pull/639) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.6 -->
 - Bump Chef Workstation App to 0.1.33 [#636](https://github.com/chef/chef-workstation/pull/636) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.5 -->
 - Components might need a &#39;chef&#39; bin in Windows OS [#634](https://github.com/chef/chef-workstation/pull/634) ([afiune](https://github.com/afiune)) <!-- 0.11.4 -->
