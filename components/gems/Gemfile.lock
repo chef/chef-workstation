@@ -12,7 +12,7 @@ GEM
     artifactory (3.0.5)
     ast (2.4.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.231.0)
+    aws-partitions (1.232.0)
     aws-sdk-apigateway (1.36.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
@@ -58,7 +58,7 @@ GEM
     aws-sdk-configservice (1.38.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-core (3.72.0)
+    aws-sdk-core (3.72.1)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1, >= 1.228.0)
       aws-sigv4 (~> 1.1)
@@ -132,7 +132,7 @@ GEM
     aws-sdk-route53resolver (1.11.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.52.0)
+    aws-sdk-s3 (1.53.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
@@ -601,7 +601,7 @@ GEM
     mime-types-data (3.2019.1009)
     mini_portile2 (2.4.0)
     minitar (0.9)
-    minitest (5.10.3)
+    minitest (5.11.3)
     mixlib-archive (1.0.1)
       mixlib-log
     mixlib-archive (1.0.1-universal-mingw32)
@@ -715,7 +715,6 @@ GEM
       json (>= 1.8)
       nokogiri (~> 1.5)
       trollop (~> 2.1)
-    rdoc (6.0.1)
     rdp-ruby-wmi (0.3.1)
     representable (3.0.4)
       declarative (< 0.1.0)
@@ -1047,7 +1046,7 @@ DEPENDENCIES
   knife-windows (>= 3.0)
   listen
   mdl (>= 0.7.0)
-  minitest (<= 5.10.3)
+  minitest (<= 5.11.3)
   mixlib-archive (>= 0.4.16)
   mixlib-install
   mixlib-versioning
@@ -1061,7 +1060,6 @@ DEPENDENCIES
   pry-stack_explorer
   rake (<= 12.3.2)
   rb-readline
-  rdoc (<= 6.0.1)
   rdp-ruby-wmi
   ruby-prof
   ruby-shadow
