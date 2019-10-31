@@ -7,7 +7,7 @@
 * **Issues [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** 14 days
 * **Pull Request [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** 14 days
 
-Chef Workstation installs everything you need to get started using Chef on Windows, Mac and Linux. It includes:
+Chef Workstation installs everything you need to get started using Chef products on Windows, Mac and Linux. It includes:
 
 * Chef Workstation App
 * Chef Infra Client
