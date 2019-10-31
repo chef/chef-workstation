@@ -7,10 +7,15 @@
 * **Issues [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** 14 days
 * **Pull Request [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** 14 days
 
-Chef Workstation installs everything you need to get started using Chef on Windows, Mac and Linux.
-It includes:
-- chef-run, a new tool for executing ad-hoc tasks against your servers
-- ChefDK, all the tools you know and love
+Chef Workstation installs everything you need to get started using Chef products on Windows, Mac and Linux. It includes:
+
+* Chef Workstation App
+* Chef Infra Client
+* Chef InSpec
+* Chef Command Line Tool
+* Test Kitchen
+* Cookstyle
+* Various Test Kitchen and Knife plugins for clouds
 
 ## Getting Started
 

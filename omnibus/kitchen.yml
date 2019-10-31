@@ -36,9 +36,9 @@ platforms:
       box: chef/windows-server-2012r2-standard # private
       synced_folders:
       # We have to mount this repos enclosing folder as the Omnibus build
-      # gets cranky if the mounted ChefDK source folder is a symlink. This
-      # mounts at `C:\vagrant\code` and the ChefDK source folder is available
-      # at `C:\vagrant\code\chef-dk`
+      # gets cranky if the mounted Chef Workstation source folder is a symlink. This
+      # mounts at `C:\vagrant\code` and the Chef Workstation source folder is available
+      # at `C:\vagrant\code\chef-workstation`
       - ['../..', '/vagrant/code']
 
 suites:

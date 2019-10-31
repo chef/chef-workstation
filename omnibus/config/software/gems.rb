@@ -68,12 +68,6 @@ build do
   # install the whole bundle first
   bundle "install --jobs 10 --without #{excluded_groups.join(" ")}", env: env
 
-  # TODO - we'll want a better way to manage this - likely some kind of callback
-  # from chef-cli so that we can hook in our own version output.
-  #
-  # Cross platform way to sed. Need to cleanup the backup fail.
-  # command("sed -i.bak 's/\\$CHEF_WS_VERSION\\$/#{project.build_version}/' #{project_dir}/lib/chef-dk/cli.rb", env: env)
-  # command("rm #{project_dir}/lib/chef-dk/cli.rb.bak")
   appbundle "chef", lockdir: project_dir, gem: "chef", without: %w{docgen chefstyle}, env: env
 
   appbundle "foodcritic", lockdir: project_dir, gem: "foodcritic", without: %w{development test}, env: env
