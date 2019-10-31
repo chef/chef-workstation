@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.10 -->
-## [0.11.10](https://github.com/chef/chef-workstation/tree/0.11.10) (2019-10-31)
+<!-- latest_release 0.11.11 -->
+## [0.11.11](https://github.com/chef/chef-workstation/tree/0.11.11) (2019-10-31)
 
 #### Merged Pull Requests
-- Bump omnibus from `e066879` to `c5c10bf` in /omnibus [#643](https://github.com/chef/chef-workstation/pull/643) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump knife-vcenter to 2.0.8 [#646](https://github.com/chef/chef-workstation/pull/646) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.10.41 -->
 ### Changes since 0.10.41 release
 
 #### Merged Pull Requests
+- Bump knife-vcenter to 2.0.8 [#646](https://github.com/chef/chef-workstation/pull/646) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.11 -->
 - Bump omnibus from `e066879` to `c5c10bf` in /omnibus [#643](https://github.com/chef/chef-workstation/pull/643) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.11.10 -->
 - Bump omnibus-software from `433a18f` to `a16abe9` in /omnibus [#642](https://github.com/chef/chef-workstation/pull/642) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.11.9 -->
 - Bump nokogiri to 1.10.5 [#641](https://github.com/chef/chef-workstation/pull/641) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.8 -->
