@@ -5,7 +5,7 @@
 # commit / build through.
 
 override "delivery-cli", version: "0.0.54"
-override "chef-analyze", version: "0.1.13"
+override "chef-analyze", version: "0.1.14"
 override "chef-workstation-app", version: "v0.1.33"
 # /DO NOT MODIFY
 
