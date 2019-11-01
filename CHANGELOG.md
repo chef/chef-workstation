@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.17 -->
-## [0.11.17](https://github.com/chef/chef-workstation/tree/0.11.17) (2019-11-01)
+<!-- latest_release 0.11.18 -->
+## [0.11.18](https://github.com/chef/chef-workstation/tree/0.11.18) (2019-11-01)
 
 #### Merged Pull Requests
-- [bug-fix] Enable interactive &#39;chef&#39; commands [#654](https://github.com/chef/chef-workstation/pull/654) ([afiune](https://github.com/afiune))
+- Bump libxml2, libxlst, and openssl releases [#645](https://github.com/chef/chef-workstation/pull/645) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.10.41 -->
 ### Changes since 0.10.41 release
 
 #### Merged Pull Requests
+- Bump libxml2, libxlst, and openssl releases [#645](https://github.com/chef/chef-workstation/pull/645) ([tas50](https://github.com/tas50)) <!-- 0.11.18 -->
 - [bug-fix] Enable interactive &#39;chef&#39; commands [#654](https://github.com/chef/chef-workstation/pull/654) ([afiune](https://github.com/afiune)) <!-- 0.11.17 -->
 - Bump chef-analyze CLI to 0.1.15 [#649](https://github.com/chef/chef-workstation/pull/649) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.16 -->
 - Avoid shipping double rdoc / minitest gems [#644](https://github.com/chef/chef-workstation/pull/644) ([tas50](https://github.com/tas50)) <!-- 0.11.15 -->
