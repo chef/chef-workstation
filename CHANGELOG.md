@@ -1,15 +1,17 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.13 -->
-## [0.11.13](https://github.com/chef/chef-workstation/tree/0.11.13) (2019-11-01)
+<!-- latest_release 0.11.15 -->
+## [0.11.15](https://github.com/chef/chef-workstation/tree/0.11.15) (2019-11-01)
 
 #### Merged Pull Requests
-- Bump train-aws to 0.1.12 [#648](https://github.com/chef/chef-workstation/pull/648) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Avoid shipping double rdoc / minitest gems [#644](https://github.com/chef/chef-workstation/pull/644) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.10.41 -->
 ### Changes since 0.10.41 release
 
 #### Merged Pull Requests
+- Avoid shipping double rdoc / minitest gems [#644](https://github.com/chef/chef-workstation/pull/644) ([tas50](https://github.com/tas50)) <!-- 0.11.15 -->
+- Update train-habitat and azure API deps [#651](https://github.com/chef/chef-workstation/pull/651) ([tas50](https://github.com/tas50)) <!-- 0.11.14 -->
 - Bump train-aws to 0.1.12 [#648](https://github.com/chef/chef-workstation/pull/648) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.13 -->
 - Update Test Kitchen to 2.3.4 [#647](https://github.com/chef/chef-workstation/pull/647) ([tas50](https://github.com/tas50)) <!-- 0.11.12 -->
 - Bump knife-vcenter to 2.0.8 [#646](https://github.com/chef/chef-workstation/pull/646) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.11 -->
