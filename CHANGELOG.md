@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.15 -->
-## [0.11.15](https://github.com/chef/chef-workstation/tree/0.11.15) (2019-11-01)
+<!-- latest_release 0.11.16 -->
+## [0.11.16](https://github.com/chef/chef-workstation/tree/0.11.16) (2019-11-01)
 
 #### Merged Pull Requests
-- Avoid shipping double rdoc / minitest gems [#644](https://github.com/chef/chef-workstation/pull/644) ([tas50](https://github.com/tas50))
+- Bump chef-analyze CLI to 0.1.15 [#649](https://github.com/chef/chef-workstation/pull/649) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.10.41 -->
 ### Changes since 0.10.41 release
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.15 [#649](https://github.com/chef/chef-workstation/pull/649) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.16 -->
 - Avoid shipping double rdoc / minitest gems [#644](https://github.com/chef/chef-workstation/pull/644) ([tas50](https://github.com/tas50)) <!-- 0.11.15 -->
 - Update train-habitat and azure API deps [#651](https://github.com/chef/chef-workstation/pull/651) ([tas50](https://github.com/tas50)) <!-- 0.11.14 -->
 - Bump train-aws to 0.1.12 [#648](https://github.com/chef/chef-workstation/pull/648) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.13 -->
