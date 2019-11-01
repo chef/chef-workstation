@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.12 -->
-## [0.11.12](https://github.com/chef/chef-workstation/tree/0.11.12) (2019-10-31)
+<!-- latest_release 0.11.13 -->
+## [0.11.13](https://github.com/chef/chef-workstation/tree/0.11.13) (2019-11-01)
 
 #### Merged Pull Requests
-- Update Test Kitchen to 2.3.4 [#647](https://github.com/chef/chef-workstation/pull/647) ([tas50](https://github.com/tas50))
+- Bump train-aws to 0.1.12 [#648](https://github.com/chef/chef-workstation/pull/648) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.10.41 -->
 ### Changes since 0.10.41 release
 
 #### Merged Pull Requests
+- Bump train-aws to 0.1.12 [#648](https://github.com/chef/chef-workstation/pull/648) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.13 -->
 - Update Test Kitchen to 2.3.4 [#647](https://github.com/chef/chef-workstation/pull/647) ([tas50](https://github.com/tas50)) <!-- 0.11.12 -->
 - Bump knife-vcenter to 2.0.8 [#646](https://github.com/chef/chef-workstation/pull/646) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.11 -->
 - Bump omnibus from `e066879` to `c5c10bf` in /omnibus [#643](https://github.com/chef/chef-workstation/pull/643) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.11.10 -->
