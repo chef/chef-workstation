@@ -70,6 +70,7 @@ func main() {
 	cmd.Env = os.Environ()
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
+	cmd.Stdin = os.Stdin
 
 	// TODO @afiune handle the errors in a better way
 	if err := cmd.Run(); err != nil {
