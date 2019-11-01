@@ -824,7 +824,7 @@ GEM
       mixlib-shellout (>= 2.0, < 4.0)
       net-scp (>= 1.2, < 3.0)
       net-ssh (>= 2.9, < 6.0)
-    train-aws (0.1.11)
+    train-aws (0.1.12)
       aws-sdk-apigateway (~> 1)
       aws-sdk-apigatewayv2 (~> 1)
       aws-sdk-athena (~> 1)
