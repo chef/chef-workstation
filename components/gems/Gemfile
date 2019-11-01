@@ -24,8 +24,7 @@ group(:omnibus_package, :development, :test) do
   # float we'll end up with 2 copies shipped in Workstation.
   # When we bump Ruby we need to look at these pins and adjust them
   gem "rake", "<= 12.3.2"
-  gem "rdoc", "<= 6.0.1"
-  gem "minitest", "<= 5.10.3"
+  gem "minitest", "<= 5.11.3"
 
   gem "pry"
   gem "yard"

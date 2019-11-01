@@ -601,7 +601,7 @@ GEM
     mime-types-data (3.2019.1009)
     mini_portile2 (2.4.0)
     minitar (0.9)
-    minitest (5.10.3)
+    minitest (5.11.3)
     mixlib-archive (1.0.1)
       mixlib-log
     mixlib-archive (1.0.1-universal-mingw32)
@@ -715,7 +715,6 @@ GEM
       json (>= 1.8)
       nokogiri (~> 1.5)
       trollop (~> 2.1)
-    rdoc (6.0.1)
     rdp-ruby-wmi (0.3.1)
     representable (3.0.4)
       declarative (< 0.1.0)
@@ -1047,7 +1046,7 @@ DEPENDENCIES
   knife-windows (>= 3.0)
   listen
   mdl (>= 0.7.0)
-  minitest (<= 5.10.3)
+  minitest (<= 5.11.3)
   mixlib-archive (>= 0.4.16)
   mixlib-install
   mixlib-versioning
@@ -1061,7 +1060,6 @@ DEPENDENCIES
   pry-stack_explorer
   rake (<= 12.3.2)
   rb-readline
-  rdoc (<= 6.0.1)
   rdp-ruby-wmi
   ruby-prof
   ruby-shadow
