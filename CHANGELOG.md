@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.20 -->
-## [0.11.20](https://github.com/chef/chef-workstation/tree/0.11.20) (2019-11-02)
+<!-- latest_release 0.11.21 -->
+## [0.11.21](https://github.com/chef/chef-workstation/tree/0.11.21) (2019-11-02)
 
 #### Merged Pull Requests
-- Update omnibus deps to the latest [#662](https://github.com/chef/chef-workstation/pull/662) ([tas50](https://github.com/tas50))
+- Bump chef-analyze CLI to 0.1.17 [#661](https://github.com/chef/chef-workstation/pull/661) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.10.41 -->
 ### Changes since 0.10.41 release
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.17 [#661](https://github.com/chef/chef-workstation/pull/661) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.21 -->
 - Update omnibus deps to the latest [#662](https://github.com/chef/chef-workstation/pull/662) ([tas50](https://github.com/tas50)) <!-- 0.11.20 -->
 - Bump Chef Workstation App to 0.1.35 [#664](https://github.com/chef/chef-workstation/pull/664) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.19 -->
 - Bump libxml2, libxlst, and openssl releases [#645](https://github.com/chef/chef-workstation/pull/645) ([tas50](https://github.com/tas50)) <!-- 0.11.18 -->
