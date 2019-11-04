@@ -1,47 +1,45 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.21 -->
-## [0.11.21](https://github.com/chef/chef-workstation/tree/0.11.21) (2019-11-02)
-
-#### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.17 [#661](https://github.com/chef/chef-workstation/pull/661) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.10.41 -->
-### Changes since 0.10.41 release
-
-#### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.17 [#661](https://github.com/chef/chef-workstation/pull/661) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.21 -->
-- Update omnibus deps to the latest [#662](https://github.com/chef/chef-workstation/pull/662) ([tas50](https://github.com/tas50)) <!-- 0.11.20 -->
-- Bump Chef Workstation App to 0.1.35 [#664](https://github.com/chef/chef-workstation/pull/664) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.19 -->
-- Bump libxml2, libxlst, and openssl releases [#645](https://github.com/chef/chef-workstation/pull/645) ([tas50](https://github.com/tas50)) <!-- 0.11.18 -->
-- [bug-fix] Enable interactive &#39;chef&#39; commands [#654](https://github.com/chef/chef-workstation/pull/654) ([afiune](https://github.com/afiune)) <!-- 0.11.17 -->
-- Bump chef-analyze CLI to 0.1.15 [#649](https://github.com/chef/chef-workstation/pull/649) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.16 -->
-- Avoid shipping double rdoc / minitest gems [#644](https://github.com/chef/chef-workstation/pull/644) ([tas50](https://github.com/tas50)) <!-- 0.11.15 -->
-- Update train-habitat and azure API deps [#651](https://github.com/chef/chef-workstation/pull/651) ([tas50](https://github.com/tas50)) <!-- 0.11.14 -->
-- Bump train-aws to 0.1.12 [#648](https://github.com/chef/chef-workstation/pull/648) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.13 -->
-- Update Test Kitchen to 2.3.4 [#647](https://github.com/chef/chef-workstation/pull/647) ([tas50](https://github.com/tas50)) <!-- 0.11.12 -->
-- Bump knife-vcenter to 2.0.8 [#646](https://github.com/chef/chef-workstation/pull/646) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.11 -->
-- Bump omnibus from `e066879` to `c5c10bf` in /omnibus [#643](https://github.com/chef/chef-workstation/pull/643) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.11.10 -->
-- Bump omnibus-software from `433a18f` to `a16abe9` in /omnibus [#642](https://github.com/chef/chef-workstation/pull/642) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.11.9 -->
-- Bump nokogiri to 1.10.5 [#641](https://github.com/chef/chef-workstation/pull/641) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.8 -->
-- Update Mac installer text to list the current components of Workstation [#614](https://github.com/chef/chef-workstation/pull/614) ([tas50](https://github.com/tas50)) <!-- 0.11.7 -->
-- Bump chef-analyze CLI to 0.1.14 [#639](https://github.com/chef/chef-workstation/pull/639) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.6 -->
-- Bump Chef Workstation App to 0.1.33 [#636](https://github.com/chef/chef-workstation/pull/636) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.5 -->
-- Components might need a &#39;chef&#39; bin in Windows OS [#634](https://github.com/chef/chef-workstation/pull/634) ([afiune](https://github.com/afiune)) <!-- 0.11.4 -->
-- Bump kitchen-inspec to 1.3.1 [#635](https://github.com/chef/chef-workstation/pull/635) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.3 -->
-- Bump omnibus from `ac881b7` to `e066879` in /omnibus [#629](https://github.com/chef/chef-workstation/pull/629) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.11.2 -->
-- Bump omnibus-software from `39acd5f` to `433a18f` in /omnibus [#630](https://github.com/chef/chef-workstation/pull/630) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.11.1 -->
-- Bump fauxhai-ng to 7.5.1 and vsphere-automation-sdk to 0.4.6 [#632](https://github.com/chef/chef-workstation/pull/632) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.0 -->
-- Fix Workstation App Build [#628](https://github.com/chef/chef-workstation/pull/628) ([jonsmorrow](https://github.com/jonsmorrow)) <!-- 0.10.48 -->
-- Bump chef-analyze CLI to 0.1.13 [#617](https://github.com/chef/chef-workstation/pull/617) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.47 -->
-- Bump cookstyle to 5.10.13 [#611](https://github.com/chef/chef-workstation/pull/611) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.46 -->
-- Bump Chef Workstation App to 0.1.32 [#610](https://github.com/chef/chef-workstation/pull/610) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.45 -->
-- Include `mdl` markdown linter. [#606](https://github.com/chef/chef-workstation/pull/606) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.10.44 -->
-- Bump Chef Workstation App to 0.1.31 [#599](https://github.com/chef/chef-workstation/pull/599) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.43 -->
-- Bump cookstyle to 5.10.11 [#608](https://github.com/chef/chef-workstation/pull/608) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.10.42 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.11.21](https://github.com/chef/chef-workstation/tree/0.11.21) (2019-11-04)
+
+#### Merged Pull Requests
+- Bump cookstyle to 5.10.11 [#608](https://github.com/chef/chef-workstation/pull/608) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.31 [#599](https://github.com/chef/chef-workstation/pull/599) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Include `mdl` markdown linter. [#606](https://github.com/chef/chef-workstation/pull/606) ([tyler-ball](https://github.com/tyler-ball))
+- Bump Chef Workstation App to 0.1.32 [#610](https://github.com/chef/chef-workstation/pull/610) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 5.10.13 [#611](https://github.com/chef/chef-workstation/pull/611) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.13 [#617](https://github.com/chef/chef-workstation/pull/617) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Fix Workstation App Build [#628](https://github.com/chef/chef-workstation/pull/628) ([jonsmorrow](https://github.com/jonsmorrow))
+- Bump fauxhai-ng to 7.5.1 and vsphere-automation-sdk to 0.4.6 [#632](https://github.com/chef/chef-workstation/pull/632) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `39acd5f` to `433a18f` in /omnibus [#630](https://github.com/chef/chef-workstation/pull/630) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump omnibus from `ac881b7` to `e066879` in /omnibus [#629](https://github.com/chef/chef-workstation/pull/629) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump kitchen-inspec to 1.3.1 [#635](https://github.com/chef/chef-workstation/pull/635) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Components might need a &#39;chef&#39; bin in Windows OS [#634](https://github.com/chef/chef-workstation/pull/634) ([afiune](https://github.com/afiune))
+- Bump Chef Workstation App to 0.1.33 [#636](https://github.com/chef/chef-workstation/pull/636) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.14 [#639](https://github.com/chef/chef-workstation/pull/639) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update Mac installer text to list the current components of Workstation [#614](https://github.com/chef/chef-workstation/pull/614) ([tas50](https://github.com/tas50))
+- Bump nokogiri to 1.10.5 [#641](https://github.com/chef/chef-workstation/pull/641) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `433a18f` to `a16abe9` in /omnibus [#642](https://github.com/chef/chef-workstation/pull/642) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump omnibus from `e066879` to `c5c10bf` in /omnibus [#643](https://github.com/chef/chef-workstation/pull/643) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump knife-vcenter to 2.0.8 [#646](https://github.com/chef/chef-workstation/pull/646) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update Test Kitchen to 2.3.4 [#647](https://github.com/chef/chef-workstation/pull/647) ([tas50](https://github.com/tas50))
+- Bump train-aws to 0.1.12 [#648](https://github.com/chef/chef-workstation/pull/648) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update train-habitat and azure API deps [#651](https://github.com/chef/chef-workstation/pull/651) ([tas50](https://github.com/tas50))
+- Avoid shipping double rdoc / minitest gems [#644](https://github.com/chef/chef-workstation/pull/644) ([tas50](https://github.com/tas50))
+- Bump chef-analyze CLI to 0.1.15 [#649](https://github.com/chef/chef-workstation/pull/649) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- [bug-fix] Enable interactive &#39;chef&#39; commands [#654](https://github.com/chef/chef-workstation/pull/654) ([afiune](https://github.com/afiune))
+- Bump libxml2, libxlst, and openssl releases [#645](https://github.com/chef/chef-workstation/pull/645) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.35 [#664](https://github.com/chef/chef-workstation/pull/664) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update omnibus deps to the latest [#662](https://github.com/chef/chef-workstation/pull/662) ([tas50](https://github.com/tas50))
+- Bump chef-analyze CLI to 0.1.17 [#661](https://github.com/chef/chef-workstation/pull/661) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_stable_release -->
+
 ## [0.10.41](https://github.com/chef/chef-workstation/tree/0.10.41) (2019-10-24)
 
 #### Merged Pull Requests
@@ -88,7 +86,6 @@
 - Removes the analyze command from the help message [#604](https://github.com/chef/chef-workstation/pull/604) ([afiune](https://github.com/afiune))
 - Bump chef-analyze CLI to 0.1.8 [#605](https://github.com/chef/chef-workstation/pull/605) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump chef-analyze CLI to 0.1.9 [#607](https://github.com/chef/chef-workstation/pull/607) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [0.9.42](https://github.com/chef/chef-workstation/tree/0.9.42) (2019-09-26)
 
