@@ -35,6 +35,6 @@ Write-Output "--- Ensure the 'chef-analyze' cli works (chef-analyze help)"
 chef-analyze help
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
-# Run Workstation verification suite
+Write-Output "--- Run the verification suite"
 C:/opscode/chef-workstation/embedded/bin/ruby.exe omnibus/verification/run.rb
 If ($lastexitcode -ne 0) { Exit $lastexitcode }

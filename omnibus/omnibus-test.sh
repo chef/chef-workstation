@@ -50,5 +50,5 @@ if is_darwin; then
   test -d "/Applications/Chef Workstation App.app"
 fi
 
-# Run Workstation verification suite
+echo "--- Run Workstation verification suite"
 /opt/chef-workstation/embedded/bin/ruby omnibus/verification/run.rb
