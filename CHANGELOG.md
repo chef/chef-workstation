@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.25 -->
-## [0.11.25](https://github.com/chef/chef-workstation/tree/0.11.25) (2019-11-05)
+<!-- latest_release 0.11.26 -->
+## [0.11.26](https://github.com/chef/chef-workstation/tree/0.11.26) (2019-11-05)
 
 #### Merged Pull Requests
-- Make it clear in testing when we run the verify suite [#658](https://github.com/chef/chef-workstation/pull/658) ([tas50](https://github.com/tas50))
+- Bump omnibus-software from `9068533` to `3f47c11` in /omnibus [#675](https://github.com/chef/chef-workstation/pull/675) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.11.21 -->
 ### Changes since 0.11.21 release
 
 #### Merged Pull Requests
+- Bump omnibus-software from `9068533` to `3f47c11` in /omnibus [#675](https://github.com/chef/chef-workstation/pull/675) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.11.26 -->
 - Make it clear in testing when we run the verify suite [#658](https://github.com/chef/chef-workstation/pull/658) ([tas50](https://github.com/tas50)) <!-- 0.11.25 -->
 - Bump chef-analyze CLI to 0.1.19 [#668](https://github.com/chef/chef-workstation/pull/668) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.24 -->
 - Bump Chef Workstation App to 0.1.37 [#670](https://github.com/chef/chef-workstation/pull/670) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.23 -->
