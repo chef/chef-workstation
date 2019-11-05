@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.28 -->
-## [0.11.28](https://github.com/chef/chef-workstation/tree/0.11.28) (2019-11-05)
+<!-- latest_release 0.11.29 -->
+## [0.11.29](https://github.com/chef/chef-workstation/tree/0.11.29) (2019-11-05)
 
 #### Merged Pull Requests
-- Update deps to the latest and order the overrides [#677](https://github.com/chef/chef-workstation/pull/677) ([tas50](https://github.com/tas50))
+- Bump knife-vcenter and kitchen-vcenter to allow for the new rbvmomi [#678](https://github.com/chef/chef-workstation/pull/678) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.11.21 -->
 ### Changes since 0.11.21 release
 
 #### Merged Pull Requests
+- Bump knife-vcenter and kitchen-vcenter to allow for the new rbvmomi [#678](https://github.com/chef/chef-workstation/pull/678) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.29 -->
 - Update deps to the latest and order the overrides [#677](https://github.com/chef/chef-workstation/pull/677) ([tas50](https://github.com/tas50)) <!-- 0.11.28 -->
 - Bump chef-analyze CLI to 0.1.20 [#673](https://github.com/chef/chef-workstation/pull/673) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.27 -->
 - Bump omnibus-software from `9068533` to `3f47c11` in /omnibus [#675](https://github.com/chef/chef-workstation/pull/675) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.11.26 -->
