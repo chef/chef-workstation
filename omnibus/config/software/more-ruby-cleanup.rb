@@ -75,7 +75,6 @@ build do
       CHANGES
       CHANGELOG
       README
-      Gemfile
       Gemfile.travis
       Gemfile.lock
       Gemfile.devtools
@@ -88,7 +87,6 @@ build do
       donate.png
       Appraisals
       website
-      *.gemspec
     }
 
     Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
