@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.31 -->
-## [0.11.31](https://github.com/chef/chef-workstation/tree/0.11.31) (2019-11-06)
+<!-- latest_release 0.11.32 -->
+## [0.11.32](https://github.com/chef/chef-workstation/tree/0.11.32) (2019-11-06)
 
 #### Merged Pull Requests
-- Aggressively prune files from the gems we install [#672](https://github.com/chef/chef-workstation/pull/672) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.41 [#687](https://github.com/chef/chef-workstation/pull/687) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.11.21 -->
 ### Changes since 0.11.21 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.41 [#687](https://github.com/chef/chef-workstation/pull/687) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.32 -->
 - Aggressively prune files from the gems we install [#672](https://github.com/chef/chef-workstation/pull/672) ([tas50](https://github.com/tas50)) <!-- 0.11.31 -->
 - Bump knife-vsphere to 4.0.7 [#679](https://github.com/chef/chef-workstation/pull/679) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.30 -->
 - Bump knife-vcenter and kitchen-vcenter to allow for the new rbvmomi [#678](https://github.com/chef/chef-workstation/pull/678) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.29 -->
