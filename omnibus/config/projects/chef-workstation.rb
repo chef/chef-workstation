@@ -91,6 +91,9 @@ dependency "chef-workstation-app"
 dependency "uninstall-scripts"
 dependency "ruby-cleanup"
 
+# further gem cleanup other projects might not yet want to use
+dependency "more-ruby-cleanup"
+
 dependency "go"
 dependency "main-chef-wrapper"
 dependency "chef-analyze"
