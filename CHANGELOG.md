@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.33 -->
-## [0.11.33](https://github.com/chef/chef-workstation/tree/0.11.33) (2019-11-07)
+<!-- latest_release 0.11.34 -->
+## [0.11.34](https://github.com/chef/chef-workstation/tree/0.11.34) (2019-11-07)
 
 #### Merged Pull Requests
-- Bump foodcritic to 16.2.0 [#690](https://github.com/chef/chef-workstation/pull/690) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.43 [#692](https://github.com/chef/chef-workstation/pull/692) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.11.21 -->
 ### Changes since 0.11.21 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.43 [#692](https://github.com/chef/chef-workstation/pull/692) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.34 -->
 - Bump foodcritic to 16.2.0 [#690](https://github.com/chef/chef-workstation/pull/690) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.33 -->
 - Bump Chef Workstation App to 0.1.41 [#687](https://github.com/chef/chef-workstation/pull/687) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.32 -->
 - Aggressively prune files from the gems we install [#672](https://github.com/chef/chef-workstation/pull/672) ([tas50](https://github.com/tas50)) <!-- 0.11.31 -->
