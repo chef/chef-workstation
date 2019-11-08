@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.35 -->
-## [0.11.35](https://github.com/chef/chef-workstation/tree/0.11.35) (2019-11-08)
+<!-- latest_release 0.11.36 -->
+## [0.11.36](https://github.com/chef/chef-workstation/tree/0.11.36) (2019-11-08)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.23 [#694](https://github.com/chef/chef-workstation/pull/694) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update Cookstyle to 5.11 and Chefstyle to 0.14 [#695](https://github.com/chef/chef-workstation/pull/695) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.11.21 -->
 ### Changes since 0.11.21 release
 
 #### Merged Pull Requests
+- Update Cookstyle to 5.11 and Chefstyle to 0.14 [#695](https://github.com/chef/chef-workstation/pull/695) ([tas50](https://github.com/tas50)) <!-- 0.11.36 -->
 - Bump chef-analyze CLI to 0.1.23 [#694](https://github.com/chef/chef-workstation/pull/694) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.35 -->
 - Bump Chef Workstation App to 0.1.43 [#692](https://github.com/chef/chef-workstation/pull/692) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.34 -->
 - Bump foodcritic to 16.2.0 [#690](https://github.com/chef/chef-workstation/pull/690) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.33 -->
