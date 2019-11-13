@@ -305,7 +305,7 @@ GEM
       mixlib-config (>= 2.2.12, < 4.0)
       mixlib-shellout (>= 2.0, < 4.0)
       tomlrb (~> 1.2)
-    chef-sugar-ng (5.1.9)
+    chef-sugar (5.1.9)
     chef-telemetry (0.1.8)
       chef-config
       concurrent-ruby (~> 1.0)
@@ -1011,7 +1011,7 @@ DEPENDENCIES
   chef-apply (>= 0.3.3)
   chef-bin (= 15.4.45)
   chef-cli (>= 1.0.9)
-  chef-sugar-ng
+  chef-sugar
   chef-vault (>= 3.4.1)
   cheffish (>= 14.0.1)
   chefspec (>= 9.0.0, < 10.0)
