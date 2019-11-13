@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.38 -->
-## [0.11.38](https://github.com/chef/chef-workstation/tree/0.11.38) (2019-11-13)
+<!-- latest_release 0.11.39 -->
+## [0.11.39](https://github.com/chef/chef-workstation/tree/0.11.39) (2019-11-13)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.28 [#704](https://github.com/chef/chef-workstation/pull/704) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus from `acdcf27` to `f0e30ed` in /omnibus [#708](https://github.com/chef/chef-workstation/pull/708) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.11.21 -->
 ### Changes since 0.11.21 release
 
 #### Merged Pull Requests
+- Bump omnibus from `acdcf27` to `f0e30ed` in /omnibus [#708](https://github.com/chef/chef-workstation/pull/708) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.11.39 -->
 - Bump chef-analyze CLI to 0.1.28 [#704](https://github.com/chef/chef-workstation/pull/704) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.38 -->
 - Bump chef-analyze CLI to 0.1.25 [#700](https://github.com/chef/chef-workstation/pull/700) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.37 -->
 - Update Cookstyle to 5.11 and Chefstyle to 0.14 [#695](https://github.com/chef/chef-workstation/pull/695) ([tas50](https://github.com/tas50)) <!-- 0.11.36 -->
