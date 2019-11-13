@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.11.41 -->
-## [0.11.41](https://github.com/chef/chef-workstation/tree/0.11.41) (2019-11-13)
+<!-- latest_release 0.12.0 -->
+## [0.12.0](https://github.com/chef/chef-workstation/tree/0.12.0) (2019-11-13)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.44 [#706](https://github.com/chef/chef-workstation/pull/706) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.29 [#710](https://github.com/chef/chef-workstation/pull/710) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.11.21 -->
 ### Changes since 0.11.21 release
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.29 [#710](https://github.com/chef/chef-workstation/pull/710) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.0 -->
 - Bump Chef Workstation App to 0.1.44 [#706](https://github.com/chef/chef-workstation/pull/706) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.11.41 -->
 - Bump omnibus-software from `3f47c11` to `8381e66` in /omnibus [#707](https://github.com/chef/chef-workstation/pull/707) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.11.40 -->
 - Bump omnibus from `acdcf27` to `f0e30ed` in /omnibus [#708](https://github.com/chef/chef-workstation/pull/708) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.11.39 -->
