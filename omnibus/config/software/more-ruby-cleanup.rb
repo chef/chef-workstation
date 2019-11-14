@@ -33,6 +33,7 @@ build do
     target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
     files = %w{
       .github
+      .kokoro
       examples
       example
       docs
@@ -75,6 +76,7 @@ build do
       CHANGES
       CHANGELOG
       README
+      README-json-jruby.md
       Gemfile.travis
       Gemfile.lock
       Gemfile.devtools
@@ -87,6 +89,8 @@ build do
       donate.png
       Appraisals
       website
+      man
+      site
     }
 
     Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
