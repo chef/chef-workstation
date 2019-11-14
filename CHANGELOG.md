@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.12.3 -->
-## [0.12.3](https://github.com/chef/chef-workstation/tree/0.12.3) (2019-11-14)
+<!-- latest_release 0.12.4 -->
+## [0.12.4](https://github.com/chef/chef-workstation/tree/0.12.4) (2019-11-14)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `8381e66` to `53ab416` in /omnibus [#716](https://github.com/chef/chef-workstation/pull/716) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Cleanup additional files / folders in the installed gems [#714](https://github.com/chef/chef-workstation/pull/714) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.11.21 -->
 ### Changes since 0.11.21 release
 
 #### Merged Pull Requests
+- Cleanup additional files / folders in the installed gems [#714](https://github.com/chef/chef-workstation/pull/714) ([tas50](https://github.com/tas50)) <!-- 0.12.4 -->
 - Bump omnibus-software from `8381e66` to `53ab416` in /omnibus [#716](https://github.com/chef/chef-workstation/pull/716) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.12.3 -->
 - Hide chef-analyze behind a feature flag [#711](https://github.com/chef/chef-workstation/pull/711) ([afiune](https://github.com/afiune)) <!-- 0.12.2 -->
 - Bump chef-apply to 0.4.9 and chef-sugar-ng to 5.1.9 [#712](https://github.com/chef/chef-workstation/pull/712) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.1 -->
