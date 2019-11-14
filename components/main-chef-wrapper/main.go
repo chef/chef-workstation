@@ -45,11 +45,11 @@ func main() {
 		if featflag.ChefFeatAnalyze.Enabled() {
 			cmd = exec.Command("chef-analyze", allArgs...)
 		} else {
-			fmt.Println("\nThis fuctionality is still under development and is cosidered experimental.")
-			fmt.Println("\nYou can enable this feature through the environment varible:\n")
-			fmt.Printf("%s=true", featflag.ChefFeatAnalyze.Env())
-			fmt.Println("\n\nOr, to enable this feature permanently, modify your $HOME/.chef-workstation/config.toml with:")
-			fmt.Printf("\n[features]\n%s = true\n\n", featflag.ChefFeatAnalyze.Key())
+			fmt.Printf("`%s` is experimental and in development.\n\n", featflag.ChefFeatAnalyze.Key())
+			fmt.Printf("Temporarily enable `%s` with the environment variable:\n", featflag.ChefFeatAnalyze.Key())
+			fmt.Printf("\t%s=true\n\n", featflag.ChefFeatAnalyze.Env())
+			fmt.Printf("Or, permanently by modifying $HOME/.chef-workstation/config.toml with:\n")
+			fmt.Printf("\t[features]\n\t%s = true\n", featflag.ChefFeatAnalyze.Key())
 			os.Exit(0)
 		}
 
