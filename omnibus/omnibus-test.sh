@@ -42,7 +42,8 @@ echo "--- Ensure the 'chef' cli works (chef env)"
 chef env
 
 echo "--- Ensure the 'chef-analyze' cli works (chef-analyze help)"
-chef-analyze help
+# TODO @afiune delete this when we release chef-analyze to the users.
+CHEF_FEAT_ANALYZE="true" chef-analyze help
 
 # Verify that the chef-workstation-app was installed (MacOS only)
 if is_darwin; then
