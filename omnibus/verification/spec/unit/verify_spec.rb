@@ -50,7 +50,7 @@ describe ChefWorkstation::Command::Verify do
       "package installation",
       "openssl",
       "inspec",
-      "chef-sugar-ng",
+      "chef-sugar",
       "opscode-pushy-client",
       "git",
       "delivery-cli",
