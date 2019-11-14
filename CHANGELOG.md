@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.12.7 -->
-## [0.12.7](https://github.com/chef/chef-workstation/tree/0.12.7) (2019-11-14)
+<!-- latest_release 0.12.8 -->
+## [0.12.8](https://github.com/chef/chef-workstation/tree/0.12.8) (2019-11-14)
 
 #### Merged Pull Requests
-- Bump inspec to 4.18.38 [#720](https://github.com/chef/chef-workstation/pull/720) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.45 [#719](https://github.com/chef/chef-workstation/pull/719) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.11.21 -->
 ### Changes since 0.11.21 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.45 [#719](https://github.com/chef/chef-workstation/pull/719) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.8 -->
 - Bump inspec to 4.18.38 [#720](https://github.com/chef/chef-workstation/pull/720) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.7 -->
 - Bump cookstyle to 5.12.13 and mixlib-config to 3.0.5 [#718](https://github.com/chef/chef-workstation/pull/718) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.6 -->
 - Switch from chef-sugar-ng back to chef-sugar [#713](https://github.com/chef/chef-workstation/pull/713) ([tas50](https://github.com/tas50)) <!-- 0.12.5 -->
