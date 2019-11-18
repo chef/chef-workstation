@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.12.10 -->
-## [0.12.10](https://github.com/chef/chef-workstation/tree/0.12.10) (2019-11-15)
+<!-- latest_release 0.12.11 -->
+## [0.12.11](https://github.com/chef/chef-workstation/tree/0.12.11) (2019-11-18)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.30 [#723](https://github.com/chef/chef-workstation/pull/723) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump train to 3.1.8 [#725](https://github.com/chef/chef-workstation/pull/725) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.11.21 -->
 ### Changes since 0.11.21 release
 
 #### Merged Pull Requests
+- Bump train to 3.1.8 [#725](https://github.com/chef/chef-workstation/pull/725) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.11 -->
 - Bump chef-analyze CLI to 0.1.30 [#723](https://github.com/chef/chef-workstation/pull/723) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.10 -->
 - Enables CHEF_FEAT_ANALYZE in CI omnibus tests [#717](https://github.com/chef/chef-workstation/pull/717) ([afiune](https://github.com/afiune)) <!-- 0.12.9 -->
 - Bump Chef Workstation App to 0.1.45 [#719](https://github.com/chef/chef-workstation/pull/719) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.8 -->
