@@ -9,7 +9,10 @@
 ############################################################################
 
 set -evx
+
+# the gem doesn't seem to be available when this job kicks off so let's wait
+sleep 600
+
 # make sure we have rake for the tasks later
 sed -i -r "s/^\s*gem \"chef\".*/  gem \"chef\", \"= ${EXPEDITOR_VERSION}\"/" components/gems/Gemfile
 sed -i -r "s/^\s*gem \"chef-bin\".*/  gem \"chef-bin\", \"= ${EXPEDITOR_VERSION}\"/" components/gems/Gemfile
-

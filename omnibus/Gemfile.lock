@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/chef/omnibus.git
-  revision: f0e30edfaaaf47f403c441ddf6665b21a26f4546
+  revision: 0717632c0a8604a0906ca5797c726809afbfd3e8
   branch: master
   specs:
-    omnibus (6.1.13)
+    omnibus (6.1.16)
       aws-sdk-s3 (~> 1)
       chef-cleanroom (~> 1.0)
       chef-sugar (>= 3.3)
@@ -32,8 +32,8 @@ GEM
     artifactory (3.0.5)
     awesome_print (1.8.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.239.0)
-    aws-sdk-core (3.77.0)
+    aws-partitions (1.240.0)
+    aws-sdk-core (3.78.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
       aws-sigv4 (~> 1.1)
@@ -41,7 +41,7 @@ GEM
     aws-sdk-kms (1.25.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.54.0)
+    aws-sdk-s3 (1.56.0)
       aws-sdk-core (~> 3, >= 3.77.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
@@ -206,7 +206,7 @@ GEM
       mixlib-log
     mixlib-authentication (2.1.1)
     mixlib-cli (2.1.1)
-    mixlib-config (3.0.1)
+    mixlib-config (3.0.5)
       tomlrb
     mixlib-install (3.11.21)
       mixlib-shellout
@@ -272,7 +272,7 @@ GEM
     solve (4.0.2)
       molinillo (~> 0.6)
       semverse (>= 1.1, < 4.0)
-    strings (0.1.6)
+    strings (0.1.7)
       strings-ansi (~> 0.1)
       unicode-display_width (~> 1.5)
       unicode_utils (~> 1.4)
