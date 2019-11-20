@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.12.13 -->
-## [0.12.13](https://github.com/chef/chef-workstation/tree/0.12.13) (2019-11-20)
+<!-- latest_release 0.12.14 -->
+## [0.12.14](https://github.com/chef/chef-workstation/tree/0.12.14) (2019-11-20)
 
 #### Merged Pull Requests
-- Remove the version override on libtool [#729](https://github.com/chef/chef-workstation/pull/729) ([tas50](https://github.com/tas50))
+- Use newer chef/license_scout in omnibus [#730](https://github.com/chef/chef-workstation/pull/730) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.11.21 -->
 ### Changes since 0.11.21 release
 
 #### Merged Pull Requests
+- Use newer chef/license_scout in omnibus [#730](https://github.com/chef/chef-workstation/pull/730) ([tas50](https://github.com/tas50)) <!-- 0.12.14 -->
 - Remove the version override on libtool [#729](https://github.com/chef/chef-workstation/pull/729) ([tas50](https://github.com/tas50)) <!-- 0.12.13 -->
 - Update Chef Infra Client to 15.5.15 [#728](https://github.com/chef/chef-workstation/pull/728) ([tas50](https://github.com/tas50)) <!-- 0.12.12 -->
 - Bump train to 3.1.8 [#725](https://github.com/chef/chef-workstation/pull/725) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.11 -->
