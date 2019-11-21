@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.12.15 -->
-## [0.12.15](https://github.com/chef/chef-workstation/tree/0.12.15) (2019-11-21)
+<!-- latest_release 0.12.16 -->
+## [0.12.16](https://github.com/chef/chef-workstation/tree/0.12.16) (2019-11-21)
 
 #### Merged Pull Requests
-- Rollback omnibus-software and update cookstyle to 5.13 [#733](https://github.com/chef/chef-workstation/pull/733) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.46 [#734](https://github.com/chef/chef-workstation/pull/734) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.11.21 -->
 ### Changes since 0.11.21 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.46 [#734](https://github.com/chef/chef-workstation/pull/734) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.16 -->
 - Rollback omnibus-software and update cookstyle to 5.13 [#733](https://github.com/chef/chef-workstation/pull/733) ([tas50](https://github.com/tas50)) <!-- 0.12.15 -->
 - Use newer chef/license_scout in omnibus [#730](https://github.com/chef/chef-workstation/pull/730) ([tas50](https://github.com/tas50)) <!-- 0.12.14 -->
 - Remove the version override on libtool [#729](https://github.com/chef/chef-workstation/pull/729) ([tas50](https://github.com/tas50)) <!-- 0.12.13 -->
