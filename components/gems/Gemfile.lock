@@ -277,13 +277,13 @@ GEM
     chef-api (0.10.0)
       logify (~> 0.1)
       mime-types
-    chef-apply (0.4.9)
+    chef-apply (0.4.11)
       chef (>= 15.0)
       chef-cli (>= 1.0.3)
       chef-telemetry
       license-acceptance (~> 1.0, >= 1.0.11)
       mixlib-cli
-      mixlib-config
+      mixlib-config (>= 3.0.5)
       mixlib-install
       mixlib-log
       pastel
