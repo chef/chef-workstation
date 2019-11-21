@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.12.18 -->
-## [0.12.18](https://github.com/chef/chef-workstation/tree/0.12.18) (2019-11-21)
+<!-- latest_release 0.12.19 -->
+## [0.12.19](https://github.com/chef/chef-workstation/tree/0.12.19) (2019-11-21)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `0eefd7d` to `06c78cc` in /omnibus [#736](https://github.com/chef/chef-workstation/pull/736) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Update knife-ec2 to 1.0.17 [#737](https://github.com/chef/chef-workstation/pull/737) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.11.21 -->
 ### Changes since 0.11.21 release
 
 #### Merged Pull Requests
+- Update knife-ec2 to 1.0.17 [#737](https://github.com/chef/chef-workstation/pull/737) ([tas50](https://github.com/tas50)) <!-- 0.12.19 -->
 - Bump omnibus-software from `0eefd7d` to `06c78cc` in /omnibus [#736](https://github.com/chef/chef-workstation/pull/736) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.12.18 -->
 - Bump  to 15.5.16 [#735](https://github.com/chef/chef-workstation/pull/735) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.17 -->
 - Bump Chef Workstation App to 0.1.46 [#734](https://github.com/chef/chef-workstation/pull/734) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.16 -->
