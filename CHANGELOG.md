@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.12.21 -->
-## [0.12.21](https://github.com/chef/chef-workstation/tree/0.12.21) (2019-11-26)
+<!-- latest_release 0.12.22 -->
+## [0.12.22](https://github.com/chef/chef-workstation/tree/0.12.22) (2019-11-26)
 
 #### Merged Pull Requests
-- Bump chef-apply to 0.4.12 [#740](https://github.com/chef/chef-workstation/pull/740) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Infra Client to 15.5.17 [#739](https://github.com/chef/chef-workstation/pull/739) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.12.20 -->
 ### Changes since 0.12.20 release
 
 #### Merged Pull Requests
+- Bump Chef Infra Client to 15.5.17 [#739](https://github.com/chef/chef-workstation/pull/739) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.22 -->
 - Bump chef-apply to 0.4.12 [#740](https://github.com/chef/chef-workstation/pull/740) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.21 -->
 <!-- release_rollup -->
 
