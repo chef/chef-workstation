@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.12.23 -->
-## [0.12.23](https://github.com/chef/chef-workstation/tree/0.12.23) (2019-11-28)
+<!-- latest_release 0.13.0 -->
+## [0.13.0](https://github.com/chef/chef-workstation/tree/0.13.0) (2019-12-02)
 
 #### Merged Pull Requests
-- Bump knife-google to 4.2.1 [#742](https://github.com/chef/chef-workstation/pull/742) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update kitchen-azurerm and kitchen-google to the latest [#745](https://github.com/chef/chef-workstation/pull/745) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.12.20 -->
 ### Changes since 0.12.20 release
 
 #### Merged Pull Requests
+- Update kitchen-azurerm and kitchen-google to the latest [#745](https://github.com/chef/chef-workstation/pull/745) ([tas50](https://github.com/tas50)) <!-- 0.13.0 -->
 - Bump knife-google to 4.2.1 [#742](https://github.com/chef/chef-workstation/pull/742) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.23 -->
 - Bump Chef Infra Client to 15.5.17 [#739](https://github.com/chef/chef-workstation/pull/739) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.22 -->
 - Bump chef-apply to 0.4.12 [#740](https://github.com/chef/chef-workstation/pull/740) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.12.21 -->
