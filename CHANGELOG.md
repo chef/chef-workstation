@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.13.2 -->
-## [0.13.2](https://github.com/chef/chef-workstation/tree/0.13.2) (2019-12-02)
+<!-- latest_release 0.13.3 -->
+## [0.13.3](https://github.com/chef/chef-workstation/tree/0.13.3) (2019-12-03)
 
 #### Merged Pull Requests
-- Update train to 3.2.0 [#747](https://github.com/chef/chef-workstation/pull/747) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.47 [#749](https://github.com/chef/chef-workstation/pull/749) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.12.20 -->
 ### Changes since 0.12.20 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.47 [#749](https://github.com/chef/chef-workstation/pull/749) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.3 -->
 - Update train to 3.2.0 [#747](https://github.com/chef/chef-workstation/pull/747) ([tas50](https://github.com/tas50)) <!-- 0.13.2 -->
 - Bump chef-analyze CLI to 0.1.32 [#746](https://github.com/chef/chef-workstation/pull/746) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.1 -->
 - Update kitchen-azurerm and kitchen-google to the latest [#745](https://github.com/chef/chef-workstation/pull/745) ([tas50](https://github.com/tas50)) <!-- 0.13.0 -->
