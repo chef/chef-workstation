@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.13.5 -->
-## [0.13.5](https://github.com/chef/chef-workstation/tree/0.13.5) (2019-12-04)
+<!-- latest_release 0.13.6 -->
+## [0.13.6](https://github.com/chef/chef-workstation/tree/0.13.6) (2019-12-04)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.34 [#751](https://github.com/chef/chef-workstation/pull/751) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump nokogiri to 1.10.7 [#754](https://github.com/chef/chef-workstation/pull/754) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.12.20 -->
 ### Changes since 0.12.20 release
 
 #### Merged Pull Requests
+- Bump nokogiri to 1.10.7 [#754](https://github.com/chef/chef-workstation/pull/754) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.6 -->
 - Bump chef-analyze CLI to 0.1.34 [#751](https://github.com/chef/chef-workstation/pull/751) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.5 -->
 - Bump nokogiri to 1.10.6 and knife-ec2 to 1.0.18 and train-core to 3.2.0 [#752](https://github.com/chef/chef-workstation/pull/752) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.4 -->
 - Bump Chef Workstation App to 0.1.47 [#749](https://github.com/chef/chef-workstation/pull/749) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.3 -->
