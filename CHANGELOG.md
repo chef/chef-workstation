@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.13.7 -->
-## [0.13.7](https://github.com/chef/chef-workstation/tree/0.13.7) (2019-12-04)
+<!-- latest_release 0.13.8 -->
+## [0.13.8](https://github.com/chef/chef-workstation/tree/0.13.8) (2019-12-04)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `06c78cc` to `8e7803d` in /omnibus [#753](https://github.com/chef/chef-workstation/pull/753) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump knife-tidy to 2.0.6 [#755](https://github.com/chef/chef-workstation/pull/755) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.12.20 -->
 ### Changes since 0.12.20 release
 
 #### Merged Pull Requests
+- Bump knife-tidy to 2.0.6 [#755](https://github.com/chef/chef-workstation/pull/755) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.8 -->
 - Bump omnibus-software from `06c78cc` to `8e7803d` in /omnibus [#753](https://github.com/chef/chef-workstation/pull/753) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.13.7 -->
 - Bump nokogiri to 1.10.7 [#754](https://github.com/chef/chef-workstation/pull/754) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.6 -->
 - Bump chef-analyze CLI to 0.1.34 [#751](https://github.com/chef/chef-workstation/pull/751) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.5 -->
