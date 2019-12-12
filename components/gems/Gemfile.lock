@@ -200,12 +200,12 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.4)
     byebug (11.0.1)
-    chef (15.5.17)
+    chef (15.6.10)
       addressable
       bcrypt_pbkdf (~> 1.0)
       bundler (>= 1.10)
-      chef-config (= 15.5.17)
-      chef-utils (= 15.5.17)
+      chef-config (= 15.6.10)
+      chef-utils (= 15.6.10)
       chef-zero (>= 14.0.11)
       diff-lcs (~> 1.2, >= 1.2.4)
       ed25519 (~> 1.2)
@@ -232,12 +232,12 @@ GEM
       train-winrm (>= 0.2.5)
       tty-screen (~> 0.6)
       uuidtools (~> 2.1.5)
-    chef (15.5.17-universal-mingw32)
+    chef (15.6.10-universal-mingw32)
       addressable
       bcrypt_pbkdf (~> 1.0)
       bundler (>= 1.10)
-      chef-config (= 15.5.17)
-      chef-utils (= 15.5.17)
+      chef-config (= 15.6.10)
+      chef-utils (= 15.6.10)
       chef-zero (>= 14.0.11)
       diff-lcs (~> 1.2, >= 1.2.4)
       ed25519 (~> 1.2)
@@ -294,8 +294,8 @@ GEM
       train-core (~> 3.0)
       train-winrm
       tty-spinner
-    chef-bin (15.5.17)
-      chef (= 15.5.17)
+    chef-bin (15.6.10)
+      chef (= 15.6.10)
     chef-cli (2.0.0)
       addressable (>= 2.3.5, < 2.6)
       chef (>= 14.0)
@@ -308,9 +308,9 @@ GEM
       mixlib-shellout (>= 2.0, < 4.0)
       paint (~> 1.0)
       solve (> 2.0, < 5.0)
-    chef-config (15.5.17)
+    chef-config (15.6.10)
       addressable
-      chef-utils (= 15.5.17)
+      chef-utils (= 15.6.10)
       fuzzyurl
       mixlib-config (>= 2.2.12, < 4.0)
       mixlib-shellout (>= 2.0, < 4.0)
@@ -321,7 +321,7 @@ GEM
       concurrent-ruby (~> 1.0)
       ffi-yajl (~> 2.2)
       http (~> 2.2)
-    chef-utils (15.5.17)
+    chef-utils (15.6.10)
     chef-vault (3.4.3)
     chef-zero (14.0.13)
       ffi-yajl (~> 2.2)
@@ -1025,9 +1025,9 @@ DEPENDENCIES
   bcrypt_pbkdf
   berkshelf (>= 7.0.8)
   bundler (< 2)
-  chef (= 15.5.17)
+  chef (= 15.6.10)
   chef-apply (>= 0.3.3)
-  chef-bin (= 15.5.17)
+  chef-bin (= 15.6.10)
   chef-cli (>= 1.0.9)
   chef-sugar
   chef-vault (>= 3.4.1)
@@ -1038,13 +1038,13 @@ DEPENDENCIES
   dep-selector-libgecode
   dep_selector
   ed25519
-  fauxhai-ng (~> 7.0)
+  fauxhai-ng (~> 7.5)
   ffi-libarchive
   ffi-rzmq-core
   foodcritic (>= 16.0)
   guard
-  inspec (~> 4.10)
-  inspec-bin (~> 4.10)
+  inspec (~> 4.18)
+  inspec-bin (~> 4.18)
   kitchen-azurerm (>= 0.14)
   kitchen-digitalocean (>= 0.10.0)
   kitchen-dokken (>= 2.6.7)
@@ -1067,12 +1067,12 @@ DEPENDENCIES
   listen
   mdl (>= 0.7.0)
   minitest (<= 5.11.3)
-  mixlib-archive (>= 0.4.16)
+  mixlib-archive (>= 1.0)
   mixlib-install
   mixlib-versioning
   net-ssh (>= 4.2.0)
   nokogiri
-  ohai (>= 14)
+  ohai (>= 15)
   opscode-pushy-client (>= 2.99)
   pry
   pry-byebug
