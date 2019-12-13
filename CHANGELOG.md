@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.13.25 -->
-## [0.13.25](https://github.com/chef/chef-workstation/tree/0.13.25) (2019-12-13)
+<!-- latest_release 0.13.26 -->
+## [0.13.26](https://github.com/chef/chef-workstation/tree/0.13.26) (2019-12-13)
 
 #### Merged Pull Requests
-- Update kitchen-dokken to 2.8.1 [#786](https://github.com/chef/chef-workstation/pull/786) ([tas50](https://github.com/tas50))
+- Bump chef-analyze CLI to 0.1.52 [#789](https://github.com/chef/chef-workstation/pull/789) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.12.20 -->
 ### Changes since 0.12.20 release
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.52 [#789](https://github.com/chef/chef-workstation/pull/789) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.26 -->
 - Update kitchen-dokken to 2.8.1 [#786](https://github.com/chef/chef-workstation/pull/786) ([tas50](https://github.com/tas50)) <!-- 0.13.25 -->
 - Bump chef-analyze CLI to 0.1.49 [#785](https://github.com/chef/chef-workstation/pull/785) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.24 -->
 - Bump chef-analyze CLI to 0.1.46 [#779](https://github.com/chef/chef-workstation/pull/779) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.23 -->
