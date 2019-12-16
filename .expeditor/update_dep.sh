@@ -18,6 +18,9 @@ function new_gem_included() {
 branch="expeditor/${EXPEDITOR_GEM_NAME}_${EXPEDITOR_VERSION}"
 git checkout -b "$branch"
 
+# attempt to install the gem first which seems to help bundler cache
+gem install $EXPEDITOR_GEM_NAME
+
 pushd components/gems
 tries=12
 for (( i=1; i<=$tries; i+=1 )); do
