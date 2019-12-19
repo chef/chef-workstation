@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.13.36 -->
-## [0.13.36](https://github.com/chef/chef-workstation/tree/0.13.36) (2019-12-19)
+<!-- latest_release 0.13.37 -->
+## [0.13.37](https://github.com/chef/chef-workstation/tree/0.13.37) (2019-12-19)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.57 [#808](https://github.com/chef/chef-workstation/pull/808) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Cleaning and vendoring main-chef-wrapper dependencies [#809](https://github.com/chef/chef-workstation/pull/809) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.13.35 -->
 ### Changes since 0.13.35 release
 
 #### Merged Pull Requests
+- Cleaning and vendoring main-chef-wrapper dependencies [#809](https://github.com/chef/chef-workstation/pull/809) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.13.37 -->
 - Bump chef-analyze CLI to 0.1.57 [#808](https://github.com/chef/chef-workstation/pull/808) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.36 -->
 <!-- release_rollup -->
 
