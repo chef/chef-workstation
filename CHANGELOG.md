@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.13.41 -->
-## [0.13.41](https://github.com/chef/chef-workstation/tree/0.13.41) (2019-12-20)
+<!-- latest_release 0.13.42 -->
+## [0.13.42](https://github.com/chef/chef-workstation/tree/0.13.42) (2019-12-20)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `42ded1e` to `7402675` in /omnibus [#820](https://github.com/chef/chef-workstation/pull/820) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Update openssl to 1.0.2u [#822](https://github.com/chef/chef-workstation/pull/822) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.13.35 -->
 ### Changes since 0.13.35 release
 
 #### Merged Pull Requests
+- Update openssl to 1.0.2u [#822](https://github.com/chef/chef-workstation/pull/822) ([tas50](https://github.com/tas50)) <!-- 0.13.42 -->
 - Bump omnibus-software from `42ded1e` to `7402675` in /omnibus [#820](https://github.com/chef/chef-workstation/pull/820) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.13.41 -->
 - Bump omnibus-software from `e707177` to `42ded1e` in /omnibus [#818](https://github.com/chef/chef-workstation/pull/818) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.13.40 -->
 - Windows install: Remove experimental wording and make workstation top level in the installer [#811](https://github.com/chef/chef-workstation/pull/811) ([tas50](https://github.com/tas50)) <!-- 0.13.39 -->
