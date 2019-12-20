@@ -102,7 +102,7 @@
                 <RegistryValue Type="string" Name="BinDir" Value="[PROJECTLOCATIONBIN]" />
               </RegistryKey>
             </Component>
-            <Component Id="StartChefWSPowershellShortcut" Guid="{69EF5736-ED67-45B3-887A-FBFC0AB6DA13}" >
+            <Component Id="StartChefWSPowershellScript" Guid="{69EF5736-ED67-45B3-887A-FBFC0AB6DA13}" >
               <!-- Note that this refers to a Source relative to the package build directory,
                      and not in the zip file which contains all of the chef-workstation build -->
                 <File Id="StartChefWSScript" Source="Resources\assets\start-chefws.ps1" KeyPath="yes" />
@@ -222,12 +222,12 @@
       <ComponentRef Id="ChefWSRegistryEntries" />
       <Feature Id="ChefWSStartMenuPSShortcutFeature" Title="!(loc.FeatureChefWSStartMenuPSShortcut)"
         Description="!(loc.FeatureChefWSStartMenuPSShortcutDesc)" Level="1" AllowAdvertise="no" >
-        <ComponentRef Id="StartChefWSPowershellShortcut" />
+        <ComponentRef Id="StartChefWSPowershellScript" />
         <ComponentRef Id="PowershellStartMenuShortcut" />
       </Feature>
       <Feature Id="ChefWSDesktopPSShortcutFeature" Title="!(loc.FeatureChefWSDesktopPSShortcut)"
         Description="!(loc.FeatureChefWSDesktopPSShortcutDesc)" Level="1" AllowAdvertise="no" >
-        <ComponentRef Id="StartChefWSPowershellShortcut" />
+        <ComponentRef Id="StartChefWSPowershellScript" />
         <ComponentRef Id="PowershellDesktopShortcut" />
       </Feature>
       <Feature Id="ChefWSEnvHacks" Title="!(loc.FeatureChefWSEnvHacks)" Description="!(loc.FeatureChefWSEnvHacksDesc)" Level="1000" AllowAdvertise="no">
