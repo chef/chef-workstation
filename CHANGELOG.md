@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.13.39 -->
-## [0.13.39](https://github.com/chef/chef-workstation/tree/0.13.39) (2019-12-20)
+<!-- latest_release 0.13.40 -->
+## [0.13.40](https://github.com/chef/chef-workstation/tree/0.13.40) (2019-12-20)
 
 #### Merged Pull Requests
-- Windows install: Remove experimental wording and make workstation top level in the installer [#811](https://github.com/chef/chef-workstation/pull/811) ([tas50](https://github.com/tas50))
+- Bump omnibus-software from `e707177` to `42ded1e` in /omnibus [#818](https://github.com/chef/chef-workstation/pull/818) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.13.35 -->
 ### Changes since 0.13.35 release
 
 #### Merged Pull Requests
+- Bump omnibus-software from `e707177` to `42ded1e` in /omnibus [#818](https://github.com/chef/chef-workstation/pull/818) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.13.40 -->
 - Windows install: Remove experimental wording and make workstation top level in the installer [#811](https://github.com/chef/chef-workstation/pull/811) ([tas50](https://github.com/tas50)) <!-- 0.13.39 -->
 - Bump Chef Workstation App to 0.1.51 [#815](https://github.com/chef/chef-workstation/pull/815) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.38 -->
 - Cleaning and vendoring main-chef-wrapper dependencies [#809](https://github.com/chef/chef-workstation/pull/809) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.13.37 -->
