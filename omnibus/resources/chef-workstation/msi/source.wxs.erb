@@ -201,14 +201,6 @@
             Show="minimized"
             Icon="cwsps.ico"/>
         </Component>
-
-        <Component Id="ChefWSAppDesktopShortcut" Guid="91f753ca-d87b-4ef2-915c-2183bef16177">
-          <Shortcut Id="ChefWSAppDesktopShortcutDef"
-            Name="!(loc.ChefWSAppShortcutName)"
-            Description="!(loc.ChefWSAppShortcutDesc)"
-            Target="[WSAPPDIR]\Chef Workstation App.exe"
-            Icon="cws.ico"/>
-        </Component>
       </Directory>
     </Directory>
 
@@ -217,8 +209,7 @@
          [x] Chef Workstation
            [x] Start Menu Shortcut
            [x] Desktop Shortcut
-         [x] Experimental Features
-           [x] Chef Workstation App (includes shortcuts and autostart)
+         [x] Chef Workstation App (includes shortcuts and autostart)
     -->
     <Feature Id="ChefWSFeature" Title="!(loc.FeatureMainName)"
       Description="!(loc.FeatureMainDesc)"
@@ -243,15 +234,12 @@
       </Feature>
     </Feature>
 
-    <Feature Id="ExperimentalFeatures" Title="!(loc.FeatureExperimental)" Description="!(loc.FeatureExperimentalDesc)" Level="1000" AllowAdvertise="no" Display="collapse">
-      <Feature Id="ExperimentalChefWSApp" Title="!(loc.FeatureExperimentalChefWS)" Description="!(loc.FeatureExperimentalChefWSDesc)">
-        <!-- 2018-10-08  disabling automstart until we're ready to enable it for all platforms
+    <Feature Id="ChefWSApp" Title="!(loc.FeatureChefWSApp)" Description="!(loc.FeatureChefWSAppDesc)" Level="1000" AllowAdvertise="no">
+      <!-- 2018-10-08  disabling automstart until we're ready to enable it for all platforms
 
-             <ComponentRef Id="ChefWSAppAutostartShortcut" />
-         -->
-        <ComponentRef Id="ChefWSAppStartMenuShortcut" />
-        <ComponentRef Id="ChefWSAppDesktopShortcut" />
-      </Feature>
+            <ComponentRef Id="ChefWSAppAutostartShortcut" />
+        -->
+      <ComponentRef Id="ChefWSAppStartMenuShortcut" />
     </Feature>
 
     <!--
