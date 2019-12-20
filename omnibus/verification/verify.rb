@@ -400,11 +400,6 @@ module ChefWorkstation
 
       add_component "opscode-pushy-client" do |c|
         c.gem_base_dir = "opscode-pushy-client"
-        # TODO the unit tests are currently failing in master
-        # c.unit_test do
-        #   bundle_install_mutex.synchronize { sh("#{embedded_bin("bundle")} install") }
-        #   sh("#{embedded_bin("bundle")} exec rake spec")
-        # end
 
         c.smoke_test do
           tmpdir do |cwd|
@@ -443,7 +438,7 @@ module ChefWorkstation
       end
 
       def run(params = [ ])
-        err("[WARN] This is an internal command used by the ChefCLI development team. If you are a ChefCLI user, please do not run it.")
+        err("[WARN] This is an internal command used by the Chef Workstation development team. If you are a Chef Workstation user, please do not run it.")
         @components_filter = parse_options(params)
 
         validate_components!
