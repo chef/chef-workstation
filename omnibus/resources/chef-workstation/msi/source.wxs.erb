@@ -213,8 +213,7 @@
     -->
     <Feature Id="ChefWSFeature" Title="!(loc.FeatureMainName)"
       Description="!(loc.FeatureMainDesc)"
-      Absent="disallow" AllowAdvertise="no" Level="1" ConfigurableDirectory="INSTALLLOCATION"
-      Display="expand">
+      Absent="disallow" AllowAdvertise="no" Level="1" ConfigurableDirectory="INSTALLLOCATION">
       <ComponentGroupRef Id="ProjectDir" />
       <ComponentRef Id="ChefWSPath" />
       <ComponentRef Id="ChefPSModulePath" />
@@ -236,7 +235,7 @@
     </Feature>
 
     <Feature Id="ChefWSApp" Title="!(loc.FeatureChefWSApp)" Description="!(loc.FeatureChefWSAppDesc)"
-      Level="1" AllowAdvertise="no" Display="expand">
+      Level="1" AllowAdvertise="no">
       <ComponentRef Id="ChefWSAppStartMenuShortcut" />
       <Feature Id="ChefWSAppAutostartFeature" Title="!(loc.FeatureChefWSAppAutostart)"
                Description="!(loc.FeatureChefWSAppAutostartDesc)" Level="1000" AllowAdvertise="no" >
