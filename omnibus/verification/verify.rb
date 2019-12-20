@@ -438,7 +438,7 @@ module ChefWorkstation
       end
 
       def run(params = [ ])
-        err("[WARN] This is an internal command used by the ChefCLI development team. If you are a ChefCLI user, please do not run it.")
+        err("[WARN] This is an internal command used by the Chef Workstation development team. If you are a Chef Workstation user, please do not run it.")
         @components_filter = parse_options(params)
 
         validate_components!
