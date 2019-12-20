@@ -400,11 +400,6 @@ module ChefWorkstation
 
       add_component "opscode-pushy-client" do |c|
         c.gem_base_dir = "opscode-pushy-client"
-        # TODO the unit tests are currently failing in master
-        # c.unit_test do
-        #   bundle_install_mutex.synchronize { sh("#{embedded_bin("bundle")} install") }
-        #   sh("#{embedded_bin("bundle")} exec rake spec")
-        # end
 
         c.smoke_test do
           tmpdir do |cwd|
