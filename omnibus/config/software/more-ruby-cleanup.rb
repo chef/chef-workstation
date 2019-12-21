@@ -61,6 +61,7 @@ build do
       examples
       ext
       FAQ.txt
+      frozen_old_spec
       Gemfile.devtools
       Gemfile.lock
       Gemfile.travis
