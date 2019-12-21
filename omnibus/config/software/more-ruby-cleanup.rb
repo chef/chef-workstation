@@ -78,6 +78,7 @@ build do
       Manifest.txt
       MIGRATING.md
       rakelib
+      readme.erb
       README
       README-json-jruby.md
       README.markdown
@@ -92,12 +93,14 @@ build do
       site
       test
       tests
+      THANKS.txt
       TODO
-      TODO.md
+      TODO*.md
       travis_build_script.sh
       UPGRADING.md
       warning.txt
       website
+      yard-template
     }
 
     Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
