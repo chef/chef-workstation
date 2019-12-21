@@ -19,7 +19,7 @@ source "https://rubygems.org"
 
 gem "bundler", "< 2"
 
-## Until we resolve https://github.com/inspec/train/issues/548
+## TODO: Until we resolve https://github.com/inspec/train/issues/548
 gem "train", "=3.2.0"
 gem "train-core", "=3.2.0"
 
@@ -63,7 +63,7 @@ group(:omnibus_package) do
   gem "chefspec", ">= 9.0.0", "< 10.0"
   gem "fauxhai-ng", "~> 7.5"
 
-  # inspec
+  # inspec #TODO revert this pin when we solve build failures
   gem "inspec-bin", "= 4.18.39" # the actual inspec CLI binary
   gem "inspec", "= 4.18.39"
 
