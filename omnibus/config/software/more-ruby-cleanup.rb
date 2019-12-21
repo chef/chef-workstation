@@ -108,5 +108,37 @@ build do
         File.delete(f)
       end
     end
+
+    block "Removing Gemspec / Rakefile / Gemfile unless there's a bin dir" do
+      # find the embedded ruby gems dir and clean it up for globbing
+      target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
+      files = %w{
+        *.gemspec
+        Gemfile
+        Rakefile
+      }
+
+      Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
+        # don't delete these files if there's a bin dir in the same dir
+        unless Dir.exist?(File.join(File.dirname(f), "bin"))
+          puts "Deleting #{f}"
+          File.delete(f)
+        end
+      end
+    end
+
+    block "Removing spec dirs unless we're in components we test in the verify command" do
+      # find the embedded ruby gems dir and clean it up for globbing
+      target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
+
+      Dir.glob(Dir.glob("#{target_dir}/*/spec")).each do |f|
+
+        # don't delete these files if we use them in our verify tests
+        unless File.basename(File.expand_path("..", f)).match?(/^(berkshelf|test-kitchen|chef|chef-cli|chef-apply|chefspec)-\d/)
+          puts "Deleting unused spec dir #{f}"
+          FileUtils.remove_dir(f)
+        end
+      end
+    end
   end
 end
