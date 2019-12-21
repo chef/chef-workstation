@@ -34,63 +34,69 @@ build do
     files = %w{
       .github
       .kokoro
-      examples
-      example
-      docs
-      doc
-      doc-api
-      sample
-      samples
-      test
-      tests
+      Appraisals
+      ARCHITECTURE.md
+      autotest/*
+      bench
       benchmark
       benchmarks
-      rakelib
-      CHANGELOG.md
-      CONTRIBUTORS.md
-      README.md
-      README.markdown
-      HISTORY.md
-      TODO.md
-      CONTRIBUTING.md
-      ISSUE_TEMPLATE.md
-      UPGRADING.md
-      CODE_OF_CONDUCT.md
-      Code-of-Conduct.md
-      ARCHITECTURE.md
-      CHANGES.md
-      README.YARD.md
-      GUIDE.md
-      MIGRATING.md
-      README.txt
-      HISTORY.txt
-      Manifest.txt
-      Manifest
-      CHANGES.txt
-      CHANGELOG.txt
-      warning.txt
-      FAQ.txt
-      release-script.txt
-      TODO
-      HISTORY
-      CHANGES
       CHANGELOG
+      CHANGELOG.md
+      CHANGELOG.rdoc
+      CHANGELOG.txt
+      CHANGES
+      CHANGES.md
+      CHANGES.txt
+      Code-of-Conduct.md
+      CODE_OF_CONDUCT.md
+      CONTRIBUTING.md
+      CONTRIBUTING.rdoc
+      CONTRIBUTORS.md
+      doc
+      doc-api
+      docs
+      donate.png
+      ed25519.png
+      example
+      examples
+      ext
+      FAQ.txt
+      Gemfile.devtools
+      Gemfile.lock
+      Gemfile.travis
+      GUIDE.md
+      HISTORY
+      HISTORY.md
+      History.rdoc
+      HISTORY.txt
+      INSTALL
+      ISSUE_TEMPLATE.md
+      logo.png
+      man
+      Manifest
+      Manifest.txt
+      MIGRATING.md
+      rakelib
       README
       README-json-jruby.md
-      Gemfile.travis
-      Gemfile.lock
-      Gemfile.devtools
+      README.markdown
+      README.md
       README.rdoc
-      CHANGELOG.rdoc
-      History.rdoc
-      CONTRIBUTING.rdoc
+      README.txt
+      README.YARD.md
       README_INDEX.rdoc
-      logo.png
-      donate.png
-      Appraisals
-      website
-      man
+      release-script.txt
+      sample
+      samples
       site
+      test
+      tests
+      TODO
+      TODO.md
+      travis_build_script.sh
+      UPGRADING.md
+      warning.txt
+      website
     }
 
     Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
