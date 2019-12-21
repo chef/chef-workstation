@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.13.45 -->
-## [0.13.45](https://github.com/chef/chef-workstation/tree/0.13.45) (2019-12-20)
+<!-- latest_release 0.13.46 -->
+## [0.13.46](https://github.com/chef/chef-workstation/tree/0.13.46) (2019-12-21)
 
 #### Merged Pull Requests
-- Minor updates to the build verification code [#826](https://github.com/chef/chef-workstation/pull/826) ([tas50](https://github.com/tas50))
+- Update multiple components to the latest releases [#827](https://github.com/chef/chef-workstation/pull/827) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.13.35 -->
 ### Changes since 0.13.35 release
 
 #### Merged Pull Requests
+- Update multiple components to the latest releases [#827](https://github.com/chef/chef-workstation/pull/827) ([tas50](https://github.com/tas50)) <!-- 0.13.46 -->
 - Minor updates to the build verification code [#826](https://github.com/chef/chef-workstation/pull/826) ([tas50](https://github.com/tas50)) <!-- 0.13.45 -->
 - Minor updates to the omnibus cookbook [#825](https://github.com/chef/chef-workstation/pull/825) ([tas50](https://github.com/tas50)) <!-- 0.13.44 -->
 - Bump Chef Workstation App to 0.1.52 [#821](https://github.com/chef/chef-workstation/pull/821) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.43 -->
