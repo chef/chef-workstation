@@ -540,7 +540,7 @@ GEM
       test-kitchen (>= 1.16, < 3.0)
       vsphere-automation-sdk (~> 0.4)
     knife-acl (1.0.3)
-    knife-azure (2.0.2)
+    knife-azure (2.0.6)
       azure_mgmt_compute (~> 0.18, >= 0.18.3)
       azure_mgmt_network (~> 0.18, >= 0.18.2)
       azure_mgmt_resources (~> 0.17, >= 0.17.2)
@@ -580,7 +580,7 @@ GEM
       filesize (>= 0.1.1, < 0.3.0)
       netaddr (~> 1.5)
       rbvmomi (>= 1.8, < 3.0)
-    knife-windows (3.0.3)
+    knife-windows (3.0.6)
       chef (>= 15.0)
       winrm (~> 2.1)
       winrm-elevated (~> 1.0)
@@ -1100,4 +1100,4 @@ DEPENDENCIES
   yard
 
 BUNDLED WITH
-   1.17.3
+   1.17.2
