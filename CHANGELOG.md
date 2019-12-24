@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.13.48 -->
-## [0.13.48](https://github.com/chef/chef-workstation/tree/0.13.48) (2019-12-21)
+<!-- latest_release 0.13.49 -->
+## [0.13.49](https://github.com/chef/chef-workstation/tree/0.13.49) (2019-12-24)
 
 #### Merged Pull Requests
-- Update knife-tidy / knife-google / knife-cloud to the latest [#829](https://github.com/chef/chef-workstation/pull/829) ([tas50](https://github.com/tas50))
+- Aggressively clean up files in the workstation install [#830](https://github.com/chef/chef-workstation/pull/830) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.13.35 -->
 ### Changes since 0.13.35 release
 
 #### Merged Pull Requests
+- Aggressively clean up files in the workstation install [#830](https://github.com/chef/chef-workstation/pull/830) ([tas50](https://github.com/tas50)) <!-- 0.13.49 -->
 - Update knife-tidy / knife-google / knife-cloud to the latest [#829](https://github.com/chef/chef-workstation/pull/829) ([tas50](https://github.com/tas50)) <!-- 0.13.48 -->
 - Update knife-windows and knife-azure [#828](https://github.com/chef/chef-workstation/pull/828) ([tas50](https://github.com/tas50)) <!-- 0.13.47 -->
 - Update multiple components to the latest releases [#827](https://github.com/chef/chef-workstation/pull/827) ([tas50](https://github.com/tas50)) <!-- 0.13.46 -->
