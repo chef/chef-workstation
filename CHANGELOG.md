@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.13.50 -->
-## [0.13.50](https://github.com/chef/chef-workstation/tree/0.13.50) (2019-12-27)
+<!-- latest_release 0.13.51 -->
+## [0.13.51](https://github.com/chef/chef-workstation/tree/0.13.51) (2019-12-28)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.60 [#832](https://github.com/chef/chef-workstation/pull/832) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update libarchive, knife-ec2, and mixlib-cli to the latest [#834](https://github.com/chef/chef-workstation/pull/834) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.13.35 -->
 ### Changes since 0.13.35 release
 
 #### Merged Pull Requests
+- Update libarchive, knife-ec2, and mixlib-cli to the latest [#834](https://github.com/chef/chef-workstation/pull/834) ([tas50](https://github.com/tas50)) <!-- 0.13.51 -->
 - Bump chef-analyze CLI to 0.1.60 [#832](https://github.com/chef/chef-workstation/pull/832) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.50 -->
 - Aggressively clean up files in the workstation install [#830](https://github.com/chef/chef-workstation/pull/830) ([tas50](https://github.com/tas50)) <!-- 0.13.49 -->
 - Update knife-tidy / knife-google / knife-cloud to the latest [#829](https://github.com/chef/chef-workstation/pull/829) ([tas50](https://github.com/tas50)) <!-- 0.13.48 -->
