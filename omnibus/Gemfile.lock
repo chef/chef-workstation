@@ -32,7 +32,7 @@ GEM
     artifactory (3.0.5)
     awesome_print (1.8.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.259.0)
+    aws-partitions (1.260.0)
     aws-sdk-core (3.86.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
@@ -169,7 +169,7 @@ GEM
     ffi (1.11.3)
     ffi (1.11.3-x64-mingw32)
     ffi (1.11.3-x86-mingw32)
-    ffi-libarchive (0.4.10)
+    ffi-libarchive (1.0.0)
       ffi (~> 1.0)
     ffi-win32-extensions (1.0.3)
       ffi
@@ -211,7 +211,7 @@ GEM
     mixlib-archive (1.0.1-universal-mingw32)
       mixlib-log
     mixlib-authentication (3.0.4)
-    mixlib-cli (2.1.1)
+    mixlib-cli (2.1.5)
     mixlib-config (3.0.5)
       tomlrb
     mixlib-install (3.11.24)
@@ -265,7 +265,7 @@ GEM
     plist (3.5.0)
     progressbar (1.10.1)
     proxifier (1.0.3)
-    public_suffix (4.0.1)
+    public_suffix (4.0.2)
     rack (2.0.8)
     retryable (3.0.5)
     ruby-progressbar (1.10.1)
@@ -353,7 +353,7 @@ GEM
     win32-taskscheduler (2.0.4)
       ffi
       structured_warnings
-    winrm (2.3.3)
+    winrm (2.3.4)
       builder (>= 2.1.2)
       erubi (~> 1.8)
       gssapi (~> 1.2)
@@ -391,4 +391,4 @@ DEPENDENCIES
   winrm-elevated
 
 BUNDLED WITH
-   1.17.2
+   1.17.3
