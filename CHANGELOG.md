@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.14.0 -->
-## [0.14.0](https://github.com/chef/chef-workstation/tree/0.14.0) (2019-12-30)
+<!-- latest_release 0.14.1 -->
+## [0.14.1](https://github.com/chef/chef-workstation/tree/0.14.1) (2019-12-30)
 
 #### Merged Pull Requests
-- Update knife-acl, knife-push, and knife-vcenter [#837](https://github.com/chef/chef-workstation/pull/837) ([tas50](https://github.com/tas50))
+- Update chef-vault to 4.0.1 [#838](https://github.com/chef/chef-workstation/pull/838) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.13.35 -->
 ### Changes since 0.13.35 release
 
 #### Merged Pull Requests
+- Update chef-vault to 4.0.1 [#838](https://github.com/chef/chef-workstation/pull/838) ([tas50](https://github.com/tas50)) <!-- 0.14.1 -->
 - Update knife-acl, knife-push, and knife-vcenter [#837](https://github.com/chef/chef-workstation/pull/837) ([tas50](https://github.com/tas50)) <!-- 0.14.0 -->
 - Update chef-zero, mixlib-authentication, mixlib-install, mixlib-versioning, and mixlib-shellout [#836](https://github.com/chef/chef-workstation/pull/836) ([tas50](https://github.com/tas50)) <!-- 0.13.53 -->
 - Update mixlib-log, mixlib-archive, ffi-yajl, knife-ec2, wmi-lite and mixlib-config [#835](https://github.com/chef/chef-workstation/pull/835) ([tas50](https://github.com/tas50)) <!-- 0.13.52 -->
