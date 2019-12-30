@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.14.1 -->
-## [0.14.1](https://github.com/chef/chef-workstation/tree/0.14.1) (2019-12-30)
+<!-- latest_release 0.14.2 -->
+## [0.14.2](https://github.com/chef/chef-workstation/tree/0.14.2) (2019-12-30)
 
 #### Merged Pull Requests
-- Update chef-vault to 4.0.1 [#838](https://github.com/chef/chef-workstation/pull/838) ([tas50](https://github.com/tas50))
+- More improvements to the Windows installer [#817](https://github.com/chef/chef-workstation/pull/817) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.13.35 -->
 ### Changes since 0.13.35 release
 
 #### Merged Pull Requests
+- More improvements to the Windows installer [#817](https://github.com/chef/chef-workstation/pull/817) ([tas50](https://github.com/tas50)) <!-- 0.14.2 -->
 - Update chef-vault to 4.0.1 [#838](https://github.com/chef/chef-workstation/pull/838) ([tas50](https://github.com/tas50)) <!-- 0.14.1 -->
 - Update knife-acl, knife-push, and knife-vcenter [#837](https://github.com/chef/chef-workstation/pull/837) ([tas50](https://github.com/tas50)) <!-- 0.14.0 -->
 - Update chef-zero, mixlib-authentication, mixlib-install, mixlib-versioning, and mixlib-shellout [#836](https://github.com/chef/chef-workstation/pull/836) ([tas50](https://github.com/tas50)) <!-- 0.13.53 -->
