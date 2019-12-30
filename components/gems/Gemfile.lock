@@ -322,7 +322,7 @@ GEM
       ffi-yajl (~> 2.2)
       http (~> 2.2)
     chef-utils (15.6.10)
-    chef-vault (3.4.3)
+    chef-vault (4.0.1)
     chef-zero (14.0.17)
       ffi-yajl (~> 2.2)
       hashie (>= 2.0, < 4.0)
@@ -694,7 +694,7 @@ GEM
     os (1.0.1)
     paint (1.0.1)
     parallel (1.19.1)
-    parser (2.7.0.0)
+    parser (2.7.0.1)
       ast (~> 2.4.0)
     parslet (1.8.2)
     pastel (0.7.3)
@@ -1031,7 +1031,7 @@ DEPENDENCIES
   chef-bin (= 15.6.10)
   chef-cli (>= 1.0.9)
   chef-sugar
-  chef-vault (>= 3.4.1)
+  chef-vault (>= 4.0)
   cheffish (>= 14.0.1)
   chefspec (>= 9.0.0, < 10.0)
   chefstyle
