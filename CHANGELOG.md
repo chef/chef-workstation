@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.14.3 -->
-## [0.14.3](https://github.com/chef/chef-workstation/tree/0.14.3) (2019-12-30)
+<!-- latest_release 0.14.4 -->
+## [0.14.4](https://github.com/chef/chef-workstation/tree/0.14.4) (2020-01-02)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `7402675` to `0ead966` in /omnibus [#839](https://github.com/chef/chef-workstation/pull/839) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump omnibus from `9fbb95f` to `7dd5e7f` in /omnibus [#840](https://github.com/chef/chef-workstation/pull/840) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.13.35 -->
 ### Changes since 0.13.35 release
 
 #### Merged Pull Requests
+- Bump omnibus from `9fbb95f` to `7dd5e7f` in /omnibus [#840](https://github.com/chef/chef-workstation/pull/840) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.4 -->
 - Bump omnibus-software from `7402675` to `0ead966` in /omnibus [#839](https://github.com/chef/chef-workstation/pull/839) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.3 -->
 - More improvements to the Windows installer [#817](https://github.com/chef/chef-workstation/pull/817) ([tas50](https://github.com/tas50)) <!-- 0.14.2 -->
 - Update chef-vault to 4.0.1 [#838](https://github.com/chef/chef-workstation/pull/838) ([tas50](https://github.com/tas50)) <!-- 0.14.1 -->
