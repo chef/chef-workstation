@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.14.4 -->
-## [0.14.4](https://github.com/chef/chef-workstation/tree/0.14.4) (2020-01-02)
+<!-- latest_release 0.14.5 -->
+## [0.14.5](https://github.com/chef/chef-workstation/tree/0.14.5) (2020-01-08)
 
 #### Merged Pull Requests
-- Bump omnibus from `9fbb95f` to `7dd5e7f` in /omnibus [#840](https://github.com/chef/chef-workstation/pull/840) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump omnibus-software from `0ead966` to `09a3cb0` in /omnibus [#842](https://github.com/chef/chef-workstation/pull/842) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.13.35 -->
 ### Changes since 0.13.35 release
 
 #### Merged Pull Requests
+- Bump omnibus-software from `0ead966` to `09a3cb0` in /omnibus [#842](https://github.com/chef/chef-workstation/pull/842) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.5 -->
 - Bump omnibus from `9fbb95f` to `7dd5e7f` in /omnibus [#840](https://github.com/chef/chef-workstation/pull/840) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.4 -->
 - Bump omnibus-software from `7402675` to `0ead966` in /omnibus [#839](https://github.com/chef/chef-workstation/pull/839) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.3 -->
 - More improvements to the Windows installer [#817](https://github.com/chef/chef-workstation/pull/817) ([tas50](https://github.com/tas50)) <!-- 0.14.2 -->
