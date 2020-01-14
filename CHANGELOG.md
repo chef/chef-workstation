@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.14.11 -->
-## [0.14.11](https://github.com/chef/chef-workstation/tree/0.14.11) (2020-01-14)
+<!-- latest_release 0.14.12 -->
+## [0.14.12](https://github.com/chef/chef-workstation/tree/0.14.12) (2020-01-14)
 
 #### Merged Pull Requests
-- Update git to 2.24.1 [#846](https://github.com/chef/chef-workstation/pull/846) ([tas50](https://github.com/tas50))
+- Simplify our Ruby cleanup in ommnibus [#856](https://github.com/chef/chef-workstation/pull/856) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.13.35 -->
 ### Changes since 0.13.35 release
 
 #### Merged Pull Requests
+- Simplify our Ruby cleanup in ommnibus [#856](https://github.com/chef/chef-workstation/pull/856) ([tas50](https://github.com/tas50)) <!-- 0.14.12 -->
 - Update git to 2.24.1 [#846](https://github.com/chef/chef-workstation/pull/846) ([tas50](https://github.com/tas50)) <!-- 0.14.11 -->
 - Bump chef-analyze CLI to 0.1.64 [#853](https://github.com/chef/chef-workstation/pull/853) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.14.10 -->
 - Bump Chef Workstation App to 0.1.56 [#855](https://github.com/chef/chef-workstation/pull/855) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.14.9 -->
