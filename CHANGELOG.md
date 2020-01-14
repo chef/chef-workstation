@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.14.9 -->
-## [0.14.9](https://github.com/chef/chef-workstation/tree/0.14.9) (2020-01-14)
+<!-- latest_release 0.14.10 -->
+## [0.14.10](https://github.com/chef/chef-workstation/tree/0.14.10) (2020-01-14)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.56 [#855](https://github.com/chef/chef-workstation/pull/855) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.64 [#853](https://github.com/chef/chef-workstation/pull/853) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.13.35 -->
 ### Changes since 0.13.35 release
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.64 [#853](https://github.com/chef/chef-workstation/pull/853) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.14.10 -->
 - Bump Chef Workstation App to 0.1.56 [#855](https://github.com/chef/chef-workstation/pull/855) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.14.9 -->
 - Bump omnibus-software from `ee6adeb` to `ac5f042` in /omnibus [#848](https://github.com/chef/chef-workstation/pull/848) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.8 -->
 - Bump chef-analyze CLI to 0.1.62 [#849](https://github.com/chef/chef-workstation/pull/849) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.14.7 -->
