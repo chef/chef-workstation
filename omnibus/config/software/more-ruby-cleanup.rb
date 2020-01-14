@@ -35,23 +35,10 @@ build do
       .github
       .kokoro
       Appraisals
-      ARCHITECTURE.md
       autotest/*
       bench
       benchmark
       benchmarks
-      CHANGELOG
-      CHANGELOG.md
-      CHANGELOG.rdoc
-      CHANGELOG.txt
-      CHANGES
-      CHANGES.md
-      CHANGES.txt
-      Code-of-Conduct.md
-      CODE_OF_CONDUCT.md
-      CONTRIBUTING.md
-      CONTRIBUTING.rdoc
-      CONTRIBUTORS.md
       doc
       doc-api
       docs
@@ -60,44 +47,20 @@ build do
       example
       examples
       ext
-      FAQ.txt
       frozen_old_spec
       Gemfile.devtools
       Gemfile.lock
       Gemfile.travis
-      GUIDE.md
-      HISTORY
-      HISTORY.md
-      History.rdoc
-      HISTORY.txt
-      INSTALL
-      ISSUE_TEMPLATE.md
       logo.png
       man
-      Manifest
-      Manifest.txt
-      MIGRATING.md
       rakelib
-      readme.erb
-      README
-      README-json-jruby.md
-      README.markdown
-      README.md
-      README.rdoc
-      README.txt
-      README.YARD.md
-      README_INDEX.rdoc
       release-script.txt
       sample
       samples
       site
       test
       tests
-      THANKS.txt
-      TODO
-      TODO*.md
       travis_build_script.sh
-      UPGRADING.md
       warning.txt
       website
       yard-template
