@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.14.12 -->
-## [0.14.12](https://github.com/chef/chef-workstation/tree/0.14.12) (2020-01-14)
+<!-- latest_release 0.14.13 -->
+## [0.14.13](https://github.com/chef/chef-workstation/tree/0.14.13) (2020-01-14)
 
 #### Merged Pull Requests
-- Simplify our Ruby cleanup in ommnibus [#856](https://github.com/chef/chef-workstation/pull/856) ([tas50](https://github.com/tas50))
+- Bump omnibus-software from `ac5f042` to `7efbf12` in /omnibus [#858](https://github.com/chef/chef-workstation/pull/858) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.13.35 -->
 ### Changes since 0.13.35 release
 
 #### Merged Pull Requests
+- Bump omnibus-software from `ac5f042` to `7efbf12` in /omnibus [#858](https://github.com/chef/chef-workstation/pull/858) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.13 -->
 - Simplify our Ruby cleanup in ommnibus [#856](https://github.com/chef/chef-workstation/pull/856) ([tas50](https://github.com/tas50)) <!-- 0.14.12 -->
 - Update git to 2.24.1 [#846](https://github.com/chef/chef-workstation/pull/846) ([tas50](https://github.com/tas50)) <!-- 0.14.11 -->
 - Bump chef-analyze CLI to 0.1.64 [#853](https://github.com/chef/chef-workstation/pull/853) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.14.10 -->
