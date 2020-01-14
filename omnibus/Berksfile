@@ -4,4 +4,4 @@ cookbook "chef-workstation-builder",
   path: File.expand_path("cookbooks/chef-workstation-builder", File.dirname(__FILE__))
 
 # Uncomment to use the latest version of the Omnibus cookbook from GitHub
-# cookbook 'omnibus', github: 'opscode-cookbooks/omnibus'
+# cookbook 'omnibus', github: 'chef-cookbooks/omnibus'

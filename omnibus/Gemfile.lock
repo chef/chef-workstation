@@ -388,7 +388,7 @@ DEPENDENCIES
   omnibus!
   omnibus-software!
   pedump
-  test-kitchen (>= 1.23)
+  test-kitchen (>= 2)
   winrm-elevated
 
 BUNDLED WITH
