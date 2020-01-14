@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.14.5 -->
-## [0.14.5](https://github.com/chef/chef-workstation/tree/0.14.5) (2020-01-08)
+<!-- latest_release 0.14.6 -->
+## [0.14.6](https://github.com/chef/chef-workstation/tree/0.14.6) (2020-01-14)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `0ead966` to `09a3cb0` in /omnibus [#842](https://github.com/chef/chef-workstation/pull/842) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Update cookstyle to 5.19.9 as well as all other deps [#845](https://github.com/chef/chef-workstation/pull/845) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.13.35 -->
 ### Changes since 0.13.35 release
 
 #### Merged Pull Requests
+- Update cookstyle to 5.19.9 as well as all other deps [#845](https://github.com/chef/chef-workstation/pull/845) ([tas50](https://github.com/tas50)) <!-- 0.14.6 -->
 - Bump omnibus-software from `0ead966` to `09a3cb0` in /omnibus [#842](https://github.com/chef/chef-workstation/pull/842) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.5 -->
 - Bump omnibus from `9fbb95f` to `7dd5e7f` in /omnibus [#840](https://github.com/chef/chef-workstation/pull/840) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.4 -->
 - Bump omnibus-software from `7402675` to `0ead966` in /omnibus [#839](https://github.com/chef/chef-workstation/pull/839) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.3 -->
