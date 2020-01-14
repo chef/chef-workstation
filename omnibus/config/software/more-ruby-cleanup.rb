@@ -120,6 +120,7 @@ build do
         *.gemspec
         Gemfile
         Rakefile
+        tasks/*.rake
       }
 
       Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
