@@ -32,6 +32,8 @@ build do
     # find the embedded ruby gems dir and clean it up for globbing
     target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
     files = %w{
+      .appveyor.yml
+      .autotest
       .github
       .kokoro
       Appraisals
@@ -83,6 +85,7 @@ build do
         *.gemspec
         Gemfile
         Rakefile
+        tasks/*.rake
       }
 
       Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
