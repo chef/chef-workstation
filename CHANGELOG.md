@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.14.15 -->
-## [0.14.15](https://github.com/chef/chef-workstation/tree/0.14.15) (2020-01-15)
+<!-- latest_release 0.14.16 -->
+## [0.14.16](https://github.com/chef/chef-workstation/tree/0.14.16) (2020-01-15)
 
 #### Merged Pull Requests
-- Update kitchen-google and kitchen-ec2 to latest [#862](https://github.com/chef/chef-workstation/pull/862) ([tas50](https://github.com/tas50))
+- Update knife-ec2 to 1.0.28 [#865](https://github.com/chef/chef-workstation/pull/865) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.13.35 -->
 ### Changes since 0.13.35 release
 
 #### Merged Pull Requests
+- Update knife-ec2 to 1.0.28 [#865](https://github.com/chef/chef-workstation/pull/865) ([tas50](https://github.com/tas50)) <!-- 0.14.16 -->
 - Update kitchen-google and kitchen-ec2 to latest [#862](https://github.com/chef/chef-workstation/pull/862) ([tas50](https://github.com/tas50)) <!-- 0.14.15 -->
 - Bump omnibus-software from `7efbf12` to `ebdd701` in /omnibus [#860](https://github.com/chef/chef-workstation/pull/860) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.14 -->
 - Bump omnibus-software from `ac5f042` to `7efbf12` in /omnibus [#858](https://github.com/chef/chef-workstation/pull/858) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.13 -->
