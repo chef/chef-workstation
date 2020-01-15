@@ -6,49 +6,54 @@
 - Cleanup rake tasks in gems we ship [#857](https://github.com/chef/chef-workstation/pull/857) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup since=0.13.35 -->
-### Changes since 0.13.35 release
+<!-- release_rollup since=0.14.16 -->
+### Changes since 0.14.16 release
 
 #### Merged Pull Requests
 - Cleanup rake tasks in gems we ship [#857](https://github.com/chef/chef-workstation/pull/857) ([tas50](https://github.com/tas50)) <!-- 0.14.17 -->
-- Update knife-ec2 to 1.0.28 [#865](https://github.com/chef/chef-workstation/pull/865) ([tas50](https://github.com/tas50)) <!-- 0.14.16 -->
-- Update kitchen-google and kitchen-ec2 to latest [#862](https://github.com/chef/chef-workstation/pull/862) ([tas50](https://github.com/tas50)) <!-- 0.14.15 -->
-- Bump omnibus-software from `7efbf12` to `ebdd701` in /omnibus [#860](https://github.com/chef/chef-workstation/pull/860) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.14 -->
-- Bump omnibus-software from `ac5f042` to `7efbf12` in /omnibus [#858](https://github.com/chef/chef-workstation/pull/858) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.13 -->
-- Simplify our Ruby cleanup in ommnibus [#856](https://github.com/chef/chef-workstation/pull/856) ([tas50](https://github.com/tas50)) <!-- 0.14.12 -->
-- Update git to 2.24.1 [#846](https://github.com/chef/chef-workstation/pull/846) ([tas50](https://github.com/tas50)) <!-- 0.14.11 -->
-- Bump chef-analyze CLI to 0.1.64 [#853](https://github.com/chef/chef-workstation/pull/853) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.14.10 -->
-- Bump Chef Workstation App to 0.1.56 [#855](https://github.com/chef/chef-workstation/pull/855) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.14.9 -->
-- Bump omnibus-software from `ee6adeb` to `ac5f042` in /omnibus [#848](https://github.com/chef/chef-workstation/pull/848) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.8 -->
-- Bump chef-analyze CLI to 0.1.62 [#849](https://github.com/chef/chef-workstation/pull/849) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.14.7 -->
-- Update cookstyle to 5.19.9 as well as all other deps [#845](https://github.com/chef/chef-workstation/pull/845) ([tas50](https://github.com/tas50)) <!-- 0.14.6 -->
-- Bump omnibus-software from `0ead966` to `09a3cb0` in /omnibus [#842](https://github.com/chef/chef-workstation/pull/842) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.5 -->
-- Bump omnibus from `9fbb95f` to `7dd5e7f` in /omnibus [#840](https://github.com/chef/chef-workstation/pull/840) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.4 -->
-- Bump omnibus-software from `7402675` to `0ead966` in /omnibus [#839](https://github.com/chef/chef-workstation/pull/839) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.3 -->
-- More improvements to the Windows installer [#817](https://github.com/chef/chef-workstation/pull/817) ([tas50](https://github.com/tas50)) <!-- 0.14.2 -->
-- Update chef-vault to 4.0.1 [#838](https://github.com/chef/chef-workstation/pull/838) ([tas50](https://github.com/tas50)) <!-- 0.14.1 -->
-- Update knife-acl, knife-push, and knife-vcenter [#837](https://github.com/chef/chef-workstation/pull/837) ([tas50](https://github.com/tas50)) <!-- 0.14.0 -->
-- Update chef-zero, mixlib-authentication, mixlib-install, mixlib-versioning, and mixlib-shellout [#836](https://github.com/chef/chef-workstation/pull/836) ([tas50](https://github.com/tas50)) <!-- 0.13.53 -->
-- Update mixlib-log, mixlib-archive, ffi-yajl, knife-ec2, wmi-lite and mixlib-config [#835](https://github.com/chef/chef-workstation/pull/835) ([tas50](https://github.com/tas50)) <!-- 0.13.52 -->
-- Update libarchive, knife-ec2, and mixlib-cli to the latest [#834](https://github.com/chef/chef-workstation/pull/834) ([tas50](https://github.com/tas50)) <!-- 0.13.51 -->
-- Bump chef-analyze CLI to 0.1.60 [#832](https://github.com/chef/chef-workstation/pull/832) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.50 -->
-- Aggressively clean up files in the workstation install [#830](https://github.com/chef/chef-workstation/pull/830) ([tas50](https://github.com/tas50)) <!-- 0.13.49 -->
-- Update knife-tidy / knife-google / knife-cloud to the latest [#829](https://github.com/chef/chef-workstation/pull/829) ([tas50](https://github.com/tas50)) <!-- 0.13.48 -->
-- Update knife-windows and knife-azure [#828](https://github.com/chef/chef-workstation/pull/828) ([tas50](https://github.com/tas50)) <!-- 0.13.47 -->
-- Update multiple components to the latest releases [#827](https://github.com/chef/chef-workstation/pull/827) ([tas50](https://github.com/tas50)) <!-- 0.13.46 -->
-- Minor updates to the build verification code [#826](https://github.com/chef/chef-workstation/pull/826) ([tas50](https://github.com/tas50)) <!-- 0.13.45 -->
-- Minor updates to the omnibus cookbook [#825](https://github.com/chef/chef-workstation/pull/825) ([tas50](https://github.com/tas50)) <!-- 0.13.44 -->
-- Bump Chef Workstation App to 0.1.52 [#821](https://github.com/chef/chef-workstation/pull/821) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.43 -->
-- Update openssl to 1.0.2u [#822](https://github.com/chef/chef-workstation/pull/822) ([tas50](https://github.com/tas50)) <!-- 0.13.42 -->
-- Bump omnibus-software from `42ded1e` to `7402675` in /omnibus [#820](https://github.com/chef/chef-workstation/pull/820) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.13.41 -->
-- Bump omnibus-software from `e707177` to `42ded1e` in /omnibus [#818](https://github.com/chef/chef-workstation/pull/818) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.13.40 -->
-- Windows install: Remove experimental wording and make workstation top level in the installer [#811](https://github.com/chef/chef-workstation/pull/811) ([tas50](https://github.com/tas50)) <!-- 0.13.39 -->
-- Bump Chef Workstation App to 0.1.51 [#815](https://github.com/chef/chef-workstation/pull/815) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.38 -->
-- Cleaning and vendoring main-chef-wrapper dependencies [#809](https://github.com/chef/chef-workstation/pull/809) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.13.37 -->
-- Bump chef-analyze CLI to 0.1.57 [#808](https://github.com/chef/chef-workstation/pull/808) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.13.36 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.14.16](https://github.com/chef/chef-workstation/tree/0.14.16) (2020-01-15)
+
+#### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.57 [#808](https://github.com/chef/chef-workstation/pull/808) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Cleaning and vendoring main-chef-wrapper dependencies [#809](https://github.com/chef/chef-workstation/pull/809) ([tyler-ball](https://github.com/tyler-ball))
+- Bump Chef Workstation App to 0.1.51 [#815](https://github.com/chef/chef-workstation/pull/815) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Windows install: Remove experimental wording and make workstation top level in the installer [#811](https://github.com/chef/chef-workstation/pull/811) ([tas50](https://github.com/tas50))
+- Bump omnibus-software from `e707177` to `42ded1e` in /omnibus [#818](https://github.com/chef/chef-workstation/pull/818) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump omnibus-software from `42ded1e` to `7402675` in /omnibus [#820](https://github.com/chef/chef-workstation/pull/820) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Update openssl to 1.0.2u [#822](https://github.com/chef/chef-workstation/pull/822) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.52 [#821](https://github.com/chef/chef-workstation/pull/821) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Minor updates to the omnibus cookbook [#825](https://github.com/chef/chef-workstation/pull/825) ([tas50](https://github.com/tas50))
+- Minor updates to the build verification code [#826](https://github.com/chef/chef-workstation/pull/826) ([tas50](https://github.com/tas50))
+- Update multiple components to the latest releases [#827](https://github.com/chef/chef-workstation/pull/827) ([tas50](https://github.com/tas50))
+- Update knife-windows and knife-azure [#828](https://github.com/chef/chef-workstation/pull/828) ([tas50](https://github.com/tas50))
+- Update knife-tidy / knife-google / knife-cloud to the latest [#829](https://github.com/chef/chef-workstation/pull/829) ([tas50](https://github.com/tas50))
+- Aggressively clean up files in the workstation install [#830](https://github.com/chef/chef-workstation/pull/830) ([tas50](https://github.com/tas50))
+- Bump chef-analyze CLI to 0.1.60 [#832](https://github.com/chef/chef-workstation/pull/832) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update libarchive, knife-ec2, and mixlib-cli to the latest [#834](https://github.com/chef/chef-workstation/pull/834) ([tas50](https://github.com/tas50))
+- Update mixlib-log, mixlib-archive, ffi-yajl, knife-ec2, wmi-lite and mixlib-config [#835](https://github.com/chef/chef-workstation/pull/835) ([tas50](https://github.com/tas50))
+- Update chef-zero, mixlib-authentication, mixlib-install, mixlib-versioning, and mixlib-shellout [#836](https://github.com/chef/chef-workstation/pull/836) ([tas50](https://github.com/tas50))
+- Update knife-acl, knife-push, and knife-vcenter [#837](https://github.com/chef/chef-workstation/pull/837) ([tas50](https://github.com/tas50))
+- Update chef-vault to 4.0.1 [#838](https://github.com/chef/chef-workstation/pull/838) ([tas50](https://github.com/tas50))
+- More improvements to the Windows installer [#817](https://github.com/chef/chef-workstation/pull/817) ([tas50](https://github.com/tas50))
+- Bump omnibus-software from `7402675` to `0ead966` in /omnibus [#839](https://github.com/chef/chef-workstation/pull/839) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump omnibus from `9fbb95f` to `7dd5e7f` in /omnibus [#840](https://github.com/chef/chef-workstation/pull/840) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump omnibus-software from `0ead966` to `09a3cb0` in /omnibus [#842](https://github.com/chef/chef-workstation/pull/842) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Update cookstyle to 5.19.9 as well as all other deps [#845](https://github.com/chef/chef-workstation/pull/845) ([tas50](https://github.com/tas50))
+- Bump chef-analyze CLI to 0.1.62 [#849](https://github.com/chef/chef-workstation/pull/849) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `ee6adeb` to `ac5f042` in /omnibus [#848](https://github.com/chef/chef-workstation/pull/848) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump Chef Workstation App to 0.1.56 [#855](https://github.com/chef/chef-workstation/pull/855) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.64 [#853](https://github.com/chef/chef-workstation/pull/853) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update git to 2.24.1 [#846](https://github.com/chef/chef-workstation/pull/846) ([tas50](https://github.com/tas50))
+- Simplify our Ruby cleanup in ommnibus [#856](https://github.com/chef/chef-workstation/pull/856) ([tas50](https://github.com/tas50))
+- Bump omnibus-software from `ac5f042` to `7efbf12` in /omnibus [#858](https://github.com/chef/chef-workstation/pull/858) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump omnibus-software from `7efbf12` to `ebdd701` in /omnibus [#860](https://github.com/chef/chef-workstation/pull/860) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Update kitchen-google and kitchen-ec2 to latest [#862](https://github.com/chef/chef-workstation/pull/862) ([tas50](https://github.com/tas50))
+- Update knife-ec2 to 1.0.28 [#865](https://github.com/chef/chef-workstation/pull/865) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [0.13.35](https://github.com/chef/chef-workstation/tree/0.13.35) (2019-12-18)
 
 #### Merged Pull Requests
@@ -91,7 +96,6 @@
 - Bump chef-analyze CLI to 0.1.53 [#802](https://github.com/chef/chef-workstation/pull/802) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump cookstyle to 5.16.11 [#803](https://github.com/chef/chef-workstation/pull/803) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump chef-analyze CLI to 0.1.55 [#805](https://github.com/chef/chef-workstation/pull/805) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [0.12.20](https://github.com/chef/chef-workstation/tree/0.12.20) (2019-11-21)
 
