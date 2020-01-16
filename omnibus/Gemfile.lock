@@ -1,17 +1,17 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: ebdd701bcf29f76ba7f1bbfc5e338b7c19287133
-  branch: master
+  revision: 92d1d03cbefdd694d48ad6a03489535d3dc04d2a
+  branch: jm/deep_sign_chef
   specs:
     omnibus-software (4.0.0)
       omnibus (>= 5.6.1)
 
 GIT
   remote: https://github.com/chef/omnibus.git
-  revision: 70855aab656d333622c51171828b4f41d04f6ef5
-  branch: master
+  revision: 7af181d6ddec25c450b4c5ce13fad6b03593eb8c
+  branch: jm/deep_sign
   specs:
-    omnibus (6.1.21)
+    omnibus (7.0.0)
       aws-sdk-s3 (~> 1)
       chef-cleanroom (~> 1.0)
       chef-sugar (>= 3.3)
@@ -32,7 +32,7 @@ GEM
     artifactory (3.0.12)
     awesome_print (1.8.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.263.0)
+    aws-partitions (1.264.0)
     aws-sdk-core (3.89.1)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
