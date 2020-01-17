@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.14.18 -->
-## [0.14.18](https://github.com/chef/chef-workstation/tree/0.14.18) (2020-01-16)
+<!-- latest_release 0.14.19 -->
+## [0.14.19](https://github.com/chef/chef-workstation/tree/0.14.19) (2020-01-17)
 
 #### Merged Pull Requests
-- Fixes all notarization issues [#859](https://github.com/chef/chef-workstation/pull/859) ([jonsmorrow](https://github.com/jonsmorrow))
+- Bump chef-analyze CLI to 0.1.68 [#871](https://github.com/chef/chef-workstation/pull/871) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.14.16 -->
 ### Changes since 0.14.16 release
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.68 [#871](https://github.com/chef/chef-workstation/pull/871) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.14.19 -->
 - Fixes all notarization issues [#859](https://github.com/chef/chef-workstation/pull/859) ([jonsmorrow](https://github.com/jonsmorrow)) <!-- 0.14.18 -->
 - Cleanup rake tasks in gems we ship [#857](https://github.com/chef/chef-workstation/pull/857) ([tas50](https://github.com/tas50)) <!-- 0.14.17 -->
 <!-- release_rollup -->
