@@ -5,7 +5,7 @@ of tools that have grown to a point that, as a Chef practitioner, it is
 hard to know, discover and understand all of them. A few of the tools
 that our users use (almost) every day are:
 
-* chef (CLI that includes PolicyFiles)
+* chef (CLI that includes Policyfiles management)
 * hab (Habitat CLI)
 * inspec
 * ohai
@@ -61,8 +61,8 @@ which areas can we improve.
 
 Once detecting such areas of improvement, we can have the flexibility to improve
 tools entirely or sub-sections of the tool. Say for instance, that our users run
-`knife node list` around 20-30 times a day, if the command takes around 10-15
-seconds to run, we are consuming 5 minutes from our users only on waiting time.
+`knife search` around 30-50 times a day, if the command takes around 10-15
+seconds to run, we are consuming ~10 minutes from our users only on waiting time.
 With this approach we could rewrite that specific command to run 10x faster and
 give that time back to our users.
 
