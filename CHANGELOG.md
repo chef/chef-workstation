@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.14.19 -->
-## [0.14.19](https://github.com/chef/chef-workstation/tree/0.14.19) (2020-01-17)
+<!-- latest_release 0.14.20 -->
+## [0.14.20](https://github.com/chef/chef-workstation/tree/0.14.20) (2020-01-23)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.68 [#871](https://github.com/chef/chef-workstation/pull/871) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus from `7af181d` to `cba1d5d` in /omnibus [#873](https://github.com/chef/chef-workstation/pull/873) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.14.16 -->
 ### Changes since 0.14.16 release
 
 #### Merged Pull Requests
+- Bump omnibus from `7af181d` to `cba1d5d` in /omnibus [#873](https://github.com/chef/chef-workstation/pull/873) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.20 -->
 - Bump chef-analyze CLI to 0.1.68 [#871](https://github.com/chef/chef-workstation/pull/871) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.14.19 -->
 - Fixes all notarization issues [#859](https://github.com/chef/chef-workstation/pull/859) ([jonsmorrow](https://github.com/jonsmorrow)) <!-- 0.14.18 -->
 - Cleanup rake tasks in gems we ship [#857](https://github.com/chef/chef-workstation/pull/857) ([tas50](https://github.com/tas50)) <!-- 0.14.17 -->
