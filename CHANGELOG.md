@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.14.23 -->
-## [0.14.23](https://github.com/chef/chef-workstation/tree/0.14.23) (2020-01-23)
+<!-- latest_release 0.14.24 -->
+## [0.14.24](https://github.com/chef/chef-workstation/tree/0.14.24) (2020-01-23)
 
 #### Merged Pull Requests
-- Unpin train dep + bump deps + add dependabot config [#875](https://github.com/chef/chef-workstation/pull/875) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.57 [#874](https://github.com/chef/chef-workstation/pull/874) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.14.16 -->
 ### Changes since 0.14.16 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.57 [#874](https://github.com/chef/chef-workstation/pull/874) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.14.24 -->
 - Unpin train dep + bump deps + add dependabot config [#875](https://github.com/chef/chef-workstation/pull/875) ([tas50](https://github.com/tas50)) <!-- 0.14.23 -->
 - Update omnibus and omnibus-software [#876](https://github.com/chef/chef-workstation/pull/876) ([jonsmorrow](https://github.com/jonsmorrow)) <!-- 0.14.22 -->
 - Produce Debian packages [#866](https://github.com/chef/chef-workstation/pull/866) ([tas50](https://github.com/tas50)) <!-- 0.14.21 -->
