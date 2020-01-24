@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.15.0 -->
-## [0.15.0](https://github.com/chef/chef-workstation/tree/0.15.0) (2020-01-23)
+<!-- latest_release 0.15.1 -->
+## [0.15.1](https://github.com/chef/chef-workstation/tree/0.15.1) (2020-01-24)
 
 #### Merged Pull Requests
-- Update Chef Infra Client to 15.7.30 [#878](https://github.com/chef/chef-workstation/pull/878) ([tas50](https://github.com/tas50))
+- Update Cookstyle to 5.20 [#879](https://github.com/chef/chef-workstation/pull/879) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.14.16 -->
 ### Changes since 0.14.16 release
 
 #### Merged Pull Requests
+- Update Cookstyle to 5.20 [#879](https://github.com/chef/chef-workstation/pull/879) ([tas50](https://github.com/tas50)) <!-- 0.15.1 -->
 - Update Chef Infra Client to 15.7.30 [#878](https://github.com/chef/chef-workstation/pull/878) ([tas50](https://github.com/tas50)) <!-- 0.15.0 -->
 - Bump Chef Workstation App to 0.1.57 [#874](https://github.com/chef/chef-workstation/pull/874) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.14.24 -->
 - Unpin train dep + bump deps + add dependabot config [#875](https://github.com/chef/chef-workstation/pull/875) ([tas50](https://github.com/tas50)) <!-- 0.14.23 -->
