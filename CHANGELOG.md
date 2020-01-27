@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.15.5 -->
-## [0.15.5](https://github.com/chef/chef-workstation/tree/0.15.5) (2020-01-27)
+<!-- latest_release 0.15.6 -->
+## [0.15.6](https://github.com/chef/chef-workstation/tree/0.15.6) (2020-01-27)
 
 #### Merged Pull Requests
-- Require Berkshelf 7.0.9 or later [#893](https://github.com/chef/chef-workstation/pull/893) ([tas50](https://github.com/tas50))
+- Update to Chef Infra Client 15.7.32 + fix package failures [#894](https://github.com/chef/chef-workstation/pull/894) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.14.16 -->
 ### Changes since 0.14.16 release
 
 #### Merged Pull Requests
+- Update to Chef Infra Client 15.7.32 + fix package failures [#894](https://github.com/chef/chef-workstation/pull/894) ([tas50](https://github.com/tas50)) <!-- 0.15.6 -->
 - Require Berkshelf 7.0.9 or later [#893](https://github.com/chef/chef-workstation/pull/893) ([tas50](https://github.com/tas50)) <!-- 0.15.5 -->
 - Exclude omnibus_packages in chef bundle testing [#886](https://github.com/chef/chef-workstation/pull/886) ([tas50](https://github.com/tas50)) <!-- 0.15.4 -->
 - Update InSpec to 4.18.51 and pin train to 3.2.0 [#885](https://github.com/chef/chef-workstation/pull/885) ([tas50](https://github.com/tas50)) <!-- 0.15.3 -->
