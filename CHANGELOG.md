@@ -1,33 +1,31 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.15.6 -->
-## [0.15.6](https://github.com/chef/chef-workstation/tree/0.15.6) (2020-01-27)
-
-#### Merged Pull Requests
-- Update to Chef Infra Client 15.7.32 + fix package failures [#894](https://github.com/chef/chef-workstation/pull/894) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.14.16 -->
-### Changes since 0.14.16 release
-
-#### Merged Pull Requests
-- Update to Chef Infra Client 15.7.32 + fix package failures [#894](https://github.com/chef/chef-workstation/pull/894) ([tas50](https://github.com/tas50)) <!-- 0.15.6 -->
-- Require Berkshelf 7.0.9 or later [#893](https://github.com/chef/chef-workstation/pull/893) ([tas50](https://github.com/tas50)) <!-- 0.15.5 -->
-- Exclude omnibus_packages in chef bundle testing [#886](https://github.com/chef/chef-workstation/pull/886) ([tas50](https://github.com/tas50)) <!-- 0.15.4 -->
-- Update InSpec to 4.18.51 and pin train to 3.2.0 [#885](https://github.com/chef/chef-workstation/pull/885) ([tas50](https://github.com/tas50)) <!-- 0.15.3 -->
-- Update Chef Infra Client to 15.7.31 [#881](https://github.com/chef/chef-workstation/pull/881) ([tas50](https://github.com/tas50)) <!-- 0.15.2 -->
-- Update Cookstyle to 5.20 [#879](https://github.com/chef/chef-workstation/pull/879) ([tas50](https://github.com/tas50)) <!-- 0.15.1 -->
-- Update Chef Infra Client to 15.7.30 [#878](https://github.com/chef/chef-workstation/pull/878) ([tas50](https://github.com/tas50)) <!-- 0.15.0 -->
-- Bump Chef Workstation App to 0.1.57 [#874](https://github.com/chef/chef-workstation/pull/874) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.14.24 -->
-- Unpin train dep + bump deps + add dependabot config [#875](https://github.com/chef/chef-workstation/pull/875) ([tas50](https://github.com/tas50)) <!-- 0.14.23 -->
-- Update omnibus and omnibus-software [#876](https://github.com/chef/chef-workstation/pull/876) ([jonsmorrow](https://github.com/jonsmorrow)) <!-- 0.14.22 -->
-- Produce Debian packages [#866](https://github.com/chef/chef-workstation/pull/866) ([tas50](https://github.com/tas50)) <!-- 0.14.21 -->
-- Bump omnibus from `7af181d` to `cba1d5d` in /omnibus [#873](https://github.com/chef/chef-workstation/pull/873) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.14.20 -->
-- Bump chef-analyze CLI to 0.1.68 [#871](https://github.com/chef/chef-workstation/pull/871) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.14.19 -->
-- Fixes all notarization issues [#859](https://github.com/chef/chef-workstation/pull/859) ([jonsmorrow](https://github.com/jonsmorrow)) <!-- 0.14.18 -->
-- Cleanup rake tasks in gems we ship [#857](https://github.com/chef/chef-workstation/pull/857) ([tas50](https://github.com/tas50)) <!-- 0.14.17 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.15.6](https://github.com/chef/chef-workstation/tree/0.15.6) (2020-01-28)
+
+#### Merged Pull Requests
+- Cleanup rake tasks in gems we ship [#857](https://github.com/chef/chef-workstation/pull/857) ([tas50](https://github.com/tas50))
+- Fixes all notarization issues [#859](https://github.com/chef/chef-workstation/pull/859) ([jonsmorrow](https://github.com/jonsmorrow))
+- Bump chef-analyze CLI to 0.1.68 [#871](https://github.com/chef/chef-workstation/pull/871) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus from `7af181d` to `cba1d5d` in /omnibus [#873](https://github.com/chef/chef-workstation/pull/873) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Produce Debian packages [#866](https://github.com/chef/chef-workstation/pull/866) ([tas50](https://github.com/tas50))
+- Update omnibus and omnibus-software [#876](https://github.com/chef/chef-workstation/pull/876) ([jonsmorrow](https://github.com/jonsmorrow))
+- Unpin train dep + bump deps + add dependabot config [#875](https://github.com/chef/chef-workstation/pull/875) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.57 [#874](https://github.com/chef/chef-workstation/pull/874) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update Chef Infra Client to 15.7.30 [#878](https://github.com/chef/chef-workstation/pull/878) ([tas50](https://github.com/tas50))
+- Update Cookstyle to 5.20 [#879](https://github.com/chef/chef-workstation/pull/879) ([tas50](https://github.com/tas50))
+- Update Chef Infra Client to 15.7.31 [#881](https://github.com/chef/chef-workstation/pull/881) ([tas50](https://github.com/tas50))
+- Update InSpec to 4.18.51 and pin train to 3.2.0 [#885](https://github.com/chef/chef-workstation/pull/885) ([tas50](https://github.com/tas50))
+- Exclude omnibus_packages in chef bundle testing [#886](https://github.com/chef/chef-workstation/pull/886) ([tas50](https://github.com/tas50))
+- Require Berkshelf 7.0.9 or later [#893](https://github.com/chef/chef-workstation/pull/893) ([tas50](https://github.com/tas50))
+- Update to Chef Infra Client 15.7.32 + fix package failures [#894](https://github.com/chef/chef-workstation/pull/894) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [0.14.16](https://github.com/chef/chef-workstation/tree/0.14.16) (2020-01-15)
 
 #### Merged Pull Requests
@@ -66,7 +64,6 @@
 - Bump omnibus-software from `7efbf12` to `ebdd701` in /omnibus [#860](https://github.com/chef/chef-workstation/pull/860) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 - Update kitchen-google and kitchen-ec2 to latest [#862](https://github.com/chef/chef-workstation/pull/862) ([tas50](https://github.com/tas50))
 - Update knife-ec2 to 1.0.28 [#865](https://github.com/chef/chef-workstation/pull/865) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [0.13.35](https://github.com/chef/chef-workstation/tree/0.13.35) (2019-12-18)
 

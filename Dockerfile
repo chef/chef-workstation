@@ -4,7 +4,7 @@ LABEL maintainer="Chef Software, Inc. <docker@chef.io>"
 ARG EXPEDITOR_CHANNEL
 ARG CHANNEL=stable
 ARG EXPEDITOR_VERSION
-ARG VERSION=0.14.16
+ARG VERSION=0.15.6
 ENV DEBIAN_FRONTEND=noninteractive \
     PATH=/opt/chef-workstation/bin:/opt/chef-workstation/embedded/bin:/root/.chefdk/gem/ruby/2.6.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
