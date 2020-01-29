@@ -83,11 +83,11 @@ group(:omnibus_package) do
   gem "knife-acl", ">= 1.0.3"
   gem "knife-azure", ">= 2.0.10"
   gem "knife-ec2", ">= 1.0"
-  gem "knife-google", ">= 4.2.0"
+  gem "knife-google", ">= 4.2.6"
   gem "knife-tidy", ">= 1.2.0"
   gem "knife-windows", ">= 3.0"
   gem "knife-opc", ">= 0.4.0"
-  gem "knife-vcenter", ">= 2.0"
+  gem "knife-vcenter", ">= 3.0.1"
   gem "knife-vsphere", ">= 4.0"
 
   # ed25519 ssh key support done here as it's a native gem we can't put in train
