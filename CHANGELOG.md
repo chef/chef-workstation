@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.15.8 -->
-## [0.15.8](https://github.com/chef/chef-workstation/tree/0.15.8) (2020-01-29)
+<!-- latest_release 0.15.9 -->
+## [0.15.9](https://github.com/chef/chef-workstation/tree/0.15.9) (2020-01-29)
 
 #### Merged Pull Requests
-- Update knife-azure to 2.0.10 to speed up knife [#900](https://github.com/chef/chef-workstation/pull/900) ([tas50](https://github.com/tas50))
+- Update knife-google and knife-vcenter to the latest [#901](https://github.com/chef/chef-workstation/pull/901) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.6 -->
 ### Changes since 0.15.6 release
 
 #### Merged Pull Requests
+- Update knife-google and knife-vcenter to the latest [#901](https://github.com/chef/chef-workstation/pull/901) ([tas50](https://github.com/tas50)) <!-- 0.15.9 -->
 - Update knife-azure to 2.0.10 to speed up knife [#900](https://github.com/chef/chef-workstation/pull/900) ([tas50](https://github.com/tas50)) <!-- 0.15.8 -->
 - Bump Chef Workstation App to 0.1.62 [#899](https://github.com/chef/chef-workstation/pull/899) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.15.7 -->
 <!-- release_rollup -->
