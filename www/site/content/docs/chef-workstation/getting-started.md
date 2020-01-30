@@ -20,12 +20,12 @@ New ad-hoc commands `chef-run` and Chef CLI commands such as `chef` are availabl
 
 ```bash
 $ chef -v
-Chef Workstation version: 0.11.21
-Chef Infra Client version: 15.4.45
-Chef InSpec version: 4.18.0
+Chef Workstation version: 0.15.6
+Chef Infra Client version: 15.7.32
+Chef InSpec version: 4.18.51
 Chef CLI version: 2.0.0
 Test Kitchen version: 2.3.4
-Cookstyle version: 5.10.13
+Cookstyle version: 5.20.0
 ```
 
 ## Ad-hoc remote execution with `chef-run`

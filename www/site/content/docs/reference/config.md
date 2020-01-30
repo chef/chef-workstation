@@ -80,7 +80,7 @@ Control logging level and location.
 
 ```toml
 [log]
-level = debug"
+level = "debug"
 location = "C:\Users\username\chef-workstation.log"
 ```
 
