@@ -38,8 +38,8 @@ Configure telemetry behaviors for Chef Workstation components.
 
 ```toml
 [telemetry]
-enable=true
-dev=false
+enable = true
+dev = false
 ```
 #### enable
 
@@ -80,8 +80,8 @@ Control logging level and location.
 
 ```toml
 [log]
-level="debug"
-location="C:\Users\username\chef-workstation.log"
+level = "debug"
+location = "C:\Users\username\chef-workstation.log"
 ```
 
 #### level
@@ -118,9 +118,9 @@ Configure caching options.
 
 #### Example
 
-```tom
+```toml
 [cache]
-path="/home/users/username/.cache/chef-workstation"
+path = "/home/users/username/.cache/chef-workstation"
 ```
 
 #### path
@@ -145,8 +145,8 @@ Control default connection behaviors.
 
 ```toml
 [connection]
-default_protocol="winrm"
-default_user="username"
+default_protocol = "winrm"
+default_user = "username"
 ```
 
 #### default_protocol
@@ -189,10 +189,10 @@ Control connection behaviors for the WinRM protocol.
 
 #### Example
 
-```tom
+```toml
 [connection.winrm]
-ssl=true
-ssl_verify=false
+ssl = true
+ssl_verify = false
 ```
 
 #### ssl
@@ -237,7 +237,7 @@ Configure remote Chef running on instances.
 
 ```toml
 [chef]
-trusted_certs_dir="/home/username/mytrustedcerts"
+trusted_certs_dir = "/home/username/mytrustedcerts"
 cookbook_repo_paths = [
   "/home/username/cookbooks",
   "/var/chef/cookbooks"
@@ -283,8 +283,8 @@ Control the behavior of automatic update checking for Chef Workstation.
 
 ```toml
 [updates]
-enable=true
-channel="current"
+enable = true
+channel = "current"
 ```
 
 #### enable
@@ -321,10 +321,10 @@ Configure reporting of `chef-client` runs triggered via `chef-run`.
 
 #### Example
 
-```tom
+```toml
 [data_collector]
-url="https://1.1.1.1/data-collector/v0/"
-token="ABCDEF0123456789"
+url = "https://1.1.1.1/data-collector/v0/"
+token = "ABCDEF0123456789"
 ```
 
 #### url
@@ -361,9 +361,9 @@ These options are intended for development and troubleshooting of Chef Workstati
 
 #### Example
 
-```tom
+```toml
 [dev]
-spinner=false
+spinner = false
 ```
 
 #### spinner
@@ -379,3 +379,23 @@ Default
 
 Used by
 : `chef-run`
+
+### Features
+
+Enable and disable experimental features for Chef Workstation.
+
+#### Example
+
+```toml
+[features]
+analyze = true
+```
+
+Description
+: List of experimental features. Features are not enabled by default. Enable the feature with `name = true` and disable with `name = false`. The above example enables one feature, which is the `analyze` feature. You can also enable or disable any feature from the command line using an environment variable. For example, setting `CHEF_FEAT_ANALYZE=true` from the command line enables the `analyze` feature for the duration of your terminal session.
+
+Values
+: `name = true`, `name = false`
+
+Used by
+: The entire Chef Workstation ecosystem.

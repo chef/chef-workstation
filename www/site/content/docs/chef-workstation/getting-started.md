@@ -16,19 +16,16 @@ If you have not installed Chef Workstation, <a href="#" data-omnitruck-download=
 
 ## Check versions
 
-New ad-hoc commands `chef-run` and ChefDK CLI commands such as `chef` are available via Chef Workstation. See your installed version of Chef Workstation with `chef-run -v` and your installed version of the Chef tools with `chef -v`. You can also check your Workstation version by selecting "About Chef Workstation" from the Chef Workstation App.
+New ad-hoc commands `chef-run` and Chef CLI commands such as `chef` are available via Chef Workstation. See your installed version of Chef Workstation and Chef tools with `chef -v`. You can also check your Workstation version by selecting "About Chef Workstation" from the Chef Workstation App.
 
 ```bash
-$ chef-run -v
-chef-run: 0.1.114
-
 $ chef -v
-Chef Development Kit Version: 3.0.36
-chef-client version: 14.1.12
-delivery version: master (7206afaf4cf29a17d2144bb39c55b7212cfafcc7)
-berks version: 7.0.2
-kitchen version: 1.21.2
-inspec version: 2.1.72
+Chef Workstation version: 0.15.6
+Chef Infra Client version: 15.7.32
+Chef InSpec version: 4.18.51
+Chef CLI version: 2.0.0
+Test Kitchen version: 2.3.4
+Cookstyle version: 5.20.0
 ```
 
 ## Ad-hoc remote execution with `chef-run`
