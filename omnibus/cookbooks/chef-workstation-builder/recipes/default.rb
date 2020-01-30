@@ -1,10 +1,6 @@
 # ensure packages are available and up-to-date
-case node["platform_family"]
-when "debian"
-  apt_update
-when "rhel"
-  include_recipe "yum-epel::default"
-end
+apt_update
+include_recipe "yum-epel::default" if platform_family?("rhel")
 
 include_recipe "omnibus::default"
 

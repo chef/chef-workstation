@@ -14,7 +14,7 @@ $(cat release-notes.md)
 ---
 ## Get the Build
 
-If you are running the experimental application you can download this version from the menu after the app next update check. You can also download binaries directly from [downloads.chef.io](https://downloads.chef.io/$EXPEDITOR_PRODUCT_KEY/$EXPEDITOR_VERSION).
+If you are running the Chef Workstation toolbar application you can download this version from the menu after the app next update check. You can also download binaries directly from [downloads.chef.io](https://downloads.chef.io/$EXPEDITOR_PRODUCT_KEY/$EXPEDITOR_VERSION).
 
 As always, we welcome your feedback and invite you to contact us directly or share your [email](mailto:workstation@chef.io). Thanks for using Chef Workstation!
 EOH

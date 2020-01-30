@@ -18,27 +18,6 @@
 require "chef-cli/exceptions"
 require "chef-cli/helpers"
 
-# https://github.com/bundler/bundler/issues/4368
-# As of rubygems 2.6.2, Rubygems will call Bundler::SpecSet#size, which does
-# not exist as of Bundler 1.11.2.
-#
-# `#size` and `#length` should be synonyms in idiomatic ruby so we alias to
-# make bundler and rubygems play nicely.
-if Object.const_defined?(:Bundler) &&
-    Bundler.const_defined?(:SpecSet) &&
-    Bundler::SpecSet.instance_methods.include?(:length) &&
-    !Bundler::SpecSet.instance_methods.include?(:size)
-
-  module Bundler
-    class SpecSet
-
-      alias_method :size, :length
-
-    end
-  end
-
-end
-
 module ChefWorkstation
   class MissingComponentError < RuntimeError
     def initialize(component_name, reason)

@@ -116,7 +116,7 @@ end
 
 package :pkg do
   identifier "com.getchef.pkg.chef-workstation"
-  signing_identity "Developer ID Installer: Chef Software, Inc. (EU3VF8YLX2)"
+  signing_identity "Chef Software, Inc. (EU3VF8YLX2)"
 end
 
 package :msi do

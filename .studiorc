@@ -5,6 +5,9 @@
 hab pkg install chef/studio-common >/dev/null
 source "$(hab pkg path chef/studio-common)/bin/studio-common"
 
+# switch all go commands to use the vendor/ directory
+export GOFLAGS="-mod=vendor"
+
 function build_cross_platform() {
   install_if_missing core/go go
   install_if_missing core/gox gox
@@ -12,5 +15,14 @@ function build_cross_platform() {
     gox -output="../../bin/chef_{{.OS}}_{{.Arch}}" \
         -os="darwin linux windows" \
         -arch="amd64 386"
+  )
+}
+
+function update_deps() {
+  install_if_missing core/go go
+  install_if_missing core/git git
+  ( cd /src/components/main-chef-wrapper || return 1
+    GOFLAGS="" go get -u "$@"
+    go mod vendor
   )
 }

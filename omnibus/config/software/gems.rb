@@ -1,4 +1,4 @@
-# Copyright:: Copyright (c) 2019 Chef Software Inc.
+# Copyright:: Copyright (c) 2019-2020 Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -47,6 +47,11 @@ dependency "libzmq"
 # for train
 dependency "google-protobuf"
 
+# This is a transative dep but we need to build from source so binaries are built on current sdk.
+# Only matters on mac.
+# @todo Contact gem mainter about getting new release.
+dependency "rb-fsevent-gem" if mac_os_x?
+
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
@@ -68,7 +73,7 @@ build do
   # install the whole bundle first
   bundle "install --jobs 10 --without #{excluded_groups.join(" ")}", env: env
 
-  appbundle "chef", lockdir: project_dir, gem: "chef", without: %w{docgen chefstyle}, env: env
+  appbundle "chef", lockdir: project_dir, gem: "chef", without: %w{docgen chefstyle omnibus_package}, env: env
 
   appbundle "foodcritic", lockdir: project_dir, gem: "foodcritic", without: %w{development test}, env: env
   appbundle "test-kitchen", lockdir: project_dir, gem: "test-kitchen", without: %w{changelog debug docs development}, env: env

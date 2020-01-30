@@ -32,6 +32,8 @@ chef env
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
 Write-Output "--- Ensure the 'chef-analyze' cli works (chef-analyze help)"
+# TODO @afiune delete this when we release chef-analyze to the users.
+$Env:CHEF_FEAT_ANALYZE = "true"
 chef-analyze help
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 

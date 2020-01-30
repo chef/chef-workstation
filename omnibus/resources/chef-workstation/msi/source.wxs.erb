@@ -102,7 +102,7 @@
                 <RegistryValue Type="string" Name="BinDir" Value="[PROJECTLOCATIONBIN]" />
               </RegistryKey>
             </Component>
-            <Component Id="StartChefWSPowershellShortcut" Guid="{69EF5736-ED67-45B3-887A-FBFC0AB6DA13}" >
+            <Component Id="StartChefWSPowershellScript" Guid="{69EF5736-ED67-45B3-887A-FBFC0AB6DA13}" >
               <!-- Note that this refers to a Source relative to the package build directory,
                      and not in the zip file which contains all of the chef-workstation build -->
                 <File Id="StartChefWSScript" Source="Resources\assets\start-chefws.ps1" KeyPath="yes" />
@@ -201,14 +201,6 @@
             Show="minimized"
             Icon="cwsps.ico"/>
         </Component>
-
-        <Component Id="ChefWSAppDesktopShortcut" Guid="91f753ca-d87b-4ef2-915c-2183bef16177">
-          <Shortcut Id="ChefWSAppDesktopShortcutDef"
-            Name="!(loc.ChefWSAppShortcutName)"
-            Description="!(loc.ChefWSAppShortcutDesc)"
-            Target="[WSAPPDIR]\Chef Workstation App.exe"
-            Icon="cws.ico"/>
-        </Component>
       </Directory>
     </Directory>
 
@@ -217,8 +209,9 @@
          [x] Chef Workstation
            [x] Start Menu Shortcut
            [x] Desktop Shortcut
-         [x] Experimental Features
-           [x] Chef Workstation App (includes shortcuts and autostart)
+           [ ] Environment Customizations
+         [x] Chef Workstation App
+           [ ] Start at login
     -->
     <Feature Id="ChefWSFeature" Title="!(loc.FeatureMainName)"
       Description="!(loc.FeatureMainDesc)"
@@ -230,12 +223,12 @@
       <ComponentRef Id="ChefWSRegistryEntries" />
       <Feature Id="ChefWSStartMenuPSShortcutFeature" Title="!(loc.FeatureChefWSStartMenuPSShortcut)"
         Description="!(loc.FeatureChefWSStartMenuPSShortcutDesc)" Level="1" AllowAdvertise="no" >
-        <ComponentRef Id="StartChefWSPowershellShortcut" />
+        <ComponentRef Id="StartChefWSPowershellScript" />
         <ComponentRef Id="PowershellStartMenuShortcut" />
       </Feature>
       <Feature Id="ChefWSDesktopPSShortcutFeature" Title="!(loc.FeatureChefWSDesktopPSShortcut)"
         Description="!(loc.FeatureChefWSDesktopPSShortcutDesc)" Level="1" AllowAdvertise="no" >
-        <ComponentRef Id="StartChefWSPowershellShortcut" />
+        <ComponentRef Id="StartChefWSPowershellScript" />
         <ComponentRef Id="PowershellDesktopShortcut" />
       </Feature>
       <Feature Id="ChefWSEnvHacks" Title="!(loc.FeatureChefWSEnvHacks)" Description="!(loc.FeatureChefWSEnvHacksDesc)" Level="1000" AllowAdvertise="no">
@@ -243,14 +236,12 @@
       </Feature>
     </Feature>
 
-    <Feature Id="ExperimentalFeatures" Title="!(loc.FeatureExperimental)" Description="!(loc.FeatureExperimentalDesc)" Level="1000" AllowAdvertise="no" Display="collapse">
-      <Feature Id="ExperimentalChefWSApp" Title="!(loc.FeatureExperimentalChefWS)" Description="!(loc.FeatureExperimentalChefWSDesc)">
-        <!-- 2018-10-08  disabling automstart until we're ready to enable it for all platforms
-
-             <ComponentRef Id="ChefWSAppAutostartShortcut" />
-         -->
-        <ComponentRef Id="ChefWSAppStartMenuShortcut" />
-        <ComponentRef Id="ChefWSAppDesktopShortcut" />
+    <Feature Id="ChefWSApp" Title="!(loc.FeatureChefWSApp)" Description="!(loc.FeatureChefWSAppDesc)"
+      Level="1" AllowAdvertise="no">
+      <ComponentRef Id="ChefWSAppStartMenuShortcut" />
+      <Feature Id="ChefWSAppAutostartFeature" Title="!(loc.FeatureChefWSAppAutostart)"
+               Description="!(loc.FeatureChefWSAppAutostartDesc)" Level="1000" AllowAdvertise="no" >
+        <ComponentRef Id="ChefWSAppAutostartShortcut" />
       </Feature>
     </Feature>
 
