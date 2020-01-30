@@ -392,7 +392,7 @@ analyze = true
 ```
 
 Description
-: List of experimental features that can be turn on and off. In the above example, there is one turned on feature, the `analyze` feature. Every feature flag has a way to be turned on through the command line via environment variables. The respective environment variable for the `analize` feature would be `CHEF_FEAT_ANALYZE`. When set to any value, the feature will be turned on.
+: List of experimental features. Features are not enabled by default. Enable the feature with `name=true` and disable with `name=false`. The above example enables one feature, which is the `analyze` feature. You can also enable or disable any feature from the command line using an environment variable. For example,  setting `CHEF_FEAT_ANALYZE=true` from the command line enables the `analyze` feature for the duration of your terminal session.
 
 Values
 : `name = true`, `name = false`
