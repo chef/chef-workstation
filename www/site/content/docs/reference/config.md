@@ -118,7 +118,7 @@ Configure caching options.
 
 #### Example
 
-```tom
+```toml
 [cache]
 path="/home/users/username/.cache/chef-workstation"
 ```
@@ -189,7 +189,7 @@ Control connection behaviors for the WinRM protocol.
 
 #### Example
 
-```tom
+```toml
 [connection.winrm]
 ssl=true
 ssl_verify=false
@@ -321,7 +321,7 @@ Configure reporting of `chef-client` runs triggered via `chef-run`.
 
 #### Example
 
-```tom
+```toml
 [data_collector]
 url="https://1.1.1.1/data-collector/v0/"
 token="ABCDEF0123456789"
@@ -361,7 +361,7 @@ These options are intended for development and troubleshooting of Chef Workstati
 
 #### Example
 
-```tom
+```toml
 [dev]
 spinner=false
 ```
@@ -388,12 +388,11 @@ Enable and disable experimental features for Chef Workstation.
 
 ```toml
 [features]
-preferences_dialog = true
 analyze = true
 ```
 
 Description
-: List of experimental features that can be turn on and off. In the above example, there are two turned on features, the `preferences_dialog` feature, and the `analyze` feature. Every feature flag has a way to be turned on through the command line via environment variables. The respective environment variable for the `analize` feature would be `CHEF_FEAT_ANALYZE`. When set to any value, the feature will be turned on.
+: List of experimental features that can be turn on and off. In the above example, there is one turned on feature, the `analyze` feature. Every feature flag has a way to be turned on through the command line via environment variables. The respective environment variable for the `analize` feature would be `CHEF_FEAT_ANALYZE`. When set to any value, the feature will be turned on.
 
 Values
 : `name = true`, `name = false`
