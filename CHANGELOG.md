@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.15.13 -->
-## [0.15.13](https://github.com/chef/chef-workstation/tree/0.15.13) (2020-01-30)
+<!-- latest_release 0.15.14 -->
+## [0.15.14](https://github.com/chef/chef-workstation/tree/0.15.14) (2020-01-30)
 
 #### Merged Pull Requests
-- Update knife-windows and knife-vsphere to latest [#906](https://github.com/chef/chef-workstation/pull/906) ([tas50](https://github.com/tas50))
+- Adds Feature Flags documentation [#705](https://github.com/chef/chef-workstation/pull/705) ([afiune](https://github.com/afiune))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.6 -->
 ### Changes since 0.15.6 release
 
 #### Merged Pull Requests
+- Adds Feature Flags documentation [#705](https://github.com/chef/chef-workstation/pull/705) ([afiune](https://github.com/afiune)) <!-- 0.15.14 -->
 - Update knife-windows and knife-vsphere to latest [#906](https://github.com/chef/chef-workstation/pull/906) ([tas50](https://github.com/tas50)) <!-- 0.15.13 -->
 - Pin FFI to avoid warnings and remove the bundler pin [#905](https://github.com/chef/chef-workstation/pull/905) ([tas50](https://github.com/tas50)) <!-- 0.15.12 -->
 - Update to chef-api 0.10.5 [#903](https://github.com/chef/chef-workstation/pull/903) ([tas50](https://github.com/tas50)) <!-- 0.15.11 -->
