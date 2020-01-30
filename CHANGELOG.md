@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.15.11 -->
-## [0.15.11](https://github.com/chef/chef-workstation/tree/0.15.11) (2020-01-29)
+<!-- latest_release 0.15.12 -->
+## [0.15.12](https://github.com/chef/chef-workstation/tree/0.15.12) (2020-01-30)
 
 #### Merged Pull Requests
-- Update to chef-api 0.10.5 [#903](https://github.com/chef/chef-workstation/pull/903) ([tas50](https://github.com/tas50))
+- Pin FFI to avoid warnings and remove the bundler pin [#905](https://github.com/chef/chef-workstation/pull/905) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.6 -->
 ### Changes since 0.15.6 release
 
 #### Merged Pull Requests
+- Pin FFI to avoid warnings and remove the bundler pin [#905](https://github.com/chef/chef-workstation/pull/905) ([tas50](https://github.com/tas50)) <!-- 0.15.12 -->
 - Update to chef-api 0.10.5 [#903](https://github.com/chef/chef-workstation/pull/903) ([tas50](https://github.com/tas50)) <!-- 0.15.11 -->
 - Update knife-google to 4.2.7 [#902](https://github.com/chef/chef-workstation/pull/902) ([tas50](https://github.com/tas50)) <!-- 0.15.10 -->
 - Update knife-google and knife-vcenter to the latest [#901](https://github.com/chef/chef-workstation/pull/901) ([tas50](https://github.com/tas50)) <!-- 0.15.9 -->
