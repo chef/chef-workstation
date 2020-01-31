@@ -574,7 +574,7 @@ GEM
       rbvmomi (>= 1.11, < 3.0)
       savon (~> 2.11)
       vsphere-automation-sdk (~> 0.4)
-    knife-vsphere (4.1.0)
+    knife-vsphere (4.1.1)
       chef (>= 15.1)
       chef-vault (>= 2.6.0)
       filesize (>= 0.1.1, < 0.3.0)
@@ -983,7 +983,7 @@ GEM
       win32-ipc (>= 0.6.0)
     win32-process (0.8.3)
       ffi (>= 1.0.0)
-    win32-service (2.1.4)
+    win32-service (2.1.5)
       ffi
       ffi-win32-extensions
     win32-taskscheduler (2.0.4)
