@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.15.15 -->
-## [0.15.15](https://github.com/chef/chef-workstation/tree/0.15.15) (2020-01-30)
+<!-- latest_release 0.15.16 -->
+## [0.15.16](https://github.com/chef/chef-workstation/tree/0.15.16) (2020-01-31)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.70 [#907](https://github.com/chef/chef-workstation/pull/907) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update knife-vsphere and win32-service deps [#908](https://github.com/chef/chef-workstation/pull/908) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.6 -->
 ### Changes since 0.15.6 release
 
 #### Merged Pull Requests
+- Update knife-vsphere and win32-service deps [#908](https://github.com/chef/chef-workstation/pull/908) ([tas50](https://github.com/tas50)) <!-- 0.15.16 -->
 - Bump chef-analyze CLI to 0.1.70 [#907](https://github.com/chef/chef-workstation/pull/907) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.15.15 -->
 - Adds Feature Flags documentation [#705](https://github.com/chef/chef-workstation/pull/705) ([afiune](https://github.com/afiune)) <!-- 0.15.14 -->
 - Update knife-windows and knife-vsphere to latest [#906](https://github.com/chef/chef-workstation/pull/906) ([tas50](https://github.com/tas50)) <!-- 0.15.13 -->
