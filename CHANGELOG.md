@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.15.17 -->
-## [0.15.17](https://github.com/chef/chef-workstation/tree/0.15.17) (2020-02-01)
+<!-- latest_release 0.15.18 -->
+## [0.15.18](https://github.com/chef/chef-workstation/tree/0.15.18) (2020-02-02)
 
 #### Merged Pull Requests
-- Adding entitlement for unsigned memory execution [#909](https://github.com/chef/chef-workstation/pull/909) ([jonsmorrow](https://github.com/jonsmorrow))
+- Revert new knife plugin versions until we can test further [#911](https://github.com/chef/chef-workstation/pull/911) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.6 -->
 ### Changes since 0.15.6 release
 
 #### Merged Pull Requests
+- Revert new knife plugin versions until we can test further [#911](https://github.com/chef/chef-workstation/pull/911) ([tas50](https://github.com/tas50)) <!-- 0.15.18 -->
 - Adding entitlement for unsigned memory execution [#909](https://github.com/chef/chef-workstation/pull/909) ([jonsmorrow](https://github.com/jonsmorrow)) <!-- 0.15.17 -->
 - Update knife-vsphere and win32-service deps [#908](https://github.com/chef/chef-workstation/pull/908) ([tas50](https://github.com/tas50)) <!-- 0.15.16 -->
 - Bump chef-analyze CLI to 0.1.70 [#907](https://github.com/chef/chef-workstation/pull/907) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.15.15 -->
