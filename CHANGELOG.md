@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.15.20 -->
-## [0.15.20](https://github.com/chef/chef-workstation/tree/0.15.20) (2020-02-04)
+<!-- latest_release 0.16.0 -->
+## [0.16.0](https://github.com/chef/chef-workstation/tree/0.16.0) (2020-02-04)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.64 [#916](https://github.com/chef/chef-workstation/pull/916) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update knife pins to once again require the new gems [#914](https://github.com/chef/chef-workstation/pull/914) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.18 -->
 ### Changes since 0.15.18 release
 
 #### Merged Pull Requests
+- Update knife pins to once again require the new gems [#914](https://github.com/chef/chef-workstation/pull/914) ([tas50](https://github.com/tas50)) <!-- 0.16.0 -->
 - Bump Chef Workstation App to 0.1.64 [#916](https://github.com/chef/chef-workstation/pull/916) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.15.20 -->
 - Bump Chef Workstation App to 0.1.63 [#915](https://github.com/chef/chef-workstation/pull/915) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.15.19 -->
 <!-- release_rollup -->
