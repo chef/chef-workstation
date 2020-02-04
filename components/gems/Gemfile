@@ -27,8 +27,8 @@ group(:omnibus_package, :development, :test) do
   gem "pry"
   gem "yard"
   gem "guard"
-  gem "cookstyle", "~> 5.0"
-  gem "foodcritic", ">= 16.0"
+  gem "cookstyle", "~> 5.20"
+  gem "foodcritic", ">= 16.2"
   gem "ffi-libarchive"
 end
 
@@ -43,10 +43,6 @@ end
 # We equality pin the chef gem itself to assert which version we're shipping.
 group(:omnibus_package) do
   gem "appbundler"
-
-  ## avoid ffi warnings about overwriting struct layouts which 1.12 introduced
-  # https://github.com/chef/chef-workstation/issues/904 tracks fixing this in win32-service
-  gem "ffi", "< 1.12"
 
   ## Until we resolve https://github.com/inspec/train/issues/548
   gem "train", "=3.2.0"
@@ -82,15 +78,15 @@ group(:omnibus_package) do
   gem "kitchen-vcenter", ">= 2.0"
 
   # knife plugins
-  gem "knife-acl", "= 1.0.6"
-  gem "knife-azure", "= 2.0.6"
-  gem "knife-ec2", "= 1.0.28"
-  gem "knife-google", "= 4.2.4"
-  gem "knife-tidy", ">= 1.2.0"
-  gem "knife-windows", "= 3.0.6"
-  gem "knife-opc", ">= 0.4.0"
-  gem "knife-vcenter", "= 3.0.0"
-  gem "knife-vsphere", "= 4.0.8"
+  gem "knife-acl", ">= 1.0.6"
+  gem "knife-azure", ">= 2.0.11"
+  gem "knife-ec2", ">= 1.0.28"
+  gem "knife-google", ">= 4.2.7"
+  gem "knife-tidy", ">= 2.0.9"
+  gem "knife-windows", ">= 3.0.11"
+  gem "knife-opc", ">= 0.4.1"
+  gem "knife-vcenter", ">= 3.0.1"
+  gem "knife-vsphere", ">= 4.1.1"
 
   # ed25519 ssh key support done here as it's a native gem we can't put in train
   gem "ed25519"
@@ -144,5 +140,5 @@ platforms :mswin, :mingw do
   gem "win32-event"
   gem "win32-mutex"
   gem "win32-process", "~> 0.8.2"
-  gem "win32-service"
+  gem "win32-service", ">= 2.1.5" # 2.1.5 resolves ffi warnings
 end
