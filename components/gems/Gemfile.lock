@@ -389,9 +389,9 @@ GEM
       faraday (>= 0.7.4, < 1.0)
     fauxhai-ng (7.5.1)
       net-ssh
-    ffi (1.11.3)
-    ffi (1.11.3-x64-mingw32)
-    ffi (1.11.3-x86-mingw32)
+    ffi (1.12.2)
+    ffi (1.12.2-x64-mingw32)
+    ffi (1.12.2-x86-mingw32)
     ffi-libarchive (1.0.0)
       ffi (~> 1.0)
     ffi-rzmq (2.0.7)
@@ -1040,7 +1040,6 @@ DEPENDENCIES
   dep_selector
   ed25519
   fauxhai-ng (~> 7.5)
-  ffi (< 1.12)
   ffi-libarchive
   ffi-rzmq-core
   foodcritic (>= 16.2)
@@ -1094,7 +1093,7 @@ DEPENDENCIES
   win32-event
   win32-mutex
   win32-process (~> 0.8.2)
-  win32-service
+  win32-service (>= 2.1.5)
   windows-pr
   winrm-elevated
   winrm-fs
