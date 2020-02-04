@@ -217,7 +217,7 @@
            [x] Desktop Shortcut
            [ ] Environment Customizations
          [x] Chef Workstation App
-           [ ] Start at login
+           [x] Start at login
     -->
     <Feature Id="ChefWSFeature" Title="!(loc.FeatureMainName)"
       Description="!(loc.FeatureMainDesc)"
@@ -262,6 +262,7 @@
     <Property Id="ARPHELPLINK" Value="https://chef.sh/" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="!(loc.LaunchChefWSApp)" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1"/>
 
     <!-- Use our custom UI sequence which is based on WixUI_FeatureTree  - the default WIX installer UI that includes a feature tree
          The fragment containing ChefWS_FeatureTree is at the bottom of this file;  omnibus does not currently support
@@ -320,7 +321,7 @@
       <DialogRef Id="UserExit" />
       <DialogRef Id="DlgDKInstalled" />
 
-      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchApplication" Order="999">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
       <Publish Dialog="MaintenanceWelcomeDlg" Control="Next" Event="NewDialog" Value="MaintenanceTypeDlg">1</Publish>
 
       <!-- WelcomeDlg buttons -->
