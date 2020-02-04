@@ -1,30 +1,28 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.15.18 -->
-## [0.15.18](https://github.com/chef/chef-workstation/tree/0.15.18) (2020-02-02)
-
-#### Merged Pull Requests
-- Revert new knife plugin versions until we can test further [#911](https://github.com/chef/chef-workstation/pull/911) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.15.6 -->
-### Changes since 0.15.6 release
-
-#### Merged Pull Requests
-- Revert new knife plugin versions until we can test further [#911](https://github.com/chef/chef-workstation/pull/911) ([tas50](https://github.com/tas50)) <!-- 0.15.18 -->
-- Adding entitlement for unsigned memory execution [#909](https://github.com/chef/chef-workstation/pull/909) ([jonsmorrow](https://github.com/jonsmorrow)) <!-- 0.15.17 -->
-- Update knife-vsphere and win32-service deps [#908](https://github.com/chef/chef-workstation/pull/908) ([tas50](https://github.com/tas50)) <!-- 0.15.16 -->
-- Bump chef-analyze CLI to 0.1.70 [#907](https://github.com/chef/chef-workstation/pull/907) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.15.15 -->
-- Adds Feature Flags documentation [#705](https://github.com/chef/chef-workstation/pull/705) ([afiune](https://github.com/afiune)) <!-- 0.15.14 -->
-- Update knife-windows and knife-vsphere to latest [#906](https://github.com/chef/chef-workstation/pull/906) ([tas50](https://github.com/tas50)) <!-- 0.15.13 -->
-- Pin FFI to avoid warnings and remove the bundler pin [#905](https://github.com/chef/chef-workstation/pull/905) ([tas50](https://github.com/tas50)) <!-- 0.15.12 -->
-- Update to chef-api 0.10.5 [#903](https://github.com/chef/chef-workstation/pull/903) ([tas50](https://github.com/tas50)) <!-- 0.15.11 -->
-- Update knife-google to 4.2.7 [#902](https://github.com/chef/chef-workstation/pull/902) ([tas50](https://github.com/tas50)) <!-- 0.15.10 -->
-- Update knife-google and knife-vcenter to the latest [#901](https://github.com/chef/chef-workstation/pull/901) ([tas50](https://github.com/tas50)) <!-- 0.15.9 -->
-- Update knife-azure to 2.0.10 to speed up knife [#900](https://github.com/chef/chef-workstation/pull/900) ([tas50](https://github.com/tas50)) <!-- 0.15.8 -->
-- Bump Chef Workstation App to 0.1.62 [#899](https://github.com/chef/chef-workstation/pull/899) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.15.7 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.15.18](https://github.com/chef/chef-workstation/tree/0.15.18) (2020-02-04)
+
+#### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.62 [#899](https://github.com/chef/chef-workstation/pull/899) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update knife-azure to 2.0.10 to speed up knife [#900](https://github.com/chef/chef-workstation/pull/900) ([tas50](https://github.com/tas50))
+- Update knife-google and knife-vcenter to the latest [#901](https://github.com/chef/chef-workstation/pull/901) ([tas50](https://github.com/tas50))
+- Update knife-google to 4.2.7 [#902](https://github.com/chef/chef-workstation/pull/902) ([tas50](https://github.com/tas50))
+- Update to chef-api 0.10.5 [#903](https://github.com/chef/chef-workstation/pull/903) ([tas50](https://github.com/tas50))
+- Pin FFI to avoid warnings and remove the bundler pin [#905](https://github.com/chef/chef-workstation/pull/905) ([tas50](https://github.com/tas50))
+- Update knife-windows and knife-vsphere to latest [#906](https://github.com/chef/chef-workstation/pull/906) ([tas50](https://github.com/tas50))
+- Adds Feature Flags documentation [#705](https://github.com/chef/chef-workstation/pull/705) ([afiune](https://github.com/afiune))
+- Bump chef-analyze CLI to 0.1.70 [#907](https://github.com/chef/chef-workstation/pull/907) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update knife-vsphere and win32-service deps [#908](https://github.com/chef/chef-workstation/pull/908) ([tas50](https://github.com/tas50))
+- Adding entitlement for unsigned memory execution [#909](https://github.com/chef/chef-workstation/pull/909) ([jonsmorrow](https://github.com/jonsmorrow))
+- Revert new knife plugin versions until we can test further [#911](https://github.com/chef/chef-workstation/pull/911) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [0.15.6](https://github.com/chef/chef-workstation/tree/0.15.6) (2020-01-28)
 
 #### Merged Pull Requests
@@ -43,7 +41,6 @@
 - Exclude omnibus_packages in chef bundle testing [#886](https://github.com/chef/chef-workstation/pull/886) ([tas50](https://github.com/tas50))
 - Require Berkshelf 7.0.9 or later [#893](https://github.com/chef/chef-workstation/pull/893) ([tas50](https://github.com/tas50))
 - Update to Chef Infra Client 15.7.32 + fix package failures [#894](https://github.com/chef/chef-workstation/pull/894) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [0.14.16](https://github.com/chef/chef-workstation/tree/0.14.16) (2020-01-15)
 
