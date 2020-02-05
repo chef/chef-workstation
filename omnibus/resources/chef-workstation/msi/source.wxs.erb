@@ -38,6 +38,12 @@
 
     <Property Id="WixQuietExecCmdLine" Value='"[WindowsFolder]\System32\taskkill.exe" /T /F /IM "Chef Workstation App*"' />
 
+    <Property Id="WixShellExecTarget" Value="[WSAPPDIR]\Chef Workstation App.exe" />
+    <CustomAction Id="LaunchApplication"
+        BinaryKey="WixCA"
+        DllEntry="WixShellExec"
+        Impersonate="yes" />
+
     <CustomAction Id="TaskKill"
       BinaryKey="WixCA"
       DllEntry="WixQuietExec"
@@ -211,7 +217,7 @@
            [x] Desktop Shortcut
            [ ] Environment Customizations
          [x] Chef Workstation App
-           [ ] Start at login
+           [x] Start at login
     -->
     <Feature Id="ChefWSFeature" Title="!(loc.FeatureMainName)"
       Description="!(loc.FeatureMainDesc)"
@@ -240,7 +246,7 @@
       Level="1" AllowAdvertise="no">
       <ComponentRef Id="ChefWSAppStartMenuShortcut" />
       <Feature Id="ChefWSAppAutostartFeature" Title="!(loc.FeatureChefWSAppAutostart)"
-               Description="!(loc.FeatureChefWSAppAutostartDesc)" Level="1000" AllowAdvertise="no" >
+               Description="!(loc.FeatureChefWSAppAutostartDesc)" Level="1" AllowAdvertise="no" >
         <ComponentRef Id="ChefWSAppAutostartShortcut" />
       </Feature>
     </Feature>
@@ -255,6 +261,8 @@
     <Property Id="ARPPRODUCTICON" Value="cws16.ico" />
     <Property Id="ARPHELPLINK" Value="https://chef.sh/" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="!(loc.LaunchChefWSApp)" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1"/>
 
     <!-- Use our custom UI sequence which is based on WixUI_FeatureTree  - the default WIX installer UI that includes a feature tree
          The fragment containing ChefWS_FeatureTree is at the bottom of this file;  omnibus does not currently support
@@ -313,7 +321,9 @@
       <DialogRef Id="UserExit" />
       <DialogRef Id="DlgDKInstalled" />
 
-      <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
+      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+      <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return">1</Publish>
+
       <Publish Dialog="MaintenanceWelcomeDlg" Control="Next" Event="NewDialog" Value="MaintenanceTypeDlg">1</Publish>
 
       <!-- WelcomeDlg buttons -->
