@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.16.4 -->
-## [0.16.4](https://github.com/chef/chef-workstation/tree/0.16.4) (2020-02-05)
+<!-- latest_release 0.16.5 -->
+## [0.16.5](https://github.com/chef/chef-workstation/tree/0.16.5) (2020-02-05)
 
 #### Merged Pull Requests
-- mac_os:(launcher) run at boot [#913](https://github.com/chef/chef-workstation/pull/913) ([afiune](https://github.com/afiune))
+- omnibus:(project) update build_version [#921](https://github.com/chef/chef-workstation/pull/921) ([afiune](https://github.com/afiune))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.18 -->
 ### Changes since 0.15.18 release
 
 #### Merged Pull Requests
+- omnibus:(project) update build_version [#921](https://github.com/chef/chef-workstation/pull/921) ([afiune](https://github.com/afiune)) <!-- 0.16.5 -->
 - mac_os:(launcher) run at boot [#913](https://github.com/chef/chef-workstation/pull/913) ([afiune](https://github.com/afiune)) <!-- 0.16.4 -->
 - Bump Chef Workstation App to 0.1.65 [#920](https://github.com/chef/chef-workstation/pull/920) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.3 -->
 - Enable the Workstation App to run at boot on Windows [#671](https://github.com/chef/chef-workstation/pull/671) ([tas50](https://github.com/tas50)) <!-- 0.16.2 -->
