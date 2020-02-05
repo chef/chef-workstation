@@ -32,10 +32,12 @@ for binary in $binaries; do
 done
 
 if is_darwin; then
-  restart_required=false
+  # the app launcher comes from the chef-workstation-app repo, here we are just using
+  # it to start the app as a service on MacOS systems, it will start at boot
+  app_launcher=chef_workstation_app_launcher
+
   # Close the app if it is running.
   if [ $(osascript -e 'application "Chef Workstation App" is running') = 'true' ]; then
-    restart_required=true
     echo "Closing Chef Workstation App..."
     osascript -e 'quit app "Chef Workstation App"' > /dev/null 2>&1;
   fi
@@ -48,16 +50,15 @@ if is_darwin; then
   unzip chef-workstation-app-mac.zip
   sudo rm -rf "/Applications/Chef Workstation App.app"
   sudo mv "Chef Workstation App.app" /Applications/
+  mv "/Applications/Chef Workstation App.app/Contents/Resources/assets/scripts/$app_launcher" $INSTALLER_DIR/bin || error_exit "Cannot move $app_launcher to $INSTALLER_DIR/bin"
   rm -f chef-workstation-app-mac.zip
   popd
 
   ln -sf $INSTALLER_DIR/bin/uninstall_chef_workstation $PREFIX/bin || error_exit "Cannot link uninstall_chef_workstation to $PREFIX/bin"
 
   # Restart the app if it was running.
-  if $restart_required; then
-    echo "Restarting Chef Workstation App..."
-    osascript -e 'open app "Chef Workstation App"' > /dev/null 2>&1;
-  fi
+  echo "Restarting Chef Workstation App..."
+  $INSTALLER_DIR/bin/$app_launcher load
 else # linux - postinst does not run for windows.
   cwa_app_path="$INSTALLER_DIR/components/chef-workstation-app/chef-workstation-app"
   ldd "$cwa_app_path" | grep "not found" >/dev/null 2>&1
