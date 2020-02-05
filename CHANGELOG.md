@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.16.2 -->
-## [0.16.2](https://github.com/chef/chef-workstation/tree/0.16.2) (2020-02-05)
+<!-- latest_release 0.16.3 -->
+## [0.16.3](https://github.com/chef/chef-workstation/tree/0.16.3) (2020-02-05)
 
 #### Merged Pull Requests
-- Enable the Workstation App to run at boot on Windows [#671](https://github.com/chef/chef-workstation/pull/671) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.65 [#920](https://github.com/chef/chef-workstation/pull/920) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.18 -->
 ### Changes since 0.15.18 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.65 [#920](https://github.com/chef/chef-workstation/pull/920) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.3 -->
 - Enable the Workstation App to run at boot on Windows [#671](https://github.com/chef/chef-workstation/pull/671) ([tas50](https://github.com/tas50)) <!-- 0.16.2 -->
 - Bump chef-analyze CLI to 0.1.71 [#917](https://github.com/chef/chef-workstation/pull/917) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.1 -->
 - Update knife pins to once again require the new gems [#914](https://github.com/chef/chef-workstation/pull/914) ([tas50](https://github.com/tas50)) <!-- 0.16.0 -->
