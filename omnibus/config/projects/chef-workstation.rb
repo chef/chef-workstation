@@ -36,7 +36,8 @@ else
   install_dir "#{default_root}/#{name}"
 end
 
-build_version Omnibus::BuildVersion.semver
+version_file = File.expand_path("../../../../VERSION", __FILE__)
+build_version IO.read(version_file).strip
 build_iteration 1
 
 # In order to prevent unecessary cache expiration,
