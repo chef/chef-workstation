@@ -82,6 +82,12 @@ for binary in $binaries; do
   ln -sf "$INSTALLER_DIR/bin/$binary" $PREFIX/bin || error_exit "Cannot link $binary to $PREFIX/bin"
 done
 
+# everyone needs a .chef dir so let's create it for them
+if [ ! -d ~/.chef/ ]; then
+  mkdir ~/.chef
+  chmod 700 ~/.chef
+fi
+
 if is_darwin; then
   # the app launcher comes from the chef-workstation-app repo, here we are just using
   # it to start the app as a service on MacOS systems, it will start at boot
