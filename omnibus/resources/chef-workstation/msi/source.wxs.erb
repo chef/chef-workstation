@@ -94,32 +94,32 @@
        For now, using COMMON_ALTSTARTUP which is the global auto-start folder. Note that this
        may cause some trouble - we haven't yet looked into how the App should behave when multiple
        instances are running across different users.
-  -->
-  <PropertyRef Id="WIX_DIR_COMMON_ALTSTARTUP" />
+    -->
+    <PropertyRef Id="WIX_DIR_COMMON_ALTSTARTUP" />
 
-  <CustomActionRef Id="WixBroadcastSettingChange" />
-  <CustomActionRef Id="WixBroadcastEnvironmentChange" />
+    <CustomActionRef Id="WixBroadcastSettingChange" />
+    <CustomActionRef Id="WixBroadcastEnvironmentChange" />
 
-  <SetDirectory Id="WINDOWSVOLUME" Value="[WindowsVolume]"/>
-  <Directory Id="TARGETDIR" Name="SourceDir">
-    <Directory Id="WINDOWSVOLUME">
-      <Directory Id="INSTALLLOCATION" Name="opscode">
-        <Directory Id="PROJECTLOCATION" Name="chef-workstation">
-          <Directory Id="PROJECTLOCATIONBIN" Name="bin">
-            <Component Id="ChefWSPath" Guid="{BC744260-FD5B-4A0F-8EE5-76283072CC09}" >
-              <Environment Id="Environment"
-                Name="PATH" Action="set" Part="last" System="yes" Value="[PROJECTLOCATIONBIN]" />
-            </Component>
-            <Component Id="ChefWSRegistryEntries" Guid="{67E30C25-5311-4584-9A17-5D47AC28F9CD}">
-              <RegistryKey Root="HKLM" Key="Software\Chef\Chef Workstation">
-                <RegistryValue Type="string" Name="InstallDir" Value="[PROJECTLOCATION]" />
-                <RegistryValue Type="string" Name="BinDir" Value="[PROJECTLOCATIONBIN]" />
-              </RegistryKey>
-            </Component>
-            <Component Id="StartChefWSPowershellScript" Guid="{69EF5736-ED67-45B3-887A-FBFC0AB6DA13}" >
-              <!-- Note that this refers to a Source relative to the package build directory,
-                     and not in the zip file which contains all of the chef-workstation build -->
-                <File Id="StartChefWSScript" Source="Resources\assets\start-chefws.ps1" KeyPath="yes" />
+    <SetDirectory Id="WINDOWSVOLUME" Value="[WindowsVolume]"/>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="WINDOWSVOLUME">
+        <Directory Id="INSTALLLOCATION" Name="opscode">
+          <Directory Id="PROJECTLOCATION" Name="chef-workstation">
+            <Directory Id="PROJECTLOCATIONBIN" Name="bin">
+              <Component Id="ChefWSPath" Guid="{BC744260-FD5B-4A0F-8EE5-76283072CC09}" >
+                <Environment Id="Environment"
+                  Name="PATH" Action="set" Part="last" System="yes" Value="[PROJECTLOCATIONBIN]" />
+              </Component>
+              <Component Id="ChefWSRegistryEntries" Guid="{67E30C25-5311-4584-9A17-5D47AC28F9CD}">
+                <RegistryKey Root="HKLM" Key="Software\Chef\Chef Workstation">
+                  <RegistryValue Type="string" Name="InstallDir" Value="[PROJECTLOCATION]" />
+                  <RegistryValue Type="string" Name="BinDir" Value="[PROJECTLOCATIONBIN]" />
+                </RegistryKey>
+              </Component>
+              <Component Id="StartChefWSPowershellScript" Guid="{69EF5736-ED67-45B3-887A-FBFC0AB6DA13}" >
+                <!-- Note that this refers to a Source relative to the package build directory,
+                      and not in the zip file which contains all of the chef-workstation build -->
+                  <File Id="StartChefWSScript" Source="Resources\assets\start-chefws.ps1" KeyPath="yes" />
               </Component>
             </Directory>
             <Directory Id="PSMODULES" Name="modules" >
