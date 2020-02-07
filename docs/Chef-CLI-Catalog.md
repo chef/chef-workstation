@@ -75,6 +75,8 @@ We need to start gathering information about how our users use the chef CLI,
 this will allow us to understand the impact that we will have from some major
 changes we are about to do.
 
+The implementation details of Telemetry will be done on a separate document.
+
 ### Refactor the Chef-CLI
 Restructure the chef-cli binary to have a better sub-command distribution,
 things that are global to the CLI tool like, chef generate or chef shell-init,
