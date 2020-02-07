@@ -116,6 +116,11 @@
                   <RegistryValue Type="string" Name="BinDir" Value="[PROJECTLOCATIONBIN]" />
                 </RegistryKey>
               </Component>
+              <Component Id="CreateDotChefDirPowershellScript" Guid="{DB58E387-1D7C-4D3D-8413-372208B82A8C}" >
+                <!-- Note that this refers to a Source relative to the package build directory,
+                      and not in the zip file which contains all of the chef-workstation build -->
+                  <File Id="CreateDotChefDirScript" Source="Resources\assets\create-chef-dir.ps1" KeyPath="yes" />
+              </Component>
               <Component Id="StartChefWSPowershellScript" Guid="{69EF5736-ED67-45B3-887A-FBFC0AB6DA13}" >
                 <!-- Note that this refers to a Source relative to the package build directory,
                       and not in the zip file which contains all of the chef-workstation build -->
