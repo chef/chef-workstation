@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.16.7 -->
-## [0.16.7](https://github.com/chef/chef-workstation/tree/0.16.7) (2020-02-07)
+<!-- latest_release 0.16.8 -->
+## [0.16.8](https://github.com/chef/chef-workstation/tree/0.16.8) (2020-02-10)
 
 #### Merged Pull Requests
-- Update knife-windows to 3.0.13 [#925](https://github.com/chef/chef-workstation/pull/925) ([tas50](https://github.com/tas50))
+- Update knife-windows to 3.0.14 [#932](https://github.com/chef/chef-workstation/pull/932) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.18 -->
 ### Changes since 0.15.18 release
 
 #### Merged Pull Requests
+- Update knife-windows to 3.0.14 [#932](https://github.com/chef/chef-workstation/pull/932) ([tas50](https://github.com/tas50)) <!-- 0.16.8 -->
 - Update knife-windows to 3.0.13 [#925](https://github.com/chef/chef-workstation/pull/925) ([tas50](https://github.com/tas50)) <!-- 0.16.7 -->
 - Update inspec to 4.18.85 [#923](https://github.com/chef/chef-workstation/pull/923) ([tas50](https://github.com/tas50)) <!-- 0.16.6 -->
 - omnibus:(project) update build_version [#921](https://github.com/chef/chef-workstation/pull/921) ([afiune](https://github.com/afiune)) <!-- 0.16.5 -->
