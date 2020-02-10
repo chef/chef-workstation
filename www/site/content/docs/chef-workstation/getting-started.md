@@ -20,7 +20,7 @@ New ad-hoc commands `chef-run` and Chef CLI commands such as `chef` are availabl
 
 ```bash
 $ chef -v
-Chef Workstation version: 0.15.6
+Chef Workstation version: 0.15.18
 Chef Infra Client version: 15.7.32
 Chef InSpec version: 4.18.51
 Chef CLI version: 2.0.0
