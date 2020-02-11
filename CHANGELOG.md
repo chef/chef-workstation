@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.16.11 -->
-## [0.16.11](https://github.com/chef/chef-workstation/tree/0.16.11) (2020-02-11)
+<!-- latest_release 0.16.12 -->
+## [0.16.12](https://github.com/chef/chef-workstation/tree/0.16.12) (2020-02-11)
 
 #### Merged Pull Requests
-- Update knife-windows to 3.0.15 [#939](https://github.com/chef/chef-workstation/pull/939) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.67 [#940](https://github.com/chef/chef-workstation/pull/940) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.18 -->
 ### Changes since 0.15.18 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.67 [#940](https://github.com/chef/chef-workstation/pull/940) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.12 -->
 - Update knife-windows to 3.0.15 [#939](https://github.com/chef/chef-workstation/pull/939) ([tas50](https://github.com/tas50)) <!-- 0.16.11 -->
 - Bump Chef Workstation App to 0.1.66 [#935](https://github.com/chef/chef-workstation/pull/935) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.10 -->
 - Update Chef Infra Client to 15.8.23 [#934](https://github.com/chef/chef-workstation/pull/934) ([tas50](https://github.com/tas50)) <!-- 0.16.9 -->
