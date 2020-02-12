@@ -543,7 +543,7 @@ GEM
       savon (~> 2.11)
       test-kitchen (>= 1.16, < 3.0)
       vsphere-automation-sdk (~> 0.4)
-    knife-acl (1.0.6)
+    knife-acl (1.0.8)
     knife-azure (2.0.13)
       azure_mgmt_compute (~> 0.18, >= 0.18.3)
       azure_mgmt_network (~> 0.18, >= 0.18.2)
