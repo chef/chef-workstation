@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.16.19 -->
-## [0.16.19](https://github.com/chef/chef-workstation/tree/0.16.19) (2020-02-12)
+<!-- latest_release 0.16.20 -->
+## [0.16.20](https://github.com/chef/chef-workstation/tree/0.16.20) (2020-02-12)
 
 #### Merged Pull Requests
-- Validate builds on Debian 10 [#944](https://github.com/chef/chef-workstation/pull/944) ([tas50](https://github.com/tas50))
+- Bump omnibus-software from `96e3a0b` to `3772561` in /omnibus [#949](https://github.com/chef/chef-workstation/pull/949) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.18 -->
 ### Changes since 0.15.18 release
 
 #### Merged Pull Requests
+- Bump omnibus-software from `96e3a0b` to `3772561` in /omnibus [#949](https://github.com/chef/chef-workstation/pull/949) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.16.20 -->
 - Validate builds on Debian 10 [#944](https://github.com/chef/chef-workstation/pull/944) ([tas50](https://github.com/tas50)) <!-- 0.16.19 -->
 - Bump Chef Workstation App to 0.1.70 [#948](https://github.com/chef/chef-workstation/pull/948) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.18 -->
 - postinst:(su) run the Workstation App as mortal user [#938](https://github.com/chef/chef-workstation/pull/938) ([afiune](https://github.com/afiune)) <!-- 0.16.17 -->
