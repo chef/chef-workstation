@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.16.13 -->
-## [0.16.13](https://github.com/chef/chef-workstation/tree/0.16.13) (2020-02-11)
+<!-- latest_release 0.16.14 -->
+## [0.16.14](https://github.com/chef/chef-workstation/tree/0.16.14) (2020-02-12)
 
 #### Merged Pull Requests
-- Update knife-windows to 3.0.16 [#941](https://github.com/chef/chef-workstation/pull/941) ([tas50](https://github.com/tas50))
+- Update knife-ec2 to 1.0.31 and knife-vsphere to 4.1.3 [#942](https://github.com/chef/chef-workstation/pull/942) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.18 -->
 ### Changes since 0.15.18 release
 
 #### Merged Pull Requests
+- Update knife-ec2 to 1.0.31 and knife-vsphere to 4.1.3 [#942](https://github.com/chef/chef-workstation/pull/942) ([tas50](https://github.com/tas50)) <!-- 0.16.14 -->
 - Update knife-windows to 3.0.16 [#941](https://github.com/chef/chef-workstation/pull/941) ([tas50](https://github.com/tas50)) <!-- 0.16.13 -->
 - Bump Chef Workstation App to 0.1.67 [#940](https://github.com/chef/chef-workstation/pull/940) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.12 -->
 - Update knife-windows to 3.0.15 [#939](https://github.com/chef/chef-workstation/pull/939) ([tas50](https://github.com/tas50)) <!-- 0.16.11 -->
