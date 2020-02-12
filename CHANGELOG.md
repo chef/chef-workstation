@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.16.21 -->
-## [0.16.21](https://github.com/chef/chef-workstation/tree/0.16.21) (2020-02-12)
+<!-- latest_release 0.16.22 -->
+## [0.16.22](https://github.com/chef/chef-workstation/tree/0.16.22) (2020-02-12)
 
 #### Merged Pull Requests
-- Update knife-google to 4.2.8 and kitchen-vcenter to 2.6.2 [#951](https://github.com/chef/chef-workstation/pull/951) ([tas50](https://github.com/tas50))
+- Update multiple components for faster requires [#952](https://github.com/chef/chef-workstation/pull/952) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.18 -->
 ### Changes since 0.15.18 release
 
 #### Merged Pull Requests
+- Update multiple components for faster requires [#952](https://github.com/chef/chef-workstation/pull/952) ([tas50](https://github.com/tas50)) <!-- 0.16.22 -->
 - Update knife-google to 4.2.8 and kitchen-vcenter to 2.6.2 [#951](https://github.com/chef/chef-workstation/pull/951) ([tas50](https://github.com/tas50)) <!-- 0.16.21 -->
 - Bump omnibus-software from `96e3a0b` to `3772561` in /omnibus [#949](https://github.com/chef/chef-workstation/pull/949) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.16.20 -->
 - Validate builds on Debian 10 [#944](https://github.com/chef/chef-workstation/pull/944) ([tas50](https://github.com/tas50)) <!-- 0.16.19 -->
