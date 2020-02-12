@@ -276,7 +276,7 @@ GEM
     chef-api (0.10.5)
       mime-types
       mixlib-log (>= 1, < 4)
-    chef-apply (0.4.13)
+    chef-apply (0.4.15)
       chef (>= 15.0)
       chef-cli (>= 1.0.3)
       chef-telemetry (>= 1.0.2)
