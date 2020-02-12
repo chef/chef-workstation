@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.16.23 -->
-## [0.16.23](https://github.com/chef/chef-workstation/tree/0.16.23) (2020-02-12)
+<!-- latest_release 0.16.24 -->
+## [0.16.24](https://github.com/chef/chef-workstation/tree/0.16.24) (2020-02-12)
 
 #### Merged Pull Requests
-- Update chef-apply and omnibus [#953](https://github.com/chef/chef-workstation/pull/953) ([tas50](https://github.com/tas50))
+- Update ChefSpec to 9.1 and knife-opc to 0.4.4 [#954](https://github.com/chef/chef-workstation/pull/954) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.18 -->
 ### Changes since 0.15.18 release
 
 #### Merged Pull Requests
+- Update ChefSpec to 9.1 and knife-opc to 0.4.4 [#954](https://github.com/chef/chef-workstation/pull/954) ([tas50](https://github.com/tas50)) <!-- 0.16.24 -->
 - Update chef-apply and omnibus [#953](https://github.com/chef/chef-workstation/pull/953) ([tas50](https://github.com/tas50)) <!-- 0.16.23 -->
 - Update multiple components for faster requires [#952](https://github.com/chef/chef-workstation/pull/952) ([tas50](https://github.com/tas50)) <!-- 0.16.22 -->
 - Update knife-google to 4.2.8 and kitchen-vcenter to 2.6.2 [#951](https://github.com/chef/chef-workstation/pull/951) ([tas50](https://github.com/tas50)) <!-- 0.16.21 -->
