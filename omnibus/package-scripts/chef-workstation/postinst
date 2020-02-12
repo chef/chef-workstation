@@ -58,7 +58,7 @@ if is_darwin; then
 
   # Restart the app if it was running.
   echo "Restarting Chef Workstation App..."
-  $INSTALLER_DIR/bin/$app_launcher load
+  su "$USER" $INSTALLER_DIR/bin/$app_launcher load
 else # linux - postinst does not run for windows.
   cwa_app_path="$INSTALLER_DIR/components/chef-workstation-app/chef-workstation-app"
   ldd "$cwa_app_path" | grep "not found" >/dev/null 2>&1
