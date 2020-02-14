@@ -14,43 +14,22 @@ that our users use (almost) every day are:
 * berks (Berkshelf)
 * cookstyle
 * delivery
-* chef-apply
 * chef-client
-* chef-run
+* chef-run/chef-apply
 * chef-shell
 * chef-solo
 
-## Goals
-* Have a single, unified way to discover tools to interact with Chef products
-* Consistent/Usable performance on all supported platforms
-* Gather data about how our users consume and interact with our tools (Telemetry)
-* Standardize the UX of our (CLI) tools
-* Have the flexibility to rename tools and commands within our ecosystem
-* Enable developers to use any supported programming languages at Chef for efficiency
-
-## Motivation
-
-    As a Chef Operator,
-    I need an efficient Command Line Interface (CLI) that lets me interact with every Chef product,
-    so I don't have to install multiple tools on my workstation and I can do my day to day work.
-
-    As a Chef developer,
-    I need to be able to gather information about how our users consume and interact with our tools,
-    so I can identify which commands are used the most and measure the usability and performance on all supported platforms.
-
-## Specification
-
 Currently, inside the latest version of Chef Workstation (and since version `0.10.41`),
 the team has implemented a top-level `chef` command that acts as a wrapper around chef
-commands. This design proposes we expand this scope to be a proxy/catalog of all the
-user facing cli tools we ship.
+commands. In this design proposal we expand this scope to be a proxy/catalog of all the
+user facing cli tools we package inside Chef Workstation.
 
 Quick diagram that illustrates the new Chef CLI Catalog:
 
 ![chef-cli-catalog](img/chef-top-level-command.jpg)
 
 With this architecture, we would be able to integrate and modularize multiple tools
-in a single place and make the chef command a first citizen of our development
+in a single place and make the chef command a first-class citizen of our development
 experience. We will also be able to gather immediate information from our users of
 all our tools so we can understand what parts of our tooling are the most used and
 which areas can we improve.
@@ -66,20 +45,47 @@ give that time back to our users.
 
 [Gist with a few mocked help commands.](https://gist.github.com/afiune/1dc854089002e182288a0452eaa91908)
 
+## Goals
+* Have a single, unified way to discover tools to interact with Chef products
+* A path to have consistent/usable performance on all supported platforms
+* Gather data about how our users consume and interact with our tools (Telemetry)
+* Agreement to a common UX standards of our (CLI) tools
+* Have the flexibility to rename tools and commands within our ecosystem
+* Enable developers to develop tools in any supported programming languages at Chef
+
+## Motivation
+
+    As a Chef Operator,
+    I need a unified Command Line Interface (CLI) that lets me interact with every Chef product,
+    so I can easly discover the capabilities of the Chef ecosystem.
+
+    As a Chef Developer,
+    I need to be able to gather information about how our users consume and interact with our tools,
+    so I can identify which commands are used the most and measure the usability and performance on all supported platforms.
+
+## Specification
+
+Implementation Questions:
+* What is the strategy to route existing binaries to the top-level `chef` command?
+* Are we discouraging the use of individual sub-binaries like `knife` or `chef-run`?
+* What happens when a user runs a sub-binary without the prefix `chef`?
+* How are we communicating deprecations? (UX)
+* How are we communicating reorganization of sub-commands? (UX)
+
 ## Downstream Impact
-TBA
+Re organization of Policyfiles commands inside the chef-cli.
 
 ## Milestones
 ### Implement Telemetry into the top-level chef command
-We need to start gathering information about how our users use the chef CLI,
-this will allow us to understand the impact that we will have from some major
-changes we are about to do.
+
+To start gathering information from the to-level chef command we need to create
+a telemetry Go library.
 
 The implementation details of Telemetry will be done on a separate document.
 
 ### Refactor the Chef-CLI
-Restructure the chef-cli binary to have a better sub-command distribution,
-things that are global to the CLI tool like, chef generate or chef shell-init,
+Restructure the chef-cli binary to have a better sub-command organization,
+things that are global to the CLI tool like, `chef generate` or `chef shell-init`
 should stay in the binary but we should extract the Policyfile logic out into
 its own binary.
 
