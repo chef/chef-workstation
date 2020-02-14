@@ -14,5 +14,5 @@ set -evx
 sleep 600
 
 # make sure we have rake for the tasks later
-sed -i -r "s/^\s*gem \"chef\".*/  gem \"chef\", \"= ${EXPEDITOR_VERSION}\"/" components/gems/Gemfile
-sed -i -r "s/^\s*gem \"chef-bin\".*/  gem \"chef-bin\", \"= ${EXPEDITOR_VERSION}\"/" components/gems/Gemfile
+sed -i -r "/^\s*gem \"chef\",/{\$!{N;s/\"= .*\"/\"= ${EXPEDITOR_VERSION}\"/}}" components/gems/Gemfile
+sed -i -r "/^\s*gem \"chef-bin\",/{\$!{N;s/\"= .*\"/\"= ${EXPEDITOR_VERSION}\"/}}" components/gems/Gemfile

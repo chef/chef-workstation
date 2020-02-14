@@ -16,7 +16,7 @@ version=$(get_github_file $EXPEDITOR_REPO master VERSION)
 branch="expeditor/chef_workstation_app_${version}"
 git checkout -b "$branch"
 
-sed -i -r "s/override \"chef-workstation-app\",\s+version: \"v[^\"]+\"/override \"chef-workstation-app\", version: \"v${version}\"/" omnibus_overrides.rb
+sed -i -r "/^override \"chef-workstation-app\",/{\$!{N;s/version: \".*\"/\"= ${version}\"/}}" omnibus_overrides.rb
 
 git add .
 

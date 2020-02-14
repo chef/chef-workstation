@@ -4,9 +4,12 @@
 # Expeditor takes that version, runs a script to replace it here and pushes a new
 # commit / build through.
 
-override "chef-analyze", version: "0.1.71"
-override "delivery-cli", version: "0.0.54"
-override "chef-workstation-app", version: "v0.1.71"
+override "chef-analyze",
+  version: "0.1.71"
+override "delivery-cli",
+  version: "0.0.54"
+override "chef-workstation-app",
+  version: "v0.1.71"
 # /DO NOT MODIFY
 
 override :rubygems, version: "3.0.3" # rubygems ships its own bundler which may differ from bundler defined below and then we get double bundler which results in performance issues / CLI warnings. Make sure these versions match before bumping either.

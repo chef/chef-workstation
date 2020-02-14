@@ -16,7 +16,7 @@ version=$(get_github_file $EXPEDITOR_REPO master VERSION)
 branch="expeditor/delivery-cli_${version}"
 git checkout -b "$branch"
 
-sed -i -r "s/override \"delivery-cli\",\s+version: \"[^\"]+\"/override \"delivery-cli\", version: \"${version}\"/" omnibus_overrides.rb
+sed -i -r "/^override \"delivery-cli\",/{\$!{N;s/version: \".*\"/\"= ${version}\"/}}" omnibus_overrides.rb
 
 git add .
 

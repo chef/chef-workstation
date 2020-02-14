@@ -52,8 +52,10 @@ group(:omnibus_package) do
   # gems to Rubygems now, so letting this float on latest should always give us the latest
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
-  gem "chef", "= 15.8.23"
-  gem "chef-bin", "= 15.8.23"
+  gem "chef",
+    "= 15.8.23"
+  gem "chef-bin",
+    "= 15.8.23"
   gem "ohai", ">= 15"
   gem "cheffish", ">= 14.0.1"
 
@@ -62,8 +64,10 @@ group(:omnibus_package) do
   gem "fauxhai-ng", "~> 7.5"
 
   # inspec #TODO revert this pin when we solve build failures
-  gem "inspec-bin", "~> 4.18" # the actual inspec CLI binary
-  gem "inspec", "~> 4.18"
+  gem "inspec-bin",
+    "~> 4.18" # the actual inspec CLI binary
+  gem "inspec",
+    "~> 4.18"
 
   # test-kitchen and plugins
   gem "test-kitchen", ">= 2.0"
@@ -91,8 +95,10 @@ group(:omnibus_package) do
   # ed25519 ssh key support done here as it's a native gem we can't put in train
   gem "ed25519"
   gem "bcrypt_pbkdf"
-  gem "chef-cli", ">= 1.0.9"
-  gem "chef-apply", ">= 0.4.13"
+  gem "chef-cli",
+    ">= 1.0.9"
+  gem "chef-apply",
+    ">= 0.4.13"
 
   # For Delivery build node
   gem "chef-sugar"
@@ -105,6 +111,8 @@ group(:omnibus_package) do
   gem "mixlib-archive", ">= 1.0"
   gem "net-ssh", ">= 4.2.0"
   gem "listen"
+  # 3rd party distros sometimes replace mixlib-install.
+  # Please add parameters on separate line if required
   gem "mixlib-install"
   gem "nokogiri"
   gem "pry-byebug"

@@ -16,7 +16,7 @@ version=$(get_github_file "$EXPEDITOR_REPO" master VERSION)
 branch="expeditor/chef-analyze${version}"
 git checkout -b "$branch"
 
-sed -i -r "s/override \"chef-analyze\",\s+version: \"[^\"]+\"/override \"chef-analyze\", version: \"${version}\"/" omnibus_overrides.rb
+sed -i -r "/^override \"chef-analyze\",/{\$!{N;s/version: \".*\"/\"= ${version}\"/}}" omnibus_overrides.rb
 
 git add .
 
