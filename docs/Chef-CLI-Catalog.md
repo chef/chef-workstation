@@ -127,18 +127,18 @@ Available Commands:
     policy                  Manage Chef Policyfiles
 
 Renamed Commands:
-    install                 Use now: chef policy install
-    update                  Use now: chef policy update
-    push                    Use now: chef policy push
-    push-archive            Use now: chef policy push
-    show-policy             Use now: chef policy show
-    diff                    Use now: chef policy diff
-    export                  Use now: chef policy export
-    clean-policy-revisions  Use now: chef policy clean revisions
-    clean-policy-cookbooks  Use now: chef policy clean cookbooks
-    delete-policy-group     Use now: chef policy group delete
-    delete-policy           Use now: chef policy delete
-    undelete                Use now: chef policy undelete
+    install                 Use: chef policy install
+    update                  Use: chef policy update
+    push                    Use: chef policy push
+    push-archive            Use: chef policy push
+    show-policy             Use: chef policy show
+    diff                    Use: chef policy diff
+    export                  Use: chef policy export
+    clean-policy-revisions  Use: chef policy clean revisions
+    clean-policy-cookbooks  Use: chef policy clean cookbooks
+    delete-policy-group     Use: chef policy group delete
+    delete-policy           Use: chef policy delete
+    undelete                Use: chef policy undelete
 
 Experimental Commands:
     analyze                 Analyze artifacts from a Chef Infra Server
@@ -146,7 +146,6 @@ Experimental Commands:
 
 #### Open questions for further discussion with UX:
 * How do we want to present these sections? What is the right order?
-* What verbiage should we use to express the relotation of commands? (`Use now` Vs `Moved to`)
 
 ### Implement Telemetry into the `chef` catalog
 
