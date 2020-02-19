@@ -126,7 +126,7 @@ Available Commands:
     describe-cookbook       Prints cookbook checksum information used for cookbook identifier
     policy                  Manage Chef Policyfiles
 
-Relocated Commands:
+Renamed Commands:
     install                 Use now: chef policy install
     update                  Use now: chef policy update
     push                    Use now: chef policy push
@@ -218,6 +218,7 @@ usage should continue to be `chef-analyze [command]`.
 ## Open points for further discussion:
 * Are we discouraging the use of individual sub-binaries like `knife` or `chef-run`?
 * What happens when a user runs a sub-binary without the prefix `chef`?
+    * How do we capture telemetry on usage when users directly access tools? (EG, `berks`, `inspec` instead of `chef berks`, `chef inspec`)
 * How are we communicating deprecations? (UX)
 * How are we communicating reorganization of sub-commands? (UX)
 
