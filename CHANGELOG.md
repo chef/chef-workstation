@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.16.27 -->
-## [0.16.27](https://github.com/chef/chef-workstation/tree/0.16.27) (2020-02-18)
+<!-- latest_release 0.16.28 -->
+## [0.16.28](https://github.com/chef/chef-workstation/tree/0.16.28) (2020-02-19)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.74 [#964](https://github.com/chef/chef-workstation/pull/964) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update kitchen-vcenter to 2.6.4 [#965](https://github.com/chef/chef-workstation/pull/965) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.18 -->
 ### Changes since 0.15.18 release
 
 #### Merged Pull Requests
+- Update kitchen-vcenter to 2.6.4 [#965](https://github.com/chef/chef-workstation/pull/965) ([tas50](https://github.com/tas50)) <!-- 0.16.28 -->
 - Bump Chef Workstation App to 0.1.74 [#964](https://github.com/chef/chef-workstation/pull/964) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.27 -->
 - Bump Chef Workstation App to 0.1.73 [#963](https://github.com/chef/chef-workstation/pull/963) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.26 -->
 - Bump Chef Workstation App to 0.1.71 [#955](https://github.com/chef/chef-workstation/pull/955) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.25 -->
