@@ -74,7 +74,6 @@ be extracted are:
   install                 Install cookbooks from a Policyfile and generate a locked cookbook set
   update                  Updates a Policyfile.lock.json with latest run_list and cookbooks
   push                    Push a local policy lock to a policy group on the Chef Infra Server
-  push-archive            Push a policy archive to a policy group on the Chef Infra Server
   show-policy             Show policyfile objects on the Chef Infra Server
   diff                    Generate an itemized diff of two Policyfile lock documents
   export                  Export a policy lock as a Chef Infra Zero code repo
@@ -93,16 +92,15 @@ The new `chef-policy` should contain the following sub-commands:
 ```
 $ chef-policy install
 $ chef-policy update
-$ chef-policy push
-$ chef-policy push-archive (?)
+$ chef-policy push (includes push-archive)
 $ chef-policy show
 $ chef-policy diff
 $ chef-policy export
-$ chef-policy clean revisions (?)
-$ chef-policy clean cookbooks (?)
-$ chef-policy group delete (?)
 $ chef-policy delete
 $ chef-policy undelete
+$ chef-policy clean revisions
+$ chef-policy clean cookbooks
+$ chef-policy group delete (and more? maybe show a policy group)
 ```
 These sub-commands map to the previous top level policy commands. As an example, the
 previous command `chef clean-policy-revisions` would map to the new command
@@ -132,7 +130,7 @@ Relocated Commands:
     install                 Use now: chef policy install
     update                  Use now: chef policy update
     push                    Use now: chef policy push
-    push-archive            Use now: chef policy push-archive
+    push-archive            Use now: chef policy push
     show-policy             Use now: chef policy show
     diff                    Use now: chef policy diff
     export                  Use now: chef policy export
@@ -193,7 +191,7 @@ Relocated Commands:
     install                 Use now: chef policy install
     update                  Use now: chef policy update
     push                    Use now: chef policy push
-    push-archive            Use now: chef policy push-archive
+    push-archive            Use now: chef policy push
     show-policy             Use now: chef policy show
     diff                    Use now: chef policy diff
     export                  Use now: chef policy export
