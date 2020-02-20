@@ -210,7 +210,7 @@ Motivation:
 
     As a technical writer
     I want to add examples to the chef catalog documentation
-    so that users will know the tricky bits and we the documentations gets updated automatically as the code evolves
+    so that users will know the tricky bits and the documentation gets updated automatically as the code evolves
 
 The documentation team is working towards meaningful automation of our reference
 documentation, this includes our CLI tools. This proposal includes working with
