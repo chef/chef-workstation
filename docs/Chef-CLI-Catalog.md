@@ -204,6 +204,19 @@ Experimental Commands:
     analyze                 Analyze artifacts from a Chef Infra Server
 ```
 
+### Automation of reference documentation
+
+Motivation:
+
+    As a technical writer
+    I want to add examples to the chef catalog documentation
+    so that users will know the tricky bits and we the documentations gets updated automatically as the code evolves
+
+The documentation team is working towards meaningful automation of our reference
+documentation, this includes our CLI tools. This proposal includes working with
+the documentation team to implement an automation inside our `chef` catalog by
+adding and example field that can handle command line examples.
+
 ### EXTRA: Present correct usage of sub-binaries
 
 An additional task from this proposal is the use of an environment variable that
