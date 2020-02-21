@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.16.29 -->
-## [0.16.29](https://github.com/chef/chef-workstation/tree/0.16.29) (2020-02-19)
+<!-- latest_release 0.16.30 -->
+## [0.16.30](https://github.com/chef/chef-workstation/tree/0.16.30) (2020-02-21)
 
 #### Merged Pull Requests
-- Update Cookstyle to 5.21.9 [#968](https://github.com/chef/chef-workstation/pull/968) ([tas50](https://github.com/tas50))
+- (design_proposal): chef cli catalog [#877](https://github.com/chef/chef-workstation/pull/877) ([afiune](https://github.com/afiune))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.15.18 -->
 ### Changes since 0.15.18 release
 
 #### Merged Pull Requests
+- (design_proposal): chef cli catalog [#877](https://github.com/chef/chef-workstation/pull/877) ([afiune](https://github.com/afiune)) <!-- 0.16.30 -->
 - Update Cookstyle to 5.21.9 [#968](https://github.com/chef/chef-workstation/pull/968) ([tas50](https://github.com/tas50)) <!-- 0.16.29 -->
 - Update kitchen-vcenter to 2.6.4 [#965](https://github.com/chef/chef-workstation/pull/965) ([tas50](https://github.com/tas50)) <!-- 0.16.28 -->
 - Bump Chef Workstation App to 0.1.74 [#964](https://github.com/chef/chef-workstation/pull/964) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.27 -->
