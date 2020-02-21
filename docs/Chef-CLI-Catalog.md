@@ -215,7 +215,8 @@ Motivation:
 The documentation team is working towards meaningful automation of our reference
 documentation, this includes our CLI tools. This proposal includes working with
 the documentation team to implement an automation inside our `chef` catalog by
-adding and example field that can handle command line examples.
+adding long description, platform, and command example fields to the CLI metadata,
+as well as fields for position and use examples for flag.
 
 ### EXTRA: Present correct usage of sub-binaries
 
