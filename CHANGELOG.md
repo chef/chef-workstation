@@ -1,52 +1,50 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.16.31 -->
-## [0.16.31](https://github.com/chef/chef-workstation/tree/0.16.31) (2020-02-22)
-
-#### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.76 [#980](https://github.com/chef/chef-workstation/pull/980) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.15.18 -->
-### Changes since 0.15.18 release
-
-#### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.76 [#980](https://github.com/chef/chef-workstation/pull/980) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.31 -->
-- (design_proposal): chef cli catalog [#877](https://github.com/chef/chef-workstation/pull/877) ([afiune](https://github.com/afiune)) <!-- 0.16.30 -->
-- Update Cookstyle to 5.21.9 [#968](https://github.com/chef/chef-workstation/pull/968) ([tas50](https://github.com/tas50)) <!-- 0.16.29 -->
-- Update kitchen-vcenter to 2.6.4 [#965](https://github.com/chef/chef-workstation/pull/965) ([tas50](https://github.com/tas50)) <!-- 0.16.28 -->
-- Bump Chef Workstation App to 0.1.74 [#964](https://github.com/chef/chef-workstation/pull/964) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.27 -->
-- Bump Chef Workstation App to 0.1.73 [#963](https://github.com/chef/chef-workstation/pull/963) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.26 -->
-- Bump Chef Workstation App to 0.1.71 [#955](https://github.com/chef/chef-workstation/pull/955) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.25 -->
-- Update ChefSpec to 9.1 and knife-opc to 0.4.4 [#954](https://github.com/chef/chef-workstation/pull/954) ([tas50](https://github.com/tas50)) <!-- 0.16.24 -->
-- Update chef-apply and omnibus [#953](https://github.com/chef/chef-workstation/pull/953) ([tas50](https://github.com/tas50)) <!-- 0.16.23 -->
-- Update multiple components for faster requires [#952](https://github.com/chef/chef-workstation/pull/952) ([tas50](https://github.com/tas50)) <!-- 0.16.22 -->
-- Update knife-google to 4.2.8 and kitchen-vcenter to 2.6.2 [#951](https://github.com/chef/chef-workstation/pull/951) ([tas50](https://github.com/tas50)) <!-- 0.16.21 -->
-- Bump omnibus-software from `96e3a0b` to `3772561` in /omnibus [#949](https://github.com/chef/chef-workstation/pull/949) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.16.20 -->
-- Validate builds on Debian 10 [#944](https://github.com/chef/chef-workstation/pull/944) ([tas50](https://github.com/tas50)) <!-- 0.16.19 -->
-- Bump Chef Workstation App to 0.1.70 [#948](https://github.com/chef/chef-workstation/pull/948) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.18 -->
-- postinst:(su) run the Workstation App as mortal user [#938](https://github.com/chef/chef-workstation/pull/938) ([afiune](https://github.com/afiune)) <!-- 0.16.17 -->
-- Update knife-acl to 1.0.8 [#945](https://github.com/chef/chef-workstation/pull/945) ([tas50](https://github.com/tas50)) <!-- 0.16.16 -->
-- Update knife-azure to 2.0.13 and knife-vcenter to 2.0.2 [#943](https://github.com/chef/chef-workstation/pull/943) ([tas50](https://github.com/tas50)) <!-- 0.16.15 -->
-- Update knife-ec2 to 1.0.31 and knife-vsphere to 4.1.3 [#942](https://github.com/chef/chef-workstation/pull/942) ([tas50](https://github.com/tas50)) <!-- 0.16.14 -->
-- Update knife-windows to 3.0.16 [#941](https://github.com/chef/chef-workstation/pull/941) ([tas50](https://github.com/tas50)) <!-- 0.16.13 -->
-- Bump Chef Workstation App to 0.1.67 [#940](https://github.com/chef/chef-workstation/pull/940) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.12 -->
-- Update knife-windows to 3.0.15 [#939](https://github.com/chef/chef-workstation/pull/939) ([tas50](https://github.com/tas50)) <!-- 0.16.11 -->
-- Bump Chef Workstation App to 0.1.66 [#935](https://github.com/chef/chef-workstation/pull/935) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.10 -->
-- Update Chef Infra Client to 15.8.23 [#934](https://github.com/chef/chef-workstation/pull/934) ([tas50](https://github.com/tas50)) <!-- 0.16.9 -->
-- Update knife-windows to 3.0.14 [#932](https://github.com/chef/chef-workstation/pull/932) ([tas50](https://github.com/tas50)) <!-- 0.16.8 -->
-- Update knife-windows to 3.0.13 [#925](https://github.com/chef/chef-workstation/pull/925) ([tas50](https://github.com/tas50)) <!-- 0.16.7 -->
-- Update inspec to 4.18.85 [#923](https://github.com/chef/chef-workstation/pull/923) ([tas50](https://github.com/tas50)) <!-- 0.16.6 -->
-- omnibus:(project) update build_version [#921](https://github.com/chef/chef-workstation/pull/921) ([afiune](https://github.com/afiune)) <!-- 0.16.5 -->
-- mac_os:(launcher) run at boot [#913](https://github.com/chef/chef-workstation/pull/913) ([afiune](https://github.com/afiune)) <!-- 0.16.4 -->
-- Bump Chef Workstation App to 0.1.65 [#920](https://github.com/chef/chef-workstation/pull/920) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.3 -->
-- Enable the Workstation App to run at boot on Windows [#671](https://github.com/chef/chef-workstation/pull/671) ([tas50](https://github.com/tas50)) <!-- 0.16.2 -->
-- Bump chef-analyze CLI to 0.1.71 [#917](https://github.com/chef/chef-workstation/pull/917) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.1 -->
-- Update knife pins to once again require the new gems [#914](https://github.com/chef/chef-workstation/pull/914) ([tas50](https://github.com/tas50)) <!-- 0.16.0 -->
-- Bump Chef Workstation App to 0.1.64 [#916](https://github.com/chef/chef-workstation/pull/916) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.15.20 -->
-- Bump Chef Workstation App to 0.1.63 [#915](https://github.com/chef/chef-workstation/pull/915) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.15.19 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.16.31](https://github.com/chef/chef-workstation/tree/0.16.31) (2020-02-24)
+
+#### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.63 [#915](https://github.com/chef/chef-workstation/pull/915) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.64 [#916](https://github.com/chef/chef-workstation/pull/916) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update knife pins to once again require the new gems [#914](https://github.com/chef/chef-workstation/pull/914) ([tas50](https://github.com/tas50))
+- Bump chef-analyze CLI to 0.1.71 [#917](https://github.com/chef/chef-workstation/pull/917) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Enable the Workstation App to run at boot on Windows [#671](https://github.com/chef/chef-workstation/pull/671) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.65 [#920](https://github.com/chef/chef-workstation/pull/920) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- mac_os:(launcher) run at boot [#913](https://github.com/chef/chef-workstation/pull/913) ([afiune](https://github.com/afiune))
+- omnibus:(project) update build_version [#921](https://github.com/chef/chef-workstation/pull/921) ([afiune](https://github.com/afiune))
+- Update inspec to 4.18.85 [#923](https://github.com/chef/chef-workstation/pull/923) ([tas50](https://github.com/tas50))
+- Update knife-windows to 3.0.13 [#925](https://github.com/chef/chef-workstation/pull/925) ([tas50](https://github.com/tas50))
+- Update knife-windows to 3.0.14 [#932](https://github.com/chef/chef-workstation/pull/932) ([tas50](https://github.com/tas50))
+- Update Chef Infra Client to 15.8.23 [#934](https://github.com/chef/chef-workstation/pull/934) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.66 [#935](https://github.com/chef/chef-workstation/pull/935) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update knife-windows to 3.0.15 [#939](https://github.com/chef/chef-workstation/pull/939) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.67 [#940](https://github.com/chef/chef-workstation/pull/940) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update knife-windows to 3.0.16 [#941](https://github.com/chef/chef-workstation/pull/941) ([tas50](https://github.com/tas50))
+- Update knife-ec2 to 1.0.31 and knife-vsphere to 4.1.3 [#942](https://github.com/chef/chef-workstation/pull/942) ([tas50](https://github.com/tas50))
+- Update knife-azure to 2.0.13 and knife-vcenter to 2.0.2 [#943](https://github.com/chef/chef-workstation/pull/943) ([tas50](https://github.com/tas50))
+- Update knife-acl to 1.0.8 [#945](https://github.com/chef/chef-workstation/pull/945) ([tas50](https://github.com/tas50))
+- postinst:(su) run the Workstation App as mortal user [#938](https://github.com/chef/chef-workstation/pull/938) ([afiune](https://github.com/afiune))
+- Bump Chef Workstation App to 0.1.70 [#948](https://github.com/chef/chef-workstation/pull/948) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Validate builds on Debian 10 [#944](https://github.com/chef/chef-workstation/pull/944) ([tas50](https://github.com/tas50))
+- Bump omnibus-software from `96e3a0b` to `3772561` in /omnibus [#949](https://github.com/chef/chef-workstation/pull/949) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Update knife-google to 4.2.8 and kitchen-vcenter to 2.6.2 [#951](https://github.com/chef/chef-workstation/pull/951) ([tas50](https://github.com/tas50))
+- Update multiple components for faster requires [#952](https://github.com/chef/chef-workstation/pull/952) ([tas50](https://github.com/tas50))
+- Update chef-apply and omnibus [#953](https://github.com/chef/chef-workstation/pull/953) ([tas50](https://github.com/tas50))
+- Update ChefSpec to 9.1 and knife-opc to 0.4.4 [#954](https://github.com/chef/chef-workstation/pull/954) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.71 [#955](https://github.com/chef/chef-workstation/pull/955) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.73 [#963](https://github.com/chef/chef-workstation/pull/963) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.74 [#964](https://github.com/chef/chef-workstation/pull/964) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update kitchen-vcenter to 2.6.4 [#965](https://github.com/chef/chef-workstation/pull/965) ([tas50](https://github.com/tas50))
+- Update Cookstyle to 5.21.9 [#968](https://github.com/chef/chef-workstation/pull/968) ([tas50](https://github.com/tas50))
+- (design_proposal): chef cli catalog [#877](https://github.com/chef/chef-workstation/pull/877) ([afiune](https://github.com/afiune))
+- Bump chef-analyze CLI to 0.1.76 [#980](https://github.com/chef/chef-workstation/pull/980) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_stable_release -->
+
 ## [0.15.18](https://github.com/chef/chef-workstation/tree/0.15.18) (2020-02-04)
 
 #### Merged Pull Requests
@@ -62,7 +60,6 @@
 - Update knife-vsphere and win32-service deps [#908](https://github.com/chef/chef-workstation/pull/908) ([tas50](https://github.com/tas50))
 - Adding entitlement for unsigned memory execution [#909](https://github.com/chef/chef-workstation/pull/909) ([jonsmorrow](https://github.com/jonsmorrow))
 - Revert new knife plugin versions until we can test further [#911](https://github.com/chef/chef-workstation/pull/911) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [0.15.6](https://github.com/chef/chef-workstation/tree/0.15.6) (2020-01-28)
 
