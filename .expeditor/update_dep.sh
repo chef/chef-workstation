@@ -25,6 +25,7 @@ sleep 120
 gem install $EXPEDITOR_GEM_NAME
 
 pushd components/gems
+bundle install
 tries=12
 for (( i=1; i<=$tries; i+=1 )); do
   bundle exec rake update
