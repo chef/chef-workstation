@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 0.16.33 -->
+## [0.16.33](https://github.com/chef/chef-workstation/tree/0.16.33) (2020-03-02)
+
+#### Merged Pull Requests
+- Reverting Inspec to fix some known issues [#1009](https://github.com/chef/chef-workstation/pull/1009) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=0.16.32 -->
+### Changes since 0.16.32 release
+
+#### Merged Pull Requests
+- Reverting Inspec to fix some known issues [#1009](https://github.com/chef/chef-workstation/pull/1009) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.16.33 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
