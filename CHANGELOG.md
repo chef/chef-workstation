@@ -1,19 +1,17 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.16.32 -->
-## [0.16.32](https://github.com/chef/chef-workstation/tree/0.16.32) (2020-02-27)
-
-#### Merged Pull Requests
-- Fixing the pipeline - complains about i18n not being installed [#988](https://github.com/chef/chef-workstation/pull/988) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.16.31 -->
-### Changes since 0.16.31 release
-
-#### Merged Pull Requests
-- Fixing the pipeline - complains about i18n not being installed [#988](https://github.com/chef/chef-workstation/pull/988) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.16.32 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.16.32](https://github.com/chef/chef-workstation/tree/0.16.32) (2020-03-02)
+
+#### Merged Pull Requests
+- Fixing the pipeline - complains about i18n not being installed [#988](https://github.com/chef/chef-workstation/pull/988) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_stable_release -->
+
 ## [0.16.31](https://github.com/chef/chef-workstation/tree/0.16.31) (2020-02-24)
 
 #### Merged Pull Requests
@@ -51,7 +49,6 @@
 - Update Cookstyle to 5.21.9 [#968](https://github.com/chef/chef-workstation/pull/968) ([tas50](https://github.com/tas50))
 - (design_proposal): chef cli catalog [#877](https://github.com/chef/chef-workstation/pull/877) ([afiune](https://github.com/afiune))
 - Bump chef-analyze CLI to 0.1.76 [#980](https://github.com/chef/chef-workstation/pull/980) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [0.15.18](https://github.com/chef/chef-workstation/tree/0.15.18) (2020-02-04)
 
