@@ -61,9 +61,14 @@ group(:omnibus_package) do
   gem "chefspec", ">= 9.0.0", "< 10.0"
   gem "fauxhai-ng", "~> 7.5"
 
-  # inspec #TODO revert this pin when we solve build failures
-  gem "inspec-bin", "~> 4.18" # the actual inspec CLI binary
-  gem "inspec", "~> 4.18"
+  # inspec
+  # TODO pinned while we solve some escaped defects
+  # https://github.com/inspec/inspec/issues/4899
+  # https://github.com/inspec/train/pull/576
+  # https://github.com/inspec/inspec/pull/4934
+  # https://github.com/inspec/inspec/pull/4932
+  gem "inspec-bin", "= 4.18.51" # the actual inspec CLI binary
+  gem "inspec", "= 4.18.51"
 
   # test-kitchen and plugins
   gem "test-kitchen", ">= 2.0"
