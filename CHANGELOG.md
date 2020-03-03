@@ -1,24 +1,21 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.16.33 -->
-## [0.16.33](https://github.com/chef/chef-workstation/tree/0.16.33) (2020-03-02)
-
-#### Merged Pull Requests
-- Reverting Inspec to fix some known issues [#1009](https://github.com/chef/chef-workstation/pull/1009) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.16.32 -->
-### Changes since 0.16.32 release
-
-#### Merged Pull Requests
-- Reverting Inspec to fix some known issues [#1009](https://github.com/chef/chef-workstation/pull/1009) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.16.33 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.16.33](https://github.com/chef/chef-workstation/tree/0.16.33) (2020-03-03)
+
+#### Merged Pull Requests
+- Reverting Inspec to fix some known issues [#1009](https://github.com/chef/chef-workstation/pull/1009) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_stable_release -->
+
 ## [0.16.32](https://github.com/chef/chef-workstation/tree/0.16.32) (2020-03-02)
 
 #### Merged Pull Requests
 - Fixing the pipeline - complains about i18n not being installed [#988](https://github.com/chef/chef-workstation/pull/988) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_stable_release -->
 
 ## [0.16.31](https://github.com/chef/chef-workstation/tree/0.16.31) (2020-02-24)
 
