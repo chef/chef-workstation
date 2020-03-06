@@ -1,8 +1,17 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 0.16.35 -->
+## [0.16.35](https://github.com/chef/chef-workstation/tree/0.16.35) (2020-03-06)
+
+#### Merged Pull Requests
+- Bump mixlib-install to 3.11.28 [#1015](https://github.com/chef/chef-workstation/pull/1015) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=0.16.33 -->
+### Changes since 0.16.33 release
+
+#### Merged Pull Requests
+- Bump mixlib-install to 3.11.28 [#1015](https://github.com/chef/chef-workstation/pull/1015) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.35 -->
+- Update Test Kitchen to 2.4.0 [#1024](https://github.com/chef/chef-workstation/pull/1024) ([tas50](https://github.com/tas50)) <!-- 0.16.34 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
