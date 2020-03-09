@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.17.1 -->
-## [0.17.1](https://github.com/chef/chef-workstation/tree/0.17.1) (2020-03-09)
+<!-- latest_release 0.17.2 -->
+## [0.17.2](https://github.com/chef/chef-workstation/tree/0.17.2) (2020-03-09)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `da1a260` to `c086d80` in /omnibus [#1014](https://github.com/chef/chef-workstation/pull/1014) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump omnibus from `5baaf7a` to `f389917` in /omnibus [#1013](https://github.com/chef/chef-workstation/pull/1013) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.16.33 -->
 ### Changes since 0.16.33 release
 
 #### Merged Pull Requests
+- Bump omnibus from `5baaf7a` to `f389917` in /omnibus [#1013](https://github.com/chef/chef-workstation/pull/1013) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.17.2 -->
 - Bump omnibus-software from `da1a260` to `c086d80` in /omnibus [#1014](https://github.com/chef/chef-workstation/pull/1014) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.17.1 -->
 - Pinning bundler back to 1.x to fix builds [#1026](https://github.com/chef/chef-workstation/pull/1026) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.0 -->
 - Bump mixlib-install to 3.11.28 [#1015](https://github.com/chef/chef-workstation/pull/1015) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.35 -->
