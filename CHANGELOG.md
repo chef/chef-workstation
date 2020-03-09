@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.17.3 -->
-## [0.17.3](https://github.com/chef/chef-workstation/tree/0.17.3) (2020-03-09)
+<!-- latest_release 0.17.4 -->
+## [0.17.4](https://github.com/chef/chef-workstation/tree/0.17.4) (2020-03-09)
 
 #### Merged Pull Requests
-- Bump test-kitchen from 2.3.4 to 2.4.0 in /omnibus [#1012](https://github.com/chef/chef-workstation/pull/1012) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Unpinning Inspec because its sudo bug got fixed [#1027](https://github.com/chef/chef-workstation/pull/1027) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.16.33 -->
 ### Changes since 0.16.33 release
 
 #### Merged Pull Requests
+- Unpinning Inspec because its sudo bug got fixed [#1027](https://github.com/chef/chef-workstation/pull/1027) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.4 -->
 - Bump test-kitchen from 2.3.4 to 2.4.0 in /omnibus [#1012](https://github.com/chef/chef-workstation/pull/1012) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.17.3 -->
 - Bump omnibus from `5baaf7a` to `f389917` in /omnibus [#1013](https://github.com/chef/chef-workstation/pull/1013) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.17.2 -->
 - Bump omnibus-software from `da1a260` to `c086d80` in /omnibus [#1014](https://github.com/chef/chef-workstation/pull/1014) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.17.1 -->
