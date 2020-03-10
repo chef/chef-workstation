@@ -15,6 +15,25 @@
 // limitations under the License.
 //
 
+// An abstraction of the Chef Workstation configuration file (config.toml).
+//
+// Basic usage
+//
+// This example is loading the Chef Workstation configuration file located by default at
+// $HOME/.chef-workstation/config.toml and printing the log level:
+//  package main
+//
+//  import "github.com/chef/go-libs/config"
+//
+//  func main() {
+//  	cfg, err := config.New()
+//  	if err != nil {
+//  		fmt.Println("unable to read the config", err)
+//  	}
+//
+//  	fmt.Println("the log level of my config is: ", cfg.Log.Level)
+//  }
+//
 package config
 
 import (

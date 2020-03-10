@@ -17,33 +17,38 @@
 
 package config
 
+import "fmt"
+
 //
 // The intend of this file is to have a single place where we can easily
 // visualize the list of all error messages that we present to users.
 //
 
-const (
-	UserConfigTomlNotFoundErr = `
-  ` + DefaultChefWSUserConfigFile + ` file not found. (default: $HOME/.chef-workstation/` + DefaultChefWSUserConfigFile + `)
+var (
+	UserConfigTomlNotFoundErr = fmt.Sprintf(`
+  %[1]s file not found. (default: $HOME/%[2]s/%[1]s)
 
   setup your local configuration file by following this documentation:
     - https://www.chef.sh/docs/reference/config/
-`
-	UserConfigTomlMalformedErr = `
-  unable to parse ` + DefaultChefWSUserConfigFile + ` file.
+`, DefaultChefWSUserConfigFile, WorkstationDir)
+
+	UserConfigTomlMalformedErr = fmt.Sprintf(`
+  unable to parse %s file.
 
   verify the format of the configuration file by following this documentation:
     - https://www.chef.sh/docs/reference/config/
-`
-	AppConfigTomlNotFoundErr = `
-  ` + DefaultChefWSAppConfigFile + ` file not found. (default: $HOME/.chef-workstation/` + DefaultChefWSAppConfigFile + `)
+`, DefaultChefWSUserConfigFile)
 
-  verify that the Chef Workstation App is runnig on your local workstation.
-`
-	AppConfigTomlMalformedErr = `
-  unable to parse ` + DefaultChefWSAppConfigFile + ` file.
+	AppConfigTomlNotFoundErr = fmt.Sprintf(`
+  %[1]s file not found. (default: $HOME/%[2]s/%[1]s)
 
-  there must be a problem with the Chef Workstation App, verify the format of the configuration by following this documentation:
+  verify that the %[3]s App is runnig on your local workstation.
+`, DefaultChefWSUserConfigFile, WorkstationDir, WorkstationProduct)
+
+	AppConfigTomlMalformedErr = fmt.Sprintf(`
+  unable to parse %s file.
+
+  there must be a problem with the %s App, verify the format of the configuration by following this documentation:
     - https://www.chef.sh/docs/reference/config/
-`
+`, DefaultChefWSAppConfigFile, WorkstationProduct)
 )

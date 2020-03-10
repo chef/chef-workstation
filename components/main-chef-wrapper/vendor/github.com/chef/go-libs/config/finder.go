@@ -24,7 +24,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-const DefaultChefDirectory = ".chef"
+const DefaultChefDirectory = UserConfDir
 
 // finds the user configuration file (default .chef-workstation/config.toml) inside the
 // current directory and recursively, plus inside the $HOME directory

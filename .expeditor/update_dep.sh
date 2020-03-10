@@ -25,10 +25,10 @@ sleep 120
 gem install $EXPEDITOR_GEM_NAME
 
 pushd components/gems
-bundle install
+bundle _1.17.3_ install
 tries=12
 for (( i=1; i<=$tries; i+=1 )); do
-  bundle exec rake update
+  bundle _1.17.3_ exec rake update
   new_gem_included && break || sleep 20
   if [ $i -eq $tries ]; then
     echo "Searching for '${EXPEDITOR_GEM_NAME} (${EXPEDITOR_VERSION})' ${i} times and did not find it"
