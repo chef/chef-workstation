@@ -1,5 +1,5 @@
 //
-// Copyright 2019 Chef Software, Inc.
+// Copyright 2020 Chef Software, Inc.
 // Author: Salim Afiune <afiune@chef.io>
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,24 +17,4 @@
 
 package config
 
-import (
-	"os"
-	"path/filepath"
-
-	"github.com/pkg/errors"
-)
-
-const (
-	DefaultChefWorkstationDirectory = WorkstationDir
-	DefaultChefWSUserConfigFile     = "config.toml"
-	DefaultChefWSAppConfigFile      = ".app-managed-config.toml"
-)
-
-// returns the ~/.chef-workstation directory
-func ChefWorkstationDir() (string, error) {
-	home, err := os.UserHomeDir()
-	if err != nil {
-		return "", errors.Wrap(err, "unable to detect home directory")
-	}
-	return filepath.Join(home, DefaultChefWorkstationDirectory), nil
-}
+//go:generate go run github.com/chef/go-libs/distgen global.go config

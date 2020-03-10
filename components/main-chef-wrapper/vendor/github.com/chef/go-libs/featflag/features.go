@@ -15,6 +15,25 @@
 // limitations under the License.
 //
 
+// An abstraction to manipulate feature flags through environment variables
+// and a configuration file. By default it contains global flags that can be
+// used in multiple go packages.
+//
+// Global Feature Flag
+//
+// This example is using a predefined global feature flag:
+//  if featflag.ChefFeatAnalyze.Enabled() {
+//    // the analyze feature is enabled, act upon it
+//  }
+//
+// Define A Local Feature Flag
+//
+// This example is defining a local feature flag:
+//  chefFeatXYZ := featflag.New("CHEF_FEAT_XYZ", "xyz")
+//  if chefFeatXYZ.Enabled() {
+//    // the XYZ feature is enabled, act upon it
+//  }
+//
 package featflag
 
 import (
@@ -25,24 +44,6 @@ import (
 	"github.com/chef/go-libs/config"
 )
 
-// this go library is an abstraction that manipulates feature flags through
-// environment variables and a configuration file, by default it contains
-// global flags that can be used in multiple go packages.
-//
-// example 1: use a global feature flag
-// ```go
-// if featflag.ChefFeatAnalyze.Enabled() {
-//   // the analyze feature is enabled, act upon it
-// }
-// ```
-//
-// example 2: define a local feature flag
-// ```go
-// chefFeatXYZ := featflag.New("CHEF_FEAT_XYZ", "xyz")
-// if chefFeatXYZ.Enabled() {
-//   // the XYZ feature is enabled, act upon it
-// }
-// ```
 type Feature struct {
 	// the key associated to the feature flag defined inside the configuration file (config.toml)
 	//
