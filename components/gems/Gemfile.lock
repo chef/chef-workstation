@@ -624,7 +624,7 @@ GEM
     mixlib-cli (2.1.5)
     mixlib-config (3.0.6)
       tomlrb
-    mixlib-install (3.11.28)
+    mixlib-install (3.11.29)
       mixlib-shellout
       mixlib-versioning
       thor
