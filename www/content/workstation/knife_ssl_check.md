@@ -9,8 +9,7 @@ aliases = ["/knife_ssl_check.html", "/knife_ssl_check/"]
     title = "knife ssl_check"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_ssl_check.md knife ssl_check"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 300
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_ssl_check.md)
 

@@ -9,7 +9,6 @@ aliases = ["/knife_azure.html", "/knife_azure/"]
     title = "knife azure"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_azure.md knife azure"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 50
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_azure.md)

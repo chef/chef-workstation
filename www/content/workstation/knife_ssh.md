@@ -9,8 +9,7 @@ aliases = ["/knife_ssh.html", "/knife_ssh/"]
     title = "knife ssh"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_ssh.md knife ssh"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 290
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_ssh.md)
 

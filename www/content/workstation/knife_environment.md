@@ -9,8 +9,7 @@ aliases = ["/knife_environment.html", "/knife_environment/"]
     title = "knife environment"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_environment.md knife environment"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 180
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_environment.md)
 
@@ -69,7 +68,7 @@ to return something similar to:
 
 ``` bash
         development
-apache  2.3.1 
+apache  2.3.1
 windows 4.1.2
 ```
 
@@ -87,8 +86,8 @@ to return something similar to:
 
 ``` bash
             development     staging
-apache      2.3.1           1.2.2 
-windows     4.1.2           1.0.0 
+apache      2.3.1           1.2.2
+windows     4.1.2           1.0.0
 postgresql  1.0.0           1.0.0
 ```
 
@@ -110,26 +109,26 @@ journly         latest    latest
 aws             latest    latest
 test            latest    latest
 unicorn         latest    latest
-sensu           latest    latest 
-runit           latest    latest 
-templater       latest    latest 
-powershell      latest    latest 
-openssl         latest    latest 
-rbenv           latest    latest 
-rabbitmq        latest    latest 
-postgresql      latest    latest 
-mysql           latest    latest 
+sensu           latest    latest
+runit           latest    latest
+templater       latest    latest
+powershell      latest    latest
+openssl         latest    latest
+rbenv           latest    latest
+rabbitmq        latest    latest
+postgresql      latest    latest
+mysql           latest    latest
 ohai            latest    latest
-git             latest    latest 
-erlang          latest    latest 
+git             latest    latest
+erlang          latest    latest
 ssh_known_hosts latest    latest
-nginx           latest    latest 
-database        latest    latest 
-yum             latest    latest 
-xfs             latest    latest 
-apt             latest    latest 
-dmg             latest    latest 
-chef_handler    latest    latest 
+nginx           latest    latest
+database        latest    latest
+yum             latest    latest
+xfs             latest    latest
+apt             latest    latest
+dmg             latest    latest
+chef_handler    latest    latest
 windows         1.0.0     4.1.2
 ```
 

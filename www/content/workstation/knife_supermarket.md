@@ -9,7 +9,6 @@ aliases = ["/knife_supermarket.html", "/plugin_knife_supermarket.html", "/knife_
     title = "knife supermarket"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_supermarket.md knife supermarket"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 330
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_supermarket.md)

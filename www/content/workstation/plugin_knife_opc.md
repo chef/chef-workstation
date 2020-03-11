@@ -9,8 +9,7 @@ aliases = ["/plugin_knife_opc.html", "/plugin_knife_opc/"]
     title = "knife opc"
     identifier = "chef_workstation/chef_workstation_tools/knife/plugin_knife_opc.md knife opc"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 220
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/plugin_knife_opc.md)
 
