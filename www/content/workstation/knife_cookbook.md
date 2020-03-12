@@ -553,8 +553,8 @@ errors.
 
 {{< warning >}}
 
-This feature is deprecated in favor of [Cookstyle](/cookstyle/) and
-[ChefSpec](/chefspec/)
+This feature is deprecated in favor of [Cookstyle](/workstation/cookstyle/) and
+[ChefSpec](/workstation/chefspec/)
 
 {{< /warning >}}
 

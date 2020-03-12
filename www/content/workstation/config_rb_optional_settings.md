@@ -37,7 +37,7 @@ Other settings, such as `--hide-healthy` (used only with the
 `knife list` subcommand) probably aren't used often enough (and in the
 same exact way) to justify adding them to the config.rb file. In
 general, if the optional settings are not listed on [the main config.rb
-topic](/config_rb/), then add settings only after careful
+topic](/workstation/config_rb/), then add settings only after careful
 consideration. Do not use optional settings in a production environment
 until after the setting's performance has been validated in a safe
 testing environment.

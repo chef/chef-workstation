@@ -10,14 +10,14 @@ aliases = ["/foodcritic.html", "/foodcritic/"]
     identifier = "chef_workstation/chef_workstation_tools/foodcritic.md Foodcritic"
     parent = "chef_workstation/chef_workstation_tools"
     weight = 110
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/foodcritic.md)
 
 {{< warning >}}
 
 Foodcritic is deprecated and should no longer be used for cookbook
-linting. Use [Cookstyle](cookstyle.html) instead which offers additional
+linting. Use [Cookstyle](/workstation/cookstyle/) instead which offers additional
 rules, violation autocorrection, Ruby linting, and a robust
 configuration system.
 

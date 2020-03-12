@@ -62,7 +62,7 @@ kitchen (executable)
 {{< note >}}
 
 For more information about the `kitchen` command line tool, see
-[kitchen](/ctl_kitchen/).
+[kitchen](/workstation/ctl_kitchen/).
 
 {{< /note >}}
 
@@ -74,7 +74,7 @@ kitchen.yml
 {{< note >}}
 
 For more information about the kitchen.yml file, see
-[kitchen.yml](/config_yml_kitchen/).
+[kitchen.yml](/workstation/config_yml_kitchen/).
 
 {{< /note >}}
 

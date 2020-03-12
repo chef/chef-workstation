@@ -30,7 +30,7 @@ aliases = ["/knife_bootstrap.html", "/knife_bootstrap/"]
     bootstrapped.
 -   SSL certificates from an on-premises Chef Infra Server can be copied
     to the `/trusted_certs_dir` directory on your local workstation
-    automatically by running [knife ssl fetch](/knife_ssl_fetch/).
+    automatically by running [knife ssl fetch](/workstation/knife_ssl_fetch/).
     These certificates are used during `knife` operations to communicate
     with the Chef Infra Server.
 

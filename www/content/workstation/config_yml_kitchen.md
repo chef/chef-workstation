@@ -49,7 +49,7 @@ version. See [Chef RFC
 091](https://github.com/chef/chef-rfc/blob/master/rfc091-deprecate-kitchen-settings.md)
 for details. Settings that will be deprecated are listed in the
 descriptions below. The new recommended settings are listed in the [New
-Provisioner Settings](/config_yml_kitchen/#new-provisioner-settings)
+Provisioner Settings](/workstation/config_yml_kitchen/#new-provisioner-settings)
 table.
 
 Kitchen can configure the chef-zero provisioner with the following

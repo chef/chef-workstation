@@ -48,7 +48,7 @@ This argument has the following options:
 
 :   The name of a specific item within a data bag. `DATA_BAG_NAME` may
     not be `client`, `environment`, `node` or `role`, as these are
-    reserved words for [knife search](/knife_search/).
+    reserved words for [knife search](/workstation/knife_search/).
 
 `--secret SECRET`
 

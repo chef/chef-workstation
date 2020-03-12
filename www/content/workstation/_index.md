@@ -36,7 +36,7 @@ configured. Chef Infra Client---which is installed on every node---does
 the actual configuration.
 
 -   [An Overview of Chef Infra](/chef_overview/)
--   [Install Chef Workstation](/install_workstation/)
+-   [Install Chef Workstation](/workstation/install_workstation/)
 
 Cookbook Development Workflow
 -----------------------------

@@ -493,7 +493,7 @@ start of a Chef Infra Client run:
 {{< warning >}}
 
 Review the full list of [optional
-settings](/config_rb_optional_settings/) that can be added to the
+settings](/workstation/config_rb_optional_settings/) that can be added to the
 `config.rb` file. Many of these optional settings should not be added to
 the `config.rb` file. The reasons for not adding them can vary. For
 example, using `--yes` as a default in the `config.rb` file will cause
@@ -504,7 +504,7 @@ lead to undesirable outcomes. Other settings, such as `--hide-healthy`
 enough (and in the same exact way) to justify adding them to the
 `config.rb` file. In general, if the optional settings are not listed on
 <span class="title-ref">the main </span><span
-class="title-ref">config.rb</span>[topic](/config_rb/), then add
+class="title-ref">config.rb</span>[topic](/workstation/config_rb/), then add
 settings only after careful consideration. Do not use optional settings
 in a production environment until after the setting's performance has
 been validated in a safe testing environment.

@@ -10,7 +10,7 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
     identifier = "chef_workstation/install_workstation.md Install Chef Workstation"
     parent = "chef_workstation"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/install_workstation.md)
 
@@ -192,5 +192,5 @@ Next Steps
 ==========
 
 Now that you've installed Chef Workstation, proceed to the [Configuring
-Chef Workstation](/workstation_setup/) guide to configure your Chef
+Chef Workstation](/workstation/workstation_setup/) guide to configure your Chef
 Workstation installation.

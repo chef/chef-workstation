@@ -16,7 +16,7 @@ aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html",
 
 This guide contains common configuration options used when setting up a
 new Chef Workstation installation. If you do not have Chef Workstation
-installed, see its [installation guide](/install_workstation/)
+installed, see its [installation guide](/workstation/install_workstation/)
 before proceeding further.
 
 Configure Ruby Environment
@@ -353,7 +353,7 @@ appropriate values:
 -   `chef_server_url` must be updated with the domain or IP address used
     to access the Chef Infra Server.
 
-See the [knife config.rb documentation](/config_rb/) for more
+See the [knife config.rb documentation](/workstation/config_rb/) for more
 details.
 
 Get SSL Certificates

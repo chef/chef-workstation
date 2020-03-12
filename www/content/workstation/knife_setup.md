@@ -10,7 +10,7 @@ aliases = ["/knife_setup.html", "/knife_setup/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_setup.md Setting up Knife"
     parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_setup.md)
 
@@ -25,7 +25,7 @@ config.rb Configuration File
 
 Knife is configured using a config.rb configuration, which contains
 configuration for both the knife command line tool as well as any
-installed knife plugins. See [config.rb](/config_rb/) for a complete
+installed knife plugins. See [config.rb](/workstation/config_rb/) for a complete
 list of configuration options in the config.rb file.
 
 Load Path Priority
@@ -65,7 +65,7 @@ Generating a config.rb File
 
 The knife command <span class="title-ref">knife configure</span> can be
 used to generate your initial config.rb configuration file in your home
-directory. See [knife configure](/knife_configure/) for details.
+directory. See [knife configure](/workstation/knife_configure/) for details.
 
 Knife Profiles
 ==============
@@ -80,7 +80,7 @@ the `.chef/credentials` file in your home directory on your workstation.
 The `credentials` file is TOML formatted. Each profile is listed as a
 separate 'table' name of your choice, and is followed by key-value
 pairs. The keys correspond to any setting permitted in the
-[config.rb](/config_rb/) file.
+[config.rb](/workstation/config_rb/) file.
 
 File paths, such as `client_key` or `validator_key`, will be relative to
 `~/.chef` unless absolute paths are given. Clients can be identified

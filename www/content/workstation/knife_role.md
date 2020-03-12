@@ -20,7 +20,7 @@ aliases = ["/knife_role.html", "/knife_role/"]
 {{< note >}}
 
 To add a role to a node and then build out the run-list for that node,
-use the [knife node](/knife_node/) subcommand and its `run_list add`
+use the [knife node](/workstation/knife_node/) subcommand and its `run_list add`
 argument.
 
 {{< /note >}}

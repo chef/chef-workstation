@@ -24,7 +24,7 @@ this site. The following arguments do not require a user account:
 {{< warning >}}
 
 `knife cookbook site` has been deprecated in favor of the [knife
-supermarket](/knife_supermarket/) command.
+supermarket](/workstation/knife_supermarket/) command.
 
 {{< /warning >}}
 
