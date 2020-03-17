@@ -1,31 +1,28 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.17.5 -->
-## [0.17.5](https://github.com/chef/chef-workstation/tree/0.17.5) (2020-03-10)
-
-#### Merged Pull Requests
-- More work to prepare for 0.17 release [#1033](https://github.com/chef/chef-workstation/pull/1033) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.16.33 -->
-### Changes since 0.16.33 release
-
-#### Merged Pull Requests
-- More work to prepare for 0.17 release [#1033](https://github.com/chef/chef-workstation/pull/1033) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.5 -->
-- Unpinning Inspec because its sudo bug got fixed [#1027](https://github.com/chef/chef-workstation/pull/1027) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.4 -->
-- Bump test-kitchen from 2.3.4 to 2.4.0 in /omnibus [#1012](https://github.com/chef/chef-workstation/pull/1012) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.17.3 -->
-- Bump omnibus from `5baaf7a` to `f389917` in /omnibus [#1013](https://github.com/chef/chef-workstation/pull/1013) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.17.2 -->
-- Bump omnibus-software from `da1a260` to `c086d80` in /omnibus [#1014](https://github.com/chef/chef-workstation/pull/1014) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.17.1 -->
-- Pinning bundler back to 1.x to fix builds [#1026](https://github.com/chef/chef-workstation/pull/1026) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.0 -->
-- Bump mixlib-install to 3.11.28 [#1015](https://github.com/chef/chef-workstation/pull/1015) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.16.35 -->
-- Update Test Kitchen to 2.4.0 [#1024](https://github.com/chef/chef-workstation/pull/1024) ([tas50](https://github.com/tas50)) <!-- 0.16.34 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.17.5](https://github.com/chef/chef-workstation/tree/0.17.5) (2020-03-12)
+
+#### Merged Pull Requests
+- Update Test Kitchen to 2.4.0 [#1024](https://github.com/chef/chef-workstation/pull/1024) ([tas50](https://github.com/tas50))
+- Bump mixlib-install to 3.11.28 [#1015](https://github.com/chef/chef-workstation/pull/1015) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Pinning bundler back to 1.x to fix builds [#1026](https://github.com/chef/chef-workstation/pull/1026) ([tyler-ball](https://github.com/tyler-ball))
+- Bump omnibus-software from `da1a260` to `c086d80` in /omnibus [#1014](https://github.com/chef/chef-workstation/pull/1014) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump omnibus from `5baaf7a` to `f389917` in /omnibus [#1013](https://github.com/chef/chef-workstation/pull/1013) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump test-kitchen from 2.3.4 to 2.4.0 in /omnibus [#1012](https://github.com/chef/chef-workstation/pull/1012) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Unpinning Inspec because its sudo bug got fixed [#1027](https://github.com/chef/chef-workstation/pull/1027) ([tyler-ball](https://github.com/tyler-ball))
+- More work to prepare for 0.17 release [#1033](https://github.com/chef/chef-workstation/pull/1033) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_stable_release -->
+
 ## [0.16.33](https://github.com/chef/chef-workstation/tree/0.16.33) (2020-03-03)
 
 #### Merged Pull Requests
 - Reverting Inspec to fix some known issues [#1009](https://github.com/chef/chef-workstation/pull/1009) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_stable_release -->
 
 ## [0.16.32](https://github.com/chef/chef-workstation/tree/0.16.32) (2020-03-02)
 
