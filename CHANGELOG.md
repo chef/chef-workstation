@@ -1,8 +1,17 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 0.17.7 -->
+## [0.17.7](https://github.com/chef/chef-workstation/tree/0.17.7) (2020-03-25)
+
+#### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.79 [#1057](https://github.com/chef/chef-workstation/pull/1057) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=0.17.5 -->
+### Changes since 0.17.5 release
+
+#### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.79 [#1057](https://github.com/chef/chef-workstation/pull/1057) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.17.7 -->
+- Pinning bundler to 1.17 because 2.x breaks our builds [#1055](https://github.com/chef/chef-workstation/pull/1055) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.6 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
