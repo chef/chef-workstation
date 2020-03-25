@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.17.9 -->
-## [0.17.9](https://github.com/chef/chef-workstation/tree/0.17.9) (2020-03-25)
+<!-- latest_release 0.17.10 -->
+## [0.17.10](https://github.com/chef/chef-workstation/tree/0.17.10) (2020-03-25)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `c086d80` to `3051886` in /omnibus [#1056](https://github.com/chef/chef-workstation/pull/1056) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- I accidently bumped the bundler version after fixing the update dep script [#1058](https://github.com/chef/chef-workstation/pull/1058) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- I accidently bumped the bundler version after fixing the update dep script [#1058](https://github.com/chef/chef-workstation/pull/1058) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.10 -->
 - Bump omnibus-software from `c086d80` to `3051886` in /omnibus [#1056](https://github.com/chef/chef-workstation/pull/1056) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.17.9 -->
 - Bump kitchen-ec2 to 3.4.0 [#1046](https://github.com/chef/chef-workstation/pull/1046) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.17.8 -->
 - Bump chef-analyze CLI to 0.1.79 [#1057](https://github.com/chef/chef-workstation/pull/1057) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.17.7 -->
