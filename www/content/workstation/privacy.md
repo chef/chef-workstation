@@ -1,14 +1,21 @@
 +++
 title = "Privacy and Telemetry"
+draft = false
+
+aliases = ["/privacy.html", "/privacy/"]
+
 [menu]
-  [menu.docs]
-    parent = "Chef Workstation"
-    weight = "50"
+  [menu.workstation]
+    title = "Privacy and Telemetry"
+    identifier = "chef_workstation/privacy.md Privacy and Telemetry"
+    parent = "chef_workstation"
+    weight = 11
 +++
 
 In order to continually improve Chef Workstation, we collect information to help us identify bugs and understand how people interact with Chef Workstation.
 
-## What We Collect
+What We Collect
+===============
 
 We capture:
 
@@ -19,14 +26,16 @@ We capture:
 * How you connect to a remote host via `chef-run`, either WinRM or SSH.
 * Target operating system of any hosts connected to via `chef-run`.
 
-## How We Use Your Data
+How We Use Your Data
+====================
 
 We use this data to track Chef Workstation usage patterns, identify bugs, and iterate development based real aggregated feedback.
 
 Only Chef Software, Inc employees have access to your data.
 We will never sell, re-sell, or use your data in a malicious manner.
 
-## Opting out
+Opting out
+==========
 
 * To stop the capture of telemetry data from a single session, set the environment variable `CHEF_TELEMETRY_OPT_OUT` to any value before running `chef-run`, for example:
 
@@ -41,7 +50,8 @@ We will never sell, re-sell, or use your data in a malicious manner.
 enabled=false
 ```
 
-## See Your Data
+See Your Data
+=============
 
 You can view the analytics we collect before it is sent.
 Find&#8212;and remove&#8212;your data in the `HOME/.chef-workstation/telemetry/` folder.

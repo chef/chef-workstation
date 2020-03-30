@@ -1,10 +1,15 @@
 +++
-title = "Chef Workstation Configuration"
-linkTitle = "Chef Workstation Configuration"
+title = "Configure Chef Workstation"
+draft = false
+
+aliases = ["/workstation_config.html", "/workstation_config/"]
+
 [menu]
-  [menu.docs]
-    parent = "Reference"
-    weight = "10"
+  [menu.workstation]
+    title = "Configure Chef Workstation"
+    identifier = "chef_workstation/config.md Configure Chef Workstation"
+    parent = "chef_workstation"
+    weight = 31
 +++
 
 # Configuration
@@ -12,8 +17,7 @@ linkTitle = "Chef Workstation Configuration"
 Chef Workstation App and `chef-run` configuration is managed in `config.toml`.
 Chef Workstation will create `config.toml` the first time you use `chef-run`,
 if one does not already exist.  To configure other tools, see their
-respective pages found in the [ChefDK
-documentation](https://docs.chef.io/about_chefdk.html).
+respective pages found in the toolbar under Chef Workstation Tools.
 
 ## Default location
 

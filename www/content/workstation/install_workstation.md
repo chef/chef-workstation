@@ -188,9 +188,71 @@ Test Kitchen version: 2.3.4
 Cookstyle version: 5.21.9
 ```
 
+Upgrading
+=========
+
+From Chef Workstation
+---------------------
+
+For all platforms, follow the steps provided under [Installing]({{< ref "install_workstation.md" >}}).
+
+From ChefDK
+-----------
+
+### Linux
+
+The Chef Workstation package conflicts with an installed ChefDK package to prevent
+unintentional upgrades.
+
+Prior to installing Chef Workstation, first uninstall ChefDK:
+
+Ubuntu, Debian, and related:
+
+```bash
+sudo dpkg -P chefdk
+```
+
+Red Hat, CentOS, and related:
+
+```bash
+sudo rpm -e chefdk
+```
+
+### Other
+
+For other platforms, follow the steps provided under [Installing]({{< ref "#installing" >}}).
+
+Uninstalling
+============
+
+Mac
+---
+
+Run ```uninstall_chef_workstation``` in your terminal.
+
+Windows
+-------
+
+Use **Add / Remove Programs** to remove Chef Workstation.
+
+Linux
+-----
+
+Ubuntu, Debian, and related:
+
+```bash
+sudo dpkg -P chef-workstation
+```
+
+Red Hat, CentOS, and related:
+
+```bash
+sudo rpm -e chef-workstation
+```
+
 Next Steps
 ==========
 
-Now that you've installed Chef Workstation, proceed to the [Configuring
-Chef Workstation](/workstation/workstation_setup/) guide to configure your Chef
-Workstation installation.
+Now that you've installed Chef Workstation, proceed to the
+[Getting Started](/workstation/getting_started/) guide to
+configure your Chef Workstation installation.

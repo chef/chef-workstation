@@ -126,7 +126,7 @@ weight = 10
     title = "chef (executable)"
     identifier = "chef_workstation/chef_workstation_tools/chef_(executable)"
     parent = "chef_workstation/chef_workstation_tools"
-    weight = 30
+    weight = 20
 
       [[menu.workstation]]
       title = "chef env"

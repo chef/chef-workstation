@@ -1,21 +1,32 @@
 +++
 title = "Troubleshooting"
+draft = false
+
+aliases = ["troubleshooting.html", "/troubleshooting/"]
+
 [menu]
-  [menu.docs]
-    parent = "Chef Workstation"
-    weight = "40"
+  [menu.workstation]
+    title = "Troubleshooting"
+    identifier = "chef_workstation/troubleshooting.md Troubleshooting"
+    parent = "chef_workstation"
+    weight = 32
 +++
 
-## Chef Workstation Logs
+Chef Workstation Logs
+=====================
 
 Chef Workstation logs are stored in ` ~/.chef-workstation/logs`.
 
-## Uninstall instructions
+Uninstall instructions
+=====================
 
-Follow the steps provided under [Uninstalling]({{< ref "install.md#uninstalling" >}}).
+Follow the steps provided under [Uninstalling]({{< ref "install_workstation.md#uninstalling" >}}).
 
-## Error code CHEFINT001
+Common Error Codes
+==================
 
+CHEFINT001
+----------
 
 ```
 CHEFINT001
@@ -30,7 +41,8 @@ This error now appears as CHEFTRN007.  If you're running an older version of che
 it will appear as CHEFINT001 with the message above.  Follow the steps detailed under
 CHEFTRN007 below to resolve.
 
-## Error code CHEFTRN007
+CHEFTRN007
+----------
 
 `No authentication methods available`
 

@@ -6,11 +6,11 @@ aliases = ["/chef_vault.html", "/chef_vault/"]
 
 [menu]
   [menu.workstation]
-    title = "chef-vault"
-    identifier = "chef_workstation/chef_workstation_tools/chef_vault.md chef-vault"
+    title = "chef-vault (executable)"
+    identifier = "chef_workstation/chef_workstation_tools/chef_vault.md chef-vault (executable)"
     parent = "chef_workstation/chef_workstation_tools"
     weight = 50
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/chef_vault.md)
 

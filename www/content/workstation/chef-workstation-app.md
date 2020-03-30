@@ -1,9 +1,29 @@
 +++
 title = "Chef Workstation App"
+draft = false
+
+aliases = ["/chef_workstation_app.html", "/chef_workstation_app/"]
+
 [menu]
-  [menu.docs]
-    parent = "Chef Workstation"
-    weight = "100"
+  [menu.workstation]
+    title = "Chef Workstation App"
+    identifier = "chef_workstation/chef_workstation_tools/chef_workstation_app.md Chef Workstation App"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 61
++++
+
++++
+title = "About Berkshelf"
+draft = false
+
+aliases = ["/berkshelf.html", "/berkshelf/"]
+
+[menu]
+  [menu.workstation]
+    title = "Berkshelf"
+    identifier = "chef_workstation/chef_workstation_tools/berkshelf.md Berkshelf"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 10
 +++
 
 # About Chef Workstation App
