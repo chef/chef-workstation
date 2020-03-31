@@ -1,11 +1,12 @@
 +++
 title = "{{ replace .Name "-" " " | title }}"
-linktitle = "{{ replace .Name "-" " " | title }}"
-date = {{ .Date }}
 draft = true
-weight = 10
+
 [menu]
   [menu.workstation]
+    title = "{{ replace .Name "-" " " | title }}"
+    identifier = "chef_workstation/{{ .Name }}.md {{ replace .Name "-" " " | title }}"
     parent = "chef_workstation"
+    weight = 10
 +++
 
