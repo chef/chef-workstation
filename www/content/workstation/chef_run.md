@@ -2,8 +2,6 @@
 title = "chef-run (executable)"
 draft = false
 
-aliases = ["/chef_run.html", "/chef_run/"]
-
 [menu]
   [menu.workstation]
     title = "chef-run (executable)"
@@ -14,8 +12,8 @@ aliases = ["/chef_run.html", "/chef_run/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/chef_run.md)
 
-`chef-run` is a tool to execute ad-hoc tasks on one or more target nodes
-using Chef. To start with, familiarize yourself with `chef-run`'s
+chef-run is a tool to execute ad-hoc tasks on one or more target nodes
+using Chef Infra Client. To start with, familiarize yourself with `chef-run`'s
 arguments and flags by running `chef-run -h`.
 
 Apply a Resource to a Single Node over SSH
@@ -74,10 +72,9 @@ target hosts.
 Specifying resource properties and actions
 ==========================================
 
-All [Chef core resources](https://docs.chef.io/resource_reference.html) can be
-specified on the command line. Use the `chef-run` command first, followed by
-the resource type in the second place, and the resource name in the third
-place. For example:
+You can specify all the Chef Infra [resources](/resources/) in the command line.
+Enter the `chef-run` command first, followed by the resource type in the second
+place, and the resource name in the third place. For example:
 
 ```bash
 chef-run host1 group awesome_group
@@ -154,7 +151,7 @@ Configuring Cookbook Dependencies and Sources
 
 When converging a target node `chef-run` creates a policyfile bundle that
 includes the cookbook specified. If the cookbook you specified has its own
-[`Policyfile.rb`](https://docs.chef.io/config_rb_policyfile.html) that will be
+[`Policyfile.rb`](/config_rb_policyfile/) that will be
 respected.
 
 In your `metadata.rb` file:
@@ -192,7 +189,7 @@ then runs its `second` recipe.
 
 You can specify different cookbook sources in `Policyfile.rb`, including a
 private supermarket. See the [Policyfile
-documentation](https://docs.chef.io/config_rb_policyfile.html) for examples.
+documentation](/config_rb_policyfile/) for examples.
 
 Connecting to Automate 2
 ========================

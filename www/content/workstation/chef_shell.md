@@ -126,12 +126,12 @@ Step Through Run-list
 Debug Existing Recipe
 ---------------------
 
-{{% ws_chef_shell_debug_existing_recipe %}}
+{{< readFile_shortcode file="ws_chef_shell_debug_existing_recipe.md" >}}
 
 Advanced Debugging
 ------------------
 
-{{% ws_chef_shell_advanced_debug %}}
+{{< readFile_shortcode file="ws_chef_shell_advanced_debug.md" >}}
 
 Manipulating Chef Infra Server Data
 ===================================
@@ -146,7 +146,7 @@ The following examples show how to use chef-shell.
 "Hello World"
 -------------
 
-{{% ws_chef_shell_example_hello_world %}}
+{{< readFile_shortcode file="ws_chef_shell_example_hello_world.md" >}}
 
 Get Specific Nodes
 ------------------

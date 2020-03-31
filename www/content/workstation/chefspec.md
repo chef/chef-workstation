@@ -10,7 +10,7 @@ aliases = ["/chefspec.html", "/chefspec/"]
     identifier = "chef_workstation/chef_workstation_tools/chefspec.md ChefSpec"
     parent = "chef_workstation/chef_workstation_tools"
     weight = 60
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/chefspec.md)
 

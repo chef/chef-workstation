@@ -9,7 +9,7 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
     title = "Install Chef Workstation"
     identifier = "chef_workstation/install_workstation.md Install Chef Workstation"
     parent = "chef_workstation"
-    weight = 20
+    weight = 30
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/install_workstation.md)

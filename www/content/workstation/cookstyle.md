@@ -10,7 +10,7 @@ aliases = ["/cookstyle.html", "/rubocop.html", "/cookstyle/"]
     identifier = "chef_workstation/chef_workstation_tools/cookstyle.md Cookstyle"
     parent = "chef_workstation/chef_workstation_tools"
     weight = 90
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/cookstyle.md)
 

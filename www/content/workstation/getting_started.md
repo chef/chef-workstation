@@ -2,14 +2,14 @@
 title = "Getting Started"
 draft = false
 
-aliases = ["getting_started.html", "/workstation_setup.html", "/chefdk_setup.html", "/workstation.html", "/getting_started/"]
+aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html", "/workstation_setup/"]
 
 [menu]
   [menu.workstation]
     title = "Getting Started"
     identifier = "chef_workstation/getting_started.md Getting Started"
     parent = "chef_workstation"
-    weight = 30
+    weight = 40
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/getting_started.md)

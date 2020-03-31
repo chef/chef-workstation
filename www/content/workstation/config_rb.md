@@ -10,7 +10,7 @@ aliases = ["/config_rb.html", "/config_rb_knife.html", "/config_rb/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/config_rb.md config.rb (knife.rb)"
     parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 40
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/config_rb.md)
 

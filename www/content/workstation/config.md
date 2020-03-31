@@ -9,7 +9,7 @@ aliases = ["/workstation_config.html", "/workstation_config/"]
     title = "Configure Chef Workstation"
     identifier = "chef_workstation/config.md Configure Chef Workstation"
     parent = "chef_workstation"
-    weight = 31
+    weight = 50
 +++
 
 # Configuration

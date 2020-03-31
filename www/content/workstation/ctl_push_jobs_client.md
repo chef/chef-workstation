@@ -10,7 +10,7 @@ aliases = ["/ctl_push_jobs_client.html", "/ctl_push_jobs_client/"]
     identifier = "chef_workstation/chef_workstation_tools/ctl_push_jobs_client.md push-jobs-client (executable)"
     parent = "chef_workstation/chef_workstation_tools"
     weight = 140
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/ctl_push_jobs_client.md)
 

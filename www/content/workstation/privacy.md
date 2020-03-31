@@ -9,7 +9,7 @@ aliases = ["/privacy.html", "/privacy/"]
     title = "Privacy and Telemetry"
     identifier = "chef_workstation/privacy.md Privacy and Telemetry"
     parent = "chef_workstation"
-    weight = 11
+    weight = 20
 +++
 
 In order to continually improve Chef Workstation, we collect information to help us identify bugs and understand how people interact with Chef Workstation.

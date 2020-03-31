@@ -10,7 +10,7 @@ aliases = ["/berkshelf.html", "/berkshelf/"]
     identifier = "chef_workstation/chef_workstation_tools/berkshelf.md Berkshelf"
     parent = "chef_workstation/chef_workstation_tools"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/berkshelf.md)
 

@@ -9,7 +9,7 @@ aliases = ["troubleshooting.html", "/troubleshooting/"]
     title = "Troubleshooting"
     identifier = "chef_workstation/troubleshooting.md Troubleshooting"
     parent = "chef_workstation"
-    weight = 32
+    weight = 60
 +++
 
 Chef Workstation Logs

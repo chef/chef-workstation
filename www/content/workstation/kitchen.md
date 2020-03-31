@@ -10,7 +10,7 @@ aliases = ["/kitchen.html", "/kitchen/"]
     identifier = "chef_workstation/chef_workstation_tools/test_kitchen/kitchen.md About Test Kitchen"
     parent = "chef_workstation/chef_workstation_tools/test_kitchen"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/kitchen.md)
 
@@ -86,7 +86,7 @@ Syntax
 Work with Proxies
 -----------------
 
-{{% ws_test_kitchen_yml_syntax_proxy %}}
+{{< readFile_shortcode file="ws_test_kitchen_yml_syntax_proxy.md" >}}
 
 For more information ...
 ========================
