@@ -295,13 +295,12 @@ We love getting feedback. You can use:
   support.
 - Pull request --- Submit a PR to this repo using either of the two
   methods described above.
-- GitHub issues --- Use the https://github.com/chef/chef/issues page
-  for issues specific to Chef Infra itself. This is a good place for
-  "important" documentation bugs that may need visibility among a
-  larger group, especially in situations where a doc bug may also
-  surface a product bug. You can also use
-  [chef-web-docs issues](https://github.com/chef/chef-web-docs/issues),
-  especially for docs feature requests and minor docs bugs.
+- GitHub issues --- Use the https://github.com/chef/chef-workstation/issues.
+  This is a good place for "important" documentation bugs that may need
+  visibility among a larger group, especially in situations where a doc bug
+  may also surface a product bug. You can also use [chef-web-docs
+  issues](https://github.com/chef/chef-web-docs/issues), especially for
+  docs feature requests and minor docs bugs.
 - https://discourse.chef.io/ --- This is a great place to interact with Chef and others.
 
 ## Questions
@@ -312,4 +311,4 @@ If you need tips for making contributions to our documentation, check out the
 If you see an error, open an [issue](https://github.com/chef/chef-web-docs/issues)
 or submit a pull request.
 
-If you have a question about the documentation, send an email to docs@chef.io. 
+If you have a question about the documentation, send an email to docs@chef.io.
