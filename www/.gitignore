@@ -1,13 +1,30 @@
-# Hugo
-public
+.DS_Store
 
-# markdownlint
-.markdownlint.json
+# ignore doctree files in translation folders
+*.doctree
+*.pickle
 
-# chef-www-acceptance.cd.chef.co content
-chef-sh
+public/
+/resources/
 
-# upstream repos
-chef-www
-site/themes/chef
-site/layouts
+**/.sass-cache
+**/.sass-cache/*
+*.css.map
+*.css_t.map
+
+/.delivery/cli.toml
+
+/.vscode
+
+/.venv
+
+*.*~
+*~
+TAGS
+
+results/
+
+static/fonts/fontawesome
+node_modules
+vendor
+

@@ -1,63 +1,253 @@
-# Chef Workstation + http://chef.sh
+# Chef Workstation Documentation
 
-Chef Workstation hosts its marketing and documentation content on [chef.sh](https://chef.sh) (the microsite) along with marketing and documentation for other Chef products including Chef Server, Chef Client, and ChefDK. The primary source code for [chef.sh](https://chef.sh) is kept with the [chef/chef-www](https://github.com/chef/chef-www) code along with most of the marketing materials, but the documentation source is kept with the code repositories. To handle this, we have a dedicated code structure here in `chef/chef-workstation` that is pulled into `chef/chef-www` when it is updated.
+This folder contains the source for the [Chef Workstation documentation](https://docs.chef.io/workstation/)
+which is deployed on the [Chef Documenation](https://docs.chef.io) site using a Hugo module.
 
-## Getting Started
+## The fastest way to contribute
 
-### One Time Install
+The fastest way to change the documentation is to edit a page on the
+GitHub website using the GitHub UI.
 
-1. **DISABLE SMART QUOTES**
-   OS X is annoying and tries to use smartquotes when editing Hugo docs. You want smartquotes disabled regardless if you are writing code.
-   Here's how [you can disable it](http://www.iclarified.com/38772/how-to-disable-curly-quotes-in-mac-os-x-mavericks).
+To perform edits using the GitHub UI, click on the `[edit on GitHub]` link at
+the top of the page that you want to edit. The link takes you to that topic's GitHub
+page. In GitHub, click on the pencil icon and make your changes. You can preview
+how they'll look right on the page ("Preview Changes" tab).
 
-1. Install the AWS CLI
+We also require contributors to include their [DCO signoff](https://github.com/chef/chef/blob/master/CONTRIBUTING.md#developer-certification-of-origin-dco)
+in the comment section of every pull request, except for obvious fixes. You can
+add your DCO signoff to the comments by including `Signed-off-by:`, followed by
+your name and email address, like this:
 
-    ```
-    $ brew install awscli
-    ```
+`Signed-off-by: Julia Child <juliachild@chef.io>`
 
-1. Follow the instructions [here](https://github.com/chef/okta_aws#installation) to install and setup [okta_aws](https://github.com/chef/okta_aws).
+See our [blog post](https://blog.chef.io/introducing-developer-certificate-of-origin/)
+for more information about the DCO and why we require it.
 
-    1. Run `okta_aws --list` and make sure you see `chef-cd` in the output.
-    1. If you do not, please reach out to the #helpdesk and have them add you to the "Chef CD AWS Account".
+After you've added your DCO signoff, add a comment about your proposed change,
+then click on the "Propose file change" button at the bottom of the page and
+confirm your pull request. The CI system will do some checks and add a comment
+to your PR with the results.
 
-1. Install Hugo
+The Chef documentation team can normally merge pull requests within seven days.
+We'll fix build errors before we merge, so you don't have to
+worry about passing all the CI checks, but it might add an extra
+few days. The important part is submitting your change.
 
-    ```
-    $ brew install hugo
-    ```
+## Local Development Environment
 
-### Routine Setup
+The Chef Documentation website is built using [Hugo](https://gohugo.io/) and
+[NPM](https://www.npmjs.com/). You will need Hugo 0.61 or higher installed and
+running to build and view our documentation properly.
 
-_These are the steps you'll need to run every time you launch a development environment._
+To install Hugo:
 
-1. Authentiate against the `chef-cd` AWS Account
+- On macOS run: `brew install hugo`
+- On Windows run: `choco install hugo`
 
-    ```
-    $ okta_aws chef-cd
-    ```
+NPM is distributed with Node.js. To install Node.js:
 
-1. From the `www` directory, run the following command to start the live-reload development environment. When this is running, any changes you make to content in the `www/site` directory will be automatically compiled and updated the browser.
+- On macOS run: `brew install node`
+- On Windows, download and run the installer from the [nodejs.org](https://nodejs.org) website.
 
-    ```
-    $ make serve
-    ```
+### Preview Workstation Documentation
 
-## Creating Blog Posts and Making Docs Changes
+To build the docs and preview locally:
 
-The site is built with [Hugo](https://gohugo.io/), a Go-based static site generator, and uses
-[Stencil](https://stenciljs.com/) for web components and [Sass](http://sass-lang.com/) for CSS.
-You'll probably want to familiarize yourself with the Hugo documentation, which covers templating,
-layouts, functions, etc., but there are helpers to assist you with doing some common things, like
-creating a new blog post:
+- Run `make serve`
+- go to http://localhost:1313
 
-```shell
-cd site
-hugo new blog/my-sweet-new-post.md
+The landing page shows navigation menu metadata and the left navigation menu
+shows the menu weight for each page. You can use this information to add,
+remove, or reorganize Workstation documentation in the menu. None of this will
+appear on the [Chef Documentation](https://docs.chef.io) site when the workstation
+content is updated.
+
+While the Hugo server is running, any changes you make to content
+in the `www/content` directory will be automatically compiled and updated in the
+browser.
+
+### Clean Your Local Environment
+
+To clean your local development environment:
+
+- Running `make clean` will delete the sass files, javascript, and fonts. These will
+	be rebuilt the next time you run `make serve`.
+
+- Running `make clean_all` will delete the node modules used to build this site
+	in addition to the functions of `make clean` described above. Those node
+	modules will be reinstalled the next time you run `make serve`.
+
+## Creating New Pages
+
+Please keep all your documentation in the `content/workstation` directory.
+To add a new Markdown file, run the following command from the `www` directory:
+
+```
+hugo new content/workstation/<filename>.md
 ```
 
-Your new post will be created as a draft with enough frontmatter to get you going. All content is authored
-in [Markdown](https://en.wikipedia.org/wiki/Markdown).
+This will create a draft page with enough front matter to get you going.
+
+Hugo uses [Goldmark](https://github.com/yuin/goldmark) which is a
+superset of Markdown that includes GitHub styled tables, task lists, and
+definition lists.
+
+See our [Style Guide](https://docs.chef.io/style_guide/) for more information
+about formatting documentation using Markdown.
+
+## Workstation Page Menu
+
+If you add content, it will not automatically show up in the left navigation menu.
+Build the site locally (`make serve`) and see the landing page (`http://localhost:1313`).
+Any page followed by `Workstation Menu: False` has not been added to the left navigation menu.
+
+Each page needs a page title, an identifier, and a parent.
+
+**Title**
+The title is the name of the page as it appears in the left navigation menu.
+
+**Parent**
+The parent is the path to that page in the left navigation menu. For example, the
+`knife serve` page is found by clicking on Chef Workstation, Chef Workstation Tools,
+and then Knife. So it's parent is `chef_workstation/chef_workstation_tools/knife`.
+
+**Identifier**
+Each menu identifier must be unique. We use the menu parent value, followed by
+the file name, followed by the page title.
+
+**Menu Weight**
+The menu weight is optional. If it isn't included, Hugo assigns each page a weight of 0
+and pages with the same weight are put in alphabetical order. Pages with a higher weight
+are lower in the menu.
+
+Below is an example of a page menu entry:
+
+```
+[menu]
+  [menu.workstation]
+    title = "Page Menu Title"
+    identifier = "chef_workstation/<file_name>.md Page Title"
+    parent = "chef_workstation"
+    weight = 10
+```
+
+## Workstation Menu Config
+
+The framework for the workstation menu is located in the `config_workstation_menu.toml`
+file. This defines the parent menu directories that each page can be added to.
+
+In addition, you can add links to the Workstation menu that navigate to other pages on
+the [Chef Documentation](https://docs.chef.io) site or to an external site. See
+the example below.
+
+```
+[[menu.workstation]]
+title = "Page Menu Title"
+identifier = "chef_workstation/file_name.md Page Title"
+parent = "chef_workstation"
+url = "relative or absolute URL"
+weight = 10
+```
+
+See the [Hugo menu documentation](https://gohugo.io/content-management/menus/)
+for additional information about formatting a menu item.
+
+Contact the documentation team if you need help adding a page to the menu.
+
+## Shortcodes
+
+Shortcodes are simple snippets of code that can be used to modify a Markdown
+page by adding content or changing the appearance of content in a page. See
+Hugo's [shortcode documentation](https://gohugo.io/content-management/shortcodes/)
+for general information about shortcodes.
+
+We primarily use shortcodes in two ways:
+
+- adding reusable text
+- highlighting blocks of text in notes or warnings to warn users or
+provide additional important information
+
+### Adding reusable text
+
+There are often cases where we want to maintain blocks of text that are identical
+from one page to the next. In those cases, we add that text, formatted in Markdown,
+to a shortcode file located in `chef-workstation/www/layouts/shortcodes`.
+
+Each shortcode in the Chef Workstation documentation must be prefixed with `ws_`.
+For example, `ws_shortcode_name.md`.
+
+To add that shortcode to a page in `chef-workstation/www/content`, add the file name,
+minus the .md suffix, wrapped in double curly braces and percent symbols to
+the location in the Markdown page where you want that text included. For example,
+if you want to add the text in `ws_shortcode_file_name.md` to a page, add
+`{{% ws_shortcode_file_name %}}` to the text of that page and it will appear when
+Hugo rebuilds the documentation.
+
+**Shortcodes in lists**
+
+Hugo doesn't handle shortcodes that are indented in a list item properly. It interprets
+the text of the shortcode as a code block. More complicated shortcodes with
+code blocks, notes, additional list items, or other formatting look pretty
+bad. We've created a simple shortcode for handling shortcodes in lists or definition
+lists called `shortcode_indent`.
+
+To include a shortcode in a list or definition list, just add its file name
+to the `shortcode` parameter of `shortcode_indent` without the .md suffix.
+
+For example, if you wanted to add `shortcode_file_name.md` to a list:
+``` md
+1.  Here is some text introducing the shortcode, but it's not necessary.
+
+    {{< shortcode_indent shortcode="shortcode_file_name" >}}
+```
+
+### Highlighting blocks of text
+
+We also use shortcodes to highlight text in notes, warnings or danger notices.
+These should be used sparingly especially danger notices or warnings. Wrap text
+that you want in a note using opening and closing shortcode notation. For example,
+
+```
+{{< note >}}
+
+Note text that gives the user additional important information.
+
+{{< /note >}}
+```
+
+To add a warning or danger, replace the word `note` with `warning` or `danger` in the
+example above.
+
+**Notes in lists**
+
+Hugo doesn't handle shortcodes that are indented in lists very well, that includes the Note,
+Warning, and Danger shortcodes. It interprets the indented text that's inside
+the Note as a code block when it should be interpreted as Markdown.
+
+To resolve this problem, there's a `spaces` parameter that can be added to the Note,
+Warning, and Danger shortcodes. The value of spaces should be set to the number
+of spaces that the note is indented.
+
+For example:
+```
+This is a list:
+
+-   List item.
+
+    {{< note spaces=4 >}}
+
+    Text that gives the user additional important information about that list item.
+
+    {{< /note >}}
+```
+
+This parameter also works on Danger and Warning shortcodes.
+
+## Aliases
+
+Add an alias to the page metadata to redirect users from a page to the page you are
+editing. They are only needed if a page has been deleted and you want to redirect
+users from the deleted page to a new or existing page.
 
 ## Structure
 
@@ -66,9 +256,7 @@ in [Markdown](https://en.wikipedia.org/wiki/Markdown).
 .
 ├── Makefile    # contains helpers to quickly start up the development environment
 ├── README.md
-├── chef-sh     # hidden directory that contains the pre-compiled source for chef.sh
-├── chef-www    # chef/chef-www submodule to pull in the chef-sh theme for local development
-├── site        # the hugo site directory used for local development
+├── www        # the hugo site directory used for local development
 ```
 
 ### Local Content
@@ -76,72 +264,51 @@ in [Markdown](https://en.wikipedia.org/wiki/Markdown).
 .
 ├── site
 │   ├── content
-│   │   ├── docs
-│   │   │   ├── chef-workstation    # where to keep markdown file documentation
+│   │   ├── workstation                 # where to keep markdown file documentation
 │   ├── data
-│   │   ├── chef-workstation        # where to keep structured data files used for data templates
+│   │   ├── chef-workstation            # where to keep structured data files used for data templates
 │   ├── layouts
 |   │   ├── shortcodes
-|   │   │   ├── cw-*                # how to name your workstation-specific shortcodes
+|   │   │   ├── ws_<shortcode_name>.md  # how to name your workstation-specific shortcodes
 |   ├── static
 |   |   ├── images
-|   |   |   ├── chef-workstation    # where to keep any images you need to reference in your documentation
+|   |   |   ├── chef-workstation        # where to keep any images you need to reference in your documentation
+|   |   ├── css
 ```
 
 ### What is happening behind the scenes
 
-Everytime a PR is merged into `chef/chef-workstation`, the contents of the `chef-workstation` directories from the `site` directory are synced to `chef/chef-www` and the `chef-www-acceptance.cd.chef.co` acceptance environment is automatically updated. This is handled by the Expeditor subscriptions in the `chef/chef-www` GitHub repository.
+The [Chef Documentation](https://docs.chef.io) site uses [Hugo modules](https://gohugo.io/hugo-modules/)
+to load content directly from the `www` directory in the `chef/chef-workstation`
+repository. Every time `chef/chef-workstation` is promoted to stable, Expeditor
+instructs Hugo to update the version of the `chef/chef-workstation` repository
+that Hugo uses to build Chef Workstation documentation on the [Chef Documentation](https://docs.chef.io)
+site. This is handled by the Expeditor subscriptions in the `chef/chef-web-docs` GitHub repository.
 
-## Helpers
+## Sending documentation feedback
 
-make sync
-: Pull down the current chef.sh content and chef-hugo-theme submodule. You'll need [okta_aws](https://github.com/chef/okta_aws) configured and have access to the `chef-cd` profile.
+We love getting feedback. You can use:
 
-make serve
-: Start the live-reload development environment
+- Email --- Send an email to docs@chef.io for documentation bugs,
+  ideas, thoughts, and suggestions. This email address is not a
+  support email address, however. If you need support, contact Chef
+  support.
+- Pull request --- Submit a PR to this repo using either of the two
+  methods described above.
+- GitHub issues --- Use the https://github.com/chef/chef-workstation/issues.
+  This is a good place for "important" documentation bugs that may need
+  visibility among a larger group, especially in situations where a doc bug
+  may also surface a product bug. You can also use [chef-web-docs
+  issues](https://github.com/chef/chef-web-docs/issues), especially for
+  docs feature requests and minor docs bugs.
+- https://discourse.chef.io/ --- This is a great place to interact with Chef and others.
 
-## Markdown Content
+## Questions
 
-Please try to keep all your documentation in the `chef-workstation` directory. Any new documents should automatically show up in the sidebar. If you need to control the ordering of the sidebar, you can add `weight` to the frontmatter of the documents.
+If you need tips for making contributions to our documentation, check out the
+[instructions](https://docs.chef.io/style_guide.html).
 
-To add a new Markdown file, simply run the following command from the `www/site` directory:
+If you see an error, open an [issue](https://github.com/chef/chef-web-docs/issues)
+or submit a pull request.
 
-```
-hugo new docs/chef-workstation/<filename>.md
-```
-
-This will create the file and fill in the necessary frontmatter automatically.
-
-## Data Content
-
-Hugo allows us to nest our data directory structure as much as necessary. You can add as many folders as necessary under `site/data/chef-workstation`, Expeditor will sync them all into `chef/chef-www`.
-
-```
-.
-├── site
-│   ├── data
-│   │   ├── chef-workstation
-|   │   │   ├── cli
-|   |   │   │   ├── command_one.yml
-|   |   │   │   └── command_two.yml
-```
-
-## Shortcode Content
-
-[Shortcodes](https://gohugo.io/content-management/shortcodes/) are how we inject non-markdown content into markdown pages. This is especially useful when you want to inject read in data files, parse them, and then inject them into one or more Markdown pages. Since Hugo does not supported a nested directory structure, you'll need to prefix all your chef-workstation shortcodes with `cw-` when you use them.
-
-For example, below is how you can use a shortcode in a Markdown page to inject CLI documentation generated using a Data file.
-
-```
-+++
-title = "CLI"
-weight = 10
-[menu]
-  [menu.docs]
-    parent = "Chef Workstation"
-+++
-
-Below you'll find all our amazing Chef Workstation CLI documentation!
-
-{{< cw-cli-documentation >}}
-```
+If you have a question about the documentation, send an email to docs@chef.io.

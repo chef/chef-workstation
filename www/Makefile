@@ -2,26 +2,20 @@
 # so we have to override the default shell here
 SHELL=bash
 
-chef-www:
-	git clone https://github.com/chef/chef-www.git chef-www
-
-site/themes/chef:
-	git clone https://github.com/chef/chef-hugo-theme.git site/themes/chef
+assets:
+	pushd themes/docs-new && make assets && popd
 
 clean:
-	rm -rf chef-sh
-	rm -rf chef-www
-	rm -rf site/layouts
-	rm -rf site/themes/chef
+	pushd themes/docs-new && make clean && popd
+	rm -rf resources/
 
-sync: chef-www site/themes/chef
-	pushd chef-www && git fetch && git reset --hard origin/master && popd
-	pushd site/themes/chef && git fetch && git reset --hard origin/master && popd
-	cp -R chef-www/site/layouts site/
-	aws --profile chef-cd s3 sync s3://chef-www-acceptance.cd.chef.co chef-sh --delete
+clean_all:
+	pushd themes/docs-new && make clean_all && popd
+	rm -rf resources/
+	rm -rf results/
 
-serve: sync
-	cd site && hugo server --buildDrafts --noHTTPCache
+serve: assets
+	hugo server --buildDrafts --noHTTPCache --config=config.toml,config_workstation_menu.toml
 
-lint: chef-www site/themes/chef
-	pushd site && hugo -D && popd
+lint: assets
+	hugo -D
