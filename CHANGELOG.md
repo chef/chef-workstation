@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.17.12 -->
-## [0.17.12](https://github.com/chef/chef-workstation/tree/0.17.12) (2020-03-25)
+<!-- latest_release 0.17.13 -->
+## [0.17.13](https://github.com/chef/chef-workstation/tree/0.17.13) (2020-03-31)
 
 #### Merged Pull Requests
-- Octokit 4.17 got yanked, manually updating gems [#1060](https://github.com/chef/chef-workstation/pull/1060) ([tyler-ball](https://github.com/tyler-ball))
+- Replace old workstation docs with new workstation docs [#1037](https://github.com/chef/chef-workstation/pull/1037) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Replace old workstation docs with new workstation docs [#1037](https://github.com/chef/chef-workstation/pull/1037) ([IanMadd](https://github.com/IanMadd)) <!-- 0.17.13 -->
 - Octokit 4.17 got yanked, manually updating gems [#1060](https://github.com/chef/chef-workstation/pull/1060) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.12 -->
 - Add kitchen-openstack [#1049](https://github.com/chef/chef-workstation/pull/1049) ([ramereth](https://github.com/ramereth)) <!-- 0.17.11 -->
 - I accidently bumped the bundler version after fixing the update dep script [#1058](https://github.com/chef/chef-workstation/pull/1058) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.10 -->
