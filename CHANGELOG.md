@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.17.13 -->
-## [0.17.13](https://github.com/chef/chef-workstation/tree/0.17.13) (2020-03-31)
+<!-- latest_release 0.17.14 -->
+## [0.17.14](https://github.com/chef/chef-workstation/tree/0.17.14) (2020-04-01)
 
 #### Merged Pull Requests
-- Replace old workstation docs with new workstation docs [#1037](https://github.com/chef/chef-workstation/pull/1037) ([IanMadd](https://github.com/IanMadd))
+- Document runlist expansion/determination and cookbook sourcing [#1025](https://github.com/chef/chef-workstation/pull/1025) ([marcparadise](https://github.com/marcparadise))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Document runlist expansion/determination and cookbook sourcing [#1025](https://github.com/chef/chef-workstation/pull/1025) ([marcparadise](https://github.com/marcparadise)) <!-- 0.17.14 -->
 - Replace old workstation docs with new workstation docs [#1037](https://github.com/chef/chef-workstation/pull/1037) ([IanMadd](https://github.com/IanMadd)) <!-- 0.17.13 -->
 - Octokit 4.17 got yanked, manually updating gems [#1060](https://github.com/chef/chef-workstation/pull/1060) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.12 -->
 - Add kitchen-openstack [#1049](https://github.com/chef/chef-workstation/pull/1049) ([ramereth](https://github.com/ramereth)) <!-- 0.17.11 -->
