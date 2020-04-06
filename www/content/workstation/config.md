@@ -2,8 +2,6 @@
 title = "Configure Chef Workstation"
 draft = false
 
-aliases = ["/workstation_config.html", "/workstation_config/"]
-
 [menu]
   [menu.workstation]
     title = "Configure Chef Workstation"
@@ -11,6 +9,9 @@ aliases = ["/workstation_config.html", "/workstation_config/"]
     parent = "chef_workstation"
     weight = 50
 +++
+
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/config.md)
+
 
 # Configuration
 

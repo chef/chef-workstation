@@ -2,8 +2,6 @@
 title = "Chef Workstation App"
 draft = false
 
-aliases = ["/chef_workstation_app.html", "/chef_workstation_app/"]
-
 [menu]
   [menu.workstation]
     title = "Chef Workstation App"
@@ -12,19 +10,8 @@ aliases = ["/chef_workstation_app.html", "/chef_workstation_app/"]
     weight = 61
 +++
 
-+++
-title = "About Berkshelf"
-draft = false
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/chef-workstation-app.md)
 
-aliases = ["/berkshelf.html", "/berkshelf/"]
-
-[menu]
-  [menu.workstation]
-    title = "Berkshelf"
-    identifier = "chef_workstation/chef_workstation_tools/berkshelf.md Berkshelf"
-    parent = "chef_workstation/chef_workstation_tools"
-    weight = 10
-+++
 
 # About Chef Workstation App
 

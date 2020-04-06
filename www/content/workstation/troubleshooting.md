@@ -2,8 +2,6 @@
 title = "Troubleshooting"
 draft = false
 
-aliases = ["troubleshooting.html", "/troubleshooting/"]
-
 [menu]
   [menu.workstation]
     title = "Troubleshooting"
@@ -11,6 +9,9 @@ aliases = ["troubleshooting.html", "/troubleshooting/"]
     parent = "chef_workstation"
     weight = 60
 +++
+
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/troubleshooting.md)
+
 
 Chef Workstation Logs
 =====================

@@ -189,16 +189,16 @@ Hugo doesn't handle shortcodes that are indented in a list item properly. It int
 the text of the shortcode as a code block. More complicated shortcodes with
 code blocks, notes, additional list items, or other formatting look pretty
 bad. We've created a simple shortcode for handling shortcodes in lists or definition
-lists called `shortcode_indent`.
+lists called `readFile_shortcode`.
 
 To include a shortcode in a list or definition list, just add its file name
-to the `shortcode` parameter of `shortcode_indent` without the .md suffix.
+to the `file` parameter of `readFile_shortcode`.
 
 For example, if you wanted to add `shortcode_file_name.md` to a list:
 ``` md
-1.  Here is some text introducing the shortcode, but it's not necessary.
+1.  Here is some text introducing the shortcode.
 
-    {{< shortcode_indent shortcode="shortcode_file_name" >}}
+    {{< readFile_shortcode file="shortcode_file_name.md" >}}
 ```
 
 ### Highlighting blocks of text
@@ -265,8 +265,6 @@ users from the deleted page to a new or existing page.
 ├── site
 │   ├── content
 │   │   ├── workstation                 # where to keep markdown file documentation
-│   ├── data
-│   │   ├── chef-workstation            # where to keep structured data files used for data templates
 │   ├── layouts
 |   │   ├── shortcodes
 |   │   │   ├── ws_<shortcode_name>.md  # how to name your workstation-specific shortcodes
@@ -275,6 +273,12 @@ users from the deleted page to a new or existing page.
 |   |   |   ├── chef-workstation        # where to keep any images you need to reference in your documentation
 |   |   ├── css
 ```
+
+**Data**
+Content in the `data` subdirectory isn't currently included in the Workstation
+documentation on docs.chef.io. If you need to add files to the `data` subdirectory
+that would be included on docs.chef.io, contact the Docs Team and we can include
+that directory.
 
 ### What is happening behind the scenes
 
