@@ -1,6 +1,10 @@
 
 {{ readFile (delimit (slice "layouts/shortcodes/" (.Get "file")) "") | markdownify }}
 
-{{/* This shortcode is used only for processing other shortcodes that have a code block
-  that contains the less than character "<". For some reason Hugo converts that
-  to its html equivalent &lt; in the html output.*/}}
+{{/* This shortcode is used for two purposes.
+  1. Some shortcodes contain a code block with less than character "<". For some
+  reason Hugo converts that to its html equivalent &lt; in the html output.
+
+  2. Shortcodes that are indented because they're in a list don't display properly
+  in the normal method that we use to add shortcodes, {{% shortcode_name %}}. Use
+  this readFile shortcode to include those shortcodes instead.*/}}
