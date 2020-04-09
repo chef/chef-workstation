@@ -12,20 +12,6 @@ aliases = ["/chef_workstation_app.html", "/chef_workstation_app/"]
     weight = 61
 +++
 
-+++
-title = "About Berkshelf"
-draft = false
-
-aliases = ["/berkshelf.html", "/berkshelf/"]
-
-[menu]
-  [menu.workstation]
-    title = "Berkshelf"
-    identifier = "chef_workstation/chef_workstation_tools/berkshelf.md Berkshelf"
-    parent = "chef_workstation/chef_workstation_tools"
-    weight = 10
-+++
-
 # About Chef Workstation App
 
 The Chef Workstation App (CWA) is an early-release desktop application that
