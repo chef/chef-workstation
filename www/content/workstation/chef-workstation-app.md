@@ -12,7 +12,6 @@ draft = false
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/chef-workstation-app.md)
 
-
 # About Chef Workstation App
 
 The Chef Workstation App (CWA) is an early-release desktop application that
