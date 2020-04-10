@@ -523,11 +523,16 @@ knife bootstrap --bootstrap-install-command "curl -l http://mycustomserver.com/c
 **Bootstrap a Windows node via WinRM using a run list and environment**
 
 ``` bash
-knife bootstrap -o winrm FQDN_OR_IP -U username -P 'password' --node-name NODE_NAME --run-list 'recipe[cookbook]' -E ENV_NAME
+knife bootstrap -o winrm 123.456.7.8 -U username -P 'PASSWORD' --node-name NODE_NAME --run-list 'recipe[cookbook]' -E ENV_NAME
 ```
 
 **Bootstrap a Windows node via WinRM using a policyfile and policy group**
 
 ``` bash
-knife bootstrap -o winrm FQDN_OR_IP -U username -P 'password' --node-name NODE_NAME --policy-name PF_NAME --policy-group PG_NAME
+knife bootstrap -o winrm 123.456.7.8 -U username -P 'PASSWORD' --node-name NODE_NAME --policy-name PF_NAME --policy-group PG_NAME
+```
+
+**Bootstrap Windows node with shorthand syntax**
+```bash
+knife bootstrap winrm://username:PASSWORD@123.456.7.8 --run-list 'recipe[cookbook]' -E ENV_NAME
 ```
