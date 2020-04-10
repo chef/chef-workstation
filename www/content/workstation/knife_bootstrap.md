@@ -519,3 +519,15 @@ knife bootstrap --bootstrap-wget-options "-e use_proxy=yes -e http://myproxy.com
 ``` bash
 knife bootstrap --bootstrap-install-command "curl -l http://mycustomserver.com/custom_install_chef_script.sh | sudo bash -s --"
 ```
+
+**Bootstrap a Windows node via WinRM using a run list and environment**
+
+``` bash
+knife bootstrap -o winrm FQDN_OR_IP -U username -P 'password' --node-name NODE_NAME --run-list 'recipe[cookbook]' -E ENV_NAME
+```
+
+**Bootstrap a Windows node via WinRM using a policyfile and policy group**
+
+``` bash
+knife bootstrap -o winrm FQDN_OR_IP -U username -P 'password' --node-name NODE_NAME --policy-name PF_NAME --policy-group PG_NAME
+```
