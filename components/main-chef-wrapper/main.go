@@ -22,6 +22,8 @@ import (
 	"os/exec"
 
 	"github.com/chef/go-libs/featflag"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
+
 )
 
 func main() {
@@ -43,7 +45,7 @@ func main() {
 	// Both ways would be running the same underlying binary.
 	case "analyze":
 		if featflag.ChefFeatAnalyze.Enabled() {
-			cmd = exec.Command("chef-analyze", allArgs...)
+			cmd = exec.Command(dist.AnalyzeExec, allArgs...)
 		} else {
 			fmt.Printf("`%s` is experimental and in development.\n\n", featflag.ChefFeatAnalyze.Key())
 			fmt.Printf("Temporarily enable `%s` with the environment variable:\n", featflag.ChefFeatAnalyze.Key())
@@ -72,7 +74,7 @@ func main() {
 		// When we land in the default case where we run the old 'chef' cli binary,
 		// we need to send the sub-command as well as all the arguments.
 		allArgs = append([]string{subCommand}, allArgs...)
-		cmd = exec.Command("chef-cli", allArgs...)
+		cmd = exec.Command(dist.WorkstationExec, allArgs...)
 	}
 
 	debugLog(fmt.Sprintf("Chef binary: %s", cmd.Path))
