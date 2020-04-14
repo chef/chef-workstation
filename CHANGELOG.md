@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.17.17 -->
-## [0.17.17](https://github.com/chef/chef-workstation/tree/0.17.17) (2020-04-09)
+<!-- latest_release 0.17.18 -->
+## [0.17.18](https://github.com/chef/chef-workstation/tree/0.17.18) (2020-04-14)
 
 #### Merged Pull Requests
-- Fixing a bug I found on the site [#1085](https://github.com/chef/chef-workstation/pull/1085) ([tyler-ball](https://github.com/tyler-ball))
+- Explicitly build bcrypt_pbkdf-ruby [#1079](https://github.com/chef/chef-workstation/pull/1079) ([marcparadise](https://github.com/marcparadise))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Explicitly build bcrypt_pbkdf-ruby [#1079](https://github.com/chef/chef-workstation/pull/1079) ([marcparadise](https://github.com/marcparadise)) <!-- 0.17.18 -->
 - Fixing a bug I found on the site [#1085](https://github.com/chef/chef-workstation/pull/1085) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.17 -->
 - Add Windows 10 Tester [#1072](https://github.com/chef/chef-workstation/pull/1072) ([christopher-snapp](https://github.com/christopher-snapp)) <!-- 0.17.16 -->
 - Updates documentation in chef-workstation [#1071](https://github.com/chef/chef-workstation/pull/1071) ([IanMadd](https://github.com/IanMadd)) <!-- 0.17.15 -->
