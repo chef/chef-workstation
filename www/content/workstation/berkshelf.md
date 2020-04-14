@@ -14,6 +14,26 @@ aliases = ["/berkshelf.html", "/berkshelf/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/berkshelf.md)
 
+                        _(\_/)
+                          ,((((^`\
+                         ((((  (6 \
+                       ,((((( ,    \
+   ,,,_              ,(((((  /"._  ,`,
+  ((((\\ ,...       ,((((   /    `-.-'
+  )))  ;'    `"'"'""((((   (
+ (((  /            (((      \
+  )) |                      |
+ ((  |        .       '     |
+ ))  \     _ '      `t   ,.')
+ (   |   y;- -,-""'"-.\   \/
+ )   / ./  ) /         `\  \
+    |./   ( (           / /'
+    ||     \\          //'|
+jgs ||      \\       _//'||
+    ||       ))     |_/  ||
+    \_\     |_/          ||
+    `'"                  \_\
+
 Berkshelf is a dependency manager for Chef cookbooks. With it, you can
 easily depend on community cookbooks and have them safely included in
 your workflow. You can also ensure that your CI systems reproducibly
