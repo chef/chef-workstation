@@ -59,6 +59,14 @@ dependency "delivery-cli"
 # This is a build-time dependency, so we won't leave it behind:
 dependency "rust-uninstall"
 
+# This gem needs to be available prior to our gems build,
+# so that the larger gem install doesn't pull in an invalid version
+# for windows.   When a `gem install` is done for bcrypt_pbkdf on windows, the
+# default behavior seems to be building a version
+# that is compatible with Ruby 2.0-2.3. When we build the component directly in
+# windows, it correctly builds/links for the current version of ruby.
+dependency "bcrypt_pbkdf-ruby"
+#
 # This internal component (source in components/gems)
 # builds all gems that we ship with Workstation.
 # No gems get shipped that are not declared in components/gems/Gemfile
