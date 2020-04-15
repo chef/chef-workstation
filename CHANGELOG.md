@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.17.19 -->
-## [0.17.19](https://github.com/chef/chef-workstation/tree/0.17.19) (2020-04-15)
+<!-- latest_release 0.17.20 -->
+## [0.17.20](https://github.com/chef/chef-workstation/tree/0.17.20) (2020-04-15)
 
 #### Merged Pull Requests
-- adding gen for dist, using dist in the executables [#1087](https://github.com/chef/chef-workstation/pull/1087) ([tarcinil](https://github.com/tarcinil))
+- Forgot to vendor the latest version of go-libs when we updated [#1101](https://github.com/chef/chef-workstation/pull/1101) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Forgot to vendor the latest version of go-libs when we updated [#1101](https://github.com/chef/chef-workstation/pull/1101) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.20 -->
 - adding gen for dist, using dist in the executables [#1087](https://github.com/chef/chef-workstation/pull/1087) ([tarcinil](https://github.com/tarcinil)) <!-- 0.17.19 -->
 - Explicitly build bcrypt_pbkdf-ruby [#1079](https://github.com/chef/chef-workstation/pull/1079) ([marcparadise](https://github.com/marcparadise)) <!-- 0.17.18 -->
 - Fixing a bug I found on the site [#1085](https://github.com/chef/chef-workstation/pull/1085) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.17 -->
