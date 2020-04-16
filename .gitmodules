@@ -1,0 +1,3 @@
+[submodule "www/themes/docs-new"]
+	path = www/themes/docs-new
+	url = https://github.com/chef/chef-hugo-theme
