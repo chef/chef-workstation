@@ -49,6 +49,10 @@ NPM is distributed with Node.js. To install Node.js:
 - On macOS run: `brew install node`
 - On Windows, download and run the installer from the [nodejs.org](https://nodejs.org) website.
 
+## Hugo Theme
+
+We use a git submodule to grab the Hugo theme from the `chef/chef-hugo-theme` repository.
+
 ### Preview Workstation Documentation
 
 To build the docs and preview locally:
@@ -131,6 +135,8 @@ See our [Style Guide](https://docs.chef.io/style_guide/) for more information
 about formatting documentation using Markdown.
 
 ## Workstation Page Menu
+
+The Docs Team is responsible for adding pages to a menu or modifying a menu.
 
 If you add content, it will not automatically show up in the left navigation menu.
 Build the site locally (`make serve`) and see the landing page (`http://localhost:1313`).

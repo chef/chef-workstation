@@ -1,7 +1,6 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "Workstation Documentation"
-
 theme = "docs-new"
 enableGitInfo = true
 pluralizeListTitles = false
@@ -63,7 +62,8 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 [params]
   enable_search = true
   robots = ''
-  menuOrder = ["infra", "workstation", "habitat", "inspec", "automate", "legacy", "api", "extra"]
+  menuOrder = ["infra", "workstation", "desktop", "habitat", "inspec", "automate", "legacy", "api", "extra"]
+  product = "workstation"
 
 
 
