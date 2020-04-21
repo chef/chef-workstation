@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.17.22 -->
-## [0.17.22](https://github.com/chef/chef-workstation/tree/0.17.22) (2020-04-15)
+<!-- latest_release 0.17.23 -->
+## [0.17.23](https://github.com/chef/chef-workstation/tree/0.17.23) (2020-04-21)
 
 #### Merged Pull Requests
-- Add go.mod file so we can preview changes to workstation docs locally [#1092](https://github.com/chef/chef-workstation/pull/1092) ([IanMadd](https://github.com/IanMadd))
+- Batching multiple PRs into 1 for ease of bumping dependencies [#1110](https://github.com/chef/chef-workstation/pull/1110) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Batching multiple PRs into 1 for ease of bumping dependencies [#1110](https://github.com/chef/chef-workstation/pull/1110) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.23 -->
 - Add go.mod file so we can preview changes to workstation docs locally [#1092](https://github.com/chef/chef-workstation/pull/1092) ([IanMadd](https://github.com/IanMadd)) <!-- 0.17.22 -->
 - Patch docker-api to use CGI.escape to silence deprecation warning [#1090](https://github.com/chef/chef-workstation/pull/1090) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 0.17.21 -->
 - Forgot to vendor the latest version of go-libs when we updated [#1101](https://github.com/chef/chef-workstation/pull/1101) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.20 -->
