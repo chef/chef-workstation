@@ -277,6 +277,14 @@ Node Options
 :   Allows OpenSSL to enforce FIPS-validated security during Chef Infra
     Client runs.
 
+`--policy-group POLICY_GROUP`
+
+:   The name of a policy group that exists on the Chef Infra Server.
+
+`--policy-name POLICY_NAME`
+
+:   The name of a policy, as identified by the name setting in a Policyfile.rb file.
+
 chef-vault Options
 ------------------
 
