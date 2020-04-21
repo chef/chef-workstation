@@ -77,6 +77,41 @@ To clean your local development environment:
 	in addition to the functions of `make clean` described above. Those node
 	modules will be reinstalled the next time you run `make serve`.
 
+### Preview local changes to chef-workstation documentation from chef-web-docs
+
+Follow these steps to preview changes to the chef-workstation documentation while
+running Hugo from chef-web-docs.
+
+1. Clone `chef/chef-web-docs` and `chef/chef-workstation` into the same directory.
+
+1. Modify the go.mod file in `chef-web-docs`.
+
+   Add `replace github.com/chef/chef-workstation/www => ../chef-workstation/www` below the
+   `require` statement. The whole file should look like this:
+
+   ```
+   module github.com/chef/chef-web-docs
+
+   go 1.14
+
+   require github.com/chef/chef-workstation/www v0.0.0-20200401145210-19cfbd227952 // indirect
+
+   replace github.com/chef/chef-workstation/www => ../chef-workstation/www
+   ```
+
+1. Start the Hugo server from `chef-web-docs`:
+
+   ```
+   make serve
+   ```
+
+You can preview any changes made to the documentation in `chef-workstation` as
+they would appear on https://docs.chef.io.
+
+**Before you submit a PR**
+
+- Delete or comment out the `replace` directive in the chef-web-docs/go.mod file.
+
 ## Creating New Pages
 
 Please keep all your documentation in the `content/workstation` directory.
