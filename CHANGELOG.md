@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.17.25 -->
-## [0.17.25](https://github.com/chef/chef-workstation/tree/0.17.25) (2020-04-21)
+<!-- latest_release 0.17.26 -->
+## [0.17.26](https://github.com/chef/chef-workstation/tree/0.17.26) (2020-04-21)
 
 #### Merged Pull Requests
-- Clarify Windows requirements [#1089](https://github.com/chef/chef-workstation/pull/1089) ([jmassardo](https://github.com/jmassardo))
+- Add missing node options for policyfiles [#1091](https://github.com/chef/chef-workstation/pull/1091) ([jmassardo](https://github.com/jmassardo))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Add missing node options for policyfiles [#1091](https://github.com/chef/chef-workstation/pull/1091) ([jmassardo](https://github.com/jmassardo)) <!-- 0.17.26 -->
 - Clarify Windows requirements [#1089](https://github.com/chef/chef-workstation/pull/1089) ([jmassardo](https://github.com/jmassardo)) <!-- 0.17.25 -->
 - Add Windows examples [#1088](https://github.com/chef/chef-workstation/pull/1088) ([jmassardo](https://github.com/jmassardo)) <!-- 0.17.24 -->
 - Batching multiple PRs into 1 for ease of bumping dependencies [#1110](https://github.com/chef/chef-workstation/pull/1110) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.23 -->
