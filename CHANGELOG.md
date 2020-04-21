@@ -1,15 +1,20 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.17.17 -->
-## [0.17.17](https://github.com/chef/chef-workstation/tree/0.17.17) (2020-04-09)
+<!-- latest_release 0.17.22 -->
+## [0.17.22](https://github.com/chef/chef-workstation/tree/0.17.22) (2020-04-15)
 
 #### Merged Pull Requests
-- Fixing a bug I found on the site [#1085](https://github.com/chef/chef-workstation/pull/1085) ([tyler-ball](https://github.com/tyler-ball))
+- Add go.mod file so we can preview changes to workstation docs locally [#1092](https://github.com/chef/chef-workstation/pull/1092) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Add go.mod file so we can preview changes to workstation docs locally [#1092](https://github.com/chef/chef-workstation/pull/1092) ([IanMadd](https://github.com/IanMadd)) <!-- 0.17.22 -->
+- Patch docker-api to use CGI.escape to silence deprecation warning [#1090](https://github.com/chef/chef-workstation/pull/1090) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 0.17.21 -->
+- Forgot to vendor the latest version of go-libs when we updated [#1101](https://github.com/chef/chef-workstation/pull/1101) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.20 -->
+- adding gen for dist, using dist in the executables [#1087](https://github.com/chef/chef-workstation/pull/1087) ([tarcinil](https://github.com/tarcinil)) <!-- 0.17.19 -->
+- Explicitly build bcrypt_pbkdf-ruby [#1079](https://github.com/chef/chef-workstation/pull/1079) ([marcparadise](https://github.com/marcparadise)) <!-- 0.17.18 -->
 - Fixing a bug I found on the site [#1085](https://github.com/chef/chef-workstation/pull/1085) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.17 -->
 - Add Windows 10 Tester [#1072](https://github.com/chef/chef-workstation/pull/1072) ([christopher-snapp](https://github.com/christopher-snapp)) <!-- 0.17.16 -->
 - Updates documentation in chef-workstation [#1071](https://github.com/chef/chef-workstation/pull/1071) ([IanMadd](https://github.com/IanMadd)) <!-- 0.17.15 -->
