@@ -33,6 +33,9 @@ aliases = ["/knife_bootstrap.html", "/knife_bootstrap/"]
     automatically by running [knife ssl fetch](/workstation/knife_ssl_fetch/).
     These certificates are used during `knife` operations to communicate
     with the Chef Infra Server.
+-   By default, `knife bootstrap` will attempt to use `ssh` to connect to 
+    the target node. Use the `-o` to specify a different protocol, such as 
+    `winrm` for windows nodes.
 
 Syntax
 ======
@@ -69,7 +72,8 @@ General Connection Options
 
 `-o PROTOCOL`, `--connection-protocol PROTOCOL`
 
-:   The protocol to use to connect to the target node.
+:   The protocol to use to connect to the target node. 
+    Options are `ssh` or `winrm`. `ssh` is default.
 
 `-W SECONDS`, `--max-wait SECONDS`
 
@@ -272,6 +276,14 @@ Node Options
 
 :   Allows OpenSSL to enforce FIPS-validated security during Chef Infra
     Client runs.
+
+`--policy-group POLICY_GROUP`
+
+:   The name of a policy group that exists on the Chef Infra Server.
+
+`--policy-name POLICY_NAME`
+
+:   The name of a policy, as identified by the name setting in a Policyfile.rb file.
 
 chef-vault Options
 ------------------
@@ -518,4 +530,21 @@ knife bootstrap --bootstrap-wget-options "-e use_proxy=yes -e http://myproxy.com
 
 ``` bash
 knife bootstrap --bootstrap-install-command "curl -l http://mycustomserver.com/custom_install_chef_script.sh | sudo bash -s --"
+```
+
+**Bootstrap a Windows node via WinRM using a run list and environment**
+
+``` bash
+knife bootstrap -o winrm 123.456.7.8 -U username -P 'PASSWORD' --node-name NODE_NAME --run-list 'recipe[cookbook]' -E ENV_NAME
+```
+
+**Bootstrap a Windows node via WinRM using a policyfile and policy group**
+
+``` bash
+knife bootstrap -o winrm 123.456.7.8 -U username -P 'PASSWORD' --node-name NODE_NAME --policy-name PF_NAME --policy-group PG_NAME
+```
+
+**Bootstrap Windows node with shorthand syntax**
+```bash
+knife bootstrap winrm://username:PASSWORD@123.456.7.8 --run-list 'recipe[cookbook]' -E ENV_NAME
 ```
