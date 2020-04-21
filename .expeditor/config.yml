@@ -46,6 +46,8 @@ pipelines:
       definition: .expeditor/release.omnibus.yml
       env:
         - ADHOC: true
+  - third-party-packages:
+      description: post-release publishing of Workstation packages to third party distribution platforms
 
 subscriptions:
   - workload: artifact_published:unstable:chef-workstation:{{version_constraint}}
@@ -62,6 +64,7 @@ subscriptions:
       - bash:.expeditor/purge-cdn.sh
       - bash:.expeditor/announce-release.sh
       - built_in:tag_docker_image
+
   - workload: chef/chef-workstation-app:master_completed:pull_request_merged:chef/chef-workstation-app:master:*
     actions:
       - bash:.expeditor/update_chef-workstation-app_to_latest.sh
