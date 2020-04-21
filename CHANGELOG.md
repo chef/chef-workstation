@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.17.24 -->
-## [0.17.24](https://github.com/chef/chef-workstation/tree/0.17.24) (2020-04-21)
+<!-- latest_release 0.17.25 -->
+## [0.17.25](https://github.com/chef/chef-workstation/tree/0.17.25) (2020-04-21)
 
 #### Merged Pull Requests
-- Add Windows examples [#1088](https://github.com/chef/chef-workstation/pull/1088) ([jmassardo](https://github.com/jmassardo))
+- Clarify Windows requirements [#1089](https://github.com/chef/chef-workstation/pull/1089) ([jmassardo](https://github.com/jmassardo))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Clarify Windows requirements [#1089](https://github.com/chef/chef-workstation/pull/1089) ([jmassardo](https://github.com/jmassardo)) <!-- 0.17.25 -->
 - Add Windows examples [#1088](https://github.com/chef/chef-workstation/pull/1088) ([jmassardo](https://github.com/jmassardo)) <!-- 0.17.24 -->
 - Batching multiple PRs into 1 for ease of bumping dependencies [#1110](https://github.com/chef/chef-workstation/pull/1110) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.23 -->
 - Add go.mod file so we can preview changes to workstation docs locally [#1092](https://github.com/chef/chef-workstation/pull/1092) ([IanMadd](https://github.com/IanMadd)) <!-- 0.17.22 -->
