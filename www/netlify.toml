@@ -1,4 +1,5 @@
 [build]
+  ignore = "git diff --quiet HEAD^ HEAD www/"
 
 [build.environment]
   HUGO_VERSION = "0.69.0"
