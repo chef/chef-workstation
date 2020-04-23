@@ -24,7 +24,7 @@ github:
 # The `merge_actions` key is a shortcut for the
 # `pull_request_merged:<GITHUB_REPO>:<RELEASE_BRANCH>:*` subscription.
 merge_actions:
-  - built_in:bump_version:
+  - bash:.expeditor/determine_version.sh:
       ignore_labels:
         - "Expeditor: Skip Version Bump"
         - "Expeditor: Skip All"
