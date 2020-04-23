@@ -3,6 +3,7 @@
 SHELL=bash
 
 assets:
+	git submodule update --init --recursive
 	pushd themes/docs-new && make assets && popd
 
 clean:
