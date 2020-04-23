@@ -1,11 +1,3 @@
-GIT
-  remote: https://github.com/chef/docker-api.git
-  revision: afa9cc675cee491ef70315600de923fcb07b3ea3
-  specs:
-    docker-api (1.34.2)
-      excon (>= 0.47.0)
-      multi_json
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -369,6 +361,9 @@ GEM
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.3)
+    docker-api (1.34.2)
+      excon (>= 0.47.0)
+      multi_json
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     droplet_kit (3.7.0)
@@ -1049,7 +1044,7 @@ DEPENDENCIES
   cookstyle (~> 5.20)
   dep-selector-libgecode
   dep_selector
-  docker-api!
+  docker-api
   ed25519
   fauxhai-ng (~> 7.5)
   ffi-libarchive
