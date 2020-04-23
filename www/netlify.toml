@@ -4,6 +4,7 @@
   HUGO_VERSION = "0.69.0"
   HUGO_ENABLEGITINFO = "true"
   GO_VERSION = "1.12"
+  NODE_ENV = "development"
 
 [build.processing]
   skip_processing = true
@@ -14,3 +15,7 @@
 
 [context.production]
   publish = "netlify_production"
+  command = ""
+
+[build.processing]
+  skip_processing = true
