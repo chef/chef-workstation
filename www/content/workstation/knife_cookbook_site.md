@@ -40,8 +40,7 @@ supermarket](/workstation/knife_supermarket/) command.
 
 {{< /note >}}
 
-Private Supermarket
--------------------
+## Private Supermarket
 
 To use the `knife cookbook site` command with a private Supermarket
 installation, you must first add the URL of your Supermarket to your
@@ -54,8 +53,7 @@ knife[:supermarket_site] = 'https://supermarket.example.com'
 If this value is not specified, knife will use
 `https://supermarket.chef.io` by default.
 
-download
---------
+## download
 
 Use the `download` argument to download a cookbook from the community
 website. A cookbook will be downloaded as a tar.gz archive and placed in
@@ -122,8 +120,7 @@ Downloading getting-started from the cookbooks site at version 1.2.3 to
 Cookbook saved: /Users/grantmc/chef-support/getting-started-1.2.3.tar.gz
 ```
 
-install
--------
+## install
 
 Use the `install` argument to install a cookbook that has been
 downloaded from the community site to a local git repository . This
@@ -238,8 +235,7 @@ Fast-forward
 Cookbook getting-started version 1.2.3 successfully installed
 ```
 
-list
-----
+## list
 
 Use the `list` argument to view a list of cookbooks that are currently
 available at the [Chef
@@ -295,8 +291,7 @@ ant                   iis                   redmine
 [...truncated...]
 ```
 
-search
-------
+## search
 
 Use the `search` argument to search for a cookbook at the [Chef
 Supermarket](https://supermarket.chef.io/cookbooks). A search query is
@@ -354,8 +349,7 @@ apache_kafka:
 [...truncated...]
 ```
 
-share
------
+## share
 
 Use the `share` argument to add a cookbook to the [Chef
 Supermarket](https://supermarket.chef.io/cookbooks). This action will
@@ -420,8 +414,7 @@ To share a cookbook named `apache2`:
 knife cookbook site share "apache2" "Web Servers"
 ```
 
-show
-----
+## show
 
 Use the `show` argument to view information about a cookbook on the
 [Chef Supermarket](https://supermarket.chef.io/cookbooks).
@@ -504,8 +497,7 @@ knife cookbook site show devops -F json
 
 Other formats available include `text`, `yaml`, and `pp`.
 
-unshare
--------
+## unshare
 
 Use the `unshare` argument to stop the sharing of a cookbook at the
 [Chef Supermarket](https://supermarket.chef.io/cookbooks). Only the

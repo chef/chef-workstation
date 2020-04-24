@@ -49,8 +49,7 @@ this path needs to be scripted, use `%USERPROFILE%\chef-repo\.chef`.
 
 {{< /note >}}
 
-Settings
---------
+## Settings
 
 This configuration file has the following settings:
 
@@ -361,13 +360,11 @@ Use the following setting to specify URLs that do not need a proxy:
 :   A comma-separated list of URLs that do not need a proxy. Default
     value: `nil`.
 
-.d Directories
---------------
+## .d Directories
 
 {{% ws_config_rb_client_dot_d_directories %}}
 
-Optional Settings
------------------
+## Optional Settings
 
 In addition to the default settings in a `config.rb` file, there are
 other subcommand-specific settings that can be added:

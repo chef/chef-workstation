@@ -51,15 +51,13 @@ certificate set as its public identity in the Chef Infra Server
 database:
 
 ``` none
-OpenSSL::PKey::RSAError
------------------------
+## OpenSSL::PKey::RSAError
 Neither PUB key nor PRIV key:: nested asn1 error
 ```
 
 {{< /warning >}}
 
-Installation
-------------
+## Installation
 
 The Chef Workstation ships with the latest release of chef_vault.
 
@@ -619,8 +617,7 @@ knife vault itemtype VAULT ITEM
 | `-F` `FORMAT`           | `--format FORMAT` | Format for decrypted output                                                                        | summary | `summary`, `json`, `yaml`, `pp`      | `show`                        |
 | --clean-unknown-clients | none              | Remove unknown clients during key rotation                                                         | none    | none                                 | `refresh`, `remove`, `rotate` |
 
-Options for knife bootstrap
----------------------------
+## Options for knife bootstrap
 
 Use the following options with a validatorless bootstrap to specify
 items that are stored in `chef-vault`:
@@ -765,8 +762,7 @@ gem.
 To fall back to unencrypted JSON files in Test Kitchen, use the
 `chef_vault_item` helper in the aforementioned `chef-vault` cookbook.
 
-For more information ...
-------------------------
+## For more information ...
 
 For more information about `chef-vault`:
 

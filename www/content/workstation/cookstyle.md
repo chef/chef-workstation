@@ -38,8 +38,7 @@ Cookstyle increases code quality by:
 -   Detecting common Chef Infra mistakes that cause code to fail or
     behave incorrectly.
 
-Cookstyle vs. Rubocop
----------------------
+## Cookstyle vs. Rubocop
 
 Cookstyle is more stable than Rubocop and is customized for Chef
 Cookbook code. This means that linting Cookbooks with Cookstyle will be
@@ -69,8 +68,7 @@ to the screen as you run Cookstyle, but they won't fail a build. This
 stability means you are free to upgrade releases of Cookstyle without
 being forced to update your infrastructure code.
 
-Run Cookstyle
--------------
+## Run Cookstyle
 
 Cookstyle is run from the command line, typically against a single
 cookbook and all of the Ruby files contained within it:
@@ -182,8 +180,7 @@ indicate the result of an evaluation:
 </tbody>
 </table>
 
-Autocorrecting Cookstyle Warnings
----------------------------------
+## Autocorrecting Cookstyle Warnings
 
 Many of the Cookstyle Cops include the ability to autocorrect
 violations. To autocorrect code run the following from the cookbook
@@ -196,8 +193,7 @@ cookstyle -a .
 Take particular care after running this command to ensure the
 autocorrection logic resulted in appropriate cookbook code.
 
-.rubocop.yml
-------------
+## .rubocop.yml
 
 Use a .rubocop.yml file in a cookbook to override the default settings
 in Cookstyle for enabled and disabled rules. Only enabled rules---either

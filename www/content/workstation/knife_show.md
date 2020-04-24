@@ -15,8 +15,7 @@ aliases = ["/knife_show.html", "/knife_show/"]
 
 {{% ws_knife_show_summary %}}
 
-Syntax
-------
+## Syntax
 
 This subcommand has the following syntax:
 
@@ -24,8 +23,7 @@ This subcommand has the following syntax:
 knife show [PATTERN...] (options)
 ```
 
-Options
--------
+## Options
 
 {{< note >}}
 
@@ -67,8 +65,7 @@ This subcommand has the following options:
     filters. For example, to use a colon as the delimiter, specify `-S:`
     in your `knife node show` subcommand. Default is `.`
 
-Examples
---------
+## Examples
 
 The following examples show how to use this knife subcommand:
 

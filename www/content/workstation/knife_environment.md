@@ -23,8 +23,7 @@ aliases = ["/knife_environment.html", "/knife_environment/"]
 
 {{< /note >}}
 
-compare
--------
+## compare
 
 Use the `compare` argument to compare the cookbook version constraints
 that are set on one (or more) environments.
@@ -129,8 +128,7 @@ chef_handler    latest    latest
 windows         1.0.0     4.1.2
 ```
 
-create
-------
+## create
 
 Use the `create` argument to add an environment object to the Chef Infra
 Server. When this argument is run, knife will open \$EDITOR to enable
@@ -174,8 +172,7 @@ To create an environment named `dev` with a description of
 knife environment create dev -d --description "The development environment."
 ```
 
-delete
-------
+## delete
 
 Use the `delete` argument to delete an environment from a Chef Infra
 Server.
@@ -206,8 +203,7 @@ knife environment delete dev
 
 Type `Y` to confirm a deletion.
 
-edit
-----
+## edit
 
 Use the `edit` argument to edit the attributes of an environment. When
 this argument is run, knife will open \$EDITOR to enable editing of
@@ -238,8 +234,7 @@ To edit an environment named `devops`, enter:
 knife environment edit devops
 ```
 
-from file
----------
+## from file
 
 Use the `from file` argument to add or update an environment using a
 JSON or Ruby DSL description.
@@ -278,8 +273,7 @@ To add an environment using data contained in a JSON file:
 knife environment from file "path to JSON file"
 ```
 
-list
-----
+## list
 
 Use the `list` argument to list all of the environments that are
 currently available on the Chef Infra Server.
@@ -312,8 +306,7 @@ To view a list of environments:
 knife environment list -w
 ```
 
-show
-----
+## show
 
 Use the `show` argument to display information about the specified
 environment.

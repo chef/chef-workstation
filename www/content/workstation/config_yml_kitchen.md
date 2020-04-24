@@ -36,13 +36,11 @@ about Kitchen.
 
 {{< /note >}}
 
-Syntax
-------
+## Syntax
 
 {{% ws_test_kitchen_yml_syntax %}}
 
-Provisioner Settings
---------------------
+## Provisioner Settings
 
 Test Kitchen's provisioner settings will be changing in a future
 version. See [Chef RFC
@@ -302,8 +300,7 @@ There are two community provisioners for Kitchen:
 
 {{< /note >}}
 
-Transport Settings
-------------------
+## Transport Settings
 
 Kitchen can configure a transport with the following settings for either
 `ssh` or `winrm` transports:
@@ -435,8 +432,7 @@ kitchen.yml file when the transport is WinRM:
 
 {{< readFile_shortcode file="ws_test_kitchen_yml_syntax_proxy.md" >}}
 
-Chef Infra Client Settings
---------------------------
+## Chef Infra Client Settings
 
 A kitchen.yml file may define Chef Infra Client-specific settings, such
 as whether to require the Chef installer or the URL from which Chef
@@ -482,8 +478,7 @@ where:
 -   All of the `attributes` for the `config` test suite contain specific
     client.rb settings for use with this test suite
 
-Driver Settings
----------------
+## Driver Settings
 
 Driver-specific configuration settings may be required. Use a block
 similar to:
@@ -512,8 +507,7 @@ Specific `optional_settings: values` may be specified.
 
 {{% ws_test_kitchen_driver_vagrant_config %}}
 
-Examples
---------
+## Examples
 
 The following examples show actual kitchen.yml files used in
 Chef-maintained cookbooks.
@@ -693,8 +687,7 @@ back-end server, and two add-ons (Chef Push Jobs and Chef management
 console). The `platforms` block uses an `attributes` section to define
 Chef server-specific attributes that are used by all three test suites:
 
-``` yaml
----
+## ``` yaml
 driver:
   name: vagrant
 
@@ -765,8 +758,7 @@ Test-Kitchen can handle reboots (when initiated from Chef Infra Client)
 by setting `retry_on_exit_code`, `max_retries` and `wait_for_retry`
 attributes on the provisioner in `kitchen.yml` file as follows :
 
-``` yaml
----
+## ``` yaml
 provisioner:
    name: chef_zero
    retry_on_exit_code:

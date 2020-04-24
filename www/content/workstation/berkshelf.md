@@ -31,8 +31,7 @@ then to production.
 
 {{< /note >}}
 
-Quick Start
------------
+## Quick Start
 
 Run `chef generate cookbook -b` or `--berks` to create a Berksfile in
 the root of the cookbook. The Berksfile will be placed alongside the
@@ -82,8 +81,7 @@ Uploaded compat_resource (12.16.2) to: 'https://api.chef.io:443/organizations/ex
 Uploaded my_first_cookbook (0.1.0) to: 'https://api.chef.io:443/organizations/example'
 ```
 
-The Berksfile
--------------
+## The Berksfile
 
 A Berksfile describes the set of sources and dependencies needed to use
 a cookbook. It is used in conjunction with the `berks` command.
@@ -304,8 +302,7 @@ when Berkshelf times out when trying to build a dependency set.
 solver :ruby
 ```
 
-Berkshelf CLI
--------------
+## Berkshelf CLI
 
 The Berkshelf CLI is the interface to Berkshelf.
 

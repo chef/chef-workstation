@@ -533,8 +533,7 @@ added to the configuration file:
 
 :   Respond to all confirmation prompts with "Yes".
 
-By Subcommand
--------------
+## By Subcommand
 
 The following sections show the optional settings for the config.rb
 file, sorted by subcommand.

@@ -15,8 +15,7 @@ aliases = ["/knife_edit.html", "/knife_edit/"]
 
 {{% ws_knife_edit_summary %}}
 
-Syntax
-------
+## Syntax
 
 This subcommand has the following syntax:
 
@@ -24,8 +23,7 @@ This subcommand has the following syntax:
 knife edit (options)
 ```
 
-Options
--------
+## Options
 
 {{< note >}}
 
@@ -64,8 +62,7 @@ This subcommand has the following options:
 
 {{< /note >}}
 
-Examples
---------
+## Examples
 
 The following examples show how to use this knife subcommand:
 

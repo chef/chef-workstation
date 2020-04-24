@@ -15,8 +15,7 @@ aliases = ["/knife_exec.html", "/knife_exec/"]
 
 {{% ws_knife_exec_summary %}}
 
-Authenticated API Requests
---------------------------
+## Authenticated API Requests
 
 The `knife exec` subcommand can be used to make authenticated API
 requests to the Chef Infra Server using the following methods:
@@ -96,8 +95,7 @@ client_desc = {
   puts new_client["private_key"]
 ```
 
-Ruby Scripts
-------------
+## Ruby Scripts
 
 For Ruby scripts that will be run using the `exec` subcommand, note the
 following:
@@ -115,8 +113,7 @@ following:
     Client). Without the Chef Infra Client DSL, a bash block cannot be
     used to run bash commands.
 
-Syntax
-------
+## Syntax
 
 This subcommand has the following syntax:
 
@@ -124,8 +121,7 @@ This subcommand has the following syntax:
 knife exec SCRIPT (options)
 ```
 
-Options
--------
+## Options
 
 {{< note >}}
 
@@ -152,8 +148,7 @@ This subcommand has the following options:
 
 {{< /note >}}
 
-Examples
---------
+## Examples
 
 The following examples show how to use this knife subcommand:
 

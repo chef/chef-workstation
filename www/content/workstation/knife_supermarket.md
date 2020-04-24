@@ -32,8 +32,7 @@ arguments do not require a user account: `download`, `search`,
 
 {{< /note >}}
 
-download
---------
+## download
 
 Use the `download` argument to download a cookbook from Chef
 Supermarket. A cookbook will be downloaded as a tar.gz archive and
@@ -87,8 +86,7 @@ To download the cookbook `mysql`, enter:
 knife supermarket download mysql
 ```
 
-install
--------
+## install
 
 Use the `install` argument to install a cookbook that has been
 downloaded from Chef Supermarket to a local git repository . This action
@@ -162,8 +160,7 @@ To install the cookbook `mysql`, enter:
 knife supermarket install mysql
 ```
 
-list
-----
+## list
 
 Use the `list` argument to view a list of cookbooks that are currently
 available at Chef Supermarket.
@@ -226,8 +223,7 @@ accumulator                          monit
 ...
 ```
 
-search
-------
+## search
 
 Use the `search` argument to search for a cookbooks located at Chef
 Supermarket. A search query is used to return a list of these cookbooks
@@ -282,8 +278,7 @@ mysql-multi:
   cookbook_name:        mysql-multi
 ```
 
-share
------
+## share
 
 Use the `share` argument to add a cookbook to Chef Supermarket. This
 action will require a user account and a certificate for [Chef
@@ -337,8 +332,7 @@ To share a cookbook named `my_apache2_cookbook` and add it to the
 knife supermarket share "my_apache2_cookbook" "Web Servers"
 ```
 
-show
-----
+## show
 
 Use the `show` argument to view information about a cookbook located at
 Chef Supermarket.
@@ -475,8 +469,7 @@ tarball_file_size: 23763
 version:           8.5.1
 ```
 
-unshare
--------
+## unshare
 
 Use the `unshare` argument to stop the sharing of a cookbook located at
 Chef Supermarket. Only the maintainer of a cookbook may perform this

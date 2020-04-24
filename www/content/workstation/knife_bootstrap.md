@@ -37,8 +37,7 @@ aliases = ["/knife_bootstrap.html", "/knife_bootstrap/"]
     the target node. Use the `-o` to specify a different protocol, such as 
     `winrm` for windows nodes.
 
-Syntax
-------
+## Syntax
 
 This subcommand has the following syntax:
 
@@ -46,8 +45,7 @@ This subcommand has the following syntax:
 knife bootstrap FQDN_or_IP_ADDRESS (options)
 ```
 
-Options
--------
+## Options
 
 {{< note >}}
 
@@ -359,8 +357,7 @@ The `--node-name` option is required for a validatorless bootstrap.
 
 {{% ws_knife_bootstrap_node_fips %}}
 
-Custom Templates
-----------------
+## Custom Templates
 
 The default `chef-full` template uses the Chef installer. For most
 bootstrap operations, regardless of the platform on which the target
@@ -452,8 +449,7 @@ template within the `bootstrap` directory:
 knife[:bootstrap_template] = "#{current_dir}/bootstrap/template.erb"
 ```
 
-Examples
---------
+## Examples
 
 The following examples show how to use this knife subcommand:
 

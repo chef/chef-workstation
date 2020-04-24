@@ -21,8 +21,7 @@ aliases = ["/knife_user.html", "/knife_user/"]
 
 {{< /note >}}
 
-create
-------
+## create
 
 Use the `create` argument to create a user. This process will generate
 an RSA key pair for the named user. The public key will be stored on the
@@ -81,8 +80,7 @@ The following examples show how to use this knife subcommand:
 knife user create rbirdman "Radio Birdman" Radio Birdman radio@bird.man -f /keys/radio_birdman
 ```
 
-delete
-------
+## delete
 
 Use the `delete` argument to delete a registered user.
 
@@ -108,8 +106,7 @@ The following examples show how to use this knife subcommand:
 knife user delete "Steve Danno"
 ```
 
-edit
-----
+## edit
 
 Use the `edit` argument to edit the details of a user. When this
 argument is run, knife will open \$EDITOR. When finished, knife will
@@ -131,8 +128,7 @@ This command does not have any specific options.
 
 None.
 
-key create
-----------
+## key create
 
 Use the `key create` argument to create a public key.
 
@@ -173,8 +169,7 @@ This argument has the following options:
 
 None.
 
-key delete
-----------
+## key delete
 
 Use the `key delete` argument to delete a public key.
 
@@ -190,8 +185,7 @@ knife user key delete USER_NAME KEY_NAME
 
 None.
 
-key edit
---------
+## key edit
 
 Use the `key edit` argument to modify or rename a public key.
 
@@ -240,8 +234,7 @@ This argument has the following options:
 
 None.
 
-key list
---------
+## key list
 
 Use the `key list` argument to view a list of public keys for the named
 user.
@@ -274,8 +267,7 @@ This argument has the following options:
 
 None.
 
-key show
---------
+## key show
 
 Use the `key show` argument to view details for a specific public key.
 
@@ -291,8 +283,7 @@ knife user key show USER_NAME KEY_NAME
 
 None.
 
-list
-----
+## list
 
 Use the `list` argument to view a list of registered users.
 
@@ -316,8 +307,7 @@ This argument has the following options:
 
 None.
 
-reregister
-----------
+## reregister
 
 Use the `reregister` argument to regenerate an RSA key pair for a user.
 The public key will be stored on the Chef Infra Server and the private
@@ -362,8 +352,7 @@ The following examples show how to use this knife subcommand:
 knife user reregister "Robert Younger"
 ```
 
-show
-----
+## show
 
 Use the `show` argument to show the details of a user.
 

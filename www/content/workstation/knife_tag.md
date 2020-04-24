@@ -23,8 +23,7 @@ aliases = ["/knife_tag.html", "/knife_tag/"]
 
 {{< /note >}}
 
-create
-------
+## create
 
 Use the `create` argument to add one or more tags to a node.
 
@@ -52,8 +51,7 @@ To create tags named `seattle`, `portland`, and `vancouver`, enter:
 knife tag create node seattle portland vancouver
 ```
 
-delete
-------
+## delete
 
 Use the `delete` argument to delete one or more tags from a node.
 
@@ -83,8 +81,7 @@ knife tag delete node denver phoenix
 
 Type `Y` to confirm a deletion.
 
-list
-----
+## list
 
 Use the `list` argument to list all of the tags that have been applied
 to a node.

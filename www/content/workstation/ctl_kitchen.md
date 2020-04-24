@@ -24,8 +24,7 @@ about Test Kitchen.
 
 {{< /note >}}
 
-Fuzzy Matching
---------------
+## Fuzzy Matching
 
 Fuzzy matching can be used with all commands because kitchen uses
 regular expressions to search. For example, a fully qualified name:
@@ -91,8 +90,7 @@ will return something similar to:
 client-centos-65
 ```
 
-kitchen converge
-----------------
+## kitchen converge
 
 Use the `converge` subcommand to converge one (or more) instances.
 Instances are based on the list of platforms in the kitchen.yml file.
@@ -268,8 +266,7 @@ output of the command is similar to:
 -----> Kitchen is finished. (0m15.96s)
 ```
 
-kitchen create
---------------
+## kitchen create
 
 Use the `create` subcommand to create one (or more) instances. Instances
 are based on the list of platforms and suites in the kitchen.yml file.
@@ -400,8 +397,7 @@ The output of the command is similar to:
 -----> Kitchen is finished. (10m58.24s)
 ```
 
-kitchen destroy
----------------
+## kitchen destroy
 
 Use the `destroy` subcommand to delete one (or more) instances.
 Instances are based on the list of platforms and suites in the
@@ -443,8 +439,7 @@ This subcommand has the following options:
 
 None.
 
-kitchen diagnose
-----------------
+## kitchen diagnose
 
 Use the `diagnose` subcommand to show a computed diagnostic
 configuration for one (or more) instances. This subcommand will make all
@@ -497,7 +492,6 @@ This subcommand has the following options:
 Use the `--loader` option to include diagnostic data in the output:
 
 ``` yaml
----
 loader:
   combined_config:
     filename:
@@ -595,8 +589,7 @@ instances:
       name: chef_zero
 ```
 
-kitchen driver create
----------------------
+## kitchen driver create
 
 Use the `driver create` subcommand to create a new Test Kitchen driver
 in the RubyGems project.
@@ -622,8 +615,7 @@ This subcommand has the following options:
 
 None.
 
-kitchen exec
-------------
+## kitchen exec
 
 Use the `exec` subcommand to execute a command on a remote instance.
 
@@ -656,8 +648,7 @@ This subcommand has the following options:
 
 None.
 
-kitchen init
-------------
+## kitchen init
 
 Use the `init` subcommand to create an initial Test Kitchen environment,
 including:
@@ -729,8 +720,7 @@ Successfully installed kitchen-vagrant-0.12.0
 1 gem installed
 ```
 
-kitchen list
-------------
+## kitchen list
 
 Use the `list` subcommand to view the list of instances. Instances are
 based on the list of platforms in the kitchen.yml file. Test Kitchen
@@ -823,8 +813,7 @@ test-ubuntu-18.04     vagrant  chef_zero     <not created>
 test-centos-8         vagrant  chef_zero     <not created>
 ```
 
-kitchen login
--------------
+## kitchen login
 
 Use the `login` subcommand to log in to a single instance. Instances are
 based on the list of platforms and suites in the kitchen.yml file. After
@@ -877,8 +866,7 @@ Last login: Wed Jul  3 18:21:09 2019 from 10.0.2.2
 vagrant@default-ubuntu-1804:~$
 ```
 
-kitchen setup
--------------
+## kitchen setup
 
 Use the `setup` subcommand to set up one (or more) instances. Instances
 are based on the list of platforms in the kitchen.yml file.
@@ -919,8 +907,7 @@ This subcommand has the following options:
 
 None.
 
-kitchen test
-------------
+## kitchen test
 
 Use the `test` subcommand to test one (or more) verified instances.
 Instances are based on the list of platforms and suites in the
@@ -1069,8 +1056,7 @@ or:
 kitchen test -c 4
 ```
 
-kitchen verify
---------------
+## kitchen verify
 
 Use the `verify` subcommand to verify one (or more) instances. Instances
 are based on the list of platforms and suites in the kitchen.yml file.
@@ -1160,8 +1146,7 @@ echo $?
 10
 ```
 
-kitchen version
----------------
+## kitchen version
 
 Use the `version` subcommand to print the version of Kitchen.
 
