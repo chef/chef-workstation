@@ -39,14 +39,13 @@ Cookstyle increases code quality by:
     behave incorrectly.
 
 Cookstyle vs. Rubocop
-=====================
+---------------------
 
 Cookstyle is more stable than Rubocop and is customized for Chef
 Cookbook code. This means that linting Cookbooks with Cookstyle will be
 more consistent and less likely to produce CI test failures.
 
-Tailored cops
--------------
+### Tailored cops
 
 Cookbook development differs from traditional Ruby software development,
 so we maintain a tailored set of built-in cops from Rubocop. Cops that
@@ -56,8 +55,7 @@ We've also extended the base RuboCop package with a set of our own Chef
 Infra-specific cops. These cops are only found in Cookstyle and will
 help you to write more reliable and future-proof cookbooks.
 
-New cops
---------
+### New cops
 
 New cops are continuously added to Rubocop. New cops can make existing
 codebases fail CI tests and force authors to constantly update their
@@ -72,7 +70,7 @@ stability means you are free to upgrade releases of Cookstyle without
 being forced to update your infrastructure code.
 
 Run Cookstyle
-=============
+-------------
 
 Cookstyle is run from the command line, typically against a single
 cookbook and all of the Ruby files contained within it:
@@ -110,8 +108,7 @@ default["apache"]["indexfile"] = "index1.html"
                   ^^^^^^^^^^^
 ```
 
-Output
-------
+### Output
 
 Cookstyle output:
 
@@ -141,7 +138,7 @@ default["apache"]["indexfile"] = "index1.html"
         ^^^^^^^^
 ```
 
-### Symbols
+#### Symbols
 
 The following symbols appear in the standard output and are used to
 indicate the result of an evaluation:
@@ -186,7 +183,7 @@ indicate the result of an evaluation:
 </table>
 
 Autocorrecting Cookstyle Warnings
-=================================
+---------------------------------
 
 Many of the Cookstyle Cops include the ability to autocorrect
 violations. To autocorrect code run the following from the cookbook
@@ -200,7 +197,7 @@ Take particular care after running this command to ensure the
 autocorrection logic resulted in appropriate cookbook code.
 
 .rubocop.yml
-============
+------------
 
 Use a .rubocop.yml file in a cookbook to override the default settings
 in Cookstyle for enabled and disabled rules. Only enabled rules---either
@@ -223,8 +220,7 @@ rules---enabled or disabled---in a .rubocop.yml file take precedence
 over the state of rules defined in the `enabled.yml` and `disabled.yml`
 files.
 
-Syntax
-------
+### Syntax
 
 A .rubocop.yml file has the following syntax:
 
@@ -248,8 +244,7 @@ where
     example, `Max: 200` sets the line length to 200 characters for the
     `LineLength` rule
 
-.rubocop_todo.yml
-------------------
+### .rubocop_todo.yml
 
 Use a .rubocop_todo.yml file to capture the current state of all
 evaluations, and then write them to a file. This allows evaluations to

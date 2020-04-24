@@ -16,7 +16,7 @@ aliases = ["/knife_ssh.html", "/knife_ssh/"]
 {{% ws_knife_ssh_summary %}}
 
 Syntax
-======
+------
 
 This subcommand has the following syntax:
 
@@ -25,7 +25,7 @@ knife ssh SEARCH_QUERY SSH_COMMAND (options)
 ```
 
 Options
-=======
+-------
 
 {{< note >}}
 
@@ -141,7 +141,7 @@ knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
 {{< /note >}}
 
 Examples
-========
+--------
 
 The following examples show how to use this knife subcommand:
 

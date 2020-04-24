@@ -25,7 +25,7 @@ about Test Kitchen.
 {{< /note >}}
 
 Fuzzy Matching
-==============
+--------------
 
 Fuzzy matching can be used with all commands because kitchen uses
 regular expressions to search. For example, a fully qualified name:
@@ -92,7 +92,7 @@ client-centos-65
 ```
 
 kitchen converge
-================
+----------------
 
 Use the `converge` subcommand to converge one (or more) instances.
 Instances are based on the list of platforms in the kitchen.yml file.
@@ -117,8 +117,7 @@ In general, use the `test` subcommand to verify the end-to-end quality
 of a cookbook. Use the `converge` and `verify` subcommands during the
 normal the day-to-day development of a cookbook.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -126,8 +125,7 @@ This subcommand has the following syntax:
 kitchen converge PLATFORMS (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -151,8 +149,7 @@ This subcommand has the following options:
 
     {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
 
-Examples
---------
+### Examples
 
 **Converge the default CentOS instance**
 
@@ -272,13 +269,12 @@ output of the command is similar to:
 ```
 
 kitchen create
-==============
+--------------
 
 Use the `create` subcommand to create one (or more) instances. Instances
 are based on the list of platforms and suites in the kitchen.yml file.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -286,8 +282,7 @@ This subcommand has the following syntax:
 kitchen create PLATFORMS (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -311,8 +306,7 @@ This subcommand has the following options:
 
     {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
 
-Examples
---------
+### Examples
 
 **Create the default CentOS instance**
 
@@ -407,14 +401,13 @@ The output of the command is similar to:
 ```
 
 kitchen destroy
-===============
+---------------
 
 Use the `destroy` subcommand to delete one (or more) instances.
 Instances are based on the list of platforms and suites in the
 kitchen.yml file.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -422,8 +415,7 @@ This subcommand has the following syntax:
 kitchen destroy PLATFORMS (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -447,21 +439,19 @@ This subcommand has the following options:
 
     {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
 
-Examples
---------
+### Examples
 
 None.
 
 kitchen diagnose
-================
+----------------
 
 Use the `diagnose` subcommand to show a computed diagnostic
 configuration for one (or more) instances. This subcommand will make all
 implicit configuration settings explicit because it echoes back all of
 the configuration data as YAML.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -469,8 +459,7 @@ This subcommand has the following syntax:
 kitchen diagnose PLATFORMS (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -501,8 +490,7 @@ This subcommand has the following options:
 
     {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
 
-Examples
---------
+### Examples
 
 **Diagnose an instance**
 
@@ -608,13 +596,12 @@ instances:
 ```
 
 kitchen driver create
-=====================
+---------------------
 
 Use the `driver create` subcommand to create a new Test Kitchen driver
 in the RubyGems project.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -622,8 +609,7 @@ This subcommand has the following syntax:
 kitchen driver create NAME
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -632,18 +618,16 @@ This subcommand has the following options:
 :   The license for the RubyGems file. Possible values: `apachev2`,
     `lgplv3`, `mit`, and `reserved`. Default: `apachev2`.
 
-Examples
---------
+### Examples
 
 None.
 
 kitchen exec
-============
+------------
 
 Use the `exec` subcommand to execute a command on a remote instance.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -651,8 +635,7 @@ This subcommand has the following syntax:
 kitchen exec PLATFORMS (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -669,13 +652,12 @@ This subcommand has the following options:
 
     {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
 
-Examples
---------
+### Examples
 
 None.
 
 kitchen init
-============
+------------
 
 Use the `init` subcommand to create an initial Test Kitchen environment,
 including:
@@ -684,8 +666,7 @@ including:
 -   Appending Test Kitchen to the RubyGems file, .gitignore, and .thor
 -   Creating the `test/integration/default` directory
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -693,8 +674,7 @@ This subcommand has the following syntax:
 kitchen init
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -727,8 +707,7 @@ This subcommand has the following options:
 
     {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
 
-Examples
---------
+### Examples
 
 **Create the Test Kitchen environment**
 
@@ -751,7 +730,7 @@ Successfully installed kitchen-vagrant-0.12.0
 ```
 
 kitchen list
-============
+------------
 
 Use the `list` subcommand to view the list of instances. Instances are
 based on the list of platforms in the kitchen.yml file. Test Kitchen
@@ -760,8 +739,7 @@ For example, if a suite is named `default` and a platform is named
 `ubuntu-18.04`, then the instance would be `default-ubuntu-1804`. This
 ensures that Test Kitchen instances have safe DNS and hostname records.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -769,8 +747,7 @@ This subcommand has the following syntax:
 kitchen list PLATFORMS (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -794,8 +771,7 @@ This subcommand has the following options:
 
     {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
 
-Examples
---------
+### Examples
 
 **View a list of Test Kitchen instances**
 
@@ -848,7 +824,7 @@ test-centos-8         vagrant  chef_zero     <not created>
 ```
 
 kitchen login
-=============
+-------------
 
 Use the `login` subcommand to log in to a single instance. Instances are
 based on the list of platforms and suites in the kitchen.yml file. After
@@ -857,8 +833,7 @@ any other virtual machine, including adding or removing packages,
 starting or stopping services, and so on. It's a sandbox. Make any
 change necessary to help improve the coverage for cookbook testing.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -866,8 +841,7 @@ This subcommand has the following syntax:
 kitchen login PLATFORM (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -886,8 +860,7 @@ This subcommand has the following options:
 
     {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
 
-Examples
---------
+### Examples
 
 To login to the default Ubuntu instance, run the following:
 
@@ -905,13 +878,12 @@ vagrant@default-ubuntu-1804:~$
 ```
 
 kitchen setup
-=============
+-------------
 
 Use the `setup` subcommand to set up one (or more) instances. Instances
 are based on the list of platforms in the kitchen.yml file.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -919,8 +891,7 @@ This subcommand has the following syntax:
 kitchen setup PLATFORMS (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -944,13 +915,12 @@ This subcommand has the following options:
 
     {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
 
-Examples
---------
+### Examples
 
 None.
 
 kitchen test
-============
+------------
 
 Use the `test` subcommand to test one (or more) verified instances.
 Instances are based on the list of platforms and suites in the
@@ -963,8 +933,7 @@ In general, use the `test` subcommand to verify the end-to-end quality
 of a cookbook. Use the `converge` and `verify` subcommands during the
 normal day-to-day development of a cookbook.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -972,8 +941,7 @@ This subcommand has the following syntax:
 kitchen test PLATFORMS (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -1011,8 +979,7 @@ This subcommand has the following options:
 
     {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
 
-Examples
---------
+### Examples
 
 **Test the default Ubuntu instance**
 
@@ -1103,7 +1070,7 @@ kitchen test -c 4
 ```
 
 kitchen verify
-==============
+--------------
 
 Use the `verify` subcommand to verify one (or more) instances. Instances
 are based on the list of platforms and suites in the kitchen.yml file.
@@ -1112,8 +1079,7 @@ In general, use the `test` subcommand to verify the end-to-end quality
 of a cookbook. Use the `converge` and `verify` subcommands during the
 normal day-to-day development of a cookbook.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -1121,8 +1087,7 @@ This subcommand has the following syntax:
 kitchen verify PLATFORMS (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -1146,8 +1111,7 @@ This subcommand has the following options:
 
     {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
 
-Examples
---------
+### Examples
 
 **Verify the default Ubuntu instance**
 
@@ -1197,12 +1161,11 @@ echo $?
 ```
 
 kitchen version
-===============
+---------------
 
 Use the `version` subcommand to print the version of Kitchen.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -1210,13 +1173,11 @@ This subcommand has the following syntax:
 kitchen version
 ```
 
-Options
--------
+### Options
 
 This subcommand does not have any options.
 
-Examples
---------
+### Examples
 
 **Verify the version of Test Kitchen**
 

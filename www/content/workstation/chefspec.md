@@ -22,7 +22,7 @@ When used as part of the cookbook authoring workflow, ChefSpec tests are
 often the first indicator of problems that may exist within a cookbook.
 
 Run ChefSpec
-============
+------------
 
 ChefSpec is packaged as part of Chef Workstation. To run ChefSpec:
 
@@ -31,7 +31,7 @@ chef exec rspec
 ```
 
 Unit Tests
-==========
+----------
 
 RSpec is a behavior-driven development (BDD) framework that uses a
 natural language domain-specific language (DSL) to quickly describe
@@ -41,8 +41,7 @@ defined expectations.
 
 ChefSpec is built on the RSpec DSL.
 
-Syntax
-------
+### Syntax
 
 The syntax of RSpec-based tests should follow the natural language
 descriptions of RSpec itself. The tests themselves should create an
@@ -77,7 +76,7 @@ where:
     result of the test for false; a test passes when the results of the
     test are true
 
-### context
+#### context
 
 RSpec-based tests may contain `context` blocks. Use `context` blocks
 within `describe` blocks to define "tests within tests". Each `context`
@@ -133,7 +132,7 @@ describe 'cookbook_name::recipe_name' do
 end
 ```
 
-### let
+#### let
 
 RSpec-based tests may contain `let` statements within a `context` block.
 Use `let` statements to create a symbol, assign it a value, and then use
@@ -170,8 +169,7 @@ where:
     assigns it the value of two plus two. The `expect` statement later
     in the test uses `sum` to test that two plus two equals four
 
-Require ChefSpec
-----------------
+### Require ChefSpec
 
 A ChefSpec unit test must contain the following statement at the top of
 the test file:
@@ -181,7 +179,7 @@ require 'chefspec'
 ```
 
 Examples
-========
+--------
 
 The ChefSpec repo on github has [an impressive collection of
 examples](https://github.com/sethvargo/chefspec/tree/master/examples).
@@ -190,8 +188,7 @@ multiple actions, and so on. Take a look at those examples and use them
 as a starting point for building your own unit tests. Some of them are
 included below, for reference here.
 
-file Resource
--------------
+### file Resource
 
 **Recipe**
 
@@ -237,8 +234,7 @@ describe 'file::delete' do
 end
 ```
 
-template Resource
------------------
+### template Resource
 
 **Recipe**
 
@@ -297,8 +293,7 @@ describe 'template::create' do
 end
 ```
 
-package Resource
-----------------
+### package Resource
 
 **Recipe**
 
@@ -342,8 +337,7 @@ describe 'package::remove' do
 end
 ```
 
-chef_gem Resource
-------------------
+### chef_gem Resource
 
 **Recipe**
 
@@ -391,8 +385,7 @@ describe 'chef_gem::install' do
 end
 ```
 
-directory Resource
-------------------
+### directory Resource
 
 **Recipe**
 
@@ -448,8 +441,7 @@ describe 'directory::create' do
 end
 ```
 
-Guards
-------
+### Guards
 
 **Recipe**
 
@@ -491,8 +483,7 @@ describe 'guards::default' do
 end
 ```
 
-include_recipe Method
-----------------------
+### include_recipe Method
 
 **Recipe**
 
@@ -518,8 +509,7 @@ describe 'include_recipe::default' do
 end
 ```
 
-Multiple Actions
-----------------
+### Multiple Actions
 
 **Recipe**
 
@@ -552,7 +542,7 @@ end
 ```
 
 For more information ...
-========================
+------------------------
 
 For more information about ChefSpec:
 

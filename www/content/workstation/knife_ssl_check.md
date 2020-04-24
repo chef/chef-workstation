@@ -16,7 +16,7 @@ aliases = ["/knife_ssl_check.html", "/knife_ssl_check/"]
 {{% ws_knife_ssl_check_summary %}}
 
 Syntax
-======
+------
 
 This subcommand has the following syntax:
 
@@ -25,7 +25,7 @@ knife ssl check (options)
 ```
 
 Options
-=======
+-------
 
 This subcommand has the following options:
 
@@ -36,7 +36,7 @@ This subcommand has the following options:
     defined in the config.rb file.
 
 Examples
-========
+--------
 
 The following examples show how to use this knife subcommand:
 

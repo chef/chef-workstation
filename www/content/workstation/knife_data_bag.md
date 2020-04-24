@@ -26,12 +26,11 @@ aliases = ["/knife_data_bag.html", "/knife_data_bag/"]
 {{< /note >}}
 
 create
-======
+------
 
 Use the `create` argument to add a data bag to the Chef Infra Server.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -39,8 +38,7 @@ This argument has the following syntax:
 knife data bag create DATA_BAG_NAME [DATA_BAG_ITEM] (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -68,8 +66,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -88,13 +85,12 @@ Created data_bag[admins]
 ```
 
 delete
-======
+------
 
 Use the `delete` argument to delete a data bag or a data bag item from a
 Chef Infra Server.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -102,8 +98,7 @@ This argument has the following syntax:
 knife data bag delete DATA_BAG_NAME [DATA_BAG_ITEM] (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -111,8 +106,7 @@ This argument has the following options:
 
 :   The name of a specific item within a data bag.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -133,12 +127,11 @@ knife data bag delete admins charlie
 Type `Y` to confirm a deletion.
 
 edit
-====
+----
 
 {{% ws_knife_data_bag_edit %}}
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -146,8 +139,7 @@ This argument has the following syntax:
 knife data bag edit DATA_BAG_NAME [DATA_BAG_ITEM] (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -179,8 +171,7 @@ For encrypted data bag items, use *either* `--secret` or
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -218,7 +209,7 @@ save them.
 {{% ws_knife_data_bag_edit_item %}}
 
 from file
-=========
+---------
 
 Use the `from file` argument to:
 
@@ -232,8 +223,7 @@ relative or absolute path; its location must be specified as part of the
 command. The JSON file that defines the contents of the data bag item
 must at least contain the name of the data bag item---`"id": "name"`.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -241,8 +231,7 @@ This argument has the following syntax:
 knife data bag from file DATA_BAG_NAME_or_PATH JSON_FILE
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -274,8 +263,7 @@ For encrypted data bag items, use *either* `--secret` or
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -302,13 +290,12 @@ mode**
 {{% ws_knife_data_bag_from_file_create_encrypted_local_mode %}}
 
 list
-====
+----
 
 Use the `list` argument to view a list of data bags that are currently
 available on the Chef Infra Server.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -316,8 +303,7 @@ This argument has the following syntax:
 knife data bag list
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -325,8 +311,7 @@ This argument has the following options:
 
 :   Show the corresponding URIs.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -337,12 +322,11 @@ knife data bag list
 ```
 
 show
-====
+----
 
 Use the `show` argument to view the contents of a data bag.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -350,8 +334,7 @@ This argument has the following syntax:
 knife data bag show DATA_BAG_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -383,8 +366,7 @@ For encrypted data bag items, use *either* `--secret` or
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 

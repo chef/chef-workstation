@@ -16,7 +16,7 @@ aliases = ["/knife_delete.html", "/knife_delete/"]
 {{% ws_knife_delete_summary %}}
 
 Syntax
-======
+------
 
 This subcommand has the following syntax:
 
@@ -25,7 +25,7 @@ knife delete [PATTERN...] (options)
 ```
 
 Options
-=======
+-------
 
 {{< note >}}
 
@@ -74,6 +74,6 @@ This subcommand has the following options:
 {{< /note >}}
 
 Examples
-========
+--------
 
 None.

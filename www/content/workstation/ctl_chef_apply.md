@@ -22,7 +22,7 @@ command line:
 -   Is **NOT** how Chef is run in production
 
 Options
-=======
+-------
 
 This command has the following syntax:
 
@@ -61,7 +61,7 @@ This tool has the following options:
 :   Show help for the command.
 
 Examples
-========
+--------
 
 **Run a recipe**
 

@@ -50,7 +50,7 @@ this path needs to be scripted, use `%USERPROFILE%\chef-repo\.chef`.
 {{< /note >}}
 
 Settings
-========
+--------
 
 This configuration file has the following settings:
 
@@ -307,8 +307,7 @@ This configuration file has the following settings:
     config_log_location "/path/to/log_location"   # Please make sure that the path exists
     ```
 
-Proxy Settings
---------------
+### Proxy Settings
 
 In certain situations the proxy used by the Chef Infra Server requires
 authentication. In this situation, three settings must be added to the
@@ -363,12 +362,12 @@ Use the following setting to specify URLs that do not need a proxy:
     value: `nil`.
 
 .d Directories
-==============
+--------------
 
 {{% ws_config_rb_client_dot_d_directories %}}
 
 Optional Settings
-=================
+-----------------
 
 In addition to the default settings in a `config.rb` file, there are
 other subcommand-specific settings that can be added:

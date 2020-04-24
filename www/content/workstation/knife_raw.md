@@ -16,7 +16,7 @@ aliases = ["/knife_raw.html", "/knife_raw/"]
 {{% ws_knife_raw_summary %}}
 
 Syntax
-======
+------
 
 This subcommand has the following syntax:
 
@@ -25,7 +25,7 @@ knife raw REQUEST_PATH (options)
 ```
 
 Options
-=======
+-------
 
 {{< note >}}
 
@@ -61,7 +61,7 @@ This subcommand has the following options:
 {{< /note >}}
 
 Examples
-========
+--------
 
 The following examples show how to use this knife subcommand:
 

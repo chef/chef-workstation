@@ -33,7 +33,7 @@ arguments do not require a user account: `download`, `search`,
 {{< /note >}}
 
 download
-========
+--------
 
 Use the `download` argument to download a cookbook from Chef
 Supermarket. A cookbook will be downloaded as a tar.gz archive and
@@ -43,8 +43,7 @@ will alert the user that the cookbook is deprecated and then will
 provide the name of the most recent non-deprecated version of that
 cookbook.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -52,8 +51,7 @@ This argument has the following syntax:
 knife supermarket download COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -77,8 +75,7 @@ This argument has the following options:
 :   The URL at which the Chef Supermarket is located. Default value:
     `https://supermarket.chef.io`.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -91,7 +88,7 @@ knife supermarket download mysql
 ```
 
 install
-=======
+-------
 
 Use the `install` argument to install a cookbook that has been
 downloaded from Chef Supermarket to a local git repository . This action
@@ -113,8 +110,7 @@ modified while letting git maintain changes as a separate patch. When an
 updated upstream version becomes available, those changes can be merged
 while maintaining any local modifications.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -122,8 +118,7 @@ This argument has the following syntax:
 knife supermarket install COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -155,8 +150,7 @@ This argument has the following options:
 :   The directory in which cookbooks are created. This can be a
     colon-separated path.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -169,13 +163,12 @@ knife supermarket install mysql
 ```
 
 list
-====
+----
 
 Use the `list` argument to view a list of cookbooks that are currently
 available at Chef Supermarket.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -183,8 +176,7 @@ This argument has the following syntax:
 knife supermarket list (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -197,8 +189,7 @@ This argument has the following options:
 
 :   Show the corresponding URIs.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -236,14 +227,13 @@ accumulator                          monit
 ```
 
 search
-======
+------
 
 Use the `search` argument to search for a cookbooks located at Chef
 Supermarket. A search query is used to return a list of these cookbooks
 and uses the same syntax as the `knife search` subcommand.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -251,8 +241,7 @@ This argument has the following syntax:
 knife supermarket search SEARCH_QUERY (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -261,8 +250,7 @@ This argument has the following options:
 :   The URL at which the Chef Supermarket is located. Default value:
     `https://supermarket.chef.io`.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -295,7 +283,7 @@ mysql-multi:
 ```
 
 share
-=====
+-----
 
 Use the `share` argument to add a cookbook to Chef Supermarket. This
 action will require a user account and a certificate for [Chef
@@ -306,8 +294,7 @@ command line or in an alternate configuration file. If a cookbook
 already exists in Chef Supermarket, then only an owner or maintainer of
 that cookbook can make updates.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -315,8 +302,7 @@ This argument has the following syntax:
 knife supermarket share COOKBOOK_NAME CATEGORY (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -338,8 +324,7 @@ This argument has the following options:
 :   The directory in which cookbooks are created. This can be a
     colon-separated path.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -353,13 +338,12 @@ knife supermarket share "my_apache2_cookbook" "Web Servers"
 ```
 
 show
-====
+----
 
 Use the `show` argument to view information about a cookbook located at
 Chef Supermarket.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -367,8 +351,7 @@ This argument has the following syntax:
 knife supermarket show COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -384,8 +367,7 @@ This argument has the following options:
 :   The URL at which the Chef Supermarket is located. Default value:
     `https://supermarket.chef.io`.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -494,7 +476,7 @@ version:           8.5.1
 ```
 
 unshare
-=======
+-------
 
 Use the `unshare` argument to stop the sharing of a cookbook located at
 Chef Supermarket. Only the maintainer of a cookbook may perform this
@@ -507,8 +489,7 @@ that cookbook or cookbook version.
 
 {{< /note >}}
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -516,8 +497,7 @@ This argument has the following syntax:
 knife supermarket unshare COOKBOOK_NAME/versions/VERSION (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -526,8 +506,7 @@ This argument has the following options:
 :   The URL at which the Chef Supermarket is located. Default value:
     `https://supermarket.chef.io`.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 

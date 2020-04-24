@@ -16,7 +16,7 @@ aliases = ["/knife_status.html", "/knife_status/"]
 {{% ws_knife_status_summary %}}
 
 Syntax
-======
+------
 
 This subcommand has the following syntax:
 
@@ -25,7 +25,7 @@ knife status (options)
 ```
 
 Options
-=======
+-------
 
 {{< note >}}
 
@@ -74,7 +74,7 @@ This subcommand has the following options:
 {{< /note >}}
 
 Examples
-========
+--------
 
 The following examples show how to use this knife subcommand:
 

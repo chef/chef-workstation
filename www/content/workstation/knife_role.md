@@ -32,14 +32,13 @@ argument.
 {{< /note >}}
 
 bulk delete
-===========
+-----------
 
 Use the `bulk delete` argument to delete one or more roles that match a
 pattern defined by a regular expression. The regular expression must be
 within quotes and not be surrounded by forward slashes (/).
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -47,13 +46,11 @@ This argument has the following syntax:
 knife role bulk delete REGEX
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -67,13 +64,12 @@ knife role bulk delete "^[0-9]{3}$"
 ```
 
 create
-======
+------
 
 Use the `create` argument to add a role to the Chef Infra Server. Role
 data is saved as JSON on the Chef Infra Server.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -81,8 +77,7 @@ This argument has the following syntax:
 knife role create ROLE_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -97,8 +92,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -131,12 +125,11 @@ In the \$EDITOR enter the role data in JSON:
 When finished, save it.
 
 delete
-======
+------
 
 Use the `delete` argument to delete a role from the Chef Infra Server.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -144,13 +137,11 @@ This argument has the following syntax:
 knife role delete ROLE_NAME
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -163,12 +154,11 @@ knife role delete devops
 Type `Y` to confirm a deletion.
 
 edit
-====
+----
 
 Use the `edit` argument to edit role details on the Chef Infra Server.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -176,13 +166,11 @@ This argument has the following syntax:
 knife role edit ROLE_NAME
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -217,13 +205,12 @@ Update the role data in JSON:
 When finished, save it.
 
 from file
-=========
+---------
 
 Use the `from file` argument to create a role using existing JSON data
 as a template.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -231,8 +218,7 @@ This argument has the following syntax:
 knife role from file FILE
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
@@ -242,8 +228,7 @@ This command does not have any specific options.
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -256,13 +241,12 @@ knife role from file "path to JSON file"
 ```
 
 list
-====
+----
 
 Use the `list` argument to view a list of roles that are currently
 available on the Chef Infra Server.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -270,8 +254,7 @@ This argument has the following syntax:
 knife role list
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -279,8 +262,7 @@ This argument has the following options:
 
 :   Show the corresponding URIs.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -294,12 +276,11 @@ knife role list -w
 ```
 
 show
-====
+----
 
 Use the `show` argument to view the details of a role.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -307,8 +288,7 @@ This argument has the following syntax:
 knife role show ROLE_NAME
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -322,8 +302,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 

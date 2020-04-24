@@ -35,17 +35,17 @@ The key concepts in Test Kitchen are:
     and `chef_solo` provisioners, respectively
 
 Bento
-=====
+-----
 
 {{% ws_bento %}}
 
 Drivers
-=======
+-------
 
 {{% ws_test_kitchen_drivers %}}
 
 Validation with InSpec
-======================
+----------------------
 
 Test Kitchen will create a VM or cloud instance, install Chef Infra
 Client to that system, and converge Chef Infra Client with your local
@@ -55,7 +55,7 @@ configuration. Test Kitchen allows you to run InSpec tests against your
 converged cookbook for easy local validation of your infrastructure.
 
 kitchen (executable)
-====================
+--------------------
 
 {{% ws_ctl_kitchen_summary %}}
 
@@ -67,7 +67,7 @@ For more information about the `kitchen` command line tool, see
 {{< /note >}}
 
 kitchen.yml
-===========
+-----------
 
 {{% ws_test_kitchen_yml %}}
 
@@ -78,18 +78,16 @@ For more information about the kitchen.yml file, see
 
 {{< /note >}}
 
-Syntax
-------
+### Syntax
 
 {{% ws_test_kitchen_yml_syntax %}}
 
-Work with Proxies
------------------
+### Work with Proxies
 
 {{< readFile_shortcode file="ws_test_kitchen_yml_syntax_proxy.md" >}}
 
 For more information ...
-========================
+------------------------
 
 For more information about test-driven development and Test Kitchen:
 

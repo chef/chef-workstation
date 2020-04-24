@@ -23,7 +23,7 @@ but new development will take place in Chef Workstation without
 back-porting features.
 
 Getting Started
-===============
+---------------
 
 Chef Infra is a systems and cloud infrastructure automation framework
 that makes it easy to deploy servers and applications to any physical,
@@ -38,8 +38,7 @@ the actual configuration.
 -   [An Overview of Chef Infra](/chef_overview/)
 -   [Install Chef Workstation](/workstation/install_workstation/)
 
-Cookbook Development Workflow
------------------------------
+### Cookbook Development Workflow
 
 Chef Infra defines a common workflow for cookbook development:
 
@@ -62,7 +61,7 @@ Chef Infra defines a common workflow for cookbook development:
     production environment.
 
 Tools
-=====
+-----
 
 Chef Workstation packages all the tools necessary to be successful with
 Chef Infra and InSpec. These tools are combined into native packages for

@@ -16,7 +16,7 @@ aliases = ["/knife_xargs.html", "/knife_xargs/"]
 {{% ws_knife_xargs_summary %}}
 
 Syntax
-======
+------
 
 This subcommand has the following syntax:
 
@@ -25,7 +25,7 @@ knife xargs [PATTERN...] (options)
 ```
 
 Options
-=======
+-------
 
 {{< note >}}
 
@@ -111,7 +111,7 @@ This subcommand has the following options:
 {{< /note >}}
 
 Examples
-========
+--------
 
 The following examples show how to use this knife subcommand:
 
