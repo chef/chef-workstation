@@ -21,8 +21,7 @@ simulated Chef Infra Client run. ChefSpec tests execute very quickly.
 When used as part of the cookbook authoring workflow, ChefSpec tests are
 often the first indicator of problems that may exist within a cookbook.
 
-Run ChefSpec
-------------
+## Run ChefSpec
 
 ChefSpec is packaged as part of Chef Workstation. To run ChefSpec:
 
@@ -30,8 +29,7 @@ ChefSpec is packaged as part of Chef Workstation. To run ChefSpec:
 chef exec rspec
 ```
 
-Unit Tests
-----------
+## Unit Tests
 
 RSpec is a behavior-driven development (BDD) framework that uses a
 natural language domain-specific language (DSL) to quickly describe
@@ -178,8 +176,7 @@ the test file:
 require 'chefspec'
 ```
 
-Examples
---------
+## Examples
 
 The ChefSpec repo on github has [an impressive collection of
 examples](https://github.com/sethvargo/chefspec/tree/master/examples).
@@ -541,8 +538,7 @@ describe 'multiple_actions::sequential' do
 end
 ```
 
-For more information ...
-------------------------
+## For more information ...
 
 For more information about ChefSpec:
 

@@ -23,8 +23,7 @@ aliases = ["/knife_cookbook.html", "/knife_cookbook/"]
 
 {{< /note >}}
 
-bulk delete
------------
+## bulk delete
 
 Use the `bulk delete` argument to delete cookbook files that match a
 pattern defined by a regular expression. The regular expression must be
@@ -69,8 +68,7 @@ cookbooks:
 knife cookbook bulk delete "^[0-9]{3}$" -p
 ```
 
-create
-------
+## create
 
 {{< note >}}
 
@@ -159,8 +157,7 @@ to return something like:
 ** Creating metadata for cookbook: my_cookbook
 ```
 
-delete
-------
+## delete
 
 Use the `delete` argument to delete a specified cookbook or cookbook
 version on the Chef Infra Server (and not locally).
@@ -220,8 +217,7 @@ knife cookbook delete smartmon 0.8
 
 Type `Y` to confirm a deletion.
 
-download
---------
+## download
 
 Use the `download` argument to download a cookbook from the Chef Infra
 Server to the current working directory.
@@ -268,8 +264,7 @@ To download a cookbook named `smartmon`, enter:
 knife cookbook download smartmon
 ```
 
-list
-----
+## list
 
 Use the `list` argument to view a list of cookbooks that are currently
 available on the Chef Infra Server. The list will contain only the most
@@ -313,8 +308,7 @@ To view a list of cookbooks:
 knife cookbook list
 ```
 
-metadata
---------
+## metadata
 
 Use the `metadata` argument to generate the metadata for one or more
 cookbooks.
@@ -356,8 +350,7 @@ The following examples show how to use this knife subcommand:
 knife cookbook metadata -a
 ```
 
-metadata from file
-------------------
+## metadata from file
 
 Use the `metadata from file` argument to load the metadata for a
 cookbook from a file.
@@ -384,8 +377,7 @@ The following examples show how to use this knife subcommand:
 knife cookbook metadata from file /path/to/file
 ```
 
-show
-----
+## show
 
 Use the `show` argument to view information about a cookbook, parts of a
 cookbook (attributes, definitions, files, libraries, providers, recipes,
@@ -518,8 +510,7 @@ knife cookbook show devops -F json
 
 Other formats available include `text`, `yaml`, and `pp`.
 
-test
-----
+## test
 
 Use the `test` argument to test a cookbook for syntax errors. This
 argument uses Ruby syntax checking to verify every file in a cookbook
@@ -571,8 +562,7 @@ The following examples show how to use this knife subcommand:
 knife cookbook test cookbook_name
 ```
 
-upload
-------
+## upload
 
 Use the `upload` argument to upload one or more cookbooks (and any files
 that are associated with those cookbooks) from a local repository to the

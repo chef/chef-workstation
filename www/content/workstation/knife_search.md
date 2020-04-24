@@ -17,8 +17,7 @@ aliases = ["/knife_search.html", "/knife_search/"]
 
 {{% ws_knife_search_summary %}}
 
-Syntax
-------
+## Syntax
 
 This subcommand has the following syntax:
 
@@ -157,8 +156,7 @@ To search for the available fields for a particular object, use the
 
 {{% ws_search_special_characters %}}
 
-Options
--------
+## Options
 
 {{< note >}}
 
@@ -218,8 +216,7 @@ This subcommand has the following options:
 :   The search query used to identify a list of items on a Chef Infra
     Server. This option uses the same syntax as the `search` subcommand.
 
-Examples
---------
+## Examples
 
 The following examples show how to use this knife subcommand:
 

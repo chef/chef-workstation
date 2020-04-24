@@ -18,13 +18,11 @@ aliases = ["/chef_shell.html", "/chef_shell/"]
 
 The chef-shell executable is run as a command-line tool.
 
-Modes
------
+## Modes
 
 {{% ws_chef_shell_modes %}}
 
-Options
--------
+## Options
 
 This command has the following syntax:
 
@@ -98,8 +96,7 @@ This command has the following options:
 
 :   Run chef-shell in Chef Infra Client mode.
 
-Configure
----------
+## Configure
 
 {{% ws_chef_shell_config %}}
 
@@ -111,8 +108,7 @@ Configure
 
 {{% ws_chef_shell_run_as_chef_client %}}
 
-Debugging Cookbooks
--------------------
+## Debugging Cookbooks
 
 {{% ws_chef_shell_breakpoints %}}
 
@@ -128,13 +124,11 @@ Debugging Cookbooks
 
 {{< readFile_shortcode file="ws_chef_shell_advanced_debug.md" >}}
 
-Manipulating Chef Infra Server Data
------------------------------------
+## Manipulating Chef Infra Server Data
 
 {{% ws_chef_shell_manage %}}
 
-Examples
---------
+## Examples
 
 The following examples show how to use chef-shell.
 

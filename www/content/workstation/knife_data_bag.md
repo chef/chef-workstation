@@ -25,8 +25,7 @@ aliases = ["/knife_data_bag.html", "/knife_data_bag/"]
 
 {{< /note >}}
 
-create
-------
+## create
 
 Use the `create` argument to add a data bag to the Chef Infra Server.
 
@@ -84,8 +83,7 @@ to return:
 Created data_bag[admins]
 ```
 
-delete
-------
+## delete
 
 Use the `delete` argument to delete a data bag or a data bag item from a
 Chef Infra Server.
@@ -126,8 +124,7 @@ knife data bag delete admins charlie
 
 Type `Y` to confirm a deletion.
 
-edit
-----
+## edit
 
 {{% ws_knife_data_bag_edit %}}
 
@@ -208,8 +205,7 @@ save them.
 
 {{% ws_knife_data_bag_edit_item %}}
 
-from file
----------
+## from file
 
 Use the `from file` argument to:
 
@@ -289,8 +285,7 @@ mode**
 
 {{% ws_knife_data_bag_from_file_create_encrypted_local_mode %}}
 
-list
-----
+## list
 
 Use the `list` argument to view a list of data bags that are currently
 available on the Chef Infra Server.
@@ -321,8 +316,7 @@ The following examples show how to use this knife subcommand:
 knife data bag list
 ```
 
-show
-----
+## show
 
 Use the `show` argument to view the contents of a data bag.
 

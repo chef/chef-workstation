@@ -13,8 +13,7 @@ aliases = ["/knife_azurerm.html", "/knife_azurerm/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_azurerm.md)
 
-Knife Azure Overview
---------------------
+## Knife Azure Overview
 
 {{% ws_knife_azure %}}
 

@@ -15,8 +15,7 @@ aliases = ["/knife_configure.html", "/knife_configure/"]
 
 {{% ws_knife_configure_summary %}}
 
-Syntax
-------
+## Syntax
 
 This subcommand has the following syntax when creating a config.rb file:
 
@@ -30,8 +29,7 @@ and the following syntax when creating a client.rb file:
 knife configure client DIRECTORY
 ```
 
-Options
--------
+## Options
 
 {{< note >}}
 
@@ -76,8 +74,7 @@ config.rb file:
 
 {{< /note >}}
 
-Examples
---------
+## Examples
 
 The following examples show how to use this knife subcommand:
 

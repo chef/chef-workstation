@@ -60,8 +60,7 @@ or download the [source files](https://github.com/chef/quick-reference).
 </tbody>
 </table>
 
-Knife Subcommands
------------------
+## Knife Subcommands
 
 knife includes a collection of built in subcommands that work together
 to provide all of the functionality required to take specific actions
@@ -307,8 +306,7 @@ to return:
 aardvarks/ anagrams/
 ```
 
-Knife Plug-ins
---------------
+## Knife Plug-ins
 
 Knife functionality can be extended with plugins, which work the same as
 built-in subcommands (including common options). Knife plugins have been

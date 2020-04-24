@@ -30,8 +30,7 @@ Chef Workstation includes:
 -   Everything else needed to author cookbooks and upload them to the
     Chef Infra Server
 
-Supported Platforms
--------------------
+## Supported Platforms
 
 Supported Host Operating Systems:
 
@@ -70,8 +69,7 @@ Supported Host Operating Systems:
 </tbody>
 </table>
 
-System Requirements
--------------------
+## System Requirements
 
 Minimum system requirements:
 
@@ -98,8 +96,7 @@ Recommended system requirements:
         any, additional libraries are required to run the Chef
         Workstation App.
 
-Installation
-------------
+## Installation
 
 The Chef Workstation installer must run as a privileged user.
 
@@ -164,8 +161,7 @@ applications that may be running on the target machine.
         dpkg -i chefworkstation_0.14.16-1_amd64.deb
         ```
 
-Verify the Installation
------------------------
+## Verify the Installation
 
 To verify the installation, run:
 
@@ -184,8 +180,7 @@ Test Kitchen version: 2.3.4
 Cookstyle version: 5.21.9
 ```
 
-Upgrading
----------
+## Upgrading
 
 ### From Chef Workstation
 
@@ -216,8 +211,7 @@ sudo rpm -e chefdk
 
 For other platforms, follow the steps provided under [Installing]({{< ref "#installing" >}}).
 
-Uninstalling
-------------
+## Uninstalling
 
 ### Mac
 
@@ -241,8 +235,7 @@ Red Hat, CentOS, and related:
 sudo rpm -e chef-workstation
 ```
 
-Next Steps
-----------
+## Next Steps
 
 Now that you've installed Chef Workstation, proceed to the
 [Getting Started](/workstation/getting_started/) guide to

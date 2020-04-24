@@ -15,8 +15,7 @@ aliases = ["/knife_upload.html", "/knife_upload/"]
 
 {{% ws_knife_upload_summary %}}
 
-Syntax
-------
+## Syntax
 
 This subcommand has the following syntax:
 
@@ -24,8 +23,7 @@ This subcommand has the following syntax:
 knife upload [PATTERN...] (options)
 ```
 
-Options
--------
+## Options
 
 {{< note >}}
 
@@ -92,8 +90,7 @@ This subcommand has the following options:
 
 {{< /note >}}
 
-Examples
---------
+## Examples
 
 The following examples show how to use this knife subcommand:
 

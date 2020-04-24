@@ -99,8 +99,7 @@ alice: https://chef-server.fqdn/users/alice
 pivotal: https://chef-server.fqdn/users/pivotal
 ```
 
-opc user show
--------------
+## opc user show
 
 Shows the details of a user in your Chef Infra Server installation.
 
@@ -169,8 +168,7 @@ knife opc user create arno arno schmidt arno@chef.io password
 -----END RSA PRIVATE KEY-----
 ```
 
-opc user delete
----------------
+## opc user delete
 
 Deletes the given OPC user.
 
@@ -204,8 +202,7 @@ Checking organization memberships...
 Deleting user arno.
 ```
 
-opc user edit
--------------
+## opc user edit
 
 Will open `$EDITOR` to edit a user. When finished editing, knife will
 update the given Chef Infra Server user.
@@ -253,8 +250,7 @@ public_key:   -----BEGIN PUBLIC KEY-----
 username:     arno
 ```
 
-opc user password
------------------
+## opc user password
 
 Command for managing password and authentication for a user.
 
@@ -391,8 +387,7 @@ guid:      2adec1140cf777a15d82d9099304da71
 name:      acme2
 ```
 
-opc org user add
-----------------
+## opc org user add
 
 Adds a user to an organization. Requires that the named organization and
 user both exist.

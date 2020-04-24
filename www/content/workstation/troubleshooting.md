@@ -12,18 +12,15 @@ draft = false
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/troubleshooting.md)
 
-Chef Workstation Logs
----------------------
+## Chef Workstation Logs
 
 Chef Workstation logs are stored in ` ~/.chef-workstation/logs`.
 
-Uninstall instructions
-----------------------
+## Uninstall instructions
 
 Follow the steps provided under [Uninstalling]({{< ref "install_workstation.md#uninstalling" >}}).
 
-Common Error Codes
-------------------
+## Common Error Codes
 
 ### CHEFINT001
 

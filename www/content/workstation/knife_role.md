@@ -31,8 +31,7 @@ argument.
 
 {{< /note >}}
 
-bulk delete
------------
+## bulk delete
 
 Use the `bulk delete` argument to delete one or more roles that match a
 pattern defined by a regular expression. The regular expression must be
@@ -63,8 +62,7 @@ roles:
 knife role bulk delete "^[0-9]{3}$"
 ```
 
-create
-------
+## create
 
 Use the `create` argument to add a role to the Chef Infra Server. Role
 data is saved as JSON on the Chef Infra Server.
@@ -124,8 +122,7 @@ In the \$EDITOR enter the role data in JSON:
 
 When finished, save it.
 
-delete
-------
+## delete
 
 Use the `delete` argument to delete a role from the Chef Infra Server.
 
@@ -153,8 +150,7 @@ knife role delete devops
 
 Type `Y` to confirm a deletion.
 
-edit
-----
+## edit
 
 Use the `edit` argument to edit role details on the Chef Infra Server.
 
@@ -204,8 +200,7 @@ Update the role data in JSON:
 
 When finished, save it.
 
-from file
----------
+## from file
 
 Use the `from file` argument to create a role using existing JSON data
 as a template.
@@ -240,8 +235,7 @@ To view role details based on the values contained in a JSON file:
 knife role from file "path to JSON file"
 ```
 
-list
-----
+## list
 
 Use the `list` argument to view a list of roles that are currently
 available on the Chef Infra Server.
@@ -275,8 +269,7 @@ each role returned, enter:
 knife role list -w
 ```
 
-show
-----
+## show
 
 Use the `show` argument to view the details of a role.
 
