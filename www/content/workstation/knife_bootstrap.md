@@ -38,7 +38,7 @@ aliases = ["/knife_bootstrap.html", "/knife_bootstrap/"]
     `winrm` for windows nodes.
 
 Syntax
-======
+------
 
 This subcommand has the following syntax:
 
@@ -47,7 +47,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 ```
 
 Options
-=======
+-------
 
 {{< note >}}
 
@@ -55,8 +55,7 @@ Options
 
 {{< /note >}}
 
-General Connection Options
---------------------------
+### General Connection Options
 
 `-U USERNAME`, `--connection-user USERNAME`
 
@@ -85,8 +84,7 @@ General Connection Options
 :   The number of seconds to wait for each connection operation to be
     acknowledged while running bootstrap.
 
-WinRM Connection Options
-------------------------
+### WinRM Connection Options
 
 `--winrm-ssl-peer-fingerprint FINGERPRINT`
 
@@ -120,8 +118,7 @@ WinRM Connection Options
 
 :   The Kerberos service used for authentication.
 
-SSH Connection Options
-----------------------
+### SSH Connection Options
 
 `-G GATEWAY`, `--ssh-gateway GATEWAY`
 
@@ -145,8 +142,7 @@ SSH Connection Options
 
 :   Verify host key. Default is 'always'
 
-Chef Installation Options
--------------------------
+### Chef Installation Options
 
 `--bootstrap-version VERSION`
 
@@ -205,8 +201,7 @@ Chef Installation Options
     Default value: `chef-full`, which installs Chef Infra Client using
     the Chef Infra installer on all supported platforms.
 
-Proxy Options
--------------
+### Proxy Options
 
 `--bootstrap-no-proxy NO_PROXY_URL_or_IP`
 
@@ -226,8 +221,7 @@ Proxy Options
 
 :   The proxy authentication username for the node being bootstrapped.
 
-Node Options
-------------
+### Node Options
 
 `-N NAME`, `--node-name NAME`
 
@@ -285,8 +279,7 @@ Node Options
 
 :   The name of a policy, as identified by the name setting in a Policyfile.rb file.
 
-chef-vault Options
-------------------
+### chef-vault Options
 
 `--bootstrap-vault-file VAULT_FILE`
 
@@ -303,8 +296,7 @@ chef-vault Options
     updated. --bootstrap-vault-json '{ "vault1": \["item1", "item2"\],
     "vault2": "item2" }'
 
-Key Verification Options
-------------------------
+### Key Verification Options
 
 `--[no-]host-key-verify`
 
@@ -331,8 +323,7 @@ Key Verification Options
     **remote_file** resource URLs used in a Chef Infra Client run. This
     is the recommended setting.
 
-Debug Options
--------------
+### Debug Options
 
 `-V -V`
 
@@ -350,8 +341,7 @@ Debug Options
 
 {{< /note >}}
 
-Validatorless Bootstrap
------------------------
+### Validatorless Bootstrap
 
 {{% ws_knife_bootstrap_no_validator %}}
 
@@ -361,8 +351,7 @@ The `--node-name` option is required for a validatorless bootstrap.
 
 {{< /note >}}
 
-FIPS Mode
----------
+### FIPS Mode
 
 {{% ws_fips_intro_client %}}
 
@@ -371,7 +360,7 @@ FIPS Mode
 {{% ws_knife_bootstrap_node_fips %}}
 
 Custom Templates
-================
+----------------
 
 The default `chef-full` template uses the Chef installer. For most
 bootstrap operations, regardless of the platform on which the target
@@ -445,8 +434,7 @@ for Chef packages and installation scripts, as well as a RubyGem mirror:
     `/etc/chef/client.rb` file that is created during bootstrap, which
     ensures that your nodes use your internal gem mirror.
 
-Bootstrap a Custom Template
----------------------------
+### Bootstrap a Custom Template
 
 You can use the `--bootstrap-template` option with the `knife bootstrap`
 subcommand to specify the name of your bootstrap template file:
@@ -465,7 +453,7 @@ knife[:bootstrap_template] = "#{current_dir}/bootstrap/template.erb"
 ```
 
 Examples
-========
+--------
 
 The following examples show how to use this knife subcommand:
 

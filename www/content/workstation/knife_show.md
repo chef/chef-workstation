@@ -16,7 +16,7 @@ aliases = ["/knife_show.html", "/knife_show/"]
 {{% ws_knife_show_summary %}}
 
 Syntax
-======
+------
 
 This subcommand has the following syntax:
 
@@ -25,7 +25,7 @@ knife show [PATTERN...] (options)
 ```
 
 Options
-=======
+-------
 
 {{< note >}}
 
@@ -68,7 +68,7 @@ This subcommand has the following options:
     in your `knife node show` subcommand. Default is `.`
 
 Examples
-========
+--------
 
 The following examples show how to use this knife subcommand:
 

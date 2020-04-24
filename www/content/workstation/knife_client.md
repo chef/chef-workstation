@@ -22,14 +22,13 @@ aliases = ["/knife_client.html", "/knife_client/"]
 {{< /note >}}
 
 bulk delete
-===========
+-----------
 
 Use the `bulk delete` argument to delete any API client that matches a
 pattern defined by a regular expression. The regular expression must be
 within quotes and not be surrounded by forward slashes (`/`).
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -37,8 +36,7 @@ This argument has the following syntax:
 knife client bulk delete REGEX
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -46,13 +44,12 @@ This argument has the following options:
 
 :   Force the deletion of the client when it is also a chef-validator.
 
-Examples
---------
+### Examples
 
 None.
 
 create
-======
+------
 
 Use the `create` argument to create a new API client. This process will
 generate an RSA key pair for the named API client. The public key will
@@ -65,8 +62,7 @@ on `STDOUT` or written to a named file.
     `~/.chef/client_name.pem` and referenced in the config.rb
     configuration file.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -74,8 +70,7 @@ This argument has the following syntax:
 knife client create CLIENT_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -122,8 +117,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -139,14 +133,13 @@ knife client create exampleorg -a -f "/etc/chef/client.pem"
 ```
 
 delete
-======
+------
 
 Use the `delete` argument to delete a registered API client. If using
 Chef Client 12.17 or later, you can delete multiple clients using this
 subcommand.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -154,8 +147,7 @@ This argument has the following syntax:
 knife client delete CLIENT_NAME
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -163,8 +155,7 @@ This argument has the following options:
 
 :   Force the deletion of the client when it is also a chef-validator.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -179,7 +170,7 @@ knife client delete client_foo
 Type `Y` to confirm a deletion.
 
 edit
-====
+----
 
 Use the `edit` argument to edit the details of a registered API client.
 When this argument is run, knife will open \$EDITOR to enable editing of
@@ -187,8 +178,7 @@ the `admin` attribute. (None of the other attributes should be changed
 using this argument.) When finished, knife will update the Chef Infra
 Server with those changes.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -196,13 +186,11 @@ This argument has the following syntax:
 knife client edit CLIENT_NAME
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -215,12 +203,11 @@ knife client edit exampleorg
 ```
 
 key create
-==========
+----------
 
 Use the `key create` argument to create a public key.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -228,8 +215,7 @@ This argument has the following syntax:
 knife client key create CLIENT_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -256,18 +242,16 @@ This argument has the following options:
     not specified, and only if `--key-name` is specified, the Chef Infra
     Server will generate a public/private key pair.
 
-Examples
---------
+### Examples
 
 None.
 
 key delete
-==========
+----------
 
 Use the `key delete` argument to delete a public key.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -275,18 +259,16 @@ This argument has the following syntax:
 knife client key delete CLIENT_NAME KEY_NAME
 ```
 
-Examples
---------
+### Examples
 
 None.
 
 key edit
-========
+--------
 
 Use the `key edit` argument to modify or rename a public key.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -294,8 +276,7 @@ This argument has the following syntax:
 knife client key edit CLIENT_NAME KEY_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -328,19 +309,17 @@ This argument has the following options:
     not specified, and only if `--key-name` is specified, the Chef Infra
     Server will generate a public/private key pair.
 
-Examples
---------
+### Examples
 
 None.
 
 key list
-========
+--------
 
 Use the `key list` argument to view a list of public keys for the named
 client.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -348,8 +327,7 @@ This argument has the following syntax:
 knife client key list CLIENT_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -365,18 +343,16 @@ This argument has the following options:
 
 :   Show a list of public keys, including URIs and expiration status.
 
-Examples
---------
+### Examples
 
 None.
 
 key show
-========
+--------
 
 Use the `key show` argument to view details for a specific public key.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -384,18 +360,16 @@ This argument has the following syntax:
 knife client key show CLIENT_NAME KEY_NAME
 ```
 
-Examples
---------
+### Examples
 
 None.
 
 list
-====
+----
 
 Use the `list` argument to view a list of registered API client.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -403,8 +377,7 @@ This argument has the following syntax:
 knife client list (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -412,8 +385,7 @@ This argument has the following options:
 
 :   Show the corresponding URIs.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -442,7 +414,7 @@ knife client list -u ORGNAME -k .chef/ORGNAME.pem
 ```
 
 reregister
-==========
+----------
 
 Use the `reregister` argument to regenerate an RSA key pair for an API
 client. The public key will be stored on the Chef Infra Server and the
@@ -455,8 +427,7 @@ it unusable during authentication to the Chef Infra Server.
 
 {{< /note >}}
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -464,8 +435,7 @@ This argument has the following syntax:
 knife client reregister CLIENT_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -479,8 +449,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -494,12 +463,11 @@ knife client reregister testclient -f rsa_key
 ```
 
 show
-====
+----
 
 Use the `show` argument to show the details of an API client.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -507,8 +475,7 @@ This argument has the following syntax:
 knife client show CLIENT_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -516,8 +483,7 @@ This argument has the following options:
 
 :   The attribute (or attributes) to show.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 

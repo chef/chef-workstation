@@ -61,15 +61,14 @@ or download the [source files](https://github.com/chef/quick-reference).
 </table>
 
 Knife Subcommands
-=================
+-----------------
 
 knife includes a collection of built in subcommands that work together
 to provide all of the functionality required to take specific actions
 against any object in an organization, including cookbooks, nodes,
 roles, data bags, environments, and users.
 
-Knife Command Syntax
---------------------
+### Knife Command Syntax
 
 All knife subcommands have the following syntax:
 
@@ -90,8 +89,7 @@ organization.
 
 {{< /note >}}
 
-Built-in Subcommands
---------------------
+### Built-in Subcommands
 
 <table>
 <colgroup>
@@ -224,8 +222,7 @@ Built-in Subcommands
 </tbody>
 </table>
 
-Verb Subcommands
-----------------
+### Verb Subcommands
 
 knife includes a set of subcommands that are built around common verbs:
 `delete`, `deps`, `diff`, `download`, `edit`, `list`, `show`, `upload`,
@@ -255,8 +252,7 @@ includes:
 -   Parallel requests can be made to the Chef Infra Server and are
     configurable on a per-command basis
 
-Wildcard Search
----------------
+### Wildcard Search
 
 A wildcard matching pattern can be used for substring matches that
 replace zero (or more) characters. There are two types of wildcard
@@ -312,15 +308,14 @@ aardvarks/ anagrams/
 ```
 
 Knife Plug-ins
-==============
+--------------
 
 Knife functionality can be extended with plugins, which work the same as
 built-in subcommands (including common options). Knife plugins have been
 written to interact with common cloud providers, to simplify common Chef
 tasks, and to aid in Chef workflows.
 
-Plugin Installation
--------------------
+### Plugin Installation
 
 Knife plugins ship as RubyGems and are installed into the Chef
 Workstation installation using the `chef` command:
@@ -336,8 +331,7 @@ commands by running:
 knife rehash
 ```
 
-Chef Maintained Knife Plugins
------------------------------
+### Chef Maintained Knife Plugins
 
 Chef maintains the following plugins which ship with Chef Workstation:
 
@@ -354,8 +348,7 @@ Chef maintains the following plugins which ship with Chef Workstation:
 -   `knife-vcenter`
 -   `knife-windows`
 
-Community Knife Plugins
------------------------
+### Community Knife Plugins
 
 Knife plugins written by Chef community members can be found on
 Supermarket under [Knife

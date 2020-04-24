@@ -41,7 +41,7 @@ supermarket](/workstation/knife_supermarket/) command.
 {{< /note >}}
 
 Private Supermarket
-===================
+-------------------
 
 To use the `knife cookbook site` command with a private Supermarket
 installation, you must first add the URL of your Supermarket to your
@@ -55,7 +55,7 @@ If this value is not specified, knife will use
 `https://supermarket.chef.io` by default.
 
 download
-========
+--------
 
 Use the `download` argument to download a cookbook from the community
 website. A cookbook will be downloaded as a tar.gz archive and placed in
@@ -64,8 +64,7 @@ been deprecated and the `--force` option is not used, knife will alert
 the user that the cookbook is deprecated and then will provide the name
 of the most recent non-deprecated version of that cookbook.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -73,8 +72,7 @@ This argument has the following syntax:
 knife cookbook site download COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -104,8 +102,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -126,7 +123,7 @@ Cookbook saved: /Users/grantmc/chef-support/getting-started-1.2.3.tar.gz
 ```
 
 install
-=======
+-------
 
 Use the `install` argument to install a cookbook that has been
 downloaded from the community site to a local git repository . This
@@ -150,8 +147,7 @@ modified while letting git maintain changes as a separate patch. When an
 updated upstream version becomes available, those changes can be merged
 while maintaining any local modifications.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -159,8 +155,7 @@ This argument has the following syntax:
 knife cookbook site install COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -198,8 +193,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -245,14 +239,13 @@ Cookbook getting-started version 1.2.3 successfully installed
 ```
 
 list
-====
+----
 
 Use the `list` argument to view a list of cookbooks that are currently
 available at the [Chef
 Supermarket](https://supermarket.chef.io/cookbooks).
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -260,8 +253,7 @@ This argument has the following syntax:
 knife cookbook site list
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -274,8 +266,7 @@ This argument has the following options:
 
 :   Show the corresponding URIs.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -305,7 +296,7 @@ ant                   iis                   redmine
 ```
 
 search
-======
+------
 
 Use the `search` argument to search for a cookbook at the [Chef
 Supermarket](https://supermarket.chef.io/cookbooks). A search query is
@@ -313,8 +304,7 @@ used to return a list of cookbooks at the [Chef
 Supermarket](https://supermarket.chef.io/cookbooks) and uses the same
 syntax as the `knife search` subcommand.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -322,8 +312,7 @@ This argument has the following syntax:
 knife cookbook site search SEARCH_QUERY (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -332,8 +321,7 @@ This argument has the following options:
 :   The URL at which the Chef Supermarket is located. Default value:
     <https://supermarket.chef.io>.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -367,7 +355,7 @@ apache_kafka:
 ```
 
 share
-=====
+-----
 
 Use the `share` argument to add a cookbook to the [Chef
 Supermarket](https://supermarket.chef.io/cookbooks). This action will
@@ -380,8 +368,7 @@ already exists on the [Chef
 Supermarket](https://supermarket.chef.io/cookbooks), then only an owner
 or maintainer of that cookbook can make updates.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -389,8 +376,7 @@ This argument has the following syntax:
 knife cookbook site share COOKBOOK_NAME CATEGORY (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -422,8 +408,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -436,13 +421,12 @@ knife cookbook site share "apache2" "Web Servers"
 ```
 
 show
-====
+----
 
 Use the `show` argument to view information about a cookbook on the
 [Chef Supermarket](https://supermarket.chef.io/cookbooks).
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -450,8 +434,7 @@ This argument has the following syntax:
 knife cookbook site show COOKBOOK_NAME [COOKBOOK_VERSION]
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -467,8 +450,7 @@ This argument has the following options:
 :   The URL at which the Chef Supermarket is located. Default value:
     <https://supermarket.chef.io>.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -523,7 +505,7 @@ knife cookbook site show devops -F json
 Other formats available include `text`, `yaml`, and `pp`.
 
 unshare
-=======
+-------
 
 Use the `unshare` argument to stop the sharing of a cookbook at the
 [Chef Supermarket](https://supermarket.chef.io/cookbooks). Only the
@@ -536,8 +518,7 @@ that cookbook or cookbook version.
 
 {{< /note >}}
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -545,8 +526,7 @@ This argument has the following syntax:
 knife cookbook site unshare COOKBOOK_NAME/versions/VERSION
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -555,8 +535,7 @@ This argument has the following options:
 :   The URL at which the Chef Supermarket is located. Default value:
     <https://supermarket.chef.io>.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 

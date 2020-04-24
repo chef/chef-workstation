@@ -16,7 +16,7 @@ aliases = ["/knife_diff.html", "/knife_diff/"]
 {{% ws_knife_diff_summary %}}
 
 Syntax
-======
+------
 
 This subcommand has the following syntax:
 
@@ -25,7 +25,7 @@ knife diff [PATTERN...] (options)
 ```
 
 Options
-=======
+-------
 
 {{< note >}}
 
@@ -86,7 +86,7 @@ This subcommand has the following options:
 {{< /note >}}
 
 Examples
-========
+--------
 
 The following examples show how to use this knife subcommand:
 

@@ -22,7 +22,7 @@ aliases = ["/knife_user.html", "/knife_user/"]
 {{< /note >}}
 
 create
-======
+------
 
 Use the `create` argument to create a user. This process will generate
 an RSA key pair for the named user. The public key will be stored on the
@@ -35,8 +35,7 @@ written to a named file.
     `~/.chef/client_name.pem` and referenced in the config.rb
     configuration file.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -44,8 +43,7 @@ This argument has the following syntax:
 knife user create USERNAME DISPLAY_NAME FIRST_NAME LAST_NAME EMAIL PASSWORD (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -73,8 +71,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -85,12 +82,11 @@ knife user create rbirdman "Radio Birdman" Radio Birdman radio@bird.man -f /keys
 ```
 
 delete
-======
+------
 
 Use the `delete` argument to delete a registered user.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -98,13 +94,11 @@ This argument has the following syntax:
 knife user delete USER_NAME
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -115,14 +109,13 @@ knife user delete "Steve Danno"
 ```
 
 edit
-====
+----
 
 Use the `edit` argument to edit the details of a user. When this
 argument is run, knife will open \$EDITOR. When finished, knife will
 update the Chef Infra Server with those changes.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -130,23 +123,20 @@ This argument has the following syntax:
 knife user edit USER_NAME
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 None.
 
 key create
-==========
+----------
 
 Use the `key create` argument to create a public key.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -154,8 +144,7 @@ This argument has the following syntax:
 knife user key create USER_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -180,18 +169,16 @@ This argument has the following options:
     not specified, and only if `--key-name` is specified, the Chef Infra
     Server will generate a public/private key pair.
 
-Examples
---------
+### Examples
 
 None.
 
 key delete
-==========
+----------
 
 Use the `key delete` argument to delete a public key.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -199,18 +186,16 @@ This argument has the following syntax:
 knife user key delete USER_NAME KEY_NAME
 ```
 
-Examples
---------
+### Examples
 
 None.
 
 key edit
-========
+--------
 
 Use the `key edit` argument to modify or rename a public key.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -218,8 +203,7 @@ This argument has the following syntax:
 knife user key edit USER_NAME KEY_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -252,19 +236,17 @@ This argument has the following options:
     not specified, and only if `--key-name` is specified, the Chef Infra
     Server will generate a public/private key pair.
 
-Examples
---------
+### Examples
 
 None.
 
 key list
-========
+--------
 
 Use the `key list` argument to view a list of public keys for the named
 user.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -272,8 +254,7 @@ This argument has the following syntax:
 knife user key list USER_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -289,18 +270,16 @@ This argument has the following options:
 
 :   Show a list of public keys, including URIs and expiration status.
 
-Examples
---------
+### Examples
 
 None.
 
 key show
-========
+--------
 
 Use the `key show` argument to view details for a specific public key.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -308,18 +287,16 @@ This argument has the following syntax:
 knife user key show USER_NAME KEY_NAME
 ```
 
-Examples
---------
+### Examples
 
 None.
 
 list
-====
+----
 
 Use the `list` argument to view a list of registered users.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -327,8 +304,7 @@ This argument has the following syntax:
 knife user list (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -336,13 +312,12 @@ This argument has the following options:
 
 :   Show the corresponding URIs.
 
-Examples
---------
+### Examples
 
 None.
 
 reregister
-==========
+----------
 
 Use the `reregister` argument to regenerate an RSA key pair for a user.
 The public key will be stored on the Chef Infra Server and the private
@@ -355,8 +330,7 @@ it unusable during authentication to the Chef Infra Server.
 
 {{< /note >}}
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -364,8 +338,7 @@ This argument has the following syntax:
 knife user reregister USER_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -379,8 +352,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -391,12 +363,11 @@ knife user reregister "Robert Younger"
 ```
 
 show
-====
+----
 
 Use the `show` argument to show the details of a user.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -404,8 +375,7 @@ This argument has the following syntax:
 knife user show USER_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -413,8 +383,7 @@ This argument has the following options:
 
 :   The attribute (or attributes) to show.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
