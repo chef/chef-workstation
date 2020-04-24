@@ -64,6 +64,9 @@ subscriptions:
       - bash:.expeditor/purge-cdn.sh
       - bash:.expeditor/announce-release.sh
       - built_in:tag_docker_image
+      # publish to third party package managers that have a dependency
+      # on this artifact's availability
+      - trigger_pipeline:third-party-packages
 
   - workload: chef/chef-workstation-app:master_completed:pull_request_merged:chef/chef-workstation-app:master:*
     actions:
