@@ -1,7 +1,7 @@
 # Chef Workstation Documentation
 
 This folder contains the source for the [Chef Workstation documentation](https://docs.chef.io/workstation/)
-which is deployed on the [Chef Documenation](https://docs.chef.io) site using a Hugo module.
+which is deployed on the [Chef Documentation](https://docs.chef.io) site using a Hugo module.
 
 ## The fastest way to contribute
 
@@ -35,25 +35,44 @@ few days. The important part is submitting your change.
 
 ## Local Development Environment
 
-The Chef Documentation website is built using [Hugo](https://gohugo.io/) and
-[NPM](https://www.npmjs.com/). You will need Hugo 0.61 or higher installed and
-running to build and view our documentation properly.
+We use [Hugo](https://gohugo.io/), [Go](https://golang.org/), and[NPM](https://www.npmjs.com/)
+to build the Chef Documentation website. You will need Hugo 0.61 or higher
+installed and running to build and view our documentation properly.
 
-To install Hugo:
+To install Hugo, NPM, and Go on Windows and macOS:
 
-- On macOS run: `brew install hugo`
-- On Windows run: `choco install hugo`
+- On macOS run: `brew install hugo node go`
+- On Windows run: `choco install hugo nodejs golang`
 
-NPM is distributed with Node.js. To install Node.js:
+To install Hugo on Linux, run:
 
-- On macOS run: `brew install node`
-- On Windows, download and run the installer from the [nodejs.org](https://nodejs.org) website.
+- `apt install -y build-essential`
+- `snap install node --classic --channel=12`
+- `snap install hugo --channel=extended`
 
 ## Hugo Theme
 
-We use a git submodule to grab the Hugo theme from the `chef/chef-hugo-theme` repository.
+We use a git submodule to grab the Hugo theme from the `chef/chef-web-docs` repository.
 
-### Preview Workstation Documentation
+## Preview Workstation Documentation
+
+There are three ways to preview the documentation in `chef-workstation`:
+
+- submit a PR
+- `make serve`
+- `make serve_chef_web_docs`
+
+### Submit a PR
+
+When you submit a PR to `chef-workstation`, Netlify will build the documentation
+and add a notification to the GitHub pull request page. You can review your
+documentation changes as they would appear on docs.chef.io.
+
+### make serve
+
+`make serve` will preview the documentation that only exists in `chef/chef-workstation`.
+This also shows a preview page that includes page metadata which can be useful
+for changing where a page exists in the left navigation menu.
 
 To build the docs and preview locally:
 
@@ -70,55 +89,27 @@ While the Hugo server is running, any changes you make to content
 in the `www/content` directory will be automatically compiled and updated in the
 browser.
 
-### Clean Your Local Environment
+**Clean Your Local Environment**
 
 To clean your local development environment:
 
-- Running `make clean` will delete the sass files, javascript, and fonts. These will
-	be rebuilt the next time you run `make serve`.
+- Running `make clean` will delete the sass files, javascript, and fonts in
+  `themes/docs-new`. These will be rebuilt the next time you run `make serve`.
 
 - Running `make clean_all` will delete the node modules used to build this site
-	in addition to the functions of `make clean` described above. Those node
-	modules will be reinstalled the next time you run `make serve`.
+  in addition to the functions of `make clean` described above. Those node
+  modules will be reinstalled the next time you run `make serve`.
 
-### Preview local changes to chef-workstation documentation from chef-web-docs
+### make serve_chef_web_docs
 
-Follow these steps to preview changes to the chef-workstation documentation while
-running Hugo from chef-web-docs.
-
-1. Clone `chef/chef-web-docs` and `chef/chef-workstation` into the same directory.
-
-1. Modify the go.mod file in `chef-web-docs`.
-
-   Add `replace github.com/chef/chef-workstation/www => ../chef-workstation/www` below the
-   `require` statement. The whole file should look like this:
-
-   ```
-   module github.com/chef/chef-web-docs
-
-   go 1.14
-
-   require github.com/chef/chef-workstation/www v0.0.0-20200401145210-19cfbd227952 // indirect
-
-   replace github.com/chef/chef-workstation/www => ../chef-workstation/www
-   ```
-
-1. Start the Hugo server from `chef-web-docs`:
-
-   ```
-   make serve
-   ```
-
-You can preview any changes made to the documentation in `chef-workstation` as
-they would appear on https://docs.chef.io.
-
-**Before you submit a PR**
-
-- Delete or comment out the `replace` directive in the chef-web-docs/go.mod file.
+`make serve_chef_web_docs` will preview local changes to the content in
+`chef/chef-workstation/www` as they would appear in docs.chef.io. It will run the
+Hugo server from a `chef-web-docs` submodule which will pull the content from your
+local copy of `chef-workstation`.
 
 ## Creating New Pages
 
-Please keep all your documentation in the `content/workstation` directory.
+Please keep all of the Workstation documentation in the `www/content/workstation` directory.
 To add a new Markdown file, run the following command from the `www` directory:
 
 ```
@@ -286,9 +277,15 @@ This parameter also works on Danger and Warning shortcodes.
 
 ## Aliases
 
-Add an alias to the page metadata to redirect users from a page to the page you are
-editing. They are only needed if a page has been deleted and you want to redirect
-users from the deleted page to a new or existing page.
+Aliases are only needed if another page has been deleted and you want to redirect
+users from the deleted page to a new or existing page. Add the aliases parameter
+to the page metadata.
+
+Example:
+
+```
+aliases = ["/a_deleted_page/", "/another_deleted_page/"]
+```
 
 ## Structure
 
