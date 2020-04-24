@@ -2,6 +2,7 @@ baseURL = "/"
 languageCode = "en-us"
 title = "Workstation Documentation"
 theme = "docs-new"
+themesDir = "chef-web-docs/themes"
 enableGitInfo = true
 pluralizeListTitles = false
 
