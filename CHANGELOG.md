@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.4.5 -->
-## [20.4.5](https://github.com/chef/chef-workstation/tree/20.4.5) (2020-04-27)
+<!-- latest_release 20.4.6 -->
+## [20.4.6](https://github.com/chef/chef-workstation/tree/20.4.6) (2020-04-27)
 
 #### Merged Pull Requests
-- Unpinning train for upcoming major version release [#1111](https://github.com/chef/chef-workstation/pull/1111) ([tyler-ball](https://github.com/tyler-ball))
+- Update Cookstyle to 6.3 / Chefstyle to 1.0 [#1061](https://github.com/chef/chef-workstation/pull/1061) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Update Cookstyle to 6.3 / Chefstyle to 1.0 [#1061](https://github.com/chef/chef-workstation/pull/1061) ([tas50](https://github.com/tas50)) <!-- 20.4.6 -->
 - Unpinning train for upcoming major version release [#1111](https://github.com/chef/chef-workstation/pull/1111) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.4.5 -->
 - Bump omnibus-software from `eb8812b` to `5f57d0a` in /omnibus [#1125](https://github.com/chef/chef-workstation/pull/1125) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.4.4 -->
 - Forgot to perform release build on version bump [#1127](https://github.com/chef/chef-workstation/pull/1127) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.4.3 -->
