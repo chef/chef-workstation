@@ -1,15 +1,19 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.17.27 -->
-## [0.17.27](https://github.com/chef/chef-workstation/tree/0.17.27) (2020-04-21)
+<!-- latest_release 20.4.4 -->
+## [20.4.4](https://github.com/chef/chef-workstation/tree/20.4.4) (2020-04-27)
 
 #### Merged Pull Requests
-- Add empty third party pkg pipeline to expeditor [#1108](https://github.com/chef/chef-workstation/pull/1108) ([marcparadise](https://github.com/marcparadise))
+- Bump omnibus-software from `eb8812b` to `5f57d0a` in /omnibus [#1125](https://github.com/chef/chef-workstation/pull/1125) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Bump omnibus-software from `eb8812b` to `5f57d0a` in /omnibus [#1125](https://github.com/chef/chef-workstation/pull/1125) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.4.4 -->
+- Forgot to perform release build on version bump [#1127](https://github.com/chef/chef-workstation/pull/1127) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.4.3 -->
+- Switching to date based versioning [#1112](https://github.com/chef/chef-workstation/pull/1112) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.4.2 -->
+- Manually building and installing docker-api gem [#1122](https://github.com/chef/chef-workstation/pull/1122) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.28 -->
 - Add empty third party pkg pipeline to expeditor [#1108](https://github.com/chef/chef-workstation/pull/1108) ([marcparadise](https://github.com/marcparadise)) <!-- 0.17.27 -->
 - Add missing node options for policyfiles [#1091](https://github.com/chef/chef-workstation/pull/1091) ([jmassardo](https://github.com/jmassardo)) <!-- 0.17.26 -->
 - Clarify Windows requirements [#1089](https://github.com/chef/chef-workstation/pull/1089) ([jmassardo](https://github.com/jmassardo)) <!-- 0.17.25 -->
