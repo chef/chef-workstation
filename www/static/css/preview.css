@@ -11,10 +11,10 @@
   font-size: 10px;
 }
 
-.workstation_menu_true {
+.page_menu_true {
   color: green;
 }
 
-.workstation_menu_false {
+.page_menu_false {
   color: red;
 }
