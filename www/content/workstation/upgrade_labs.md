@@ -6,10 +6,65 @@ This document generally documents the most straightforward pattern of an upgrade
 
 All commands are run locally on your development workstation unless noted otherwise.
 
+## Assumptions
+
+### Chef Servers
+This document assumes that you have two chef servers available to you - an existing Chef Server on some older version, to which your nodes are attached, and a new, blank Chef Server which is the latest version.
+
+### Chef Nodes
+You have one or more nodes you wish to upgrade that are running Chef Infra 12-15 and are bootstrapped to the older server.
+
+### Connectivity
+This document assumes that you have a user key for both of the chef servers and they are reachable from your development workstation.
+
+#### Credential file setup
+
+This document assumes you have setup your credentials using [knife profiles](https://docs.chef.io/workstation/knife_setup/#knife-profiles). This allows you to keep your keys in a `credentials` file, and makes switching between credentials easier.
+
+For example, in `.chef/credentials`:
+``` toml
+[old-server]
+client_name = "myuser"
+chef_server_url = "https://old-chef-server.dev/organizations/my-org"
+client_key = """
+-----BEGIN RSA PRIVATE KEY-----
+MMM+some+key+goes+here+MMM
+-----END RSA PRIVATE KEY-----
+"""
+
+[new-server]
+client_name = "myuser"
+chef_server_url = "https://new-chef-server.dev/organizations/my-org"
+client_key = """
+-----BEGIN RSA PRIVATE KEY-----
+MMM+another+key+goes+here+MMM
+-----END RSA PRIVATE KEY-----
+"""
+```
+
+
+#### Verify chef server connectivity
+
+You should be able to run a knife command against each server and receive a reasonable response.
+
+```
+$ chef exec knife user list --profile old-server
+my-user
+$ chef exec knife user list --profile new-server
+my-user
+```
+
+### Clean Convergence
+This document assumes that the nodes that we are upgrading today are currently cleanly converging under the older version of Chef Infra Client.
+Verify that 
+
+### You Have Some Kind of Cookbook Pipeline
+This document assumes that you have some kind of continuous integration pipeline setup for your cookbooks - that is, you have a version control system (for example, git); when you make a proposed change, there is at least some degree of automated testing; and when cookbooks are released, only the continuous delivery system can update the version and upload the cookbook to the chef server(s). The particular choices of technology and the detail of processes may vary from site to site, but so long as the key stages of a cookbook pipeline are in place, this document should apply.
+
 ## Install Local Tools
 
 ### Chef Workstation
-To install Chef Workstation, visit https://downloads.chef.io/chef-workstation and download the package for your local operating system. Install the package.
+Ensure you have the latest version of Chef Workstation. To install Chef Workstation, visit https://downloads.chef.io/chef-workstation and download the package for your local operating system. Install the package.
 
 ## Configuration
 ### Chef Client Configuration
