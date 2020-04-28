@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.4.9 -->
-## [20.4.9](https://github.com/chef/chef-workstation/tree/20.4.9) (2020-04-28)
+<!-- latest_release 20.4.10 -->
+## [20.4.10](https://github.com/chef/chef-workstation/tree/20.4.10) (2020-04-28)
 
 #### Merged Pull Requests
-- Pin bcrypt_pbkdf to rc version, bump gems [#1130](https://github.com/chef/chef-workstation/pull/1130) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Fix netlify.toml file [#1132](https://github.com/chef/chef-workstation/pull/1132) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Fix netlify.toml file [#1132](https://github.com/chef/chef-workstation/pull/1132) ([IanMadd](https://github.com/IanMadd)) <!-- 20.4.10 -->
 - Pin bcrypt_pbkdf to rc version, bump gems [#1130](https://github.com/chef/chef-workstation/pull/1130) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.4.9 -->
 - Im/standardize hugo content [#1102](https://github.com/chef/chef-workstation/pull/1102) ([IanMadd](https://github.com/IanMadd)) <!-- 20.4.8 -->
 - Update git-custom-bindir to 2.26.2 [#1124](https://github.com/chef/chef-workstation/pull/1124) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.4.7 -->
