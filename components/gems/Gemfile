@@ -27,7 +27,7 @@ group(:omnibus_package, :development, :test) do
   gem "pry"
   gem "yard"
   gem "guard"
-  gem "cookstyle", "~> 5.20"
+  gem "cookstyle", "~> 6.0"
   gem "foodcritic", ">= 16.2"
   gem "ffi-libarchive"
 end
@@ -43,10 +43,6 @@ end
 # We equality pin the chef gem itself to assert which version we're shipping.
 group(:omnibus_package) do
   gem "appbundler"
-
-  ## Until we resolve https://github.com/inspec/train/issues/548
-  gem "train", "=3.2.0"
-  gem "train-core", "=3.2.0"
 
   # Expeditor manages the version of chef released to Rubygems. We only release 'stable' chef
   # gems to Rubygems now, so letting this float on latest should always give us the latest
@@ -97,7 +93,7 @@ group(:omnibus_package) do
 
   # ed25519 ssh key support done here as it's a native gem we can't put in train
   gem "ed25519"
-  gem "bcrypt_pbkdf"
+  gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
   gem "chef-cli", ">= 1.0.9"
   gem "chef-apply", ">= 0.4.13"
 
