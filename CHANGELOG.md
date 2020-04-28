@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.4.8 -->
-## [20.4.8](https://github.com/chef/chef-workstation/tree/20.4.8) (2020-04-27)
+<!-- latest_release 20.4.9 -->
+## [20.4.9](https://github.com/chef/chef-workstation/tree/20.4.9) (2020-04-28)
 
 #### Merged Pull Requests
-- Im/standardize hugo content [#1102](https://github.com/chef/chef-workstation/pull/1102) ([IanMadd](https://github.com/IanMadd))
+- Pin bcrypt_pbkdf to rc version, bump gems [#1130](https://github.com/chef/chef-workstation/pull/1130) ([clintoncwolfe](https://github.com/clintoncwolfe))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Pin bcrypt_pbkdf to rc version, bump gems [#1130](https://github.com/chef/chef-workstation/pull/1130) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.4.9 -->
 - Im/standardize hugo content [#1102](https://github.com/chef/chef-workstation/pull/1102) ([IanMadd](https://github.com/IanMadd)) <!-- 20.4.8 -->
 - Update git-custom-bindir to 2.26.2 [#1124](https://github.com/chef/chef-workstation/pull/1124) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.4.7 -->
 - Update Cookstyle to 6.3 / Chefstyle to 1.0 [#1061](https://github.com/chef/chef-workstation/pull/1061) ([tas50](https://github.com/tas50)) <!-- 20.4.6 -->
