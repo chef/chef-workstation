@@ -13,8 +13,7 @@ aliases = ["/knife_azure.html", "/knife_azure/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_azure.md)
 
-Knife Azure Overview
-====================
+## Knife Azure Overview
 
 {{% ws_knife_azure %}}
 
@@ -31,16 +30,14 @@ API. Commands starting with `knife azure` use the Azure Service
 Management API. While you can switch between the two command sets, they
 are not designed to work together.
 
-Installation
-------------------------
+### Installation
 
 knife-azure ships in Chef Workstation. Install the latest version of Chef
 Workstation from [Chef Downloads](https://downloads.chef.io/chef-workstation)
 
-Configuration
--------------
+### Configuration
 
-### ASM Mode
+#### ASM Mode
 
 The `knife azure` (ASM mode) subcommand uses a management certificate
 for secure communication with Microsoft Azure. The management
@@ -75,14 +72,13 @@ www.windowsazure.com/en-us/manage/linux/common-tasks/manage-certificates/.
 
 {{< /note >}}
 
-Knife Azure Commands
---------------------
+### Knife Azure Commands
 
-### ag create
+#### ag create
 
 Use the `ag create` argument to create an affinity group.
 
-#### Syntax
+**Syntax**
 
 This argument has the following syntax:
 
@@ -90,7 +86,7 @@ This argument has the following syntax:
 knife azure ag create (options)
 ```
 
-#### Options
+**Options**
 
 This argument has the following options:
 
@@ -131,11 +127,11 @@ This argument has the following options:
 
 :   The SSL certificate used to verify communication over HTTPS.
 
-### ag list
+#### ag list
 
 Use the `ag list` argument to get a list of affinity groups.
 
-#### Syntax
+**Syntax**
 
 This argument has the following syntax:
 
@@ -143,7 +139,7 @@ This argument has the following syntax:
 knife azure ag list (options)
 ```
 
-#### Options
+**Options**
 
 This argument has the following options:
 
@@ -169,13 +165,13 @@ This argument has the following options:
 
 :   The SSL certificate used to verify communication over HTTPS.
 
-### image list
+#### image list
 
 Use the `image list` argument to get a list of images that exist in a
 Microsoft Azure environment. Any image in this list may be used for
 provisioning.
 
-#### Syntax
+**Syntax**
 
 This argument has the following syntax:
 
@@ -183,7 +179,7 @@ This argument has the following syntax:
 knife azure image list (options)
 ```
 
-#### Options
+**Options**
 
 This argument has the following options:
 
@@ -213,12 +209,12 @@ This argument has the following options:
 
 :   The SSL certificate used to verify communication over HTTPS.
 
-### internal lb create
+#### internal lb create
 
 Use the `internal lb create` argument to create a new internal load
 balancer within a cloud service.
 
-#### Syntax
+**Syntax**
 
 This argument has the following syntax:
 
@@ -226,7 +222,7 @@ This argument has the following syntax:
 knife azure internal lb create (options)
 ```
 
-#### Options
+**Options**
 
 This argument has the following options:
 
@@ -358,13 +354,13 @@ This argument has the following options:
 
 :   Point knife commands at local repository instead of server.
 
-### internal lb list
+#### internal lb list
 
 Use the `internal lb create` argument to a list of defined load
 balancers for all cloud services. Does not show public facing load
 balancers.
 
-#### Syntax
+**Syntax**
 
 This argument has the following syntax:
 
@@ -372,7 +368,7 @@ This argument has the following syntax:
 knife azure internal lb create (options)
 ```
 
-#### Options
+**Options**
 
 This argument has the following options:
 
@@ -486,7 +482,7 @@ This argument has the following options:
 
 :   Point knife commands at local repository instead of server.
 
-### server create
+#### server create
 
 Use the `server create` argument to create a new Microsoft Azure cloud
 instance. This will provision a new image in Microsoft Azure, perform a
@@ -494,7 +490,7 @@ bootstrap (using the SSH protocol), and then install Chef Infra Client
 on the target system so that it can be used to configure the node and to
 communicate with a Chef Infra Server.
 
-#### Syntax
+**Syntax**
 
 This argument has the following syntax:
 
@@ -502,7 +498,7 @@ This argument has the following syntax:
 knife azure server create (options)
 ```
 
-#### Options
+**Options**
 
 This argument has the following options:
 
@@ -721,7 +717,7 @@ This argument has the following options:
 :   The size of the virtual machine: `ExtraSmall`, `Small`, `Medium`,
     `Large`, or `ExtraLarge`. Default value: `Small`.
 
-#### Examples
+**Examples**
 
 **Provision an instance using new hosted service and storage accounts**
 
@@ -748,7 +744,7 @@ knife azure server create -r "role[webserver]" --service-location "West US" --ss
   --tcp-endpoints 80:80,8080:8080 --source-image name_of_source_image --role-size Medium
 ```
 
-### server delete
+#### server delete
 
 Use the `server delete` argument to delete one or more instances that
 are running in the Microsoft Azure cloud. To find a specific cloud
@@ -757,7 +753,7 @@ delete all associated node and client objects from the Chef Infra Server
 or use the `knife node delete` and `knife client delete` subcommands to
 delete specific node and client objects.
 
-#### Syntax
+**Syntax**
 
 This argument has the following syntax:
 
@@ -765,7 +761,7 @@ This argument has the following syntax:
 knife azure server delete [SERVER...] (options)
 ```
 
-#### Options
+**Options**
 
 This argument has the following options:
 
@@ -833,7 +829,7 @@ This argument has the following options:
 :   Pause the console until the server has finished processing the
     request.
 
-#### Examples
+**Examples**
 
 **Delete an instance**
 
@@ -843,13 +839,13 @@ To delete an instance named `devops12`, enter:
 knife azure server delete devops12
 ```
 
-### server list
+#### server list
 
 Use the `server list` argument to find instances that are associated
 with a Microsoft Azure account. The results may show instances that are
 not currently managed by the Chef Infra Server.
 
-#### Syntax
+**Syntax**
 
 This argument has the following syntax:
 
@@ -857,7 +853,7 @@ This argument has the following syntax:
 knife azure server list (options)
 ```
 
-#### Options
+**Options**
 
 This argument has the following options:
 
@@ -883,12 +879,12 @@ This argument has the following options:
 
 :   The SSL certificate used to verify communication over HTTPS.
 
-### server show
+#### server show
 
 Use the `server show` argument to show the details for the named server
 (or servers).
 
-#### Syntax
+**Syntax**
 
 This argument has the following syntax:
 
@@ -896,7 +892,7 @@ This argument has the following syntax:
 knife azure server show SERVER [SERVER...] (options)
 ```
 
-#### Options
+**Options**
 
 This argument has the following options:
 
@@ -922,11 +918,11 @@ This argument has the following options:
 
 :   The SSL certificate used to verify communication over HTTPS.
 
-### vnet create
+#### vnet create
 
 Use the `vnet create` argument to create a virtual network.
 
-#### Syntax
+**Syntax**
 
 This argument has the following syntax:
 
@@ -934,7 +930,7 @@ This argument has the following syntax:
 knife azure vnet create (options)
 ```
 
-#### Options
+**Options**
 
 This argument has the following options:
 
@@ -979,11 +975,11 @@ This argument has the following options:
 
 :   The SSL certificate used to verify communication over HTTPS.
 
-### vnet list
+#### vnet list
 
 Use the `vnet list` argument to get a list of virtual networks.
 
-#### Syntax
+**Syntax**
 
 This argument has the following syntax:
 
@@ -991,7 +987,7 @@ This argument has the following syntax:
 knife azure vnet list (options)
 ```
 
-#### Options
+**Options**
 
 This argument has the following options:
 

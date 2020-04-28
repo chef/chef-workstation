@@ -72,8 +72,7 @@ opc user list [plugin_knife_opc-opc-user-list]
 
 Show a list of all users in your Chef Infra Server installation.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -81,8 +80,7 @@ This argument has the following syntax:
 knife opc user list (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -90,8 +88,7 @@ This argument has the following options:
 
 :   Show corresponding URIs.
 
-Example
--------
+### Example
 
 ``` bash
 knife opc user list
@@ -102,13 +99,11 @@ alice: https://chef-server.fqdn/users/alice
 pivotal: https://chef-server.fqdn/users/pivotal
 ```
 
-opc user show [plugin_knife_opc-opc-user-show]
-=============
+## opc user show
 
 Shows the details of a user in your Chef Infra Server installation.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -116,8 +111,7 @@ This argument has the following syntax:
 knife opc user show USER_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -125,8 +119,7 @@ This argument has the following options:
 
 :   Show the organizations of which the user is a member.
 
-Example
--------
+### Example
 
 ``` bash
 knife opc user show alice -l
@@ -150,8 +143,7 @@ opc user create [plugin_knife_opc-opc-user-create]
 Creates a new user in your Chef Infra Server installation. The user's
 private key will be returned in response.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -159,8 +151,7 @@ This argument has the following syntax:
 knife opc user create USER_NAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL PASSWORD (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -168,8 +159,7 @@ This argument has the following options:
 
 :   Write private key to `FILENAME` rather than `STDOUT`.
 
-Example
--------
+### Example
 
 ``` bash
 knife opc user create arno arno schmidt arno@chef.io password
@@ -178,13 +168,11 @@ knife opc user create arno arno schmidt arno@chef.io password
 -----END RSA PRIVATE KEY-----
 ```
 
-opc user delete [plugin_knife_opc-opc-user-delete]
-===============
+## opc user delete
 
 Deletes the given OPC user.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -192,8 +180,7 @@ This argument has the following syntax:
 knife opc user delete USER_NAME [-d] [-R]
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -206,8 +193,7 @@ This argument has the following options:
 :   If the user is a member of any org admin groups, attempt to remove
     from those groups. Ignored if `--no-disassociate-user` is set.
 
-Example
--------
+### Example
 
 ``` bash
 knife opc user delete arno
@@ -216,14 +202,12 @@ Checking organization memberships...
 Deleting user arno.
 ```
 
-opc user edit [plugin_knife_opc-opc-user-edit]
-=============
+## opc user edit
 
 Will open `$EDITOR` to edit a user. When finished editing, knife will
 update the given Chef Infra Server user.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -266,13 +250,11 @@ public_key:   -----BEGIN PUBLIC KEY-----
 username:     arno
 ```
 
-opc user password
-=================
+## opc user password
 
 Command for managing password and authentication for a user.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -284,8 +266,7 @@ The last argument should either be a string to use as password or
 `--enable_external_auth` instead of a password to enable external
 authentication for this user.
 
-Example
--------
+### Example
 
 ``` bash
 knife opc user password arno newpassword
@@ -298,8 +279,7 @@ opc org list [plugin_knife_opc-opc-org-list]
 
 Show a list of all organizations in your Chef Infra Server installation.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -307,8 +287,7 @@ This argument has the following syntax:
 knife opc org list (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -320,8 +299,7 @@ This argument has the following options:
 
 :   Display auto-generated hidden orgs.
 
-Example
--------
+### Example
 
 ``` bash
 knife opc org list -w -a
@@ -334,8 +312,7 @@ opc org show [plugin_knife_opc-opc-org-show]
 Shows the details of an organization in your Chef Infra Server
 installation.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -343,8 +320,7 @@ This argument has the following syntax:
 knife opc org show ORG_NAME
 ```
 
-Example
--------
+### Example
 
 ``` bash
 knife opc org show acme
@@ -359,8 +335,7 @@ opc org create [plugin_knife_opc-opc-org-create]
 Creates a new Chef Infra Server organization. The private key for the
 organization's validator client is returned.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -368,8 +343,7 @@ This argument has the following syntax:
 knife opc org create ORG_NAME ORG_FULL_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -381,8 +355,7 @@ This argument has the following options:
 
 :   Associate `USER_NAME` with the organization after creation.
 
-Example
--------
+### Example
 
 ``` bash
 knife opc org create acme2 "The Other Acme" -a arno
@@ -396,8 +369,7 @@ opc org delete [plugin_knife_opc-opc-org-delete]
 
 Deletes the given Chef Infra Server organization.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -405,8 +377,7 @@ This argument has the following syntax:
 knife opc org delete ORG_NAME
 ```
 
-Example
--------
+### Example
 
 ``` bash
 knife opc org delete acme2
@@ -416,14 +387,12 @@ guid:      2adec1140cf777a15d82d9099304da71
 name:      acme2
 ```
 
-opc org user add [plugin_knife_opc-opc-org-user-add]
-================
+## opc org user add
 
 Adds a user to an organization. Requires that the named organization and
 user both exist.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -431,22 +400,20 @@ This argument has the following syntax:
 knife opc org user add ORG_NAME USER_NAME
 ```
 
-Example
--------
+### Example
 
 ``` bash
 knife opc org user add acme2 alice
 ```
 
-opc org user remove [plugin_knife_opc-opc-org-user-remove]
+opc org user remove
 ===================
 
 Removes a user from an organization. Requires that the named
 organization and user both exist, and that the user is currently
 associated with the organization.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -454,8 +421,7 @@ This argument has the following syntax:
 knife opc org user remove ORG_NAME USER_NAME
 ```
 
-Example
--------
+### Example
 
 ``` bash
 knife opc org user remove acme2 alice

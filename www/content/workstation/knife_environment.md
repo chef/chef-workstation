@@ -23,14 +23,12 @@ aliases = ["/knife_environment.html", "/knife_environment/"]
 
 {{< /note >}}
 
-compare
-=======
+## compare
 
 Use the `compare` argument to compare the cookbook version constraints
 that are set on one (or more) environments.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -38,8 +36,7 @@ This argument has the following syntax:
 knife environment compare [ENVIRONMENT_NAME...] (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -51,8 +48,7 @@ This argument has the following options:
 
 :   Show only matching versions.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -132,8 +128,7 @@ chef_handler    latest    latest
 windows         1.0.0     4.1.2
 ```
 
-create
-======
+## create
 
 Use the `create` argument to add an environment object to the Chef Infra
 Server. When this argument is run, knife will open \$EDITOR to enable
@@ -141,8 +136,7 @@ editing of the `ENVIRONMENT` description field (unless a description is
 specified as part of the command). When finished, knife will add the
 environment to the Chef Infra Server.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -150,8 +144,7 @@ This argument has the following syntax:
 knife environment create ENVIRONMENT_NAME -d --description ENVIRONMENT_DESCRIPTION
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -166,8 +159,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -180,14 +172,12 @@ To create an environment named `dev` with a description of
 knife environment create dev -d --description "The development environment."
 ```
 
-delete
-======
+## delete
 
 Use the `delete` argument to delete an environment from a Chef Infra
 Server.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -195,13 +185,11 @@ This argument has the following syntax:
 knife environment delete ENVIRONMENT_NAME
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -215,16 +203,14 @@ knife environment delete dev
 
 Type `Y` to confirm a deletion.
 
-edit
-====
+## edit
 
 Use the `edit` argument to edit the attributes of an environment. When
 this argument is run, knife will open \$EDITOR to enable editing of
 `ENVIRONMENT` attributes. When finished, knife will update the Chef
 Infra Server with those changes.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -232,13 +218,11 @@ This argument has the following syntax:
 knife environment edit ENVIRONMENT_NAME
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -250,14 +234,12 @@ To edit an environment named `devops`, enter:
 knife environment edit devops
 ```
 
-from file
-=========
+## from file
 
 Use the `from file` argument to add or update an environment using a
 JSON or Ruby DSL description.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -265,8 +247,7 @@ This argument has the following syntax:
 knife environment from file FILE (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -280,8 +261,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -293,14 +273,12 @@ To add an environment using data contained in a JSON file:
 knife environment from file "path to JSON file"
 ```
 
-list
-====
+## list
 
 Use the `list` argument to list all of the environments that are
 currently available on the Chef Infra Server.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -308,8 +286,7 @@ This argument has the following syntax:
 knife environment list -w
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -317,8 +294,7 @@ This argument has the following options:
 
 :   Show the corresponding URIs.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -330,14 +306,12 @@ To view a list of environments:
 knife environment list -w
 ```
 
-show
-====
+## show
 
 Use the `show` argument to display information about the specified
 environment.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -345,8 +319,7 @@ This argument has the following syntax:
 knife environment show ENVIRONMENT_NAME
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -354,8 +327,7 @@ This argument has the following options:
 
 :   The attribute (or attributes) to show.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 

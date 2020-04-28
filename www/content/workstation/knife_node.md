@@ -23,15 +23,13 @@ aliases = ["/knife_node.html", "/knife_node/"]
 
 {{< /note >}}
 
-bulk delete
-===========
+## bulk delete
 
 Use the `bulk delete` argument to delete one or more nodes that match a
 pattern defined by a regular expression. The regular expression must be
 within quotes and not be surrounded by forward slashes (/).
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -39,13 +37,11 @@ This argument has the following syntax:
 knife node bulk delete REGEX
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -60,14 +56,12 @@ knife node bulk delete "^[0-9]{3}$"
 
 Type `Y` to confirm a deletion.
 
-create
-======
+## create
 
 Use the `create` argument to add a node to the Chef Infra Server. Node
 data is stored as JSON on the Chef Infra Server.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -75,13 +69,11 @@ This argument has the following syntax:
 knife node create NODE_NAME
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -117,8 +109,7 @@ In the \$EDITOR enter the node data in JSON:
 
 When finished, save it.
 
-delete
-======
+## delete
 
 Use the `delete` argument to delete a node from the Chef Infra Server.
 If using Chef Client 12.17 or later, you can delete multiple nodes using
@@ -130,8 +121,7 @@ Deleting a node will not delete any corresponding API clients.
 
 {{< /note >}}
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -139,13 +129,11 @@ This argument has the following syntax:
 knife node delete NODE_NAME
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -157,14 +145,12 @@ To delete a node named `node1`, enter:
 knife node delete node1
 ```
 
-edit
-====
+## edit
 
 Use the `edit` argument to edit the details of a node on a Chef Infra
 Server. Node data is stored as JSON on the Chef Infra Server.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -172,8 +158,7 @@ This argument has the following syntax:
 knife node edit NODE_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -182,8 +167,7 @@ This argument has the following options:
 :   Display a node in the \$EDITOR. By default, attributes that are
     default, override, or automatic, are not shown.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -219,14 +203,12 @@ Update the role data in JSON:
 
 When finished, save it.
 
-environment set
-===============
+## environment set
 
 Use the `environment set` argument to set the environment for a node
 without editing the node object.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -234,24 +216,20 @@ This argument has the following syntax:
 knife node environment_set NODE_NAME ENVIRONMENT_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 None.
 
-from file
-=========
+## from file
 
 Use the `from file` argument to create a node using existing node data
 as a template.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -259,13 +237,11 @@ This argument has the following syntax:
 knife node from file FILE
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -277,14 +253,12 @@ To add a node using data contained in a JSON file:
 knife node from file "PATH_TO_JSON_FILE"
 ```
 
-list
-====
+## list
 
 Use the `list` argument to view all of the nodes that exist on a Chef
 Infra Server.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -292,8 +266,7 @@ This argument has the following syntax:
 knife node list (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -307,8 +280,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -328,14 +300,12 @@ i-12345678
 rs-123456
 ```
 
-policy set
-==========
+## policy set
 
 Use the `policy set` argument to set the policy group and policy name
 for a node.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -343,8 +313,7 @@ This argument has the following syntax:
 knife node policy set NODE POLICY_GROUP POLICY_NAME
 ```
 
-Examples
---------
+### Examples
 
 Set the policy group and policy name for a node named `test-node`:
 
@@ -352,8 +321,7 @@ Set the policy group and policy name for a node named `test-node`:
 knife node policy set test-node 'test-group' 'test-name'
 ```
 
-run_list add
-=============
+## run_list add
 
 {{% ws_node_run_list %}}
 
@@ -361,8 +329,7 @@ run_list add
 
 {{% ws_node_run_list_format %}}
 
-Syntax
-------
+### Syntax
 
 {{% ws_knife_node_run_list_add_syntax %}}
 
@@ -378,8 +345,7 @@ Syntax
 
 {{< /note >}}
 
-Options
--------
+### Options
 
 {{% ws_knife_node_run_list_add_options %}}
 
@@ -389,8 +355,7 @@ Options
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -414,18 +379,15 @@ The following examples show how to use this knife subcommand:
 
 {{% ws_knife_node_run_list_add_default_recipe %}}
 
-run_list remove
-================
+## run_list remove
 
 {{% ws_knife_node_run_list_remove %}}
 
-Syntax
-------
+### Syntax
 
 {{% ws_knife_node_run_list_remove_syntax %}}
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
@@ -435,8 +397,7 @@ This command does not have any specific options.
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -448,13 +409,11 @@ The following examples show how to use this knife subcommand:
 
 {{% ws_knife_node_run_list_remove_run_list %}}
 
-run_list set
-=============
+## run_list set
 
 {{% ws_knife_node_run_list_set %}}
 
-Syntax
-------
+### Syntax
 
 {{% ws_knife_node_run_list_set_syntax %}}
 
@@ -470,23 +429,19 @@ Syntax
 
 {{< /note >}}
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 None.
 
-show
-====
+## show
 
 Use the `show` argument to display information about a node.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -494,8 +449,7 @@ This argument has the following syntax:
 knife node show NODE_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -519,8 +473,7 @@ This argument has the following options:
 
 :   Show only the run-list.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 

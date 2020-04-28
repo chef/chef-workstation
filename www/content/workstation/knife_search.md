@@ -17,8 +17,7 @@ aliases = ["/knife_search.html", "/knife_search/"]
 
 {{% ws_knife_search_summary %}}
 
-Syntax
-======
+## Syntax
 
 This subcommand has the following syntax:
 
@@ -72,13 +71,11 @@ or:
 knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
 ```
 
-Query Syntax
-------------
+### Query Syntax
 
 {{% ws_search_query_syntax %}}
 
-Keys
-----
+### Keys
 
 {{% ws_search_key %}}
 
@@ -87,11 +84,11 @@ To search for the available fields for a particular object, use the
 `knife client`, `knife data bag`, `knife environment`, `knife node`, or
 `knife role`. For example: `knife data bag show`.
 
-### Nested Fields
+#### Nested Fields
 
 {{% ws_search_key_nested %}}
 
-### Examples
+#### Examples
 
 {{% ws_search_key_name %}}
 
@@ -103,12 +100,11 @@ To search for the available fields for a particular object, use the
 
 {{% ws_search_key_nested_range %}}
 
-About Patterns
---------------
+### About Patterns
 
 {{% ws_search_pattern %}}
 
-### Exact Matching
+#### Exact Matching
 
 {{% ws_search_pattern_exact %}}
 
@@ -116,7 +112,7 @@ About Patterns
 
 {{% ws_search_pattern_exact_key_and_item_string %}}
 
-### Wildcard Matching
+#### Wildcard Matching
 
 {{% ws_search_pattern_wildcard %}}
 
@@ -124,7 +120,7 @@ About Patterns
 
 {{% ws_search_pattern_wildcard_node_contains %}}
 
-### Range Matching
+#### Range Matching
 
 {{% ws_search_pattern_range %}}
 
@@ -132,38 +128,35 @@ About Patterns
 
 {{% ws_search_pattern_range_exclusive %}}
 
-### Fuzzy Matching
+#### Fuzzy Matching
 
 {{% ws_search_pattern_fuzzy %}}
 
 {{% ws_search_pattern_fuzzy_summary %}}
 
-About Operators
----------------
+### About Operators
 
 {{% ws_search_boolean_operators %}}
 
 {{% ws_search_boolean_operators_andnot %}}
 
-### AND
+#### AND
 
 {{% ws_search_boolean_and %}}
 
-### NOT
+#### NOT
 
 {{% ws_search_boolean_not %}}
 
-### OR
+#### OR
 
 {{% ws_search_boolean_or %}}
 
-Special Characters
-------------------
+### Special Characters
 
 {{% ws_search_special_characters %}}
 
-Options
-=======
+## Options
 
 {{< note >}}
 
@@ -223,8 +216,7 @@ This subcommand has the following options:
 :   The search query used to identify a list of items on a Chef Infra
     Server. This option uses the same syntax as the `search` subcommand.
 
-Examples
-========
+## Examples
 
 The following examples show how to use this knife subcommand:
 

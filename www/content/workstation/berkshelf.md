@@ -31,8 +31,7 @@ then to production.
 
 {{< /note >}}
 
-Quick Start
-===========
+## Quick Start
 
 Run `chef generate cookbook -b` or `--berks` to create a Berksfile in
 the root of the cookbook. The Berksfile will be placed alongside the
@@ -82,14 +81,12 @@ Uploaded compat_resource (12.16.2) to: 'https://api.chef.io:443/organizations/ex
 Uploaded my_first_cookbook (0.1.0) to: 'https://api.chef.io:443/organizations/example'
 ```
 
-The Berksfile
-=============
+## The Berksfile
 
 A Berksfile describes the set of sources and dependencies needed to use
 a cookbook. It is used in conjunction with the `berks` command.
 
-Syntax
-------
+### Syntax
 
 A Berksfile is a Ruby file, in which sources, dependencies, and options
 may be specified. Berksfiles are modeled closely on Bundler's Gemfile.
@@ -101,7 +98,7 @@ metadata
 cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]
 ```
 
-### Source Keyword
+#### Source Keyword
 
 A source defines where Berkshelf should look for cookbooks. Sources are
 processed in the order that they are defined in, and processing stops as
@@ -158,14 +155,14 @@ source artifactory: "https://artifactory.example.com/api/chef/nameofrepo", api_k
 If the `api_key` option is not given, it will use the value of the
 `$ARTIFACTORY_API_KEY` environment variable by default.
 
-### Metadata Keyword
+#### Metadata Keyword
 
 The `metadata` keyword causes Berkshelf to process the local cookbook
 metadata. This ensures that the dependencies of the cookbook are
 resolved by Berkshelf. Using the `metadata` keyword requires that the
 Berksfile be placed in the root of the cookbook, next to `metadata.rb`.
 
-### Cookbook Keyword
+#### Cookbook Keyword
 
 The `cookbook` keyword allows the user to define where a cookbook is
 installed from, or to set additional version constraints. It can also be
@@ -254,7 +251,7 @@ cookbook "library-cookbook", "~> 0.1.1", github: "example/library-cookbook"
 
 Any other git options are valid for a GitHub location.
 
-### Groups
+#### Groups
 
 Adding cookbooks to a group is useful should you wish to exclude certain
 cookbooks from upload or vendoring.
@@ -279,7 +276,7 @@ To exclude a group when using `berks`, use the `--except` flag:
 berks install --except test
 ```
 
-### Solver Keyword
+#### Solver Keyword
 
 It is possible to configure which engine to use for the
 [solve](https://github.com/berkshelf/solve) dependency resolution
@@ -305,13 +302,11 @@ when Berkshelf times out when trying to build a dependency set.
 solver :ruby
 ```
 
-Berkshelf CLI
-=============
+## Berkshelf CLI
 
 The Berkshelf CLI is the interface to Berkshelf.
 
-Common Options
---------------
+### Common Options
 
 `-c PATH`, `--config PATH`
 
@@ -330,13 +325,12 @@ Common Options
 
 :   Use to silence all informational output. Default value: `false`.
 
-berks apply
------------
+### berks apply
 
 Use `berks apply` to apply Berksfile version locks to the named
 environment on the Chef Infra Server.
 
-### Syntax
+#### Syntax
 
 This subcommand has the following syntax:
 
@@ -344,7 +338,7 @@ This subcommand has the following syntax:
 berks apply ENVIRONMENT (options)
 ```
 
-### Options
+#### Options
 
 This command has the following options:
 
@@ -363,13 +357,12 @@ This command has the following options:
 :   Use to enable (`true`) or disable (`false`) SSL verification when
     applying Berksfile version locks to an environment.
 
-berks contingent
-----------------
+### berks contingent
 
 Use `berks contingent` to list all cookbooks in a Berksfile that depend
 on the named cookbook.
 
-### Syntax
+#### Syntax
 
 This subcommand has the following syntax:
 
@@ -377,7 +370,7 @@ This subcommand has the following syntax:
 berks contingent COOKBOOK (options)
 ```
 
-### Options
+#### Options
 
 This command has the following options:
 
@@ -385,8 +378,7 @@ This command has the following options:
 
 :   The path to the Berksfile in which the cookbook is located.
 
-berks cookbook
---------------
+### berks cookbook
 
 Use `berks cookbook` to create a skeleton for a new cookbook.
 
@@ -396,13 +388,12 @@ This command is deprecated. Please use `chef generate cookbook` instead.
 
 {{< /warning >}}
 
-berks info
-----------
+### berks info
 
 Use `berks info` to display the name, author, copyright, and dependency
 information for the named cookbook.
 
-### Syntax
+#### Syntax
 
 This subcommand has the following syntax:
 
@@ -410,7 +401,7 @@ This subcommand has the following syntax:
 berks info COOKBOOK (options)
 ```
 
-### Options
+#### Options
 
 This command has the following options:
 
@@ -418,8 +409,7 @@ This command has the following options:
 
 :   The path to the Berksfile in which the cookbook is located.
 
-berks init
-----------
+### berks init
 
 Use `berks init` to initialize Berkshelf to the specified directory.
 
@@ -429,13 +419,12 @@ This command is deprecated. Please use `chef generate cookbook` instead.
 
 {{< /warning >}}
 
-berks install
--------------
+### berks install
 
 Use `berks install` to install cookbooks into the cache. This command
 generates the Berkshelf lock file that ensures consistency.
 
-### Syntax
+#### Syntax
 
 This subcommand has the following syntax:
 
@@ -443,7 +432,7 @@ This subcommand has the following syntax:
 berks install (options)
 ```
 
-### Options
+#### Options
 
 This command has the following options:
 
@@ -460,12 +449,11 @@ This command has the following options:
 :   An array of cookbook groups to be listed. When this option is used,
     cookbooks that exist in groups not listed will not be listed.
 
-berks list
-----------
+### berks list
 
 Use `berks list` to list cookbooks and their dependencies.
 
-### Syntax
+#### Syntax
 
 This subcommand has the following syntax:
 
@@ -473,7 +461,7 @@ This subcommand has the following syntax:
 berks list (options)
 ```
 
-### Options
+#### Options
 
 This command has the following options:
 
@@ -490,14 +478,13 @@ This command has the following options:
 :   An array of cookbook groups to be listed. When this option is used,
     cookbooks that exist in groups not listed will not be listed.
 
-berks outdated
---------------
+### berks outdated
 
 Use `berks outdated` to list dependencies for the named cookbook, and
 then check if there are new versions available for version constraints
 that may exist.
 
-### Syntax
+#### Syntax
 
 This subcommand has the following syntax:
 
@@ -505,7 +492,7 @@ This subcommand has the following syntax:
 berks outdated COOKBOOK (options)
 ```
 
-### Options
+#### Options
 
 This command has the following options:
 
@@ -524,13 +511,12 @@ This command has the following options:
     When this option is used, cookbooks that exist in groups not listed
     will not be checked for version constraints.
 
-berks package
--------------
+### berks package
 
 Use `berks package` to vendor, and then archive the dependencies of a
 Berksfile.
 
-### Syntax
+#### Syntax
 
 This subcommand has the following syntax:
 
@@ -538,7 +524,7 @@ This subcommand has the following syntax:
 berks package PATH (options)
 ```
 
-### Options
+#### Options
 
 This command has the following options:
 
@@ -557,13 +543,12 @@ This command has the following options:
     this option is used, cookbooks that exist in groups not listed will
     not be vendored or archived.
 
-berks search
-------------
+### berks search
 
 Use `berks search` to search the remote source for cookbooks that match
 the search query. The query itself will match partial cookbook names.
 
-### Syntax
+#### Syntax
 
 This subcommand has the following syntax:
 
@@ -571,7 +556,7 @@ This subcommand has the following syntax:
 berks search QUERY (options)
 ```
 
-### Options
+#### Options
 
 This command has the following options:
 
@@ -580,12 +565,11 @@ This command has the following options:
 :   The URL at which remote cookbooks are located. Default value:
     `https://supermarket.chef.io`.
 
-berks show
-----------
+### berks show
 
 Use `berks show` to show the path to the named cookbook.
 
-### Syntax
+#### Syntax
 
 This subcommand has the following syntax:
 
@@ -593,7 +577,7 @@ This subcommand has the following syntax:
 berks show COOKBOOK (options)
 ```
 
-### Options
+#### Options
 
 This command has the following options:
 
@@ -601,13 +585,12 @@ This command has the following options:
 
 :   The path to the Berksfile in which the named cookbook is defined.
 
-berks update
-------------
+### berks update
 
 Use `berks update` to update the named cookbook or cookbooks (and any
 dependencies).
 
-### Syntax
+#### Syntax
 
 This subcommand has the following syntax:
 
@@ -615,7 +598,7 @@ This subcommand has the following syntax:
 berks update COOKBOOK (options)
 ```
 
-### Options
+#### Options
 
 This command has the following options:
 
@@ -632,13 +615,12 @@ This command has the following options:
 :   An array of cookbook groups to be updated. When this option is used,
     cookbooks that exist in groups not listed will not be updated.
 
-berks upload
-------------
+### berks upload
 
 Use `berks upload` to upload the named cookbook to the Chef Infra
 Server.
 
-### Syntax
+#### Syntax
 
 This subcommand has the following syntax:
 
@@ -646,7 +628,7 @@ This subcommand has the following syntax:
 berks upload COOKBOOK (options)
 ```
 
-### Options
+#### Options
 
 This command has the following options:
 
@@ -690,13 +672,12 @@ This command has the following options:
 :   Use to skip Ruby syntax checking when uploading a cookbook to the
     Chef Infra Server. Default value: `false`.
 
-berks vendor
-------------
+### berks vendor
 
 Use `berks vendor` to vendor groups of cookbooks (as specified by group
 name) into a directory.
 
-### Syntax
+#### Syntax
 
 This subcommand has the following syntax:
 
@@ -704,7 +685,7 @@ This subcommand has the following syntax:
 berks vendor PATH (options)
 ```
 
-### Options
+#### Options
 
 This command has the following options:
 
@@ -727,13 +708,12 @@ This command has the following options:
     used, cookbooks that exist in groups not listed will not be
     vendored.
 
-berks verify
-------------
+### berks verify
 
 Use `berks verify` to perform a validation of the contents of resolved
 cookbooks.
 
-### Syntax
+#### Syntax
 
 This subcommand has the following syntax:
 
@@ -741,7 +721,7 @@ This subcommand has the following syntax:
 berks verify (options)
 ```
 
-### Options
+#### Options
 
 This command has the following options:
 
@@ -750,17 +730,15 @@ This command has the following options:
 :   The path to the Berksfile from which resolved cookbooks are
     validated.
 
-berks version
--------------
+### berks version
 
 Use `berks version` to display the version of Berkshelf.
 
-berks viz
----------
+### berks viz
 
 Use `berks viz` to generate a dependency graph image file.
 
-### Syntax
+#### Syntax
 
 This subcommand has the following syntax:
 
@@ -768,7 +746,7 @@ This subcommand has the following syntax:
 berks viz (options)
 ```
 
-### Options
+#### Options
 
 This command has the following options:
 
