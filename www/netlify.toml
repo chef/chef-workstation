@@ -11,12 +11,9 @@
   skip_processing = true
 
 [context.deploy-preview]
-  publish = "chef-web-docs/public"
+  publish = "www/chef-web-docs/public"
   command = "make preview_netlify"
 
 [context.production]
-  publish = "netlify_production"
+  publish = "www/netlify_production"
   command = ""
-
-[build.processing]
-  skip_processing = true
