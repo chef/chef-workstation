@@ -17,6 +17,3 @@
 [context.production]
   publish = "netlify_production"
   command = ""
-
-[build.processing]
-  skip_processing = true
