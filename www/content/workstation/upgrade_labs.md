@@ -1,12 +1,8 @@
-# Upgrading a Node to Effortless
+# Upgrading a Node From Chef Infra 12 to 16
 
 ## Overview
 
-This document generally documents the most straightforward pattern of an upgrade from an attribute-based cookbook usage pattern to Policyfiles, then to Effortless. It is not meant to exclude other approaches.  Primarily, it is meant to discover where pain points exist, and where new tooling may be added to ease that pain.
-
-This is a descriptive document of the current process, not an aspirational document.
-
-End goal: have an Habitat package that contains Chef Infra, the node's policyfile, cookbooks, data bags, and attributes; install that package on the node with the chef effortless scaffolding.
+This document generally documents the most straightforward pattern of an upgrade from Chef Infra Client 12 to CHef Infra Client 16, potentially along with Chef Server upgrades as well. It is not meant to exclude other approaches.
 
 All commands are run locally on your development workstation unless noted otherwise.
 
@@ -14,9 +10,6 @@ All commands are run locally on your development workstation unless noted otherw
 
 ### Chef Workstation
 To install Chef Workstation, visit https://downloads.chef.io/chef-workstation and download the package for your local operating system. Install the package.
-
-### Chef Habitat
-To install the Chef Habitat CLI tool, visit https://www.habitat.sh/docs/install-habitat/ and follow the instructions for your operating system.
 
 ## Configuration
 ### Chef Client Configuration
@@ -29,13 +22,6 @@ cookbook_path ["./cookbooks"]
 
 ### Feature Flag Configuration
 Enable Chef Analyze by clicking on the Chef Workstation tray icon, then selecting Preferences. Click the Advanced Tab and check the "chef analyze" box.
-
-### Habitat Setup
-First, setup your builder token and origin using [these instructions](https://www.habitat.sh/docs/using-builder/#builder-token). Then, setup your hab CLI:
-
-```
-$ hab cli setup
-```
 
 ## Identify a Node
 ### Using chef analyze report nodes
@@ -317,94 +303,3 @@ Check your cookbook code for Chef Infra Server searches, which will not be possi
 $ grep 'search(' -rn cookbooks
 ```
 
-## Make a Plan File
-Run:
-```
-$ hab plan init
-```
-Edit the file, `habitat/plan.sh`, (or `plan.ps1`) with the following contents:
-```
-pkg_name=<NAME FOR YOUR POLICYFILE>
-pkg_origin=<YOUR ORIGIN>
-pkg_version="0.1.0"
-pkg_maintainer="YOUR NAME AND EMAIL"
-pkg_license=("Apache-2.0")
-pkg_scaffolding="chef/scaffolding-chef-infra"
-pkg_svc_user=("root")
-scaffold_policy_name="<YOUR POLICYFILE NAME>"
-```
-
-## Update default.toml configuration
-The Effortless package will consume the data content held within habitat/default.toml for runtime options of the Chef Infra client.  While most configurations within this file are optional, `[chef_license]\acceptance` is required to be present for operation.
-
-```
-# You must accept the Chef License to use this software: https://www.chef.io/end-user-license-agreement/
-# Change [chef_license] from acceptance = "undefined" to acceptance = "accept-no-persist" if you agree to the license.
-
-[chef_license]
-acceptance = "undefined"
-
-#######################################
-# Optional settings
-#######################################
-
-# You don't usually need to change these.
-# This project provides highly tuned defaults for you.
-# If you don't have a strong reason for overriding these
-# Then it's a good idea to remove them.
-interval = 1800
-splay = 1800
-splay_first_run = 0
-run_lock_timeout = 1800
-log_level = "warn"
-env_path_prefix = "/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin"
-ssl_verify_mode = ":verify_peer"
-
-[automate]
-enable = false
-server_url = "https://<automate_url>/data-collector/v0/"
-token = "<automate_token>"
-# The connection information for your Chef Automate server
-# Setting enable = false will turn off this feature
-# The server_url is the url to your Chef Automate Server
-# The token is a token with the data_collector rights to the Chef Automate API
-# Default value: false
-
-#######################################
-# End of optional settings
-#######################################
-```
-
-## Build the Package
-Before you build, make sure you have a tree that looks like:
-```
-$ tree
-├── cookbooks
-│   ├── some-cookbook/
-│   └── another-cookbook/
-├── habitat
-│   ├── default.toml
-│   └── plan.sh
-├── policyfiles
-│ └── my-policy.rb
-└── .kitchen.yml
-```
-
-Run
-```
-$ hab pkg build habitat
-```
-
-A file ending in .hart should now exist in results/ .
-
-## Deploy the Package to the Target Machine
-Publish the .hart file to Builder by running on your development workstation:
-```
-$ . results\last_build.env (or ps1)
-$ hab pkg upload $pkg_artifact --channel mychannel
-```
-Infra clients can now pull down the latest file using:
-```
-$ hab pkg install my-origin/my-policy
-$ hab svc load my-origin/my-policy
-```
