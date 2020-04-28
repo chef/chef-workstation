@@ -389,7 +389,7 @@ GEM
       http-cookie (~> 1.0.0)
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
-    fauxhai-ng (7.6.0)
+    fauxhai-ng (8.0.0)
       net-ssh
     ffi (1.12.2)
     ffi (1.12.2-x64-mingw32)
@@ -1058,7 +1058,7 @@ DEPENDENCIES
   dep_selector
   docker-api
   ed25519
-  fauxhai-ng (~> 7.5)
+  fauxhai-ng (~> 8)
   ffi-libarchive
   ffi-rzmq-core
   foodcritic (>= 16.2)
