@@ -770,7 +770,7 @@ provisioner:
 ```
 
 **One note on Linux nodes**: The shutdown command blocks (as opposed to
-the windows variant which registers the reboot and returns right away),
+the Windows variant which registers the reboot and returns right away),
 so once the timeout period passes, Chef Infra Client and the node are in
 a race to see who can exit/shutdown first - so you may or may not get
 the exit code out of Linux instances. In that case, you can add `1` to
