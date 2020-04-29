@@ -20,16 +20,14 @@ organization. This is done initially during the workstation setup, but
 subsequent modifications can be made using the config.rb configuration
 file.
 
-config.rb Configuration File
-============================
+## config.rb Configuration File
 
 Knife is configured using a config.rb configuration, which contains
 configuration for both the knife command line tool as well as any
 installed knife plugins. See [config.rb](/workstation/config_rb/) for a complete
 list of configuration options in the config.rb file.
 
-Load Path Priority
-------------------
+### Load Path Priority
 
 The config.rb file is loaded every time the knife command is invoked
 using the following load order:
@@ -55,20 +53,17 @@ this path needs to be scripted, use `%USERPROFILE%\chef-repo\.chef`.
 
 {{< /note >}}
 
-config.rb Configuration Within a Chef Repository
-------------------------------------------------
+### config.rb Configuration Within a Chef Repository
 
 {{% ws_chef_repo_many_users_same_knife %}}
 
-Generating a config.rb File
-===========================
+## Generating a config.rb File
 
 The knife command <span class="title-ref">knife configure</span> can be
 used to generate your initial config.rb configuration file in your home
 directory. See [knife configure](/workstation/knife_configure/) for details.
 
-Knife Profiles
-==============
+## Knife Profiles
 
 **Profile Support since Chef 13.7**
 
@@ -149,8 +144,7 @@ priority order:
 3.  Write the profile name to the `~/.chef/context` file.
 4.  Otherwise, knife will use the 'default' profile.
 
-Knife Config
-============
+## Knife Config
 
 **knife config support since Chef 14.4**
 
@@ -160,8 +154,7 @@ You can list your profiles using the `knife config list-profiles`
 command, for example:
 
 ``` bash
-Profile              Client   Key                          Server
-----------------------------------------------------------------------------------------------------------------
+## Profile              Client   Key                          Server
  default             barney   ~/.chef/barney_rubble.pem    https://api.chef.io/organizations/bedrock
  dev                 admin    ~/.chef/admin.pem            https://api.chef-server.dev/organizations/test
  web.preprod         brubble  ~/.chef/preprod-brubble.pem  https://preprod.chef-server.dev/organizations/preprod
@@ -187,8 +180,7 @@ Loading from credentials file /home/barney/.chef/credentials
 chef_server_url: https://api.chef-server.dev/organizations/test
 ```
 
-Setting Your Text Editor
-========================
+## Setting Your Text Editor
 
 Some knife commands, such as `knife data bag edit`, require that
 information be edited as JSON data using a text editor. For example, the
@@ -267,8 +259,7 @@ and for vim:
 knife[:editor] = '"C:\Program Files (x86)\vim\vim74\gvim.exe"'
 ```
 
-Using Quotes
-------------
+### Using Quotes
 
 The text editor command cannot include spaces that are not properly
 wrapped in quotes. The command can be entered with double quotes (" ")

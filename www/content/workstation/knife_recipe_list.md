@@ -15,8 +15,7 @@ aliases = ["/knife_recipe_list.html", "/knife_recipe_list/"]
 
 {{% ws_knife_recipe_list_summary %}}
 
-Syntax
-======
+## Syntax
 
 This subcommand has the following syntax:
 
@@ -24,8 +23,7 @@ This subcommand has the following syntax:
 knife recipe list REGEX
 ```
 
-Options
-=======
+## Options
 
 {{< note >}}
 
@@ -35,8 +33,7 @@ Options
 
 This command does not have any specific options.
 
-Examples
-========
+## Examples
 
 The following examples show how to use this knife subcommand:
 

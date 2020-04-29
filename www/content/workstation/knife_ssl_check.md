@@ -15,8 +15,7 @@ aliases = ["/knife_ssl_check.html", "/knife_ssl_check/"]
 
 {{% ws_knife_ssl_check_summary %}}
 
-Syntax
-======
+## Syntax
 
 This subcommand has the following syntax:
 
@@ -24,8 +23,7 @@ This subcommand has the following syntax:
 knife ssl check (options)
 ```
 
-Options
-=======
+## Options
 
 This subcommand has the following options:
 
@@ -35,8 +33,7 @@ This subcommand has the following options:
     located. Default value: the URL for the Chef Infra Server, as
     defined in the config.rb file.
 
-Examples
-========
+## Examples
 
 The following examples show how to use this knife subcommand:
 

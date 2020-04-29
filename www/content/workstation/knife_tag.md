@@ -23,13 +23,11 @@ aliases = ["/knife_tag.html", "/knife_tag/"]
 
 {{< /note >}}
 
-create
-======
+## create
 
 Use the `create` argument to add one or more tags to a node.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -37,13 +35,11 @@ This argument has the following syntax:
 knife tag create NODE_NAME [TAG...]
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -55,13 +51,11 @@ To create tags named `seattle`, `portland`, and `vancouver`, enter:
 knife tag create node seattle portland vancouver
 ```
 
-delete
-======
+## delete
 
 Use the `delete` argument to delete one or more tags from a node.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -69,13 +63,11 @@ This argument has the following syntax:
 knife tag delete NODE_NAME [TAG...]
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -89,14 +81,12 @@ knife tag delete node denver phoenix
 
 Type `Y` to confirm a deletion.
 
-list
-====
+## list
 
 Use the `list` argument to list all of the tags that have been applied
 to a node.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -104,13 +94,11 @@ This argument has the following syntax:
 knife tag list [NODE_NAME...]
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 

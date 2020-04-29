@@ -30,8 +30,7 @@ Chef Workstation includes:
 -   Everything else needed to author cookbooks and upload them to the
     Chef Infra Server
 
-Supported Platforms
-===================
+## Supported Platforms
 
 Supported Host Operating Systems:
 
@@ -70,8 +69,7 @@ Supported Host Operating Systems:
 </tbody>
 </table>
 
-System Requirements
-===================
+## System Requirements
 
 Minimum system requirements:
 
@@ -86,8 +84,7 @@ Recommended system requirements:
 -   RAM: 4GB
 -   Disk 8GB
 
-Chef Workstation App Requirements
----------------------------------
+### Chef Workstation App Requirements
 
 -   Windows: No additional requirements
 -   Mac: No additional requirements
@@ -99,8 +96,7 @@ Chef Workstation App Requirements
         any, additional libraries are required to run the Chef
         Workstation App.
 
-Installation
-============
+## Installation
 
 The Chef Workstation installer must run as a privileged user.
 
@@ -109,8 +105,7 @@ and `C:\opscode\chef-workstation\` on Windows. These file locations
 should help avoid interference between these components and other
 applications that may be running on the target machine.
 
-macOS
------
+### macOS
 
 1.  Dependency: Xcode is recommended for running Chef Workstation on
     macOS. While Chef Workstation works without Xcode, it is required
@@ -122,8 +117,7 @@ macOS
     **Download** button.
 3.  Follow the steps to accept the license and install Chef Workstation.
 
-Windows
--------
+### Windows
 
 1.  Visit the [Chef Workstation downloads
     page](https://downloads.chef.io/chef-workstation#windows) and select
@@ -135,16 +129,15 @@ Windows
 3.  **Optional:** Set the default shell. On Microsoft Windows it is
     strongly recommended to use Windows PowerShell instead of `cmd.exe`.
 
-### Spaces and Directories
+#### Spaces and Directories
 
 {{% ws_windows_spaces_and_directories %}}
 
-### Top-level Directory Names
+#### Top-level Directory Names
 
 {{% ws_windows_top_level_directory_names %}}
 
-Linux
------
+### Linux
 
 1.  Visit the [Chef Workstation downloads
     page](https://downloads.chef.io/chef-workstation) and download the
@@ -168,8 +161,7 @@ Linux
         dpkg -i chefworkstation_0.14.16-1_amd64.deb
         ```
 
-Verify the Installation
-=======================
+## Verify the Installation
 
 To verify the installation, run:
 
@@ -188,18 +180,15 @@ Test Kitchen version: 2.3.4
 Cookstyle version: 5.21.9
 ```
 
-Upgrading
-=========
+## Upgrading
 
-From Chef Workstation
----------------------
+### From Chef Workstation
 
 For all platforms, follow the steps provided under [Installing]({{< ref "install_workstation.md" >}}).
 
-From ChefDK
------------
+### From ChefDK
 
-### Linux
+#### Linux
 
 The Chef Workstation package conflicts with an installed ChefDK package to prevent
 unintentional upgrades.
@@ -218,25 +207,21 @@ Red Hat, CentOS, and related:
 sudo rpm -e chefdk
 ```
 
-### Other
+#### Other
 
 For other platforms, follow the steps provided under [Installing]({{< ref "#installing" >}}).
 
-Uninstalling
-============
+## Uninstalling
 
-Mac
----
+### Mac
 
 Run ```uninstall_chef_workstation``` in your terminal.
 
-Windows
--------
+### Windows
 
 Use **Add / Remove Programs** to remove Chef Workstation.
 
-Linux
------
+### Linux
 
 Ubuntu, Debian, and related:
 
@@ -250,8 +235,7 @@ Red Hat, CentOS, and related:
 sudo rpm -e chef-workstation
 ```
 
-Next Steps
-==========
+## Next Steps
 
 Now that you've installed Chef Workstation, proceed to the
 [Getting Started](/workstation/getting_started/) guide to

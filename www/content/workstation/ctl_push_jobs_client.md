@@ -18,8 +18,7 @@ aliases = ["/ctl_push_jobs_client.html", "/ctl_push_jobs_client/"]
 
 {{% ws_ctl_push_jobs_client_summary %}}
 
-Options
-=======
+## Options
 
 This command has the following syntax:
 
@@ -71,7 +70,6 @@ This command has the following options:
 
 :   The version of Chef Push Jobs.
 
-Examples
-========
+## Examples
 
 None.

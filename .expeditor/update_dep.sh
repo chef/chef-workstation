@@ -22,7 +22,7 @@ git checkout -b "$branch"
 sleep 120
 
 # attempt to install the gem first which seems to help bundler cache
-gem install $EXPEDITOR_GEM_NAME
+gem install $EXPEDITOR_GEM_NAME --no-document
 
 pushd components/gems
 bundle _1.17.3_ install

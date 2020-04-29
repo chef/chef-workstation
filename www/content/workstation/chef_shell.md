@@ -18,13 +18,11 @@ aliases = ["/chef_shell.html", "/chef_shell/"]
 
 The chef-shell executable is run as a command-line tool.
 
-Modes
-=====
+## Modes
 
 {{% ws_chef_shell_modes %}}
 
-Options
-=======
+## Options
 
 This command has the following syntax:
 
@@ -98,57 +96,46 @@ This command has the following options:
 
 :   Run chef-shell in Chef Infra Client mode.
 
-Configure
-=========
+## Configure
 
 {{% ws_chef_shell_config %}}
 
-chef-shell.rb
--------------
+### chef-shell.rb
 
 {{% ws_chef_shell_config_rb %}}
 
-Run as a Chef Infra Client
---------------------------
+### Run as a Chef Infra Client
 
 {{% ws_chef_shell_run_as_chef_client %}}
 
-Debugging Cookbooks
-===================
+## Debugging Cookbooks
 
 {{% ws_chef_shell_breakpoints %}}
 
-Step Through Run-list
----------------------
+### Step Through Run-list
 
 {{% ws_chef_shell_step_through_run_list %}}
 
-Debug Existing Recipe
----------------------
+### Debug Existing Recipe
 
 {{< readFile_shortcode file="ws_chef_shell_debug_existing_recipe.md" >}}
 
-Advanced Debugging
-------------------
+### Advanced Debugging
 
 {{< readFile_shortcode file="ws_chef_shell_advanced_debug.md" >}}
 
-Manipulating Chef Infra Server Data
-===================================
+## Manipulating Chef Infra Server Data
 
 {{% ws_chef_shell_manage %}}
 
-Examples
-========
+## Examples
 
 The following examples show how to use chef-shell.
 
-"Hello World"
--------------
+### "Hello World"
 
 {{< readFile_shortcode file="ws_chef_shell_example_hello_world.md" >}}
 
-Get Specific Nodes
-------------------
+### Get Specific Nodes
 
 {{% ws_chef_shell_example_get_specific_nodes %}}

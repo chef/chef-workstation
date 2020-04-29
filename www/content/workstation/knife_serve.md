@@ -15,8 +15,7 @@ aliases = ["/knife_serve.html", "/knife_serve/"]
 
 {{% ws_knife_serve_summary %}}
 
-Syntax
-======
+## Syntax
 
 This subcommand has the following syntax:
 
@@ -24,8 +23,7 @@ This subcommand has the following syntax:
 knife serve (options)
 ```
 
-Options
-=======
+## Options
 
 {{< note >}}
 
@@ -58,7 +56,6 @@ This subcommand has the following options:
     `hosted_everything` (for ACLs, groups). Default value:
     `everything/hosted_everything`.
 
-Examples
-========
+## Examples
 
 None.

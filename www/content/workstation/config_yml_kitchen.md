@@ -36,13 +36,11 @@ about Kitchen.
 
 {{< /note >}}
 
-Syntax
-======
+## Syntax
 
 {{% ws_test_kitchen_yml_syntax %}}
 
-Provisioner Settings
-====================
+## Provisioner Settings
 
 Test Kitchen's provisioner settings will be changing in a future
 version. See [Chef RFC
@@ -219,8 +217,7 @@ Chef-specific settings:
 These settings may be added to the `provisioner` section of the
 kitchen.yml file when the provisioner is chef-zero or chef-solo.
 
-New Provisioner Settings
-------------------------
+### New Provisioner Settings
 
 <table>
 <colgroup>
@@ -303,8 +300,7 @@ There are two community provisioners for Kitchen:
 
 {{< /note >}}
 
-Transport Settings
-==================
+## Transport Settings
 
 Kitchen can configure a transport with the following settings for either
 `ssh` or `winrm` transports:
@@ -432,13 +428,11 @@ kitchen.yml file when the transport is WinRM:
 </tbody>
 </table>
 
-Work with Proxies
------------------
+### Work with Proxies
 
 {{< readFile_shortcode file="ws_test_kitchen_yml_syntax_proxy.md" >}}
 
-Chef Infra Client Settings
-==========================
+## Chef Infra Client Settings
 
 A kitchen.yml file may define Chef Infra Client-specific settings, such
 as whether to require the Chef installer or the URL from which Chef
@@ -484,8 +478,7 @@ where:
 -   All of the `attributes` for the `config` test suite contain specific
     client.rb settings for use with this test suite
 
-Driver Settings
-===============
+## Driver Settings
 
 Driver-specific configuration settings may be required. Use a block
 similar to:
@@ -498,18 +491,15 @@ driver:
 
 Specific `optional_settings: values` may be specified.
 
-Bento
------
+### Bento
 
 {{% ws_bento %}}
 
-Drivers
--------
+### Drivers
 
 {{% ws_test_kitchen_drivers %}}
 
-kitchen-vagrant
----------------
+### kitchen-vagrant
 
 {{% ws_test_kitchen_driver_vagrant %}}
 
@@ -517,14 +507,12 @@ kitchen-vagrant
 
 {{% ws_test_kitchen_driver_vagrant_config %}}
 
-Examples
-========
+## Examples
 
 The following examples show actual kitchen.yml files used in
 Chef-maintained cookbooks.
 
-Chef, Chef Workstation
-----------------------
+### Chef, Chef Workstation
 
 The following example shows the provisioner settings needed to install
 Chef Workstation, and then use the version of Chef that is embedded in
@@ -549,14 +537,12 @@ provisioner:
   require_chef_omnibus: 0.9
 ```
 
-Microsoft Windows Platform
---------------------------
+### Microsoft Windows Platform
 
 The following example shows platform settings for the Microsoft Windows
 platform:
 
-``` yaml
----
+### ``` yaml
 
 platforms:
   - name: eval-win2012r2-standard
@@ -571,8 +557,7 @@ The `winrm` transport is the default on Windows operating systems. Here
 `elevated` is true which runs windows commands via a scheduled task to
 imitate a local user.
 
-Chef Infra Client Cookbook
---------------------------
+### Chef Infra Client Cookbook
 
 The following kitchen.yml file is part of the `chef-client` cookbook and
 ensures Chef Infra Client is configured correctly.
@@ -628,8 +613,7 @@ suites:
   attributes: {}
 ```
 
-chef-splunk Cookbook
---------------------
+### chef-splunk Cookbook
 
 The following kitchen.yml file is part of the `chef-splunk` cookbook and
 is used to help ensure the installation of the Splunk client and server
@@ -672,8 +656,7 @@ suites:
           enable_ssl: true
 ```
 
-yum Cookbook
-------------
+### yum Cookbook
 
 The following kitchen.yml file is part of the `yum` cookbook:
 
@@ -696,8 +679,7 @@ suites:
       - recipe[yum_test::test_repo]
 ```
 
-Platform Attributes
--------------------
+### Platform Attributes
 
 The following kitchen.yml file sets up a simple tiered configuration of
 the Chef Infra Server, including two front-end servers, a single
@@ -705,8 +687,7 @@ back-end server, and two add-ons (Chef Push Jobs and Chef management
 console). The `platforms` block uses an `attributes` section to define
 Chef server-specific attributes that are used by all three test suites:
 
-``` yaml
----
+## ``` yaml
 driver:
   name: vagrant
 
@@ -771,15 +752,13 @@ suites:
       - recipe[chef-server::backend]
 ```
 
-Kitchen Converge On System Reboot
----------------------------------
+### Kitchen Converge On System Reboot
 
 Test-Kitchen can handle reboots (when initiated from Chef Infra Client)
 by setting `retry_on_exit_code`, `max_retries` and `wait_for_retry`
 attributes on the provisioner in `kitchen.yml` file as follows :
 
-``` yaml
----
+## ``` yaml
 provisioner:
    name: chef_zero
    retry_on_exit_code:

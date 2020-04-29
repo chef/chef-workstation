@@ -23,15 +23,13 @@ aliases = ["/knife_cookbook.html", "/knife_cookbook/"]
 
 {{< /note >}}
 
-bulk delete
-===========
+## bulk delete
 
 Use the `bulk delete` argument to delete cookbook files that match a
 pattern defined by a regular expression. The regular expression must be
 within quotes and not be surrounded by forward slashes (/).
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -39,8 +37,7 @@ This argument has the following syntax:
 knife cookbook bulk delete REGEX (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -58,8 +55,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -72,8 +68,7 @@ cookbooks:
 knife cookbook bulk delete "^[0-9]{3}$" -p
 ```
 
-create
-======
+## create
 
 {{< note >}}
 
@@ -88,8 +83,7 @@ cookbook](/ctl_chef/#chef-generate-cookbook) command instead.
 
 {{< /note >}}
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -97,8 +91,7 @@ This argument has the following syntax:
 knife cookbook create COOKBOOK_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -143,8 +136,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -165,14 +157,12 @@ to return something like:
 ** Creating metadata for cookbook: my_cookbook
 ```
 
-delete
-======
+## delete
 
 Use the `delete` argument to delete a specified cookbook or cookbook
 version on the Chef Infra Server (and not locally).
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -180,8 +170,7 @@ This argument has the following syntax:
 knife cookbook delete COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -210,8 +199,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -229,14 +217,12 @@ knife cookbook delete smartmon 0.8
 
 Type `Y` to confirm a deletion.
 
-download
-========
+## download
 
 Use the `download` argument to download a cookbook from the Chef Infra
 Server to the current working directory.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -244,8 +230,7 @@ This argument has the following syntax:
 knife cookbook download COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -267,8 +252,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -280,15 +264,13 @@ To download a cookbook named `smartmon`, enter:
 knife cookbook download smartmon
 ```
 
-list
-====
+## list
 
 Use the `list` argument to view a list of cookbooks that are currently
 available on the Chef Infra Server. The list will contain only the most
 recent version for each cookbook by default.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -296,8 +278,7 @@ This argument has the following syntax:
 knife cookbook list (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -315,8 +296,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -328,14 +308,12 @@ To view a list of cookbooks:
 knife cookbook list
 ```
 
-metadata
-========
+## metadata
 
 Use the `metadata` argument to generate the metadata for one or more
 cookbooks.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -343,8 +321,7 @@ This argument has the following syntax:
 knife cookbook metadata (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -363,8 +340,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -374,14 +350,12 @@ The following examples show how to use this knife subcommand:
 knife cookbook metadata -a
 ```
 
-metadata from file
-==================
+## metadata from file
 
 Use the `metadata from file` argument to load the metadata for a
 cookbook from a file.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -389,13 +363,11 @@ This argument has the following syntax:
 knife cookbook metadata from file FILE
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -405,16 +377,14 @@ The following examples show how to use this knife subcommand:
 knife cookbook metadata from file /path/to/file
 ```
 
-show
-====
+## show
 
 Use the `show` argument to view information about a cookbook, parts of a
 cookbook (attributes, definitions, files, libraries, providers, recipes,
 resources, and templates), or a file that is associated with a cookbook
 (including attributes such as checksum or specificity).
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -422,8 +392,7 @@ This argument has the following syntax:
 knife cookbook show COOKBOOK_NAME [COOKBOOK_VERSION] [PART...] [FILE_NAME] (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -466,8 +435,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -542,8 +510,7 @@ knife cookbook show devops -F json
 
 Other formats available include `text`, `yaml`, and `pp`.
 
-test
-====
+## test
 
 Use the `test` argument to test a cookbook for syntax errors. This
 argument uses Ruby syntax checking to verify every file in a cookbook
@@ -558,8 +525,7 @@ This feature is deprecated in favor of [Cookstyle](/workstation/cookstyle/) and
 
 {{< /warning >}}
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -567,8 +533,7 @@ This argument has the following syntax:
 knife cookbook test COOKBOOK_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -587,8 +552,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -598,8 +562,7 @@ The following examples show how to use this knife subcommand:
 knife cookbook test cookbook_name
 ```
 
-upload
-======
+## upload
 
 Use the `upload` argument to upload one or more cookbooks (and any files
 that are associated with those cookbooks) from a local repository to the
@@ -624,8 +587,7 @@ directory to ensure that the directory itself is not empty.
 
 {{< /note >}}
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -633,8 +595,7 @@ This argument has the following syntax:
 knife cookbook upload [COOKBOOK_NAME...] (options)
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -676,8 +637,7 @@ This argument has the following options:
 
 {{< /note >}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use this knife subcommand:
 
