@@ -32,7 +32,7 @@ data across any combination of platforms and test suites:
 
 This topic details functionality that is packaged with Chef Workstation.
 See <https://kitchen.ci/docs/getting-started/> for more information
-about Kitchen.
+about Test Kitchen.
 
 {{< /note >}}
 
