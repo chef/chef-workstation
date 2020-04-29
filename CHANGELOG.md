@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.4.11 -->
-## [20.4.11](https://github.com/chef/chef-workstation/tree/20.4.11) (2020-04-28)
+<!-- latest_release 20.4.12 -->
+## [20.4.12](https://github.com/chef/chef-workstation/tree/20.4.12) (2020-04-29)
 
 #### Merged Pull Requests
-- Bump down headings in markdown content [#1126](https://github.com/chef/chef-workstation/pull/1126) ([IanMadd](https://github.com/IanMadd))
+- Speed up dep bumping jobs by not installing gem documentation [#1131](https://github.com/chef/chef-workstation/pull/1131) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Speed up dep bumping jobs by not installing gem documentation [#1131](https://github.com/chef/chef-workstation/pull/1131) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.4.12 -->
 - Bump down headings in markdown content [#1126](https://github.com/chef/chef-workstation/pull/1126) ([IanMadd](https://github.com/IanMadd)) <!-- 20.4.11 -->
 - Fix netlify.toml file [#1132](https://github.com/chef/chef-workstation/pull/1132) ([IanMadd](https://github.com/IanMadd)) <!-- 20.4.10 -->
 - Pin bcrypt_pbkdf to rc version, bump gems [#1130](https://github.com/chef/chef-workstation/pull/1130) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.4.9 -->
