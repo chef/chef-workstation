@@ -30,7 +30,6 @@ build do
   sdk_ver = `xcrun --sdk macosx --show-sdk-version`.strip
   env["MACOSX_DEPLOYMENT_TARGET"] = sdk_ver
 
-  bundle "config set --local without 'development'", env: env
   bundle "install", env: env
   bundle "exec rake replace_exe", env: env, cwd: "#{project_dir}/ext"
   bundle "exec rake install:local", env: env
