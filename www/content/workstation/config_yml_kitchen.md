@@ -542,8 +542,7 @@ provisioner:
 The following example shows platform settings for the Microsoft Windows
 platform:
 
-### ``` yaml
-
+``` yaml
 platforms:
   - name: eval-win2012r2-standard
     os_type: windows
@@ -687,7 +686,7 @@ back-end server, and two add-ons (Chef Push Jobs and Chef management
 console). The `platforms` block uses an `attributes` section to define
 Chef server-specific attributes that are used by all three test suites:
 
-## ``` yaml
+``` yaml
 driver:
   name: vagrant
 
@@ -758,7 +757,7 @@ Test-Kitchen can handle reboots (when initiated from Chef Infra Client)
 by setting `retry_on_exit_code`, `max_retries` and `wait_for_retry`
 attributes on the provisioner in `kitchen.yml` file as follows :
 
-## ``` yaml
+``` yaml
 provisioner:
    name: chef_zero
    retry_on_exit_code:
@@ -770,11 +769,11 @@ provisioner:
      client_fork: false  # Forked instances don't return the real exit code
 ```
 
-**One note on linux nodes**: The shutdown command blocks (as opposed to
+**One note on Linux nodes**: The shutdown command blocks (as opposed to
 the windows variant which registers the reboot and returns right away),
 so once the timeout period passes, Chef Infra Client and the node are in
 a race to see who can exit/shutdown first - so you may or may not get
-the exit code out of linux instances. In that case, you can add `1` to
+the exit code out of Linux instances. In that case, you can add `1` to
 the `retry_on_exit_code` array and that should catch both cases.
 
 Please refer [YAML
