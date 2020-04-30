@@ -27,6 +27,3 @@ override "rust", version: "1.37.0"
 override "util-macros", version: "1.19.0"
 override "xproto", version: "7.0.28"
 override "zlib", version: "1.2.11"
-
-# For workstation app
-override "nodejs", version: "10.16.3"

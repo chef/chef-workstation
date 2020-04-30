@@ -95,7 +95,7 @@ group(:omnibus_package) do
   gem "ed25519"
   gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
   gem "chef-cli", ">= 1.0.9"
-  gem "chef-apply", ">= 0.4.13"
+  gem "chef-apply", ">= 0.4.16"
 
   # For Delivery build node
   gem "chef-sugar"
@@ -109,7 +109,7 @@ group(:omnibus_package) do
   gem "net-ssh", ">= 4.2.0"
   gem "listen"
   gem "mixlib-install"
-  gem "nokogiri"
+  gem "nokogiri", ">= 1.11.0.rc2"
   gem "pry-byebug"
   gem "pry-remote"
   gem "pry-stack_explorer"

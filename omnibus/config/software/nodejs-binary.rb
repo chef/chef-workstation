@@ -46,7 +46,7 @@
 # ```
 
 name "nodejs-binary"
-default_version "10.16.3"
+default_version "14.1.0"
 
 license "MIT"
 license_file "LICENSE"
@@ -59,6 +59,19 @@ version "10.16.3" do
                   "2f0397bb81c1d0c9901b9aff82a933257bf60f3992227b86107111a75b9030d9"
                 elsif windows?
                   "19aa47de7c5950d7bd71a1e878013b98d93871cc311d7185f5472e6d3f633146"
+                else
+                  raise "nodejs-binary does not have configuration for this build platform"
+                end
+  source sha256: source_hash
+end
+
+version "14.1.0" do
+  source_hash = if mac_os_x?
+                  "7f08bd365df4e7a5625ad393257f48e8cd79f77391ab87a64426b0c6448dd226"
+                elsif linux?
+                  "0edca22822d86a1626707e19a5b2e17f1dbf4f3ac553ac3368aab3bb24de68bf"
+                elsif windows?
+                  "1d3890d0d2f996cce57bcb0206e49b67233623e3cdb50eee77b8acc8f006b955"
                 else
                   raise "nodejs-binary does not have configuration for this build platform"
                 end
