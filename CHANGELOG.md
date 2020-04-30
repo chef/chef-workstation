@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.4.13 -->
-## [20.4.13](https://github.com/chef/chef-workstation/tree/20.4.13) (2020-04-29)
+<!-- latest_release 20.4.14 -->
+## [20.4.14](https://github.com/chef/chef-workstation/tree/20.4.14) (2020-04-30)
 
 #### Merged Pull Requests
-- Update Chef Infra Client to 15.10.12 &amp; Fauxhai to 8.0 [#1137](https://github.com/chef/chef-workstation/pull/1137) ([tas50](https://github.com/tas50))
+- Bump chef-analyze CLI to 0.1.85 [#1128](https://github.com/chef/chef-workstation/pull/1128) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.85 [#1128](https://github.com/chef/chef-workstation/pull/1128) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.4.14 -->
 - Update Chef Infra Client to 15.10.12 &amp; Fauxhai to 8.0 [#1137](https://github.com/chef/chef-workstation/pull/1137) ([tas50](https://github.com/tas50)) <!-- 20.4.13 -->
 - Speed up dep bumping jobs by not installing gem documentation [#1131](https://github.com/chef/chef-workstation/pull/1131) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.4.12 -->
 - Bump down headings in markdown content [#1126](https://github.com/chef/chef-workstation/pull/1126) ([IanMadd](https://github.com/IanMadd)) <!-- 20.4.11 -->
