@@ -1,15 +1,21 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.4.7 -->
-## [20.4.7](https://github.com/chef/chef-workstation/tree/20.4.7) (2020-04-27)
+<!-- latest_release 20.4.13 -->
+## [20.4.13](https://github.com/chef/chef-workstation/tree/20.4.13) (2020-04-29)
 
 #### Merged Pull Requests
-- Update git-custom-bindir to 2.26.2 [#1124](https://github.com/chef/chef-workstation/pull/1124) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Update Chef Infra Client to 15.10.12 &amp; Fauxhai to 8.0 [#1137](https://github.com/chef/chef-workstation/pull/1137) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Update Chef Infra Client to 15.10.12 &amp; Fauxhai to 8.0 [#1137](https://github.com/chef/chef-workstation/pull/1137) ([tas50](https://github.com/tas50)) <!-- 20.4.13 -->
+- Speed up dep bumping jobs by not installing gem documentation [#1131](https://github.com/chef/chef-workstation/pull/1131) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.4.12 -->
+- Bump down headings in markdown content [#1126](https://github.com/chef/chef-workstation/pull/1126) ([IanMadd](https://github.com/IanMadd)) <!-- 20.4.11 -->
+- Fix netlify.toml file [#1132](https://github.com/chef/chef-workstation/pull/1132) ([IanMadd](https://github.com/IanMadd)) <!-- 20.4.10 -->
+- Pin bcrypt_pbkdf to rc version, bump gems [#1130](https://github.com/chef/chef-workstation/pull/1130) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.4.9 -->
+- Im/standardize hugo content [#1102](https://github.com/chef/chef-workstation/pull/1102) ([IanMadd](https://github.com/IanMadd)) <!-- 20.4.8 -->
 - Update git-custom-bindir to 2.26.2 [#1124](https://github.com/chef/chef-workstation/pull/1124) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.4.7 -->
 - Update Cookstyle to 6.3 / Chefstyle to 1.0 [#1061](https://github.com/chef/chef-workstation/pull/1061) ([tas50](https://github.com/tas50)) <!-- 20.4.6 -->
 - Unpinning train for upcoming major version release [#1111](https://github.com/chef/chef-workstation/pull/1111) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.4.5 -->

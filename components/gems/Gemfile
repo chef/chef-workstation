@@ -48,14 +48,14 @@ group(:omnibus_package) do
   # gems to Rubygems now, so letting this float on latest should always give us the latest
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
-  gem "chef", "= 15.8.23"
-  gem "chef-bin", "= 15.8.23"
+  gem "chef", "= 15.10.12 "
+  gem "chef-bin", "= 15.10.12 "
   gem "ohai", ">= 15"
   gem "cheffish", ">= 14.0.1"
 
   # chefspec
   gem "chefspec", ">= 9.0.0", "< 10.0"
-  gem "fauxhai-ng", "~> 7.5"
+  gem "fauxhai-ng", "~> 8"
 
   # inspec
   gem "inspec-bin", "~> 4.18" # the actual inspec CLI binary
@@ -93,7 +93,7 @@ group(:omnibus_package) do
 
   # ed25519 ssh key support done here as it's a native gem we can't put in train
   gem "ed25519"
-  gem "bcrypt_pbkdf"
+  gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
   gem "chef-cli", ">= 1.0.9"
   gem "chef-apply", ">= 0.4.13"
 

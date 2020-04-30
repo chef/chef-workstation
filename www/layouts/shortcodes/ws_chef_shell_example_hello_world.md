@@ -16,12 +16,12 @@ bin/chef-shell
   Session type: standalone
   Loading.............done.
 
-  Welcome to the chef-shell 15.8.23
+  Welcome to the chef-shell 15.10.12
   For usage see https://docs.chef.io/chef_shell.html
 
   run `help' for help, `exit' or ^D to quit.
 
-  chef (15.8.23)>
+  chef (15.10.12 )>
 ```
 
 (Use the help command to print a list of supported commands.) Use the

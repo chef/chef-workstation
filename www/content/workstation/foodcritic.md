@@ -55,8 +55,7 @@ present. Adopting this rule is only necessary when chef-solo is part of
 the team's workflow (because chef-solo does not use a Chef Infra
 Server).
 
-Run Foodcritic
-==============
+## Run Foodcritic
 
 Foodcritic is run from the command line, typically against a single
 cookbook and all of the Ruby files contained within it:
@@ -81,8 +80,7 @@ FC008: Generated cookbook metadata needs updating: ./metadata.rb:2
 FC008: Generated cookbook metadata needs updating: ./metadata.rb:3
 ```
 
-Output
-------
+### Output
 
 Foodcritic output:
 
@@ -105,14 +103,12 @@ For example:
 FC008: Generated cookbook metadata needs updating: ./metadata.rb:3
 ```
 
-Rules
-=====
+## Rules
 
 A complete list of Foodcritic rules are available on the [Foodcritic
 website](http://foodcritic.io).
 
-Custom Rules
-------------
+### Custom Rules
 
 The following rules for Foodcritic have been developed by the Chef
 community:
@@ -120,8 +116,7 @@ community:
 -   [/customink-webops/foodcritic-rules](https://github.com/customink-webops/foodcritic-rules)
 -   [/etsy/foodcritic-rules](https://github.com/etsy/foodcritic-rules)
 
-Exclude Rules
--------------
+### Exclude Rules
 
 Run the following command to exclude a Foodcritic rule:
 
@@ -135,8 +130,7 @@ For example, to exclude rule `FC003`:
 foodcritic . --tags ~FC003
 ```
 
-Foodcritic CLI
-==============
+## Foodcritic CLI
 
 The `foodcritic` command is used to run Foodcritic against one (or more)
 cookbooks.
@@ -216,8 +210,7 @@ This command has the following options:
 :   Exclude path(s) from being linted. PATH is relative to the cookbook,
     not an absolute PATH. Default `test/**/*,spec/**/*,features/**/*`.
 
-For more information ...
-========================
+## For more information ...
 
 For more information about Foodcritic:
 

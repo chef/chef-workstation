@@ -13,8 +13,7 @@ aliases = ["/knife_azurerm.html", "/knife_azurerm/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_azurerm.md)
 
-Knife Azure Overview
-====================
+## Knife Azure Overview
 
 {{% ws_knife_azure %}}
 
@@ -31,20 +30,17 @@ API. Commands starting with `knife azure` use the Azure Service
 Management API. While you can switch between the two command sets, they
 are not designed to work together.
 
-Install Chef Workstation
-------------------------
+### Install Chef Workstation
 
 Install the latest version of Chef Workstation from [Chef
 Downloads](https://downloads.chef.io/chef-workstation).
 
-Installation
-------------------------
+### Installation
 
 knife-azure ships in Chef Workstation. Install the latest version of Chef
 Workstation from [Chef Downloads](https://downloads.chef.io/chef-workstation)
 
-Configuration
--------------
+### Configuration
 
 The `knife azurem` (ARM mode) requires setting up a service principal
 for authentication and permissioning. For setting up a service principal
@@ -80,15 +76,14 @@ Microsoft Azure encourages the use of Azure CLI 2.0. If you are still
 using [azure-xplat-cli](https://github.com/Azure/azure-xplat-cli) _then
 simply run `azure login` and skip creating the service principal.
 
-Knife Azurerm Commands
-----------------------
+### Knife Azurerm Commands
 
-### server create
+#### server create
 
 Use the `server create` argument to provision a new server in Azure and
 then perform a Chef bootstrap.
 
-#### Syntax
+**Syntax**
 
 This argument has the following syntax:
 
@@ -96,7 +91,7 @@ This argument has the following syntax:
 knife azurerm server create (options)
 ```
 
-#### Options
+**Options**
 
 This argument has the following options:
 
@@ -400,12 +395,12 @@ This argument has the following options:
 
 knife azurerm server delete SERVER \[SERVER\] (options)
 
-### server delete
+#### server delete
 
 Use the `server delete` argument to delete existing ARM servers
 configured in the Azure account.
 
-#### Syntax
+**Syntax**
 
 This argument has the following syntax:
 
@@ -413,7 +408,7 @@ This argument has the following syntax:
 knife azurerm server delete (options)
 ```
 
-#### Options
+**Options**
 
 This argument has the following options:
 
@@ -526,13 +521,13 @@ This argument has the following options:
 
 :   Point knife commands at local repository instead of at the server.
 
-### server list
+#### server list
 
 Use the `server list` argument to output a list of all ARM
 servers--including those not managed by the Chef server---in the Azure
 account.
 
-#### Syntax
+**Syntax**
 
 This argument has the following syntax:
 
@@ -540,7 +535,7 @@ This argument has the following syntax:
 knife azurerm server list (options)
 ```
 
-#### Options
+**Options**
 
 This argument has the following options:
 
@@ -637,12 +632,12 @@ This argument has the following options:
 
 :   Point knife commands at local repository instead of at the server.
 
-### server show
+#### server show
 
 Use the `server show` argument to output the details of an ARM server in
 the Azure account.
 
-#### Syntax
+**Syntax**
 
 This argument has the following syntax:
 
@@ -650,7 +645,7 @@ This argument has the following syntax:
 knife azurerm server show (options)
 ```
 
-#### Options
+**Options**
 
 This argument has the following options:
 

@@ -21,8 +21,7 @@ command line:
 -   A great way to explore resources
 -   Is **NOT** how Chef is run in production
 
-Options
-=======
+## Options
 
 This command has the following syntax:
 
@@ -60,8 +59,7 @@ This tool has the following options:
 
 :   Show help for the command.
 
-Examples
-========
+## Examples
 
 **Run a recipe**
 
