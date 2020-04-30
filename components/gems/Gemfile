@@ -18,11 +18,11 @@
 source "https://rubygems.org"
 
 group(:omnibus_package, :development, :test) do
-  # we pin these gems as they are installed in the ruby source and if we let them
-  # float we'll end up with 2 copies shipped in Workstation.
-  # When we bump Ruby we need to look at these pins and adjust them
-  gem "rake", "= 13.0.1"
-  gem "minitest", "= 5.13.0"
+  # Require a minimum version that is packaged in the Ruby install, so we do
+  # not install old unecessary versions. When we bump Ruby we need to look
+  # at these pins and adjust them.
+  gem "rake", ">= 13.0.1"
+  gem "minitest", ">= 5.13.0"
 
   gem "pry"
   gem "yard"

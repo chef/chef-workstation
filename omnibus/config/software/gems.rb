@@ -20,9 +20,6 @@ source path: File.join("#{project.files_path}", "../../components/gems")
 license :project_license
 
 dependency "ruby"
-dependency "rubygems"
-# Remove? - r26 ships with bundler
-dependency "bundler" # technically a gem, but we gotta solve the chicken-egg problem here
 
 #
 # NOTE: Do not add any gem dependencies here.  This will cause gemsets to solve without

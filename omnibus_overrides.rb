@@ -9,8 +9,7 @@ override "delivery-cli", version: "0.0.54"
 override "chef-workstation-app", version: "v0.1.77"
 # /DO NOT MODIFY
 
-override :rubygems, version: "3.1.2" # rubygems ships its own bundler which may differ from bundler defined below and then we get double bundler which results in performance issues / CLI warnings. Make sure these versions match before bumping either.
-override :bundler, version: "2.1.4" # currently pinned to what ships in Ruby to prevent double bundler
+override "libarchive", version: "3.4.2"
 override "libffi", version: "3.2.1"
 override "libiconv", version: "1.15"
 override "liblzma", version: "5.2.4"
