@@ -109,7 +109,7 @@ group(:omnibus_package) do
   gem "net-ssh", ">= 4.2.0"
   gem "listen"
   gem "mixlib-install"
-  gem "nokogiri", ">= 1.11.0.rc2"
+  gem "nokogiri", "= 1.10.9" # Pinning until 1.11 is released and builds correctly
   gem "pry-byebug"
   gem "pry-remote"
   gem "pry-stack_explorer"
