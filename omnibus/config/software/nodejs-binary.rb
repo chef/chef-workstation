@@ -81,6 +81,7 @@ end
 # We cannot upgrade to > 11 until we drop EL 6 support.
 # https://github.com/nodejs/node/blob/v12.x/BUILDING.md#supported-toolchains
 # NodeJS 12 requires Kernel >= 3.10
+# https://docs.chef.io/release_notes/#red-hat--centos-6-systems-require-c11-gcc-for-some-gem-installations
 version "14.1.0" do
   source_hash = if mac_os_x?
                   "7f08bd365df4e7a5625ad393257f48e8cd79f77391ab87a64426b0c6448dd226"
