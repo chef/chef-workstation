@@ -46,7 +46,7 @@
 # ```
 
 name "nodejs-binary"
-default_version "14.1.0"
+default_version "11.15.0"
 
 license "MIT"
 license_file "LICENSE"
@@ -65,6 +65,22 @@ version "10.16.3" do
   source sha256: source_hash
 end
 
+version "11.15.0" do
+  source_hash = if mac_os_x?
+                  "e953b657b1049e1de509a3fd0700cfeecd175f75a0d141d71393aa0d71fa29a9"
+                elsif linux?
+                  "98bd18051cbdb39bbcda1ab169ca3fd3935d87e9cfc36e1b6fd6f609d46856bb"
+                elsif windows?
+                  "f3cef50acf566724a5ec5df7697fb527d7339cafdae6c7c406a39358aee6cdf8"
+                else
+                  raise "nodejs-binary does not have configuration for this build platform"
+                end
+  source sha256: source_hash
+end
+
+# We cannot upgrade to > 11 until we drop EL 6 support.
+# https://github.com/nodejs/node/blob/v12.x/BUILDING.md#supported-toolchains
+# NodeJS 12 requires Kernel >= 3.10
 version "14.1.0" do
   source_hash = if mac_os_x?
                   "7f08bd365df4e7a5625ad393257f48e8cd79f77391ab87a64426b0c6448dd226"
