@@ -48,3 +48,4 @@ We use Omnibus to describe our packaging. Please review [chef-workstation/omnibu
 ## Copyright and License
 
 Code released under the [Apache license](LICENSE). Images and any trademarked content are Copyright 2018 by [Chef Software, Inc.](https://www.chef.io).
+testing ignore
