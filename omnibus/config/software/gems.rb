@@ -44,6 +44,8 @@ dependency "libzmq"
 # for train
 dependency "google-protobuf"
 
+# dependency "nokogiri"
+
 # This is a transative dep but we need to build from source so binaries are built on current sdk.
 # Only matters on mac.
 # @todo Contact gem mainter about getting new release.
@@ -75,6 +77,9 @@ build do
 
   # install the whole bundle first
   bundle "install --jobs 10 --without #{excluded_groups.join(" ")}", env: env
+
+  gem "uninstall nokogiri --all --ignore-dependencies", env: env
+  gem "install nokogiri -v 1.11.0.rc2 --platform ruby --no-document", env: env
 
   appbundle "chef", lockdir: project_dir, gem: "chef", without: %w{docgen chefstyle omnibus_package}, env: env
 
