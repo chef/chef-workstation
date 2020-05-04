@@ -56,7 +56,14 @@ my-user
 
 ### Clean Convergence
 This document assumes that the nodes that we are upgrading today are currently cleanly converging under the older version of Chef Infra Client.
-Verify that 
+Verify that the nodes are healthy by running:
+
+```
+$ chef exec knife status --profile old-server
+42 minutes ago, node-01, ubuntu 18.04.
+```
+
+This command will display the time of the last successful chef run of each node.
 
 ### You Have Some Kind of Cookbook Pipeline
 This document assumes that you have some kind of continuous integration pipeline setup for your cookbooks - that is, you have a version control system (for example, git); when you make a proposed change, there is at least some degree of automated testing; and when cookbooks are released, only the continuous delivery system can update the version and upload the cookbook to the chef server(s). The particular choices of technology and the detail of processes may vary from site to site, but so long as the key stages of a cookbook pipeline are in place, this document should apply.
@@ -82,7 +89,7 @@ Enable Chef Analyze by clicking on the Chef Workstation tray icon, then selectin
 ### Using chef analyze report nodes
 Run on your development workstation:
 ```
-$ chef analyze report nodes
+$ chef analyze report nodes -p old-server
 
 Analyzing nodes...
 
@@ -99,6 +106,20 @@ Nodes report saved to /Users/cwolfe/.chef-workstation/reports/nodes-202003241351
 You might select a node that has a simple setup, such as a relatively few number of cookbooks.
 Examine the saved report to determine the list of cookbooks for your node.
 
+### Using chef analyze report cookbooks
+Run:
+```
+$ chef analyze report cookbooks -V -p old-server
+
+        Cookbook         Version   Violations   Auto-correctable   Nodes Affected
+-----------------------+---------+------------+------------------+-----------------
+  cron                   1.7.5              1                  1                1
+  upgrade_lab_problems   0.1.0              2                  2                1
+
+Cookbooks report saved to /Users/cwolfe/.chef-workstation/reports/cookbooks-20200504155204.txt
+```
+
+This report shows that there are two cookbooks on the server. It analyzes the cookbooks, looking for cookbook issues that with will be problematic in later versions of the Chef Infra client byt running the `cookstyle` program. Here, we see that the `cron` cookbook has a single violation, and it is able to be auto-corrected by `cookstyle`.
 
 ## Capture the Node
 
@@ -167,7 +188,7 @@ If sources are not available for these cookbooks, leave this blank.
 Checkout Location [none]:
 ```
 
-Using the example above, you would enter `/Users/you/my-cookbooks` at the prompt. 
+Using the example above, you would enter `/Users/you/my-cookbooks` at the prompt.
 ```
 Checkout Location [none]: /src/my-cookbooks
   Replacing cookbook: cron
@@ -225,6 +246,9 @@ up on subsequent runs of 'kitchen converge'.
 ```
 
 ## Construct the Policyfile
+
+NOTE - this section need editing, TODO.
+
 Next, we need to obtain a set of attributes and the run list for the node. We also need to check the environment and roles for additional information.
 
 Generally speaking, you would be creating a Policyfile that applies to multiple nodes, replacing a role or environment pattern.
@@ -318,6 +342,18 @@ cookbook "splunk"
 Be cautious when running your cookbooks locally. It is possible to accidentally impact production infrastructure based on settings in your cookbooks and attributes. Read over your cookbooks and attributes, especially attributes being set in roles and environments.  If needed, override attributes to be appropriate for local testing in your `kitchen.yml`.
 {{< /note >}}
 
+### Increment the Chef Infra Client Version
+
+In the `kitchen.yml` file, change the `product_version` line to `16`:
+```yaml
+provisioner:
+  name: chef_zero
+  product_name: chef
+  product_version: 16  # Change this line
+```
+
+If needed, you can "step forward" by first going from 12 to 13, correcting issues, then 13 to 14, etc.
+
 ### Attempt a Converge and Check for Errors
 
 Run, in the `node-MY_NODE-repo` directory:
@@ -345,16 +381,37 @@ Repeat this process for each cookbook that the node consumes.
 ### Using the VSCode Plugin
 While any editor can be used, the Chef Infra extension for Visual Studio Code features several code generators and helpful features, such as running cookstyle when recipes are saved.
 
-## Check for Data Bags
+### Check for Data Bags
 If data bags are used, you will need a `data_bags` directory in your repo.
 Pull down the data_bags by running:
 ```
 $ chef exec knife download data_bags
 ```
 
-## Check for Server Searches
+### Check for Server Searches
 Check your cookbook code for Chef Infra Server searches, which will not be possible in an Effortless context. Identify locations making search calls and replace with other mechanisms of service discovery.
 ```
 $ grep 'search(' -rn cookbooks
 ```
 
+## Move the Node to the New Server
+
+### Issue a new Bootstrap Command
+
+Migrate your node to the new server by running a bootstrap command similar to the following:
+```
+ $ chef exec knife bootstrap \
+      --profile new-server --chef-license accept \
+      -r cookbook::recipe,another_cookbook::recipe \
+      -N node-01 -y --sudo \
+      user@somehost.example
+```
+
+Optionally, delete your node record from the old server using:
+```
+ $ chef exec knife node delete node-01 --profile old-server
+```
+
+## Repeat as Needed
+
+Happy converging!
