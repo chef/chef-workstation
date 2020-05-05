@@ -200,12 +200,12 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.4)
     byebug (11.1.3)
-    chef (15.8.23)
+    chef (15.10.12)
       addressable
       bcrypt_pbkdf (~> 1.0)
       bundler (>= 1.10)
-      chef-config (= 15.8.23)
-      chef-utils (= 15.8.23)
+      chef-config (= 15.10.12)
+      chef-utils (= 15.10.12)
       chef-zero (>= 14.0.11)
       diff-lcs (~> 1.2, >= 1.2.4)
       ed25519 (~> 1.2)
@@ -228,16 +228,16 @@ GEM
       plist (~> 3.2)
       proxifier (~> 1.0)
       syslog-logger (~> 1.6)
-      train-core (~> 3.1)
+      train-core (~> 3.2, >= 3.2.28)
       train-winrm (>= 0.2.5)
       tty-screen (~> 0.6)
       uuidtools (~> 2.1.5)
-    chef (15.8.23-universal-mingw32)
+    chef (15.10.12-universal-mingw32)
       addressable
       bcrypt_pbkdf (~> 1.0)
       bundler (>= 1.10)
-      chef-config (= 15.8.23)
-      chef-utils (= 15.8.23)
+      chef-config (= 15.10.12)
+      chef-utils (= 15.10.12)
       chef-zero (>= 14.0.11)
       diff-lcs (~> 1.2, >= 1.2.4)
       ed25519 (~> 1.2)
@@ -261,7 +261,7 @@ GEM
       plist (~> 3.2)
       proxifier (~> 1.0)
       syslog-logger (~> 1.6)
-      train-core (~> 3.1)
+      train-core (~> 3.2, >= 3.2.28)
       train-winrm (>= 0.2.5)
       tty-screen (~> 0.6)
       uuidtools (~> 2.1.5)
@@ -294,8 +294,8 @@ GEM
       train-core (~> 3.0)
       train-winrm
       tty-spinner
-    chef-bin (15.8.23)
-      chef (= 15.8.23)
+    chef-bin (15.10.12)
+      chef (= 15.10.12)
     chef-cli (2.0.10)
       addressable (>= 2.3.5, < 2.8)
       chef (>= 14.0)
@@ -308,9 +308,9 @@ GEM
       mixlib-shellout (>= 2.0, < 4.0)
       paint (>= 1, < 3)
       solve (> 2.0, < 5.0)
-    chef-config (15.8.23)
+    chef-config (15.10.12)
       addressable
-      chef-utils (= 15.8.23)
+      chef-utils (= 15.10.12)
       fuzzyurl
       mixlib-config (>= 2.2.12, < 4.0)
       mixlib-shellout (>= 2.0, < 4.0)
@@ -321,16 +321,16 @@ GEM
       concurrent-ruby (~> 1.0)
       ffi-yajl (~> 2.2)
       http (~> 4)
-    chef-utils (15.8.23)
+    chef-utils (15.10.12)
     chef-vault (4.0.1)
-    chef-zero (15.0.0)
+    chef-zero (14.0.17)
       ffi-yajl (~> 2.2)
-      hashie (>= 2.0, < 5.0)
+      hashie (>= 2.0, < 4.0)
       mixlib-log (>= 2.0, < 4.0)
       rack (~> 2.0, >= 2.0.6)
       uuidtools (~> 2.1)
-    cheffish (15.0.0)
-      chef-zero (>= 14.0)
+    cheffish (14.0.13)
+      chef-zero (~> 14.0)
       net-ssh
     chefspec (9.1.0)
       chef (>= 14)
@@ -389,7 +389,7 @@ GEM
       http-cookie (~> 1.0.0)
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
-    fauxhai-ng (8.0.0)
+    fauxhai-ng (8.1.0)
       net-ssh
     ffi (1.12.2)
     ffi (1.12.2-x64-mingw32)
@@ -1044,16 +1044,16 @@ DEPENDENCIES
   artifactory
   bcrypt_pbkdf (>= 1.1.0.rc1)
   berkshelf (>= 7.0.9)
-  chef (= 15.8.23)
+  chef (= 15.10.12)
   chef-apply (>= 0.4.13)
-  chef-bin (= 15.8.23)
+  chef-bin (= 15.10.12)
   chef-cli (>= 1.0.9)
   chef-sugar
   chef-vault (>= 4.0)
-  cheffish (>= 14.0.1)
+  cheffish (~> 14.0.1)
   chefspec (>= 9.0.0, < 10.0)
   chefstyle
-  cookstyle (~> 6.0)
+  cookstyle (~> 6.3)
   dep-selector-libgecode
   dep_selector
   docker-api
@@ -1093,7 +1093,7 @@ DEPENDENCIES
   mixlib-versioning
   net-ssh (>= 4.2.0)
   nokogiri
-  ohai (>= 15)
+  ohai (>= 15, < 16)
   opscode-pushy-client (>= 2.99)
   pry
   pry-byebug

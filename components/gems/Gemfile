@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright (c) 2014-2019 Chef Software Inc.
+# Copyright:: Copyright (c) Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,7 +27,7 @@ group(:omnibus_package, :development, :test) do
   gem "pry"
   gem "yard"
   gem "guard"
-  gem "cookstyle", "~> 6.0"
+  gem "cookstyle", "~> 6.3"
   gem "foodcritic", ">= 16.2"
   gem "ffi-libarchive"
 end
@@ -48,10 +48,10 @@ group(:omnibus_package) do
   # gems to Rubygems now, so letting this float on latest should always give us the latest
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
-  gem "chef", "= 15.10.12 "
-  gem "chef-bin", "= 15.10.12 "
-  gem "ohai", ">= 15"
-  gem "cheffish", ">= 14.0.1"
+  gem "chef", "= 15.10.12"
+  gem "chef-bin", "= 15.10.12"
+  gem "ohai", ">= 15", "< 16"
+  gem "cheffish", "~> 14.0.1"
 
   # chefspec
   gem "chefspec", ">= 9.0.0", "< 10.0"
