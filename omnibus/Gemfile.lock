@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: 8f5fafe1dff1e3f6d7fa92d79b6e42e82bd8a097
+  revision: 8f4f31ca9548c18808b038975f957351ec40dfd5
   branch: master
   specs:
     omnibus-software (4.0.0)
@@ -64,12 +64,12 @@ GEM
       solve (~> 4.0)
       thor (>= 0.20)
     builder (3.2.4)
-    chef (16.0.257)
+    chef (16.0.275)
       addressable
-      bcrypt_pbkdf (~> 1.0)
+      bcrypt_pbkdf (= 1.1.0.rc1)
       bundler (>= 1.10)
-      chef-config (= 16.0.257)
-      chef-utils (= 16.0.257)
+      chef-config (= 16.0.275)
+      chef-utils (= 16.0.275)
       chef-vault
       chef-zero (>= 14.0.11)
       diff-lcs (~> 1.2, >= 1.2.4)
@@ -98,12 +98,12 @@ GEM
       train-winrm (>= 0.2.5)
       tty-screen (~> 0.6)
       uuidtools (~> 2.1.5)
-    chef (16.0.257-universal-mingw32)
+    chef (16.0.275-universal-mingw32)
       addressable
-      bcrypt_pbkdf (~> 1.0)
+      bcrypt_pbkdf (= 1.1.0.rc1)
       bundler (>= 1.10)
-      chef-config (= 16.0.257)
-      chef-utils (= 16.0.257)
+      chef-config (= 16.0.275)
+      chef-utils (= 16.0.275)
       chef-vault
       chef-zero (>= 14.0.11)
       diff-lcs (~> 1.2, >= 1.2.4)
@@ -145,15 +145,15 @@ GEM
       win32-taskscheduler (~> 2.0)
       wmi-lite (~> 1.0)
     chef-cleanroom (1.0.2)
-    chef-config (16.0.257)
+    chef-config (16.0.275)
       addressable
-      chef-utils (= 16.0.257)
+      chef-utils (= 16.0.275)
       fuzzyurl
       mixlib-config (>= 2.2.12, < 4.0)
       mixlib-shellout (>= 2.0, < 4.0)
       tomlrb (~> 1.2)
     chef-sugar (5.1.9)
-    chef-utils (16.0.257)
+    chef-utils (16.0.275)
     chef-vault (4.0.1)
     chef-zero (15.0.0)
       ffi-yajl (~> 2.2)
