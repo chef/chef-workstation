@@ -22,8 +22,8 @@ end
 desc "Update the One True Gemfile.lock in this directory with the latest dependencies."
 task :update do
   require "bundler"
-  Bundler.with_clean_env do
+  Bundler.with_unbundled_env do
     rm_f "Gemfile.lock"
-    sh "bundle _1.17.3_ lock --update --add-platform ruby x64-mingw32 x86-mingw32"
+    sh "bundle _2.1.4_ lock --update --add-platform ruby x64-mingw32 x86-mingw32"
   end
 end

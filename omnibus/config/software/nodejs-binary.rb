@@ -46,7 +46,7 @@
 # ```
 
 name "nodejs-binary"
-default_version "10.16.3"
+default_version "11.15.0"
 
 license "MIT"
 license_file "LICENSE"
@@ -59,6 +59,36 @@ version "10.16.3" do
                   "2f0397bb81c1d0c9901b9aff82a933257bf60f3992227b86107111a75b9030d9"
                 elsif windows?
                   "19aa47de7c5950d7bd71a1e878013b98d93871cc311d7185f5472e6d3f633146"
+                else
+                  raise "nodejs-binary does not have configuration for this build platform"
+                end
+  source sha256: source_hash
+end
+
+version "11.15.0" do
+  source_hash = if mac_os_x?
+                  "e953b657b1049e1de509a3fd0700cfeecd175f75a0d141d71393aa0d71fa29a9"
+                elsif linux?
+                  "98bd18051cbdb39bbcda1ab169ca3fd3935d87e9cfc36e1b6fd6f609d46856bb"
+                elsif windows?
+                  "f3cef50acf566724a5ec5df7697fb527d7339cafdae6c7c406a39358aee6cdf8"
+                else
+                  raise "nodejs-binary does not have configuration for this build platform"
+                end
+  source sha256: source_hash
+end
+
+# We cannot upgrade to > 11 until we drop EL 6 support.
+# https://github.com/nodejs/node/blob/v12.x/BUILDING.md#supported-toolchains
+# NodeJS 12 requires Kernel >= 3.10
+# https://docs.chef.io/release_notes/#red-hat--centos-6-systems-require-c11-gcc-for-some-gem-installations
+version "14.1.0" do
+  source_hash = if mac_os_x?
+                  "7f08bd365df4e7a5625ad393257f48e8cd79f77391ab87a64426b0c6448dd226"
+                elsif linux?
+                  "0edca22822d86a1626707e19a5b2e17f1dbf4f3ac553ac3368aab3bb24de68bf"
+                elsif windows?
+                  "1d3890d0d2f996cce57bcb0206e49b67233623e3cdb50eee77b8acc8f006b955"
                 else
                   raise "nodejs-binary does not have configuration for this build platform"
                 end

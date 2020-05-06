@@ -6,7 +6,7 @@ ARG CHANNEL=stable
 ARG EXPEDITOR_VERSION
 ARG VERSION=20.4.1
 ENV DEBIAN_FRONTEND=noninteractive \
-    PATH=/opt/chef-workstation/bin:/opt/chef-workstation/embedded/bin:/root/.chefdk/gem/ruby/2.6.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    PATH=/opt/chef-workstation/bin:/opt/chef-workstation/embedded/bin:/root/.chefdk/gem/ruby/2.7.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # Allow the build arg below to be controlled by either build arguments
 ENV VERSION ${EXPEDITOR_VERSION:-${VERSION}}
