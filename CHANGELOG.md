@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.15 -->
-## [20.5.15](https://github.com/chef/chef-workstation/tree/20.5.15) (2020-05-05)
+<!-- latest_release 20.5.16 -->
+## [20.5.16](https://github.com/chef/chef-workstation/tree/20.5.16) (2020-05-06)
 
 #### Merged Pull Requests
-- Update Windows msys2_path to custom installed msys2 lookup first [#1145](https://github.com/chef/chef-workstation/pull/1145) ([jaymalasinha](https://github.com/jaymalasinha))
+- Update omnibus-software for new msys2 path [#1148](https://github.com/chef/chef-workstation/pull/1148) ([jaymalasinha](https://github.com/jaymalasinha))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Update omnibus-software for new msys2 path [#1148](https://github.com/chef/chef-workstation/pull/1148) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 20.5.16 -->
 - Update Windows msys2_path to custom installed msys2 lookup first [#1145](https://github.com/chef/chef-workstation/pull/1145) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 20.5.15 -->
 - Bump chef-analyze CLI to 0.1.85 [#1128](https://github.com/chef/chef-workstation/pull/1128) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.4.14 -->
 - Update Chef Infra Client to 15.10.12 &amp; Fauxhai to 8.0 [#1137](https://github.com/chef/chef-workstation/pull/1137) ([tas50](https://github.com/tas50)) <!-- 20.4.13 -->
