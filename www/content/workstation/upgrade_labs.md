@@ -303,6 +303,10 @@ Check your cookbook code for Chef Infra Server searches, which will not be possi
 $ grep 'search(' -rn cookbooks
 ```
 
+### Commit Your Changes to the Cookbooks
+
+As you make changes to the cookbooks, follow normal SDLC practices by committing your changes to your cookbooks and submitting your changes to your cookbook pipeline to be tested by your automated testing system. Once the changes have passed testing, they cookbooks should receive new version numbers and be published to the new chef server by the continuous deployment system.
+
 ## Move the Node to the New Server
 
 ### Issue a new Bootstrap Command
