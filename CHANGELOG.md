@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.17 -->
-## [20.5.17](https://github.com/chef/chef-workstation/tree/20.5.17) (2020-05-06)
+<!-- latest_release 20.5.18 -->
+## [20.5.18](https://github.com/chef/chef-workstation/tree/20.5.18) (2020-05-07)
 
 #### Merged Pull Requests
-- Update omnibus-overrides, switch to ruby 2.7 [#1123](https://github.com/chef/chef-workstation/pull/1123) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Setting up Expeditor 0.18 pipeline for releasing [#1151](https://github.com/chef/chef-workstation/pull/1151) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Setting up Expeditor 0.18 pipeline for releasing [#1151](https://github.com/chef/chef-workstation/pull/1151) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.18 -->
 - Update omnibus-overrides, switch to ruby 2.7 [#1123](https://github.com/chef/chef-workstation/pull/1123) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.5.17 -->
 - Update omnibus-software for new msys2 path [#1148](https://github.com/chef/chef-workstation/pull/1148) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 20.5.16 -->
 - Update Windows msys2_path to custom installed msys2 lookup first [#1145](https://github.com/chef/chef-workstation/pull/1145) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 20.5.15 -->
