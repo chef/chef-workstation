@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright (c) 2014-2019 Chef Software Inc.
+# Copyright:: Copyright (c) Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,7 +27,7 @@ group(:omnibus_package, :development, :test) do
   gem "pry"
   gem "yard"
   gem "guard"
-  gem "cookstyle", "~> 5.20"
+  gem "cookstyle", "~> 6.3"
   gem "foodcritic", ">= 16.2"
   gem "ffi-libarchive"
 end
@@ -44,45 +44,44 @@ end
 group(:omnibus_package) do
   gem "appbundler"
 
-  ## Until we resolve https://github.com/inspec/train/issues/548
-  gem "train", "=3.2.0"
-  gem "train-core", "=3.2.0"
+  # pin this until we work out failures introduced by http ~> 4
+  gem "chef-telemetry", "= 1.0.3"
 
   # Expeditor manages the version of chef released to Rubygems. We only release 'stable' chef
   # gems to Rubygems now, so letting this float on latest should always give us the latest
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
-  gem "chef", "= 15.8.23"
-  gem "chef-bin", "= 15.8.23"
-  gem "ohai", ">= 15"
-  gem "cheffish", ">= 14.0.1"
+  gem "chef", "= 15.10.12"
+  gem "chef-bin", "= 15.10.12"
+  gem "ohai", ">= 15", "< 16"
+  gem "cheffish", "~> 14.0.1"
 
   # chefspec
   gem "chefspec", ">= 9.0.0", "< 10.0"
-  gem "fauxhai-ng", "~> 7.5"
+  gem "fauxhai-ng", "~> 8"
 
   # inspec
   gem "inspec-bin", "~> 4.18" # the actual inspec CLI binary
   gem "inspec", "~> 4.18"
 
   # test-kitchen and plugins
-  gem "test-kitchen", ">= 2.0"
-  gem "kitchen-azurerm", ">= 0.14"
-  gem "kitchen-ec2", ">= 3.0", "< 4"
-  gem "kitchen-digitalocean", ">= 0.10.0"
-  gem "kitchen-dokken", ">= 2.8.1"
+  gem "test-kitchen", ">= 2.5"
+  gem "kitchen-azurerm", ">= 1.0"
+  gem "kitchen-ec2", ">= 3.5"
+  gem "kitchen-digitalocean", ">= 0.10.6"
+  gem "kitchen-dokken", ">= 2.9.0"
   # docker-api appears to be unmaintained, and has a noisy deprecation
   # warning under ruby 2.7. Using a fork via an omnibus software def.
   # Must use the software def because the ruby cleanup deletes the
   # bundled gem. Chef Infra Client does not have this issue with Ohai
   # and I do not understand why.
   gem "docker-api" # , git: "https://github.com/chef/docker-api.git", branch: "master"
-  gem "kitchen-google", ">= 2.0.0"
-  gem "kitchen-hyperv", ">= 0.5.1"
+  gem "kitchen-google", ">= 2.0.3"
+  gem "kitchen-hyperv", ">= 0.5.4"
   gem "kitchen-inspec", ">= 1.0"
-  gem "kitchen-openstack", ">= 5.0"
-  gem "kitchen-vagrant", ">= 1.6"
-  gem "kitchen-vcenter", ">= 2.0"
+  gem "kitchen-openstack", ">= 5.0.1"
+  gem "kitchen-vagrant", ">= 1.6.1"
+  gem "kitchen-vcenter", ">= 2.7"
 
   # knife plugins
   gem "knife-acl", ">= 1.0.6"
@@ -97,7 +96,7 @@ group(:omnibus_package) do
 
   # ed25519 ssh key support done here as it's a native gem we can't put in train
   gem "ed25519"
-  gem "bcrypt_pbkdf"
+  gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
   gem "chef-cli", ">= 1.0.9"
   gem "chef-apply", ">= 0.4.13"
 
