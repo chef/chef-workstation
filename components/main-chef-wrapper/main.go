@@ -21,9 +21,8 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/chef/go-libs/featflag"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
-
+	"github.com/chef/go-libs/featflag"
 )
 
 func main() {
@@ -34,18 +33,24 @@ func main() {
 	}
 	var (
 		subCommand = os.Args[1]
-		allArgs    = os.Args[2:]
+		allArgs    = os.Args[1:]
 		cmd        *exec.Cmd
 	)
 
 	switch subCommand {
-	// 1) On the creation of new CLIs, for instance, a new CLI called chef-analyze that
-	// will provide some analyze capabilities, as a user, you can run the binary directly
-	// 'chef-analyze foo' or through our main Chef CLI wrapper 'chef analyze foo'.
-	// Both ways would be running the same underlying binary.
-	case "analyze":
+	case "report", "capture":
 		if featflag.ChefFeatAnalyze.Enabled() {
-			cmd = exec.Command(dist.AnalyzeExec, allArgs...)
+			// A little special-casing with this - the 'upload' command is a hidden top-level command
+			// in the chef-analyze binary. However, we're exposing it as a subcommand of  'report'.
+			// We'll need to explicitly invoke it as a top-level command of the chef-analyze binary.
+
+			if len(os.Args) > 2 && subCommand == "report" && os.Args[2] == "upload" {
+				cmd = exec.Command(dist.AnalyzeExec, os.Args[2:]...)
+			} else {
+
+				cmd = exec.Command(dist.AnalyzeExec, allArgs...)
+			}
+
 		} else {
 			fmt.Printf("`%s` is experimental and in development.\n\n", featflag.ChefFeatAnalyze.Key())
 			fmt.Printf("Temporarily enable `%s` with the environment variable:\n", featflag.ChefFeatAnalyze.Key())
@@ -55,25 +60,11 @@ func main() {
 			os.Exit(0)
 		}
 
-	// 2) Redirecting existing binaries to a single point for further improvements, this gives
-	// the potential to transition some commands at a more granular level too - for example
-	// 'knife search' can run a different a different binary than 'knife bootstrap'.
-	//
-	// TODO @afiune Propose this new behavior with the Team
-	//case "knife":
-	//cmd = exec.Command("knife", allArgs...)
-
-	// 3) On replacements of current functionality, for example, if we would like to improve
-	// the existing chef generate foo command, we would create a binary called chef-generate
-	// that users can run individually like chef-generate foo and then redirect the top-level
-	// CLI to run that same binary on any 'chef generate XYZ' execution.
-
 	// We want to pass every sub-command to the old 'chef' CLI binary that was renamed to
 	// 'chef-cli`, which is our default case.
 	default:
 		// When we land in the default case where we run the old 'chef' cli binary,
 		// we need to send the sub-command as well as all the arguments.
-		allArgs = append([]string{subCommand}, allArgs...)
 		cmd = exec.Command(dist.WorkstationExec, allArgs...)
 	}
 
@@ -100,6 +91,7 @@ func main() {
 func usage() {
 	// TODO @afiune add actual usage, this might only list top level sub-commands
 	// we should avoid to add specific options per sub-command
+	// TODO @mp this needs updating to use `dist` for command names.
 	msg := `Usage:
     chef -h/--help
     chef -v/--version
@@ -130,7 +122,8 @@ Available Commands:
 		// add the experimental section to the usage message
 		msg = msg + `
 Experimental Commands:
-    analyze                 A CLI to analyze artifacts from a Chef Infra Server
+    report                  Report on the state of existing infrastructure from a Chef Infra Server
+    capture                 Copy the state of an existing node locally for testing and verification
 `
 	}
 	fmt.Printf(msg)
