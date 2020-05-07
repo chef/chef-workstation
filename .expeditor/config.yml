@@ -14,6 +14,16 @@ docker_images:
 github:
   # This deletes the GitHub PR branch after successfully merged into the release branch
   delete_branch_on_merge: true
+  # Which Github branches to build Omnibus releases from, and what versions
+  # (as determined by the value in the VERSION file) those branches are responsible
+  # for building.
+  # TODO we need to stop maintaining a 0.18 branch before 2021
+  release_branch:
+    - master:
+        version_constraint: 20.*
+    - cw-18:
+        version_constraint: 0.18.*
+
 # https://expeditor.chef.io/docs/getting-started/subscriptions/#merge-actions
 # The `merge_actions` key is a shortcut for the
 # `pull_request_merged:<GITHUB_REPO>:<RELEASE_BRANCH>:*` subscription.
