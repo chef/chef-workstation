@@ -4,6 +4,9 @@
 product_key:
   - chef-workstation
 
+project:
+  alias: chef-workstation-18
+
 # Slack channel in Chef Software slack to send notifications about build failures, etc
 slack:
   notify_channel: chef-ws-notify
