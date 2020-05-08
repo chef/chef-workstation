@@ -8,12 +8,12 @@ loading configuration: none (standalone session)
 Session type: standalone
 Loading.............done.
 
-Welcome to the chef-shell 15.8.23
+Welcome to the chef-shell 15.10.12
 For usage see https://docs.chef.io/chef_shell.html
 
 run `help' for help, `exit' or ^D to quit.
 
-chef (15.8.23)>
+chef (15.10.12 )>
 ```
 
 To just load one recipe from the run-list, go into the recipe and use

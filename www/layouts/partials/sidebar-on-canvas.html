@@ -31,10 +31,10 @@
                                 <ul class="menu vertical nested{{ if $currentPage.HasMenuCurrent $menu_name . }} is-active{{ end }}">
                                   {{ range .Children }}
                                     <li{{ if $currentPage.IsMenuCurrent $menu_name . }} class="active" {{ end }}>
-                                      {{ if hasPrefix .URL "/workstation/" }}
+                                      {{ if hasPrefix .URL (delimit (slice "/" $.Site.Params.product "/") "") }}
                                         <a href="{{ .URL }}">{{ or .Title .Name }}</a>
                                       {{else}}
-                                        <a href="https://docs.chef.io{{ .URL }}" style="color: red;">{{ or .Title .Name }}</a>
+                                        <a href="https://docs.chef.io{{ .URL }}" class="page_menu_false">{{ or .Title .Name }}</a>
                                       {{ end }}
                                       <span class="menu_weight">Weight: {{ .Weight }}</span>
                                     </li>
@@ -43,10 +43,10 @@
                               </li>
                             {{ else }}
                               <li{{ if $currentPage.IsMenuCurrent $menu_name . }} class="active" {{ end }}>
-                                {{ if hasPrefix .URL "/workstation/" }}
+                                {{ if hasPrefix .URL (delimit (slice "/" $.Site.Params.product "/") "") }}
                                   <a href="{{ .URL }}">{{ or .Title .Name }}</a>
                                 {{else}}
-                                  <a href="https://docs.chef.io{{ .URL }}" style="color: red;">{{ or .Title .Name }}</a>
+                                  <a href="https://docs.chef.io{{ .URL }}" class="page_menu_false">{{ or .Title .Name }}</a>
                                 {{ end }}
                                 <span class="menu_weight">Weight: {{ .Weight }}</span>
                               </li>
@@ -56,10 +56,10 @@
                       </li>
                     {{ else }}
                       <li {{ if $currentPage.IsMenuCurrent $menu_name . }} class="active" {{ end }} >
-                        {{ if hasPrefix .URL "/workstation/" }}
+                        {{ if hasPrefix .URL (delimit (slice "/" $.Site.Params.product "/") "") }}
                           <a href="{{ .URL }}">{{ or .Title .Name }}</a>
                         {{else}}
-                          <a href="https://docs.chef.io{{ .URL }}" style="color: red;">{{ or .Title .Name }}</a>
+                          <a href="https://docs.chef.io{{ .URL }}" class="page_menu_false">{{ or .Title .Name }}</a>
                         {{ end }}
                         <span class="menu_weight">Weight: {{ .Weight }}</span>
                       </li>
@@ -69,10 +69,10 @@
               </li>
             {{ else }}
               <li {{ if $currentPage.IsMenuCurrent $menu_name . }} class="active" {{ end }} >
-                {{ if hasPrefix .URL "/workstation/" }}
+                {{ if hasPrefix .URL (delimit (slice "/" $.Site.Params.product "/") "") }}
                   <a href="{{ .URL }}">{{ or .Title .Name }}</a>
                 {{else}}
-                  <a href="https://docs.chef.io{{ .URL }}" style="color: red;">{{ or .Title .Name }}</a>
+                  <a href="https://docs.chef.io{{ .URL }}" class="page_menu_false">{{ or .Title .Name }}{{ $.Site.Params.product }}</a>
                 {{ end }}
                 <span class="menu_weight">Weight: {{ .Weight }}</span>
               </li>

@@ -4,7 +4,7 @@
 # Expeditor takes that version, runs a script to replace it here and pushes a new
 # commit / build through.
 
-override "chef-analyze", version: "0.1.84"
+override "chef-analyze", version: "0.1.85"
 override "delivery-cli", version: "0.0.54"
 override "chef-workstation-app", version: "v0.1.77"
 # /DO NOT MODIFY
@@ -22,7 +22,7 @@ override "makedepend", version: "1.0.5"
 override "ncurses", version: "5.9"
 override "openssl", version: "1.0.2u"
 override "pkg-config-lite", version: "0.28-1"
-override "ruby", version: "2.6.5"
+override "ruby", version: "2.6.6"
 override "ruby-windows-devkit-bash", version: "3.1.23-4-msys-1.0.18"
 override "rust", version: "1.37.0"
 override "util-macros", version: "1.19.0"
