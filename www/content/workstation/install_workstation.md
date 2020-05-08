@@ -119,7 +119,7 @@ applications that may be running on the target machine.
 
 Alternately, install Chef Workstation using Homebrew:
 
-`brew cask install chef/chef/chef-workstation`
+`brew cask install chef-workstation`
 
 ### Windows
 
