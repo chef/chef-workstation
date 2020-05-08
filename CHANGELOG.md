@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.20 -->
-## [20.5.20](https://github.com/chef/chef-workstation/tree/20.5.20) (2020-05-08)
+<!-- latest_release 20.5.21 -->
+## [20.5.21](https://github.com/chef/chef-workstation/tree/20.5.21) (2020-05-08)
 
 #### Merged Pull Requests
-- Fix netlify build ignore [#1157](https://github.com/chef/chef-workstation/pull/1157) ([IanMadd](https://github.com/IanMadd))
+- Adding project alias in Expeditor [#1159](https://github.com/chef/chef-workstation/pull/1159) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Adding project alias in Expeditor [#1159](https://github.com/chef/chef-workstation/pull/1159) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.21 -->
 - Fix netlify build ignore [#1157](https://github.com/chef/chef-workstation/pull/1157) ([IanMadd](https://github.com/IanMadd)) <!-- 20.5.20 -->
 - fix a couple bad links [#1156](https://github.com/chef/chef-workstation/pull/1156) ([IanMadd](https://github.com/IanMadd)) <!-- 20.5.19 -->
 - Setting up Expeditor 0.18 pipeline for releasing [#1151](https://github.com/chef/chef-workstation/pull/1151) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.18 -->
