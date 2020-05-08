@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.17.28 -->
-## [0.17.28](https://github.com/chef/chef-workstation/tree/0.17.28) (2020-04-24)
+<!-- latest_release 0.18.2 -->
+## [0.18.2](https://github.com/chef/chef-workstation/tree/0.18.2) (2020-05-08)
 
 #### Merged Pull Requests
-- Manually building and installing docker-api gem [#1122](https://github.com/chef/chef-workstation/pull/1122) ([tyler-ball](https://github.com/tyler-ball))
+- Workstation 0.18 Release Prep [#1155](https://github.com/chef/chef-workstation/pull/1155) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Workstation 0.18 Release Prep [#1155](https://github.com/chef/chef-workstation/pull/1155) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.18.2 -->
 - Manually building and installing docker-api gem [#1122](https://github.com/chef/chef-workstation/pull/1122) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.28 -->
 - Add empty third party pkg pipeline to expeditor [#1108](https://github.com/chef/chef-workstation/pull/1108) ([marcparadise](https://github.com/marcparadise)) <!-- 0.17.27 -->
 - Add missing node options for policyfiles [#1091](https://github.com/chef/chef-workstation/pull/1091) ([jmassardo](https://github.com/jmassardo)) <!-- 0.17.26 -->
