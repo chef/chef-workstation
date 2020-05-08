@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 0.18.4 -->
+## [0.18.4](https://github.com/chef/chef-workstation/tree/0.18.4) (2020-05-08)
+
+#### Merged Pull Requests
+- Adding homebrew support and fixing chocolatey support [#1162](https://github.com/chef/chef-workstation/pull/1162) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=0.18.3 -->
+### Changes since 0.18.3 release
+
+#### Merged Pull Requests
+- Adding homebrew support and fixing chocolatey support [#1162](https://github.com/chef/chef-workstation/pull/1162) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.18.4 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
