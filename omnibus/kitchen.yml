@@ -39,7 +39,7 @@ platforms:
         omnibus:
           build_user_group:    Administrators
     driver:
-      box: chef/windows-server-2012r2-standard # private
+      box: tas50/windows_2012r2
       synced_folders:
       # We have to mount this repos enclosing folder as the Omnibus build
       # gets cranky if the mounted Chef Workstation source folder is a symlink. This

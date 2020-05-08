@@ -20,9 +20,6 @@ source path: File.join("#{project.files_path}", "../../components/gems")
 license :project_license
 
 dependency "ruby"
-dependency "rubygems"
-# Remove? - r26 ships with bundler
-dependency "bundler" # technically a gem, but we gotta solve the chicken-egg problem here
 
 #
 # NOTE: Do not add any gem dependencies here.  This will cause gemsets to solve without
@@ -46,6 +43,8 @@ dependency "libzmq"
 
 # for train
 dependency "google-protobuf"
+
+# dependency "nokogiri"
 
 # This is a transative dep but we need to build from source so binaries are built on current sdk.
 # Only matters on mac.
@@ -78,6 +77,25 @@ build do
 
   # install the whole bundle first
   bundle "install --jobs 10 --without #{excluded_groups.join(" ")}", env: env
+
+  # We want to force compilation of the Nokogiri gem, not use the
+  # precompiled binaries (-x86_64-linux).
+  gem "uninstall nokogiri --all --ignore-dependencies", env: env
+  gem_command = [
+    "install nokogiri",
+    "-v 1.11.0.rc2",
+    "--platform ruby",
+    "--no-document",
+    "--",
+    "--use-system-libraries",
+    "--with-xml2-lib=#{install_dir}/embedded/lib",
+    "--with-xml2-include=#{install_dir}/embedded/include/libxml2",
+    "--with-xslt-lib=#{install_dir}/embedded/lib",
+    "--with-xslt-include=#{install_dir}/embedded/include/libxslt",
+    "--without-iconv",
+    "--with-zlib-dir=#{install_dir}/embedded",
+    ]
+  gem gem_command.join(" "), env: env
 
   appbundle "chef", lockdir: project_dir, gem: "chef", without: %w{docgen chefstyle omnibus_package}, env: env
 

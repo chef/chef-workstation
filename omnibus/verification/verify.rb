@@ -251,7 +251,10 @@ module ChefWorkstation
 
       add_component "kitchen-vagrant" do |c|
         c.gem_base_dir = "kitchen-vagrant"
-        # The build is not passing in travis, so no tests
+        c.unit_test do
+          bundle_install_mutex.synchronize { sh("#{embedded_bin("bundle")} install") }
+          sh("#{embedded_bin("bundle")} exec rake spec")
+        end
         c.smoke_test { sh("#{embedded_bin("gem")} list kitchen-vagrant") }
       end
 
@@ -322,11 +325,9 @@ module ChefWorkstation
       add_component "inspec" do |c|
         c.gem_base_dir = "inspec"
 
-        # Commenting out the unit and integration tests for now until we figure
-        # out the bundler error
-        # c.unit_test { sh("#{embedded_bin("bundle")} exec rake test:isolated") }
+        c.unit_test { sh("#{embedded_bin("bundle")} exec rake test:isolated") }
         # This runs Test Kitchen (using kitchen-inspec) with some inspec tests
-        # c.integration_test { sh("#{embedded_bin("bundle")} exec rake test:vm") }
+        c.integration_test { sh("#{embedded_bin("bundle")} exec rake test:vm") }
 
         # It would be nice to use a chef generator to create these specs, but
         # we dont have that yet.  So we do it manually.
@@ -344,8 +345,7 @@ module ChefWorkstation
                 end
               INSPEC_TEST
             end
-            # TODO when we appbundle inspec, no longer `chef exec`
-            sh("#{bin("chef")} exec #{embedded_bin("inspec")} exec .", cwd: cwd)
+            sh("#{bin("inspec")} exec .", cwd: cwd)
           end
         end
       end

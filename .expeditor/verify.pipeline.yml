@@ -1,5 +1,5 @@
 steps:
-- label: chefstyle-tests-ruby-2.6
+- label: chefstyle-tests-ruby-2.7
   command:
     - export USER="root"
     - bundle install --jobs=7 --retry=3
@@ -7,9 +7,9 @@ steps:
   expeditor:
     executor:
       docker:
-        image: ruby:2.6-stretch
+        image: ruby:2.7-buster
 # This tests that our verify.rb script (and dependencies) can successfully test components included in CW
-- label: component-test-tests-ruby-2.6
+- label: component-test-tests-ruby-2.7
   command:
     - export USER="root"
     - bundle install --jobs=7 --retry=3
@@ -17,7 +17,7 @@ steps:
   expeditor:
     executor:
       docker:
-        image: ruby:2.6-stretch
+        image: ruby:2.7-buster
 - label: ":linux: :darwin: :windows: top-level chef cmd"
   command:
     - hab studio run "source .studiorc && build_cross_platform"

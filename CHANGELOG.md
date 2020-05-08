@@ -1,15 +1,21 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.15 -->
-## [20.5.15](https://github.com/chef/chef-workstation/tree/20.5.15) (2020-05-05)
+<!-- latest_release 20.5.21 -->
+## [20.5.21](https://github.com/chef/chef-workstation/tree/20.5.21) (2020-05-08)
 
 #### Merged Pull Requests
-- Update Windows msys2_path to custom installed msys2 lookup first [#1145](https://github.com/chef/chef-workstation/pull/1145) ([jaymalasinha](https://github.com/jaymalasinha))
+- Adding project alias in Expeditor [#1159](https://github.com/chef/chef-workstation/pull/1159) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Adding project alias in Expeditor [#1159](https://github.com/chef/chef-workstation/pull/1159) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.21 -->
+- Fix netlify build ignore [#1157](https://github.com/chef/chef-workstation/pull/1157) ([IanMadd](https://github.com/IanMadd)) <!-- 20.5.20 -->
+- fix a couple bad links [#1156](https://github.com/chef/chef-workstation/pull/1156) ([IanMadd](https://github.com/IanMadd)) <!-- 20.5.19 -->
+- Setting up Expeditor 0.18 pipeline for releasing [#1151](https://github.com/chef/chef-workstation/pull/1151) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.18 -->
+- Update omnibus-overrides, switch to ruby 2.7 [#1123](https://github.com/chef/chef-workstation/pull/1123) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.5.17 -->
+- Update omnibus-software for new msys2 path [#1148](https://github.com/chef/chef-workstation/pull/1148) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 20.5.16 -->
 - Update Windows msys2_path to custom installed msys2 lookup first [#1145](https://github.com/chef/chef-workstation/pull/1145) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 20.5.15 -->
 - Bump chef-analyze CLI to 0.1.85 [#1128](https://github.com/chef/chef-workstation/pull/1128) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.4.14 -->
 - Update Chef Infra Client to 15.10.12 &amp; Fauxhai to 8.0 [#1137](https://github.com/chef/chef-workstation/pull/1137) ([tas50](https://github.com/tas50)) <!-- 20.4.13 -->
