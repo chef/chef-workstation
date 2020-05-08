@@ -4,6 +4,9 @@
 product_key:
   - chef-workstation
 
+project:
+  alias: chef-workstation
+
 # Slack channel in Chef Software slack to send notifications about build failures, etc
 slack:
   notify_channel: chef-ws-notify
@@ -81,7 +84,7 @@ subscriptions:
   - workload: chef/chef-analyze:master_completed:pull_request_merged:chef/chef-analyze:master:*
     actions:
       - bash:.expeditor/update_chef-analyze_to_latest.sh
-  - workload: artifact_published:stable:chef:15*
+  - workload: artifact_published:stable:chef:16*
     actions:
       # update our pinned version for chef/chef-bin in Gemfile
       - bash:.expeditor/update_chef.sh
