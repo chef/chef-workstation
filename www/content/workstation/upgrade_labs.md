@@ -74,13 +74,6 @@ This document assumes that you have some kind of continuous integration pipeline
 Ensure you have the latest version of Chef Workstation. To install Chef Workstation, visit https://downloads.chef.io/chef-workstation and download the package for your local operating system. Install the package.
 
 ## Configuration
-### Chef Client Configuration
-Configure your Chef client to communicate with the Chef Infra Server by setting up the `~/.chef/client.rb` and optionally the `~/.chef/credentials` files.  For details, see [config_rb_client](https://docs.chef.io/config_rb_client/). Keep in mind that once the node is converted to Effortless, this configuration will not be used again (except perhaps to convert other nodes on the same server).
-
-For our purposes today, set:
-```
-cookbook_path ["./cookbooks"]
-```
 
 ### Feature Flag Configuration
 Enable Chef Analyze by clicking on the Chef Workstation tray icon, then selecting Preferences. Click the Advanced Tab and check the "chef analyze" box.
@@ -292,9 +285,11 @@ While any editor can be used, the Chef Infra extension for Visual Studio Code fe
 
 ### Check for Data Bags
 If data bags are used, you will need a `data_bags` directory in your repo.
-Pull down the data_bags by running:
+You will need to download the data_bags. Note that this command does not support embedded keys in credentials files, so you must place the key in a key file.
+
 ```
-$ chef exec knife download data_bags
+$ cd node-node-01-repo
+$ chef exec knife download data_bags --chef-repo-path . --profile old-server --key my-old-key.pem
 ```
 
 ### Check for Server Searches
@@ -306,6 +301,20 @@ $ grep 'search(' -rn cookbooks
 ### Commit Your Changes to the Cookbooks
 
 As you make changes to the cookbooks, follow normal SDLC practices by committing your changes to your cookbooks and submitting your changes to your cookbook pipeline to be tested by your automated testing system. Once the changes have passed testing, they cookbooks should receive new version numbers and be published to the new chef server by the continuous deployment system.
+
+### Or Directly Upload to the New Server
+
+If your organization does not have a cookbook pipeline in place, or if you are setting up a proof of concept, you can directly upload the cookbooks to the new server. This is not recommended because it makes it difficult to manage changes to cookbook code. Note that this command does not support embedded keys in credentials files, so you must place the key in a key file.
+
+```
+$ cd node-node-01-repo
+$ chef exec knife upload cookbooks --chef-repo-path . --profile new-server --key my-new-key.pem
+```
+
+If you used data bags, also upload them to the new server:
+```
+$ chef exec knife upload data_bags --chef-repo-path . --profile new-server --key my-new-key.pem
+```
 
 ## Move the Node to the New Server
 
