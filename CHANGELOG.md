@@ -1,43 +1,41 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 0.18.3 -->
-## [0.18.3](https://github.com/chef/chef-workstation/tree/0.18.3) (2020-05-08)
-
-#### Merged Pull Requests
-- Slack notifications are incorrect for cw-18 branch, trying to fix it [#1158](https://github.com/chef/chef-workstation/pull/1158) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.17.5 -->
-### Changes since 0.17.5 release
-
-#### Merged Pull Requests
-- Slack notifications are incorrect for cw-18 branch, trying to fix it [#1158](https://github.com/chef/chef-workstation/pull/1158) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.18.3 -->
-- Workstation 0.18 Release Prep [#1155](https://github.com/chef/chef-workstation/pull/1155) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.18.2 -->
-- Manually building and installing docker-api gem [#1122](https://github.com/chef/chef-workstation/pull/1122) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.28 -->
-- Add empty third party pkg pipeline to expeditor [#1108](https://github.com/chef/chef-workstation/pull/1108) ([marcparadise](https://github.com/marcparadise)) <!-- 0.17.27 -->
-- Add missing node options for policyfiles [#1091](https://github.com/chef/chef-workstation/pull/1091) ([jmassardo](https://github.com/jmassardo)) <!-- 0.17.26 -->
-- Clarify Windows requirements [#1089](https://github.com/chef/chef-workstation/pull/1089) ([jmassardo](https://github.com/jmassardo)) <!-- 0.17.25 -->
-- Add Windows examples [#1088](https://github.com/chef/chef-workstation/pull/1088) ([jmassardo](https://github.com/jmassardo)) <!-- 0.17.24 -->
-- Batching multiple PRs into 1 for ease of bumping dependencies [#1110](https://github.com/chef/chef-workstation/pull/1110) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.23 -->
-- Add go.mod file so we can preview changes to workstation docs locally [#1092](https://github.com/chef/chef-workstation/pull/1092) ([IanMadd](https://github.com/IanMadd)) <!-- 0.17.22 -->
-- Patch docker-api to use CGI.escape to silence deprecation warning [#1090](https://github.com/chef/chef-workstation/pull/1090) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 0.17.21 -->
-- Forgot to vendor the latest version of go-libs when we updated [#1101](https://github.com/chef/chef-workstation/pull/1101) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.20 -->
-- adding gen for dist, using dist in the executables [#1087](https://github.com/chef/chef-workstation/pull/1087) ([tarcinil](https://github.com/tarcinil)) <!-- 0.17.19 -->
-- Explicitly build bcrypt_pbkdf-ruby [#1079](https://github.com/chef/chef-workstation/pull/1079) ([marcparadise](https://github.com/marcparadise)) <!-- 0.17.18 -->
-- Fixing a bug I found on the site [#1085](https://github.com/chef/chef-workstation/pull/1085) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.17 -->
-- Add Windows 10 Tester [#1072](https://github.com/chef/chef-workstation/pull/1072) ([christopher-snapp](https://github.com/christopher-snapp)) <!-- 0.17.16 -->
-- Updates documentation in chef-workstation [#1071](https://github.com/chef/chef-workstation/pull/1071) ([IanMadd](https://github.com/IanMadd)) <!-- 0.17.15 -->
-- Document runlist expansion/determination and cookbook sourcing [#1025](https://github.com/chef/chef-workstation/pull/1025) ([marcparadise](https://github.com/marcparadise)) <!-- 0.17.14 -->
-- Replace old workstation docs with new workstation docs [#1037](https://github.com/chef/chef-workstation/pull/1037) ([IanMadd](https://github.com/IanMadd)) <!-- 0.17.13 -->
-- Octokit 4.17 got yanked, manually updating gems [#1060](https://github.com/chef/chef-workstation/pull/1060) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.12 -->
-- Add kitchen-openstack [#1049](https://github.com/chef/chef-workstation/pull/1049) ([ramereth](https://github.com/ramereth)) <!-- 0.17.11 -->
-- I accidently bumped the bundler version after fixing the update dep script [#1058](https://github.com/chef/chef-workstation/pull/1058) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.10 -->
-- Bump omnibus-software from `c086d80` to `3051886` in /omnibus [#1056](https://github.com/chef/chef-workstation/pull/1056) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.17.9 -->
-- Bump kitchen-ec2 to 3.4.0 [#1046](https://github.com/chef/chef-workstation/pull/1046) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.17.8 -->
-- Bump chef-analyze CLI to 0.1.79 [#1057](https://github.com/chef/chef-workstation/pull/1057) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.17.7 -->
-- Pinning bundler to 1.17 because 2.x breaks our builds [#1055](https://github.com/chef/chef-workstation/pull/1055) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.6 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [0.18.3](https://github.com/chef/chef-workstation/tree/0.18.3) (2020-05-08)
+
+#### Merged Pull Requests
+- Pinning bundler to 1.17 because 2.x breaks our builds [#1055](https://github.com/chef/chef-workstation/pull/1055) ([tyler-ball](https://github.com/tyler-ball))
+- Bump chef-analyze CLI to 0.1.79 [#1057](https://github.com/chef/chef-workstation/pull/1057) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-ec2 to 3.4.0 [#1046](https://github.com/chef/chef-workstation/pull/1046) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `c086d80` to `3051886` in /omnibus [#1056](https://github.com/chef/chef-workstation/pull/1056) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- I accidently bumped the bundler version after fixing the update dep script [#1058](https://github.com/chef/chef-workstation/pull/1058) ([tyler-ball](https://github.com/tyler-ball))
+- Add kitchen-openstack [#1049](https://github.com/chef/chef-workstation/pull/1049) ([ramereth](https://github.com/ramereth))
+- Octokit 4.17 got yanked, manually updating gems [#1060](https://github.com/chef/chef-workstation/pull/1060) ([tyler-ball](https://github.com/tyler-ball))
+- Replace old workstation docs with new workstation docs [#1037](https://github.com/chef/chef-workstation/pull/1037) ([IanMadd](https://github.com/IanMadd))
+- Document runlist expansion/determination and cookbook sourcing [#1025](https://github.com/chef/chef-workstation/pull/1025) ([marcparadise](https://github.com/marcparadise))
+- Updates documentation in chef-workstation [#1071](https://github.com/chef/chef-workstation/pull/1071) ([IanMadd](https://github.com/IanMadd))
+- Add Windows 10 Tester [#1072](https://github.com/chef/chef-workstation/pull/1072) ([christopher-snapp](https://github.com/christopher-snapp))
+- Fixing a bug I found on the site [#1085](https://github.com/chef/chef-workstation/pull/1085) ([tyler-ball](https://github.com/tyler-ball))
+- Explicitly build bcrypt_pbkdf-ruby [#1079](https://github.com/chef/chef-workstation/pull/1079) ([marcparadise](https://github.com/marcparadise))
+- adding gen for dist, using dist in the executables [#1087](https://github.com/chef/chef-workstation/pull/1087) ([tarcinil](https://github.com/tarcinil))
+- Forgot to vendor the latest version of go-libs when we updated [#1101](https://github.com/chef/chef-workstation/pull/1101) ([tyler-ball](https://github.com/tyler-ball))
+- Patch docker-api to use CGI.escape to silence deprecation warning [#1090](https://github.com/chef/chef-workstation/pull/1090) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Add go.mod file so we can preview changes to workstation docs locally [#1092](https://github.com/chef/chef-workstation/pull/1092) ([IanMadd](https://github.com/IanMadd))
+- Batching multiple PRs into 1 for ease of bumping dependencies [#1110](https://github.com/chef/chef-workstation/pull/1110) ([tyler-ball](https://github.com/tyler-ball))
+- Add Windows examples [#1088](https://github.com/chef/chef-workstation/pull/1088) ([jmassardo](https://github.com/jmassardo))
+- Clarify Windows requirements [#1089](https://github.com/chef/chef-workstation/pull/1089) ([jmassardo](https://github.com/jmassardo))
+- Add missing node options for policyfiles [#1091](https://github.com/chef/chef-workstation/pull/1091) ([jmassardo](https://github.com/jmassardo))
+- Add empty third party pkg pipeline to expeditor [#1108](https://github.com/chef/chef-workstation/pull/1108) ([marcparadise](https://github.com/marcparadise))
+- Manually building and installing docker-api gem [#1122](https://github.com/chef/chef-workstation/pull/1122) ([tyler-ball](https://github.com/tyler-ball))
+- Workstation 0.18 Release Prep [#1155](https://github.com/chef/chef-workstation/pull/1155) ([tyler-ball](https://github.com/tyler-ball))
+- Slack notifications are incorrect for cw-18 branch, trying to fix it [#1158](https://github.com/chef/chef-workstation/pull/1158) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_stable_release -->
+
 ## [0.17.5](https://github.com/chef/chef-workstation/tree/0.17.5) (2020-03-12)
 
 #### Merged Pull Requests
@@ -49,7 +47,6 @@
 - Bump test-kitchen from 2.3.4 to 2.4.0 in /omnibus [#1012](https://github.com/chef/chef-workstation/pull/1012) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 - Unpinning Inspec because its sudo bug got fixed [#1027](https://github.com/chef/chef-workstation/pull/1027) ([tyler-ball](https://github.com/tyler-ball))
 - More work to prepare for 0.17 release [#1033](https://github.com/chef/chef-workstation/pull/1033) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_stable_release -->
 
 ## [0.16.33](https://github.com/chef/chef-workstation/tree/0.16.33) (2020-03-03)
 
