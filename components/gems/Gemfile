@@ -48,8 +48,8 @@ group(:omnibus_package) do
   # gems to Rubygems now, so letting this float on latest should always give us the latest
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
-  gem "chef", "= 15.10.12 "
-  gem "chef-bin", "= 15.10.12 "
+  gem "chef", "= 16.0.287 "
+  gem "chef-bin", "= 16.0.287 "
   gem "ohai", ">= 15"
   gem "cheffish", ">= 14.0.1"
 
@@ -82,7 +82,7 @@ group(:omnibus_package) do
 
   # knife plugins
   gem "knife-acl", ">= 1.0.6"
-  gem "knife-azure", ">= 2.0.11"
+  gem "knife-azure", ">= 3.0.0"
   gem "knife-ec2", ">= 1.0.28"
   gem "knife-google", ">= 4.2.7"
   gem "knife-tidy", ">= 2.0.9"
@@ -101,7 +101,7 @@ group(:omnibus_package) do
   gem "chef-sugar"
   gem "mixlib-versioning"
   gem "artifactory"
-  gem "opscode-pushy-client", ">= 2.99"
+  gem "opscode-pushy-client", ">= 2.100"
   gem "ffi-rzmq-core"
   gem "knife-push"
 
