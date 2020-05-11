@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.26 -->
-## [20.5.26](https://github.com/chef/chef-workstation/tree/20.5.26) (2020-05-11)
+<!-- latest_release 20.5.27 -->
+## [20.5.27](https://github.com/chef/chef-workstation/tree/20.5.27) (2020-05-11)
 
 #### Merged Pull Requests
-- chef-sugar helpers are now in chef-utils [#1165](https://github.com/chef/chef-workstation/pull/1165) ([btm](https://github.com/btm))
+- Update openssl to 1.0.2v [#1166](https://github.com/chef/chef-workstation/pull/1166) ([btm](https://github.com/btm))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Update openssl to 1.0.2v [#1166](https://github.com/chef/chef-workstation/pull/1166) ([btm](https://github.com/btm)) <!-- 20.5.27 -->
 - chef-sugar helpers are now in chef-utils [#1165](https://github.com/chef/chef-workstation/pull/1165) ([btm](https://github.com/btm)) <!-- 20.5.26 -->
 - Adding chocolatey retry logic [#1163](https://github.com/chef/chef-workstation/pull/1163) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.25 -->
 - Bring in Chef 16 and PJC that can build on Ruby 2.7 [#1164](https://github.com/chef/chef-workstation/pull/1164) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.24 -->
