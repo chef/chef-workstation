@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.23 -->
-## [20.5.23](https://github.com/chef/chef-workstation/tree/20.5.23) (2020-05-08)
+<!-- latest_release 20.5.24 -->
+## [20.5.24](https://github.com/chef/chef-workstation/tree/20.5.24) (2020-05-11)
 
 #### Merged Pull Requests
-- Add Ubuntu 20.04 x86_64 support [#1161](https://github.com/chef/chef-workstation/pull/1161) ([christopher-snapp](https://github.com/christopher-snapp))
+- Bring in Chef 16 and PJC that can build on Ruby 2.7 [#1164](https://github.com/chef/chef-workstation/pull/1164) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Bring in Chef 16 and PJC that can build on Ruby 2.7 [#1164](https://github.com/chef/chef-workstation/pull/1164) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.24 -->
 - Add Ubuntu 20.04 x86_64 support [#1161](https://github.com/chef/chef-workstation/pull/1161) ([christopher-snapp](https://github.com/christopher-snapp)) <!-- 20.5.23 -->
 - Add pipeline support for homebrew [#1147](https://github.com/chef/chef-workstation/pull/1147) ([marcparadise](https://github.com/marcparadise)) <!-- 20.5.22 -->
 - Adding project alias in Expeditor [#1159](https://github.com/chef/chef-workstation/pull/1159) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.21 -->
