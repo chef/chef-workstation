@@ -408,24 +408,6 @@ module ChefWorkstation
         end
       end
 
-      # We try and use some chef-sugar code to make sure it loads correctly
-      add_component "chef-sugar" do |c|
-        c.gem_base_dir = "chef-sugar"
-        c.smoke_test do
-          tmpdir do |cwd|
-            with_file(File.join(cwd, "foo.rb")) do |f|
-              f.write <<~EOF
-                require 'chef/sugar'
-                log 'something' do
-                  not_if  { _64_bit? }
-                end
-              EOF
-            end
-            sh("#{bin("chef-apply")} foo.rb", cwd: cwd)
-          end
-        end
-      end
-
       attr_reader :verification_threads
       attr_reader :verification_results
       attr_reader :verification_status
