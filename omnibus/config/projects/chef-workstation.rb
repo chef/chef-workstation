@@ -97,6 +97,7 @@ dependency "more-ruby-cleanup"
 
 dependency "go"
 dependency "main-chef-wrapper"
+dependency "foodcritic-wrapper" # This MUST go after the gems because it moves an appbundled executable
 dependency "chef-analyze"
 # removes the go language installed at embedded/go
 dependency "go-uninstall"

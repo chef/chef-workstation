@@ -1,0 +1,106 @@
+//
+// Copyright 2019 Chef Software, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+package main
+
+import (
+	"fmt"
+	"os"
+	"os/exec"
+
+	"github.com/chef/go-libs/featflag"
+)
+
+func main() {
+	var (
+		cmd *exec.Cmd
+	)
+
+	if featflag.ChefFeatFoodcritic.Enabled() {
+		cmd = exec.Command("_foodcritic", os.Args...)
+	} else {
+		fmt.Printf("foodcritic has been deprecated and disabled.\n\n")
+		fmt.Printf("Temporarily enable `%s with the environment variable:\n")
+		fmt.Printf("\t%s=true\n\n", featflag.ChefFeatFoodcritic.Env())
+		fmt.Printf("Or, permanently by modifying $HOME/.chef-workstation/config.toml with:\n")
+		fmt.Printf("\t[features]\n\t%s = true\n", featflag.ChefFeatFoodcritic.Key())
+		os.Exit(0)
+	}
+
+	debugLog(fmt.Sprintf("Chef binary: %s", cmd.Path))
+	debugLog(fmt.Sprintf("Arguments: %v", os.Args))
+
+	cmd.Env = os.Environ()
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	cmd.Stdin = os.Stdin
+
+	// TODO @afiune handle the errors in a better way
+	if err := cmd.Run(); err != nil {
+		if exitError, ok := err.(*exec.ExitError); ok {
+			os.Exit(exitError.ExitCode())
+		}
+		// @afiune if we got here it means we have a different error
+		// other than a 'ExitError', things like 'executable not found'
+		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+		os.Exit(7)
+	}
+}
+
+func usage() {
+	// TODO @afiune add actual usage, this might only list top level sub-commands
+	// we should avoid to add specific options per sub-command
+	msg := `Usage:
+    chef -h/--help
+    chef -v/--version
+    chef command [arguments...] [options...]
+
+Available Commands:
+    exec                    Runs the command in context of the embedded ruby
+    env                     Prints environment variables used by Chef Workstation
+    gem                     Runs the 'gem' command in context of the embedded Ruby
+    generate                Generate a new repository, cookbook, or other component
+    shell-init              Initialize your shell to use Chef Workstation as your primary Ruby
+    install                 Install cookbooks from a Policyfile and generate a locked cookbook set
+    update                  Updates a Policyfile.lock.json with latest run_list and cookbooks
+    push                    Push a local policy lock to a policy group on the Chef Infra Server
+    push-archive            Push a policy archive to a policy group on the Chef Infra Server
+    show-policy             Show policyfile objects on the Chef Infra Server
+    diff                    Generate an itemized diff of two Policyfile lock documents
+    export                  Export a policy lock as a Chef Infra Zero code repo
+    clean-policy-revisions  Delete unused policy revisions on the Chef Infra Server
+    clean-policy-cookbooks  Delete unused policyfile cookbooks on the Chef Infra Server
+    delete-policy-group     Delete a policy group on the Chef Infra Server
+    delete-policy           Delete all revisions of a policy on the Chef Infra Server
+    undelete                Undo a delete command
+    describe-cookbook       Prints cookbook checksum information used for cookbook identifier
+`
+
+	if featflag.ChefFeatAnalyze.Enabled() {
+		// add the experimental section to the usage message
+		msg = msg + `
+Experimental Commands:
+    analyze                 A CLI to analyze artifacts from a Chef Infra Server
+`
+	}
+	fmt.Printf(msg)
+}
+
+func debugLog(msg string) {
+	if os.Getenv("CHEF_DEBUG") != "" {
+		fmt.Fprintln(os.Stderr, "DEBUG: "+msg)
+	}
+}
