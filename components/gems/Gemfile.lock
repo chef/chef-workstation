@@ -319,7 +319,6 @@ GEM
       mixlib-config (>= 2.2.12, < 4.0)
       mixlib-shellout (>= 2.0, < 4.0)
       tomlrb (~> 1.2)
-    chef-sugar (5.1.9)
     chef-telemetry (1.0.5)
       chef-config
       concurrent-ruby (~> 1.0)
@@ -570,7 +569,6 @@ GEM
       rbvmomi (>= 1.11, < 3.0)
       test-kitchen (>= 1.16, < 3.0)
       vsphere-automation-sdk (~> 0.4)
-    knife-acl (1.0.8)
     knife-azure (3.0.0)
       azure_mgmt_compute (~> 0.18, >= 0.18.3)
       azure_mgmt_network (~> 0.18, >= 0.18.2)
@@ -1050,9 +1048,7 @@ DEPENDENCIES
   chef-apply (>= 0.4.16)
   chef-bin (= 16.0.287)
   chef-cli (>= 2.0.10)
-  chef-sugar
-  chef-vault (>= 4.0)
-  cheffish (>= 14.0.1)
+  cheffish (>= 15.0.0)
   chefspec (>= 9.0.0, < 10.0)
   chefstyle
   cookstyle (~> 6.0)
@@ -1077,7 +1073,6 @@ DEPENDENCIES
   kitchen-openstack (>= 5.0)
   kitchen-vagrant (>= 1.6)
   kitchen-vcenter (>= 2.0)
-  knife-acl (>= 1.0.6)
   knife-azure (>= 3.0.0)
   knife-ec2 (>= 1.0.28)
   knife-google (>= 4.2.7)
@@ -1095,7 +1090,7 @@ DEPENDENCIES
   mixlib-versioning
   net-ssh (>= 4.2.0)
   nokogiri (= 1.11.0.rc2)
-  ohai (>= 15)
+  ohai (>= 16)
   opscode-pushy-client (>= 2.100)
   pry
   pry-byebug
