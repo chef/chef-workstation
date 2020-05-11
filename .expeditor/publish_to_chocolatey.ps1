@@ -24,8 +24,8 @@ while (-not $completed) {
     }
 }
 
-Write-Host "--- Successfully fetched version $version information"
-Write-Host ("--- URL: {0}" -f $releaseRecord.url)
+Write-Host "Successfully fetched version $version information"
+Write-Host ("URL: {0}" -f $releaseRecord.url)
 
 Write-Host "--- Copying templates locally"
 $tempDir = Join-Path $env:temp ([System.IO.Path]::GetRandomFileName())
