@@ -287,7 +287,6 @@ module ChefWorkstation
             end
 
             sh!("#{usr_bin_path("ohai")} -v")
-            sh!("#{usr_bin_path("foodcritic")} -V")
             sh!("#{usr_bin_path("inspec")} version")
           end
 
