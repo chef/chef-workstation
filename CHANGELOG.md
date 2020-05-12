@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.28 -->
-## [20.5.28](https://github.com/chef/chef-workstation/tree/20.5.28) (2020-05-12)
+<!-- latest_release 20.5.29 -->
+## [20.5.29](https://github.com/chef/chef-workstation/tree/20.5.29) (2020-05-12)
 
 #### Merged Pull Requests
-- Update the list of Kitchen Drivers [#1139](https://github.com/chef/chef-workstation/pull/1139) ([tas50](https://github.com/tas50))
+- Update Cookstyle to 6.4.4 [#1170](https://github.com/chef/chef-workstation/pull/1170) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Update Cookstyle to 6.4.4 [#1170](https://github.com/chef/chef-workstation/pull/1170) ([tas50](https://github.com/tas50)) <!-- 20.5.29 -->
 - Update the list of Kitchen Drivers [#1139](https://github.com/chef/chef-workstation/pull/1139) ([tas50](https://github.com/tas50)) <!-- 20.5.28 -->
 - Update openssl to 1.0.2v [#1166](https://github.com/chef/chef-workstation/pull/1166) ([btm](https://github.com/btm)) <!-- 20.5.27 -->
 - chef-sugar helpers are now in chef-utils [#1165](https://github.com/chef/chef-workstation/pull/1165) ([btm](https://github.com/btm)) <!-- 20.5.26 -->
