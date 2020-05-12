@@ -194,10 +194,10 @@ module ChefWorkstation
 
       add_component "chef-apply" do |c|
         c.gem_base_dir = "chef-apply"
-        # c.unit_test do
-        #   bundle_install_mutex.synchronize { sh("#{embedded_bin("bundle")} install") }
-        #   sh("#{embedded_bin("bundle")} exec rspec")
-        # end
+        c.unit_test do
+          bundle_install_mutex.synchronize { sh("#{embedded_bin("bundle")} install") }
+          sh("#{embedded_bin("bundle")} exec rspec")
+        end
         c.smoke_test { sh("#{bin("chef-run")} -v", env: { "CHEF_TELEMETRY_OPT_OUT" => "true" }) }
       end
 
