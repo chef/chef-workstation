@@ -11,6 +11,7 @@ const (
 	AnalyzeExec        = "chef-analyze"
 	ApplyExec          = "chef-apply"
 	AutomateProduct    = "Chef Automate"
+	CLIWrapperExec     = "chef"
 	ClientExec         = "chef-client"
 	ClientProduct      = "Chef Infra Client"
 	CompanyName        = "Chef Software"
