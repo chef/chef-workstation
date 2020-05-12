@@ -40,16 +40,8 @@ func main() {
 	switch subCommand {
 	case "report", "capture":
 		if featflag.ChefFeatAnalyze.Enabled() {
-			// A little special-casing with this - the 'upload' command is a hidden top-level command
-			// in the chef-analyze binary. However, we're exposing it as a subcommand of  'report'.
-			// We'll need to explicitly invoke it as a top-level command of the chef-analyze binary.
 
-			if len(os.Args) > 2 && subCommand == "report" && os.Args[2] == "upload" {
-				cmd = exec.Command(dist.AnalyzeExec, os.Args[2:]...)
-			} else {
-
-				cmd = exec.Command(dist.AnalyzeExec, allArgs...)
-			}
+			cmd = exec.Command(dist.AnalyzeExec, allArgs...)
 
 		} else {
 			fmt.Printf("`%s` is experimental and in development.\n\n", featflag.ChefFeatAnalyze.Key())
