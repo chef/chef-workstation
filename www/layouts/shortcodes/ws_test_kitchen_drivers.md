@@ -11,8 +11,6 @@ hypervisors, such as VMware, Hyper-V, or VirtualBox.
 
 Chef Workstation includes many common Test Kitchen drivers.
 
-
-
 </div>
 
 </div>
@@ -38,44 +36,48 @@ Some popular drivers:
 </thead>
 <tbody>
 <tr class="odd">
+<td><a href="https://github.com/test-kitchen/kitchen-azurerm">kitchen-azurerm</a></td>
+<td>A driver for Microsoft Azure.</td>
+</tr>
+<tr class="even">
 <td><a href="https://github.com/test-kitchen/kitchen-cloudstack">kitchen-cloudstack</a></td>
 <td>A driver for CloudStack.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="https://github.com/test-kitchen/kitchen-digitalocean">kitchen-digitalocean</a></td>
-<td>A driver for DigitalOcean.</td>
+<td>A driver for DigitalOcean. This driver ships in Chef Workstation.</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/test-kitchen/kitchen-dokken">kitchen-dokken</a></td>
+<td>A driver for Docker. This driver ships in Chef Workstation.</td>
 </tr>
 <tr class="odd">
-<td><a href="https://github.com/portertech/kitchen-docker">kitchen-docker</a></td>
-<td>A driver for Docker.</td>
-</tr>
-<tr class="even">
 <td><a href="https://github.com/test-kitchen/kitchen-dsc">kitchen-dsc</a></td>
 <td>A driver for Windows PowerShell Desired State Configuration (DSC).</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="https://github.com/test-kitchen/kitchen-ec2">kitchen-ec2</a></td>
 <td>A driver for Amazon EC2. This driver ships in Chef Workstation.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="https://github.com/test-kitchen/kitchen-google">kitchen-google</a></td>
 <td>A driver for Google Compute Engine. This driver ships in Chef Workstation</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="https://github.com/test-kitchen/kitchen-hyperv">kitchen-hyperv</a></td>
-<td>A driver for Hyper-V Server.</td>
+<td>A driver for Microsoft Hyper-V Server. This driver ships in Chef Workstation.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/test-kitchen/kitchen-openstack">kitchen-openstack</a></td>
+<td>A driver for OpenStack. This driver ships in Chef Workstation.</td>
 </tr>
 <tr class="even">
-<td><a href="https://github.com/test-kitchen/kitchen-openstack">kitchen-openstack</a></td>
-<td>A driver for OpenStack.</td>
-</tr>
-<tr class="odd">
 <td><a href="https://github.com/test-kitchen/kitchen-rackspace">kitchen-rackspace</a></td>
 <td>A driver for Rackspace.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="https://github.com/test-kitchen/kitchen-vagrant">kitchen-vagrant</a></td>
-<td>A driver for Vagrant. This driver ships in Chef Workstation.</td>
+<td>A driver for HashiCorp Vagrant. This driver ships in Chef Workstation.</td>
 </tr>
 </tbody>
 </table>

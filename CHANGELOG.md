@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.27 -->
-## [20.5.27](https://github.com/chef/chef-workstation/tree/20.5.27) (2020-05-11)
+<!-- latest_release 20.5.28 -->
+## [20.5.28](https://github.com/chef/chef-workstation/tree/20.5.28) (2020-05-12)
 
 #### Merged Pull Requests
-- Update openssl to 1.0.2v [#1166](https://github.com/chef/chef-workstation/pull/1166) ([btm](https://github.com/btm))
+- Update the list of Kitchen Drivers [#1139](https://github.com/chef/chef-workstation/pull/1139) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Update the list of Kitchen Drivers [#1139](https://github.com/chef/chef-workstation/pull/1139) ([tas50](https://github.com/tas50)) <!-- 20.5.28 -->
 - Update openssl to 1.0.2v [#1166](https://github.com/chef/chef-workstation/pull/1166) ([btm](https://github.com/btm)) <!-- 20.5.27 -->
 - chef-sugar helpers are now in chef-utils [#1165](https://github.com/chef/chef-workstation/pull/1165) ([btm](https://github.com/btm)) <!-- 20.5.26 -->
 - Adding chocolatey retry logic [#1163](https://github.com/chef/chef-workstation/pull/1163) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.25 -->
