@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.30 -->
-## [20.5.30](https://github.com/chef/chef-workstation/tree/20.5.30) (2020-05-12)
+<!-- latest_release 20.5.31 -->
+## [20.5.31](https://github.com/chef/chef-workstation/tree/20.5.31) (2020-05-12)
 
 #### Merged Pull Requests
-- Cache gems in testing using Expeditor gem caching [#1173](https://github.com/chef/chef-workstation/pull/1173) ([tas50](https://github.com/tas50))
+- &#39;analyze&#39; is now &#39;report&#39; [#1154](https://github.com/chef/chef-workstation/pull/1154) ([marcparadise](https://github.com/marcparadise))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- &#39;analyze&#39; is now &#39;report&#39; [#1154](https://github.com/chef/chef-workstation/pull/1154) ([marcparadise](https://github.com/marcparadise)) <!-- 20.5.31 -->
 - Cache gems in testing using Expeditor gem caching [#1173](https://github.com/chef/chef-workstation/pull/1173) ([tas50](https://github.com/tas50)) <!-- 20.5.30 -->
 - Update Cookstyle to 6.4.4 [#1170](https://github.com/chef/chef-workstation/pull/1170) ([tas50](https://github.com/tas50)) <!-- 20.5.29 -->
 - Update the list of Kitchen Drivers [#1139](https://github.com/chef/chef-workstation/pull/1139) ([tas50](https://github.com/tas50)) <!-- 20.5.28 -->
