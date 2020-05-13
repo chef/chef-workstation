@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.32 -->
-## [20.5.32](https://github.com/chef/chef-workstation/tree/20.5.32) (2020-05-12)
+<!-- latest_release 20.5.33 -->
+## [20.5.33](https://github.com/chef/chef-workstation/tree/20.5.33) (2020-05-13)
 
 #### Merged Pull Requests
-- Take out the Ruby 2.4+ gate in the omnibus def [#1171](https://github.com/chef/chef-workstation/pull/1171) ([tas50](https://github.com/tas50))
+- Bump test-kitchen from 2.4.0 to 2.5.0 in /omnibus [#1150](https://github.com/chef/chef-workstation/pull/1150) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Bump test-kitchen from 2.4.0 to 2.5.0 in /omnibus [#1150](https://github.com/chef/chef-workstation/pull/1150) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.5.33 -->
 - Take out the Ruby 2.4+ gate in the omnibus def [#1171](https://github.com/chef/chef-workstation/pull/1171) ([tas50](https://github.com/tas50)) <!-- 20.5.32 -->
 - &#39;analyze&#39; is now &#39;report&#39; [#1154](https://github.com/chef/chef-workstation/pull/1154) ([marcparadise](https://github.com/marcparadise)) <!-- 20.5.31 -->
 - Cache gems in testing using Expeditor gem caching [#1173](https://github.com/chef/chef-workstation/pull/1173) ([tas50](https://github.com/tas50)) <!-- 20.5.30 -->
