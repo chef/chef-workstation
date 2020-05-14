@@ -22,9 +22,6 @@ steps:
         GITHUB_TOKEN:
           account: github/chef
           field: token
-    executor:
-      docker:
-         image: homebrew/brew
-
-
-
+      executor:
+        docker:
+          image: homebrew/brew
