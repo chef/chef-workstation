@@ -1,5 +1,5 @@
 steps:
-  - label: ":mac_os_x: :github: Create PR to update Homebrew/homebrew-cask"
+  - label: ":mac: :github: Create PR to update Homebrew/homebrew-cask"
     command:
       - bash .expeditor/create_pr_for_homebrew.sh
     expeditor:
