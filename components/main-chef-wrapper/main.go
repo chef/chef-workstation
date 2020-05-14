@@ -51,6 +51,9 @@ func main() {
 			fmt.Printf("\t[features]\n\t%s = true\n", featflag.ChefFeatAnalyze.Key())
 			os.Exit(0)
 		}
+	case "help", "-h", "--help":
+		usage()
+		os.Exit(0)
 
 	// We want to pass every sub-command to the old 'chef' CLI binary that was renamed to
 	// 'chef-cli`, which is our default case.
