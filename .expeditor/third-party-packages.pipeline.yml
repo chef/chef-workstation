@@ -1,17 +1,4 @@
 steps:
-  - label: ":chocolate_bar: Publish Chocolatey package"
-    command:
-      - powershell .expeditor/publish_to_chocolatey.ps1
-    expeditor:
-      secrets:
-        CHOCO_API_KEY:
-          path: account/static/chocolatey/chef-ci
-          field: api_key
-      executor:
-        docker:
-          host_os: windows
-          environment:
-
   - label: ":mac_os_x: :github: Create PR to update Homebrew/homebrew-cask"
     command:
       - bash .expeditor/create_pr_for_homebrew.sh
