@@ -1,15 +1,25 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.23 -->
-## [20.5.23](https://github.com/chef/chef-workstation/tree/20.5.23) (2020-05-08)
+<!-- latest_release 20.5.33 -->
+## [20.5.33](https://github.com/chef/chef-workstation/tree/20.5.33) (2020-05-13)
 
 #### Merged Pull Requests
-- Add Ubuntu 20.04 x86_64 support [#1161](https://github.com/chef/chef-workstation/pull/1161) ([christopher-snapp](https://github.com/christopher-snapp))
+- Bump test-kitchen from 2.4.0 to 2.5.0 in /omnibus [#1150](https://github.com/chef/chef-workstation/pull/1150) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Bump test-kitchen from 2.4.0 to 2.5.0 in /omnibus [#1150](https://github.com/chef/chef-workstation/pull/1150) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.5.33 -->
+- Take out the Ruby 2.4+ gate in the omnibus def [#1171](https://github.com/chef/chef-workstation/pull/1171) ([tas50](https://github.com/tas50)) <!-- 20.5.32 -->
+- &#39;analyze&#39; is now &#39;report&#39; [#1154](https://github.com/chef/chef-workstation/pull/1154) ([marcparadise](https://github.com/marcparadise)) <!-- 20.5.31 -->
+- Cache gems in testing using Expeditor gem caching [#1173](https://github.com/chef/chef-workstation/pull/1173) ([tas50](https://github.com/tas50)) <!-- 20.5.30 -->
+- Update Cookstyle to 6.4.4 [#1170](https://github.com/chef/chef-workstation/pull/1170) ([tas50](https://github.com/tas50)) <!-- 20.5.29 -->
+- Update the list of Kitchen Drivers [#1139](https://github.com/chef/chef-workstation/pull/1139) ([tas50](https://github.com/tas50)) <!-- 20.5.28 -->
+- Update openssl to 1.0.2v [#1166](https://github.com/chef/chef-workstation/pull/1166) ([btm](https://github.com/btm)) <!-- 20.5.27 -->
+- chef-sugar helpers are now in chef-utils [#1165](https://github.com/chef/chef-workstation/pull/1165) ([btm](https://github.com/btm)) <!-- 20.5.26 -->
+- Adding chocolatey retry logic [#1163](https://github.com/chef/chef-workstation/pull/1163) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.25 -->
+- Bring in Chef 16 and PJC that can build on Ruby 2.7 [#1164](https://github.com/chef/chef-workstation/pull/1164) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.24 -->
 - Add Ubuntu 20.04 x86_64 support [#1161](https://github.com/chef/chef-workstation/pull/1161) ([christopher-snapp](https://github.com/christopher-snapp)) <!-- 20.5.23 -->
 - Add pipeline support for homebrew [#1147](https://github.com/chef/chef-workstation/pull/1147) ([marcparadise](https://github.com/marcparadise)) <!-- 20.5.22 -->
 - Adding project alias in Expeditor [#1159](https://github.com/chef/chef-workstation/pull/1159) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.21 -->
