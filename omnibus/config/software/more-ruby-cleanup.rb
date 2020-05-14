@@ -47,6 +47,7 @@ build do
       ed25519.png
       example
       examples
+      ext
       frozen_old_spec
       Gemfile.devtools
       Gemfile.lock
