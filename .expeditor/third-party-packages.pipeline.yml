@@ -23,5 +23,4 @@ steps:
           account: github/chef
           field: token
       executor:
-        docker:
-          image: homebrew/brew
+        macos:
