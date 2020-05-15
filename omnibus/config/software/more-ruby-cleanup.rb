@@ -75,12 +75,7 @@ build do
 
     Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
       puts "Deleting #{f}"
-      if File.directory?(f)
-        # recursively removes files and the dir
-        FileUtils.remove_dir(f)
-      else
-        File.delete(f)
-      end
+      FileUtils.rm_rf(f)
     end
 
     block "Removing Gemspec / Rakefile / Gemfile unless there's a bin dir" do
@@ -97,12 +92,7 @@ build do
         # don't delete these files if there's a bin dir in the same dir
         unless Dir.exist?(File.join(File.dirname(f), "bin"))
           puts "Deleting #{f}"
-          if File.directory?(f)
-            # recursively removes files and the dir
-            FileUtils.remove_dir(f)
-          else
-            File.delete(f)
-          end
+          FileUtils.rm_rf(f)
         end
       end
     end
