@@ -1,5 +1,5 @@
 #
-# Copyright:: Chef Software, Inc.
+# Copyright:: Copyright (c) Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,7 +28,7 @@ dependency "ruby"
 
 build do
   block "remove any .gitkeep files" do
-    Dir.glob("#{install_dir}/**/.gitkeep").each do |f|
+    Dir.glob("#{install_dir}/**/{.gitkeep,.keep}").each do |f|
       puts "Deleting #{f}"
       File.delete(f)
     end
