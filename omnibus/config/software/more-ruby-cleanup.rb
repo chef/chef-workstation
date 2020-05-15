@@ -27,6 +27,13 @@ source path: "#{project.files_path}/#{name}"
 dependency "ruby"
 
 build do
+  block "remove any .gitkeep files" do
+    Dir.glob("#{install_dir}/**/.gitkeep").each do |f|
+      puts "Deleting #{f}"
+      File.delete(f)
+    end
+  end
+
   block "Removing additional non-code files from installed gems" do
     # find the embedded ruby gems dir and clean it up for globbing
     target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
