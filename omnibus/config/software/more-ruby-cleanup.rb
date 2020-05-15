@@ -27,6 +27,13 @@ source path: "#{project.files_path}/#{name}"
 dependency "ruby"
 
 build do
+  block "Removing console and setup binaries" do
+    Dir.glob("#{install_dir}/embedded/lib/ruby/gems/*/gems/*/bin/{console,setup}").each do |f|
+      puts "Deleting #{f}"
+      FileUtils.rm_rf(f)
+    end
+  end
+
   block "remove any .gitkeep files" do
     Dir.glob("#{install_dir}/**/{.gitkeep,.keep}").each do |f|
       puts "Deleting #{f}"
@@ -98,8 +105,8 @@ build do
       }
 
       Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
-        # don't delete these files if there's a bin dir in the same dir
-        unless Dir.exist?(File.join(File.dirname(f), "bin"))
+        # don't delete these files if there's a non-empty bin dir in the same dir
+        unless Dir.exist?(File.join(File.dirname(f), "bin")) && !Dir.empty?(File.join(File.dirname(f), "bin"))
           puts "Deleting #{f}"
           FileUtils.rm_rf(f)
         end
