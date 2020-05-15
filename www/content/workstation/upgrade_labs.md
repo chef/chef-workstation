@@ -48,9 +48,9 @@ MMM+another+key+goes+here+MMM
 You should be able to run a knife command against each server and receive a reasonable response.
 
 ```
-$ chef exec knife user list --profile old-server
+$ knife user list --profile old-server
 my-user
-$ chef exec knife user list --profile new-server
+$ knife user list --profile new-server
 my-user
 ```
 
@@ -59,7 +59,7 @@ This document assumes that the nodes that we are upgrading today are currently c
 Verify that the nodes are healthy by running:
 
 ```
-$ chef exec knife status --profile old-server
+$ knife status --profile old-server
 42 minutes ago, node-01, ubuntu 18.04.
 ```
 
@@ -73,16 +73,18 @@ This document assumes that you have some kind of continuous integration pipeline
 ### Chef Workstation
 Ensure you have the latest version of Chef Workstation. To install Chef Workstation, visit https://downloads.chef.io/chef-workstation and download the package for your local operating system. Install the package.
 
+Set Chef Workstation as your local development shell by running `chef shell-init` and following the instructions. This ensures all the tools referenced in this documentation are added to your PATH.
+
 ## Configuration
 
 ### Feature Flag Configuration
-Enable Chef Analyze by clicking on the Chef Workstation tray icon, then selecting Preferences. Click the Advanced Tab and check the "chef analyze" box.
+Enable Upgrade Labs by clicking on the Chef Workstation tray icon, then selecting Preferences. Click the Advanced Tab and check the "chef analyze" box.
 
 ## Identify a Node
-### Using chef analyze report nodes
+### Using chef report nodes
 Run on your development workstation:
 ```
-$ chef analyze report nodes -p old-server
+$ chef report nodes -p old-server
 
 Analyzing nodes...
 
@@ -99,10 +101,10 @@ Nodes report saved to /Users/cwolfe/.chef-workstation/reports/nodes-202003241351
 You might select a node that has a simple setup, such as a relatively few number of cookbooks.
 Examine the saved report to determine the list of cookbooks for your node.
 
-### Using chef analyze report cookbooks
+### Using chef report cookbooks
 Run:
 ```
-$ chef analyze report cookbooks -V -p old-server
+$ chef report cookbooks -V -p old-server
 
         Cookbook         Version   Violations   Auto-correctable   Nodes Affected
 -----------------------+---------+------------+------------------+-----------------
@@ -116,14 +118,14 @@ This report shows that there are two cookbooks on the server. It analyzes the co
 
 ## Capture the Node
 
-### Run chef analyze capture NODE
+### Run chef capture NODE
 
 This command will download the node from Chef Server.  It will also assist you in obtaining and organizing the cookbooks needed to converge the node. Finally, it will generate a Kitchenfile allowing you to use Test Kitchen to perform local development.
 
 Run:
 
 ```
- $ chef analyze capture MYNODE
+ $ chef capture MYNODE
  - Setting up local repository
  - Capturing node object 'MYNODE'
  - Capturing cookbooks...
@@ -136,9 +138,9 @@ Repository has been created in './node-MYNODE-repo'.
 
 ### Locate the cookbooks' origin
 
-At this point, `chef analyze capture` will interactively prompt you to fetch the cookbooks from their original locations - ideally, you would obtain the cookbooks from their canonical source (that is `git clone` or other version control checkout operation). This allows you to make local changes while contributing the changes upstream to the canonical source.
+At this point, `chef capture` will interactively prompt you to fetch the cookbooks from their original locations - ideally, you would obtain the cookbooks from their canonical source (that is `git clone` or other version control checkout operation). This allows you to make local changes while contributing the changes upstream to the canonical source.
 
-If you do not have access to the canonical source of one or more cookbooks, `chef analyze capture` will simply download those cookbooks from the chef server itself. That will allow you to make changes and upload the changed cookbooks to the chef server, but you will not be able to contribute your changes upstream.
+If you do not have access to the canonical source of one or more cookbooks, `chef capture` will simply download those cookbooks from the chef server itself. That will allow you to make changes and upload the changed cookbooks to the chef server, but you will not be able to contribute your changes upstream.
 
 ### Expected Layout for Cookbook Checkout
 
@@ -160,7 +162,7 @@ If you do have access to one or more of the cookbooks' sources, it is simplest i
 
 If you have cookbooks in multiple locations, that will work as well, but will involve more prompting.
 
-`chef analyze capture` will first prompt you for the main location, similar to this:
+`chef capture` will first prompt you for the main location, similar to this:
 
 ```
 Please clone or check out the following cookbooks locally
@@ -188,7 +190,7 @@ Checkout Location [none]: /src/my-cookbooks
   Replacing cookbook: chef-client
 ```
 
-`chef analyze capture` will then scan that path, looking for the cookbooks that it needs. If all cookbooks are found, it will finish; but if any are missing, it will prompt individually.
+`chef capture` will then scan that path, looking for the cookbooks that it needs. If all cookbooks are found, it will finish; but if any are missing, it will prompt individually.
 
 ### Locating Individual Cookbook Checkouts
 
@@ -200,7 +202,7 @@ Suppose that your node requires 5 cookbooks:
   - windows (v1.44.1)
   - chef_handler (v1.4.0)
 
-But only `cron` and `chef-client` are present in the directory you provided in the initial prompt. `chef analyze capture` will now prompt you for the remaining three:
+But only `cron` and `chef-client` are present in the directory you provided in the initial prompt. `chef capture` will now prompt you for the remaining three:
 
 ```
 Please provide the base checkout path for the following
@@ -217,7 +219,7 @@ If you have another checkout location that contains multiple cookbooks, you may 
 
 ### Falling Back to a Downloading a Cookbook from Chef Server
 
-If you do not have access to the original version-controlled source of a cookbook, press return at the prompt and `chef analyze capture` will use a copy of the cookbook downloaded from the Chef Server.
+If you do not have access to the original version-controlled source of a cookbook, press return at the prompt and `chef capture` will use a copy of the cookbook downloaded from the Chef Server.
 
 This is not an ideal practice.  You will likely be making changes to the cookbooks in the steps ahead. It is important that you be able to track those changes and test your changes in a continuous integration pipeline, which is beyond the scope of this document. If you make changes in a copy of the cookbook without version control information, it will be difficult to reconcile those changes in the future. If you find yourself in this situation, it is likely worth the effort to try to track down the version-controlled source.
 
@@ -260,14 +262,14 @@ If needed, you can "step forward" by first going from 12 to 13, correcting issue
 
 Run, in the `node-MY_NODE-repo` directory:
 ```
-$ chef exec kitchen converge
+$ kitchen converge
 ```
 Watch for Chef Infra errors. If any occur, fix them.  Also consider running cookstyle (see below). Repeat as needed.
 
 ### Run CookStyle
 To check for version upgrade issues, run:
 ```
-$ chef exec cookstyle cookbooks/some-cookbook
+$ cookstyle cookbooks/some-cookbook
 ```
 Repeat this process for each cookbook that the node consumes.
 
@@ -275,7 +277,7 @@ Repeat this process for each cookbook that the node consumes.
 ### Using auto-correct
 To auto-correct cookbook issues, run:
 ```
-$ chef exec cookstyle -a cookbooks/some-cookbook
+$ cookstyle -a cookbooks/some-cookbook
 ```
 Other issues may require manual intervention and editing.
 Repeat this process for each cookbook that the node consumes.
@@ -289,7 +291,7 @@ You will need to download the data_bags. Note that this command does not support
 
 ```
 $ cd node-node-01-repo
-$ chef exec knife download data_bags --chef-repo-path . --profile old-server --key my-old-key.pem
+$ knife download data_bags --chef-repo-path . --profile old-server --key my-old-key.pem
 ```
 
 ### Check for Server Searches
@@ -308,12 +310,12 @@ If your organization does not have a cookbook pipeline in place, or if you are s
 
 ```
 $ cd node-node-01-repo
-$ chef exec knife upload cookbooks --chef-repo-path . --profile new-server --key my-new-key.pem
+$ knife upload cookbooks --chef-repo-path . --profile new-server --key my-new-key.pem
 ```
 
 If you used data bags, also upload them to the new server:
 ```
-$ chef exec knife upload data_bags --chef-repo-path . --profile new-server --key my-new-key.pem
+$ knife upload data_bags --chef-repo-path . --profile new-server --key my-new-key.pem
 ```
 
 ## Move the Node to the New Server
@@ -322,7 +324,7 @@ $ chef exec knife upload data_bags --chef-repo-path . --profile new-server --key
 
 Migrate your node to the new server by running a bootstrap command similar to the following:
 ```
- $ chef exec knife bootstrap \
+ $ knife bootstrap \
       --profile new-server --chef-license accept \
       -r cookbook::recipe,another_cookbook::recipe \
       -N node-01 -y --sudo \
@@ -331,7 +333,7 @@ Migrate your node to the new server by running a bootstrap command similar to th
 
 Optionally, delete your node record from the old server using:
 ```
- $ chef exec knife node delete node-01 --profile old-server
+ $ knife node delete node-01 --profile old-server
 ```
 
 ## Repeat as Needed
