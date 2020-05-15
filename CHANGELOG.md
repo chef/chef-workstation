@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.34 -->
-## [20.5.34](https://github.com/chef/chef-workstation/tree/20.5.34) (2020-05-14)
+<!-- latest_release 20.5.35 -->
+## [20.5.35](https://github.com/chef/chef-workstation/tree/20.5.35) (2020-05-14)
 
 #### Merged Pull Requests
-- Adding Inspec 4.18.114 [#1192](https://github.com/chef/chef-workstation/pull/1192) ([tyler-ball](https://github.com/tyler-ball))
+- Ensure help, -h, and --help behave the same [#1196](https://github.com/chef/chef-workstation/pull/1196) ([marcparadise](https://github.com/marcparadise))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Ensure help, -h, and --help behave the same [#1196](https://github.com/chef/chef-workstation/pull/1196) ([marcparadise](https://github.com/marcparadise)) <!-- 20.5.35 -->
 - Adding Inspec 4.18.114 [#1192](https://github.com/chef/chef-workstation/pull/1192) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.34 -->
 - Bump test-kitchen from 2.4.0 to 2.5.0 in /omnibus [#1150](https://github.com/chef/chef-workstation/pull/1150) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.5.33 -->
 - Take out the Ruby 2.4+ gate in the omnibus def [#1171](https://github.com/chef/chef-workstation/pull/1171) ([tas50](https://github.com/tas50)) <!-- 20.5.32 -->
