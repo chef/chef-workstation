@@ -26,8 +26,22 @@ git checkout -b "$branch"
 URL="https://omnitruck.chef.io/stable/$EXPEDITOR_PRODUCT_KEY/metadata?p=mac_os_x&pv=10.14&m=x86_64&v=$EXPEDITOR_VERSION"
 SHA=""
 
+function open_pull_request ()
+{
+    repo=$(git remote get-url origin | sed -rn  's/.+github\.com[\/\:](.*)\.git/\1/p');
+    head=$(git rev-parse --abbrev-ref HEAD);
+    title=$(git log --oneline --pretty=%s -1);
+    base=${1:-"master"};
+    if [[ "$head" == "$base" ]]; then
+        echo "ERROR: You cannot open a pull request with the same head and base.";
+        exit 1;
+    fi;
+    git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${repo}.git" "$head" --force;
+    curl --header "Authorization: token $GITHUB_TOKEN" --data "{\"title\":\"$title\",\"head\":\"$head\",\"base\":\"$base\",\"maintainer_can_modify\":true}" -XPOST "https://api.github.com/repos/$repo/pulls"
+}
+
 function get_sha() {
-  curl -Ssv "$URL" | sed -n 's/sha256\s*\(\S*\)/\1/p'
+  curl -Ss "$URL" | sed -n 's/sha256\s*\(\S*\)/\1/p' | awk '{$1=$1;print}'
 }
 
 delay=20 # seconds
@@ -52,15 +66,13 @@ done
 
 echo "Updating Cask $EXPEDITOR_PRODUCT_KEY"
 echo "Updating version to $EXPEDITOR_VERSION"
-sed -i -r "s/(version\s*'.+')/version '$EXPEDITOR_VERSION'/g" Casks/chef-workstation.rb
+sed -i '' "s/version '.*'/version '$EXPEDITOR_VERSION'/g" Casks/chef-workstation.rb
 echo "Updating sha to $SHA"
-
-sed -i -r "s/(sha256\s*'.+')/sha256 '$SHA'/g" Casks/chef-workstation.rb
+sed -i '' "s/sha256 '.*'/sha256 '$SHA'/g" Casks/chef-workstation.rb
 
 echo "--- Debug: git diff follows"
 git diff
 
-echo "git status follows:"
 git status
 
 echo "-- Verifying Cask"
@@ -91,3 +103,4 @@ git add ./Casks/chef-workstation.rb
 git commit --message "$BODY"
 
 open_pull_request
+
