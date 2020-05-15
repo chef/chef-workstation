@@ -31,12 +31,9 @@ build do
     # find the embedded ruby gems dir and clean it up for globbing
     target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
     files = %w{
-      .appveyor.yml
-      .autotest
-      .github
-      .kokoro
       Appraisals
-      autotest/*
+      autotest
+      ci
       bench
       benchmark
       benchmarks
@@ -54,6 +51,7 @@ build do
       Gemfile.travis
       logo.png
       man
+      playbooks
       rakelib
       release-script.txt
       sample
@@ -62,6 +60,7 @@ build do
       test
       tests
       travis_build_script.sh
+      unit
       warning.txt
       website
       yard-template
