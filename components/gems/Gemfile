@@ -17,6 +17,8 @@
 
 source "https://rubygems.org"
 
+gem "chef-telemetry", "=1.0.3" # avoid bringing in http 4
+
 group(:omnibus_package, :development, :test) do
   # Require a minimum version that is packaged in the Ruby install, so we do
   # not install old unecessary versions. When we bump Ruby we need to look

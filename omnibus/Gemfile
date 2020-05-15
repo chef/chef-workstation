@@ -5,7 +5,6 @@ gem "omnibus-software", git: "https://github.com/chef/omnibus-software.git", bra
 gem "artifactory"
 
 gem "pedump"
-gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
 
 # This development group is installed by default when you run `bundle install`,
 # but if you are using Omnibus in a CI-based infrastructure, you do not need
