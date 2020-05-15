@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019 Chef Software, Inc.
+# Copyright:: Chef Software, Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -84,14 +84,19 @@ build do
         *.gemspec
         Gemfile
         Rakefile
-        tasks/*.rake
+        tasks
       }
 
       Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
         # don't delete these files if there's a bin dir in the same dir
         unless Dir.exist?(File.join(File.dirname(f), "bin"))
           puts "Deleting #{f}"
-          File.delete(f)
+          if File.directory?(f)
+            # recursively removes files and the dir
+            FileUtils.remove_dir(f)
+          else
+            File.delete(f)
+          end
         end
       end
     end
