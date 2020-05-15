@@ -5,12 +5,14 @@
 
 set -ex
 echo "--- Getting chef/homebrew-cask repository and updating latest from upstream Homebrew/homebrew-casks"
-git clone git@github.com:/chef/homebrew-cask
+git clone git@github.com:/chef/homebrew-cask-autotesting homebrew-cask
+#git clone git@github.com:/chef/homebrew-cask
 cd homebrew-cask
 git config user.email "expeditor@chef.io"
 git config user.name "Chef Expeditor"
 
-git remote add upstream git@github.com:/Homebrew/homebrew-cask
+#git remote add upstream git@github.com:/Homebrew/homebrew-cask
+git remote add upstream git@github.com:/marcparadise/homebrew-cask-autotesting
 git fetch --all
 # Reset the chef/homebrew-cask fork to the upstream so we are always
 # making a PR off their master
@@ -55,8 +57,11 @@ echo "Updating sha to $SHA"
 
 sed -i -r "s/(sha256\s*'.+')/sha256 '$SHA'/g" Casks/chef-workstation.rb
 
-echo "--- Debug: Delta follows"
+echo "--- Debug: git diff follows"
 git diff
+
+echo "git status follows:"
+git status
 
 echo "-- Verifying Cask"
 echo Running style fixes "brew cask style --fix"
@@ -80,6 +85,8 @@ EOB
 )
 
 echo "-- Committing change and opening PR"
+git status
+
 git add ./Casks/chef-workstation.rb
 git commit --message "$BODY"
 
