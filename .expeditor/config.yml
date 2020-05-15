@@ -102,9 +102,6 @@ subscriptions:
   - workload: ruby_gem_published:chef-apply-*
     actions:
        - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:chef-sugar-ng-*
-    actions:
-       - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:chef-telemetry-*
     actions:
        - bash:.expeditor/update_dep.sh
@@ -133,9 +130,6 @@ subscriptions:
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:ffi-yajl-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:foodcritic-*
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:inspec-*
