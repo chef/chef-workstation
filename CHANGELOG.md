@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.37 -->
-## [20.5.37](https://github.com/chef/chef-workstation/tree/20.5.37) (2020-05-15)
+<!-- latest_release 20.5.38 -->
+## [20.5.38](https://github.com/chef/chef-workstation/tree/20.5.38) (2020-05-15)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.89 [#1197](https://github.com/chef/chef-workstation/pull/1197) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update Chef Infra Client to 16.1 [#1201](https://github.com/chef/chef-workstation/pull/1201) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Update Chef Infra Client to 16.1 [#1201](https://github.com/chef/chef-workstation/pull/1201) ([tas50](https://github.com/tas50)) <!-- 20.5.38 -->
 - Bump chef-analyze CLI to 0.1.89 [#1197](https://github.com/chef/chef-workstation/pull/1197) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.5.37 -->
 - Pin chef-telemetry to avoid extra http deps [#1198](https://github.com/chef/chef-workstation/pull/1198) ([tas50](https://github.com/tas50)) <!-- 20.5.36 -->
 - Ensure help, -h, and --help behave the same [#1196](https://github.com/chef/chef-workstation/pull/1196) ([marcparadise](https://github.com/marcparadise)) <!-- 20.5.35 -->
