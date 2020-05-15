@@ -194,10 +194,10 @@ module ChefWorkstation
 
       add_component "chef-apply" do |c|
         c.gem_base_dir = "chef-apply"
-      #   c.unit_test do
-      #     bundle_install_mutex.synchronize { sh("#{embedded_bin("bundle")} install") }
-      #     sh("#{embedded_bin("bundle")} exec rspec")
-      #   end
+        c.unit_test do
+          bundle_install_mutex.synchronize { sh("#{embedded_bin("bundle")} install") }
+          sh("#{embedded_bin("bundle")} exec rspec")
+        end
         c.smoke_test { sh("#{bin("chef-run")} -v", env: { "CHEF_TELEMETRY_OPT_OUT" => "true" }) }
       end
 
@@ -404,24 +404,6 @@ module ChefWorkstation
         c.smoke_test do
           tmpdir do |cwd|
             sh("#{bin("pushy-client")} -v", cwd: cwd)
-          end
-        end
-      end
-
-      # We try and use some chef-sugar code to make sure it loads correctly
-      add_component "chef-sugar" do |c|
-        c.gem_base_dir = "chef-sugar"
-        c.smoke_test do
-          tmpdir do |cwd|
-            with_file(File.join(cwd, "foo.rb")) do |f|
-              f.write <<~EOF
-                require 'chef/sugar'
-                log 'something' do
-                  not_if  { _64_bit? }
-                end
-              EOF
-            end
-            sh("#{bin("chef-apply")} foo.rb", cwd: cwd)
           end
         end
       end

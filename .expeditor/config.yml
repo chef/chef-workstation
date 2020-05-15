@@ -4,6 +4,9 @@
 product_key:
   - chef-workstation
 
+project:
+  alias: chef-workstation
+
 # Slack channel in Chef Software slack to send notifications about build failures, etc
 slack:
   notify_channel: chef-ws-notify
@@ -14,6 +17,16 @@ docker_images:
 github:
   # This deletes the GitHub PR branch after successfully merged into the release branch
   delete_branch_on_merge: true
+  # Which Github branches to build Omnibus releases from, and what versions
+  # (as determined by the value in the VERSION file) those branches are responsible
+  # for building.
+  # TODO we need to stop maintaining a 0.18 branch before 2021
+  release_branch:
+    - master:
+        version_constraint: 20.*
+    - cw-18:
+        version_constraint: 0.18.*
+
 # https://expeditor.chef.io/docs/getting-started/subscriptions/#merge-actions
 # The `merge_actions` key is a shortcut for the
 # `pull_request_merged:<GITHUB_REPO>:<RELEASE_BRANCH>:*` subscription.
@@ -71,7 +84,7 @@ subscriptions:
   - workload: chef/chef-analyze:master_completed:pull_request_merged:chef/chef-analyze:master:*
     actions:
       - bash:.expeditor/update_chef-analyze_to_latest.sh
-  - workload: artifact_published:stable:chef:15*
+  - workload: artifact_published:stable:chef:16*
     actions:
       # update our pinned version for chef/chef-bin in Gemfile
       - bash:.expeditor/update_chef.sh
@@ -87,9 +100,6 @@ subscriptions:
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:chef-apply-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:chef-sugar-ng-*
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:chef-telemetry-*
@@ -120,9 +130,6 @@ subscriptions:
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:ffi-yajl-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:foodcritic-*
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:inspec-*

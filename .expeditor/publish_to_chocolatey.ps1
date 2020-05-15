@@ -1,8 +1,31 @@
 $ErrorActionPreference="stop"
 
-Write-Host "--- Fetching latest release data from omnitruck API"
-$Uri = "https://omnitruck.chef.io/stable/chef-workstation/metadata?p=windows&pv=2016&m=x86_64&v=latest"
-$releaseRecord = Invoke-RestMethod -Uri $Uri -Headers @{accept="application/json"} -ErrorAction Stop
+$version = "$Env:EXPEDITOR_VERSION"
+$secondsDelay = 20 # seconds
+$retries = 60 # retry for up to 20 minutes
+$completed = $false
+$retrycount = 0
+
+Write-Host "--- Fetching version $version data from omnitruck API"
+$Uri = "https://omnitruck.chef.io/stable/chef-workstation/metadata?p=windows&pv=2016&m=x86_64&v=$version"
+
+while (-not $completed) {
+    try {
+        $releaseRecord = Invoke-RestMethod -Uri $Uri -Headers @{accept="application/json"} -ErrorAction Stop
+        $completed = $?
+    } catch {
+        if ($retrycount -ge $retries) {
+            throw "Fetching version $version failed the maximum number of $retrycount times."
+        } else {
+            Write-Host "Fetching version $version failed. Retrying in $secondsDelay seconds."
+            Start-Sleep $secondsDelay
+            $retrycount++
+        }
+    }
+}
+
+Write-Host "Successfully fetched version $version information"
+Write-Host ("URL: {0}" -f $releaseRecord.url)
 
 Write-Host "--- Copying templates locally"
 $tempDir = Join-Path $env:temp ([System.IO.Path]::GetRandomFileName())
