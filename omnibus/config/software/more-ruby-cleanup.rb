@@ -70,6 +70,7 @@ build do
       Gemfile.devtools
       Gemfile.lock
       Gemfile.travis
+      Gemfile.noed25519*
       INSTALL.txt
       logo.png
       man
