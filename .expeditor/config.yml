@@ -126,7 +126,7 @@ subscriptions:
   - workload: ruby_gem_published:cookstyle-*
     actions:
        - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:fauxhai-*
+  - workload: ruby_gem_published:fauxhai-ng-*
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:ffi-yajl-*
