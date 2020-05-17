@@ -44,6 +44,9 @@ merge_actions:
         - "Expeditor: Skip Omnibus"
         - "Expeditor: Skip All"
       only_if: bash:.expeditor/determine_version.sh
+  - bash:.expeditor/push-git-tag.sh:
+      only_if: bash:.expeditor/determine_version.sh
+      post_commit: true
 
 pipelines:
   - verify:
