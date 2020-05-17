@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.40 -->
-## [20.5.40](https://github.com/chef/chef-workstation/tree/20.5.40) (2020-05-17)
+<!-- latest_release 20.5.41 -->
+## [20.5.41](https://github.com/chef/chef-workstation/tree/20.5.41) (2020-05-17)
 
 #### Merged Pull Requests
-- Update Fauxhai to 8.2 [#1207](https://github.com/chef/chef-workstation/pull/1207) ([tas50](https://github.com/tas50))
+- Update knife-windows to 3.0.17 [#1208](https://github.com/chef/chef-workstation/pull/1208) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Update knife-windows to 3.0.17 [#1208](https://github.com/chef/chef-workstation/pull/1208) ([tas50](https://github.com/tas50)) <!-- 20.5.41 -->
 - Update Fauxhai to 8.2 [#1207](https://github.com/chef/chef-workstation/pull/1207) ([tas50](https://github.com/tas50)) <!-- 20.5.40 -->
 - Update Test Kitchen, kitchen-ec2, and kitchen-hyperv [#1206](https://github.com/chef/chef-workstation/pull/1206) ([tas50](https://github.com/tas50)) <!-- 20.5.39 -->
 - Update Chef Infra Client to 16.1 [#1201](https://github.com/chef/chef-workstation/pull/1201) ([tas50](https://github.com/tas50)) <!-- 20.5.38 -->
