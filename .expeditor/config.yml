@@ -30,6 +30,7 @@ github:
 # https://expeditor.chef.io/docs/getting-started/subscriptions/#merge-actions
 # The `merge_actions` key is a shortcut for the
 # `pull_request_merged:<GITHUB_REPO>:<RELEASE_BRANCH>:*` subscription.
+#
 merge_actions:
   - bash:.expeditor/determine_version.sh:
       ignore_labels:
@@ -39,14 +40,15 @@ merge_actions:
       ignore_labels:
         - "Expeditor: Skip Changelog"
         - "Expeditor: Skip All"
+  # The git commit happens here
+  - bash:.expeditor/push-git-tag.sh:
+      only_if: bash:.expeditor/determine_version.sh
+      post_commit: true
   - trigger_pipeline:omnibus/release:
       ignore_labels:
         - "Expeditor: Skip Omnibus"
         - "Expeditor: Skip All"
       only_if: bash:.expeditor/determine_version.sh
-  - bash:.expeditor/push-git-tag.sh:
-      only_if: bash:.expeditor/determine_version.sh
-      post_commit: true
 
 pipelines:
   - verify:
