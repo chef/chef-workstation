@@ -1,44 +1,31 @@
 #!/bin/bash
 
-# This bumps the version in the ENV var 'EXPEDITOR_VERSION' on the project specified
-# It fetches the sha256 via omnitruck api
-
 set -ex
+# REPO_NAME=chef/homebrew-cask
+FORK_OWNER="chef"
+UPSTREAM_OWNER="marcparadise"
+REPO_NAME="homebrew-cask-autotesting"
+BRANCH="${EXPEDITOR_PRODUCT_KEY}-${EXPEDITOR_VERSION}"
+URL="https://omnitruck.chef.io/stable/$EXPEDITOR_PRODUCT_KEY/metadata?p=mac_os_x&pv=10.14&m=x86_64&v=$EXPEDITOR_VERSION"
+SHA=""
+
 echo "--- Getting chef/homebrew-cask repository and updating latest from upstream Homebrew/homebrew-casks"
-git clone git@github.com:/chef/homebrew-cask-autotesting homebrew-cask
-#git clone git@github.com:/chef/homebrew-cask
+git clone git@github.com:/$FORK_OWNER/$REPO_NAME homebrew-cask
 cd homebrew-cask
 git config user.email "expeditor@chef.io"
 git config user.name "Chef Expeditor"
 
-#git remote add upstream git@github.com:/Homebrew/homebrew-cask
-git remote add upstream git@github.com:/marcparadise/homebrew-cask-autotesting
+#TODO git remote add upstream git@github.com:/Homebrew/homebrew-cask
+git remote add upstream "git@github.com:/$UPSTREAM_OWNER/$REPO_NAME"
 git fetch --all
+
 # Reset the chef/homebrew-cask fork to the upstream so we are always
 # making a PR off their master
 git reset --hard upstream/master
 git push origin master
 
-branch="chef-software/${EXPEDITOR_PRODUCT_KEY}-${EXPEDITOR_VERSION}"
 git checkout master
-git checkout -b "$branch"
-
-URL="https://omnitruck.chef.io/stable/$EXPEDITOR_PRODUCT_KEY/metadata?p=mac_os_x&pv=10.14&m=x86_64&v=$EXPEDITOR_VERSION"
-SHA=""
-
-function open_pull_request ()
-{
-    repo=$(git remote get-url origin | sed -rn  's/.+github\.com[\/\:](.*)\.git/\1/p');
-    head=$(git rev-parse --abbrev-ref HEAD);
-    title=$(git log --oneline --pretty=%s -1);
-    base=${1:-"master"};
-    if [[ "$head" == "$base" ]]; then
-        echo "ERROR: You cannot open a pull request with the same head and base.";
-        exit 1;
-    fi;
-    git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${repo}.git" "$head" --force;
-    curl --header "Authorization: token $GITHUB_TOKEN" --data "{\"title\":\"$title\",\"head\":\"$head\",\"base\":\"$base\",\"maintainer_can_modify\":true}" -XPOST "https://api.github.com/repos/$repo/pulls"
-}
+git checkout -b "$BRANCH"
 
 function get_sha() {
   curl -Ss "$URL" | sed -n 's/sha256\s*\(\S*\)/\1/p' | awk '{$1=$1;print}'
@@ -64,43 +51,58 @@ for (( i=1; i<=tries; i+=1 )); do
   fi
 done
 
-echo "Updating Cask $EXPEDITOR_PRODUCT_KEY"
-echo "Updating version to $EXPEDITOR_VERSION"
+echo "Updating Casks/chef-workstation.rb version: $EXPEDITOR_VERSION sha: $SHA"
+
 sed -i '' "s/version '.*'/version '$EXPEDITOR_VERSION'/g" Casks/chef-workstation.rb
-echo "Updating sha to $SHA"
 sed -i '' "s/sha256 '.*'/sha256 '$SHA'/g" Casks/chef-workstation.rb
 
 echo "--- Debug: git diff follows"
+
 git diff
 
-git status
+echo "--- Verifying Cask"
 
-echo "-- Verifying Cask"
-echo Running style fixes "brew cask style --fix"
 brew cask style --fix ./Casks/chef-workstation.rb
-echo Verifying with "brew cask audit --download"
 brew cask audit --download ./Casks/chef-workstation.rb
+
+echo "-- Committing change"
 
 # This conforms with the PR template used by homebrew-cask
 # https://github.com/Homebrew/homebrew-cask/.github/PULL_REQUEST_TEMPLATE.md
+TITLE="Bump $EXPEDITOR_PRODUCT_KEY to $EXPEDITOR_VERSION"
 BODY=$(cat <<EOB
-Bump $EXPEDITOR_PRODUCT_KEY to $EXPEDITOR_VERSION
-
 After making all changes to the cask:
 
-- [x] \`brew cask audit --download {{cask_file}}\` is error-free.
-- [x] \`brew cask style --fix {{cask_file}}\` reports no offenses.
+- [x] \`brew cask audit --download Casks/chef-workstation.rb\` is error-free.
+- [x] \`brew cask style --fix Casks/chef-workstation.rb\` reports no offenses.
 - [x] The commit message includes the cask’s name and version.
 - [x] The submission is for stable version.
-
 EOB
 )
 
-echo "-- Committing change and opening PR"
-git status
+COMMIT_BODY=$(cat <<EOB
+$TITLE
+
+$BODY
+EOB
+)
 
 git add ./Casks/chef-workstation.rb
-git commit --message "$BODY"
+git status
+git commit --message "$COMMIT_BODY"
 
-open_pull_request
+echo "--- Opening PR"
+
+git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" "$BRANCH" --force;
+# | grep 201 so that we'll exit non-zero unless we receive 201: Created response code.
+result=$(curl --silent --header "Authorization: token $GITHUB_TOKEN" \
+  --data "{\"title\":\"$TITLE\",\"head\":\"$FORK_OWNER:$BRANCH\",\"base\":\"master\",\"maintainer_can_modify\":true,\"body\":\"$BODY\"}" \
+  -XPOST "https://api.github.com/repos/${UPSTREAM_OWNER}/${REPO_NAME}/pulls" \
+  --write-out "%{http_code}")
+
+# More debug goodness...
+echo "$result"
+
+# Fail the build if we didn't get a successfull response code
+echo "$result" | grep "201"
 
