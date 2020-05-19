@@ -93,16 +93,15 @@ git commit --message "$COMMIT_BODY"
 
 echo "--- Opening PR"
 
-git push "https://x-access-token:${CHEF_CI_GITHUB_AUTH_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" "$BRANCH" --force;
+git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" "$BRANCH" --force;
 # | grep 201 so that we'll exit non-zero unless we receive 201: Created response code.
 result=$(curl --silent --header "Authorization: token $CHEF_CI_GITHUB_AUTH_TOKEN" \
-  --data "{\"title\":\"$TITLE\",\"head\":\"$FORK_OWNER:$BRANCH\",\"base\":\"master\",\"maintainer_can_modify\":true,\"body\":\"$BODY\"}" \
+  --data-binary "{\"title\":\"$TITLE\",\"head\":\"chef:$BRANCH\",\"base\":\"master\",\"maintainer_can_modify\":true}" \
   -XPOST "https://api.github.com/repos/${UPSTREAM_OWNER}/${REPO_NAME}/pulls" \
-  --write-out "%{http_code}")
+  --write-out "Response:%{http_code}")
 
-# More debug goodness...
 echo "$result"
 
-# Fail the build if we didn't get a successfull response code
-echo "$result" | grep "201"
+# Fail the run if 201 (created) response not received.
+echo "$result" | grep "Response:201"
 
