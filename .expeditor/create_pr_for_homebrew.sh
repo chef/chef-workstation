@@ -93,9 +93,9 @@ git commit --message "$COMMIT_BODY"
 
 echo "--- Opening PR"
 
-git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" "$BRANCH" --force;
+git push "https://x-access-token:${CHEF_CI_GITHUB_AUTH_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" "$BRANCH" --force;
 # | grep 201 so that we'll exit non-zero unless we receive 201: Created response code.
-result=$(curl --silent --header "Authorization: token $GITHUB_TOKEN" \
+result=$(curl --silent --header "Authorization: token $CHEF_CI_GITHUB_AUTH_TOKEN" \
   --data "{\"title\":\"$TITLE\",\"head\":\"$FORK_OWNER:$BRANCH\",\"base\":\"master\",\"maintainer_can_modify\":true,\"body\":\"$BODY\"}" \
   -XPOST "https://api.github.com/repos/${UPSTREAM_OWNER}/${REPO_NAME}/pulls" \
   --write-out "%{http_code}")

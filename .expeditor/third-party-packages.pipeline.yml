@@ -6,6 +6,9 @@ steps:
       accounts:
         - github/chef
       secrets:
+        CHEF_CI_GITHUB_AUTH_TOKEN:
+          path: account/static/github/chef-ci
+          field: token
         GITHUB_TOKEN:
           account: github/chef
           field: token
