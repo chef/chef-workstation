@@ -22,7 +22,6 @@ import (
 	"os/exec"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
-	"github.com/chef/go-libs/featflag"
 )
 
 func main() {
@@ -39,18 +38,8 @@ func main() {
 
 	switch subCommand {
 	case "report", "capture":
-		if featflag.ChefFeatAnalyze.Enabled() {
+		cmd = exec.Command(dist.AnalyzeExec, allArgs...)
 
-			cmd = exec.Command(dist.AnalyzeExec, allArgs...)
-
-		} else {
-			fmt.Printf("`%s` is experimental and in development.\n\n", featflag.ChefFeatAnalyze.Key())
-			fmt.Printf("Temporarily enable `%s` with the environment variable:\n", featflag.ChefFeatAnalyze.Key())
-			fmt.Printf("\t%s=true\n\n", featflag.ChefFeatAnalyze.Env())
-			fmt.Printf("Or, permanently by modifying $HOME/.chef-workstation/config.toml with:\n")
-			fmt.Printf("\t[features]\n\t%s = true\n", featflag.ChefFeatAnalyze.Key())
-			os.Exit(0)
-		}
 	case "help", "-h", "--help":
 		usage()
 		os.Exit(0)
@@ -111,16 +100,9 @@ Available Commands:
     delete-policy           Delete all revisions of a policy on the Chef Infra Server
     undelete                Undo a delete command
     describe-cookbook       Prints cookbook checksum information used for cookbook identifier
-`
-
-	if featflag.ChefFeatAnalyze.Enabled() {
-		// add the experimental section to the usage message
-		msg = msg + `
-Experimental Commands:
     report                  Report on the state of existing infrastructure from a Chef Infra Server
     capture                 Copy the state of an existing node locally for testing and verification
 `
-	}
 	fmt.Printf(msg)
 }
 
