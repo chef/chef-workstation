@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.43 -->
-## [20.5.43](https://github.com/chef/chef-workstation/tree/20.5.43) (2020-05-19)
+<!-- latest_release 20.5.44 -->
+## [20.5.44](https://github.com/chef/chef-workstation/tree/20.5.44) (2020-05-19)
 
 #### Merged Pull Requests
-- Update kitchen-digitalocean to 0.11 [#1213](https://github.com/chef/chef-workstation/pull/1213) ([tas50](https://github.com/tas50))
+- Update Cookstyle to 6.5 [#1218](https://github.com/chef/chef-workstation/pull/1218) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Update Cookstyle to 6.5 [#1218](https://github.com/chef/chef-workstation/pull/1218) ([tas50](https://github.com/tas50)) <!-- 20.5.44 -->
 - Update kitchen-digitalocean to 0.11 [#1213](https://github.com/chef/chef-workstation/pull/1213) ([tas50](https://github.com/tas50)) <!-- 20.5.43 -->
 - Push a git tag after a VERSION change [#1209](https://github.com/chef/chef-workstation/pull/1209) ([btm](https://github.com/btm)) <!-- 20.5.42 -->
 - Update knife-windows to 3.0.17 [#1208](https://github.com/chef/chef-workstation/pull/1208) ([tas50](https://github.com/tas50)) <!-- 20.5.41 -->
