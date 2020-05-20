@@ -1,5 +1,5 @@
 +++
-title = "Upgrade Lab: Chef Infra 12 to 16"
+title = "Upgrade Lab: Chef Infra Client 12 to 16"
 draft = false
 
 aliases = ["/upgrade_labs.html", "/upgrade_labs.html", "/upgrade_labs/", "/upgrade_labs/"]
@@ -85,8 +85,8 @@ MMM+another+key+goes+here+MMM
 
 #### Connectivity
 
-* You have a user key for both of the Chef Servers
-* You can connect to both Chef Servers from your development workstation.
+* You have a user key for both of the Chef Infra Servers
+* You can connect to both Chef Infra Servers from your development workstation.
 
 Verify connectivity by running a knife command against each server and receive a reasonable response:
 
@@ -130,7 +130,7 @@ If you do not have a version control system and CI/CD pipeline in place, then pl
 Upgrading a node means upgrading its cookbooks.
 Speed up the upgrade process by locating cookbooks on your system before you begin.
 Ideally, you can get the cookbooks from their canonical source (that is, `git clone` or another similar version control operation). If you're working with a version control system, you can make and test your changes locally and then push the changes back to the cookbook's source.
-If you can't locate a cookbook, do not download it from an external source, such as the public Chef Supermarket. The cookbook version in your development environment must match the version on your node. [As a last resort](/upgrade_labs/#cookbooks-on-the-chef-server), the Upgrade Lab can get copies of your cookbooks from the Chef Server during the `capture` phase.
+If you can't locate a cookbook, do not download it from an external source, such as the public Chef Supermarket. The cookbook version in your development environment must match the version on your node. [As a last resort](/upgrade_labs/#cookbooks-on-the-chef-server), the Upgrade Lab can get copies of your cookbooks from the Chef Infra Server during the `capture` phase.
 
 Likely cookbook locations:
 
@@ -206,7 +206,7 @@ Use `chef report cookbooks SERVER` command to create a report of the cookbooks i
 * Prints a report summary to the screen
 * Saves the report to the `.chef-workstation/reports/` directory.
 
-This report shows that there are two cookbooks on the server. It analyzes the cookbooks, looking for cookbook issues that with will be problematic in later versions of the Chef Infra client by running the `cookstyle` program. Here, we see that the `cron` cookbook has a single violation, and which can be auto-corrected by `cookstyle`.
+This report shows that there are two cookbooks on the server. It analyzes the cookbooks, looking for cookbook issues that will be problematic in later versions of the Chef Infra Client by running the `cookstyle` program. Here, we see that the `cron` cookbook has a single violation, and which can be auto-corrected by `cookstyle`.
 
 Create a cookbook report from your development workstation by running:
 
@@ -231,7 +231,7 @@ Cookbooks report saved to /Users/user_name/.chef-workstation/reports/cookbooks-2
 
 * Creates a repository for that node in the current directory
 * Helps you obtain and organize the cookbooks you need to converge the node
-* Makes a `Kitchenfile`, which allows you to use Test Kitchen to perform local development
+* Creates a `kitchen.yml`, which allows you to use Test Kitchen to perform local development
 
 Run:
 
@@ -315,11 +315,11 @@ Checkout Location [none]:
 
 `chef capture` scans the path that you provide and locates the cookbooks that it needs. The command finishes once it accounts for all cookbook sources; it prompts you for another path if it needs more cookbook sources.
 
-### Download Cookbooks from Chef Server
+### Download Cookbooks from Chef Infra Server
 
-If you do not have access to the original version-controlled source of a cookbook, press return at the prompt for `chef capture`  to use a copy of the cookbook downloaded from the Chef Server.
+If you do not have access to the original version-controlled source of a cookbook, press return at the prompt for `chef capture`  to use a copy of the cookbook downloaded from the Chef Infra Server.
 
-Upgrading cookbooks from the Chef Server is not an ideal practice. You will make changes to your cookbooks in the course of the upgrade.  Making changes to your cookbooks without the ability to track your changes in version control almost inevitably leads to conflicts between cookbook sources. Reconciling cookbooks with untracked changes is a difficult and time-consuming process. If you find yourself using many cookbooks--or complex cookbooks--downloaded from the Chef Server, it will be worth the effort in the long run to try to track down their version-controlled sources.
+Upgrading cookbooks from the Chef Infra Server is not an ideal practice. You will make changes to your cookbooks in the course of the upgrade.  Making changes to your cookbooks without the ability to track your changes in version control almost inevitably leads to conflicts between cookbook sources. Reconciling cookbooks with untracked changes is a difficult and time-consuming process. If you find yourself using many cookbooks--or complex cookbooks--downloaded from the Chef Server, it will be worth the effort in the long run to try to track down their version-controlled sources.
 
 Tracking and testing changes in a CI/CD pipeline is an important part of managing your Chef infrastructure. CI/CD pipelines and test-driven development (TDD) which are beyond the scope of this guide, see [Learn Chef Rally](https://learn.chef.io/) for tutorials and contact [Chef Software customer support](https://www.chef.io/support/) when you are ready to modernize your system.
 
@@ -390,10 +390,9 @@ $ chef exec cookstyle -a cookbooks/my_cookbook
 Other issues may require manual intervention and editing.
 Repeat this process for each cookbook that the node consumes.
 
-
 ### Copy Data Bags
 
-If data bags are used on your Chef Server, you will need to to download the data_bags directory `data_bags` directory in your repository.
+If data bags are used on your Chef Infra Server, you will need to download the data_bags directory `data_bags` directory in your repository.
 Note that this command does not support embedded keys in credentials files. If you use embedded keys, move the key to a key file.
 
 ```
@@ -413,7 +412,7 @@ $ grep 'search(' -rn cookbooks
 
 ### Commit Your Cookbook Upgrades
 
-As you make changes to the cookbooks, follow normal SDLC practices by committing your changes to your cookbooks and submitting your changes to your cookbook pipeline to be tested by your automated testing system. Once the changes have passed testing, the cookbooks should receive new version numbers and be published to the new chef server by the continuous deployment system.
+As you make changes to the cookbooks, follow normal SDLC practices by committing your changes to your cookbooks and submitting your changes to your cookbook pipeline to be tested by your automated testing system. Once the changes have passed testing, the cookbooks should receive new version numbers and be published to the new Chef Infra Server by the continuous deployment system.
 
 ### Upload your Cookbook Upgrades to the New Server
 
