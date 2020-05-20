@@ -94,7 +94,8 @@ git commit --message "$COMMIT_BODY"
 echo "--- Opening PR"
 
 git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" "$BRANCH" --force;
-# | grep 201 so that we'll exit non-zero unless we receive 201: Created response code.
+# TODO: we need to include the `body` above, but need to figure out proper encoding to preserve newlines
+#       in the string in a way that doesn't cause the server to reject it...
 result=$(curl --silent --header "Authorization: token $CHEF_CI_GITHUB_AUTH_TOKEN" \
   --data-binary "{\"title\":\"$TITLE\",\"head\":\"chef:$BRANCH\",\"base\":\"master\",\"maintainer_can_modify\":true}" \
   -XPOST "https://api.github.com/repos/${UPSTREAM_OWNER}/${REPO_NAME}/pulls" \
