@@ -1,28 +1,70 @@
-# Upgrading a Node From Chef Infra 12 to 16
++++
+title = "Upgrade Lab: Chef Infra 12 to 16"
+draft = false
 
-## Overview
+aliases = ["/upgrade_labs.html", "/upgrade_labs.html", "/upgrade_labs/", "/upgrade_labs/"]
 
-This document generally documents the most straightforward pattern of an upgrade from Chef Infra Client 12 to CHef Infra Client 16, potentially along with Chef Server upgrades as well. It is not meant to exclude other approaches.
+[menu]
+  [menu.workstation]
+    title = "Upgrade Lab: Chef Infra 12 to 16"
+    identifier = "chef_workstation/upgrade_labs.md Upgrade Chef"
+    parent = "chef_workstation"
+    weight = 35
++++
 
-All commands are run locally on your development workstation unless noted otherwise.
+Chef's Upgrade Lab provides an isolated cookbook development environment and in-line support to help you upgrade your system, so you can stop using legacy Chef and start using modern Chef.
 
-## Assumptions
+The Upgrade Lab provides a report of your existing nodes and cookbooks, so you'll know the scope of the work and you can identify a good place to start. Upgrade Lab works by capturing any node from the production environment and recreating it locally by generating a repository for that node, which provides you with a sandbox to work through upgrading and testing your cookbooks at a safe distance from your production environment.
 
-### Chef Servers
-This document assumes that you have two chef servers available to you - an existing Chef Server on some older version, to which your nodes are attached, and a new, blank Chef Server which is the latest version.
+## About This Guide
 
-### Chef Nodes
-You have one or more nodes you wish to upgrade that are running Chef Infra 12-15 and are bootstrapped to the older server.
+This guide covers the straightforward pattern of upgrading from Chef Infra Client 12 to Chef Infra Client 16---including upgrading Chef Infra Server as you go. While we think this is the smoothest path forward, it is not meant to exclude other approaches.
 
-### Connectivity
-This document assumes that you have a user key for both of the chef servers and they are reachable from your development workstation.
+Unless otherwise indicated, you'll run all commands in your local development environment.
 
-#### Credential file setup
+## Chef Upgrade Lab Requirements
 
-This document assumes you have setup your credentials using [knife profiles](https://docs.chef.io/workstation/knife_setup/#knife-profiles). This allows you to keep your keys in a `credentials` file, and makes switching between credentials easier.
+### System Architecture Requirements
+
+The Chef Lab makes some basic assumptions about your existing system:
+
+* Two Chef Servers
+  -  A Chef Server running some older version
+  -  A newly installed Chef Infra Server running the latest software, set up and configured for knife, but otherwise empty
+* One or more nodes
+  - Running Chef Infra Client 12-15
+  - Minimum 512 MB RAM
+  - [Recommended](https://docs.chef.io/chef_system_requirements/#chef-infra-client) 5GB space
+  - Bootstrapped to the older Chef Server
+  - `sudo` permissions on the node
+  - SSH connectivity between the nodes and the administrator/developer workstation
+* An administrator/developer workstation
+  - 64-bit architecture
+  - Minimum 4 GB RAM
+  - Recommended 10 GB of available disk space for installing Chef Workstation and running the Chef Upgrade Lab
+
+### Software Requirements
+
+* Meet the [platform and system requirements](https://docs.chef.io/workstation/install_workstation/) for Chef Workstation
+* Install or upgrade to the Chef Workstation [latest verision](https://downloads.chef.io/chef-workstation)
+* Any [supported Ruby version](https://www.ruby-lang.org/en/downloads/)
+
+Chef does not prescribe any specific editor. However, the [Chef Infra extension](https://marketplace.visualstudio.com/items?itemName=chef-software.Chef) for [Visual Studio Code](https://code.visualstudio.com/) features several code generators and helpful features, such as running Cookstyle each time you save a recipe.
+
+### Server Backup
+
+We recommend performing a backup before starting any server upgrade process.
+Follow the [Chef Infra Server Backup](https://docs.chef.io/runbook/server_backup_restore/) documentation before starting your Upgrade Lab.
+
+### Chef Infrastructure Requirements
+
+#### Credentials
+
+Your credentials are set up using [knife profiles](https://docs.chef.io/workstation/knife_setup/#knife-profiles). This allows you to keep your keys in a `credentials` file, and makes switching between credentials easier.
 
 For example, in `.chef/credentials`:
-``` toml
+
+```toml
 [old-server]
 client_name = "myuser"
 chef_server_url = "https://old-chef-server.dev/organizations/my-org"
@@ -31,7 +73,6 @@ client_key = """
 MMM+some+key+goes+here+MMM
 -----END RSA PRIVATE KEY-----
 """
-
 [new-server]
 client_name = "myuser"
 chef_server_url = "https://new-chef-server.dev/organizations/my-org"
@@ -42,50 +83,109 @@ MMM+another+key+goes+here+MMM
 """
 ```
 
+#### Connectivity
 
-#### Verify chef server connectivity
+* You have a user key for both of the Chef Servers
+* You can connect to both Chef Servers from your development workstation.
 
-You should be able to run a knife command against each server and receive a reasonable response.
+Verify connectivity by running a knife command against each server and receive a reasonable response:
 
+```shell
+chef exec knife user list --profile old-server my-user
+chef exec knife user list --profile new-server my-user
 ```
-$ knife user list --profile old-server
-my-user
-$ knife user list --profile new-server
-my-user
-```
 
-### Clean Convergence
-This document assumes that the nodes that we are upgrading today are currently cleanly converging under the older version of Chef Infra Client.
+#### Convergence
+
+Your nodes are in a good working order. They converge cleanly under the older version of Chef Infra Client.
+
 Verify that the nodes are healthy by running:
 
+```shell
+chef exec knife status --profile old-server
 ```
-$ knife status --profile old-server
+
+Which outputs something similar to:
+
+```output
 42 minutes ago, node-01, ubuntu 18.04.
 ```
 
-This command will display the time of the last successful chef run of each node.
+This command outputs the time of the last successful chef run of each node; nodes that return radically different times for the last successful chef run are not in good working order.
 
-### You Have Some Kind of Cookbook Pipeline
-This document assumes that you have some kind of continuous integration pipeline setup for your cookbooks - that is, you have a version control system (for example, git); when you make a proposed change, there is at least some degree of automated testing; and when cookbooks are released, only the continuous delivery system can update the version and upload the cookbook to the chef server(s). The particular choices of technology and the detail of processes may vary from site to site, but so long as the key stages of a cookbook pipeline are in place, this document should apply.
+#### Cookbook CI/CD
 
-## Install Local Tools
+While we don't prescribe a particular choice of technology or the details of processes, the Chef Upgrade Lab expects a continuous integration pipeline and continuous delivery system (CI/CD) for cookbook deployments.
 
-### Chef Workstation
-Ensure you have the latest version of Chef Workstation. To install Chef Workstation, visit https://downloads.chef.io/chef-workstation and download the package for your local operating system. Install the package.
+The Upgrade Lab assumes--but does not require--that you have a continuous integration pipeline (CI) setup for your cookbooks with:
 
-Set Chef Workstation as your local development shell by running `chef shell-init` and following the instructions. This ensures all the tools referenced in this documentation are added to your PATH.
+  * A version control system (for example, git)
+  * Some degree of automated testing for proposed changes
+  * A continuous delivery system (CD) that controls cookbook releases; the CD is the mechanism for updating cookbook versions and uploading them to the Chef Server(s)
 
-## Configuration
+If you do not have a version control system and CI/CD pipeline in place, then please contact [Chef Software customer support](https://www.chef.io/support/).
 
-### Feature Flag Configuration
-Enable Upgrade Labs by clicking on the Chef Workstation tray icon, then selecting Preferences. Click the Advanced Tab and check the "chef analyze" box.
+#### Cookbook Locations
 
-## Identify a Node
-### Using chef report nodes
-Run on your development workstation:
+Upgrading a node means upgrading its cookbooks.
+Speed up the upgrade process by locating cookbooks on your system before you begin.
+Ideally, you can get the cookbooks from their canonical source (that is, `git clone` or another similar version control operation). If you're working with a version control system, you can make and test your changes locally and then push the changes back to the cookbook's source.
+If you can't locate a cookbook, do not download it from an external source, such as the public Chef Supermarket. The cookbook version in your development environment must match the version on your node. [As a last resort](/upgrade_labs/#cookbooks-on-the-chef-server), the Upgrade Lab can get copies of your cookbooks from the Chef Server during the `capture` phase.
+
+Likely cookbook locations:
+
+* Checked into your version control system
+* On a private Supermarket installation
+* In an existing [cookbook development directory](/upgrade_labs/#expected-cookbook-directory-layout)
+
+##### Cookbook Directory Layout
+
+If you have access to cookbook sources, it is simplest if you have the cookbooks stored in one parent directory, similar to this:
+
 ```
-$ chef report nodes -p old-server
+/Users/user_name/my_cookbooks/
+  ├── cron
+  │   ├── .git/   # Or other version control bookkeeping
+  │   ├── recipes/
+  │   ├──...
+  │   └── metadata.rb
+  └── chef-client
+  │   ├── .cvs/   # Or other version control bookkeeping
+  │   ├── recipes/
+  │   ├──...
+  │   └── metadata.rb
+  └── my_custom_cookbook
+      ├── .git/   # Or other version control bookkeeping
+      ├── recipes/
+      ├──...
+      └── metadata.rb
+```
 
+The Upgrade Lab works if you have cookbooks in different locations, but it involves more prompting from the command line.
+
+## Upgrade Lab
+
+### Inventory your system with Chef Reports
+
+We recommend starting the upgrade process on a node with a simpler a simple setup, such as one with fewer and simpler cookbooks.
+The `chef report` commands make a survey your nodes and cookbooks. Use the reports to identify a good starting place.
+
+#### chef report nodes
+
+Use `chef report nodes SERVER` command to create a report of the nodes in your system from Ohai data. The command:
+
+* Prints a report summary to the screen
+* Saves the report to the `.chef-workstation/reports/` directory.
+
+Create a node report from your development workstation by running:
+
+```shell
+chef report nodes -p old-server
+```
+
+Which outputs a node report:
+
+```output
 Analyzing nodes...
 
 -- REPORT SUMMARY --
@@ -96,73 +196,69 @@ Analyzing nodes...
   node-02                         12.22.5        windows v10.0.14393                 18
   node-03                         12.22.5        windows v10.0.14393                  5
   node-04                         12.18.31       windows v6.3.9600                    5
-Nodes report saved to /Users/cwolfe/.chef-workstation/reports/nodes-20200324135111.txt
+Nodes report saved to /Users/user_name/.chef-workstation/reports/nodes-20200324135111.txt
 ```
-You might select a node that has a simple setup, such as a relatively few number of cookbooks.
-Examine the saved report to determine the list of cookbooks for your node.
 
-### Using chef report cookbooks
-Run:
+#### chef report cookbooks
+
+Use `chef report cookbooks SERVER` command to create a report of the cookbooks in your system from Ohai data. The command:
+
+* Prints a report summary to the screen
+* Saves the report to the `.chef-workstation/reports/` directory.
+
+This report shows that there are two cookbooks on the server. It analyzes the cookbooks, looking for cookbook issues that with will be problematic in later versions of the Chef Infra client by running the `cookstyle` program. Here, we see that the `cron` cookbook has a single violation, and which can be auto-corrected by `cookstyle`.
+
+Create a cookbook report from your development workstation by running:
+
 ```
-$ chef report cookbooks -V -p old-server
+chef analyze report cookbooks -V -p old-server
+```
 
+Which outputs a cookbook report:
+
+```
         Cookbook         Version   Violations   Auto-correctable   Nodes Affected
 -----------------------+---------+------------+------------------+-----------------
   cron                   1.7.5              1                  1                1
-  upgrade_lab_problems   0.1.0              2                  2                1
+  upgrade_labs_problems   0.1.0              2                  2                1
 
-Cookbooks report saved to /Users/cwolfe/.chef-workstation/reports/cookbooks-20200504155204.txt
+Cookbooks report saved to /Users/user_name/.chef-workstation/reports/cookbooks-20200504155204.txt
 ```
 
-This report shows that there are two cookbooks on the server. It analyzes the cookbooks, looking for cookbook issues that with will be problematic in later versions of the Chef Infra client byt running the `cookstyle` program. Here, we see that the `cron` cookbook has a single violation, and it is able to be auto-corrected by `cookstyle`.
+### Create an Upgrade Environment with chef capture
 
-## Capture the Node
+`chef capture NODE`
 
-### Run chef capture NODE
-
-This command will download the node from Chef Server.  It will also assist you in obtaining and organizing the cookbooks needed to converge the node. Finally, it will generate a Kitchenfile allowing you to use Test Kitchen to perform local development.
+* Creates a repository for that node in the current directory
+* Helps you obtain and organize the cookbooks you need to converge the node
+* Makes a `Kitchenfile`, which allows you to use Test Kitchen to perform local development
 
 Run:
 
 ```
- $ chef capture MYNODE
+ chef capture NODE
+```
+
+The screen output describes the capture process:
+
+```
  - Setting up local repository
- - Capturing node object 'MYNODE'
+ - Capturing node object ''
  - Capturing cookbooks...
  - Capturing environment...
  - Capturing roles...
  - Writing kitchen configuration...
 
-Repository has been created in './node-MYNODE-repo'.
+Repository has been created in './node-NODE-repo'.
 ```
 
-### Locate the cookbooks' origin
+#### Add Cookbook Source Locations
 
-At this point, `chef capture` will interactively prompt you to fetch the cookbooks from their original locations - ideally, you would obtain the cookbooks from their canonical source (that is `git clone` or other version control checkout operation). This allows you to make local changes while contributing the changes upstream to the canonical source.
+After creating the repo, `chef capture NODE` prompts you to fetch the cookbooks from their original locations.
 
-If you do not have access to the canonical source of one or more cookbooks, `chef capture` will simply download those cookbooks from the chef server itself. That will allow you to make changes and upload the changed cookbooks to the chef server, but you will not be able to contribute your changes upstream.
+##### Main Cookbook Development Location
 
-### Expected Layout for Cookbook Checkout
-
-If you do have access to one or more of the cookbooks' sources, it is simplest if you have the cookbooks checked out in one parent directory, similar to this:
-
-```
-/Users/you/my-cookbooks/
-  ├── cron
-  │   ├── .git/   # Or other version control bookkeeping
-  │   ├── recipes/
-  │   ├──...
-  │   └── metadata.rb
-  └── chef-client
-      ├── .cvs/   # Or other version control bookkeeping
-      ├── recipes/
-      ├──...
-      └── metadata.rb
-```
-
-If you have cookbooks in multiple locations, that will work as well, but will involve more prompting.
-
-`chef capture` will first prompt you for the main location, similar to this:
+The `chef capture` command prompts you first for your main cookbook source location.
 
 ```
 Please clone or check out the following cookbooks locally
@@ -183,16 +279,18 @@ If sources are not available for these cookbooks, leave this blank.
 Checkout Location [none]:
 ```
 
-Using the example above, you would enter `/Users/you/my-cookbooks` at the prompt.
+At this point, enter the path to your [cookbook development directory](/#cookbook-directory-layout), for example, `/Users/user_name/my_cookbooks` at the prompt.
+
+
+`chef capture` scans that path and locates the cookbooks that it needs. The command finishes once it accounts for all cookbook sources; but if any are missing, it will prompt for them in the next step.
+
 ```
-Checkout Location [none]: /src/my-cookbooks
+Checkout Location [none]: /src/my_cookbooks
   Replacing cookbook: cron
   Replacing cookbook: chef-client
 ```
 
-`chef capture` will then scan that path, looking for the cookbooks that it needs. If all cookbooks are found, it will finish; but if any are missing, it will prompt individually.
-
-### Locating Individual Cookbook Checkouts
+##### Alternate Cookbook Source Locations
 
 Suppose that your node requires 5 cookbooks:
 
@@ -202,7 +300,7 @@ Suppose that your node requires 5 cookbooks:
   - windows (v1.44.1)
   - chef_handler (v1.4.0)
 
-But only `cron` and `chef-client` are present in the directory you provided in the initial prompt. `chef capture` will now prompt you for the remaining three:
+If the directory you provided in the initial prompt contains only `cron` and `chef-client`, then `chef capture` prompts you to add the locations for sources for the remaining three:
 
 ```
 Please provide the base checkout path for the following
@@ -215,17 +313,19 @@ cookbooks, or leave blank if no more cookbooks are checked out:
 Checkout Location [none]:
 ```
 
-If you have another checkout location that contains multiple cookbooks, you may enter it, or you may enter a location that contains just one cookbook.
+`chef capture` scans the path that you provide and locates the cookbooks that it needs. The command finishes once it accounts for all cookbook sources; it prompts you for another path if it needs more cookbook sources.
 
-### Falling Back to a Downloading a Cookbook from Chef Server
+### Download Cookbooks from Chef Server
 
-If you do not have access to the original version-controlled source of a cookbook, press return at the prompt and `chef capture` will use a copy of the cookbook downloaded from the Chef Server.
+If you do not have access to the original version-controlled source of a cookbook, press return at the prompt for `chef capture`  to use a copy of the cookbook downloaded from the Chef Server.
 
-This is not an ideal practice.  You will likely be making changes to the cookbooks in the steps ahead. It is important that you be able to track those changes and test your changes in a continuous integration pipeline, which is beyond the scope of this document. If you make changes in a copy of the cookbook without version control information, it will be difficult to reconcile those changes in the future. If you find yourself in this situation, it is likely worth the effort to try to track down the version-controlled source.
+Upgrading cookbooks from the Chef Server is not an ideal practice. You will make changes to your cookbooks in the course of the upgrade.  Making changes to your cookbooks without the ability to track your changes in version control almost inevitably leads to conflicts between cookbook sources. Reconciling cookbooks with untracked changes is a difficult and time-consuming process. If you find yourself using many cookbooks--or complex cookbooks--downloaded from the Chef Server, it will be worth the effort in the long run to try to track down their version-controlled sources.
+
+Tracking and testing changes in a CI/CD pipeline is an important part of managing your Chef infrastructure. CI/CD pipelines and test-driven development (TDD) which are beyond the scope of this guide, see [Learn Chef Rally](https://learn.chef.io/) for tutorials and contact [Chef Software customer support](https://www.chef.io/support/) when you are ready to modernize your system.
 
 ```
 Changes made to the following cookbooks in ./node-MYNODE-repo/cookbooks
-cannot be saved upstream, though they can still be uploaded
+cannot be saved to the cookbook's source, though they can still be uploaded
 to a Chef Server:
 
   - logrotate (v1.9.2)
@@ -240,15 +340,16 @@ in the repository's cookbooks directory and they will be picked
 up on subsequent runs of 'kitchen converge'.
 ```
 
-## Converge Locally
+## Detect and Correct Cookbook Errors
 
 {{< note >}}
-Be cautious when running your cookbooks locally. It is possible to accidentally impact production infrastructure based on settings in your cookbooks and attributes. Read over your cookbooks and attributes, especially attributes being set in roles and environments.  If needed, override attributes to be appropriate for local testing in your `kitchen.yml`.
+Be cautious when running your cookbooks locally. It is possible to accidentally impact production infrastructure based on settings in your cookbooks and attributes. Read over your cookbooks and attributes, especially attributes set in roles and environments.  If needed, override attributes to be appropriate for local testing in your `kitchen.yml`.
 {{< /note >}}
 
 ### Increment the Chef Infra Client Version
 
 In the `kitchen.yml` file, change the `product_version` line to `16`:
+
 ```yaml
 provisioner:
   name: chef_zero
@@ -260,71 +361,83 @@ If needed, you can "step forward" by first going from 12 to 13, correcting issue
 
 ### Attempt a Converge and Check for Errors
 
-Run, in the `node-MY_NODE-repo` directory:
-```
-$ kitchen converge
-```
-Watch for Chef Infra errors. If any occur, fix them.  Also consider running cookstyle (see below). Repeat as needed.
+Save the file and test it in the `node-MY_NODE-repo` directory by running:
 
-### Run CookStyle
+```
+chef exec kitchen converge
+```
+
+Watch for Chef Infra errors. If any occur, fix them.
+
+### Test and Correct with Cookstyle
+
 To check for version upgrade issues, run:
-```
-$ cookstyle cookbooks/some-cookbook
-```
-Repeat this process for each cookbook that the node consumes.
 
-## Correct any Cookbook Style Issues
-### Using auto-correct
-To auto-correct cookbook issues, run:
 ```
-$ cookstyle -a cookbooks/some-cookbook
+$ chef exec cookstyle cookbooks/my_cookbook
 ```
+
+Repeat this process for each cookbook for that node.
+
+#### Using Cookstyle Auto-correct
+
+Use Cookstyle's auto-correct feature to fix style errors by adding the `-a` (for auto-correct) flag:
+
+```
+$ chef exec cookstyle -a cookbooks/my_cookbook
+```
+
 Other issues may require manual intervention and editing.
 Repeat this process for each cookbook that the node consumes.
 
-### Using the VSCode Plugin
-While any editor can be used, the Chef Infra extension for Visual Studio Code features several code generators and helpful features, such as running cookstyle when recipes are saved.
 
-### Check for Data Bags
-If data bags are used, you will need a `data_bags` directory in your repo.
-You will need to download the data_bags. Note that this command does not support embedded keys in credentials files, so you must place the key in a key file.
+### Copy Data Bags
+
+If data bags are used on your Chef Server, you will need to to download the data_bags directory `data_bags` directory in your repository.
+Note that this command does not support embedded keys in credentials files. If you use embedded keys, move the key to a key file.
 
 ```
-$ cd node-node-01-repo
-$ knife download data_bags --chef-repo-path . --profile old-server --key my-old-key.pem
+cd node-node-01-repo
+chef exec knife download data_bags --chef-repo-path . --profile old-server --key my-old-key.pem
 ```
 
-### Check for Server Searches
+### Remove Server Searches
+
 Check your cookbook code for Chef Infra Server searches, which will not be possible in an Effortless context. Identify locations making search calls and replace with other mechanisms of service discovery.
+
 ```
 $ grep 'search(' -rn cookbooks
 ```
 
-### Commit Your Changes to the Cookbooks
+## Deploy your Chef Lab Upgrades
 
-As you make changes to the cookbooks, follow normal SDLC practices by committing your changes to your cookbooks and submitting your changes to your cookbook pipeline to be tested by your automated testing system. Once the changes have passed testing, they cookbooks should receive new version numbers and be published to the new chef server by the continuous deployment system.
+### Commit Your Cookbook Upgrades
 
-### Or Directly Upload to the New Server
+As you make changes to the cookbooks, follow normal SDLC practices by committing your changes to your cookbooks and submitting your changes to your cookbook pipeline to be tested by your automated testing system. Once the changes have passed testing, the cookbooks should receive new version numbers and be published to the new chef server by the continuous deployment system.
+
+### Upload your Cookbook Upgrades to the New Server
 
 If your organization does not have a cookbook pipeline in place, or if you are setting up a proof of concept, you can directly upload the cookbooks to the new server. This is not recommended because it makes it difficult to manage changes to cookbook code. Note that this command does not support embedded keys in credentials files, so you must place the key in a key file.
 
 ```
 $ cd node-node-01-repo
-$ knife upload cookbooks --chef-repo-path . --profile new-server --key my-new-key.pem
+$ chef exec knife upload cookbooks --chef-repo-path . --profile new-server --key my-new-key.pem
 ```
 
 If you used data bags, also upload them to the new server:
+
 ```
-$ knife upload data_bags --chef-repo-path . --profile new-server --key my-new-key.pem
+$ chef exec knife upload data_bags --chef-repo-path . --profile new-server --key my-new-key.pem
 ```
 
-## Move the Node to the New Server
+## Attach the Upgraded Node to the New Server
 
 ### Issue a new Bootstrap Command
 
 Migrate your node to the new server by running a bootstrap command similar to the following:
+
 ```
- $ knife bootstrap \
+ $ chef exec knife bootstrap \
       --profile new-server --chef-license accept \
       -r cookbook::recipe,another_cookbook::recipe \
       -N node-01 -y --sudo \
@@ -332,10 +445,11 @@ Migrate your node to the new server by running a bootstrap command similar to th
 ```
 
 Optionally, delete your node record from the old server using:
+
 ```
- $ knife node delete node-01 --profile old-server
+ $ chef exec knife node delete node-01 --profile old-server
 ```
 
 ## Repeat as Needed
 
-Happy converging!
+Happy Converging!
