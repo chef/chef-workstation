@@ -421,13 +421,13 @@ If your organization does not have a cookbook pipeline in place, or if you are s
 
 ```
 $ cd node-node-01-repo
-$ chef exec knife upload cookbooks --chef-repo-path . --profile new-server --key my-new-key.pem
+$ chef exec knife upload cookbooks --chef-repo-path . --profile new-server --key ../keys/my-new-key.pem
 ```
 
 If you used data bags, also upload them to the new server:
 
 ```
-$ chef exec knife upload data_bags --chef-repo-path . --profile new-server --key my-new-key.pem
+$ chef exec knife upload data_bags --chef-repo-path . --profile new-server --key ../keys/my-new-key.pem
 ```
 
 ## Attach the Upgraded Node to the New Server
