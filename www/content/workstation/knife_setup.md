@@ -14,81 +14,62 @@ aliases = ["/knife_setup.html", "/knife_setup/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_setup.md)
 
+knife is a command-line tool that provides an interface between a local
+chef-repo and the Chef Infra Server.
+
 The knife command line tool must be configured to communicate with the
 Chef Infra Server as well as any other infrastructure within your
-organization. This is done initially during the workstation setup, but
-subsequent modifications can be made using the config.rb configuration
-file.
+organization.
 
-## config.rb Configuration File
+The first time you set up Chef Infra, you need to manually create the directory for important Chef Infra files, such as `config.rb`.
 
-Knife is configured using a config.rb configuration, which contains
-configuration for both the knife command line tool as well as any
-installed knife plugins. See [config.rb](/workstation/config_rb/) for a complete
-list of configuration options in the config.rb file.
+We recommend setting up knife to use profiles. Knife profiles let you use knife with more than one Chef Infra Server and with more than one organization on a Chef Infra Server.
 
-### Load Path Priority
+To use knife profiles, the first time you set up your workstation enter:
 
-The config.rb file is loaded every time the knife command is invoked
-using the following load order:
+```bash
+mkdir ~/.chef
+touch ~/.chef/credentials
+```
 
--   From a specified location given the `--config` flag
--   From a specified location given the `$KNIFE_HOME` environment
-    variable, if set
--   From a `config.rb` file within the current working directory, e.g.,
-    `./config.rb`
--   From a `config.rb` file within a `.chef` directory in the current
-    working directory, e.g., `./.chef/config.rb`
--   From a `config.rb` file within a `.chef` directory located one
-    directory above the current working directory, e.g.,
-    `../.chef/config.rb`
--   From `~/.chef/config.rb` (macOS and Linux platforms) or
-    `c:\Users\<username>\.chef` (Microsoft Windows platform)
+```powershell
+New-Item -Path "c:\" -Name ".chef" -ItemType "directory"
+New-Item -ItemType "file" -Path "c:\.chef\credentials"
+```
 
-{{< note >}}
+Previous Chef Infra setups recommended setting up knife with a `config.rb` file. Configuring knife with `config.rb` is still valid if you work on one Chef Infra Server with one Chef Infra Server organization.
 
-When running Microsoft Windows, the config.rb file is located at
-`%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<username>\.chef`). If
-this path needs to be scripted, use `%USERPROFILE%\chef-repo\.chef`.
+```bash
+mkdir ~/.chef
+touch ~/.chef/config.rb
+```
 
-{{< /note >}}
-
-### config.rb Configuration Within a Chef Repository
-
-{{% ws_chef_repo_many_users_same_knife %}}
-
-## Generating a config.rb File
-
-The knife command <span class="title-ref">knife configure</span> can be
-used to generate your initial config.rb configuration file in your home
-directory. See [knife configure](/workstation/knife_configure/) for details.
+```powershell
+New-Item -Path "c:\" -Name ".chef" -ItemType "directory"
+New-Item -ItemType "file" -Path "c:\.chef\config.rb"
+```
 
 ## Knife Profiles
 
 **Profile Support since Chef 13.7**
 
-Knife profiles provide an alternative to using the `config.rb` files for
-configuring your knife client. This makes it easier to switch knife
-between multiple Chef Infra Servers or between multiple organizations on
-the same Chef Infra Server. Configure knife profiles by adding them to
+Knife profiles make switching knife
+between Chef Infra Servers or between organizations on the same Chef Infra Server easier. Knife profiles are an alternative to `config.rb`--you cannot use both.
+
+Set up knife profiles by adding them to
 the `.chef/credentials` file in your home directory on your workstation.
 The `credentials` file is TOML formatted. Each profile is listed as a
-separate 'table' name of your choice, and is followed by key-value
+separate 'table' name of your choice, and is followed by `key = value`
 pairs. The keys correspond to any setting permitted in the
 [config.rb](/workstation/config_rb/) file.
 
-File paths, such as `client_key` or `validator_key`, will be relative to
-`~/.chef` unless absolute paths are given. Clients can be identified
-with either `node_name` or `client_name`, with `client_name` being
-preferred.
+File paths, such as `client_key` or `validator_key`, are relative to
+`~/.chef` unless you provide absolute path. Identifiy clients with `client_name` (preferred) or `node_name`.
 
-Credentials for use with Target Mode (e.g.
-`chef-client --target switch.example.org`) can also be stored as a
-separate profile in the credentials file. The name of the profile should
-match the DNS name of the target, and must be surrounded by single
+Store credentials for use with target mode (
+`chef-client --target switch.example.org`) as a separate profile in the credentials file. Use the DNS name of the target as the profile name and surrounded by single
 quotes when the name contains a period. For example:
-`['switch.example.org']`. Keys that are valid configuration options will
-be passed to train, such as `port`.
+`['switch.example.org']`. Keys that are valid configuration options get passed to train, such as `port`.
 
 ``` none
 # Example .chef/credentials file
@@ -108,17 +89,8 @@ use_sudo = true
 client_name = "admin"
 client_key = """
 -----BEGIN RSA PRIVATE KEY-----
-MIICXAIBAAKBgQCqGKukO1De7zhZj6+H0qtjTkVxwTCpvKe4eCZ0FPqri0cb2JZfXJ/DgYSF6vUp
-wmJG8wVQZKjeGcjDOL5UlsuusFncCzWBQ7RKNUSesmQRMSGkVb1/3j+skZ6UtW+5u09lHNsj6tQ5
-1s1SPrCBkedbNf0Tp0GbMJDyR4e9T04ZZwIDAQABAoGAFijko56+qGyN8M0RVyaRAXz++xTqHBLh
-3tx4VgMtrQ+WEgCjhoTwo23KMBAuJGSYnRmoBZM3lMfTKevIkAidPExvYCdm5dYq3XToLkkLv5L2
-pIIVOFMDG+KESnAFV7l2c+cnzRMW0+b6f8mR1CJzZuxVxx6xx2fvLi55/mbSYxECQQDeAw6fiIQX
-GukBI4eMZZt4nscy2o12KyYner3VpoeE+Np2q+Z3pvAMd/aNzQ/W9WaI+NRfcxUJrmfPwIGm63il
-AkEAxCL5HQb2bQr4ByorcMWm/hEP2MZzROV73yF41hPsRC9m66KrheO9HPTJuo3/9s5p+sqGxOlF
-L0NDt4SkosjgGwJAFklyR1uZ/wPJjj611cdBcztlPdqoxssQGnh85BzCj/u3WqBpE2vjvyyvyI5k
-X6zk7S0ljKtt2jny2+00VsBerQJBAJGC1Mg5Oydo5NwD6BiROrPxGo2bpTbu/fhrT8ebHkTz2epl
-U9VQQSQzY1oZMVX8i1m5WUTLPz2yLJIBQVdXqhMCQBGoiuSoSjafUhV7i1cEGpb88h5NBYZzWXGZ
-37sJ5QsW+sJyoNde3xH8vdXhzU7eT82D6X/scw9RZz+/6rCJ4p0=
+MIICXAIBAAKBgQCqGKukO1De7zhZj6EXAMPLEKEY
+...ABC123=
 -----END RSA PRIVATE KEY-----
 """
 validator_key = "test-validator.pem"
@@ -142,16 +114,24 @@ priority order:
     `knife node list --profile dev`.
 2.  Set the profile name in the `CHEF_PROFILE` environment variable.
 3.  Write the profile name to the `~/.chef/context` file.
-4.  Otherwise, knife will use the 'default' profile.
+4.  Otherwise, knife uses the 'default' profile.
 
 ## Knife Config
 
 **knife config support since Chef 14.4**
 
-Your knife profiles can be managed with the `knife config` command.
+Use the `knife config` command to manage your knife profiles.
 
-You can list your profiles using the `knife config list-profiles`
-command, for example:
+List your profiles with the `knife config list-profiles`
+command.
+
+For example:
+
+```
+knife config list-profiles
+```
+
+Returns something like:
 
 ``` bash
 ## Profile              Client   Key                          Server
@@ -179,6 +159,47 @@ knife config get chef_server_url
 Loading from credentials file /home/barney/.chef/credentials
 chef_server_url: https://api.chef-server.dev/organizations/test
 ```
+
+## config.rb Configuration File
+
+The `config.rb`  file contains settings for the knife command-line tool and any
+installed knife plugins.
+See the [config.rb documentation](/workstation/config_rb/) for a complete list of configuration options.
+
+### Load Path Priority
+
+The config.rb file loads every time the knife command is invoked
+using the following load order:
+
+- From a specified location given the `--config` flag
+- From a specified location given the `$KNIFE_HOME` environment
+    variable, if set
+- From a `config.rb` file within the current working directory, e.g.,
+    `./config.rb`
+- From a `config.rb` file within a `.chef` directory in the current
+    working directory, e.g., `./.chef/config.rb`
+- From a `config.rb` file within a `.chef` directory located one
+    directory above the current working directory, e.g.,
+    `../.chef/config.rb`
+- From `~/.chef/config.rb` (macOS and Linux platforms) or
+    `c:\Users\<username>\.chef` (Microsoft Windows platform)
+
+{{< note >}}
+
+On Microsoft Windows, the `config.rb` file is located:
+`%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<username>\.chef`).
+In a script for Windows, use: `%USERPROFILE%\chef-repo\.chef`.
+
+{{< /note >}}
+
+### config.rb Configuration Within a Chef Repository
+
+{{% ws_chef_repo_many_users_same_knife %}}
+
+## Generating a config.rb File
+
+Use <span class="title-ref">knife configure</span> command to generate your initial `config.rb` file in your home directory.
+See [knife configure](/workstation/knife_configure/) for details.
 
 ## Setting Your Text Editor
 

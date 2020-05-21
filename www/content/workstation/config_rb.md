@@ -55,11 +55,11 @@ This configuration file has the following settings:
 
 `bootstrap_template`
 
-:   The path to a template file to be used during a bootstrap operation.
+: The path to a template file to be used during a bootstrap operation.
 
 `chef_server_url`
 
-:   The URL for the Chef Infra Server. For example:
+: The URL for the Chef Infra Server. For example:
 
     ``` ruby
     chef_server_url 'https://localhost/organizations/ORG_NAME'
@@ -67,7 +67,7 @@ This configuration file has the following settings:
 
 `chef_zero.enabled`
 
-:   Enable chef-zero. This setting requires `local_mode` to be set to
+: Enable chef-zero. This setting requires `local_mode` to be set to
     `true`. Default value: `false`. For example:
 
     ``` ruby
@@ -76,7 +76,7 @@ This configuration file has the following settings:
 
 `chef_zero[:port]`
 
-:   The port on which chef-zero is to listen. Default value: `8889`. For
+: The port on which chef-zero is to listen. Default value: `8889`. For
     example:
 
     ``` ruby
@@ -85,12 +85,12 @@ This configuration file has the following settings:
 
 `client_d_dir`
 
-:   A directory that contains additional configuration scripts to load
+: A directory that contains additional configuration scripts to load
     for Chef Infra Client.
 
 `client_key`
 
-:   The location of the file that contains the client key, as an
+: The location of the file that contains the client key, as an
     absolute path. Default value: `/etc/chef/client.pem`. For example:
 
     ``` ruby
@@ -99,21 +99,21 @@ This configuration file has the following settings:
 
 `cookbook_copyright`
 
-:   The name of the copyright holder. This option places a copyright
+: The name of the copyright holder. This option places a copyright
     notice that contains the name of the copyright holder in each of the
     pre-created files. If this option is not specified, a copyright name
     of "COMPANY_NAME" is used instead; it can easily be modified later.
 
 `cookbook_email`
 
-:   The email address for the individual who maintains the cookbook.
+: The email address for the individual who maintains the cookbook.
     This option places an email address in each of the pre-created
     files. If not specified, an email name of "YOUR_EMAIL" is used
     instead; this can easily be modified later.
 
 `cookbook_license`
 
-:   The type of license under which a cookbook is distributed:
+: The type of license under which a cookbook is distributed:
     `apachev2`, `gplv2`, `gplv3`, `mit`, or `none` (default). This
     option places the appropriate license notice in the pre-created
     files: `Apache v2.0` (for `apachev2`), `GPL v2` (for `gplv2`),
@@ -124,7 +124,7 @@ This configuration file has the following settings:
 
 `cookbook_path`
 
-:   The Chef Infra Client sub-directory for storing cookbooks. This
+: The Chef Infra Client sub-directory for storing cookbooks. This
     value can be a string or an array of file system locations,
     processed in the specified order. The last cookbook is considered to
     override local modifications. For example:
@@ -138,7 +138,7 @@ This configuration file has the following settings:
 
 `data_bag_encrypt_version`
 
-:   The minimum required version of data bag encryption. Possible
+: The minimum required version of data bag encryption. Possible
     values: `1` or `2`. When all of the machines in an organization are
     running Chef Client 11.6 (or higher), it is recommended that this
     value be set to `2`. For example:
@@ -149,7 +149,7 @@ This configuration file has the following settings:
 
 `fips`
 
-:   Allows OpenSSL to enforce FIPS-validated security during a Chef
+: Allows OpenSSL to enforce FIPS-validated security during a Chef
     Infra Client run. Set to `true` to enable FIPS-validated security.
 
     FIPS support is available in Chef Client versions 12.8 and above.
@@ -169,7 +169,7 @@ This configuration file has the following settings:
 
 `local_mode`
 
-:   Run Chef Infra Client in local mode. This allows all commands that
+: Run Chef Infra Client in local mode. This allows all commands that
     work against the Chef Infra Server to also work against the local
     chef-repo. For example:
 
@@ -179,7 +179,7 @@ This configuration file has the following settings:
 
 `node_name`
 
-:   The name of the node. This may be a username with permission to
+: The name of the node. This may be a username with permission to
     authenticate to the Chef Infra Server or it may be the name of the
     machine from which knife is run. For example:
 
@@ -195,7 +195,7 @@ This configuration file has the following settings:
 
 `no_proxy`
 
-:   A comma-separated list of URLs that do not need a proxy. Default
+: A comma-separated list of URLs that do not need a proxy. Default
     value: `nil`. For example:
 
     ``` ruby
@@ -204,7 +204,7 @@ This configuration file has the following settings:
 
 `ssh_agent_signing`
 
-:   **New in 14.2** Use `ssh-agent` to authenticate. When using this
+: **New in 14.2** Use `ssh-agent` to authenticate. When using this
     option, specify the location of the public key in `client_key`.
     Default value: `false`. Ensure the public key is in PKCS\#1 format.
     You can convert an OpenSSH public key using `ssh-keygen`. For
@@ -216,12 +216,12 @@ This configuration file has the following settings:
 
 `ssh_timeout`
 
-:   The amount of time (in seconds) to wait for an SSH connection time
+: The amount of time (in seconds) to wait for an SSH connection time
     out.
 
 `ssl_verify_mode`
 
-:   Set the verify mode for HTTPS requests.
+: Set the verify mode for HTTPS requests.
 
     -   Use `:verify_none` to do no validation of SSL certificates.
     -   Use `:verify_peer` to do validation of all SSL certificates,
@@ -234,17 +234,17 @@ This configuration file has the following settings:
 
 `syntax_check_cache_path`
 
-:   All files in a cookbook must contain valid Ruby syntax. Use this
+: All files in a cookbook must contain valid Ruby syntax. Use this
     setting to specify the location in which knife caches information
     about files that have been checked for valid Ruby syntax.
 
 `tmux_split`
 
-:   Split the Tmux window. Default value: `false`.
+: Split the Tmux window. Default value: `false`.
 
 `validation_client_name`
 
-:   The name of the chef-validator key that is used by Chef Infra Client
+: The name of the chef-validator key that is used by Chef Infra Client
     to access the Chef Infra Server during the initial Chef Infra Client
     run. For example:
 
@@ -254,7 +254,7 @@ This configuration file has the following settings:
 
 `validation_key`
 
-:   The location of the file that contains the key used when a Chef
+: The location of the file that contains the key used when a Chef
     Infra Client is registered with a Chef Infra Server. A validation
     key is signed using the `validation_client_name` for authentication.
     Default value: `/etc/chef/validation.pem`. For example:
@@ -265,7 +265,7 @@ This configuration file has the following settings:
 
 `verify_api_cert`
 
-:   Verify the SSL certificate on the Chef Infra Server. When `true`,
+: Verify the SSL certificate on the Chef Infra Server. When `true`,
     Chef Infra Client always verifies the SSL certificate. When `false`,
     Chef Infra Client uses the value of `ssl_verify_mode` to determine
     if the SSL certificate requires verification. Default value:
@@ -273,7 +273,7 @@ This configuration file has the following settings:
 
 `versioned_cookbooks`
 
-:   Append cookbook versions to cookbooks. Set to `false` to hide
+: Append cookbook versions to cookbooks. Set to `false` to hide
     cookbook versions: `cookbooks/apache`. Set to `true` to show
     cookbook versions: `cookbooks/apache-1.0.0` and/or
     `cookbooks/apache-1.0.1`. When this setting is `true`,
@@ -287,7 +287,7 @@ This configuration file has the following settings:
 
 `config_log_level`
 
-:   Sets the default value of `log_level` in the client.rb file of the
+: Sets the default value of `log_level` in the client.rb file of the
     node being bootstrapped. Possible values are `:debug`, `:info`,
     `:warn`, `:error` and `:fatal`. For example:
 
@@ -297,7 +297,7 @@ This configuration file has the following settings:
 
 `config_log_location`
 
-:   Sets the default value of `log_location` in the client.rb file of
+: Sets the default value of `log_location` in the client.rb file of
     the node being bootstrapped. Possible values are
     `/path/to/log_location`, `STDOUT`, `STDERR`, `:win_evt` and
     `:syslog`. For example:
@@ -318,8 +318,7 @@ settings:
 
 `http_proxy`
 
-:   The proxy server for HTTP connections. Default value: `nil`. For
-    example:
+: The proxy server for HTTP connections. Default value: `nil`. For example:
 
     ``` ruby
     http_proxy 'http://proxy.example.com:3128'
@@ -327,12 +326,12 @@ settings:
 
 `http_proxy_user`
 
-:   The user name for the proxy server when the proxy server is using an
+: The user name for the proxy server when the proxy server is using an
     HTTP connection. Default value: `nil`.
 
 `http_proxy_pass`
 
-:   The password for the proxy server when the proxy server is using an
+: The password for the proxy server when the proxy server is using an
     HTTP connection. Default value: `nil`.
 
 If the Chef Infra Server is configured to use HTTPS (such as the hosted
@@ -340,24 +339,24 @@ Chef Infra Server), add the following settings:
 
 `https_proxy`
 
-:   The proxy server for HTTPS connections. (The hosted Chef Infra
+: The proxy server for HTTPS connections. (The hosted Chef Infra
     Server uses an HTTPS connection.) Default value: `nil`.
 
 `https_proxy_user`
 
-:   The user name for the proxy server when the proxy server is using an
+: The user name for the proxy server when the proxy server is using an
     HTTPS connection. Default value: `nil`.
 
 `https_proxy_pass`
 
-:   The password for the proxy server when the proxy server is using an
+: The password for the proxy server when the proxy server is using an
     HTTPS connection. Default value: `nil`.
 
 Use the following setting to specify URLs that do not need a proxy:
 
 `no_proxy`
 
-:   A comma-separated list of URLs that do not need a proxy. Default
+: A comma-separated list of URLs that do not need a proxy. Default
     value: `nil`.
 
 ## .d Directories
@@ -414,51 +413,51 @@ be the right settings to add for every organization:
 
 `knife[:bootstrap_proxy]`
 
-:   The proxy server for the node that is the target of a bootstrap
+: The proxy server for the node that is the target of a bootstrap
     operation.
 
 `knife[:bootstrap_template]`
 
-:   The path to a template file to be used during a bootstrap operation.
+: The path to a template file to be used during a bootstrap operation.
 
 `knife[:bootstrap_version]`
 
-:   The version of Chef Infra Client to install.
+: The version of Chef Infra Client to install.
 
 `knife[:editor]`
 
-:   The \$EDITOR that is used for all interactive commands.
+: The \$EDITOR that is used for all interactive commands.
 
 `knife[:ssh_gateway]`
 
-:   The SSH tunnel or gateway that is used to run a bootstrap action on
+: The SSH tunnel or gateway that is used to run a bootstrap action on
     a machine that is not accessible from the workstation. Adding this
     setting can be helpful when a user cannot SSH directly into a host.
 
 `knife[:ssh_port]`
 
-:   The SSH port.
+: The SSH port.
 
 Other SSH-related settings that are sometimes helpful when added to the
 `config.rb` file:
 
 `knife[:forward_agent]`
 
-:   Enable SSH agent forwarding.
+: Enable SSH agent forwarding.
 
 `knife[:ssh_attribute]`
 
-:   The attribute used when opening an SSH connection.
+: The attribute used when opening an SSH connection.
 
 `knife[:ssh_password]`
 
-:   The SSH password. This can be used to pass the password directly on
+: The SSH password. This can be used to pass the password directly on
     the command line. If this option is not specified (and a password is
     required) knife prompts for the password.
 
 `knife[:ssh_user]`
 
-:   The SSH user name.
+: The SSH user name.
 
 Some organizations choose to have all data bags use the same secret and
 secret file, rather than have a unique secret and secret file for each
@@ -467,24 +466,24 @@ the following to config.rb:
 
 `knife[:secret]`
 
-:   The encryption key that is used for values contained within a data
+: The encryption key that is used for values contained within a data
     bag item.
 
 `knife[:secret_file]`
 
-:   The path to the file that contains the encryption key.
+: The path to the file that contains the encryption key.
 
 Some settings are better left to Ohai, which will get the value at the
 start of a Chef Infra Client run:
 
 `knife[:server_name]`
 
-:   Same as node_name. Recommended configuration is to allow Ohai to
+: Same as node_name. Recommended configuration is to allow Ohai to
     collect this value during each Chef Infra Client run.
 
 `node_name`
 
-:   See the description above for this setting.
+: See the description above for this setting.
 
 {{< warning >}}
 
