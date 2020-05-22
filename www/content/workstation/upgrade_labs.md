@@ -266,6 +266,17 @@ After creating the repo, `chef capture NODE` prompts you to fetch the cookbooks 
 The `chef capture` command prompts you first for your main cookbook source location.
 
 ```
+Next, locate version-controlled copies of the cookbooks. This is
+important so that you can track changes to the cookbooks as you
+edit them. You may have one or more existing paths where you have
+checked out cookbooks. If not, now is a good time to open a
+separate terminal and clone or check out the cookbooks.
+
+If all cookbooks are not available in the same base location,
+you will have a chance to provide additional locations.
+
+Press Enter to Continue:
+
 Please clone or check out the following cookbooks locally
 from their original sources, and provide the base path
 for the checkout:
@@ -275,9 +286,6 @@ for the checkout:
   - logrotate (v1.9.2)
   - windows (v1.44.1)
   - chef_handler (v1.4.0)
-
-If all cookbooks are not available in the same base location,
-you will have a chance to provide additional locations.
 
 If sources are not available for these cookbooks, leave this blank.
 
@@ -291,8 +299,8 @@ At this point, enter the path to your [cookbook development directory](/#cookboo
 
 ```
 Checkout Location [none]: /src/my_cookbooks
-  Replacing cookbook: cron
-  Replacing cookbook: chef-client
+  Using your checked-out cookbook: cron
+  using your checked-out cookbook: chef-client
 ```
 
 ##### Alternate Cookbook Source Locations
@@ -329,6 +337,7 @@ Upgrading cookbooks from the Chef Infra Server is not an ideal practice. You wil
 Tracking and testing changes in a CI/CD pipeline is an important part of managing your Chef infrastructure but are beyond the scope of this guide. See [Learn Chef Rally](https://learn.chef.io/) for tutorials and contact [Chef Software customer support](https://www.chef.io/support/) when you are ready to modernize your system.
 
 ```
+------------------------ WARNING ---------------------------
 Changes made to the following cookbooks in ./node-MYNODE-repo/cookbooks
 cannot be saved to the cookbook's source, though they can still be uploaded
 to a Chef Server:
@@ -336,6 +345,7 @@ to a Chef Server:
   - logrotate (v1.9.2)
   - windows (v1.44.1)
   - chef_handler (v1.4.0)
+-----------------------------------------------------------
 
 You're ready to begin!
 
@@ -409,7 +419,7 @@ chef exec knife download data_bags --chef-repo-path . --profile old-server --key
 
 ### Commit Your Cookbook Upgrades
 
-As you make changes to the cookbooks, follow normal SDLC practices by committing your changes to your cookbooks and submitting your changes to your cookbook pipeline to be tested by your automated testing system. Once the changes have passed testing, the cookbooks should receive new version numbers and be published to the new Chef Infra Server by the continuous deployment system.
+As you make changes to the cookbooks, follow your organization's existing software development practices by committing your changes to your cookbooks and submitting your changes to your cookbook pipeline to be tested by your automated testing system. Once the changes have passed testing, the cookbooks should receive new version numbers and be published to the new Chef Infra Server by the continuous deployment system.
 
 ### Upload your Cookbook Upgrades to the New Server
 
