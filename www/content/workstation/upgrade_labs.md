@@ -417,6 +417,12 @@ chef exec knife download data_bags --chef-repo-path . --profile old-server --key
 
 ## Deploy your Chef Lab Upgrades
 
+{{< note >}}
+This guide suggests migrating upgraded cookbooks and nodes to a new Chef Server. This pattern is not feasable for all customers, specifically ones who rely on Chef search for inventory and coordination. But we feel migrating to a new server works for customers who do not rely on search because it creates a fresh start to build on for future migration to Effortless.
+
+If you rely on knife search, or setting up a new Chef Server is unfeasable, upload the upgraded cookbooks to your existing Chef Server. If you do this be sure to pin your cookbook versions on existing nodes, so that the upgraded cookbook can be manually promoted to desired nodes.
+{{< /note >}}
+
 ### Commit Your Cookbook Upgrades
 
 As you make changes to the cookbooks, follow your organization's existing software development practices by committing your changes to your cookbooks and submitting your changes to your cookbook pipeline to be tested by your automated testing system. Once the changes have passed testing, the cookbooks should receive new version numbers and be published to the new Chef Infra Server by the continuous deployment system.
