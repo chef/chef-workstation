@@ -453,8 +453,11 @@ Migrate your node to the new server by running a bootstrap command similar to th
       --profile new-server --chef-license accept \
       -r cookbook::recipe,another_cookbook::recipe \
       -N node-01 -y --sudo \
+      --bootstrap-version 16 \
       user@somehost.example
 ```
+
+Bootstraping nodes in this way upgrades the the installed Chef Infra Client to version 16. Congratulations!
 
 Optionally, delete your node record from the old server using:
 
