@@ -22,6 +22,10 @@ This guide covers the straightforward pattern of upgrading from Chef Infra Clien
 
 Unless otherwise indicated, you'll run all commands in your local development environment.
 
+{{< note >}}
+This guide illustrates the simple case of upgrading a single node in isolation, including migrating it from one Chef Infra Server to a new Chef Infra Server. More complex situations, such as those involving pooled nodes using Chef Infra Server search for peer discovery, are not covered here. Please contact [Chef Software customer support](https://www.chef.io/support/).
+{{< /note >}}
+
 ## Chef Upgrade Lab Requirements
 
 ### System Architecture Requirements
@@ -47,7 +51,6 @@ The Chef Upgrade Lab makes some basic assumptions about your existing system:
 
 * Meet the [platform and system requirements](https://docs.chef.io/workstation/install_workstation/) for Chef Workstation
 * Install or upgrade to the Chef Workstation [latest version](https://downloads.chef.io/chef-workstation)
-* Any [supported Ruby version](https://www.ruby-lang.org/en/downloads/)
 
 Chef does not prescribe any specific editor. However, the [Chef Infra extension](https://marketplace.visualstudio.com/items?itemName=chef-software.Chef) for [Visual Studio Code](https://code.visualstudio.com/) features several code generators and helpful features, such as running Cookstyle each time you save a recipe.
 
@@ -91,8 +94,10 @@ MMM+another+key+goes+here+MMM
 Verify connectivity by running a knife command against each server and receive a reasonable response:
 
 ```shell
-chef exec knife user list --profile old-server my-user
-chef exec knife user list --profile new-server my-user
+chef exec knife user list --profile old-server
+user_name
+chef exec knife user list --profile new-server
+user_name
 ```
 
 #### Convergence
@@ -127,9 +132,9 @@ If you do not have a version control system and CI/CD pipeline in place, then pl
 
 #### Cookbook Locations
 
-Upgrading a node means upgrading its cookbooks.
+Upgrading a node means upgrading its cookbooks so that it can run the latest version of CHef Infra Client.
 Speed up the upgrade process by locating cookbooks on your system before you begin.
-Ideally, you can get the cookbooks from their canonical source (that is, `git clone` or another similar version control operation). If you're working with a version control system, you can make and test your changes locally and then push the changes back to the cookbook's source.
+Ideally, you can get the cookbooks from their canonical source (that is, `git clone` or another similar version control operation). If you're working with a version control system, you can make and test your changes locally and then push the changes back to the cookbook's source. This fully leverages the benefits of your cookbook CI/CD pipeline by allowing your changes to go through proper version control, peer review, automated testing, and automated deployment.
 If you can't locate a cookbook, do not download it from an external source, such as the public Chef Supermarket. The cookbook version in your development environment must match the version on your node. [As a last resort](/upgrade_labs/#cookbooks-on-the-chef-server), the Upgrade Lab can get copies of your cookbooks from the Chef Infra Server during the `capture` phase.
 
 Likely cookbook locations:
@@ -172,7 +177,7 @@ The `chef report` command surveys your nodes and cookbooks. Use the reports to i
 
 #### chef report nodes
 
-Use `chef report nodes SERVER` command to create a report of the nodes in your system from Ohai data. The command:
+Use `chef report nodes -p PROFILE` command to create a report of the nodes in your system from Ohai data. The command:
 
 * Prints a report summary to the screen
 * Saves the report to the `.chef-workstation/reports/` directory.
@@ -201,7 +206,7 @@ Nodes report saved to /Users/user_name/.chef-workstation/reports/nodes-202003241
 
 #### chef report cookbooks
 
-Use `chef report cookbooks SERVER` command to create a report of the cookbooks in your system from Ohai data. The command:
+Use `chef report cookbooks -p PROFILE` command to create a report of the cookbooks in your system from Ohai data. The command:
 
 * Prints a report summary to the screen
 * Saves the report to the `.chef-workstation/reports/` directory.
@@ -398,14 +403,6 @@ Note that this command does not support embedded keys in credentials files. If y
 ```
 cd node-node-01-repo
 chef exec knife download data_bags --chef-repo-path . --profile old-server --key my-old-key.pem
-```
-
-### Remove Server Searches
-
-Check your cookbook code for Chef Infra Server searches, which will not be possible in an Effortless context. Identify locations making search calls and replace with other mechanisms of service discovery.
-
-```
-$ grep 'search(' -rn cookbooks
 ```
 
 ## Deploy your Chef Lab Upgrades
