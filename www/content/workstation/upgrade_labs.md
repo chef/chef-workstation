@@ -407,8 +407,8 @@ Repeat this process for each cookbook that the node consumes.
 
 ### Copy Data Bags
 
-If data bags are used on your Chef Infra Server, you will need to download the `data_bags` directory in your repository.
-Note that this command does not support embedded keys in credentials files. If you use embedded keys, move the key to a key file.
+If your Chef Infra Server uses data bags, you will need to download the `data_bags` directory into your chef repo with the `chef exec knife download data_bags` command.
+This command does not support embedded keys in credentials files. If you use embedded keys, move the key to a key file.
 
 ```
 cd node-node-01-repo
@@ -418,9 +418,9 @@ chef exec knife download data_bags --chef-repo-path . --profile old-server --key
 ## Deploy your Chef Lab Upgrades
 
 {{< note >}}
-This guide suggests migrating upgraded cookbooks and nodes to a new Chef Server. This pattern is not feasable for all customers, specifically ones who rely on Chef search for inventory and coordination. But we feel migrating to a new server works for customers who do not rely on search because it creates a fresh start to build on for future migration to Effortless.
+This guide suggests migrating upgraded cookbooks and nodes to a new Chef Infra Server. This pattern is not possible for all customers, specifically those who rely on `chef search` for inventory and coordination. But we feel migrating to a new server works for customers who do not rely on search because it creates a fresh start to build on for future migration to Effortless.
 
-If you rely on knife search, or setting up a new Chef Server is unfeasable, upload the upgraded cookbooks to your existing Chef Server. If you do this be sure to pin your cookbook versions on existing nodes, so that the upgraded cookbook can be manually promoted to desired nodes.
+If you rely on `knife search`, or setting up a new Chef Infra Server is not possible, upload the upgraded cookbooks to your existing Chef Infra Server. If you do this, be sure to pin your cookbook versions on existing nodes, so that the upgraded cookbook can be manually promoted to desired nodes.
 {{< /note >}}
 
 ### Commit Your Cookbook Upgrades
