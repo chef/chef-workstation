@@ -427,7 +427,7 @@ If you rely on `knife search`, or setting up a new Chef Infra Server is not poss
 
 As you make changes to the cookbooks, follow your organization's existing software development practices by committing your changes to your cookbooks and submitting your changes to your cookbook pipeline to be tested by your automated testing system. Once the changes have passed testing, the cookbooks should receive new version numbers and be published to the new Chef Infra Server by the continuous deployment system.
 
-### Upload your Cookbook Upgrades to the New Server
+### Optionally Upload your Cookbook Upgrades to the New Server
 
 If your organization does not have a cookbook pipeline in place, or if you are setting up a proof of concept, you can directly upload the cookbooks to the new server. This is not recommended because it makes it difficult to manage changes to cookbook code. Note that this command does not support embedded keys in credentials files, so you must place the key in a key file.
 
@@ -436,7 +436,36 @@ $ cd node-node-01-repo
 $ chef exec knife upload cookbooks --chef-repo-path . --profile new-server --key ../keys/my-new-key.pem
 ```
 
-If you used data bags, also upload them to the new server:
+### Upload Supplemental Data to the New Server
+
+Next, upload the remaining data to the new server. Note that `knife upload` command does not support embedded keys in credentials files, so you must place the key in a key file.
+
+#### Node Data
+
+If you use node search, upload the node data to the new server:
+
+```
+$ chef exec knife upload nodes --chef-repo-path . --profile new-server --key ../keys/my-new-key.pem
+```
+
+#### Roles
+
+If you use roles, upload them to the new server:
+
+```
+$ chef exec knife upload roles --chef-repo-path . --profile new-server --key ../keys/my-new-key.pem
+```
+
+#### Environments
+
+If you use environments, upload them to the new server:
+
+```
+$ chef exec knife upload environments --chef-repo-path . --profile new-server --key ../keys/my-new-key.pem
+```
+
+#### Data Bags
+If you used data bags, upload them to the new server:
 
 ```
 $ chef exec knife upload data_bags --chef-repo-path . --profile new-server --key ../keys/my-new-key.pem
