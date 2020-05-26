@@ -338,7 +338,7 @@ Tracking and testing changes in a CI/CD pipeline is an important part of managin
 
 ```
 ------------------------ WARNING ---------------------------
-Changes made to the following cookbooks in ./node-MYNODE-repo/cookbooks
+Changes made to the following cookbooks in ./node-MY_NODE-repo/cookbooks
 cannot be saved to the cookbook's source, though they can still be uploaded
 to a Chef Server:
 
@@ -457,7 +457,7 @@ Migrate your node to the new server by running a bootstrap command similar to th
       user@somehost.example
 ```
 
-Bootstraping nodes in this way upgrades the the installed Chef Infra Client to version 16. Congratulations!
+Bootstrapping nodes in this way upgrades the the installed Chef Infra Client to version 16. Congratulations!
 
 Optionally, delete your node record from the old server using:
 
