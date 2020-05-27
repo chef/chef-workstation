@@ -32,7 +32,7 @@ New-Item -Path "c:\" -Name ".chef" -ItemType "directory"
 New-Item -ItemType "file" -Path "c:\.chef\credentials"
 ```
 
-Previous Chef Infra setups recommended setting up knife with a `config.rb` file. Configuring knife with `config.rb` is still valid if you work on one Chef Infra Server with one Chef Infra Server organization.
+Previous Chef Infra setups recommended setting up knife with a `config.rb` file. Configuring knife with `config.rb` is still valid, but only for working on one Chef Infra Server with one Chef Infra Server organization.
 
 ```bash
 mkdir ~/.chef
