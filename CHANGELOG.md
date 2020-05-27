@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.46 -->
-## [20.5.46](https://github.com/chef/chef-workstation/tree/20.5.46) (2020-05-22)
+<!-- latest_release 20.5.47 -->
+## [20.5.47](https://github.com/chef/chef-workstation/tree/20.5.47) (2020-05-27)
 
 #### Merged Pull Requests
-- Pin pry-stack_explorer to &gt;= 0.5.1 [#1225](https://github.com/chef/chef-workstation/pull/1225) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Bump chef-analyze CLI to 0.1.91 [#1227](https://github.com/chef/chef-workstation/pull/1227) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.91 [#1227](https://github.com/chef/chef-workstation/pull/1227) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.5.47 -->
 - Pin pry-stack_explorer to &gt;= 0.5.1 [#1225](https://github.com/chef/chef-workstation/pull/1225) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.5.46 -->
 - Remove Upgrade Lab feature flag from usage and config docs [#1219](https://github.com/chef/chef-workstation/pull/1219) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.5.45 -->
 - Update Cookstyle to 6.5 [#1218](https://github.com/chef/chef-workstation/pull/1218) ([tas50](https://github.com/tas50)) <!-- 20.5.44 -->
