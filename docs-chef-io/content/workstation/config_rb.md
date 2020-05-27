@@ -33,7 +33,7 @@ A `config.rb` file:
     file is `~/.chef/config.rb`; use the `--config` option from the
     command line to change this location
 - Is not created by default
-- Is located by default at `~/.chef/config.rb` (UNIX and Linux
+- Is located by default at `~/.chef/config.rb` (macOS and Linux
     platforms) or `c:\Users\username\.chef` (Microsoft Windows platform,
     use the `--config` option from the command line to change this
     location
@@ -126,9 +126,6 @@ The following operating systems are supported:
     Support for FIPS was introduced in Chef Server version 12.13. The
     following operating systems are supported:
 
-    - Red Hat Enterprise Linux
-    - Oracle Enterprise Linux
-    - CentOS
 
 `local_mode`
 : Run Chef Infra Client in local mode. This allows all commands that work against the Chef Infra Server to also work against the local chef-repo. For example:
