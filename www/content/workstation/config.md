@@ -393,11 +393,11 @@ Enable and disable experimental features for Chef Workstation.
 
 ```toml
 [features]
-analyze = true
+example = true
 ```
 
 Description
-: List of experimental features. Features are not enabled by default. Enable the feature with `name = true` and disable with `name = false`. The above example enables one feature, which is the `analyze` feature. You can also enable or disable any feature from the command line using an environment variable. For example, setting `CHEF_FEAT_ANALYZE=true` from the command line enables the `analyze` feature for the duration of your terminal session.
+: List of experimental features. Boolean. Default: none. Enable the feature with `feature = true` and disable with `feature = false`.  `example = true` enables one feature, which is the `example` feature. You can also enable or disable any feature from the command line using an environment variable. For example, setting `CHEF_FEAT_EXAMPLE=true` from the command line enables the `example` feature for the duration of your terminal session.
 
 Values
 : `name = true`, `name = false`

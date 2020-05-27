@@ -112,7 +112,8 @@ group(:omnibus_package) do
   gem "nokogiri", "= 1.11.0.rc2" # Pinning until 1.11 is released and builds correctly
   gem "pry-byebug"
   gem "pry-remote"
-  gem "pry-stack_explorer"
+  # pry-stack_explorer 0.4.9.3 emits warnings under 2.7 under inspec shell
+  gem "pry-stack_explorer", ">= 0.5.1"
   gem "rb-readline"
   gem "winrm-fs"
   gem "winrm-elevated"

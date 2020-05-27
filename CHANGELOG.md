@@ -1,15 +1,24 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.38 -->
-## [20.5.38](https://github.com/chef/chef-workstation/tree/20.5.38) (2020-05-15)
+<!-- latest_release 20.5.47 -->
+## [20.5.47](https://github.com/chef/chef-workstation/tree/20.5.47) (2020-05-27)
 
 #### Merged Pull Requests
-- Update Chef Infra Client to 16.1 [#1201](https://github.com/chef/chef-workstation/pull/1201) ([tas50](https://github.com/tas50))
+- Bump chef-analyze CLI to 0.1.91 [#1227](https://github.com/chef/chef-workstation/pull/1227) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.91 [#1227](https://github.com/chef/chef-workstation/pull/1227) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.5.47 -->
+- Pin pry-stack_explorer to &gt;= 0.5.1 [#1225](https://github.com/chef/chef-workstation/pull/1225) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.5.46 -->
+- Remove Upgrade Lab feature flag from usage and config docs [#1219](https://github.com/chef/chef-workstation/pull/1219) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.5.45 -->
+- Update Cookstyle to 6.5 [#1218](https://github.com/chef/chef-workstation/pull/1218) ([tas50](https://github.com/tas50)) <!-- 20.5.44 -->
+- Update kitchen-digitalocean to 0.11 [#1213](https://github.com/chef/chef-workstation/pull/1213) ([tas50](https://github.com/tas50)) <!-- 20.5.43 -->
+- Push a git tag after a VERSION change [#1209](https://github.com/chef/chef-workstation/pull/1209) ([btm](https://github.com/btm)) <!-- 20.5.42 -->
+- Update knife-windows to 3.0.17 [#1208](https://github.com/chef/chef-workstation/pull/1208) ([tas50](https://github.com/tas50)) <!-- 20.5.41 -->
+- Update Fauxhai to 8.2 [#1207](https://github.com/chef/chef-workstation/pull/1207) ([tas50](https://github.com/tas50)) <!-- 20.5.40 -->
+- Update Test Kitchen, kitchen-ec2, and kitchen-hyperv [#1206](https://github.com/chef/chef-workstation/pull/1206) ([tas50](https://github.com/tas50)) <!-- 20.5.39 -->
 - Update Chef Infra Client to 16.1 [#1201](https://github.com/chef/chef-workstation/pull/1201) ([tas50](https://github.com/tas50)) <!-- 20.5.38 -->
 - Bump chef-analyze CLI to 0.1.89 [#1197](https://github.com/chef/chef-workstation/pull/1197) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.5.37 -->
 - Pin chef-telemetry to avoid extra http deps [#1198](https://github.com/chef/chef-workstation/pull/1198) ([tas50](https://github.com/tas50)) <!-- 20.5.36 -->
