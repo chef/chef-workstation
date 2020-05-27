@@ -2,6 +2,8 @@
 title = "{{ replace .Name "-" " " | title }}"
 draft = true
 
+publishDate = ""
+
 [menu]
   [menu.workstation]
     title = "{{ replace .Name "-" " " | title }}"

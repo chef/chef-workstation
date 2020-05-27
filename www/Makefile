@@ -16,11 +16,11 @@ clean_all:
 	rm -rf chef-web-docs/results/
 
 preview_netlify: chef_web_docs_submodule
-	pushd chef-web-docs && make assets; hugo --gc --minify --enableGitInfo && popd
+	pushd chef-web-docs && make assets; hugo --gc --minify --enableGitInfo --buildFuture && popd
 	make reset_chef_web_docs
 
 serve_chef_web_docs: chef_web_docs_submodule
-	pushd chef-web-docs && make assets; hugo server --buildDrafts --noHTTPCache && popd
+	pushd chef-web-docs && make assets; hugo server --buildDrafts --noHTTPCache --buildFuture && popd
 
 chef_web_docs_submodule:
 	git submodule update --init --recursive
@@ -33,7 +33,7 @@ reset_chef_web_docs:
 
 serve: assets
 	cd chef-web-docs
-	hugo server --buildDrafts --noHTTPCache
+	hugo server --buildDrafts --noHTTPCache --buildFuture
 
 lint: assets
 	hugo -D
