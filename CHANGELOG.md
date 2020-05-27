@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.50 -->
-## [20.5.50](https://github.com/chef/chef-workstation/tree/20.5.50) (2020-05-27)
+<!-- latest_release 20.5.51 -->
+## [20.5.51](https://github.com/chef/chef-workstation/tree/20.5.51) (2020-05-27)
 
 #### Merged Pull Requests
-- Consuming Ruby 2.7.1 performance fix patch [#1228](https://github.com/chef/chef-workstation/pull/1228) ([tyler-ball](https://github.com/tyler-ball))
+- Update knife-cloud to 3.0.4 [#1229](https://github.com/chef/chef-workstation/pull/1229) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Update knife-cloud to 3.0.4 [#1229](https://github.com/chef/chef-workstation/pull/1229) ([tas50](https://github.com/tas50)) <!-- 20.5.51 -->
 - Consuming Ruby 2.7.1 performance fix patch [#1228](https://github.com/chef/chef-workstation/pull/1228) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.50 -->
 - Additional cleanup to our installed gems [#1203](https://github.com/chef/chef-workstation/pull/1203) ([tas50](https://github.com/tas50)) <!-- 20.5.49 -->
 - Add buildfuture to make commands [#1202](https://github.com/chef/chef-workstation/pull/1202) ([IanMadd](https://github.com/IanMadd)) <!-- 20.5.48 -->
