@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019 Chef Software, Inc.
+# Copyright:: Copyright (c) Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,41 +27,64 @@ source path: "#{project.files_path}/#{name}"
 dependency "ruby"
 
 build do
+  block "Removing console and setup binaries" do
+    Dir.glob("#{install_dir}/embedded/lib/ruby/gems/*/gems/*/bin/{console,setup}").each do |f|
+      puts "Deleting #{f}"
+      FileUtils.rm_rf(f)
+    end
+  end
+
+  block "remove any .gitkeep files" do
+    Dir.glob("#{install_dir}/**/{.gitkeep,.keep}").each do |f|
+      puts "Deleting #{f}"
+      File.delete(f)
+    end
+  end
+
   block "Removing additional non-code files from installed gems" do
     # find the embedded ruby gems dir and clean it up for globbing
     target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
     files = %w{
-      .appveyor.yml
-      .autotest
-      .github
-      .kokoro
+      *-public_cert.pem
+      *.blurb
+      *Upgrade.md
+      .dockerignore
       Appraisals
-      autotest/*
+      autotest
       bench
       benchmark
       benchmarks
+      ci
+      design_rationale.rb
       doc
       doc-api
+      Dockerfile*
       docs
       donate.png
       ed25519.png
       example
       examples
       ext
+      features
       frozen_old_spec
       Gemfile.devtools
       Gemfile.lock
       Gemfile.travis
+      Gemfile.noed25519*
+      INSTALL.txt
       logo.png
       man
+      playbooks
       rakelib
       release-script.txt
       sample
       samples
+      samus.json
       site
       test
       tests
       travis_build_script.sh
+      unit
       warning.txt
       website
       yard-template
@@ -69,44 +92,39 @@ build do
 
     Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
       puts "Deleting #{f}"
-      if File.directory?(f)
-        # recursively removes files and the dir
+      FileUtils.rm_rf(f)
+    end
+  end
+
+  block "Removing Gemspec / Rakefile / Gemfile unless there's a bin dir" do
+    # find the embedded ruby gems dir and clean it up for globbing
+    target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
+    files = %w{
+      *.gemspec
+      Gemfile
+      Rakefile
+      tasks
+    }
+
+    Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
+      # don't delete these files if there's a non-empty bin dir in the same dir
+      unless Dir.exist?(File.join(File.dirname(f), "bin")) && !Dir.empty?(File.join(File.dirname(f), "bin"))
+        puts "Deleting #{f}"
+        FileUtils.rm_rf(f)
+      end
+    end
+  end
+
+  block "Removing spec dirs unless we're in components we test in the verify command" do
+    # find the embedded ruby gems dir and clean it up for globbing
+    target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
+
+    Dir.glob(Dir.glob("#{target_dir}/*/spec")).each do |f|
+
+      # don't delete these files if we use them in our verify tests
+      unless File.basename(File.expand_path("..", f)).match?(/^(berkshelf|test-kitchen|chef|chef-cli|chef-apply|chefspec)-\d/)
+        puts "Deleting unused spec dir #{f}"
         FileUtils.remove_dir(f)
-      else
-        File.delete(f)
-      end
-    end
-
-    block "Removing Gemspec / Rakefile / Gemfile unless there's a bin dir" do
-      # find the embedded ruby gems dir and clean it up for globbing
-      target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
-      files = %w{
-        *.gemspec
-        Gemfile
-        Rakefile
-        tasks/*.rake
-      }
-
-      Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
-        # don't delete these files if there's a bin dir in the same dir
-        unless Dir.exist?(File.join(File.dirname(f), "bin"))
-          puts "Deleting #{f}"
-          File.delete(f)
-        end
-      end
-    end
-
-    block "Removing spec dirs unless we're in components we test in the verify command" do
-      # find the embedded ruby gems dir and clean it up for globbing
-      target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
-
-      Dir.glob(Dir.glob("#{target_dir}/*/spec")).each do |f|
-
-        # don't delete these files if we use them in our verify tests
-        unless File.basename(File.expand_path("..", f)).match?(/^(berkshelf|test-kitchen|chef|chef-cli|chef-apply|chefspec)-\d/)
-          puts "Deleting unused spec dir #{f}"
-          FileUtils.remove_dir(f)
-        end
       end
     end
   end
