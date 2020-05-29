@@ -17,8 +17,6 @@
 
 source "https://rubygems.org"
 
-gem "chef-telemetry", "=1.0.3" # avoid bringing in http 4
-
 group(:omnibus_package, :development, :test) do
   # Require a minimum version that is packaged in the Ruby install, so we do
   # not install old unecessary versions. When we bump Ruby we need to look
@@ -104,6 +102,9 @@ group(:omnibus_package) do
   gem "opscode-pushy-client", ">= 2.100"
   gem "ffi-rzmq-core"
   gem "knife-push"
+
+  # chef-telemetry previously pulled in an unecessary library (http)
+  gem "chef-telemetry", ">= 1.0.8"
 
   gem "mixlib-archive", ">= 1.0"
   gem "net-ssh", ">= 4.2.0"
