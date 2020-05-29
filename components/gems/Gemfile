@@ -17,8 +17,6 @@
 
 source "https://rubygems.org"
 
-gem "chef-telemetry", "=1.0.3" # avoid bringing in http 4
-
 group(:omnibus_package, :development, :test) do
   # Require a minimum version that is packaged in the Ruby install, so we do
   # not install old unecessary versions. When we bump Ruby we need to look
@@ -95,7 +93,7 @@ group(:omnibus_package) do
   # ed25519 ssh key support done here as it's a native gem we can't put in train
   gem "ed25519"
   gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
-  gem "chef-cli", ">= 2.0.10"
+  gem "chef-cli", ">= 3.0.4"
   gem "chef-apply", ">= 0.4.16"
 
   # For Delivery build node
@@ -104,6 +102,9 @@ group(:omnibus_package) do
   gem "opscode-pushy-client", ">= 2.100"
   gem "ffi-rzmq-core"
   gem "knife-push"
+
+  # chef-telemetry previously pulled in an unecessary library (http)
+  gem "chef-telemetry", ">= 1.0.8"
 
   gem "mixlib-archive", ">= 1.0"
   gem "net-ssh", ">= 4.2.0"

@@ -1,15 +1,17 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.53 -->
-## [20.5.53](https://github.com/chef/chef-workstation/tree/20.5.53) (2020-05-28)
+<!-- latest_release 20.5.55 -->
+## [20.5.55](https://github.com/chef/chef-workstation/tree/20.5.55) (2020-05-29)
 
 #### Merged Pull Requests
-- Update cookstyle to 6.6.9 [#1232](https://github.com/chef/chef-workstation/pull/1232) ([tas50](https://github.com/tas50))
+- Updating chef-telemetry to latest version [#1236](https://github.com/chef/chef-workstation/pull/1236) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Updating chef-telemetry to latest version [#1236](https://github.com/chef/chef-workstation/pull/1236) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.55 -->
+- Bump chef-cli to 3.0.4 [#1235](https://github.com/chef/chef-workstation/pull/1235) ([marcparadise](https://github.com/marcparadise)) <!-- 20.5.54 -->
 - Update cookstyle to 6.6.9 [#1232](https://github.com/chef/chef-workstation/pull/1232) ([tas50](https://github.com/tas50)) <!-- 20.5.53 -->
 - Update Chef Infra Client to 16.1.16 [#1230](https://github.com/chef/chef-workstation/pull/1230) ([tas50](https://github.com/tas50)) <!-- 20.5.52 -->
 - Update knife-cloud to 3.0.4 [#1229](https://github.com/chef/chef-workstation/pull/1229) ([tas50](https://github.com/tas50)) <!-- 20.5.51 -->
