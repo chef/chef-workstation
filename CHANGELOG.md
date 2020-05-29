@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.53 -->
-## [20.5.53](https://github.com/chef/chef-workstation/tree/20.5.53) (2020-05-28)
+<!-- latest_release 20.5.54 -->
+## [20.5.54](https://github.com/chef/chef-workstation/tree/20.5.54) (2020-05-29)
 
 #### Merged Pull Requests
-- Update cookstyle to 6.6.9 [#1232](https://github.com/chef/chef-workstation/pull/1232) ([tas50](https://github.com/tas50))
+- Bump chef-cli to 3.0.4 [#1235](https://github.com/chef/chef-workstation/pull/1235) ([marcparadise](https://github.com/marcparadise))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Bump chef-cli to 3.0.4 [#1235](https://github.com/chef/chef-workstation/pull/1235) ([marcparadise](https://github.com/marcparadise)) <!-- 20.5.54 -->
 - Update cookstyle to 6.6.9 [#1232](https://github.com/chef/chef-workstation/pull/1232) ([tas50](https://github.com/tas50)) <!-- 20.5.53 -->
 - Update Chef Infra Client to 16.1.16 [#1230](https://github.com/chef/chef-workstation/pull/1230) ([tas50](https://github.com/tas50)) <!-- 20.5.52 -->
 - Update knife-cloud to 3.0.4 [#1229](https://github.com/chef/chef-workstation/pull/1229) ([tas50](https://github.com/tas50)) <!-- 20.5.51 -->
