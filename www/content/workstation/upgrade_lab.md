@@ -1,6 +1,7 @@
 +++
 title = "Upgrade Lab: Chef Infra Client 12 to 16"
 draft = false
+aliases = ["/workstation/upgrade_labs/"]
 
 [menu]
   [menu.workstation]
