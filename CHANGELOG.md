@@ -1,15 +1,17 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.5.56 -->
-## [20.5.56](https://github.com/chef/chef-workstation/tree/20.5.56) (2020-05-29)
+<!-- latest_release 20.6.58 -->
+## [20.6.58](https://github.com/chef/chef-workstation/tree/20.6.58) (2020-06-01)
 
 #### Merged Pull Requests
-- Update heading levels in toc [#1238](https://github.com/chef/chef-workstation/pull/1238) ([IanMadd](https://github.com/IanMadd))
+- Rename upgrade_labs, add alias [#1241](https://github.com/chef/chef-workstation/pull/1241) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Rename upgrade_labs, add alias [#1241](https://github.com/chef/chef-workstation/pull/1241) ([IanMadd](https://github.com/IanMadd)) <!-- 20.6.58 -->
+- Upgrade Labs Documentation [#1136](https://github.com/chef/chef-workstation/pull/1136) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.6.57 -->
 - Update heading levels in toc [#1238](https://github.com/chef/chef-workstation/pull/1238) ([IanMadd](https://github.com/IanMadd)) <!-- 20.5.56 -->
 - Updating chef-telemetry to latest version [#1236](https://github.com/chef/chef-workstation/pull/1236) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.55 -->
 - Bump chef-cli to 3.0.4 [#1235](https://github.com/chef/chef-workstation/pull/1235) ([marcparadise](https://github.com/marcparadise)) <!-- 20.5.54 -->
