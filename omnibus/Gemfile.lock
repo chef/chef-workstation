@@ -171,9 +171,9 @@ GEM
     erubis (2.7.0)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
-    ffi (1.13.0)
-    ffi (1.13.0-x64-mingw32)
-    ffi (1.13.0-x86-mingw32)
+    ffi (1.12.2)
+    ffi (1.12.2-x64-mingw32)
+    ffi (1.12.2-x86-mingw32)
     ffi-libarchive (1.0.0)
       ffi (~> 1.0)
     ffi-win32-extensions (1.0.3)
@@ -393,6 +393,7 @@ PLATFORMS
 DEPENDENCIES
   artifactory
   berkshelf (>= 7.0)
+  ffi (< 1.13.0)
   kitchen-vagrant
   omnibus!
   omnibus-software!
