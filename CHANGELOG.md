@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.6.61 -->
-## [20.6.61](https://github.com/chef/chef-workstation/tree/20.6.61) (2020-06-02)
+<!-- latest_release 20.6.62 -->
+## [20.6.62](https://github.com/chef/chef-workstation/tree/20.6.62) (2020-06-02)
 
 #### Merged Pull Requests
-- Update cookstyle to 6.7 [#1244](https://github.com/chef/chef-workstation/pull/1244) ([tas50](https://github.com/tas50))
+- Working around a build time segfault with FFI 1.13 [#1246](https://github.com/chef/chef-workstation/pull/1246) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.17.5 -->
 ### Changes since 0.17.5 release
 
 #### Merged Pull Requests
+- Working around a build time segfault with FFI 1.13 [#1246](https://github.com/chef/chef-workstation/pull/1246) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.6.62 -->
 - Update cookstyle to 6.7 [#1244](https://github.com/chef/chef-workstation/pull/1244) ([tas50](https://github.com/tas50)) <!-- 20.6.61 -->
 - Update knife-ec2 and knife-windows for new knife config [#1240](https://github.com/chef/chef-workstation/pull/1240) ([tas50](https://github.com/tas50)) <!-- 20.6.60 -->
 - Temporarily comment out pipeline that publishes our Homebrew PR [#1239](https://github.com/chef/chef-workstation/pull/1239) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.6.59 -->
