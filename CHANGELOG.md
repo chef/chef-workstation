@@ -1,102 +1,100 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.6.62 -->
-## [20.6.62](https://github.com/chef/chef-workstation/tree/20.6.62) (2020-06-02)
-
-#### Merged Pull Requests
-- Working around a build time segfault with FFI 1.13 [#1246](https://github.com/chef/chef-workstation/pull/1246) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.17.5 -->
-### Changes since 0.17.5 release
-
-#### Merged Pull Requests
-- Working around a build time segfault with FFI 1.13 [#1246](https://github.com/chef/chef-workstation/pull/1246) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.6.62 -->
-- Update cookstyle to 6.7 [#1244](https://github.com/chef/chef-workstation/pull/1244) ([tas50](https://github.com/tas50)) <!-- 20.6.61 -->
-- Update knife-ec2 and knife-windows for new knife config [#1240](https://github.com/chef/chef-workstation/pull/1240) ([tas50](https://github.com/tas50)) <!-- 20.6.60 -->
-- Temporarily comment out pipeline that publishes our Homebrew PR [#1239](https://github.com/chef/chef-workstation/pull/1239) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.6.59 -->
-- Rename upgrade_labs, add alias [#1241](https://github.com/chef/chef-workstation/pull/1241) ([IanMadd](https://github.com/IanMadd)) <!-- 20.6.58 -->
-- Upgrade Labs Documentation [#1136](https://github.com/chef/chef-workstation/pull/1136) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.6.57 -->
-- Update heading levels in toc [#1238](https://github.com/chef/chef-workstation/pull/1238) ([IanMadd](https://github.com/IanMadd)) <!-- 20.5.56 -->
-- Updating chef-telemetry to latest version [#1236](https://github.com/chef/chef-workstation/pull/1236) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.55 -->
-- Bump chef-cli to 3.0.4 [#1235](https://github.com/chef/chef-workstation/pull/1235) ([marcparadise](https://github.com/marcparadise)) <!-- 20.5.54 -->
-- Update cookstyle to 6.6.9 [#1232](https://github.com/chef/chef-workstation/pull/1232) ([tas50](https://github.com/tas50)) <!-- 20.5.53 -->
-- Update Chef Infra Client to 16.1.16 [#1230](https://github.com/chef/chef-workstation/pull/1230) ([tas50](https://github.com/tas50)) <!-- 20.5.52 -->
-- Update knife-cloud to 3.0.4 [#1229](https://github.com/chef/chef-workstation/pull/1229) ([tas50](https://github.com/tas50)) <!-- 20.5.51 -->
-- Consuming Ruby 2.7.1 performance fix patch [#1228](https://github.com/chef/chef-workstation/pull/1228) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.50 -->
-- Additional cleanup to our installed gems [#1203](https://github.com/chef/chef-workstation/pull/1203) ([tas50](https://github.com/tas50)) <!-- 20.5.49 -->
-- Add buildfuture to make commands [#1202](https://github.com/chef/chef-workstation/pull/1202) ([IanMadd](https://github.com/IanMadd)) <!-- 20.5.48 -->
-- Bump chef-analyze CLI to 0.1.91 [#1227](https://github.com/chef/chef-workstation/pull/1227) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.5.47 -->
-- Pin pry-stack_explorer to &gt;= 0.5.1 [#1225](https://github.com/chef/chef-workstation/pull/1225) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.5.46 -->
-- Remove Upgrade Lab feature flag from usage and config docs [#1219](https://github.com/chef/chef-workstation/pull/1219) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.5.45 -->
-- Update Cookstyle to 6.5 [#1218](https://github.com/chef/chef-workstation/pull/1218) ([tas50](https://github.com/tas50)) <!-- 20.5.44 -->
-- Update kitchen-digitalocean to 0.11 [#1213](https://github.com/chef/chef-workstation/pull/1213) ([tas50](https://github.com/tas50)) <!-- 20.5.43 -->
-- Push a git tag after a VERSION change [#1209](https://github.com/chef/chef-workstation/pull/1209) ([btm](https://github.com/btm)) <!-- 20.5.42 -->
-- Update knife-windows to 3.0.17 [#1208](https://github.com/chef/chef-workstation/pull/1208) ([tas50](https://github.com/tas50)) <!-- 20.5.41 -->
-- Update Fauxhai to 8.2 [#1207](https://github.com/chef/chef-workstation/pull/1207) ([tas50](https://github.com/tas50)) <!-- 20.5.40 -->
-- Update Test Kitchen, kitchen-ec2, and kitchen-hyperv [#1206](https://github.com/chef/chef-workstation/pull/1206) ([tas50](https://github.com/tas50)) <!-- 20.5.39 -->
-- Update Chef Infra Client to 16.1 [#1201](https://github.com/chef/chef-workstation/pull/1201) ([tas50](https://github.com/tas50)) <!-- 20.5.38 -->
-- Bump chef-analyze CLI to 0.1.89 [#1197](https://github.com/chef/chef-workstation/pull/1197) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.5.37 -->
-- Pin chef-telemetry to avoid extra http deps [#1198](https://github.com/chef/chef-workstation/pull/1198) ([tas50](https://github.com/tas50)) <!-- 20.5.36 -->
-- Ensure help, -h, and --help behave the same [#1196](https://github.com/chef/chef-workstation/pull/1196) ([marcparadise](https://github.com/marcparadise)) <!-- 20.5.35 -->
-- Adding Inspec 4.18.114 [#1192](https://github.com/chef/chef-workstation/pull/1192) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.34 -->
-- Bump test-kitchen from 2.4.0 to 2.5.0 in /omnibus [#1150](https://github.com/chef/chef-workstation/pull/1150) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.5.33 -->
-- Take out the Ruby 2.4+ gate in the omnibus def [#1171](https://github.com/chef/chef-workstation/pull/1171) ([tas50](https://github.com/tas50)) <!-- 20.5.32 -->
-- &#39;analyze&#39; is now &#39;report&#39; [#1154](https://github.com/chef/chef-workstation/pull/1154) ([marcparadise](https://github.com/marcparadise)) <!-- 20.5.31 -->
-- Cache gems in testing using Expeditor gem caching [#1173](https://github.com/chef/chef-workstation/pull/1173) ([tas50](https://github.com/tas50)) <!-- 20.5.30 -->
-- Update Cookstyle to 6.4.4 [#1170](https://github.com/chef/chef-workstation/pull/1170) ([tas50](https://github.com/tas50)) <!-- 20.5.29 -->
-- Update the list of Kitchen Drivers [#1139](https://github.com/chef/chef-workstation/pull/1139) ([tas50](https://github.com/tas50)) <!-- 20.5.28 -->
-- Update openssl to 1.0.2v [#1166](https://github.com/chef/chef-workstation/pull/1166) ([btm](https://github.com/btm)) <!-- 20.5.27 -->
-- chef-sugar helpers are now in chef-utils [#1165](https://github.com/chef/chef-workstation/pull/1165) ([btm](https://github.com/btm)) <!-- 20.5.26 -->
-- Adding chocolatey retry logic [#1163](https://github.com/chef/chef-workstation/pull/1163) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.25 -->
-- Bring in Chef 16 and PJC that can build on Ruby 2.7 [#1164](https://github.com/chef/chef-workstation/pull/1164) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.24 -->
-- Add Ubuntu 20.04 x86_64 support [#1161](https://github.com/chef/chef-workstation/pull/1161) ([christopher-snapp](https://github.com/christopher-snapp)) <!-- 20.5.23 -->
-- Add pipeline support for homebrew [#1147](https://github.com/chef/chef-workstation/pull/1147) ([marcparadise](https://github.com/marcparadise)) <!-- 20.5.22 -->
-- Adding project alias in Expeditor [#1159](https://github.com/chef/chef-workstation/pull/1159) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.21 -->
-- Fix netlify build ignore [#1157](https://github.com/chef/chef-workstation/pull/1157) ([IanMadd](https://github.com/IanMadd)) <!-- 20.5.20 -->
-- fix a couple bad links [#1156](https://github.com/chef/chef-workstation/pull/1156) ([IanMadd](https://github.com/IanMadd)) <!-- 20.5.19 -->
-- Setting up Expeditor 0.18 pipeline for releasing [#1151](https://github.com/chef/chef-workstation/pull/1151) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.5.18 -->
-- Update omnibus-overrides, switch to ruby 2.7 [#1123](https://github.com/chef/chef-workstation/pull/1123) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.5.17 -->
-- Update omnibus-software for new msys2 path [#1148](https://github.com/chef/chef-workstation/pull/1148) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 20.5.16 -->
-- Update Windows msys2_path to custom installed msys2 lookup first [#1145](https://github.com/chef/chef-workstation/pull/1145) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 20.5.15 -->
-- Bump chef-analyze CLI to 0.1.85 [#1128](https://github.com/chef/chef-workstation/pull/1128) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.4.14 -->
-- Update Chef Infra Client to 15.10.12 &amp; Fauxhai to 8.0 [#1137](https://github.com/chef/chef-workstation/pull/1137) ([tas50](https://github.com/tas50)) <!-- 20.4.13 -->
-- Speed up dep bumping jobs by not installing gem documentation [#1131](https://github.com/chef/chef-workstation/pull/1131) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.4.12 -->
-- Bump down headings in markdown content [#1126](https://github.com/chef/chef-workstation/pull/1126) ([IanMadd](https://github.com/IanMadd)) <!-- 20.4.11 -->
-- Fix netlify.toml file [#1132](https://github.com/chef/chef-workstation/pull/1132) ([IanMadd](https://github.com/IanMadd)) <!-- 20.4.10 -->
-- Pin bcrypt_pbkdf to rc version, bump gems [#1130](https://github.com/chef/chef-workstation/pull/1130) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.4.9 -->
-- Im/standardize hugo content [#1102](https://github.com/chef/chef-workstation/pull/1102) ([IanMadd](https://github.com/IanMadd)) <!-- 20.4.8 -->
-- Update git-custom-bindir to 2.26.2 [#1124](https://github.com/chef/chef-workstation/pull/1124) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.4.7 -->
-- Update Cookstyle to 6.3 / Chefstyle to 1.0 [#1061](https://github.com/chef/chef-workstation/pull/1061) ([tas50](https://github.com/tas50)) <!-- 20.4.6 -->
-- Unpinning train for upcoming major version release [#1111](https://github.com/chef/chef-workstation/pull/1111) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.4.5 -->
-- Bump omnibus-software from `eb8812b` to `5f57d0a` in /omnibus [#1125](https://github.com/chef/chef-workstation/pull/1125) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.4.4 -->
-- Forgot to perform release build on version bump [#1127](https://github.com/chef/chef-workstation/pull/1127) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.4.3 -->
-- Switching to date based versioning [#1112](https://github.com/chef/chef-workstation/pull/1112) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.4.2 -->
-- Manually building and installing docker-api gem [#1122](https://github.com/chef/chef-workstation/pull/1122) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.28 -->
-- Add empty third party pkg pipeline to expeditor [#1108](https://github.com/chef/chef-workstation/pull/1108) ([marcparadise](https://github.com/marcparadise)) <!-- 0.17.27 -->
-- Add missing node options for policyfiles [#1091](https://github.com/chef/chef-workstation/pull/1091) ([jmassardo](https://github.com/jmassardo)) <!-- 0.17.26 -->
-- Clarify Windows requirements [#1089](https://github.com/chef/chef-workstation/pull/1089) ([jmassardo](https://github.com/jmassardo)) <!-- 0.17.25 -->
-- Add Windows examples [#1088](https://github.com/chef/chef-workstation/pull/1088) ([jmassardo](https://github.com/jmassardo)) <!-- 0.17.24 -->
-- Batching multiple PRs into 1 for ease of bumping dependencies [#1110](https://github.com/chef/chef-workstation/pull/1110) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.23 -->
-- Add go.mod file so we can preview changes to workstation docs locally [#1092](https://github.com/chef/chef-workstation/pull/1092) ([IanMadd](https://github.com/IanMadd)) <!-- 0.17.22 -->
-- Patch docker-api to use CGI.escape to silence deprecation warning [#1090](https://github.com/chef/chef-workstation/pull/1090) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 0.17.21 -->
-- Forgot to vendor the latest version of go-libs when we updated [#1101](https://github.com/chef/chef-workstation/pull/1101) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.20 -->
-- adding gen for dist, using dist in the executables [#1087](https://github.com/chef/chef-workstation/pull/1087) ([tarcinil](https://github.com/tarcinil)) <!-- 0.17.19 -->
-- Explicitly build bcrypt_pbkdf-ruby [#1079](https://github.com/chef/chef-workstation/pull/1079) ([marcparadise](https://github.com/marcparadise)) <!-- 0.17.18 -->
-- Fixing a bug I found on the site [#1085](https://github.com/chef/chef-workstation/pull/1085) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.17 -->
-- Add Windows 10 Tester [#1072](https://github.com/chef/chef-workstation/pull/1072) ([christopher-snapp](https://github.com/christopher-snapp)) <!-- 0.17.16 -->
-- Updates documentation in chef-workstation [#1071](https://github.com/chef/chef-workstation/pull/1071) ([IanMadd](https://github.com/IanMadd)) <!-- 0.17.15 -->
-- Document runlist expansion/determination and cookbook sourcing [#1025](https://github.com/chef/chef-workstation/pull/1025) ([marcparadise](https://github.com/marcparadise)) <!-- 0.17.14 -->
-- Replace old workstation docs with new workstation docs [#1037](https://github.com/chef/chef-workstation/pull/1037) ([IanMadd](https://github.com/IanMadd)) <!-- 0.17.13 -->
-- Octokit 4.17 got yanked, manually updating gems [#1060](https://github.com/chef/chef-workstation/pull/1060) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.12 -->
-- Add kitchen-openstack [#1049](https://github.com/chef/chef-workstation/pull/1049) ([ramereth](https://github.com/ramereth)) <!-- 0.17.11 -->
-- I accidently bumped the bundler version after fixing the update dep script [#1058](https://github.com/chef/chef-workstation/pull/1058) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.10 -->
-- Bump omnibus-software from `c086d80` to `3051886` in /omnibus [#1056](https://github.com/chef/chef-workstation/pull/1056) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 0.17.9 -->
-- Bump kitchen-ec2 to 3.4.0 [#1046](https://github.com/chef/chef-workstation/pull/1046) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.17.8 -->
-- Bump chef-analyze CLI to 0.1.79 [#1057](https://github.com/chef/chef-workstation/pull/1057) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 0.17.7 -->
-- Pinning bundler to 1.17 because 2.x breaks our builds [#1055](https://github.com/chef/chef-workstation/pull/1055) ([tyler-ball](https://github.com/tyler-ball)) <!-- 0.17.6 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [20.6.62](https://github.com/chef/chef-workstation/tree/20.6.62) (2020-06-02)
+
+#### Merged Pull Requests
+- Pinning bundler to 1.17 because 2.x breaks our builds [#1055](https://github.com/chef/chef-workstation/pull/1055) ([tyler-ball](https://github.com/tyler-ball))
+- Bump chef-analyze CLI to 0.1.79 [#1057](https://github.com/chef/chef-workstation/pull/1057) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-ec2 to 3.4.0 [#1046](https://github.com/chef/chef-workstation/pull/1046) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `c086d80` to `3051886` in /omnibus [#1056](https://github.com/chef/chef-workstation/pull/1056) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- I accidently bumped the bundler version after fixing the update dep script [#1058](https://github.com/chef/chef-workstation/pull/1058) ([tyler-ball](https://github.com/tyler-ball))
+- Add kitchen-openstack [#1049](https://github.com/chef/chef-workstation/pull/1049) ([ramereth](https://github.com/ramereth))
+- Octokit 4.17 got yanked, manually updating gems [#1060](https://github.com/chef/chef-workstation/pull/1060) ([tyler-ball](https://github.com/tyler-ball))
+- Replace old workstation docs with new workstation docs [#1037](https://github.com/chef/chef-workstation/pull/1037) ([IanMadd](https://github.com/IanMadd))
+- Document runlist expansion/determination and cookbook sourcing [#1025](https://github.com/chef/chef-workstation/pull/1025) ([marcparadise](https://github.com/marcparadise))
+- Updates documentation in chef-workstation [#1071](https://github.com/chef/chef-workstation/pull/1071) ([IanMadd](https://github.com/IanMadd))
+- Add Windows 10 Tester [#1072](https://github.com/chef/chef-workstation/pull/1072) ([christopher-snapp](https://github.com/christopher-snapp))
+- Fixing a bug I found on the site [#1085](https://github.com/chef/chef-workstation/pull/1085) ([tyler-ball](https://github.com/tyler-ball))
+- Explicitly build bcrypt_pbkdf-ruby [#1079](https://github.com/chef/chef-workstation/pull/1079) ([marcparadise](https://github.com/marcparadise))
+- adding gen for dist, using dist in the executables [#1087](https://github.com/chef/chef-workstation/pull/1087) ([tarcinil](https://github.com/tarcinil))
+- Forgot to vendor the latest version of go-libs when we updated [#1101](https://github.com/chef/chef-workstation/pull/1101) ([tyler-ball](https://github.com/tyler-ball))
+- Patch docker-api to use CGI.escape to silence deprecation warning [#1090](https://github.com/chef/chef-workstation/pull/1090) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Add go.mod file so we can preview changes to workstation docs locally [#1092](https://github.com/chef/chef-workstation/pull/1092) ([IanMadd](https://github.com/IanMadd))
+- Batching multiple PRs into 1 for ease of bumping dependencies [#1110](https://github.com/chef/chef-workstation/pull/1110) ([tyler-ball](https://github.com/tyler-ball))
+- Add Windows examples [#1088](https://github.com/chef/chef-workstation/pull/1088) ([jmassardo](https://github.com/jmassardo))
+- Clarify Windows requirements [#1089](https://github.com/chef/chef-workstation/pull/1089) ([jmassardo](https://github.com/jmassardo))
+- Add missing node options for policyfiles [#1091](https://github.com/chef/chef-workstation/pull/1091) ([jmassardo](https://github.com/jmassardo))
+- Add empty third party pkg pipeline to expeditor [#1108](https://github.com/chef/chef-workstation/pull/1108) ([marcparadise](https://github.com/marcparadise))
+- Manually building and installing docker-api gem [#1122](https://github.com/chef/chef-workstation/pull/1122) ([tyler-ball](https://github.com/tyler-ball))
+- Switching to date based versioning [#1112](https://github.com/chef/chef-workstation/pull/1112) ([tyler-ball](https://github.com/tyler-ball))
+- Forgot to perform release build on version bump [#1127](https://github.com/chef/chef-workstation/pull/1127) ([tyler-ball](https://github.com/tyler-ball))
+- Bump omnibus-software from `eb8812b` to `5f57d0a` in /omnibus [#1125](https://github.com/chef/chef-workstation/pull/1125) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Unpinning train for upcoming major version release [#1111](https://github.com/chef/chef-workstation/pull/1111) ([tyler-ball](https://github.com/tyler-ball))
+- Update Cookstyle to 6.3 / Chefstyle to 1.0 [#1061](https://github.com/chef/chef-workstation/pull/1061) ([tas50](https://github.com/tas50))
+- Update git-custom-bindir to 2.26.2 [#1124](https://github.com/chef/chef-workstation/pull/1124) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Im/standardize hugo content [#1102](https://github.com/chef/chef-workstation/pull/1102) ([IanMadd](https://github.com/IanMadd))
+- Pin bcrypt_pbkdf to rc version, bump gems [#1130](https://github.com/chef/chef-workstation/pull/1130) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Fix netlify.toml file [#1132](https://github.com/chef/chef-workstation/pull/1132) ([IanMadd](https://github.com/IanMadd))
+- Bump down headings in markdown content [#1126](https://github.com/chef/chef-workstation/pull/1126) ([IanMadd](https://github.com/IanMadd))
+- Speed up dep bumping jobs by not installing gem documentation [#1131](https://github.com/chef/chef-workstation/pull/1131) ([tyler-ball](https://github.com/tyler-ball))
+- Update Chef Infra Client to 15.10.12 &amp; Fauxhai to 8.0 [#1137](https://github.com/chef/chef-workstation/pull/1137) ([tas50](https://github.com/tas50))
+- Bump chef-analyze CLI to 0.1.85 [#1128](https://github.com/chef/chef-workstation/pull/1128) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update Windows msys2_path to custom installed msys2 lookup first [#1145](https://github.com/chef/chef-workstation/pull/1145) ([jaymalasinha](https://github.com/jaymalasinha))
+- Update omnibus-software for new msys2 path [#1148](https://github.com/chef/chef-workstation/pull/1148) ([jaymalasinha](https://github.com/jaymalasinha))
+- Update omnibus-overrides, switch to ruby 2.7 [#1123](https://github.com/chef/chef-workstation/pull/1123) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Setting up Expeditor 0.18 pipeline for releasing [#1151](https://github.com/chef/chef-workstation/pull/1151) ([tyler-ball](https://github.com/tyler-ball))
+- fix a couple bad links [#1156](https://github.com/chef/chef-workstation/pull/1156) ([IanMadd](https://github.com/IanMadd))
+- Fix netlify build ignore [#1157](https://github.com/chef/chef-workstation/pull/1157) ([IanMadd](https://github.com/IanMadd))
+- Adding project alias in Expeditor [#1159](https://github.com/chef/chef-workstation/pull/1159) ([tyler-ball](https://github.com/tyler-ball))
+- Add pipeline support for homebrew [#1147](https://github.com/chef/chef-workstation/pull/1147) ([marcparadise](https://github.com/marcparadise))
+- Add Ubuntu 20.04 x86_64 support [#1161](https://github.com/chef/chef-workstation/pull/1161) ([christopher-snapp](https://github.com/christopher-snapp))
+- Bring in Chef 16 and PJC that can build on Ruby 2.7 [#1164](https://github.com/chef/chef-workstation/pull/1164) ([tyler-ball](https://github.com/tyler-ball))
+- Adding chocolatey retry logic [#1163](https://github.com/chef/chef-workstation/pull/1163) ([tyler-ball](https://github.com/tyler-ball))
+- chef-sugar helpers are now in chef-utils [#1165](https://github.com/chef/chef-workstation/pull/1165) ([btm](https://github.com/btm))
+- Update openssl to 1.0.2v [#1166](https://github.com/chef/chef-workstation/pull/1166) ([btm](https://github.com/btm))
+- Update the list of Kitchen Drivers [#1139](https://github.com/chef/chef-workstation/pull/1139) ([tas50](https://github.com/tas50))
+- Update Cookstyle to 6.4.4 [#1170](https://github.com/chef/chef-workstation/pull/1170) ([tas50](https://github.com/tas50))
+- Cache gems in testing using Expeditor gem caching [#1173](https://github.com/chef/chef-workstation/pull/1173) ([tas50](https://github.com/tas50))
+- &#39;analyze&#39; is now &#39;report&#39; [#1154](https://github.com/chef/chef-workstation/pull/1154) ([marcparadise](https://github.com/marcparadise))
+- Take out the Ruby 2.4+ gate in the omnibus def [#1171](https://github.com/chef/chef-workstation/pull/1171) ([tas50](https://github.com/tas50))
+- Bump test-kitchen from 2.4.0 to 2.5.0 in /omnibus [#1150](https://github.com/chef/chef-workstation/pull/1150) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Adding Inspec 4.18.114 [#1192](https://github.com/chef/chef-workstation/pull/1192) ([tyler-ball](https://github.com/tyler-ball))
+- Ensure help, -h, and --help behave the same [#1196](https://github.com/chef/chef-workstation/pull/1196) ([marcparadise](https://github.com/marcparadise))
+- Pin chef-telemetry to avoid extra http deps [#1198](https://github.com/chef/chef-workstation/pull/1198) ([tas50](https://github.com/tas50))
+- Bump chef-analyze CLI to 0.1.89 [#1197](https://github.com/chef/chef-workstation/pull/1197) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update Chef Infra Client to 16.1 [#1201](https://github.com/chef/chef-workstation/pull/1201) ([tas50](https://github.com/tas50))
+- Update Test Kitchen, kitchen-ec2, and kitchen-hyperv [#1206](https://github.com/chef/chef-workstation/pull/1206) ([tas50](https://github.com/tas50))
+- Update Fauxhai to 8.2 [#1207](https://github.com/chef/chef-workstation/pull/1207) ([tas50](https://github.com/tas50))
+- Update knife-windows to 3.0.17 [#1208](https://github.com/chef/chef-workstation/pull/1208) ([tas50](https://github.com/tas50))
+- Push a git tag after a VERSION change [#1209](https://github.com/chef/chef-workstation/pull/1209) ([btm](https://github.com/btm))
+- Update kitchen-digitalocean to 0.11 [#1213](https://github.com/chef/chef-workstation/pull/1213) ([tas50](https://github.com/tas50))
+- Update Cookstyle to 6.5 [#1218](https://github.com/chef/chef-workstation/pull/1218) ([tas50](https://github.com/tas50))
+- Remove Upgrade Lab feature flag from usage and config docs [#1219](https://github.com/chef/chef-workstation/pull/1219) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Pin pry-stack_explorer to &gt;= 0.5.1 [#1225](https://github.com/chef/chef-workstation/pull/1225) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Bump chef-analyze CLI to 0.1.91 [#1227](https://github.com/chef/chef-workstation/pull/1227) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Add buildfuture to make commands [#1202](https://github.com/chef/chef-workstation/pull/1202) ([IanMadd](https://github.com/IanMadd))
+- Additional cleanup to our installed gems [#1203](https://github.com/chef/chef-workstation/pull/1203) ([tas50](https://github.com/tas50))
+- Consuming Ruby 2.7.1 performance fix patch [#1228](https://github.com/chef/chef-workstation/pull/1228) ([tyler-ball](https://github.com/tyler-ball))
+- Update knife-cloud to 3.0.4 [#1229](https://github.com/chef/chef-workstation/pull/1229) ([tas50](https://github.com/tas50))
+- Update Chef Infra Client to 16.1.16 [#1230](https://github.com/chef/chef-workstation/pull/1230) ([tas50](https://github.com/tas50))
+- Update cookstyle to 6.6.9 [#1232](https://github.com/chef/chef-workstation/pull/1232) ([tas50](https://github.com/tas50))
+- Bump chef-cli to 3.0.4 [#1235](https://github.com/chef/chef-workstation/pull/1235) ([marcparadise](https://github.com/marcparadise))
+- Updating chef-telemetry to latest version [#1236](https://github.com/chef/chef-workstation/pull/1236) ([tyler-ball](https://github.com/tyler-ball))
+- Update heading levels in toc [#1238](https://github.com/chef/chef-workstation/pull/1238) ([IanMadd](https://github.com/IanMadd))
+- Upgrade Labs Documentation [#1136](https://github.com/chef/chef-workstation/pull/1136) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Rename upgrade_labs, add alias [#1241](https://github.com/chef/chef-workstation/pull/1241) ([IanMadd](https://github.com/IanMadd))
+- Temporarily comment out pipeline that publishes our Homebrew PR [#1239](https://github.com/chef/chef-workstation/pull/1239) ([tyler-ball](https://github.com/tyler-ball))
+- Update knife-ec2 and knife-windows for new knife config [#1240](https://github.com/chef/chef-workstation/pull/1240) ([tas50](https://github.com/tas50))
+- Update cookstyle to 6.7 [#1244](https://github.com/chef/chef-workstation/pull/1244) ([tas50](https://github.com/tas50))
+- Working around a build time segfault with FFI 1.13 [#1246](https://github.com/chef/chef-workstation/pull/1246) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_stable_release -->
+
 ## [0.17.5](https://github.com/chef/chef-workstation/tree/0.17.5) (2020-03-12)
 
 #### Merged Pull Requests
@@ -108,7 +106,6 @@
 - Bump test-kitchen from 2.3.4 to 2.4.0 in /omnibus [#1012](https://github.com/chef/chef-workstation/pull/1012) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 - Unpinning Inspec because its sudo bug got fixed [#1027](https://github.com/chef/chef-workstation/pull/1027) ([tyler-ball](https://github.com/tyler-ball))
 - More work to prepare for 0.17 release [#1033](https://github.com/chef/chef-workstation/pull/1033) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_stable_release -->
 
 ## [0.16.33](https://github.com/chef/chef-workstation/tree/0.16.33) (2020-03-03)
 
