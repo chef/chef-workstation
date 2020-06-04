@@ -5,13 +5,13 @@ $secondsDelay = 20 # seconds
 $retries = 60 # retry for up to 20 minutes
 $completed = $false
 $retrycount = 0
+$output = "./cw"
 
 Write-Host "--- Fetching version $version data from omnitruck API"
-$Uri = "https://omnitruck.chef.io/stable/chef-workstation/metadata?p=windows&pv=2016&m=x86_64&v=$version"
-
+$metadataUri = "https://omnitruck.chef.io/stable/chef-workstation/metadata?p=windows&pv=2016&m=x86_64&v=$version"
 while (-not $completed) {
     try {
-        $releaseRecord = Invoke-RestMethod -Uri $Uri -Headers @{accept="application/json"} -ErrorAction Stop
+        $releaseRecord = Invoke-RestMethod -Uri $metadataUri -Headers @{accept="application/json"} -ErrorAction Stop
         $completed = $?
     } catch {
         if ($retrycount -ge $retries) {
@@ -23,9 +23,28 @@ while (-not $completed) {
         }
     }
 }
-
 Write-Host "Successfully fetched version $version information"
-Write-Host ("URL: {0}" -f $releaseRecord.url)
+
+# We want to ensure we can fetch the metadata AND download the file successfully
+$completed = $false
+$retrycount = 0
+$output = "./cw"
+Write-Host "--- Fetching package from omnitruck API"
+while (-not $completed) {
+    try {
+        (New-Object System.Net.WebClient).DownloadFile($releaseRecord.url, $output)
+        $completed = $?
+    } catch {
+        if ($retrycount -ge $retries) {
+            throw "Fetching package failed the maximum number of $retrycount times."
+        } else {
+            Write-Host "Fetching package failed. Retrying in $secondsDelay seconds."
+            Start-Sleep $secondsDelay
+            $retrycount++
+        }
+    }
+}
+Write-Host ("Successfully downloaded Chef Workstation from {0}" -f $releaseRecord.url)
 
 Write-Host "--- Copying templates locally"
 $tempDir = Join-Path $env:temp ([System.IO.Path]::GetRandomFileName())
