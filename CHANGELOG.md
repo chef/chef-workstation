@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 20.6.63 -->
+## [20.6.63](https://github.com/chef/chef-workstation/tree/20.6.63) (2020-06-09)
+
+#### Merged Pull Requests
+- Update a large number of important deps to current [#1253](https://github.com/chef/chef-workstation/pull/1253) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=20.6.62 -->
+### Changes since 20.6.62 release
+
+#### Merged Pull Requests
+- Update a large number of important deps to current [#1253](https://github.com/chef/chef-workstation/pull/1253) ([tas50](https://github.com/tas50)) <!-- 20.6.63 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
