@@ -7,7 +7,7 @@ gem "artifactory"
 gem "pedump"
 
 # We found a segfault in ffi 1.13
-gem "ffi", "< 1.13.0"
+gem "ffi", "< 1.14.0"
 
 # This development group is installed by default when you run `bundle install`,
 # but if you are using Omnibus in a CI-based infrastructure, you do not need
