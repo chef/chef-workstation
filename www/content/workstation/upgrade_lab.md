@@ -11,6 +11,8 @@ aliases = ["/workstation/upgrade_labs/"]
     weight = 35
 +++
 
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/upgrade_lab.md)
+
 Chef Software's Upgrade Lab provides an isolated cookbook development environment and in-line support to help you upgrade your system, so you can stop using legacy Chef Infra and start using modern Chef Infra.
 
 The Upgrade Lab provides a report of your existing nodes and cookbooks, so you will know the scope of the work and you can identify a good place to start. Upgrade Lab works by capturing any node from the production environment and recreating it locally by generating a repository for that node, which provides you with a sandbox to work through upgrading and testing your cookbooks at a safe distance from your production environment.
