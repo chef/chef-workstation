@@ -60,7 +60,7 @@ There are three ways to preview the documentation in `chef-workstation`:
 
 - submit a PR
 - `make serve`
-- `make serve_chef_web_docs`
+- preview content from `chef/chef-web-docs`
 
 ### Submit a PR
 
@@ -100,12 +100,38 @@ To clean your local development environment:
   in addition to the functions of `make clean` described above. Those node
   modules will be reinstalled the next time you run `make serve`.
 
-### make serve_chef_web_docs
+### Preview Content from chef/chef-web-docs
 
-`make serve_chef_web_docs` will preview local changes to the content in
-`chef/chef-workstation/www` as they would appear in docs.chef.io. It will run the
-Hugo server from a `chef-web-docs` submodule which will pull the content from your
-local copy of `chef-workstation`.
+You can run the Hugo server locally from `chef/chef-web-docs` and direct Hugo to
+preview content from your local copy of `chef/chef-workstation` instead of from the
+GitHub repo. This allows you to live reload documentation in `chef-workstation` and
+see how it would look in https://docs.chef.io.
+
+See the README in `chef/chef-web-docs` for instructions.
+
+Also, see the [Hugo documentation](https://gohugo.io/hugo-modules/use-modules/#make-and-test-changes-in-a-module)
+for previewing local changes to a module.
+
+## Manage the chef-web-docs Git Submodule
+
+We build previews on Netlify by adding `chef/chef-web-docs` as a Git submodule
+in `www/chef-web-docs`. To update the submodule, run:
+
+```bash
+git submodule foreach git pull origin master
+```
+
+This will update the submodule to the latest commit in `chef/chef-web-docs`.
+
+If local changes have been made to the chef-web-docs submodule and you want to
+delete them, run:
+
+```bash
+make reset_chef_web_docs
+```
+
+This will reset the content of the chef-web-docs submodule to the commit that it
+is set to.
 
 ## Creating New Pages
 
