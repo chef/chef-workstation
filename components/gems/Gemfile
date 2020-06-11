@@ -17,9 +17,6 @@
 
 source "https://rubygems.org"
 
-# We found a segfault in ffi 1.13
-gem "ffi", "< 1.13.0"
-
 group(:omnibus_package, :development, :test) do
   # Require a minimum version that is packaged in the Ruby install, so we do
   # not install old unecessary versions. When we bump Ruby we need to look
