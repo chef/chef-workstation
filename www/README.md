@@ -89,16 +89,18 @@ While the Hugo server is running, any changes you make to content
 in the `www/content` directory will be automatically compiled and updated in the
 browser.
 
-**Clean Your Local Environment**
+#### Clean Your Local Environment
 
 To clean your local development environment:
 
-- Running `make clean` will delete the sass files, javascript, and fonts in
-  `themes/docs-new`. These will be rebuilt the next time you run `make serve`.
+##### `make clean`
+Deletes the sass files, javascript, and fonts in `themes/docs-new`. These will be rebuilt the next time you run `make serve`.
 
-- Running `make clean_all` will delete the node modules used to build this site
-  in addition to the functions of `make clean` described above. Those node
-  modules will be reinstalled the next time you run `make serve`.
+##### `make clean_all`
+Deletes the node modules used to build this site in addition to `make clean` described above. These will be reinstalled the next time you run `make serve`.
+
+##### `make reset_chef_web_docs`
+Deletes all changes to the chef-web-docs submodule. Changes to chef-web-docs must be made in the chef/chef-web-docs repo and cannot be made from any other repository. Use `make reset_chef_web_docs` to restore the submodule to its initial state.
 
 ### Preview Content from chef/chef-web-docs
 
@@ -115,7 +117,15 @@ for previewing local changes to a module.
 ## Manage the chef-web-docs Git Submodule
 
 We build previews on Netlify by adding `chef/chef-web-docs` as a Git submodule
-in `www/chef-web-docs`. To update the submodule, run:
+in `www/chef-web-docs`.
+
+To find out what commit the chef-web-docs submodule is set to, run:
+
+```bash
+git submodule status
+```
+
+To update the submodule, run:
 
 ```bash
 git submodule foreach git pull origin master
