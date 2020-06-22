@@ -182,7 +182,6 @@ GEM
       ms_rest_azure (~> 0.12.0)
     azure_mgmt_storage (0.21.1)
       ms_rest_azure (~> 0.12.0)
-    backports (3.18.0)
     bcrypt_pbkdf (1.1.0.rc1)
     bcrypt_pbkdf (1.1.0.rc1-x64-mingw32)
     bcrypt_pbkdf (1.1.0.rc1-x86-mingw32)
@@ -354,11 +353,6 @@ GEM
       mixlib-archive (>= 0.4, < 2.0)
     cookstyle (6.8.0)
       rubocop (= 0.85.1)
-    cucumber-core (3.2.1)
-      backports (>= 3.8.0)
-      cucumber-tag_expressions (~> 1.1.0)
-      gherkin (~> 5.0)
-    cucumber-tag_expressions (1.1.1)
     debug_inspector (0.0.3)
     declarative (0.0.10)
     declarative-option (0.1.0)
@@ -422,8 +416,7 @@ GEM
       fog-core (~> 2.1)
       fog-json (>= 1.0)
       ipaddress (>= 0.8)
-    foodcritic (16.2.0)
-      cucumber-core (>= 1.3, < 4.0)
+    foodcritic (16.3.0)
       erubis
       ffi-yajl (~> 2.0)
       nokogiri (>= 1.5, < 2.0)
@@ -434,7 +427,6 @@ GEM
     fuzzyurl (0.9.0)
     gcewinpass (1.1.0)
       google-api-client (~> 0.13)
-    gherkin (5.1.0)
     google-api-client (0.34.1)
       addressable (~> 2.5, >= 2.5.1)
       googleauth (~> 0.9)
@@ -1059,7 +1051,7 @@ DEPENDENCIES
   fauxhai-ng (~> 8)
   ffi-libarchive
   ffi-rzmq-core
-  foodcritic (>= 16.2)
+  foodcritic (>= 16.3)
   guard
   inspec (~> 4.20)
   inspec-bin (~> 4.20)
