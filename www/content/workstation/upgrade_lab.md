@@ -179,7 +179,7 @@ This report shows that there are two cookbooks on the server. It analyzes the co
 Create a cookbook report from your development workstation by running:
 
 ```bash
-chef analyze report cookbooks -V -p old-server
+chef report cookbooks -V -p old-server
 ```
 
 Which outputs a cookbook report:
