@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.6.68 -->
-## [20.6.68](https://github.com/chef/chef-workstation/tree/20.6.68) (2020-06-22)
+<!-- latest_release 20.6.69 -->
+## [20.6.69](https://github.com/chef/chef-workstation/tree/20.6.69) (2020-06-22)
 
 #### Merged Pull Requests
-- Update omnibus / gems to the latest [#1276](https://github.com/chef/chef-workstation/pull/1276) ([tas50](https://github.com/tas50))
+- Fix reference to &quot;chef analyze report&quot; in upgrade lab [#1275](https://github.com/chef/chef-workstation/pull/1275) ([marcparadise](https://github.com/marcparadise))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.6.62 -->
 ### Changes since 20.6.62 release
 
 #### Merged Pull Requests
+- Fix reference to &quot;chef analyze report&quot; in upgrade lab [#1275](https://github.com/chef/chef-workstation/pull/1275) ([marcparadise](https://github.com/marcparadise)) <!-- 20.6.69 -->
 - Update omnibus / gems to the latest [#1276](https://github.com/chef/chef-workstation/pull/1276) ([tas50](https://github.com/tas50)) <!-- 20.6.68 -->
 - Bump chef-cli to support Chef Infra Client 16.2 [#1272](https://github.com/chef/chef-workstation/pull/1272) ([tas50](https://github.com/tas50)) <!-- 20.6.67 -->
 - Update InSpec to fix issue with kitchen-inspec [#1271](https://github.com/chef/chef-workstation/pull/1271) ([tas50](https://github.com/tas50)) <!-- 20.6.66 -->
