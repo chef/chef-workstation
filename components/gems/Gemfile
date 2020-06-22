@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright (c) 2014-2019 Chef Software Inc.
+# Copyright:: Copyright (c) Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,9 +21,9 @@ group(:omnibus_package, :development, :test) do
   # Require a minimum version that is packaged in the Ruby install, so we do
   # not install old unecessary versions. When we bump Ruby we need to look
   # at these pins and adjust them.
-  gem "rake", ">= 13.0.1"
-  gem "minitest", ">= 5.13.0"
+  gem "minitest", "= 5.13.0"
 
+  gem "rake", ">= 13.0.1"
   gem "pry"
   gem "yard"
   gem "guard"
