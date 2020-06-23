@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.6.70 -->
-## [20.6.70](https://github.com/chef/chef-workstation/tree/20.6.70) (2020-06-22)
+<!-- latest_release 20.6.71 -->
+## [20.6.71](https://github.com/chef/chef-workstation/tree/20.6.71) (2020-06-23)
 
 #### Merged Pull Requests
-- Update Foodcritic to 16.3 to remove gherkin/cucumber/backports [#1277](https://github.com/chef/chef-workstation/pull/1277) ([tas50](https://github.com/tas50))
+- Upgrade groups in appbundling and avoid double minitest [#1279](https://github.com/chef/chef-workstation/pull/1279) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.6.62 -->
 ### Changes since 20.6.62 release
 
 #### Merged Pull Requests
+- Upgrade groups in appbundling and avoid double minitest [#1279](https://github.com/chef/chef-workstation/pull/1279) ([tas50](https://github.com/tas50)) <!-- 20.6.71 -->
 - Update Foodcritic to 16.3 to remove gherkin/cucumber/backports [#1277](https://github.com/chef/chef-workstation/pull/1277) ([tas50](https://github.com/tas50)) <!-- 20.6.70 -->
 - Fix reference to &quot;chef analyze report&quot; in upgrade lab [#1275](https://github.com/chef/chef-workstation/pull/1275) ([marcparadise](https://github.com/marcparadise)) <!-- 20.6.69 -->
 - Update omnibus / gems to the latest [#1276](https://github.com/chef/chef-workstation/pull/1276) ([tas50](https://github.com/tas50)) <!-- 20.6.68 -->
