@@ -71,6 +71,9 @@ subscriptions:
       # on this artifact's availability
       - trigger_pipeline:third-party-packages
 
+  - workload: habitat-sh/habitat:master_completed:project_promoted:habitat-sh/habitat:master:stable:*
+    actions:
+      - bash:.expeditor/update_habitat.sh
   - workload: chef/chef-workstation-app:master_completed:pull_request_merged:chef/chef-workstation-app:master:*
     actions:
       - bash:.expeditor/update_chef-workstation-app_to_latest.sh
