@@ -18,17 +18,10 @@ function new_gem_included() {
 branch="expeditor/${EXPEDITOR_GEM_NAME}_${EXPEDITOR_VERSION}"
 git checkout -b "$branch"
 
-# sleep to make sure rubygems is actually updated
-sleep 120
-
-# attempt to install the gem first which seems to help bundler cache
-gem install $EXPEDITOR_GEM_NAME --no-document
-
 pushd components/gems
-bundle _2.1.4_ install
 tries=12
 for (( i=1; i<=$tries; i+=1 )); do
-  bundle _2.1.4_ exec rake update
+  bundle lock --update --add-platform ruby x64-mingw32 x86-mingw32
   new_gem_included && break || sleep 20
   if [ $i -eq $tries ]; then
     echo "Searching for '${EXPEDITOR_GEM_NAME} (${EXPEDITOR_VERSION})' ${i} times and did not find it"
