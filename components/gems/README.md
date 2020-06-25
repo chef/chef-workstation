@@ -5,7 +5,6 @@ Chef Workstation.
 Gemfile.lock in this directory is the One True Source
 of shipped gems.
 
-To update the Gemfile.lock, run the rake task:
+To update the Gemfile.lock, run:
 
-`bundle exec rake update`
-
+`bundle lock --update --add-platform ruby x64-mingw32 x86-mingw32`
