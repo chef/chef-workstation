@@ -10,6 +10,7 @@ aliases = ["/workstation/upgrade_labs/"]
     parent = "chef_workstation"
     weight = 35
 +++
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/upgrade_lab.md)
 
 Chef Software's Upgrade Lab provides an isolated cookbook development environment and in-line support to help you upgrade your system, so you can stop using legacy Chef Infra and start using modern Chef Infra.
 
@@ -127,7 +128,12 @@ The Upgrade Lab assumes but does not require that you have a continuous integrat
 - Some degree of automated testing for proposed changes
 - A continuous delivery system (CD) that controls cookbook releases; the CD is the mechanism for updating cookbook versions and uploading them to the Chef Infra Server(s)
 
-If you do not have a version control system and CI/CD pipeline in place, then please contact [Chef Software customer support](https://www.chef.io/support/).
+If you do not have a version control system and CI/CD pipeline in place, then please contact your account team for help or find us at sales@chef.io.
+
+You can also ask questions in the Chef community channels:
+
+ * Chef Community Slack at http://community-slack.chef.io/.
+ * Chef Mailing List https://discourse.chef.io/
 
 ## Upgrade Lab
 
@@ -179,7 +185,7 @@ This report shows that there are two cookbooks on the server. It analyzes the co
 Create a cookbook report from your development workstation by running:
 
 ```bash
-chef analyze report cookbooks -V -p old-server
+chef report cookbooks -V -p old-server
 ```
 
 Which outputs a cookbook report:
