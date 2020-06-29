@@ -29,14 +29,11 @@ A `config.rb` file is used to specify configuration details for knife.
 A `config.rb` file:
 
 - Is loaded every time the knife executable is run
-- The default location at which Chef Infra Client expects to find this
-    file is `~/.chef/config.rb`; use the `--config` option from the
-    command line to change this location
 - Is not created by default
 - Is located by default at `~/.chef/config.rb` (macOS and Linux
-    platforms) or `c:\Users\username\.chef` (Microsoft Windows platform,
-    use the `--config` option from the command line to change this
-    location
+    platforms) or `c:\Users\username\.chef\config.rb` (Microsoft Windows
+    platform), use the `--config` option from the command line to change
+    this location
 - Will override the default configuration when a `config.rb` file
     exists at the default path or the path specified by the `--config`
     option
