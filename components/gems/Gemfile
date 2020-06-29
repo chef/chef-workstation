@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright (c) 2014-2019 Chef Software Inc.
+# Copyright:: Copyright (c) Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,14 +21,14 @@ group(:omnibus_package, :development, :test) do
   # Require a minimum version that is packaged in the Ruby install, so we do
   # not install old unecessary versions. When we bump Ruby we need to look
   # at these pins and adjust them.
-  gem "rake", ">= 13.0.1"
-  gem "minitest", ">= 5.13.0"
+  gem "minitest", "= 5.13.0"
 
+  gem "rake", ">= 13.0.1"
   gem "pry"
   gem "yard"
   gem "guard"
   gem "cookstyle", "~> 6.8"
-  gem "foodcritic", ">= 16.2"
+  gem "foodcritic", ">= 16.3"
   gem "ffi-libarchive"
 end
 
@@ -48,8 +48,8 @@ group(:omnibus_package) do
   # gems to Rubygems now, so letting this float on latest should always give us the latest
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
-  gem "chef", "= 16.2.44"
-  gem "chef-bin", "= 16.2.44"
+  gem "chef", "= 16.2.50"
+  gem "chef-bin", "= 16.2.50"
   gem "ohai", ">= 16.2"
   gem "cheffish", ">= 15.0.0"
 
@@ -58,8 +58,8 @@ group(:omnibus_package) do
   gem "fauxhai-ng", "~> 8"
 
   # inspec
-  gem "inspec-bin", "~> 4.20" # the actual inspec CLI binary
-  gem "inspec", "~> 4.20"
+  gem "inspec-bin", "~> 4.21" # the actual inspec CLI binary
+  gem "inspec", "~> 4.21"
 
   # test-kitchen and plugins
   gem "test-kitchen", ">= 2.5"
