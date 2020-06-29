@@ -10,3 +10,13 @@ rescue LoadError
   raise
 end
 task default: %i{style}
+
+desc "Update the One True Gemfile.lock in the components/gems directory with the latest dependencies."
+task :update do
+  require "bundler"
+  Bundler.with_unbundled_env do
+    Dir.chdir("./components/gems/") do
+      sh "bundle _2.1.4_ lock --update --add-platform ruby x64-mingw32 x86-mingw32"
+    end
+  end
+end
