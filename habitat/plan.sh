@@ -5,7 +5,7 @@ pkg_description="Chef Workstation - Opinionated tools for getting the most out o
 pkg_license=('Apache-2.0')
 pkg_bin_dirs=(bin)
 pkg_svc_user=root
-ruby_pkg="core/ruby26"
+ruby_pkg="core/ruby27"
 pkg_build_deps=(
   core/make
   core/gcc

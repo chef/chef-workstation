@@ -2,6 +2,11 @@
 expeditor:
   cached_folders:
     - vendor
+  defaults:
+    buildkite:
+      retry:
+        automatic:
+          limit: 1
 steps:
 - label: chefstyle-tests-ruby-2.7
   command:
