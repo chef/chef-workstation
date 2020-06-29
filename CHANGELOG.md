@@ -1,15 +1,17 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.6.75 -->
-## [20.6.75](https://github.com/chef/chef-workstation/tree/20.6.75) (2020-06-29)
+<!-- latest_release 20.6.77 -->
+## [20.6.77](https://github.com/chef/chef-workstation/tree/20.6.77) (2020-06-29)
 
 #### Merged Pull Requests
-- Bump Chef Infra Client to 16.2.50 + all other deps [#1289](https://github.com/chef/chef-workstation/pull/1289) ([tas50](https://github.com/tas50))
+- Remove EOL Debian 8 from the build matrix [#1278](https://github.com/chef/chef-workstation/pull/1278) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.6.62 -->
 ### Changes since 20.6.62 release
 
 #### Merged Pull Requests
+- Remove EOL Debian 8 from the build matrix [#1278](https://github.com/chef/chef-workstation/pull/1278) ([tas50](https://github.com/tas50)) <!-- 20.6.77 -->
+- Add Windows 8 Tester [#1262](https://github.com/chef/chef-workstation/pull/1262) ([christopher-snapp](https://github.com/christopher-snapp)) <!-- 20.6.76 -->
 - Bump Chef Infra Client to 16.2.50 + all other deps [#1289](https://github.com/chef/chef-workstation/pull/1289) ([tas50](https://github.com/tas50)) <!-- 20.6.75 -->
 - Update Ruby to 2.7 in Hab plan.sh [#1254](https://github.com/chef/chef-workstation/pull/1254) ([davymcaleer](https://github.com/davymcaleer)) <!-- 20.6.74 -->
 - Update help info [#1258](https://github.com/chef/chef-workstation/pull/1258) ([kagarmoe](https://github.com/kagarmoe)) <!-- 20.6.73 -->
