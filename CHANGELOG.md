@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.6.77 -->
-## [20.6.77](https://github.com/chef/chef-workstation/tree/20.6.77) (2020-06-29)
+<!-- latest_release 20.6.78 -->
+## [20.6.78](https://github.com/chef/chef-workstation/tree/20.6.78) (2020-06-30)
 
 #### Merged Pull Requests
-- Remove EOL Debian 8 from the build matrix [#1278](https://github.com/chef/chef-workstation/pull/1278) ([tas50](https://github.com/tas50))
+- Vendoring the docs [#1264](https://github.com/chef/chef-workstation/pull/1264) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.6.62 -->
 ### Changes since 20.6.62 release
 
 #### Merged Pull Requests
+- Vendoring the docs [#1264](https://github.com/chef/chef-workstation/pull/1264) ([IanMadd](https://github.com/IanMadd)) <!-- 20.6.78 -->
 - Remove EOL Debian 8 from the build matrix [#1278](https://github.com/chef/chef-workstation/pull/1278) ([tas50](https://github.com/tas50)) <!-- 20.6.77 -->
 - Add Windows 8 Tester [#1262](https://github.com/chef/chef-workstation/pull/1262) ([christopher-snapp](https://github.com/christopher-snapp)) <!-- 20.6.76 -->
 - Bump Chef Infra Client to 16.2.50 + all other deps [#1289](https://github.com/chef/chef-workstation/pull/1289) ([tas50](https://github.com/tas50)) <!-- 20.6.75 -->
