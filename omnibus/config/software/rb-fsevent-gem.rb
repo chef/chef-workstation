@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# The author built their binary against an old SDK version and signing
+# only supports SDK version >= 10.9, so we must rebuild and install.
+
 name "rb-fsevent-gem"
 default_version "master"
 
@@ -30,7 +33,14 @@ build do
   sdk_ver = `xcrun --sdk macosx --show-sdk-version`.strip
   env["MACOSX_DEPLOYMENT_TARGET"] = sdk_ver
 
+  # We specifically don't want to install the rb-fsevent deps into the Workstation
+  # bundle because it causes dependency conflicts. But we probably need to
+  # bundle install so we ensure we have rake available to run the replace_exe task.
+  # After running that we build and install the gem manually while excluding
+  # dependencies (so we don't bring in conflicts).
+  bundle "config set --local path vendor", env: env
   bundle "install", env: env
   bundle "exec rake replace_exe", env: env, cwd: "#{project_dir}/ext"
-  bundle "exec rake install:local", env: env
+  gem "build rb-fsevent.gemspec", env: env
+  gem "install rb-fsevent-*.gem --no-document --ignore-dependencies", env: env
 end
