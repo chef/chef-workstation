@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.6.79 -->
-## [20.6.79](https://github.com/chef/chef-workstation/tree/20.6.79) (2020-06-30)
+<!-- latest_release 20.6.80 -->
+## [20.6.80](https://github.com/chef/chef-workstation/tree/20.6.80) (2020-06-30)
 
 #### Merged Pull Requests
-- Ignore rb-fsevent dependencies when rebuilding it [#1304](https://github.com/chef/chef-workstation/pull/1304) ([tyler-ball](https://github.com/tyler-ball))
+- Enable fast installs on Windows [#1301](https://github.com/chef/chef-workstation/pull/1301) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.6.62 -->
 ### Changes since 20.6.62 release
 
 #### Merged Pull Requests
+- Enable fast installs on Windows [#1301](https://github.com/chef/chef-workstation/pull/1301) ([tas50](https://github.com/tas50)) <!-- 20.6.80 -->
 - Ignore rb-fsevent dependencies when rebuilding it [#1304](https://github.com/chef/chef-workstation/pull/1304) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.6.79 -->
 - Vendoring the docs [#1264](https://github.com/chef/chef-workstation/pull/1264) ([IanMadd](https://github.com/IanMadd)) <!-- 20.6.78 -->
 - Remove EOL Debian 8 from the build matrix [#1278](https://github.com/chef/chef-workstation/pull/1278) ([tas50](https://github.com/tas50)) <!-- 20.6.77 -->
