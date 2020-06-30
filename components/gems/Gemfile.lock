@@ -578,7 +578,7 @@ GEM
     knife-push (2.0.0)
       addressable
       chef (>= 15.0)
-    knife-tidy (2.0.15)
+    knife-tidy (2.1.0)
     knife-vcenter (5.0.2)
       chef (>= 15.11)
       knife-cloud (>= 4.0)
