@@ -17,19 +17,18 @@ clean_all:
 
 preview_netlify: chef_web_docs_submodule
 	pushd chef-web-docs && make assets; hugo --gc --minify --enableGitInfo --buildFuture && popd
-	make reset_chef_web_docs
-
-serve_chef_web_docs: chef_web_docs_submodule
-	pushd chef-web-docs && make assets; hugo server --buildDrafts --noHTTPCache --buildFuture && popd
 
 chef_web_docs_submodule:
 	git submodule update --init --recursive
 	git submodule foreach git pull origin master
 	git submodule foreach git reset --hard
-	echo "replace github.com/chef/chef-workstation/www => ../" >> chef-web-docs/go.mod
+	cp -R content/* chef-web-docs/_vendor/github.com/chef/chef-workstation/www/content
+	cp -R static/images/* chef-web-docs/_vendor/github.com/chef/chef-workstation/www/static/images
+	cp layouts/shortcodes/* chef-web-docs/_vendor/github.com/chef/chef-workstation/www/layouts/shortcodes/
 
 reset_chef_web_docs:
 	git submodule foreach git reset --hard
+	git submodule foreach git clean -f -d
 
 serve: assets
 	cd chef-web-docs
