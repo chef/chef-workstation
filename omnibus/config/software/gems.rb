@@ -44,11 +44,6 @@ dependency "libzmq"
 # for train
 dependency "google-protobuf"
 
-# This is a transative dep but we need to build from source so binaries are built on current sdk.
-# Only matters on mac.
-# @todo Contact gem mainter about getting new release.
-dependency "rb-fsevent-gem" if mac_os_x?
-
 # The docker-api gem has not been maintained so we are building and installing
 # a fork of it. If the maintainer releases a fix with our change we can switch
 # back to just installing it. The docker-api gem is required by kitchen-dokken
