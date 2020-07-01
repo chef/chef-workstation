@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.6.80 -->
-## [20.6.80](https://github.com/chef/chef-workstation/tree/20.6.80) (2020-06-30)
+<!-- latest_release 20.7.81 -->
+## [20.7.81](https://github.com/chef/chef-workstation/tree/20.7.81) (2020-07-01)
 
 #### Merged Pull Requests
-- Enable fast installs on Windows [#1301](https://github.com/chef/chef-workstation/pull/1301) ([tas50](https://github.com/tas50))
+- Bump Chef Infra Client to 16.2.73 [#1310](https://github.com/chef/chef-workstation/pull/1310) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.6.62 -->
 ### Changes since 20.6.62 release
 
 #### Merged Pull Requests
+- Bump Chef Infra Client to 16.2.73 [#1310](https://github.com/chef/chef-workstation/pull/1310) ([tas50](https://github.com/tas50)) <!-- 20.7.81 -->
 - Enable fast installs on Windows [#1301](https://github.com/chef/chef-workstation/pull/1301) ([tas50](https://github.com/tas50)) <!-- 20.6.80 -->
 - Ignore rb-fsevent dependencies when rebuilding it [#1304](https://github.com/chef/chef-workstation/pull/1304) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.6.79 -->
 - Vendoring the docs [#1264](https://github.com/chef/chef-workstation/pull/1264) ([IanMadd](https://github.com/IanMadd)) <!-- 20.6.78 -->
