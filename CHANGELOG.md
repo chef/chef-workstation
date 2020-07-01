@@ -1,37 +1,35 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.7.81 -->
-## [20.7.81](https://github.com/chef/chef-workstation/tree/20.7.81) (2020-07-01)
-
-#### Merged Pull Requests
-- Bump Chef Infra Client to 16.2.73 [#1310](https://github.com/chef/chef-workstation/pull/1310) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=20.6.62 -->
-### Changes since 20.6.62 release
-
-#### Merged Pull Requests
-- Bump Chef Infra Client to 16.2.73 [#1310](https://github.com/chef/chef-workstation/pull/1310) ([tas50](https://github.com/tas50)) <!-- 20.7.81 -->
-- Enable fast installs on Windows [#1301](https://github.com/chef/chef-workstation/pull/1301) ([tas50](https://github.com/tas50)) <!-- 20.6.80 -->
-- Ignore rb-fsevent dependencies when rebuilding it [#1304](https://github.com/chef/chef-workstation/pull/1304) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.6.79 -->
-- Vendoring the docs [#1264](https://github.com/chef/chef-workstation/pull/1264) ([IanMadd](https://github.com/IanMadd)) <!-- 20.6.78 -->
-- Remove EOL Debian 8 from the build matrix [#1278](https://github.com/chef/chef-workstation/pull/1278) ([tas50](https://github.com/tas50)) <!-- 20.6.77 -->
-- Add Windows 8 Tester [#1262](https://github.com/chef/chef-workstation/pull/1262) ([christopher-snapp](https://github.com/christopher-snapp)) <!-- 20.6.76 -->
-- Bump Chef Infra Client to 16.2.50 + all other deps [#1289](https://github.com/chef/chef-workstation/pull/1289) ([tas50](https://github.com/tas50)) <!-- 20.6.75 -->
-- Update Ruby to 2.7 in Hab plan.sh [#1254](https://github.com/chef/chef-workstation/pull/1254) ([davymcaleer](https://github.com/davymcaleer)) <!-- 20.6.74 -->
-- Update help info [#1258](https://github.com/chef/chef-workstation/pull/1258) ([kagarmoe](https://github.com/kagarmoe)) <!-- 20.6.73 -->
-- Our Expeditor dep updates keep timing out [#1281](https://github.com/chef/chef-workstation/pull/1281) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.6.72 -->
-- Upgrade groups in appbundling and avoid double minitest [#1279](https://github.com/chef/chef-workstation/pull/1279) ([tas50](https://github.com/tas50)) <!-- 20.6.71 -->
-- Update Foodcritic to 16.3 to remove gherkin/cucumber/backports [#1277](https://github.com/chef/chef-workstation/pull/1277) ([tas50](https://github.com/tas50)) <!-- 20.6.70 -->
-- Fix reference to &quot;chef analyze report&quot; in upgrade lab [#1275](https://github.com/chef/chef-workstation/pull/1275) ([marcparadise](https://github.com/marcparadise)) <!-- 20.6.69 -->
-- Update omnibus / gems to the latest [#1276](https://github.com/chef/chef-workstation/pull/1276) ([tas50](https://github.com/tas50)) <!-- 20.6.68 -->
-- Bump chef-cli to support Chef Infra Client 16.2 [#1272](https://github.com/chef/chef-workstation/pull/1272) ([tas50](https://github.com/tas50)) <!-- 20.6.67 -->
-- Update InSpec to fix issue with kitchen-inspec [#1271](https://github.com/chef/chef-workstation/pull/1271) ([tas50](https://github.com/tas50)) <!-- 20.6.66 -->
-- Update Chef Infra Client to 16.2 and InSpec to 4.20 [#1270](https://github.com/chef/chef-workstation/pull/1270) ([tas50](https://github.com/tas50)) <!-- 20.6.65 -->
-- Update InSpec, Train, ChefSpec, and others to the latest [#1266](https://github.com/chef/chef-workstation/pull/1266) ([tas50](https://github.com/tas50)) <!-- 20.6.64 -->
-- Update a large number of important deps to current [#1253](https://github.com/chef/chef-workstation/pull/1253) ([tas50](https://github.com/tas50)) <!-- 20.6.63 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [20.7.81](https://github.com/chef/chef-workstation/tree/20.7.81) (2020-07-01)
+
+#### Merged Pull Requests
+- Update a large number of important deps to current [#1253](https://github.com/chef/chef-workstation/pull/1253) ([tas50](https://github.com/tas50))
+- Update InSpec, Train, ChefSpec, and others to the latest [#1266](https://github.com/chef/chef-workstation/pull/1266) ([tas50](https://github.com/tas50))
+- Update Chef Infra Client to 16.2 and InSpec to 4.20 [#1270](https://github.com/chef/chef-workstation/pull/1270) ([tas50](https://github.com/tas50))
+- Update InSpec to fix issue with kitchen-inspec [#1271](https://github.com/chef/chef-workstation/pull/1271) ([tas50](https://github.com/tas50))
+- Bump chef-cli to support Chef Infra Client 16.2 [#1272](https://github.com/chef/chef-workstation/pull/1272) ([tas50](https://github.com/tas50))
+- Update omnibus / gems to the latest [#1276](https://github.com/chef/chef-workstation/pull/1276) ([tas50](https://github.com/tas50))
+- Fix reference to &quot;chef analyze report&quot; in upgrade lab [#1275](https://github.com/chef/chef-workstation/pull/1275) ([marcparadise](https://github.com/marcparadise))
+- Update Foodcritic to 16.3 to remove gherkin/cucumber/backports [#1277](https://github.com/chef/chef-workstation/pull/1277) ([tas50](https://github.com/tas50))
+- Upgrade groups in appbundling and avoid double minitest [#1279](https://github.com/chef/chef-workstation/pull/1279) ([tas50](https://github.com/tas50))
+- Our Expeditor dep updates keep timing out [#1281](https://github.com/chef/chef-workstation/pull/1281) ([tyler-ball](https://github.com/tyler-ball))
+- Update help info [#1258](https://github.com/chef/chef-workstation/pull/1258) ([kagarmoe](https://github.com/kagarmoe))
+- Update Ruby to 2.7 in Hab plan.sh [#1254](https://github.com/chef/chef-workstation/pull/1254) ([davymcaleer](https://github.com/davymcaleer))
+- Bump Chef Infra Client to 16.2.50 + all other deps [#1289](https://github.com/chef/chef-workstation/pull/1289) ([tas50](https://github.com/tas50))
+- Add Windows 8 Tester [#1262](https://github.com/chef/chef-workstation/pull/1262) ([christopher-snapp](https://github.com/christopher-snapp))
+- Remove EOL Debian 8 from the build matrix [#1278](https://github.com/chef/chef-workstation/pull/1278) ([tas50](https://github.com/tas50))
+- Vendoring the docs [#1264](https://github.com/chef/chef-workstation/pull/1264) ([IanMadd](https://github.com/IanMadd))
+- Ignore rb-fsevent dependencies when rebuilding it [#1304](https://github.com/chef/chef-workstation/pull/1304) ([tyler-ball](https://github.com/tyler-ball))
+- Enable fast installs on Windows [#1301](https://github.com/chef/chef-workstation/pull/1301) ([tas50](https://github.com/tas50))
+- Bump Chef Infra Client to 16.2.73 [#1310](https://github.com/chef/chef-workstation/pull/1310) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [20.6.62](https://github.com/chef/chef-workstation/tree/20.6.62) (2020-06-02)
 
 #### Merged Pull Requests
@@ -119,7 +117,6 @@
 - Update knife-ec2 and knife-windows for new knife config [#1240](https://github.com/chef/chef-workstation/pull/1240) ([tas50](https://github.com/tas50))
 - Update cookstyle to 6.7 [#1244](https://github.com/chef/chef-workstation/pull/1244) ([tas50](https://github.com/tas50))
 - Working around a build time segfault with FFI 1.13 [#1246](https://github.com/chef/chef-workstation/pull/1246) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_stable_release -->
 
 ## [0.17.5](https://github.com/chef/chef-workstation/tree/0.17.5) (2020-03-12)
 
