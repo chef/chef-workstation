@@ -110,7 +110,7 @@ group(:omnibus_package) do
   gem "net-ssh", ">= 4.2.0"
   gem "listen"
   gem "mixlib-install"
-  gem "nokogiri", "= 1.11.0.rc2" # Pinning until 1.11 is released and builds correctly
+  gem "nokogiri", ">= 1.10.10"
   gem "pry-byebug"
   gem "pry-remote"
   # pry-stack_explorer 0.4.9.3 emits warnings under 2.7 under inspec shell
