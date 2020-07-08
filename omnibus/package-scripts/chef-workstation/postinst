@@ -1,4 +1,22 @@
 #!/bin/sh
+
+#
+# Copyright:: Copyright (c) 2020 Chef Software Inc.
+# License:: Apache License, Version 2.0
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
 #
 # Perform necessary setup steps
 # after package is installed.
@@ -25,8 +43,41 @@ else
     PREFIX="/usr"
 fi
 
-binaries="chef-run berks chef chef-cli chef-analyze chef-apply chef-shell chef-solo chef-vault cookstyle delivery foodcritic inspec kitchen knife ohai push-apply pushy-client pushy-service-manager chef-client"
 
+hab_target_path="$PREFIX/bin/hab"
+if [ -L "$hab_target_path" ]; then
+  # If the link exists, always remove it because we replace it later in script anyway.
+  loc=$(readlink "$hab_target_path")
+  case $loc in
+    *chef-workstation*)
+      # We own this path, so we're not taking it over from another install.
+      ;;
+    *)
+      takeover="1"
+  esac
+elif [ -f "$hab_target_path" ]; then
+  # Preserve the original target path
+  mv "$hab_target_path" "$hab_target_path.orig"
+  takeover="1"
+  moved="1"
+fi
+
+if [ "$takeover" = "1" ]; then
+  echo ""
+  echo "NOTE: Chef Habitat on this node is now managed by Chef Workstation."
+  echo "      Future Workstation updates will always include the latest stable"
+  echo "      Habitat release."
+  echo ""
+fi
+
+if [ "$moved" = "1" ]; then
+  echo "      Original habitat binary has been moved to '$hab_target_path.orig'"
+  echo ""
+fi
+
+
+
+binaries="chef-run berks chef chef-cli chef-analyze chef-apply chef-shell chef-solo chef-vault cookstyle delivery foodcritic inspec kitchen knife ohai push-apply pushy-client pushy-service-manager chef-client hab"
 for binary in $binaries; do
   ln -sf "$INSTALLER_DIR/bin/$binary" $PREFIX/bin || error_exit "Cannot link $binary to $PREFIX/bin"
 done
@@ -85,6 +136,6 @@ fi
 
 echo ""
 echo "Thank you for installing Chef Workstation!"
-echo "You can find some tips on getting started at https://chef.sh/"
+echo "You can find some tips on getting started at https://docs.chef.io/workstation/"
 echo ""
 exit 0
