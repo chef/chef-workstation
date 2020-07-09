@@ -37,13 +37,17 @@ git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 
 export CHEF_LICENSE="accept-no-persist"
+export HAB_LICENSE="accept-no-persist"
 
 echo "--- Ensure the 'chef' cli works (chef env)"
 chef env
 
-echo "--- Ensure the 'chef-analyze' cli works (chef-analyze help)"
-# TODO @afiune delete this when we release chef-analyze to the users.
-CHEF_FEAT_ANALYZE="true" chef-analyze help
+echo "--- Ensure the 'chef report' subcommand cli works (chef report help)"
+chef report help
+
+echo "--- Ensure that 'hab' cli is avaliable"
+hab help
+
 
 # Verify that the chef-workstation-app was installed (MacOS only)
 if is_darwin; then

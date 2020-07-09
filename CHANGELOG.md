@@ -1,15 +1,17 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.7.82 -->
-## [20.7.82](https://github.com/chef/chef-workstation/tree/20.7.82) (2020-07-02)
+<!-- latest_release 20.7.84 -->
+## [20.7.84](https://github.com/chef/chef-workstation/tree/20.7.84) (2020-07-09)
 
 #### Merged Pull Requests
-- Bump kitchen-ec2 to 3.7.0 [#1320](https://github.com/chef/chef-workstation/pull/1320) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 6.11.4 [#1332](https://github.com/chef/chef-workstation/pull/1332) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.7.81 -->
 ### Changes since 20.7.81 release
 
 #### Merged Pull Requests
+- Bump cookstyle to 6.11.4 [#1332](https://github.com/chef/chef-workstation/pull/1332) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.84 -->
+- Add the habitat binary to the Workstation package [#1288](https://github.com/chef/chef-workstation/pull/1288) ([marcparadise](https://github.com/marcparadise)) <!-- 20.7.83 -->
 - Bump kitchen-ec2 to 3.7.0 [#1320](https://github.com/chef/chef-workstation/pull/1320) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.82 -->
 <!-- release_rollup -->
 

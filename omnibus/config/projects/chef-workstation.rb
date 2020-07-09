@@ -48,6 +48,8 @@ instance_eval(IO.read(overrides_path), overrides_path)
 
 dependency "preparation"
 
+dependency "habitat"
+
 if windows?
   dependency "git-windows"
 else

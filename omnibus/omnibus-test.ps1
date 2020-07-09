@@ -26,15 +26,19 @@ git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 
 $Env:CHEF_LICENSE = "accept-no-persist"
+$Env:HAB_LICENSE = "accept-no-persist"
 
-Write-Output "--- Ensure the 'chef' cli works (chef env)"
+Write-Output "--- Verifying commands"
+Write-Output " * chef env"
 chef env
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
-Write-Output "--- Ensure the 'chef-analyze' cli works (chef-analyze help)"
-# TODO @afiune delete this when we release chef-analyze to the users.
-$Env:CHEF_FEAT_ANALYZE = "true"
-chef-analyze help
+Write-Output " * chef report"
+chef report help
+If ($lastexitcode -ne 0) { Exit $lastexitcode }
+
+Write-Output " * hab help"
+hab help
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
 Write-Output "--- Run the verification suite"
