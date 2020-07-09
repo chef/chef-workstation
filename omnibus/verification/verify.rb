@@ -243,7 +243,6 @@ module ChefWorkstation
           end
         end
       end
-
       add_component "fauxhai-ng" do |c|
         c.gem_base_dir = "fauxhai-ng"
         c.smoke_test { sh("#{embedded_bin("gem")} list fauxhai-ng") }
@@ -289,6 +288,7 @@ module ChefWorkstation
             sh!("#{usr_bin_path("ohai")} -v")
             sh!("#{usr_bin_path("foodcritic")} -V")
             sh!("#{usr_bin_path("inspec")} version")
+            sh!("#{usr_bin_path("hab")} --version")
           end
 
           # Test blocks are expected to return a Mixlib::ShellOut compatible
