@@ -1083,7 +1083,7 @@ DEPENDENCIES
   mixlib-install
   mixlib-versioning
   net-ssh (>= 4.2.0)
-  nokogiri (>= 1.10.10)
+  nokogiri (>= 1.10.10, < 1.11)
   ohai (>= 16.2)
   opscode-pushy-client (>= 2.100)
   pry
