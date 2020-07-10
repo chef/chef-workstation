@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.7.87 -->
-## [20.7.87](https://github.com/chef/chef-workstation/tree/20.7.87) (2020-07-10)
+<!-- latest_release 20.7.88 -->
+## [20.7.88](https://github.com/chef/chef-workstation/tree/20.7.88) (2020-07-10)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `2cf96c6` to `c40e056` in /omnibus [#1312](https://github.com/chef/chef-workstation/pull/1312) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump knife-google to 5.0.2 [#1335](https://github.com/chef/chef-workstation/pull/1335) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.7.81 -->
 ### Changes since 20.7.81 release
 
 #### Merged Pull Requests
+- Bump knife-google to 5.0.2 [#1335](https://github.com/chef/chef-workstation/pull/1335) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.88 -->
 - Bump omnibus-software from `2cf96c6` to `c40e056` in /omnibus [#1312](https://github.com/chef/chef-workstation/pull/1312) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.7.87 -->
 - Bump chef-analyze CLI to 0.1.98 [#1324](https://github.com/chef/chef-workstation/pull/1324) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.86 -->
 - Simplify message shown when WS app missing deps [#1328](https://github.com/chef/chef-workstation/pull/1328) ([marcparadise](https://github.com/marcparadise)) <!-- 20.7.85 -->
