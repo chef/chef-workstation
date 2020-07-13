@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.7.90 -->
-## [20.7.90](https://github.com/chef/chef-workstation/tree/20.7.90) (2020-07-13)
+<!-- latest_release 20.7.91 -->
+## [20.7.91](https://github.com/chef/chef-workstation/tree/20.7.91) (2020-07-13)
 
 #### Merged Pull Requests
-- Bump test-kitchen to 2.5.3 [#1337](https://github.com/chef/chef-workstation/pull/1337) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump knife-google to 5.0.3 [#1339](https://github.com/chef/chef-workstation/pull/1339) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.7.81 -->
 ### Changes since 20.7.81 release
 
 #### Merged Pull Requests
+- Bump knife-google to 5.0.3 [#1339](https://github.com/chef/chef-workstation/pull/1339) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.91 -->
 - Bump test-kitchen to 2.5.3 [#1337](https://github.com/chef/chef-workstation/pull/1337) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.90 -->
 - Switch back to a supported nokogiri release [#1321](https://github.com/chef/chef-workstation/pull/1321) ([tas50](https://github.com/tas50)) <!-- 20.7.89 -->
 - Bump knife-google to 5.0.2 [#1335](https://github.com/chef/chef-workstation/pull/1335) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.88 -->
