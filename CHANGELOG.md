@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.7.89 -->
-## [20.7.89](https://github.com/chef/chef-workstation/tree/20.7.89) (2020-07-10)
+<!-- latest_release 20.7.90 -->
+## [20.7.90](https://github.com/chef/chef-workstation/tree/20.7.90) (2020-07-13)
 
 #### Merged Pull Requests
-- Switch back to a supported nokogiri release [#1321](https://github.com/chef/chef-workstation/pull/1321) ([tas50](https://github.com/tas50))
+- Bump test-kitchen to 2.5.3 [#1337](https://github.com/chef/chef-workstation/pull/1337) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.7.81 -->
 ### Changes since 20.7.81 release
 
 #### Merged Pull Requests
+- Bump test-kitchen to 2.5.3 [#1337](https://github.com/chef/chef-workstation/pull/1337) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.90 -->
 - Switch back to a supported nokogiri release [#1321](https://github.com/chef/chef-workstation/pull/1321) ([tas50](https://github.com/tas50)) <!-- 20.7.89 -->
 - Bump knife-google to 5.0.2 [#1335](https://github.com/chef/chef-workstation/pull/1335) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.88 -->
 - Bump omnibus-software from `2cf96c6` to `c40e056` in /omnibus [#1312](https://github.com/chef/chef-workstation/pull/1312) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.7.87 -->
