@@ -1,4 +1,4 @@
-$chef_path = "$HOME\.chef"
+$chef_path = "$env:USERPROFILE" + "\.chef"
 
 If(!(test-path $chef_path))
 {
