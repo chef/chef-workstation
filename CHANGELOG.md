@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.7.92 -->
-## [20.7.92](https://github.com/chef/chef-workstation/tree/20.7.92) (2020-07-14)
+<!-- latest_release 20.7.93 -->
+## [20.7.93](https://github.com/chef/chef-workstation/tree/20.7.93) (2020-07-14)
 
 #### Merged Pull Requests
-- Bump kitchen-ec2 to 3.7.1 [#1340](https://github.com/chef/chef-workstation/pull/1340) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-dokken to 2.10.0 [#1342](https://github.com/chef/chef-workstation/pull/1342) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.7.81 -->
 ### Changes since 20.7.81 release
 
 #### Merged Pull Requests
+- Bump kitchen-dokken to 2.10.0 [#1342](https://github.com/chef/chef-workstation/pull/1342) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.93 -->
 - Bump kitchen-ec2 to 3.7.1 [#1340](https://github.com/chef/chef-workstation/pull/1340) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.92 -->
 - Bump knife-google to 5.0.3 [#1339](https://github.com/chef/chef-workstation/pull/1339) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.91 -->
 - Bump test-kitchen to 2.5.3 [#1337](https://github.com/chef/chef-workstation/pull/1337) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.90 -->
