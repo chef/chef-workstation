@@ -525,10 +525,8 @@ GEM
       docker-api (~> 1.33)
       lockfile (~> 2.1)
       test-kitchen (>= 1.15, < 3)
-    kitchen-ec2 (3.7.0)
+    kitchen-ec2 (3.7.1)
       aws-sdk-ec2 (~> 1.0)
-      excon
-      multi_json
       retryable (>= 2.0, < 4.0)
       test-kitchen (>= 1.4.1, < 3)
     kitchen-google (2.0.3)
