@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.7.94 -->
-## [20.7.94](https://github.com/chef/chef-workstation/tree/20.7.94) (2020-07-15)
+<!-- latest_release 20.7.95 -->
+## [20.7.95](https://github.com/chef/chef-workstation/tree/20.7.95) (2020-07-16)
 
 #### Merged Pull Requests
-- update cookstyle, cookbook-omnifetch, knife-google, omnibus-software, knife-cloud and vsphere api gems [#1347](https://github.com/chef/chef-workstation/pull/1347) ([tas50](https://github.com/tas50))
+- Bump omnibus from `414893b` to `fdca423` in /omnibus [#1349](https://github.com/chef/chef-workstation/pull/1349) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.7.81 -->
 ### Changes since 20.7.81 release
 
 #### Merged Pull Requests
+- Bump omnibus from `414893b` to `fdca423` in /omnibus [#1349](https://github.com/chef/chef-workstation/pull/1349) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.7.95 -->
 - update cookstyle, cookbook-omnifetch, knife-google, omnibus-software, knife-cloud and vsphere api gems [#1347](https://github.com/chef/chef-workstation/pull/1347) ([tas50](https://github.com/tas50)) <!-- 20.7.94 -->
 - Bump kitchen-dokken to 2.10.0 [#1342](https://github.com/chef/chef-workstation/pull/1342) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.93 -->
 - Bump kitchen-ec2 to 3.7.1 [#1340](https://github.com/chef/chef-workstation/pull/1340) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.92 -->
