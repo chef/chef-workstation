@@ -83,7 +83,7 @@ for binary in $binaries; do
 done
 
 # everyone needs a .chef dir so let's create it for them
-if [ ! -d "~/.chef/" ]; then
+if [ ! -d ~/.chef/ ]; then
   mkdir ~/.chef
   chmod 700 ~/.chef
 fi
