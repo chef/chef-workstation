@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.7.95 -->
-## [20.7.95](https://github.com/chef/chef-workstation/tree/20.7.95) (2020-07-16)
+<!-- latest_release 20.7.96 -->
+## [20.7.96](https://github.com/chef/chef-workstation/tree/20.7.96) (2020-07-17)
 
 #### Merged Pull Requests
-- Bump omnibus from `414893b` to `fdca423` in /omnibus [#1349](https://github.com/chef/chef-workstation/pull/1349) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Temporarily comment out our docker builds while our backend gets updated [#1350](https://github.com/chef/chef-workstation/pull/1350) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.7.81 -->
 ### Changes since 20.7.81 release
 
 #### Merged Pull Requests
+- Temporarily comment out our docker builds while our backend gets updated [#1350](https://github.com/chef/chef-workstation/pull/1350) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.7.96 -->
 - Bump omnibus from `414893b` to `fdca423` in /omnibus [#1349](https://github.com/chef/chef-workstation/pull/1349) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.7.95 -->
 - update cookstyle, cookbook-omnifetch, knife-google, omnibus-software, knife-cloud and vsphere api gems [#1347](https://github.com/chef/chef-workstation/pull/1347) ([tas50](https://github.com/tas50)) <!-- 20.7.94 -->
 - Bump kitchen-dokken to 2.10.0 [#1342](https://github.com/chef/chef-workstation/pull/1342) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.93 -->
