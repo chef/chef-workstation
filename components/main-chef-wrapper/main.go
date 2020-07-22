@@ -22,9 +22,16 @@ import (
 	"os/exec"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
+	"github.com/mitchellh/go-homedir"
 )
 
 func main() {
+	err := doStartupTasks()
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+		os.Exit(4)
+	}
+
 	// No arguments provided, display usage
 	if len(os.Args) <= 1 {
 		usage()
@@ -104,6 +111,23 @@ Available Commands:
     capture                 Copy the state of an existing node locally for testing and verification
 `
 	fmt.Printf(msg)
+}
+
+func doStartupTasks() error {
+	createDotChef()
+	return nil
+}
+
+// Attempts to create the ~/.chef directory.
+// Does not report an error if this fails, because it is non-fatal:
+// operations can continue if we don't create .chef, but the user might
+// see some warnings from specific tools that want it.
+func createDotChef() {
+	path, err := homedir.Expand("~/.chef")
+	if err != nil {
+		return
+	}
+	os.Mkdir(path, 0700)
 }
 
 func debugLog(msg string) {
