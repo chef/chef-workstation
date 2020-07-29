@@ -330,7 +330,7 @@ module ChefWorkstation
         c.integration_test { sh("#{embedded_bin("bundle")} exec rake test:vm") }
 
         # It would be nice to use a chef generator to create these specs, but
-        # we dont have that yet.  So we do it manually.
+        # we don't have that yet. So we do it manually.
         c.smoke_test do
           tmpdir do |cwd|
             File.open(File.join(cwd, "some_spec.rb"), "w+") do |f|

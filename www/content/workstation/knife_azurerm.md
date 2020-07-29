@@ -418,7 +418,7 @@ This argument has the following options:
 
 `--chef-zero-host HOST`
 
-:   Host for startin chef-zero.
+:   Host for starting chef-zero.
 
 `--chef-zero-port PORT`
 
@@ -443,7 +443,7 @@ This argument has the following options:
 
 `--delete-resource-group`
 
-:   Deletes corresponding resource group along with VitualMachine.
+:   Deletes corresponding resource group along with VirtualMachine.
 
 `-e`, `--editor EDITOR`
 
@@ -545,7 +545,7 @@ This argument has the following options:
 
 `--chef-zero-host HOST`
 
-:   Host for startin chef-zero.
+:   Host for starting chef-zero.
 
 `--chef-zero-port PORT`
 
@@ -655,7 +655,7 @@ This argument has the following options:
 
 `--chef-zero-host HOST`
 
-:   Host for startin chef-zero.
+:   Host for starting chef-zero.
 
 `--chef-zero-port PORT`
 

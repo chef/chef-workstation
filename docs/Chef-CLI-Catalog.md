@@ -57,7 +57,7 @@ give that time back to our users.
 
     As a Chef Operator,
     I need a unified Command Line Interface (CLI) that lets me interact with every Chef product,
-    so I can easly discover the capabilities of the Chef ecosystem.
+    so I can easily discover the capabilities of the Chef ecosystem.
 
     As a Chef Developer,
     I need to be able to gather information about how our users consume and interact with our tools,
@@ -225,7 +225,7 @@ can control the "Usage" message of sub-binaries. Currently, the `chef-analyze`
 binary displays the usage message `chef-analyze [command]` when it is run directly
 and also when it is run from the `chef` catalog. We would like the usage message
 to be consistent with the way users execute the commands so if you run `chef analyze`
-the usage sould be `chef analyze [command]`; and if you run `chef-analyze` the
+the usage should be `chef analyze [command]`; and if you run `chef-analyze` the
 usage should continue to be `chef-analyze [command]`.
 
 ## Open points for further discussion:

@@ -228,7 +228,7 @@ This argument has the following options:
 
 `--azure-dns-name DNS_NAME`
 
-:   The DNS prefix name that will be used to add this loabalancer to.
+:   The DNS prefix name that will be used to add this load balancer to.
     This must be an existing service/deployment.
 
 `--azure-lb-static-vip VIP`
