@@ -224,8 +224,10 @@ GEM
       mixlib-versioning
       thor
     mixlib-log (3.0.8)
-    mixlib-shellout (3.0.9)
-    mixlib-shellout (3.0.9-universal-mingw32)
+    mixlib-shellout (3.1.2)
+      chef-utils
+    mixlib-shellout (3.1.2-universal-mingw32)
+      chef-utils
       win32-process (~> 0.8.2)
       wmi-lite (~> 1.0)
     mixlib-versioning (1.2.12)
@@ -295,7 +297,7 @@ GEM
     structured_warnings (0.4.0)
     syslog-logger (1.6.8)
     systemu (2.6.5)
-    test-kitchen (2.5.3)
+    test-kitchen (2.5.4)
       bcrypt_pbkdf (~> 1.0)
       ed25519 (~> 1.2)
       license-acceptance (~> 1.0, >= 1.0.11)
@@ -336,7 +338,7 @@ GEM
       tty-cursor (~> 0.7)
       tty-screen (~> 0.7)
       wisper (~> 2.0.0)
-    tty-screen (0.8.0)
+    tty-screen (0.8.1)
     unicode-display_width (1.7.0)
     unicode_utils (1.4.0)
     uuidtools (2.1.5)
