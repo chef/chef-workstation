@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.7.98 -->
-## [20.7.98](https://github.com/chef/chef-workstation/tree/20.7.98) (2020-07-30)
+<!-- latest_release 20.7.99 -->
+## [20.7.99](https://github.com/chef/chef-workstation/tree/20.7.99) (2020-07-30)
 
 #### Merged Pull Requests
-- Create ~/.chef when `chef` command invoked.  [#1362](https://github.com/chef/chef-workstation/pull/1362) ([marcparadise](https://github.com/marcparadise))
+- Bump Chef Workstation App to 0.1.80 [#1382](https://github.com/chef/chef-workstation/pull/1382) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.7.81 -->
 ### Changes since 20.7.81 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.80 [#1382](https://github.com/chef/chef-workstation/pull/1382) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.99 -->
 - Create ~/.chef when `chef` command invoked.  [#1362](https://github.com/chef/chef-workstation/pull/1362) ([marcparadise](https://github.com/marcparadise)) <!-- 20.7.98 -->
 - Bump  to 16.3.38 [#1372](https://github.com/chef/chef-workstation/pull/1372) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.97 -->
 - Temporarily comment out our docker builds while our backend gets updated [#1350](https://github.com/chef/chef-workstation/pull/1350) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.7.96 -->
