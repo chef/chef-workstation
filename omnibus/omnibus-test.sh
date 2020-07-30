@@ -7,7 +7,7 @@ version="${VERSION:-latest}"
 
 is_darwin()
 {
-  uname -v | grep "^Darwin" >/dev/null 2>&1
+  uname -a | grep "^Darwin" 2>&1 >/dev/null
 }
 
 echo "--- Installing $channel $product $version"
