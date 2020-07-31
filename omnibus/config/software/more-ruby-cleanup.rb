@@ -98,4 +98,14 @@ build do
       end
     end
   end
+
+  # remove the chef specs we don't run as this is a large number of files
+  block "Removing functional / integration / stress specs from chef" do
+    target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems/chef-*/spec/{integration,functional,stress}".tr('\\', "/")
+
+    Dir.glob(target_dir).each do |f|
+      puts "Deleting unused spec dir #{f}"
+      FileUtils.remove_dir(f)
+    end
+  end
 end

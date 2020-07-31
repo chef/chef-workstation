@@ -16,12 +16,12 @@
 #
 
 name "habitat"
-default_version "latest"
 license :project_license
 skip_transitive_dependency_licensing true
 
-# DO NOT MODIFY: version and checksums are populated by workstation/.expeditor/update_habitat.sh
-version "1.6.56"
+# DO NOT MODIFY: default_version and checksums are populated by
+#                workstation/.expeditor/update_habitat.sh
+default_version "1.6.56"
 linux_sha = "a87f4ff7558f23724289e2c5a9b75920da364818167f63b26411be5a8b344800"
 darwin_sha = "42b6c417b88351e0b8ce99cb6ebcc104bbb5bc819ffc795f980d1201068035e6"
 windows_sha = "648157f1db680233b676725d3142ef118e5a77da000209a532fb54ff153b57dd"
@@ -40,7 +40,7 @@ else
   raise "habitat dep is only available for windows, linux, and mac"
 end
 
-source url: "https://packages.chef.io/files/stable/habitat/latest/hab-x86_64-#{suffix}",
+source url: "https://packages.chef.io/files/stable/habitat/#{version}/hab-x86_64-#{suffix}",
   sha256: sha256
 
 build do
