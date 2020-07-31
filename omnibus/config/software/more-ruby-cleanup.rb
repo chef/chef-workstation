@@ -46,48 +46,18 @@ build do
     target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
     files = %w{
       *-public_cert.pem
-      *.blurb
-      *Upgrade.md
-      .dockerignore
-      Appraisals
-      autotest
-      bench
-      benchmark
-      benchmarks
       ci
-      design_rationale.rb
-      doc
-      doc-api
-      Dockerfile*
-      docs
-      donate.png
-      ed25519.png
       example
       examples
       ext
-      features
-      frozen_old_spec
-      Gemfile.devtools
       Gemfile.lock
-      Gemfile.travis
-      Gemfile.noed25519*
-      INSTALL.txt
-      logo.png
-      man
       playbooks
       rakelib
-      release-script.txt
       sample
       samples
-      samus.json
       site
-      test
-      tests
-      travis_build_script.sh
       unit
       warning.txt
-      website
-      yard-template
     }
 
     Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
@@ -108,10 +78,10 @@ build do
 
     Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
       # don't delete these files if there's a non-empty bin dir in the same dir
-      unless Dir.exist?(File.join(File.dirname(f), "bin")) && !Dir.empty?(File.join(File.dirname(f), "bin"))
-        puts "Deleting #{f}"
-        FileUtils.rm_rf(f)
-      end
+      next if Dir.exist?(File.join(File.dirname(f), "bin")) && !Dir.empty?(File.join(File.dirname(f), "bin"))
+
+      puts "Deleting #{f}"
+      FileUtils.rm_rf(f)
     end
   end
 
