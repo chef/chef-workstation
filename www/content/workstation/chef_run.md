@@ -121,7 +121,7 @@ chef-run host1 my_cookbook::non_default_recipe
 `::recipe_name` tells `chef-run` to run a recipe other than the default.
 `chef-run` reads your local Chef Workstation configuration file `~/.chef-workstation/config.toml` and Chef configuration file `~/.chef/config.rb`. It looks for cookbooks in the paths specified in both files. The configuration value is an array and looks something like this:
 
-For workstation configuration file:
+For `~/.chef-workstation/config.toml`:
 
 ```ruby
 [chef]
@@ -131,16 +131,14 @@ cookbook_repo_paths = [
 ]
 ```
 
-and for Chef configuration file:
+and for `~/.chef/config.rb`:
 
 ```ruby
 cookbook_path ['/path/1', '/path/b']
 ```
 
 If you run `chef-run host1 my_cookbook` and the current directory does not have
-a cookbook named `my_cookbook`, then `chef-run` searches the paths specified in
-the configuration files. Paths specified in Chef Workstation configuration file are searched
-first when looking for a cookbook.
+a cookbook named `my_cookbook`, then `chef-run` searches the configured paths, with those configured in `~/.chef-workstation/config.toml` taking priority over those in `~/.chef/config.rb`.
 
 To specify the search paths as command line arguments instead of using a
 configuration file, use:
