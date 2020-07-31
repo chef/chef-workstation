@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.7.101 -->
-## [20.7.101](https://github.com/chef/chef-workstation/tree/20.7.101) (2020-07-31)
+<!-- latest_release 20.7.102 -->
+## [20.7.102](https://github.com/chef/chef-workstation/tree/20.7.102) (2020-07-31)
 
 #### Merged Pull Requests
-- Make sure macOS detection works even if the string changes [#1384](https://github.com/chef/chef-workstation/pull/1384) ([tas50](https://github.com/tas50))
+- Reduce the size of the Chef Workstation package / install [#1386](https://github.com/chef/chef-workstation/pull/1386) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.7.81 -->
 ### Changes since 20.7.81 release
 
 #### Merged Pull Requests
+- Reduce the size of the Chef Workstation package / install [#1386](https://github.com/chef/chef-workstation/pull/1386) ([tas50](https://github.com/tas50)) <!-- 20.7.102 -->
 - Make sure macOS detection works even if the string changes [#1384](https://github.com/chef/chef-workstation/pull/1384) ([tas50](https://github.com/tas50)) <!-- 20.7.101 -->
 - Update default_version of habitat during build [#1363](https://github.com/chef/chef-workstation/pull/1363) ([marcparadise](https://github.com/marcparadise)) <!-- 20.7.100 -->
 - Bump Chef Workstation App to 0.1.80 [#1382](https://github.com/chef/chef-workstation/pull/1382) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.99 -->
