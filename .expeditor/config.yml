@@ -64,13 +64,12 @@ subscriptions:
       - built_in:rollover_changelog
       - bash:.expeditor/update_dockerfile.sh
       - bash:.expeditor/publish-release-notes.sh
-      - purge_packages_chef_io_fastly:{{channel}}/{{product_key}}/latest
       - bash:.expeditor/announce-release.sh
+      - purge_packages_chef_io_fastly:{{channel}}/{{product_key}}/latest
       # - built_in:tag_docker_image
       # publish to third party package managers that have a dependency
       # on this artifact's availability
       - trigger_pipeline:third-party-packages
-
   - workload: habitat-sh/habitat:master_completed:project_promoted:habitat-sh/habitat:master:stable:*
     actions:
       - bash:.expeditor/update_habitat.sh
