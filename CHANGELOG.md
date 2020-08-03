@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.7.103 -->
-## [20.7.103](https://github.com/chef/chef-workstation/tree/20.7.103) (2020-07-31)
+<!-- latest_release 20.8.104 -->
+## [20.8.104](https://github.com/chef/chef-workstation/tree/20.8.104) (2020-08-03)
 
 #### Merged Pull Requests
-- Move more of the omnibus cleanup to omnibus-software [#1366](https://github.com/chef/chef-workstation/pull/1366) ([tas50](https://github.com/tas50))
+- Update cookstyle, kichen/knife vmware plugins, knife-opc, and test kitchen [#1389](https://github.com/chef/chef-workstation/pull/1389) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.7.81 -->
 ### Changes since 20.7.81 release
 
 #### Merged Pull Requests
+- Update cookstyle, kichen/knife vmware plugins, knife-opc, and test kitchen [#1389](https://github.com/chef/chef-workstation/pull/1389) ([tas50](https://github.com/tas50)) <!-- 20.8.104 -->
 - Move more of the omnibus cleanup to omnibus-software [#1366](https://github.com/chef/chef-workstation/pull/1366) ([tas50](https://github.com/tas50)) <!-- 20.7.103 -->
 - Reduce the size of the Chef Workstation package / install [#1386](https://github.com/chef/chef-workstation/pull/1386) ([tas50](https://github.com/tas50)) <!-- 20.7.102 -->
 - Make sure macOS detection works even if the string changes [#1384](https://github.com/chef/chef-workstation/pull/1384) ([tas50](https://github.com/tas50)) <!-- 20.7.101 -->
