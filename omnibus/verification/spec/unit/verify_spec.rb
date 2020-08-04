@@ -246,7 +246,7 @@ describe ChefWorkstation::Command::Verify do
             expect(stdout).to include("integration tests OK")
           end
 
-          context "and no integration test command is specifed for the component" do
+          context "and no integration test command is specified for the component" do
 
             let(:components) do
               [ component_without_integration_tests ]

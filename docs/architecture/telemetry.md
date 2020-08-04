@@ -66,7 +66,7 @@ or the request will be dropped.
 `$CONFIG_PATH/telemetry/token` will be initialized with a new GUID if missing by the client library.
 The server and client will both read this file with every request.
 
-This method relies on the browser keeping the local filesytem secure from an attacker seeking the
+This method relies on the browser keeping the local filesystem secure from an attacker seeking the
 content of specific files (such as the telemetry token).
 
 ## Sequence Diagram
@@ -277,7 +277,7 @@ Exposing a local REST API interface opens the door to future user experience enh
 #### Advantages
 
 * Clean separation of domains along process boundaries
-* potentially begins to move away from ruby depenency
+* potentially begins to move away from ruby dependency
 * We can ensure it is always running via system service management, vs CWA which the user
   can terminate at any time from the tray/menu.
   * NOTE: it came out in subsequent discussion that electron/nodejs may also make this possible.
@@ -286,4 +286,3 @@ Exposing a local REST API interface opens the door to future user experience enh
 
 * Expands language footprint, associated learning curve
 * Another new component to be built and managed  with limited resources
-

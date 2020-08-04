@@ -31,7 +31,7 @@ There are three methods for getting cookbooks onto the server:
 - policy is assigned to a node(s) by updating the nodes to reference the policy group and file.
 - Policy lock is uploaded to the server for the nodes; all cb versions are uploaded. At
   run-time, chef-client still uses the cookbook server for download; but it does not send a run list
-  to the server for resolution. Instead, it downloads the CB versions specfied in the lock file.
+  to the server for resolution. Instead, it downloads the CB versions specified in the lock file.
 
 ## Supported Cookbook Sources
 
@@ -45,14 +45,14 @@ This includes any case where a node's runlist is managed in absense of policy gr
  - run list is expanded and merged in client:
    - starts from run list saved to node;  OR override run-list from the CLI
    - roles are resolved to the recipes they contain and added to the run list
-   - environment run lists are expaneded as above, and added to the run list.
+   - environment run lists are expanded as above, and added to the run list.
    - No dependency eval is done by the client.
  - client posts the expanded run list to the server for dependency resolution.
    - endpoint: `environments/$/run_list`
-   - server evaulates the run list against the full list of available cookbooks for the org
+   - server evaluates the run list against the full list of available cookbooks for the org
      including dependencies
       * replies with the cookbooks & versions needed to solve the expanded run list, respecting
-        version constraintsa
+        version constraints
       * this reply becomes node["cookbooks"] and represents the cookbooks required for the expanded run list
         it is a full snapshot of cookbooks in use by the node as of most recent converge.  (Saved when converge is complete)
  - client downloads cookbooks into client cache at the version provided in the runlist.
@@ -70,4 +70,3 @@ This includes any case where a node's runlist is managed in absense of policy gr
 
  - this follows the same path as policyfile, except that the chef-server used to fetch cookbooks
    is chef-zero.
-

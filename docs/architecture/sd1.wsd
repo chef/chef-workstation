@@ -46,7 +46,7 @@ ConvergeCommand -> ConvergeCommand: rescue, print stack trace
 
 == Program End ==
 
-' ConvergeCommand will be responsible for outputting information to CLIOutputter and logger to do any end of program stuff, CLI is only resonsible for exiting
+' ConvergeCommand will be responsible for outputting information to CLIOutputter and logger to do any end of program stuff, CLI is only responsible for exiting
 ConvergeCommand --> CLI: status
 <-- CLI: exit(status)
 @enduml
