@@ -24,7 +24,6 @@ chef_web_docs_submodule:
 	git submodule foreach git reset --hard
 	cp -R content/* chef-web-docs/_vendor/github.com/chef/chef-workstation/www/content
 	cp -R static/images/* chef-web-docs/_vendor/github.com/chef/chef-workstation/www/static/images
-	cp layouts/shortcodes/* chef-web-docs/_vendor/github.com/chef/chef-workstation/www/layouts/shortcodes/
 
 reset_chef_web_docs:
 	git submodule foreach git reset --hard
