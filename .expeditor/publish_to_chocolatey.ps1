@@ -13,11 +13,12 @@ while (-not $completed) {
     try {
         $releaseRecord = Invoke-RestMethod -Uri $Uri -Headers @{accept="application/json"} -ErrorAction Stop
         $completed = $?
-    } catch {
+    } catch [Exception] {
         if ($retrycount -ge $retries) {
             throw "Fetching version $version failed the maximum number of $retrycount times."
         } else {
             Write-Host "Fetching version $version failed. Retrying in $secondsDelay seconds."
+            Write-Host $_.Exception|format-list -force
             Start-Sleep $secondsDelay
             $retrycount++
         }
