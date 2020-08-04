@@ -1,48 +1,46 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.8.111 -->
-## [20.8.111](https://github.com/chef/chef-workstation/tree/20.8.111) (2020-08-04)
-
-#### Merged Pull Requests
-- Bumping Chef CLI [#1392](https://github.com/chef/chef-workstation/pull/1392) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=20.7.81 -->
-### Changes since 20.7.81 release
-
-#### Merged Pull Requests
-- Bumping Chef CLI [#1392](https://github.com/chef/chef-workstation/pull/1392) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.8.111 -->
-- Pull in smaller omnibus sofware defs + expand gem cleanup [#1388](https://github.com/chef/chef-workstation/pull/1388) ([tas50](https://github.com/tas50)) <!-- 20.8.110 -->
-- Update chef-run cookbook search preference [#1383](https://github.com/chef/chef-workstation/pull/1383) ([mudash](https://github.com/mudash)) <!-- 20.8.109 -->
-- Spellcheck fixes to various components [#1381](https://github.com/chef/chef-workstation/pull/1381) ([tas50](https://github.com/tas50)) <!-- 20.8.108 -->
-- Bump  to 16.3.45 [#1378](https://github.com/chef/chef-workstation/pull/1378) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.8.107 -->
-- Bump chef-analyze CLI to 0.1.99 [#1371](https://github.com/chef/chef-workstation/pull/1371) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.8.106 -->
-- add gcc &amp; make in docker image [#1361](https://github.com/chef/chef-workstation/pull/1361) ([Wing924](https://github.com/Wing924)) <!-- 20.8.105 -->
-- Update cookstyle, kichen/knife vmware plugins, knife-opc, and test kitchen [#1389](https://github.com/chef/chef-workstation/pull/1389) ([tas50](https://github.com/tas50)) <!-- 20.8.104 -->
-- Move more of the omnibus cleanup to omnibus-software [#1366](https://github.com/chef/chef-workstation/pull/1366) ([tas50](https://github.com/tas50)) <!-- 20.7.103 -->
-- Reduce the size of the Chef Workstation package / install [#1386](https://github.com/chef/chef-workstation/pull/1386) ([tas50](https://github.com/tas50)) <!-- 20.7.102 -->
-- Make sure macOS detection works even if the string changes [#1384](https://github.com/chef/chef-workstation/pull/1384) ([tas50](https://github.com/tas50)) <!-- 20.7.101 -->
-- Update default_version of habitat during build [#1363](https://github.com/chef/chef-workstation/pull/1363) ([marcparadise](https://github.com/marcparadise)) <!-- 20.7.100 -->
-- Bump Chef Workstation App to 0.1.80 [#1382](https://github.com/chef/chef-workstation/pull/1382) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.99 -->
-- Create ~/.chef when `chef` command invoked.  [#1362](https://github.com/chef/chef-workstation/pull/1362) ([marcparadise](https://github.com/marcparadise)) <!-- 20.7.98 -->
-- Bump  to 16.3.38 [#1372](https://github.com/chef/chef-workstation/pull/1372) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.97 -->
-- Temporarily comment out our docker builds while our backend gets updated [#1350](https://github.com/chef/chef-workstation/pull/1350) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.7.96 -->
-- Bump omnibus from `414893b` to `fdca423` in /omnibus [#1349](https://github.com/chef/chef-workstation/pull/1349) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.7.95 -->
-- update cookstyle, cookbook-omnifetch, knife-google, omnibus-software, knife-cloud and vsphere api gems [#1347](https://github.com/chef/chef-workstation/pull/1347) ([tas50](https://github.com/tas50)) <!-- 20.7.94 -->
-- Bump kitchen-dokken to 2.10.0 [#1342](https://github.com/chef/chef-workstation/pull/1342) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.93 -->
-- Bump kitchen-ec2 to 3.7.1 [#1340](https://github.com/chef/chef-workstation/pull/1340) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.92 -->
-- Bump knife-google to 5.0.3 [#1339](https://github.com/chef/chef-workstation/pull/1339) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.91 -->
-- Bump test-kitchen to 2.5.3 [#1337](https://github.com/chef/chef-workstation/pull/1337) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.90 -->
-- Switch back to a supported nokogiri release [#1321](https://github.com/chef/chef-workstation/pull/1321) ([tas50](https://github.com/tas50)) <!-- 20.7.89 -->
-- Bump knife-google to 5.0.2 [#1335](https://github.com/chef/chef-workstation/pull/1335) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.88 -->
-- Bump omnibus-software from `2cf96c6` to `c40e056` in /omnibus [#1312](https://github.com/chef/chef-workstation/pull/1312) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.7.87 -->
-- Bump chef-analyze CLI to 0.1.98 [#1324](https://github.com/chef/chef-workstation/pull/1324) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.86 -->
-- Simplify message shown when WS app missing deps [#1328](https://github.com/chef/chef-workstation/pull/1328) ([marcparadise](https://github.com/marcparadise)) <!-- 20.7.85 -->
-- Bump cookstyle to 6.11.4 [#1332](https://github.com/chef/chef-workstation/pull/1332) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.84 -->
-- Add the habitat binary to the Workstation package [#1288](https://github.com/chef/chef-workstation/pull/1288) ([marcparadise](https://github.com/marcparadise)) <!-- 20.7.83 -->
-- Bump kitchen-ec2 to 3.7.0 [#1320](https://github.com/chef/chef-workstation/pull/1320) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.7.82 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [20.8.111](https://github.com/chef/chef-workstation/tree/20.8.111) (2020-08-04)
+
+#### Merged Pull Requests
+- Bump kitchen-ec2 to 3.7.0 [#1320](https://github.com/chef/chef-workstation/pull/1320) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Add the habitat binary to the Workstation package [#1288](https://github.com/chef/chef-workstation/pull/1288) ([marcparadise](https://github.com/marcparadise))
+- Bump cookstyle to 6.11.4 [#1332](https://github.com/chef/chef-workstation/pull/1332) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Simplify message shown when WS app missing deps [#1328](https://github.com/chef/chef-workstation/pull/1328) ([marcparadise](https://github.com/marcparadise))
+- Bump chef-analyze CLI to 0.1.98 [#1324](https://github.com/chef/chef-workstation/pull/1324) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `2cf96c6` to `c40e056` in /omnibus [#1312](https://github.com/chef/chef-workstation/pull/1312) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump knife-google to 5.0.2 [#1335](https://github.com/chef/chef-workstation/pull/1335) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Switch back to a supported nokogiri release [#1321](https://github.com/chef/chef-workstation/pull/1321) ([tas50](https://github.com/tas50))
+- Bump test-kitchen to 2.5.3 [#1337](https://github.com/chef/chef-workstation/pull/1337) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump knife-google to 5.0.3 [#1339](https://github.com/chef/chef-workstation/pull/1339) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-ec2 to 3.7.1 [#1340](https://github.com/chef/chef-workstation/pull/1340) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-dokken to 2.10.0 [#1342](https://github.com/chef/chef-workstation/pull/1342) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- update cookstyle, cookbook-omnifetch, knife-google, omnibus-software, knife-cloud and vsphere api gems [#1347](https://github.com/chef/chef-workstation/pull/1347) ([tas50](https://github.com/tas50))
+- Bump omnibus from `414893b` to `fdca423` in /omnibus [#1349](https://github.com/chef/chef-workstation/pull/1349) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Temporarily comment out our docker builds while our backend gets updated [#1350](https://github.com/chef/chef-workstation/pull/1350) ([tyler-ball](https://github.com/tyler-ball))
+- Bump  to 16.3.38 [#1372](https://github.com/chef/chef-workstation/pull/1372) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Create ~/.chef when `chef` command invoked.  [#1362](https://github.com/chef/chef-workstation/pull/1362) ([marcparadise](https://github.com/marcparadise))
+- Bump Chef Workstation App to 0.1.80 [#1382](https://github.com/chef/chef-workstation/pull/1382) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update default_version of habitat during build [#1363](https://github.com/chef/chef-workstation/pull/1363) ([marcparadise](https://github.com/marcparadise))
+- Make sure macOS detection works even if the string changes [#1384](https://github.com/chef/chef-workstation/pull/1384) ([tas50](https://github.com/tas50))
+- Reduce the size of the Chef Workstation package / install [#1386](https://github.com/chef/chef-workstation/pull/1386) ([tas50](https://github.com/tas50))
+- Move more of the omnibus cleanup to omnibus-software [#1366](https://github.com/chef/chef-workstation/pull/1366) ([tas50](https://github.com/tas50))
+- Update cookstyle, kichen/knife vmware plugins, knife-opc, and test kitchen [#1389](https://github.com/chef/chef-workstation/pull/1389) ([tas50](https://github.com/tas50))
+- add gcc &amp; make in docker image [#1361](https://github.com/chef/chef-workstation/pull/1361) ([Wing924](https://github.com/Wing924))
+- Bump chef-analyze CLI to 0.1.99 [#1371](https://github.com/chef/chef-workstation/pull/1371) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump  to 16.3.45 [#1378](https://github.com/chef/chef-workstation/pull/1378) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Spellcheck fixes to various components [#1381](https://github.com/chef/chef-workstation/pull/1381) ([tas50](https://github.com/tas50))
+- Update chef-run cookbook search preference [#1383](https://github.com/chef/chef-workstation/pull/1383) ([mudash](https://github.com/mudash))
+- Pull in smaller omnibus sofware defs + expand gem cleanup [#1388](https://github.com/chef/chef-workstation/pull/1388) ([tas50](https://github.com/tas50))
+- Bumping Chef CLI [#1392](https://github.com/chef/chef-workstation/pull/1392) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_stable_release -->
+
 ## [20.7.81](https://github.com/chef/chef-workstation/tree/20.7.81) (2020-07-01)
 
 #### Merged Pull Requests
@@ -65,7 +63,6 @@
 - Ignore rb-fsevent dependencies when rebuilding it [#1304](https://github.com/chef/chef-workstation/pull/1304) ([tyler-ball](https://github.com/tyler-ball))
 - Enable fast installs on Windows [#1301](https://github.com/chef/chef-workstation/pull/1301) ([tas50](https://github.com/tas50))
 - Bump Chef Infra Client to 16.2.73 [#1310](https://github.com/chef/chef-workstation/pull/1310) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [20.6.62](https://github.com/chef/chef-workstation/tree/20.6.62) (2020-06-02)
 
