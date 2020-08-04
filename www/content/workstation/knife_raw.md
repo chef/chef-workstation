@@ -13,7 +13,7 @@ aliases = ["/knife_raw.html", "/knife_raw/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_raw.md)
 
-{{% ws_knife_raw_summary %}}
+{{% knife_raw_summary %}}
 
 ## Syntax
 
@@ -27,7 +27,7 @@ knife raw REQUEST_PATH (options)
 
 {{< note >}}
 
-{{% ws_knife_common_see_common_options_link %}}
+{{% knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -54,7 +54,7 @@ This subcommand has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

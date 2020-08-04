@@ -13,7 +13,7 @@ aliases = ["/knife_recipe_list.html", "/knife_recipe_list/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_recipe_list.md)
 
-{{% ws_knife_recipe_list_summary %}}
+{{% knife_recipe_list_summary %}}
 
 ## Syntax
 
@@ -27,7 +27,7 @@ knife recipe list REGEX
 
 {{< note >}}
 
-{{% ws_knife_common_see_common_options_link %}}
+{{% knife_common_see_common_options_link %}}
 
 {{< /note >}}
 

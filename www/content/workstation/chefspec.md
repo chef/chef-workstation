@@ -14,7 +14,7 @@ aliases = ["/chefspec.html", "/chefspec/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/chefspec.md)
 
-{{% ws_chefspec_summary %}}
+{{% chefspec_summary %}}
 
 ChefSpec is a framework that tests resources and recipes as part of a
 simulated Chef Infra Client run. ChefSpec tests execute very quickly.

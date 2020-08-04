@@ -55,7 +55,7 @@ this path needs to be scripted, use `%USERPROFILE%\chef-repo\.chef`.
 
 ### config.rb Configuration Within a Chef Repository
 
-{{% ws_chef_repo_many_users_same_knife %}}
+{{% chef_repo_many_users_same_knife %}}
 
 ## Generating a config.rb File
 

@@ -13,15 +13,15 @@ aliases = ["/knife_data_bag.html", "/knife_data_bag/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_data_bag.md)
 
-{{% ws_data_bag %}}
+{{% data_bag %}}
 
-{{% ws_data_bag_encryption %}}
+{{% data_bag_encryption %}}
 
-{{% ws_knife_data_bag_summary %}}
+{{% knife_data_bag_summary %}}
 
 {{< note >}}
 
-{{% ws_knife_common_see_common_options_link %}}
+{{% knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -61,7 +61,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -126,7 +126,7 @@ Type `Y` to confirm a deletion.
 
 ## edit
 
-{{% ws_knife_data_bag_edit %}}
+{{% knife_data_bag_edit %}}
 
 ### Syntax
 
@@ -164,7 +164,7 @@ For encrypted data bag items, use *either* `--secret` or
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -203,7 +203,7 @@ save them.
 
 **Edit a data bag item**
 
-{{% ws_knife_data_bag_edit_item %}}
+{{% knife_data_bag_edit_item %}}
 
 ## from file
 
@@ -255,7 +255,7 @@ For encrypted data bag items, use *either* `--secret` or
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -283,7 +283,7 @@ knife data bag from file devops_data --secret-file "path to decryption file"
 **Create an encrypted data bag for use with Chef Infra Client local
 mode**
 
-{{% ws_knife_data_bag_from_file_create_encrypted_local_mode %}}
+{{% knife_data_bag_from_file_create_encrypted_local_mode %}}
 
 ## list
 
@@ -356,7 +356,7 @@ For encrypted data bag items, use *either* `--secret` or
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

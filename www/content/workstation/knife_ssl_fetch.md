@@ -13,7 +13,7 @@ aliases = ["/knife_ssl_fetch.html", "/knife_ssl_fetch/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_ssl_fetch.md)
 
-{{% ws_knife_ssl_fetch_summary %}}
+{{% knife_ssl_fetch_summary %}}
 
 ## Syntax
 
@@ -64,4 +64,4 @@ knife ssl fetch https://www.example.com
 
 **Verify Checksums**
 
-{{% ws_knife_ssl_fetch_verify_certificate %}}
+{{% knife_ssl_fetch_verify_certificate %}}
