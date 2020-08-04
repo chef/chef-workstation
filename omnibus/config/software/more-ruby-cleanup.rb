@@ -45,13 +45,21 @@ build do
     # find the embedded ruby gems dir and clean it up for globbing
     target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
     files = %w{
+      .rspec-tm
+      .sitearchdir.time
       *-public_cert.pem
+      .dockerignore
+      bootstrap.sh
       ci
+      diagrams
       example
       examples
       ext
       Gemfile.lock
+      java
+      patches
       playbooks
+      perf
       rakelib
       sample
       samples
@@ -60,7 +68,7 @@ build do
       warning.txt
     }
 
-    Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
+    Dir.glob("#{target_dir}/*/{#{files.join(",")}}").each do |f|
       puts "Deleting #{f}"
       FileUtils.rm_rf(f)
     end
@@ -76,7 +84,7 @@ build do
       tasks
     }
 
-    Dir.glob(Dir.glob("#{target_dir}/*/{#{files.join(",")}}")).each do |f|
+    Dir.glob("#{target_dir}/*/{#{files.join(",")}}").each do |f|
       # don't delete these files if there's a non-empty bin dir in the same dir
       next if Dir.exist?(File.join(File.dirname(f), "bin")) && !Dir.empty?(File.join(File.dirname(f), "bin"))
 
@@ -89,7 +97,7 @@ build do
     # find the embedded ruby gems dir and clean it up for globbing
     target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
 
-    Dir.glob(Dir.glob("#{target_dir}/*/spec")).each do |f|
+    Dir.glob("#{target_dir}/*/spec").each do |f|
 
       # don't delete these files if we use them in our verify tests
       unless File.basename(File.expand_path("..", f)).match?(/^(berkshelf|test-kitchen|chef|chef-cli|chef-apply|chefspec)-\d/)
