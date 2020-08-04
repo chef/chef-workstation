@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.8.106 -->
-## [20.8.106](https://github.com/chef/chef-workstation/tree/20.8.106) (2020-08-03)
+<!-- latest_release 20.8.107 -->
+## [20.8.107](https://github.com/chef/chef-workstation/tree/20.8.107) (2020-08-04)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.99 [#1371](https://github.com/chef/chef-workstation/pull/1371) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump  to 16.3.45 [#1378](https://github.com/chef/chef-workstation/pull/1378) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.7.81 -->
 ### Changes since 20.7.81 release
 
 #### Merged Pull Requests
+- Bump  to 16.3.45 [#1378](https://github.com/chef/chef-workstation/pull/1378) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.8.107 -->
 - Bump chef-analyze CLI to 0.1.99 [#1371](https://github.com/chef/chef-workstation/pull/1371) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.8.106 -->
 - add gcc &amp; make in docker image [#1361](https://github.com/chef/chef-workstation/pull/1361) ([Wing924](https://github.com/Wing924)) <!-- 20.8.105 -->
 - Update cookstyle, kichen/knife vmware plugins, knife-opc, and test kitchen [#1389](https://github.com/chef/chef-workstation/pull/1389) ([tas50](https://github.com/tas50)) <!-- 20.8.104 -->
