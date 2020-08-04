@@ -24,7 +24,7 @@ ENV LANG=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8
 
 RUN apt-get update && \
-    apt-get install -y git graphviz rsync ssh vim-tiny wget && \
+    apt-get install -y gcc git graphviz make rsync ssh vim-tiny wget && \
     ln -s /usr/bin/vi /usr/bin/vim && \
     wget --content-disposition "http://packages.chef.io/files/${CHANNEL}/chef-workstation/${VERSION}/ubuntu/18.04/chef-workstation_${VERSION}-1_amd64.deb" -O /tmp/chef-workstation.deb && \
     dpkg -i /tmp/chef-workstation.deb && \

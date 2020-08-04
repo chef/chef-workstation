@@ -262,6 +262,10 @@ module ChefWorkstation
         c.gem_base_dir = "chef-cli"
 
         c.smoke_test do
+          test_path = File.join(Dir.home, ".chef")
+          unless Dir.exist?(test_path)
+            raise "Expected directory #{test_path} to exist after installation complete, but did not find it."
+          end
 
           if File.directory?(usr_bin_prefix)
             sh!("#{usr_bin_path("berks")} -v")
