@@ -33,7 +33,7 @@ error_exit()
 
 is_darwin()
 {
-  uname -v | grep "^Darwin" >/dev/null 2>&1
+  uname -a | grep "^Darwin" 2>&1 >/dev/null
 }
 
 if is_darwin; then
@@ -94,7 +94,7 @@ if is_darwin; then
   fi
   # chef-workstation-app is configured to build Mac as a zip file instead
   # of a directory. Otherwise, the mac pkgbuild command will find the Chef Workstation App
-  # within the larger Chef Workstatoin package, and will not include it in the Chef Workstation
+  # within the larger Chef Workstation package, and will not include it in the Chef Workstation
   # package directly.
   echo "Moving Chef Workstation App to the Applications folder"
   pushd "$INSTALLER_DIR/components/chef-workstation-app"

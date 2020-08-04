@@ -7,7 +7,7 @@ version="${VERSION:-latest}"
 
 is_darwin()
 {
-  uname -v | grep "^Darwin" >/dev/null 2>&1
+  uname -a | grep "^Darwin" 2>&1 >/dev/null
 }
 
 echo "--- Installing $channel $product $version"
@@ -45,7 +45,7 @@ chef env
 echo "--- Ensure the 'chef report' subcommand cli works (chef report help)"
 chef report help
 
-echo "--- Ensure that 'hab' cli is avaliable"
+echo "--- Ensure that 'hab' cli is available"
 hab help
 
 

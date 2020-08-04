@@ -14,7 +14,7 @@ error_exit()
 
 is_darwin()
 {
-  uname -v | grep "^Darwin" 2>&1 >/dev/null
+  uname -a | grep "^Darwin" 2>&1 >/dev/null
 }
 
 if is_darwin; then
@@ -28,7 +28,7 @@ sudo rm -rf '/opt/chef-workstation'
 sudo rm -rf '/Applications/Chef Workstation App.app'
 echo "  -> Removing binary links in /usr/local/bin..."
 sudo find /usr/local/bin -lname '/opt/chef-workstation/*' -delete
-echo "  -> Forgeting com.getchef.pkg.chef-workstation package..."
+echo "  -> Forgetting com.getchef.pkg.chef-workstation package..."
 sudo pkgutil --forget com.getchef.pkg.chef-workstation > /dev/null 2>&1;
 echo "Chef Workstation Uninstalled."
 EOF

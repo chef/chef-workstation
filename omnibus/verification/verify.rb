@@ -262,6 +262,10 @@ module ChefWorkstation
         c.gem_base_dir = "chef-cli"
 
         c.smoke_test do
+          test_path = File.join(Dir.home, ".chef")
+          unless Dir.exist?(test_path)
+            raise "Expected directory #{test_path} to exist after installation complete, but did not find it."
+          end
 
           if File.directory?(usr_bin_prefix)
             sh!("#{usr_bin_path("berks")} -v")
@@ -330,7 +334,7 @@ module ChefWorkstation
         c.integration_test { sh("#{embedded_bin("bundle")} exec rake test:vm") }
 
         # It would be nice to use a chef generator to create these specs, but
-        # we dont have that yet.  So we do it manually.
+        # we don't have that yet. So we do it manually.
         c.smoke_test do
           tmpdir do |cwd|
             File.open(File.join(cwd, "some_spec.rb"), "w+") do |f|

@@ -29,7 +29,7 @@ default_version "v0.1.5"
 # /DO NOT MODIFY
 
 # These electron dependencies are pulled in/created
-# by this build. They may have dependendcies that aren't met
+# by this build. They may have dependencies that aren't met
 # on the install target - in which case the tray application
 # will not be runnable.  That does not affect the rest of
 # the chef-workstation installation, so we will whitelist the
