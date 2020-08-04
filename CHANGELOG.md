@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 20.8.112 -->
+## [20.8.112](https://github.com/chef/chef-workstation/tree/20.8.112) (2020-08-04)
+
+#### Merged Pull Requests
+- Chocolatey times out too much, lets add some debugging info [#1397](https://github.com/chef/chef-workstation/pull/1397) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=20.8.111 -->
+### Changes since 20.8.111 release
+
+#### Merged Pull Requests
+- Chocolatey times out too much, lets add some debugging info [#1397](https://github.com/chef/chef-workstation/pull/1397) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.8.112 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
