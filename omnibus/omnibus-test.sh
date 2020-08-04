@@ -45,7 +45,7 @@ chef env
 echo "--- Ensure the 'chef report' subcommand cli works (chef report help)"
 chef report help
 
-echo "--- Ensure that 'hab' cli is avaliable"
+echo "--- Ensure that 'hab' cli is available"
 hab help
 
 

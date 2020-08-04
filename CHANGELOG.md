@@ -1,15 +1,22 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.7.102 -->
-## [20.7.102](https://github.com/chef/chef-workstation/tree/20.7.102) (2020-07-31)
+<!-- latest_release 20.8.109 -->
+## [20.8.109](https://github.com/chef/chef-workstation/tree/20.8.109) (2020-08-04)
 
 #### Merged Pull Requests
-- Reduce the size of the Chef Workstation package / install [#1386](https://github.com/chef/chef-workstation/pull/1386) ([tas50](https://github.com/tas50))
+- Update chef-run cookbook search preference [#1383](https://github.com/chef/chef-workstation/pull/1383) ([mudash](https://github.com/mudash))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.7.81 -->
 ### Changes since 20.7.81 release
 
 #### Merged Pull Requests
+- Update chef-run cookbook search preference [#1383](https://github.com/chef/chef-workstation/pull/1383) ([mudash](https://github.com/mudash)) <!-- 20.8.109 -->
+- Spellcheck fixes to various components [#1381](https://github.com/chef/chef-workstation/pull/1381) ([tas50](https://github.com/tas50)) <!-- 20.8.108 -->
+- Bump  to 16.3.45 [#1378](https://github.com/chef/chef-workstation/pull/1378) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.8.107 -->
+- Bump chef-analyze CLI to 0.1.99 [#1371](https://github.com/chef/chef-workstation/pull/1371) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.8.106 -->
+- add gcc &amp; make in docker image [#1361](https://github.com/chef/chef-workstation/pull/1361) ([Wing924](https://github.com/Wing924)) <!-- 20.8.105 -->
+- Update cookstyle, kichen/knife vmware plugins, knife-opc, and test kitchen [#1389](https://github.com/chef/chef-workstation/pull/1389) ([tas50](https://github.com/tas50)) <!-- 20.8.104 -->
+- Move more of the omnibus cleanup to omnibus-software [#1366](https://github.com/chef/chef-workstation/pull/1366) ([tas50](https://github.com/tas50)) <!-- 20.7.103 -->
 - Reduce the size of the Chef Workstation package / install [#1386](https://github.com/chef/chef-workstation/pull/1386) ([tas50](https://github.com/tas50)) <!-- 20.7.102 -->
 - Make sure macOS detection works even if the string changes [#1384](https://github.com/chef/chef-workstation/pull/1384) ([tas50](https://github.com/tas50)) <!-- 20.7.101 -->
 - Update default_version of habitat during build [#1363](https://github.com/chef/chef-workstation/pull/1363) ([marcparadise](https://github.com/marcparadise)) <!-- 20.7.100 -->

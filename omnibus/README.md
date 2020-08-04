@@ -17,7 +17,7 @@ The build pipeline generally looks like the following:
 1. To promote to the `stable` channel (also called 'releasing') we use Expeditor.
 1.1. `/expeditor promote chef/chef-workstation:master 1.0.2` would promote a 1.0.2 build from current to stable.
 1. Packages are available via...
-1.1. mixlib-install, omnitruck, downloads.chef.io, Habitat Depot, Dockerhub
+1.1. mixlib-install, omnitruck, downloads.chef.io, Habitat Depot, Docker Hub
 1. Come to `#releng-support` if any of these things cause issues
 
 ## Installation
