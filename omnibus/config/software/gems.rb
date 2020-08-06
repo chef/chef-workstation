@@ -55,6 +55,11 @@ dependency "rb-fsevent-gem" if mac_os_x?
 # in its gemspec.
 dependency "docker-api"
 
+# The azure SDK includes files for every possible API version since 2015.
+# All of our usage is against the "latest" profile which allows us to remove
+# 2.5+ million lines of API code we don't need
+dependency "azure-sdk"
+
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
