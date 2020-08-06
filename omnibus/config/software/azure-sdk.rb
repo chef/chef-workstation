@@ -27,9 +27,8 @@ dependency "ruby"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
-  gem "build azure_mgmt_compute.gemspec", env: env, cwd: "#{project_dir}/management/azure_mgmt_compute"
-  gem "install azure_mgmt_compute-*.gem --no-document --ignore-dependencies", env: env, cwd: "#{project_dir}/management/azure_mgmt_compute"
-
-  gem "build azure_mgmt_network.gemspec", env: env, cwd: "#{project_dir}/management/azure_mgmt_network"
-  gem "install azure_mgmt_network-*.gem --no-document --ignore-dependencies", env: env, cwd: "#{project_dir}/management/azure_mgmt_network"
+  %w{compute key_vault network resources security storage}.each do |gem_name|
+    gem "build azure_mgmt_#{gem_name}.gemspec", env: env, cwd: "#{project_dir}/management/azure_mgmt_#{gem_name}"
+    gem "install azure_mgmt_#{gem_name}-*.gem --no-document --ignore-dependencies", env: env, cwd: "#{project_dir}/management/azure_mgmt_#{gem_name}"
+  end
 end
