@@ -116,4 +116,23 @@ build do
       FileUtils.remove_dir(f)
     end
   end
+
+  block "Remove extra unused binaries that are built with libraries we ship" do
+    %w{
+      xml2-config
+      xmlcatalog
+      xmllint
+      xslt-config
+      xsltproc
+    }.each do |f|
+      file_path = "#{install_dir}/embedded/bin/#{f}"
+
+      if ::File.exist?(file_path)
+        puts "Deleting binary at #{file_path}"
+        FileUtils.rm_f(file_path)
+      else
+        puts "Binary #{file_path} not found. Skipping."
+      end
+    end
+  end
 end
