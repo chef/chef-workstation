@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.8.113 -->
-## [20.8.113](https://github.com/chef/chef-workstation/tree/20.8.113) (2020-08-05)
+<!-- latest_release 20.8.114 -->
+## [20.8.114](https://github.com/chef/chef-workstation/tree/20.8.114) (2020-08-07)
 
 #### Merged Pull Requests
-- Update omnibus-software to cleanup empty gem dirs [#1395](https://github.com/chef/chef-workstation/pull/1395) ([tas50](https://github.com/tas50))
+- Bump omnibus software again and bump library deps [#1401](https://github.com/chef/chef-workstation/pull/1401) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.8.111 -->
 ### Changes since 20.8.111 release
 
 #### Merged Pull Requests
+- Bump omnibus software again and bump library deps [#1401](https://github.com/chef/chef-workstation/pull/1401) ([tas50](https://github.com/tas50)) <!-- 20.8.114 -->
 - Update omnibus-software to cleanup empty gem dirs [#1395](https://github.com/chef/chef-workstation/pull/1395) ([tas50](https://github.com/tas50)) <!-- 20.8.113 -->
 - Chocolatey times out too much, lets add some debugging info [#1397](https://github.com/chef/chef-workstation/pull/1397) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.8.112 -->
 <!-- release_rollup -->
