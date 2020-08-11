@@ -12,16 +12,18 @@ steps:
           host_os: windows
           environment:
 
-  # - label: ":mac_os_x: :github: Create PR to update Homebrew/homebrew-cask"
-  #   command:
-  #     - bash .expeditor/create_pr_for_homebrew.sh
-  #   expeditor:
-  #     accounts:
-  #       - github/chef
-  #     secrets:
-  #       GITHUB_TOKEN:
-  #         account: github/chef
-  #         field: token
-  #   executor:
-  #     docker:
-  #        image: homebrew/brew
+  - label: ":mac: :github: Create PR to update Homebrew/homebrew-cask"
+    command:
+      - bash .expeditor/create_pr_for_homebrew.sh
+    expeditor:
+      accounts:
+        - github/chef
+      secrets:
+        CHEF_CI_GITHUB_AUTH_TOKEN:
+          path: account/static/github/chef-ci
+          field: token
+        GITHUB_TOKEN:
+          account: github/chef
+          field: token
+      executor:
+        macos:
