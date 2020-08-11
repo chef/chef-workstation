@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.8.115 -->
-## [20.8.115](https://github.com/chef/chef-workstation/tree/20.8.115) (2020-08-07)
+<!-- latest_release 20.8.116 -->
+## [20.8.116](https://github.com/chef/chef-workstation/tree/20.8.116) (2020-08-11)
 
 #### Merged Pull Requests
-- Update cheffish, inspec, kitchen-vagrant, knife-azure, and knife-ec2 [#1407](https://github.com/chef/chef-workstation/pull/1407) ([tas50](https://github.com/tas50))
+- Fix Homebrew PR creation [#1413](https://github.com/chef/chef-workstation/pull/1413) ([marcparadise](https://github.com/marcparadise))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.8.111 -->
 ### Changes since 20.8.111 release
 
 #### Merged Pull Requests
+- Fix Homebrew PR creation [#1413](https://github.com/chef/chef-workstation/pull/1413) ([marcparadise](https://github.com/marcparadise)) <!-- 20.8.116 -->
 - Update cheffish, inspec, kitchen-vagrant, knife-azure, and knife-ec2 [#1407](https://github.com/chef/chef-workstation/pull/1407) ([tas50](https://github.com/tas50)) <!-- 20.8.115 -->
 - Bump omnibus software again and bump library deps [#1401](https://github.com/chef/chef-workstation/pull/1401) ([tas50](https://github.com/tas50)) <!-- 20.8.114 -->
 - Update omnibus-software to cleanup empty gem dirs [#1395](https://github.com/chef/chef-workstation/pull/1395) ([tas50](https://github.com/tas50)) <!-- 20.8.113 -->
