@@ -11,9 +11,6 @@ project:
 slack:
   notify_channel: chef-ws-notify
 
-# docker_images:
-#   - chefworkstation
-
 github:
   # This deletes the GitHub PR branch after successfully merged into the release branch
   delete_branch_on_merge: true
@@ -44,6 +41,7 @@ merge_actions:
 pipelines:
   - verify:
       description: Pull Request validation tests
+  - docker/build
   - omnibus/release
   - omnibus/adhoc:
       definition: .expeditor/release.omnibus.yml
@@ -53,12 +51,12 @@ pipelines:
       description: post-release publishing of Workstation packages to third party distribution platforms
 
 subscriptions:
-  # - workload: artifact_published:unstable:chef-workstation:{{version_constraint}}
-  #   actions:
-  #     - built_in:build_docker_image
-  # - workload: artifact_published:current:chef-workstation:{{version_constraint}}
-  #   actions:
-  #     - built_in:tag_docker_image
+  - workload: artifact_published:unstable:chef-workstation:{{version_constraint}}
+    actions:
+      - trigger_pipeline:docker/build
+  - workload: artifact_published:current:chef-workstation:{{version_constraint}}
+    actions:
+      - built_in:promote_docker_images
   - workload: artifact_published:stable:chef-workstation:{{version_constraint}}
     actions:
       - built_in:rollover_changelog
@@ -66,7 +64,7 @@ subscriptions:
       - bash:.expeditor/publish-release-notes.sh
       - bash:.expeditor/announce-release.sh
       - purge_packages_chef_io_fastly:{{channel}}/{{product_key}}/latest
-      # - built_in:tag_docker_image
+      - built_in:promote_docker_images
       # publish to third party package managers that have a dependency
       # on this artifact's availability
       - trigger_pipeline:third-party-packages
