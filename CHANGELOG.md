@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.8.117 -->
-## [20.8.117](https://github.com/chef/chef-workstation/tree/20.8.117) (2020-08-12)
+<!-- latest_release 20.8.118 -->
+## [20.8.118](https://github.com/chef/chef-workstation/tree/20.8.118) (2020-08-13)
 
 #### Merged Pull Requests
-- Reenabling Docker image builds using Dobi [#1414](https://github.com/chef/chef-workstation/pull/1414) ([tyler-ball](https://github.com/tyler-ball))
+- Update cookstyle, chef-cli, mdl, chef-telemetry and chefstyle [#1416](https://github.com/chef/chef-workstation/pull/1416) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.8.111 -->
 ### Changes since 20.8.111 release
 
 #### Merged Pull Requests
+- Update cookstyle, chef-cli, mdl, chef-telemetry and chefstyle [#1416](https://github.com/chef/chef-workstation/pull/1416) ([tas50](https://github.com/tas50)) <!-- 20.8.118 -->
 - Reenabling Docker image builds using Dobi [#1414](https://github.com/chef/chef-workstation/pull/1414) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.8.117 -->
 - Fix Homebrew PR creation [#1413](https://github.com/chef/chef-workstation/pull/1413) ([marcparadise](https://github.com/marcparadise)) <!-- 20.8.116 -->
 - Update cheffish, inspec, kitchen-vagrant, knife-azure, and knife-ec2 [#1407](https://github.com/chef/chef-workstation/pull/1407) ([tas50](https://github.com/tas50)) <!-- 20.8.115 -->
