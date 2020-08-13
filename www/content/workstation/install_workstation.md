@@ -133,6 +133,21 @@ Alternately, install Chef Workstation using Homebrew:
 3.  **Optional:** Set the default shell. On Microsoft Windows it is
     strongly recommended to use Windows PowerShell instead of `cmd.exe`.
 
+#### Headless Unattended Install
+
+
+"Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse.  They are usually controlled over a network connection.
+
+To install Chef Workstation on a headless Windows system, 
+exclude the Chef Workstation App from auto-starting on login, use the following
+command in Windows PowerShell or `cmd.exe`.  Replace `MsiPath` with the path of
+the downloaded Chef Workstation installer.
+
+```
+msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
+```
+
+
 #### Spaces and Directories
 
 {{% ws_windows_spaces_and_directories %}}
