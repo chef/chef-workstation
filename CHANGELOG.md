@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.8.118 -->
-## [20.8.118](https://github.com/chef/chef-workstation/tree/20.8.118) (2020-08-13)
+<!-- latest_release 20.8.119 -->
+## [20.8.119](https://github.com/chef/chef-workstation/tree/20.8.119) (2020-08-13)
 
 #### Merged Pull Requests
-- Update cookstyle, chef-cli, mdl, chef-telemetry and chefstyle [#1416](https://github.com/chef/chef-workstation/pull/1416) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.81 [#1405](https://github.com/chef/chef-workstation/pull/1405) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.8.111 -->
 ### Changes since 20.8.111 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.81 [#1405](https://github.com/chef/chef-workstation/pull/1405) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.8.119 -->
 - Update cookstyle, chef-cli, mdl, chef-telemetry and chefstyle [#1416](https://github.com/chef/chef-workstation/pull/1416) ([tas50](https://github.com/tas50)) <!-- 20.8.118 -->
 - Reenabling Docker image builds using Dobi [#1414](https://github.com/chef/chef-workstation/pull/1414) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.8.117 -->
 - Fix Homebrew PR creation [#1413](https://github.com/chef/chef-workstation/pull/1413) ([marcparadise](https://github.com/marcparadise)) <!-- 20.8.116 -->
