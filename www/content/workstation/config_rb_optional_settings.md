@@ -32,7 +32,7 @@ Many optional settings should not be added to the config.rb file. The
 reasons for not adding them can vary. For example, using `--yes` as a
 default in the config.rb file will cause knife to always assume that "Y"
 is the response to any prompt, which may lead to undesirable outcomes.
-Other settings, such as `--hide-healthy` (used only with the
+Other settings, such as `--hide-by-mins` (used only with the
 `knife status` subcommand) or `--bare-directories` (used only with the
 `knife list` subcommand) probably aren't used often enough (and in the
 same exact way) to justify adding them to the config.rb file. In
@@ -1224,9 +1224,9 @@ The following `knife ssh` settings can be added to the config.rb file:
 The following `knife status` settings can be added to the config.rb
 file:
 
-`knife[:hide_healthy]`
+`knife[:hide_by_mins]`
 
-:   Adds the the `--hide-healthy` option.
+:   Adds the the `--hide-by-mins` option.
 
 `knife[:run_list]`
 

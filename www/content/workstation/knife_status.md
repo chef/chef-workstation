@@ -44,14 +44,6 @@ This subcommand has the following options:
     within the last specified number of minutes. The number of minutes
     to hide is provided as an integer, such as `--hide-by-mins 10`.
 
-`-H`, `--hide-healthy`
-
-:   Hide nodes on which a Chef Infra Client run has occurred within the
-    previous hour.
-
-    Deprecated in favor of the `--hide-by-mins` option in Chef Client
-    12.6 and above.
-
 `-l`, `--long`
 
 :   Display all attributes in the output and show the output as JSON.
@@ -93,19 +85,6 @@ to return something like:
 ``` bash
 422492 hours ago, runner-1-432.lxc, centos 6.8.
 27 hours ago, union-3-432.lxc, centos 7.3.1611.
-```
-
-On systems running Chef Client 12.5 or prior:
-
-``` bash
-knife status --hide-healthy
-```
-
-to return something like:
-
-``` bash
-1 hour ago, i-256f884f, ubuntu 12.04, ec2-67-202-63-102.compute-1.amazonaws.com, 67.202.63.102, role[web].
-1 hour ago, i-a47823c9, ubuntu 10.04, ec2-174-129-127-206.compute-1.amazonaws.com, 184.129.143.111, role[lb].
 ```
 
 **View status using a query**
