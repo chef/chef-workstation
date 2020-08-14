@@ -338,7 +338,7 @@ GEM
     cheffish (16.0.8)
       chef-zero (>= 14.0)
       net-ssh
-    chefspec (9.2.0)
+    chefspec (9.2.1)
       chef (>= 14)
       chef-cli
       fauxhai-ng (>= 7.5)
@@ -390,7 +390,7 @@ GEM
       http-cookie (~> 1.0.0)
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
-    fauxhai-ng (8.2.0)
+    fauxhai-ng (8.3.0)
       net-ssh
     ffi (1.13.1)
     ffi (1.13.1-x64-mingw32)
