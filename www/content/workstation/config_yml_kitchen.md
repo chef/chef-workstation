@@ -26,7 +26,7 @@ data across any combination of platforms and test suites:
 -   Uses a comprehensive set of base images provided by
     [Bento](https://github.com/chef/bento)
 
-{{% ws_test_kitchen_yml %}}
+{{% test_kitchen_yml %}}
 
 {{< note >}}
 
@@ -38,7 +38,7 @@ about Test Kitchen.
 
 ## Syntax
 
-{{% ws_test_kitchen_yml_syntax %}}
+{{% test_kitchen_yml_syntax %}}
 
 ## Provisioner Settings
 
@@ -430,7 +430,7 @@ kitchen.yml file when the transport is WinRM:
 
 ### Work with Proxies
 
-{{< readFile_shortcode file="ws_test_kitchen_yml_syntax_proxy.md" >}}
+{{< readFile_shortcode file="test_kitchen_yml_syntax_proxy.md" >}}
 
 ## Chef Infra Client Settings
 
@@ -493,19 +493,19 @@ Specific `optional_settings: values` may be specified.
 
 ### Bento
 
-{{% ws_bento %}}
+{{% bento %}}
 
 ### Drivers
 
-{{% ws_test_kitchen_drivers %}}
+{{% test_kitchen_drivers %}}
 
 ### kitchen-vagrant
 
-{{% ws_test_kitchen_driver_vagrant %}}
+{{% test_kitchen_driver_vagrant %}}
 
-{{% ws_test_kitchen_driver_vagrant_settings %}}
+{{% test_kitchen_driver_vagrant_settings %}}
 
-{{% ws_test_kitchen_driver_vagrant_config %}}
+{{% test_kitchen_driver_vagrant_config %}}
 
 ## Examples
 

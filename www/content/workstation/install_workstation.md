@@ -150,11 +150,11 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
 
 #### Spaces and Directories
 
-{{% ws_windows_spaces_and_directories %}}
+{{% windows_spaces_and_directories %}}
 
 #### Top-level Directory Names
 
-{{% ws_windows_top_level_directory_names %}}
+{{% windows_top_level_directory_names %}}
 
 ### Linux
 

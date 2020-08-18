@@ -15,7 +15,7 @@ aliases = ["/knife_windows.html", "/knife_windows/"]
 
 ## Knife Windows Overview
 
-{{% ws_knife_windows_summary %}}
+{{% knife_windows_summary %}}
 
 {{< note >}}
 
@@ -241,7 +241,7 @@ Use the `winrm` argument to create a connection to one or more remote
 machines. As each connection is created, a password must be provided.
 This argument uses the same syntax as the `search` subcommand.
 
-{{% ws_knife_windows_winrm_ports %}}
+{{% knife_windows_winrm_ports %}}
 
 ### Syntax
 

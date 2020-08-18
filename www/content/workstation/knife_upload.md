@@ -13,7 +13,7 @@ aliases = ["/knife_upload.html", "/knife_upload/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_upload.md)
 
-{{% ws_knife_upload_summary %}}
+{{% knife_upload_summary %}}
 
 ## Syntax
 
@@ -27,7 +27,7 @@ knife upload [PATTERN...] (options)
 
 {{< note >}}
 
-{{% ws_knife_common_see_common_options_link %}}
+{{% knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -86,7 +86,7 @@ This subcommand has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

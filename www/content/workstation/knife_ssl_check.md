@@ -13,7 +13,7 @@ aliases = ["/knife_ssl_check.html", "/knife_ssl_check/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_ssl_check.md)
 
-{{% ws_knife_ssl_check_summary %}}
+{{% knife_ssl_check_summary %}}
 
 ## Syntax
 
@@ -39,11 +39,11 @@ The following examples show how to use this knife subcommand:
 
 **SSL certificate has valid X.509 properties**
 
-{{% ws_knife_ssl_check_verify_server_config %}}
+{{% knife_ssl_check_verify_server_config %}}
 
 **SSL certificate has invalid X.509 properties**
 
-{{% ws_knife_ssl_check_bad_ssl_certificate %}}
+{{% knife_ssl_check_bad_ssl_certificate %}}
 
 **Verify the SSL configuration for Chef Infra Client**
 

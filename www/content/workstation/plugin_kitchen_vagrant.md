@@ -14,8 +14,8 @@ aliases = ["/plugin_kitchen_vagrant.html", "/plugin_kitchen_vagrant/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/plugin_kitchen_vagrant.md)
 
-{{% ws_test_kitchen_driver_vagrant %}}
+{{% test_kitchen_driver_vagrant %}}
 
-{{% ws_test_kitchen_driver_vagrant_settings %}}
+{{% test_kitchen_driver_vagrant_settings %}}
 
-{{% ws_test_kitchen_driver_vagrant_config %}}
+{{% test_kitchen_driver_vagrant_config %}}

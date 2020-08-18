@@ -13,9 +13,9 @@ aliases = ["/knife_bootstrap.html", "/knife_bootstrap/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_bootstrap.md)
 
-{{% ws_chef_client_bootstrap_node %}}
+{{% chef_client_bootstrap_node %}}
 
-{{% ws_knife_bootstrap_summary %}}
+{{% knife_bootstrap_summary %}}
 
 **Considerations:**
 
@@ -49,7 +49,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 {{< note >}}
 
-{{% ws_knife_common_see_common_options_link %}}
+{{% knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -335,13 +335,13 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
 ### Validatorless Bootstrap
 
-{{% ws_knife_bootstrap_no_validator %}}
+{{% knife_bootstrap_no_validator %}}
 
 {{< note >}}
 
@@ -351,11 +351,11 @@ The `--node-name` option is required for a validatorless bootstrap.
 
 ### FIPS Mode
 
-{{% ws_fips_intro_client %}}
+{{% fips_intro_client %}}
 
 **Bootstrap a node using FIPS**
 
-{{% ws_knife_bootstrap_node_fips %}}
+{{% knife_bootstrap_node_fips %}}
 
 ## Custom Templates
 

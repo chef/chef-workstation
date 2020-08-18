@@ -14,7 +14,7 @@ aliases = ["/ctl_kitchen.html", "/ctl_kitchen/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/ctl_kitchen.md)
 
-{{% ws_ctl_kitchen_summary %}}
+{{% ctl_kitchen_summary %}}
 
 {{< note >}}
 
@@ -145,7 +145,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
+    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -301,7 +301,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
+    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -433,7 +433,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
+    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -483,7 +483,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
+    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -642,7 +642,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
+    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -696,7 +696,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
+    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -759,7 +759,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
+    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -847,7 +847,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
+    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -901,7 +901,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
+    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -964,7 +964,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
+    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -1095,7 +1095,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< readFile_shortcode file="ws_ctl_kitchen_common_option_platforms.md" >}}
+    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
