@@ -1,15 +1,17 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release unreleased -->
-## Unreleased
+<!-- latest_release 20.8.121 -->
+## [20.8.121](https://github.com/chef/chef-workstation/tree/20.8.121) (2020-08-18)
 
 #### Merged Pull Requests
-- Replace docs for hide-healthy with hide-by-mins [#1417](https://github.com/chef/chef-workstation/pull/1417) ([tas50](https://github.com/tas50))
+- Update Chef Infra Client to 16.4.35 + pull in perf optimization updates [#1426](https://github.com/chef/chef-workstation/pull/1426) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.8.111 -->
 ### Changes since 20.8.111 release
 
 #### Merged Pull Requests
+- Update Chef Infra Client to 16.4.35 + pull in perf optimization updates [#1426](https://github.com/chef/chef-workstation/pull/1426) ([tas50](https://github.com/tas50)) <!-- 20.8.121 -->
+- Bump deps for perf enhancements [#1420](https://github.com/chef/chef-workstation/pull/1420) ([tas50](https://github.com/tas50)) <!-- 20.8.120 -->
 - Replace docs for hide-healthy with hide-by-mins [#1417](https://github.com/chef/chef-workstation/pull/1417) ([tas50](https://github.com/tas50)) <!-- 20.8.119 -->
 - Bump Chef Workstation App to 0.1.81 [#1405](https://github.com/chef/chef-workstation/pull/1405) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.8.119 -->
 - Update cookstyle, chef-cli, mdl, chef-telemetry and chefstyle [#1416](https://github.com/chef/chef-workstation/pull/1416) ([tas50](https://github.com/tas50)) <!-- 20.8.118 -->
