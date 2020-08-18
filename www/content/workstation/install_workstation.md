@@ -138,8 +138,8 @@ Alternately, install Chef Workstation using Homebrew:
 
 "Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse.  They are usually controlled over a network connection.
 
-To install Chef Workstation on a headless Windows system, 
-exclude the Chef Workstation App from auto-starting on login, use the following
+To install Chef Workstation on a headless Windows system,
+exclude the Chef Workstation App from auto-starting on login by using the following
 command in Windows PowerShell or `cmd.exe`.  Replace `MsiPath` with the path of
 the downloaded Chef Workstation installer.
 
