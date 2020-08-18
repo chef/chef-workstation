@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.8.124 -->
-## [20.8.124](https://github.com/chef/chef-workstation/tree/20.8.124) (2020-08-18)
+<!-- latest_release 20.8.125 -->
+## [20.8.125](https://github.com/chef/chef-workstation/tree/20.8.125) (2020-08-18)
 
 #### Merged Pull Requests
-- Bump  to 16.4.38 [#1430](https://github.com/chef/chef-workstation/pull/1430) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Docs overhaul [#1396](https://github.com/chef/chef-workstation/pull/1396) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.8.111 -->
 ### Changes since 20.8.111 release
 
 #### Merged Pull Requests
+- Docs overhaul [#1396](https://github.com/chef/chef-workstation/pull/1396) ([IanMadd](https://github.com/IanMadd)) <!-- 20.8.125 -->
 - Bump  to 16.4.38 [#1430](https://github.com/chef/chef-workstation/pull/1430) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.8.124 -->
 - Add headless/ws-appless windows install instructions [#1418](https://github.com/chef/chef-workstation/pull/1418) ([marcparadise](https://github.com/marcparadise)) <!-- 20.8.123 -->
 - Bump chef-analyze CLI to 0.1.100 [#1423](https://github.com/chef/chef-workstation/pull/1423) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.8.122 -->
