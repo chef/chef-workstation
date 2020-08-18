@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.8.122 -->
-## [20.8.122](https://github.com/chef/chef-workstation/tree/20.8.122) (2020-08-18)
+<!-- latest_release 20.8.123 -->
+## [20.8.123](https://github.com/chef/chef-workstation/tree/20.8.123) (2020-08-18)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.100 [#1423](https://github.com/chef/chef-workstation/pull/1423) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Add headless/ws-appless windows install instructions [#1418](https://github.com/chef/chef-workstation/pull/1418) ([marcparadise](https://github.com/marcparadise))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.8.111 -->
 ### Changes since 20.8.111 release
 
 #### Merged Pull Requests
+- Add headless/ws-appless windows install instructions [#1418](https://github.com/chef/chef-workstation/pull/1418) ([marcparadise](https://github.com/marcparadise)) <!-- 20.8.123 -->
 - Bump chef-analyze CLI to 0.1.100 [#1423](https://github.com/chef/chef-workstation/pull/1423) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.8.122 -->
 - Update Chef Infra Client to 16.4.35 + pull in perf optimization updates [#1426](https://github.com/chef/chef-workstation/pull/1426) ([tas50](https://github.com/tas50)) <!-- 20.8.121 -->
 - Bump deps for perf enhancements [#1420](https://github.com/chef/chef-workstation/pull/1420) ([tas50](https://github.com/tas50)) <!-- 20.8.120 -->
