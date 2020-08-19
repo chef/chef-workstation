@@ -640,7 +640,7 @@ items that are stored in Chef Vault:
 ### Using Chef Vault in recipes
 
 To use this gem in a recipe to decrypt data you must first install the
-gem via a chef_gem resource. Once the gem is installed require the gem
+gem via a chef_gem resource. Once the gem is installed, `require` the gem
 and then you can create a new instance of Chef Vault.
 
 Chef Vault 1.0 style decryption is supported, however it has been
