@@ -59,7 +59,7 @@ Neither PUB key nor PRIV key:: nested asn1 error
 
 ## Installation
 
-The Chef Workstation ships with the latest release of Chef Vault.
+The Chef Workstation ships with the latest release of the `chef-vault` gem.
 
 ### Configuring config.rb for Chef Vault
 
