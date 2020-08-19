@@ -735,7 +735,7 @@ This functionality is also available from the command line as
 
 ### Stand Alone Usage
 
-Chef Vault can be used as a stand alone binary to decrypt values
+The `chef-vault` gem can be used as a stand-alone binary to decrypt values
 stored in Chef. It requires that Chef is installed on the system and
 that you have a valid config.rb. This is useful if you want to mix
 Chef Vault into non-Chef recipe code, for example some other script
