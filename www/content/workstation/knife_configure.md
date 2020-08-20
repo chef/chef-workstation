@@ -13,7 +13,7 @@ aliases = ["/knife_configure.html", "/knife_configure/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_configure.md)
 
-{{% ws_knife_configure_summary %}}
+{{% knife_configure_summary %}}
 
 ## Syntax
 
@@ -33,7 +33,7 @@ knife configure client DIRECTORY
 
 {{< note >}}
 
-{{% ws_knife_common_see_common_options_link %}}
+{{% knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -70,7 +70,7 @@ config.rb file:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

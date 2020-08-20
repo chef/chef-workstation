@@ -13,13 +13,13 @@ aliases = ["/knife_cookbook.html", "/knife_cookbook/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_cookbook.md)
 
-{{% ws_cookbooks_summary %}}
+{{% cookbooks_summary %}}
 
-{{% ws_knife_cookbook_summary %}}
+{{% knife_cookbook_summary %}}
 
 {{< note >}}
 
-{{% ws_knife_common_see_common_options_link %}}
+{{% knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -51,7 +51,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -73,13 +73,13 @@ knife cookbook bulk delete "^[0-9]{3}$" -p
 {{< note >}}
 
 This command was removed in Chef Client 13.0. Use the [chef generate
-cookbook](/ctl_chef/#chef-generate-cookbook) command instead.
+cookbook]({{< relref "ctl_chef.md#chef-generate-repo" >}}) command instead.
 
 {{< /note >}}
 
 {{< note >}}
 
-{{% ws_ruby_style_patterns_hyphens %}}
+{{% ruby_style_patterns_hyphens %}}
 
 {{< /note >}}
 
@@ -132,7 +132,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -195,7 +195,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -248,7 +248,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -292,7 +292,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -336,7 +336,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -431,7 +431,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -548,7 +548,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -633,7 +633,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

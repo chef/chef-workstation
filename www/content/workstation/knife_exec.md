@@ -13,7 +13,7 @@ aliases = ["/knife_exec.html", "/knife_exec/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_exec.md)
 
-{{% ws_knife_exec_summary %}}
+{{% knife_exec_summary %}}
 
 ## Authenticated API Requests
 
@@ -125,7 +125,7 @@ knife exec SCRIPT (options)
 
 {{< note >}}
 
-{{% ws_knife_common_see_common_options_link %}}
+{{% knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -144,7 +144,7 @@ This subcommand has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

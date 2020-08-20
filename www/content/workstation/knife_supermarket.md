@@ -22,13 +22,13 @@ arguments do not require a user account: `download`, `search`,
 
 {{< note >}}
 
-{{% ws_notes_knife_cookbook_site_use_devkit_berkshelf %}}
+{{% notes_knife_cookbook_site_use_devkit_berkshelf %}}
 
 {{< /note >}}
 
 {{< note >}}
 
-{{% ws_knife_common_see_common_options_link %}}
+{{% knife_common_see_common_options_link %}}
 
 {{< /note >}}
 

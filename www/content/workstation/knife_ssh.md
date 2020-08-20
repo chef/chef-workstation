@@ -13,7 +13,7 @@ aliases = ["/knife_ssh.html", "/knife_ssh/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_ssh.md)
 
-{{% ws_knife_ssh_summary %}}
+{{% knife_ssh_summary %}}
 
 ## Syntax
 
@@ -27,7 +27,7 @@ knife ssh SEARCH_QUERY SSH_COMMAND (options)
 
 {{< note >}}
 
-{{% ws_knife_common_see_common_options_link %}}
+{{% knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -134,7 +134,7 @@ knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

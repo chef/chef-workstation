@@ -362,7 +362,7 @@ Use the following setting to specify URLs that do not need a proxy:
 
 ## .d Directories
 
-{{% ws_config_rb_client_dot_d_directories %}}
+{{% config_rb_client_dot_d_directories %}}
 
 ## Optional Settings
 

@@ -239,17 +239,18 @@ provide additional important information
 
 There are often cases where we want to maintain blocks of text that are identical
 from one page to the next. In those cases, we add that text, formatted in Markdown,
-to a shortcode file located in `chef-workstation/www/layouts/shortcodes`.
-
-Each shortcode in the Chef Workstation documentation must be prefixed with `ws_`.
-For example, `ws_shortcode_name.md`.
+to a shortcode file located in the `chef-web-docs` repo in
+`chef-web-docs/themes/docs-new/layouts/shortcodes`.
 
 To add that shortcode to a page in `chef-workstation/www/content`, add the file name,
 minus the .md suffix, wrapped in double curly braces and percent symbols to
 the location in the Markdown page where you want that text included. For example,
-if you want to add the text in `ws_shortcode_file_name.md` to a page, add
-`{{% ws_shortcode_file_name %}}` to the text of that page and it will appear when
+if you want to add the text in `shortcode_file_name.md` to a page, add
+`{{% shortcode_file_name %}}` to the text of that page and it will appear when
 Hugo rebuilds the documentation.
+
+To update or add a new shortcode to the Workstation documentation, submit a PR to
+`chef/chef-web-docs`. All shortcodes should be in `chef-web-docs/themes/docs-new/layouts/shortcodes`.
 
 **Shortcodes in lists**
 
@@ -326,6 +327,7 @@ aliases = ["/a_deleted_page/", "/another_deleted_page/"]
 ## Structure
 
 ### High Level
+
 ```
 .
 ├── Makefile    # contains helpers to quickly start up the development environment
@@ -334,18 +336,15 @@ aliases = ["/a_deleted_page/", "/another_deleted_page/"]
 ```
 
 ### Local Content
+
 ```
 .
 ├── site
 │   ├── content
 │   │   ├── workstation                 # where to keep markdown file documentation
-│   ├── layouts
-|   │   ├── shortcodes
-|   │   │   ├── ws_<shortcode_name>.md  # how to name your workstation-specific shortcodes
 |   ├── static
 |   |   ├── images
 |   |   |   ├── chef-workstation        # where to keep any images you need to reference in your documentation
-|   |   ├── css
 ```
 
 **Data**

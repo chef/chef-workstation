@@ -13,7 +13,7 @@ aliases = ["/knife_serve.html", "/knife_serve/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_serve.md)
 
-{{% ws_knife_serve_summary %}}
+{{% knife_serve_summary %}}
 
 ## Syntax
 
@@ -27,7 +27,7 @@ knife serve (options)
 
 {{< note >}}
 
-{{% ws_knife_common_see_common_options_link %}}
+{{% knife_common_see_common_options_link %}}
 
 {{< /note >}}
 

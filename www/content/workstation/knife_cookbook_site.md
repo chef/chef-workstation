@@ -13,7 +13,7 @@ aliases = ["/knife_cookbook_site.html", "/knife_cookbook_site/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_cookbook_site.md)
 
-{{% ws_supermarket_api_summary %}}
+{{% supermarket_api_summary %}}
 
 Use the `knife cookbook site` subcommand to interact with cookbooks that
 are available in the [Chef Supermarket](https://supermarket.chef.io/). A
@@ -30,13 +30,13 @@ supermarket](/workstation/knife_supermarket/) command.
 
 {{< warning >}}
 
-{{% ws_notes_knife_cookbook_site_use_devkit_berkshelf %}}
+{{% notes_knife_cookbook_site_use_devkit_berkshelf %}}
 
 {{< /warning >}}
 
 {{< note >}}
 
-{{% ws_knife_common_see_common_options_link %}}
+{{% knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -96,7 +96,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -186,7 +186,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -398,7 +398,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
