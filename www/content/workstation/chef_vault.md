@@ -14,11 +14,12 @@ aliases = ["/chef_vault.html", "/chef_vault/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/chef_vault.md)
 
-Chef Vault is a Ruby Gem that is included in Chef Workstation and Chef
-Infra Client. Chef Vault allows the encryption of a data bag item by
-using the public keys of a list of nodes, allowing only those nodes to
-decrypt the encrypted values. Chef Vault uses the `knife vault`
-subcommand.
+`chef-vault` is a Ruby Gem that is included in Chef Workstation and Chef
+Infra Client. Chef Vault lets you encrypt a data bag item using asymmetric keys.
+When you provide Chef Vault with a list of public keys from your nodes, only the
+nodes with public keys entered on this list can decrypt the data bag item contents.
+Chef Vault is included in Chef Workstation and Chef Infra Client by way of the
+`chef-vault` Ruby Gem. `chef-vault` uses the `knife vault` subcommand.
 
 {{< note >}}
 
@@ -38,17 +39,17 @@ Use them both in recipes to work with data bag secrets.
 
 {{< warning >}}
 
-Chef Vault requires the use of Chef Infra Client configured to use
+To use Chef Vault, Chef Infra Client must be configured to use
 public/private key pairs. Chef Vault is incompatible with the practice
-of using Chef Infra Client with a private key as `client.pem` and a
+of using Chef Infra Client with a private key, such as `client.pem`, and a
 certificate set as its public identity in the Chef Infra Server
 database. To update existing nodes to use `chef-vault`, first
-re-register your Chef Infra Client nodes with the Chef Infra Server,
+re-register your Chef Infra Client nodes with the Chef Infra Server
 which will generate public/private key pairs, and then install Chef
-Vault on each node. Chef Vault will generate the following error if used
-with a Chef Infra Client with a private key as `client.pem` and a
-certificate set as its public identity in the Chef Infra Server
-database:
+Vault on each node. If Chef Vault is used with a Chef Infra Client
+instance that has a private key, such as `client.pem`, and a certificate
+set as its public identity in the Chef Infra Server database, Chef Vault will
+generate the following error:
 
 ``` none
 ## OpenSSL::PKey::RSAError
