@@ -59,6 +59,13 @@ echo "--- Debug: git diff of patched files follows"
 
 git diff
 
+echo "--- Upgrading Homebrew"
+# This ensures we stay consistent with the embedded erew style rules
+# that can change over time. If we get out of sync, we end up with
+# autocorrected changes that aren't compatible with what homebrew-cask's
+# CI is running.
+brew update
+
 echo "--- Verifying Cask"
 
 brew cask style --fix ./Casks/chef-workstation.rb
