@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.8.126 -->
-## [20.8.126](https://github.com/chef/chef-workstation/tree/20.8.126) (2020-08-21)
+<!-- latest_release 20.8.127 -->
+## [20.8.127](https://github.com/chef/chef-workstation/tree/20.8.127) (2020-08-21)
 
 #### Merged Pull Requests
-- Enable FIPS builds for RHEL and Windows systems [#1429](https://github.com/chef/chef-workstation/pull/1429) ([tyler-ball](https://github.com/tyler-ball))
+- Add MacOS 11 Tester [#1437](https://github.com/chef/chef-workstation/pull/1437) ([christopher-snapp](https://github.com/christopher-snapp))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.8.125 -->
 ### Changes since 20.8.125 release
 
 #### Merged Pull Requests
+- Add MacOS 11 Tester [#1437](https://github.com/chef/chef-workstation/pull/1437) ([christopher-snapp](https://github.com/christopher-snapp)) <!-- 20.8.127 -->
 - Enable FIPS builds for RHEL and Windows systems [#1429](https://github.com/chef/chef-workstation/pull/1429) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.8.126 -->
 <!-- release_rollup -->
 
