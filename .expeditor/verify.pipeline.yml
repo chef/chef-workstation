@@ -24,7 +24,8 @@ steps:
       docker:
         image: ruby:2.7-buster
 - label: ":linux: :darwin: :windows: top-level chef cmd"
-  command:
+  commands:
+    - cd components/main-chef-wrapper
     - hab studio run "source .studiorc && build_cross_platform"
   timeout_in_minutes: 10
   retry:
