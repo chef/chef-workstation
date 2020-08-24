@@ -13,13 +13,13 @@ aliases = ["/knife_tag.html", "/knife_tag/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_tag.md)
 
-{{% ws_chef_tags %}}
+{{% chef_tags %}}
 
-{{% ws_knife_tag_summary %}}
+{{% knife_tag_summary %}}
 
 {{< note >}}
 
-{{% ws_knife_common_see_common_options_link %}}
+{{% knife_common_see_common_options_link %}}
 
 {{< /note >}}
 

@@ -13,13 +13,13 @@ aliases = ["/knife_environment.html", "/knife_environment/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_environment.md)
 
-{{% ws_environment %}}
+{{% environment %}}
 
-{{% ws_knife_environment_summary %}}
+{{% knife_environment_summary %}}
 
 {{< note >}}
 
-{{% ws_knife_common_see_common_options_link %}}
+{{% knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -155,7 +155,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -257,7 +257,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

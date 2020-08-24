@@ -14,9 +14,9 @@ aliases = ["/ctl_push_jobs_client.html", "/ctl_push_jobs_client/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/ctl_push_jobs_client.md)
 
-{{% ws_push_jobs_summary %}}
+{{% push_jobs_summary %}}
 
-{{% ws_ctl_push_jobs_client_summary %}}
+{{% ctl_push_jobs_client_summary %}}
 
 ## Options
 

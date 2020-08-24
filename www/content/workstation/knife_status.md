@@ -13,7 +13,7 @@ aliases = ["/knife_status.html", "/knife_status/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_status.md)
 
-{{% ws_knife_status_summary %}}
+{{% knife_status_summary %}}
 
 ## Syntax
 
@@ -27,7 +27,7 @@ knife status (options)
 
 {{< note >}}
 
-{{% ws_knife_common_see_common_options_link %}}
+{{% knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -44,14 +44,6 @@ This subcommand has the following options:
     within the last specified number of minutes. The number of minutes
     to hide is provided as an integer, such as `--hide-by-mins 10`.
 
-`-H`, `--hide-healthy`
-
-:   Hide nodes on which a Chef Infra Client run has occurred within the
-    previous hour.
-
-    Deprecated in favor of the `--hide-by-mins` option in Chef Client
-    12.6 and above.
-
 `-l`, `--long`
 
 :   Display all attributes in the output and show the output as JSON.
@@ -67,7 +59,7 @@ This subcommand has the following options:
 
 {{< note >}}
 
-{{% ws_knife_common_see_all_config_options %}}
+{{% knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -77,7 +69,7 @@ The following examples show how to use this knife subcommand:
 
 **View status, include run-lists**
 
-{{% ws_knife_status_include_run_lists %}}
+{{% knife_status_include_run_lists %}}
 
 **View status using a time range**
 
@@ -95,22 +87,9 @@ to return something like:
 27 hours ago, union-3-432.lxc, centos 7.3.1611.
 ```
 
-On systems running Chef Client 12.5 or prior:
-
-``` bash
-knife status --hide-healthy
-```
-
-to return something like:
-
-``` bash
-1 hour ago, i-256f884f, ubuntu 12.04, ec2-67-202-63-102.compute-1.amazonaws.com, 67.202.63.102, role[web].
-1 hour ago, i-a47823c9, ubuntu 10.04, ec2-174-129-127-206.compute-1.amazonaws.com, 184.129.143.111, role[lb].
-```
-
 **View status using a query**
 
-{{% ws_knife_status_returned_by_query %}}
+{{% knife_status_returned_by_query %}}
 
 **View status for all nodes**
 

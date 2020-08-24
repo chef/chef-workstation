@@ -1,25 +1,41 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.8.118 -->
-## [20.8.118](https://github.com/chef/chef-workstation/tree/20.8.118) (2020-08-13)
+<!-- latest_release 20.8.128 -->
+## [20.8.128](https://github.com/chef/chef-workstation/tree/20.8.128) (2020-08-24)
 
 #### Merged Pull Requests
-- Update cookstyle, chef-cli, mdl, chef-telemetry and chefstyle [#1416](https://github.com/chef/chef-workstation/pull/1416) ([tas50](https://github.com/tas50))
+- Removing 386 arc to support go 1.15 with hab build [#1440](https://github.com/chef/chef-workstation/pull/1440) ([mudash](https://github.com/mudash))
 <!-- latest_release -->
 
-<!-- release_rollup since=20.8.111 -->
-### Changes since 20.8.111 release
+<!-- release_rollup since=20.8.125 -->
+### Changes since 20.8.125 release
 
 #### Merged Pull Requests
-- Update cookstyle, chef-cli, mdl, chef-telemetry and chefstyle [#1416](https://github.com/chef/chef-workstation/pull/1416) ([tas50](https://github.com/tas50)) <!-- 20.8.118 -->
-- Reenabling Docker image builds using Dobi [#1414](https://github.com/chef/chef-workstation/pull/1414) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.8.117 -->
-- Fix Homebrew PR creation [#1413](https://github.com/chef/chef-workstation/pull/1413) ([marcparadise](https://github.com/marcparadise)) <!-- 20.8.116 -->
-- Update cheffish, inspec, kitchen-vagrant, knife-azure, and knife-ec2 [#1407](https://github.com/chef/chef-workstation/pull/1407) ([tas50](https://github.com/tas50)) <!-- 20.8.115 -->
-- Bump omnibus software again and bump library deps [#1401](https://github.com/chef/chef-workstation/pull/1401) ([tas50](https://github.com/tas50)) <!-- 20.8.114 -->
-- Update omnibus-software to cleanup empty gem dirs [#1395](https://github.com/chef/chef-workstation/pull/1395) ([tas50](https://github.com/tas50)) <!-- 20.8.113 -->
-- Chocolatey times out too much, lets add some debugging info [#1397](https://github.com/chef/chef-workstation/pull/1397) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.8.112 -->
+- Removing 386 arc to support go 1.15 with hab build [#1440](https://github.com/chef/chef-workstation/pull/1440) ([mudash](https://github.com/mudash)) <!-- 20.8.128 -->
+- Add MacOS 11 Tester [#1437](https://github.com/chef/chef-workstation/pull/1437) ([christopher-snapp](https://github.com/christopher-snapp)) <!-- 20.8.127 -->
+- Enable FIPS builds for RHEL and Windows systems [#1429](https://github.com/chef/chef-workstation/pull/1429) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.8.126 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [20.8.125](https://github.com/chef/chef-workstation/tree/20.8.125) (2020-08-19)
+
+#### Merged Pull Requests
+- Chocolatey times out too much, lets add some debugging info [#1397](https://github.com/chef/chef-workstation/pull/1397) ([tyler-ball](https://github.com/tyler-ball))
+- Update omnibus-software to cleanup empty gem dirs [#1395](https://github.com/chef/chef-workstation/pull/1395) ([tas50](https://github.com/tas50))
+- Bump omnibus software again and bump library deps [#1401](https://github.com/chef/chef-workstation/pull/1401) ([tas50](https://github.com/tas50))
+- Update cheffish, inspec, kitchen-vagrant, knife-azure, and knife-ec2 [#1407](https://github.com/chef/chef-workstation/pull/1407) ([tas50](https://github.com/tas50))
+- Fix Homebrew PR creation [#1413](https://github.com/chef/chef-workstation/pull/1413) ([marcparadise](https://github.com/marcparadise))
+- Reenabling Docker image builds using Dobi [#1414](https://github.com/chef/chef-workstation/pull/1414) ([tyler-ball](https://github.com/tyler-ball))
+- Update cookstyle, chef-cli, mdl, chef-telemetry and chefstyle [#1416](https://github.com/chef/chef-workstation/pull/1416) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.81 [#1405](https://github.com/chef/chef-workstation/pull/1405) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Replace docs for hide-healthy with hide-by-mins [#1417](https://github.com/chef/chef-workstation/pull/1417) ([tas50](https://github.com/tas50))
+- Bump deps for perf enhancements [#1420](https://github.com/chef/chef-workstation/pull/1420) ([tas50](https://github.com/tas50))
+- Update Chef Infra Client to 16.4.35 + pull in perf optimization updates [#1426](https://github.com/chef/chef-workstation/pull/1426) ([tas50](https://github.com/tas50))
+- Bump chef-analyze CLI to 0.1.100 [#1423](https://github.com/chef/chef-workstation/pull/1423) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Add headless/ws-appless windows install instructions [#1418](https://github.com/chef/chef-workstation/pull/1418) ([marcparadise](https://github.com/marcparadise))
+- Bump  to 16.4.38 [#1430](https://github.com/chef/chef-workstation/pull/1430) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Docs overhaul [#1396](https://github.com/chef/chef-workstation/pull/1396) ([IanMadd](https://github.com/IanMadd))
+<!-- latest_stable_release -->
+
 ## [20.8.111](https://github.com/chef/chef-workstation/tree/20.8.111) (2020-08-04)
 
 #### Merged Pull Requests
@@ -53,7 +69,6 @@
 - Update chef-run cookbook search preference [#1383](https://github.com/chef/chef-workstation/pull/1383) ([mudash](https://github.com/mudash))
 - Pull in smaller omnibus sofware defs + expand gem cleanup [#1388](https://github.com/chef/chef-workstation/pull/1388) ([tas50](https://github.com/tas50))
 - Bumping Chef CLI [#1392](https://github.com/chef/chef-workstation/pull/1392) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_stable_release -->
 
 ## [20.7.81](https://github.com/chef/chef-workstation/tree/20.7.81) (2020-07-01)
 

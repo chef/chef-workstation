@@ -15,7 +15,7 @@ aliases = ["/knife_azurerm.html", "/knife_azurerm/"]
 
 ## Knife Azure Overview
 
-{{% ws_knife_azure %}}
+{{% knife_azure %}}
 
 {{< note >}}
 

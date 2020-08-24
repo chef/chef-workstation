@@ -14,13 +14,13 @@ aliases = ["/chef_shell.html", "/chef_shell/"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/ctl_chef_shell.md)
 
-{{% ws_chef_shell_summary %}}
+{{% chef_shell_summary %}}
 
 The chef-shell executable is run as a command-line tool.
 
 ## Modes
 
-{{% ws_chef_shell_modes %}}
+{{% chef_shell_modes %}}
 
 ## Options
 
@@ -67,7 +67,7 @@ This command has the following options:
 
     {{< warning >}}
 
-    {{% ws_node_ctl_attribute %}}
+    {{% node_ctl_attribute %}}
 
     {{< /warning >}}
 
@@ -98,35 +98,35 @@ This command has the following options:
 
 ## Configure
 
-{{% ws_chef_shell_config %}}
+{{% chef_shell_config %}}
 
 ### chef-shell.rb
 
-{{% ws_chef_shell_config_rb %}}
+{{% chef_shell_config_rb %}}
 
 ### Run as a Chef Infra Client
 
-{{% ws_chef_shell_run_as_chef_client %}}
+{{% chef_shell_run_as_chef_client %}}
 
 ## Debugging Cookbooks
 
-{{% ws_chef_shell_breakpoints %}}
+{{% chef_shell_breakpoints %}}
 
 ### Step Through Run-list
 
-{{% ws_chef_shell_step_through_run_list %}}
+{{% chef_shell_step_through_run_list %}}
 
 ### Debug Existing Recipe
 
-{{< readFile_shortcode file="ws_chef_shell_debug_existing_recipe.md" >}}
+{{< readFile_shortcode file="chef_shell_debug_existing_recipe.md" >}}
 
 ### Advanced Debugging
 
-{{< readFile_shortcode file="ws_chef_shell_advanced_debug.md" >}}
+{{< readFile_shortcode file="chef_shell_advanced_debug.md" >}}
 
 ## Manipulating Chef Infra Server Data
 
-{{% ws_chef_shell_manage %}}
+{{% chef_shell_manage %}}
 
 ## Examples
 
@@ -134,8 +134,8 @@ The following examples show how to use chef-shell.
 
 ### "Hello World"
 
-{{< readFile_shortcode file="ws_chef_shell_example_hello_world.md" >}}
+{{< readFile_shortcode file="chef_shell_example_hello_world.md" >}}
 
 ### Get Specific Nodes
 
-{{% ws_chef_shell_example_get_specific_nodes %}}
+{{% chef_shell_example_get_specific_nodes %}}

@@ -99,7 +99,7 @@ On Microsoft Windows, `C:/opscode/Chef Workstation/bin` must be before
 
 ## Create the Chef repository
 
-Use [the chef generate repo](/ctl_chef/#chef-generate-repo) to
+Use [the chef generate repo]({{< relref "ctl_chef.md#chef-generate-repo" >}}) to
 create the Chef repository. For example, to create a repository called
 `chef-repo`:
 

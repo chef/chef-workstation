@@ -52,3 +52,7 @@ workers 10
 # ------------------------------
 arch = (ENV["OMNIBUS_WINDOWS_ARCH"] || "").downcase
 windows_arch %w{x86 x64}.include?(arch) ? arch.to_sym : :x86
+
+# Build in FIPS compatability mode
+# ------------------------------
+fips_mode (ENV["OMNIBUS_FIPS_MODE"] || "").casecmp("true") >= 0

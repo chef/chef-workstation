@@ -362,7 +362,7 @@ Use the following setting to specify URLs that do not need a proxy:
 
 ## .d Directories
 
-{{% ws_config_rb_client_dot_d_directories %}}
+{{% config_rb_client_dot_d_directories %}}
 
 ## Optional Settings
 
@@ -494,7 +494,7 @@ settings](/workstation/config_rb_optional_settings/) that can be added to the
 the `config.rb` file. The reasons for not adding them can vary. For
 example, using `--yes` as a default in the `config.rb` file will cause
 knife to always assume that "Y" is the response to any prompt, which may
-lead to undesirable outcomes. Other settings, such as `--hide-healthy`
+lead to undesirable outcomes. Other settings, such as `--hide-by-mins`
 (used only with the `knife status` subcommand) or `--bare-directories`
 (used only with the `knife list` subcommand) probably aren't used often
 enough (and in the same exact way) to justify adding them to the
