@@ -24,7 +24,7 @@ function build_cross_platform() {
   ( cd /src || return 1
     gox -output="bin/{{.Dir}}_{{.OS}}_{{.Arch}}" \
         -os="darwin linux windows" \
-        -arch="amd64 386"
+        -arch="amd64"
   )
 }
 
