@@ -45,7 +45,7 @@ build_iteration 1
 # and build_iteration are kept in <project-root>/omnibus_overrides.rb
 overrides_path = File.expand_path("../../../../omnibus_overrides.rb", __FILE__)
 instance_eval(IO.read(overrides_path), overrides_path)
-
+  
 dependency "preparation"
 
 dependency "habitat"
