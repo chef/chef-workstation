@@ -14,7 +14,7 @@ function build_cross_platform() {
   ( cd /src/components/main-chef-wrapper || exit 1
     gox -output="../../bin/chef_{{.OS}}_{{.Arch}}" \
         -os="darwin linux windows" \
-        -arch="amd64 386"
+        -arch="amd64"
   )
 }
 
