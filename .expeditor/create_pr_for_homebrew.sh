@@ -16,6 +16,8 @@ git config user.email "expeditor@chef.io"
 git config user.name "Chef Expeditor"
 
 git remote add upstream "git@github.com:/$UPSTREAM_OWNER/$REPO_NAME"
+
+git checkout master
 git fetch --all
 
 # Reset the chef/homebrew-cask fork to the upstream so we are always
@@ -23,7 +25,6 @@ git fetch --all
 git reset --hard upstream/master
 git push origin master
 
-git checkout master
 git checkout -b "$BRANCH"
 
 function get_sha() {
@@ -55,21 +56,18 @@ echo "Updating Casks/chef-workstation.rb version: $EXPEDITOR_VERSION sha: $SHA"
 sed -i '' "s/version '.*'/version '$EXPEDITOR_VERSION'/g" Casks/chef-workstation.rb
 sed -i '' "s/sha256 '.*'/sha256 '$SHA'/g" Casks/chef-workstation.rb
 
-echo "--- Debug: git diff of patched files follows"
-
+echo "--- Debug: git diff of patched file follows"
 git diff
 
-echo "--- Upgrading Homebrew"
-# This ensures we stay consistent with the embedded erew style rules
-# that can change over time. If we get out of sync, we end up with
-# autocorrected changes that aren't compatible with what homebrew-cask's
-# CI is running.
-brew update
+echo "--- Fetching latest homebrew"
+git clone git@github.com:Homebrew/brew.git
 
 echo "--- Verifying Cask"
 
-brew cask style --fix ./Casks/chef-workstation.rb
-brew cask audit --download ./Casks/chef-workstation.rb
+./brew/bin/brew cask style --fix ./Casks/chef-workstation.rb
+./brew/bin/brew cask audit --download ./Casks/chef-workstation.rb
+
+rm -rf brew # clean up our brew checkout
 
 echo "-- Committing change"
 
@@ -84,7 +82,8 @@ After making all changes to the cask:
 - [x] The submission is for stable version.
 EOB
 )
-# the json form of this needs to not have newlines.
+
+# the json form of this needs to not have unescaped newlines.
 PR_BODY="After making all changes to the cask:\\n - [x] \`brew cask audit --download Casks/chef-workstation.rb\` is error-free.\\n - [x] \`brew cask style --fix Casks/chef-workstation.rb\` reports no offenses.\\n - [x] The commit message includes the cask’s name and version.\\n - [x] The submission is for stable version.\\n"
 
 COMMIT_BODY=$(cat <<EOB
@@ -105,6 +104,12 @@ result=$(curl --silent --header "Authorization: token $CHEF_CI_GITHUB_AUTH_TOKEN
   --data-binary "{\"title\":\"$TITLE\",\"head\":\"chef:$BRANCH\",\"base\":\"master\",\"maintainer_can_modify\":false,\"body\":\"$PR_BODY\"}" \
   -XPOST "https://api.github.com/repos/${UPSTREAM_OWNER}/${REPO_NAME}/pulls" \
   --write-out "Response:%{http_code}")
+
+# NOTE: If the PR creation fails due to errors around not being able to update
+# github actions from an app/bot user, you will need to correct this by manually
+# syncing up the fork chef/homebrew-cask to the upstream homebrew/homebrew-cask; most likely
+# upstream has changed something related to their github actions configuration, and
+# github disallows the bots from updating those files.
 
 # Fail the run if 201 (created) response not received.
 echo "$result" | grep "Response:201"
