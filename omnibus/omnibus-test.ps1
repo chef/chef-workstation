@@ -41,6 +41,10 @@ Write-Output " * hab help"
 hab help
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
+Write-Output " * chef-automate-collect -h"
+chef-automate-collect -h
+If ($lastexitcode -ne 0) { Exit $lastexitcode }
+
 Write-Output "--- Run the verification suite"
 C:/opscode/chef-workstation/embedded/bin/ruby.exe omnibus/verification/run.rb
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
