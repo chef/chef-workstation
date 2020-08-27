@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/chef/omnibus.git
-  revision: 3eae1cd2e5b9bb62775485e1dfa59aec8c70f5da
+  revision: 0f93174d58ae94f42c75b285a20e1f83381b864c
   branch: master
   specs:
-    omnibus (7.0.20)
+    omnibus (7.0.23)
       aws-sdk-s3 (~> 1)
       chef-cleanroom (~> 1.0)
       chef-sugar (>= 3.3)
@@ -32,16 +32,16 @@ GEM
     artifactory (3.0.15)
     awesome_print (1.8.0)
     aws-eventstream (1.1.0)
-    aws-partitions (1.356.0)
-    aws-sdk-core (3.104.3)
+    aws-partitions (1.360.0)
+    aws-sdk-core (3.105.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
       aws-sigv4 (~> 1.1)
       jmespath (~> 1.0)
-    aws-sdk-kms (1.36.0)
+    aws-sdk-kms (1.37.0)
       aws-sdk-core (~> 3, >= 3.99.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.78.0)
+    aws-sdk-s3 (1.79.1)
       aws-sdk-core (~> 3, >= 3.104.3)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
@@ -217,14 +217,14 @@ GEM
     mixlib-archive (1.0.6-universal-mingw32)
       mixlib-log
     mixlib-authentication (3.0.6)
-    mixlib-cli (2.1.6)
+    mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
     mixlib-install (3.12.3)
       mixlib-shellout
       mixlib-versioning
       thor
-    mixlib-log (3.0.8)
+    mixlib-log (3.0.9)
     mixlib-shellout (3.1.4)
       chef-utils
     mixlib-shellout (3.1.4-universal-mingw32)
@@ -249,7 +249,7 @@ GEM
     octokit (4.18.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
-    ohai (16.4.11)
+    ohai (16.4.12)
       chef-config (>= 12.8, < 17)
       chef-utils (>= 16.0, < 17)
       ffi (~> 1.9)
