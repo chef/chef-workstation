@@ -63,7 +63,7 @@ func newReportNewRolloutCommand() *cobra.Command {
 		"g",
 		"",
 		"policy node group (`policy_group` in a Chef Server architecture)",
-	)
+	)	
 	requiredStringVarP(&reportNewRolloutFlags.policyDomainURL,
 		"policy-domain-url",
 		"s", // matches knife
