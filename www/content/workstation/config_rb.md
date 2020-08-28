@@ -139,9 +139,8 @@ This configuration file has the following settings:
 `data_bag_encrypt_version`
 
 :   The minimum required version of data bag encryption. Possible
-    values: `1` or `2`. When all of the machines in an organization are
-    running Chef Client 11.6 (or higher), it is recommended that this
-    value be set to `2`. For example:
+    values: `1` or `2`. It is recommended that this value be set
+    to `2` to provide additional security. For example:
 
     ``` ruby
     data_bag_encrypt_version 2
@@ -152,7 +151,6 @@ This configuration file has the following settings:
 :   Allows OpenSSL to enforce FIPS-validated security during a Chef
     Infra Client run. Set to `true` to enable FIPS-validated security.
 
-    FIPS support is available in Chef Client versions 12.8 and above.
     The following operating systems are supported:
 
     -   Red Hat Enterprise Linux
