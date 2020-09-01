@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.8.129 -->
-## [20.8.129](https://github.com/chef/chef-workstation/tree/20.8.129) (2020-08-27)
+<!-- latest_release 20.8.130 -->
+## [20.8.130](https://github.com/chef/chef-workstation/tree/20.8.130) (2020-08-31)
 
 #### Merged Pull Requests
-- Update all deps to the latest [#1445](https://github.com/chef/chef-workstation/pull/1445) ([tas50](https://github.com/tas50))
+- Update cookbook-omnifetch to latest [#1454](https://github.com/chef/chef-workstation/pull/1454) ([marcparadise](https://github.com/marcparadise))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.8.125 -->
 ### Changes since 20.8.125 release
 
 #### Merged Pull Requests
+- Update cookbook-omnifetch to latest [#1454](https://github.com/chef/chef-workstation/pull/1454) ([marcparadise](https://github.com/marcparadise)) <!-- 20.8.130 -->
 - Update all deps to the latest [#1445](https://github.com/chef/chef-workstation/pull/1445) ([tas50](https://github.com/tas50)) <!-- 20.8.129 -->
 - Removing 386 arc to support go 1.15 with hab build [#1440](https://github.com/chef/chef-workstation/pull/1440) ([mudash](https://github.com/mudash)) <!-- 20.8.128 -->
 - Add MacOS 11 Tester [#1437](https://github.com/chef/chef-workstation/pull/1437) ([christopher-snapp](https://github.com/christopher-snapp)) <!-- 20.8.127 -->
