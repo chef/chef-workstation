@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.9.134 -->
-## [20.9.134](https://github.com/chef/chef-workstation/tree/20.9.134) (2020-09-03)
+<!-- latest_release 20.9.135 -->
+## [20.9.135](https://github.com/chef/chef-workstation/tree/20.9.135) (2020-09-03)
 
 #### Merged Pull Requests
-- Minor docs updates [#1433](https://github.com/chef/chef-workstation/pull/1433) ([IanMadd](https://github.com/IanMadd))
+- Bump cookstyle and treetop to resolve 2 issues [#1462](https://github.com/chef/chef-workstation/pull/1462) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.8.125 -->
 ### Changes since 20.8.125 release
 
 #### Merged Pull Requests
+- Bump cookstyle and treetop to resolve 2 issues [#1462](https://github.com/chef/chef-workstation/pull/1462) ([tas50](https://github.com/tas50)) <!-- 20.9.135 -->
 - Minor docs updates [#1433](https://github.com/chef/chef-workstation/pull/1433) ([IanMadd](https://github.com/IanMadd)) <!-- 20.9.134 -->
 - Update cookstyle / chef-apply to latest [#1461](https://github.com/chef/chef-workstation/pull/1461) ([tas50](https://github.com/tas50)) <!-- 20.9.133 -->
 - Release prep [#1460](https://github.com/chef/chef-workstation/pull/1460) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.9.132 -->
