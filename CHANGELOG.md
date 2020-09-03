@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.9.132 -->
-## [20.9.132](https://github.com/chef/chef-workstation/tree/20.9.132) (2020-09-02)
+<!-- latest_release 20.9.133 -->
+## [20.9.133](https://github.com/chef/chef-workstation/tree/20.9.133) (2020-09-02)
 
 #### Merged Pull Requests
-- Release prep [#1460](https://github.com/chef/chef-workstation/pull/1460) ([tyler-ball](https://github.com/tyler-ball))
+- Update cookstyle / chef-apply to latest [#1461](https://github.com/chef/chef-workstation/pull/1461) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.8.125 -->
 ### Changes since 20.8.125 release
 
 #### Merged Pull Requests
+- Update cookstyle / chef-apply to latest [#1461](https://github.com/chef/chef-workstation/pull/1461) ([tas50](https://github.com/tas50)) <!-- 20.9.133 -->
 - Release prep [#1460](https://github.com/chef/chef-workstation/pull/1460) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.9.132 -->
 - Bring Chef Rollout Client To Worksation [#1439](https://github.com/chef/chef-workstation/pull/1439) ([mudash](https://github.com/mudash)) <!-- 20.9.131 -->
 - Update cookbook-omnifetch to latest [#1454](https://github.com/chef/chef-workstation/pull/1454) ([marcparadise](https://github.com/marcparadise)) <!-- 20.8.130 -->
