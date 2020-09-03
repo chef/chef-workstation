@@ -982,7 +982,7 @@ Nodes report saved to .chef-workstation/reports/nodes-20200722130502.txt
 ```
 More details of this summary report can be viewed in the text file, the location for which is given at the end of the summary.
 
-[Upgrade Lab](https://docs.chef.io/workstation/upgrade_lab) provides further details on how this command can be used in Chef client upgrade process.
+[Upgrade Lab](/workstation/upgrade_lab) provides further details on how this command can be used in Chef Infra Client upgrade process.
 
 
 ## chef shell-init

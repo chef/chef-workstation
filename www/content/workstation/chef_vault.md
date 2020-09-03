@@ -1,5 +1,5 @@
 +++
-title = "`chef-vault`"
+title = "Chef Vault"
 draft = false
 
 aliases = ["/chef_vault.html", "/chef_vault/"]
@@ -15,40 +15,41 @@ aliases = ["/chef_vault.html", "/chef_vault/"]
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/chef_vault.md)
 
 `chef-vault` is a Ruby Gem that is included in Chef Workstation and Chef
-Infra Client. `chef-vault` allows the encryption of a data bag item by
-using the public keys of a list of nodes, allowing only those nodes to
-decrypt the encrypted values. `chef-vault` uses the `knife vault`
-subcommand.
+Infra Client. Chef Vault lets you encrypt a data bag item using asymmetric keys.
+When you provide Chef Vault with a list of public keys from your nodes, only the
+nodes with public keys entered on this list can decrypt the data bag item contents.
+Chef Vault is included in Chef Workstation and Chef Infra Client by way of the
+`chef-vault` Ruby Gem. `chef-vault` uses the `knife vault` subcommand.
 
 {{< note >}}
 
-`chef-vault` does not currently support alternate keying mechanisms like
+Chef Vault does not currently support alternate keying mechanisms like
 GPG and Amazon KMS.
 
 {{< /note >}}
 
--   For more information about using the `chef-vault` cookbook, its
+-   For more information about using the chef-vault cookbook, its
     helper methods and resources, see
     <https://github.com/chef-cookbooks/chef-vault>
 
-The `chef-vault cookbook` is maintained by Chef Software. Use it along
-with `chef-vault` itself. This cookbook adds the `chef_vault_item`
+The chef-vault cookbook is maintained by Chef Software. Use it along
+with Chef Vault itself. This cookbook adds the `chef_vault_item`
 helper method to the Recipe DSL and the `chef_vault_secret` resource.
 Use them both in recipes to work with data bag secrets.
 
 {{< warning >}}
 
-Chef vault requires the use of Chef Infra Client configured to use
-public/private key pairs. Chef vault is incompatible with the practice
-of using Chef Infra Client with a private key as `client.pem` and a
+To use Chef Vault, Chef Infra Client must be configured to use
+public/private key pairs. Chef Vault is incompatible with the practice
+of using Chef Infra Client with a private key, such as `client.pem`, and a
 certificate set as its public identity in the Chef Infra Server
 database. To update existing nodes to use `chef-vault`, first
-re-register your Chef Infra Client nodes with the Chef Infra Server,
+re-register your Chef Infra Client nodes with the Chef Infra Server
 which will generate public/private key pairs, and then install Chef
-vault on each node. Chef vault will generate the following error if used
-with a Chef Infra Client with a private key as `client.pem` and a
-certificate set as its public identity in the Chef Infra Server
-database:
+Vault on each node. If Chef Vault is used with a Chef Infra Client
+instance that has a private key, such as `client.pem`, and a certificate
+set as its public identity in the Chef Infra Server database, Chef Vault will
+generate the following error:
 
 ``` none
 ## OpenSSL::PKey::RSAError
@@ -59,9 +60,9 @@ Neither PUB key nor PRIV key:: nested asn1 error
 
 ## Installation
 
-The Chef Workstation ships with the latest release of chef_vault.
+The Chef Workstation ships with the latest release of the `chef-vault` gem.
 
-### Configuring config.rb for `chef_vault`
+### Configuring config.rb for Chef Vault
 
 To set 'client' as the default mode, add the following line to the
 config.rb file.
@@ -620,7 +621,7 @@ knife vault itemtype VAULT ITEM
 ## Options for knife bootstrap
 
 Use the following options with a validatorless bootstrap to specify
-items that are stored in `chef-vault`:
+items that are stored in Chef Vault:
 
 `--bootstrap-vault-file VAULT_FILE`
 
@@ -637,14 +638,14 @@ items that are stored in `chef-vault`:
     updated. --bootstrap-vault-json '{ "vault1": \["item1", "item2"\],
     "vault2": "item2" }'
 
-### Using `chef-vault` in recipes
+### Using Chef Vault in recipes
 
 To use this gem in a recipe to decrypt data you must first install the
-gem via a chef_gem resource. Once the gem is installed require the gem
-and then you can create a new instance of ChefVault.
+gem via a chef_gem resource. Once the gem is installed, `require` the gem
+and then you can create a new instance of Chef Vault.
 
-`chef-vault` 1.0 style decryption is supported, however it has been
-deprecated and `chef-vault` 2.0 decryption should be used instead
+Chef Vault 1.0 style decryption is supported, however it has been
+deprecated and Chef Vault 2.0 decryption should be used instead
 
 ### Example Code
 
@@ -696,11 +697,11 @@ The [chef-vault
 cookbook](https://supermarket.chef.io/cookbooks/chef-vault/) contains a
 recipe to install the `chef-vault` gem and a helper method
 `chef_vault_item` which makes it easier to test cookbooks that use
-chef-vault using Test Kitchen.
+Chef Vault using Test Kitchen.
 
 ### Determining if Item is a Vault
 
-ChefVault provides a helper method to determine if a data bag item is a
+Chef Vault provides a helper method to determine if a data bag item is a
 vault, which can be helpful if you produce a recipe for community
 consumption and want to support both normal data bags and vaults:
 
@@ -717,7 +718,7 @@ This functionality is also available from the command line as
 
 ### Determining Data Bag Item Type
 
-ChefVault provides a helper method to determine the type of a data bag
+Chef Vault provides a helper method to determine the type of a data bag
 item. It returns one of the symbols :normal, :encrypted or :vault
 
 ``` ruby
@@ -735,10 +736,10 @@ This functionality is also available from the command line as
 
 ### Stand Alone Usage
 
-`chef-vault` can be used as a stand alone binary to decrypt values
+The `chef-vault` gem can be used as a stand-alone binary to decrypt values
 stored in Chef. It requires that Chef is installed on the system and
-that you have a valid config.rb. This is useful if you want to mix
-`chef-vault` into non-Chef recipe code, for example some other script
+that you have a valid `config.rb`. This is useful if you want to mix
+Chef Vault into non-Chef recipe code, for example some other script
 where you want to protect a password.
 
 It does still require that the data bag has been encrypted for the
@@ -760,7 +761,7 @@ To stub vault items in ChefSpec, use the
 gem.
 
 To fall back to unencrypted JSON files in Test Kitchen, use the
-`chef_vault_item` helper in the aforementioned `chef-vault` cookbook.
+`chef_vault_item` helper in the aforementioned chef-vault cookbook.
 
 ## For more information ...
 
