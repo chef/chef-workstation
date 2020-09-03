@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.9.135 -->
-## [20.9.135](https://github.com/chef/chef-workstation/tree/20.9.135) (2020-09-03)
+<!-- latest_release 20.9.136 -->
+## [20.9.136](https://github.com/chef/chef-workstation/tree/20.9.136) (2020-09-03)
 
 #### Merged Pull Requests
-- Bump cookstyle and treetop to resolve 2 issues [#1462](https://github.com/chef/chef-workstation/pull/1462) ([tas50](https://github.com/tas50))
+- After removing the /usr/local symlink we need to chef exec our test so it finds the utility in embedded/bin [#1464](https://github.com/chef/chef-workstation/pull/1464) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.8.125 -->
 ### Changes since 20.8.125 release
 
 #### Merged Pull Requests
+- After removing the /usr/local symlink we need to chef exec our test so it finds the utility in embedded/bin [#1464](https://github.com/chef/chef-workstation/pull/1464) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.9.136 -->
 - Bump cookstyle and treetop to resolve 2 issues [#1462](https://github.com/chef/chef-workstation/pull/1462) ([tas50](https://github.com/tas50)) <!-- 20.9.135 -->
 - Minor docs updates [#1433](https://github.com/chef/chef-workstation/pull/1433) ([IanMadd](https://github.com/IanMadd)) <!-- 20.9.134 -->
 - Update cookstyle / chef-apply to latest [#1461](https://github.com/chef/chef-workstation/pull/1461) ([tas50](https://github.com/tas50)) <!-- 20.9.133 -->
