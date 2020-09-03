@@ -49,7 +49,7 @@ echo "--- Ensure that 'hab' cli is available"
 hab help
 
 echo "--- Ensure that 'chef-automate-collect' cli is available"
-chef-automate-collect -h
+chef exec chef-automate-collect -h
 
 # Verify that the chef-workstation-app was installed (MacOS only)
 if is_darwin; then

@@ -42,7 +42,7 @@ hab help
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
 Write-Output " * chef-automate-collect -h"
-chef-automate-collect -h
+chef exec chef-automate-collect -h
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
 Write-Output "--- Run the verification suite"
