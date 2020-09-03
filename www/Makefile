@@ -4,6 +4,8 @@ SHELL=bash
 
 assets:
 	git submodule update --init --recursive
+	git submodule foreach git pull origin master
+	git submodule foreach git reset --hard
 	pushd chef-web-docs/themes/docs-new && make assets && popd
 
 clean:
@@ -16,7 +18,7 @@ clean_all:
 	rm -rf chef-web-docs/results/
 
 preview_netlify: chef_web_docs_submodule
-	pushd chef-web-docs && make assets; hugo --gc --minify --enableGitInfo --buildFuture && popd
+	pushd chef-web-docs && make assets; hugo --buildFuture --gc --minify --enableGitInfo && popd
 
 chef_web_docs_submodule:
 	git submodule update --init --recursive
@@ -30,8 +32,7 @@ reset_chef_web_docs:
 	git submodule foreach git clean -f -d
 
 serve: assets
-	cd chef-web-docs
-	hugo server --buildDrafts --noHTTPCache --buildFuture
+	hugo server --buildDrafts --buildFuture --noHTTPCache
 
 lint: assets
 	hugo -D
