@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.9.137 -->
-## [20.9.137](https://github.com/chef/chef-workstation/tree/20.9.137) (2020-09-04)
+<!-- latest_release 20.9.138 -->
+## [20.9.138](https://github.com/chef/chef-workstation/tree/20.9.138) (2020-09-09)
 
 #### Merged Pull Requests
-- Remove documentation for very old chef releases [#1448](https://github.com/chef/chef-workstation/pull/1448) ([tas50](https://github.com/tas50))
+- Update knife-cloud to shave 1 sec off knife commands + update Test Kitchen deps [#1466](https://github.com/chef/chef-workstation/pull/1466) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.9.136 -->
 ### Changes since 20.9.136 release
 
 #### Merged Pull Requests
+- Update knife-cloud to shave 1 sec off knife commands + update Test Kitchen deps [#1466](https://github.com/chef/chef-workstation/pull/1466) ([tas50](https://github.com/tas50)) <!-- 20.9.138 -->
 - Remove documentation for very old chef releases [#1448](https://github.com/chef/chef-workstation/pull/1448) ([tas50](https://github.com/tas50)) <!-- 20.9.137 -->
 <!-- release_rollup -->
 
