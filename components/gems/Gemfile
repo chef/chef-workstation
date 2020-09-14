@@ -67,12 +67,7 @@ group(:omnibus_package) do
   gem "kitchen-ec2", ">= 3.6"
   gem "kitchen-digitalocean", ">= 0.11"
   gem "kitchen-dokken", ">= 2.9"
-  # docker-api appears to be unmaintained, and has a noisy deprecation
-  # warning under ruby 2.7. Using a fork via an omnibus software def.
-  # Must use the software def because the ruby cleanup deletes the
-  # bundled gem. Chef Infra Client does not have this issue with Ohai
-  # and I do not understand why.
-  gem "docker-api" # , git: "https://github.com/chef/docker-api.git", branch: "master"
+  gem "docker-api", ">= 2.0" # make sure we get the Ruby 2.7 compatible release
   gem "kitchen-google", ">= 2.0.0"
   gem "kitchen-hyperv", ">= 0.5.1"
   gem "kitchen-inspec", ">= 2.0"
