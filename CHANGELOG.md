@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.9.140 -->
-## [20.9.140](https://github.com/chef/chef-workstation/tree/20.9.140) (2020-09-09)
+<!-- latest_release 20.9.141 -->
+## [20.9.141](https://github.com/chef/chef-workstation/tree/20.9.141) (2020-09-14)
 
 #### Merged Pull Requests
-- Update knife-azure and knife-windows deps [#1468](https://github.com/chef/chef-workstation/pull/1468) ([tas50](https://github.com/tas50))
+- Update all components to the latest [#1470](https://github.com/chef/chef-workstation/pull/1470) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.9.136 -->
 ### Changes since 20.9.136 release
 
 #### Merged Pull Requests
+- Update all components to the latest [#1470](https://github.com/chef/chef-workstation/pull/1470) ([tas50](https://github.com/tas50)) <!-- 20.9.141 -->
 - Update knife-azure and knife-windows deps [#1468](https://github.com/chef/chef-workstation/pull/1468) ([tas50](https://github.com/tas50)) <!-- 20.9.140 -->
 - Update openssl to 1.0.2w [#1467](https://github.com/chef/chef-workstation/pull/1467) ([tas50](https://github.com/tas50)) <!-- 20.9.139 -->
 - Update knife-cloud to shave 1 sec off knife commands + update Test Kitchen deps [#1466](https://github.com/chef/chef-workstation/pull/1466) ([tas50](https://github.com/tas50)) <!-- 20.9.138 -->
