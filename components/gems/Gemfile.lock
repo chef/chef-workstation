@@ -352,7 +352,7 @@ GEM
     concurrent-ruby (1.1.7)
     cookbook-omnifetch (0.11.1)
       mixlib-archive (>= 0.4, < 2.0)
-    cookstyle (6.17.5)
+    cookstyle (6.17.7)
       rubocop (= 0.90.0)
     debug_inspector (0.0.3)
     declarative (0.0.20)
@@ -405,7 +405,7 @@ GEM
     ffi-yajl (2.3.4)
       libyajl2 (~> 1.2)
     filesize (0.2.0)
-    fog-core (2.2.0)
+    fog-core (2.2.2)
       builder
       excon (~> 0.71)
       formatador (~> 0.2)
@@ -533,10 +533,10 @@ GEM
       test-kitchen
     kitchen-hyperv (0.5.5)
       test-kitchen (>= 1.4, < 3)
-    kitchen-inspec (2.0.0)
+    kitchen-inspec (2.2.1)
       hashie (~> 3.4)
       inspec (>= 2.2.64, < 5.0)
-      test-kitchen (>= 1.6, < 3)
+      test-kitchen (>= 2.7, < 3)
     kitchen-openstack (5.0.1)
       fog-openstack (~> 1.0)
       ohai
