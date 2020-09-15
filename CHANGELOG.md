@@ -1,11 +1,40 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 20.9.142 -->
+## [20.9.142](https://github.com/chef/chef-workstation/tree/20.9.142) (2020-09-15)
+
+#### Merged Pull Requests
+- Im/migrate workstation docs [#1471](https://github.com/chef/chef-workstation/pull/1471) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=20.9.136 -->
+### Changes since 20.9.136 release
+
+#### Merged Pull Requests
+- Im/migrate workstation docs [#1471](https://github.com/chef/chef-workstation/pull/1471) ([IanMadd](https://github.com/IanMadd)) <!-- 20.9.142 -->
+- Update all components to the latest [#1470](https://github.com/chef/chef-workstation/pull/1470) ([tas50](https://github.com/tas50)) <!-- 20.9.141 -->
+- Update knife-azure and knife-windows deps [#1468](https://github.com/chef/chef-workstation/pull/1468) ([tas50](https://github.com/tas50)) <!-- 20.9.140 -->
+- Update openssl to 1.0.2w [#1467](https://github.com/chef/chef-workstation/pull/1467) ([tas50](https://github.com/tas50)) <!-- 20.9.139 -->
+- Update knife-cloud to shave 1 sec off knife commands + update Test Kitchen deps [#1466](https://github.com/chef/chef-workstation/pull/1466) ([tas50](https://github.com/tas50)) <!-- 20.9.138 -->
+- Remove documentation for very old chef releases [#1448](https://github.com/chef/chef-workstation/pull/1448) ([tas50](https://github.com/tas50)) <!-- 20.9.137 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [20.9.136](https://github.com/chef/chef-workstation/tree/20.9.136) (2020-09-03)
+
+#### Merged Pull Requests
+- Enable FIPS builds for RHEL and Windows systems [#1429](https://github.com/chef/chef-workstation/pull/1429) ([tyler-ball](https://github.com/tyler-ball))
+- Add MacOS 11 Tester [#1437](https://github.com/chef/chef-workstation/pull/1437) ([christopher-snapp](https://github.com/christopher-snapp))
+- Removing 386 arc to support go 1.15 with hab build [#1440](https://github.com/chef/chef-workstation/pull/1440) ([mudash](https://github.com/mudash))
+- Update all deps to the latest [#1445](https://github.com/chef/chef-workstation/pull/1445) ([tas50](https://github.com/tas50))
+- Update cookbook-omnifetch to latest [#1454](https://github.com/chef/chef-workstation/pull/1454) ([marcparadise](https://github.com/marcparadise))
+- Bring Chef Rollout Client To Worksation [#1439](https://github.com/chef/chef-workstation/pull/1439) ([mudash](https://github.com/mudash))
+- Release prep [#1460](https://github.com/chef/chef-workstation/pull/1460) ([tyler-ball](https://github.com/tyler-ball))
+- Update cookstyle / chef-apply to latest [#1461](https://github.com/chef/chef-workstation/pull/1461) ([tas50](https://github.com/tas50))
+- Minor docs updates [#1433](https://github.com/chef/chef-workstation/pull/1433) ([IanMadd](https://github.com/IanMadd))
+- Bump cookstyle and treetop to resolve 2 issues [#1462](https://github.com/chef/chef-workstation/pull/1462) ([tas50](https://github.com/tas50))
+- After removing the /usr/local symlink we need to chef exec our test so it finds the utility in embedded/bin [#1464](https://github.com/chef/chef-workstation/pull/1464) ([tyler-ball](https://github.com/tyler-ball))
+<!-- latest_stable_release -->
+
 ## [20.8.125](https://github.com/chef/chef-workstation/tree/20.8.125) (2020-08-19)
 
 #### Merged Pull Requests
@@ -24,7 +53,6 @@
 - Add headless/ws-appless windows install instructions [#1418](https://github.com/chef/chef-workstation/pull/1418) ([marcparadise](https://github.com/marcparadise))
 - Bump  to 16.4.38 [#1430](https://github.com/chef/chef-workstation/pull/1430) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Docs overhaul [#1396](https://github.com/chef/chef-workstation/pull/1396) ([IanMadd](https://github.com/IanMadd))
-<!-- latest_stable_release -->
 
 ## [20.8.111](https://github.com/chef/chef-workstation/tree/20.8.111) (2020-08-04)
 

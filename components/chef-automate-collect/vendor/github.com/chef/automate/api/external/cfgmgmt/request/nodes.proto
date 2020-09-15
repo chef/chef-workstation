@@ -1,0 +1,112 @@
+syntax = "proto3";
+
+package chef.automate.api.cfgmgmt.request;
+option go_package = "github.com/chef/automate/api/external/cfgmgmt/request";
+
+import "google/protobuf/timestamp.proto";
+import "external/common/query/parameters.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+message Nodes {
+  option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+    json_schema: {
+      required: ["filter"]
+    },
+    // Example from List Checked-in Nodes: cfgmgmt/nodes?pagination.page=1&pagination.size=100&sorting.field=name&sorting.order=ASC&filter=name:mySO*&filter=platform:ubun*
+    example: { value: '{"filter": ["name:mySO*","platform:ubun*"], "pagination": "1", "sorting": "ASC"}' }
+  };
+  // Filters to apply to the request for nodes list.
+  repeated string filter = 1;
+  // Pagination parameters to apply to the returned node list.
+  common.query.Pagination pagination = 2;
+  // Sorting parameters to apply to the returned node list.
+  common.query.Sorting sorting = 3;
+  // Earliest most recent check-in node information to return.
+  string start = 4;
+  // Latest most recent check-in node information to return.
+  string end = 5;
+}
+
+message Node {
+  // Chef guid for the requested node.
+  string node_id = 1;
+}
+
+message NodeRun {
+  // Chef guid for the requested node.
+  string node_id = 1;
+  // Run id for the node.
+  string run_id = 2;
+  // End time on the node's run.
+  google.protobuf.Timestamp end_time = 3;
+}
+
+message Runs {
+  // Chef guid for the node.
+  string node_id = 1;
+  // Filters to apply to the request for runs list.
+  repeated string filter = 2;
+  // Pagination parameters to apply to the returned runs list.
+  common.query.Pagination pagination = 3;
+  // Earliest (in history) run information to return for the runs list.
+  string start = 4;
+  // Latest (in history) run information to return for the runs list.
+  string end = 5;
+}
+
+message NodeExport {
+  // Filters to apply to the request for nodes list.
+  repeated string filter = 1;
+  // Sorting parameters to apply to the returned node list.
+  common.query.Sorting sorting = 2;
+  // File type, either JSON or CSV.
+  string output_type = 3;
+}
+
+message ReportExport {
+  // Filters to apply to the request for node report list.
+  repeated string filter                = 1;
+  // File type, either JSON or CSV.
+  string output_type                    = 2;
+  // The node ID of the reports
+  string node_id                        = 3;
+  // Earliest (in history) run information to return for the runs list.
+  google.protobuf.Timestamp start       = 4;
+  // Latest (in history) run information to return for the runs list.
+  google.protobuf.Timestamp end         = 5;
+}
+
+message MissingNodeDurationCounts {
+  option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+    json_schema: {
+      required: ["durations"]
+    }
+    // Example from List Missing Nodes Count: cfgmgmt/stats/missing_node_duration_counts?durations=3d&durations=1w&durations=2w&durations=1M&durations=3M
+    example: { value: '{"durations": ["3d","1w","2w","1M","3M"]}' }
+  };
+  // A valid duration is any number zero or greater with one of these characters 'h', 'd', 'w', or 'M'. 
+  // 'h' is hours
+  // 'd' is days
+  // 'w' is weeks
+  // 'M' is months
+  // Will contain one or many. 
+  repeated string durations = 1;
+}
+
+message NodeMetadataCounts {
+  // Types of node fields to collect value counts for
+  repeated string type = 1;
+  // Filters to apply to the counts returned
+  repeated string filter = 2;
+  // Earliest most recent check-in node information to return.
+  string start = 3;
+  // Latest most recent check-in node information to return.
+  string end = 4;
+}
+
+message NodeRunsDailyStatusTimeSeries {
+  // Node ID of the runs
+  string node_id = 1;
+  // Number of past days
+  int32 days_ago = 2;
+}

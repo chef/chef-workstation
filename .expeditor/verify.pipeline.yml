@@ -24,8 +24,24 @@ steps:
       docker:
         image: ruby:2.7-buster
 - label: ":linux: :darwin: :windows: top-level chef cmd"
-  command:
+  commands:
+    - cd components/main-chef-wrapper
     - hab studio run "source .studiorc && build_cross_platform"
+  timeout_in_minutes: 10
+  retry:
+    automatic:
+      limit: 1
+  expeditor:
+    executor:
+      docker:
+        privileged: true
+        environment:
+          - HAB_STUDIO_SUP=false
+          - HAB_NONINTERACTIVE=true
+- label: ":linux: :darwin: :windows: rollout client chef-automate-collect"
+  commands:
+    - cd components/chef-automate-collect
+    - hab studio run "source .studiorc && build_cross_platform && integration_tests"
   timeout_in_minutes: 10
   retry:
     automatic:
@@ -40,7 +56,7 @@ steps:
 - label: ":hugo:"
   command:
     - .expeditor/buildkite/hugo_lint.sh
-    - cd www && make lint
+    - cd docs-chef-io && make lint
   timeout_in_minutes: 10
   retry:
     automatic:

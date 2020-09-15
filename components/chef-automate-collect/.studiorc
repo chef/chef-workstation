@@ -1,0 +1,96 @@
+#!/bin/bash
+#
+# This is the place you can extend the funcitonality of the studio
+
+hab pkg install chef/studio-common >/dev/null
+source "$(hab pkg path chef/studio-common)/bin/studio-common"
+
+
+# switch all go commands to use the vendor/ directory
+export GOFLAGS="-mod=vendor"
+
+# Specify where to put 'go installed' binaries
+export GOBIN=/src/bin
+
+# Make 'go installed' binaries available in the PATH
+export PATH="$GOBIN:$PATH"
+
+document "build_cross_platform" <<DOC
+  Build the $pkg_name binary for all supported platforms
+DOC
+function build_cross_platform() {
+  install_if_missing core/go go
+  install_if_missing core/gox gox
+  ( cd /src || return 1
+    gox -output="bin/{{.Dir}}_{{.OS}}_{{.Arch}}" \
+        -os="darwin linux windows" \
+        -arch="amd64"
+  )
+}
+
+document "update_deps" <<DOC
+  Install and/or update one or all Go dependencies
+
+  By default, running only 'update_deps' will update all the Go
+  dependencies to the latest available version.
+
+  Example 1: Install a new Go dependency
+  --------------------------------------
+  update_deps github.com/go-delve/delve
+
+  Example 2: Update a single dependency
+  -------------------------------------
+  update_deps github.com/chef/go-libs@master
+DOC
+function update_deps() {
+  install_if_missing core/go go
+  install_if_missing core/git git
+  ( cd /src || return 1
+    GOFLAGS="" go get -u "$@"
+    go mod vendor
+  )
+}
+
+document "gocode_generation" <<DOC
+  Run 'go generate' for code generation
+DOC
+function gocode_generation() {
+  install_if_missing core/go go
+  ( cd /src || return 1
+    go generate ./...
+  )
+}
+
+document "unit_tests" <<DOC
+  Run unit tests (go-based)
+DOC
+function unit_tests() {
+  install_if_missing core/go go
+  install_if_missing core/gcc gcc
+
+  log_line "Running unit tests"
+  # Avoid running integration tests inside unit tests
+  ( cd /src || return 1
+    mkdir -p coverage/
+    GO_PACKAGES=$(go list ./... | grep -v integration)
+    go test \
+      || return 1
+  )
+}
+
+
+# run integraiton tests
+function integration_tests() {
+  install_if_missing core/go go
+  install_if_missing core/gcc gcc
+
+  log_line "Building cross-platform binaries"
+  build_cross_platform || return 1
+
+  log_line "Running integration tests (/src/integration)"
+  ( cd /src/integration || return 1
+    go test -v || return 1
+  )
+}
+
+

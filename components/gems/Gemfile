@@ -48,8 +48,8 @@ group(:omnibus_package) do
   # gems to Rubygems now, so letting this float on latest should always give us the latest
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
-  gem "chef", "= 16.4.38"
-  gem "chef-bin", "= 16.4.38"
+  gem "chef", "= 16.4.41"
+  gem "chef-bin", "= 16.4.41"
   gem "ohai", ">= 16.4"
   gem "cheffish", ">= 16.0"
 
@@ -67,12 +67,7 @@ group(:omnibus_package) do
   gem "kitchen-ec2", ">= 3.6"
   gem "kitchen-digitalocean", ">= 0.11"
   gem "kitchen-dokken", ">= 2.9"
-  # docker-api appears to be unmaintained, and has a noisy deprecation
-  # warning under ruby 2.7. Using a fork via an omnibus software def.
-  # Must use the software def because the ruby cleanup deletes the
-  # bundled gem. Chef Infra Client does not have this issue with Ohai
-  # and I do not understand why.
-  gem "docker-api" # , git: "https://github.com/chef/docker-api.git", branch: "master"
+  gem "docker-api", ">= 2.0" # make sure we get the Ruby 2.7 compatible release
   gem "kitchen-google", ">= 2.0.0"
   gem "kitchen-hyperv", ">= 0.5.1"
   gem "kitchen-inspec", ">= 2.0"
