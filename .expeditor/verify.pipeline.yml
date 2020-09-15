@@ -56,7 +56,7 @@ steps:
 - label: ":hugo:"
   command:
     - .expeditor/buildkite/hugo_lint.sh
-    - cd www && make lint
+    - cd docs-chef-io && make lint
   timeout_in_minutes: 10
   retry:
     automatic:
