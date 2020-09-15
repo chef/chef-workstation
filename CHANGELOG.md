@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.9.142 -->
-## [20.9.142](https://github.com/chef/chef-workstation/tree/20.9.142) (2020-09-15)
+<!-- latest_release 20.9.143 -->
+## [20.9.143](https://github.com/chef/chef-workstation/tree/20.9.143) (2020-09-15)
 
 #### Merged Pull Requests
-- Im/migrate workstation docs [#1471](https://github.com/chef/chef-workstation/pull/1471) ([IanMadd](https://github.com/IanMadd))
+- Update Cookstyle and kitchen-inspec [#1472](https://github.com/chef/chef-workstation/pull/1472) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.9.136 -->
 ### Changes since 20.9.136 release
 
 #### Merged Pull Requests
+- Update Cookstyle and kitchen-inspec [#1472](https://github.com/chef/chef-workstation/pull/1472) ([tas50](https://github.com/tas50)) <!-- 20.9.143 -->
 - Im/migrate workstation docs [#1471](https://github.com/chef/chef-workstation/pull/1471) ([IanMadd](https://github.com/IanMadd)) <!-- 20.9.142 -->
 - Update all components to the latest [#1470](https://github.com/chef/chef-workstation/pull/1470) ([tas50](https://github.com/tas50)) <!-- 20.9.141 -->
 - Update knife-azure and knife-windows deps [#1468](https://github.com/chef/chef-workstation/pull/1468) ([tas50](https://github.com/tas50)) <!-- 20.9.140 -->
