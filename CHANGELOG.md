@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.9.144 -->
-## [20.9.144](https://github.com/chef/chef-workstation/tree/20.9.144) (2020-09-16)
+<!-- latest_release 20.9.145 -->
+## [20.9.145](https://github.com/chef/chef-workstation/tree/20.9.145) (2020-09-17)
 
 #### Merged Pull Requests
-- Simplify the omnibus config to use __dir__ not __FILE__ [#1444](https://github.com/chef/chef-workstation/pull/1444) ([tas50](https://github.com/tas50))
+- Update make commands for docs previews [#1475](https://github.com/chef/chef-workstation/pull/1475) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.9.136 -->
 ### Changes since 20.9.136 release
 
 #### Merged Pull Requests
+- Update make commands for docs previews [#1475](https://github.com/chef/chef-workstation/pull/1475) ([IanMadd](https://github.com/IanMadd)) <!-- 20.9.145 -->
 - Simplify the omnibus config to use __dir__ not __FILE__ [#1444](https://github.com/chef/chef-workstation/pull/1444) ([tas50](https://github.com/tas50)) <!-- 20.9.144 -->
 - Update Cookstyle and kitchen-inspec [#1472](https://github.com/chef/chef-workstation/pull/1472) ([tas50](https://github.com/tas50)) <!-- 20.9.143 -->
 - Im/migrate workstation docs [#1471](https://github.com/chef/chef-workstation/pull/1471) ([IanMadd](https://github.com/IanMadd)) <!-- 20.9.142 -->
