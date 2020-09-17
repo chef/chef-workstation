@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.9.146 -->
-## [20.9.146](https://github.com/chef/chef-workstation/tree/20.9.146) (2020-09-17)
+<!-- latest_release 20.9.147 -->
+## [20.9.147](https://github.com/chef/chef-workstation/tree/20.9.147) (2020-09-17)
 
 #### Merged Pull Requests
-- Bump test-kitchen from 2.7.0 to 2.7.1 in /omnibus [#1474](https://github.com/chef/chef-workstation/pull/1474) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump omnibus-software from `0d5f81d` to `0e0686b` in /omnibus [#1476](https://github.com/chef/chef-workstation/pull/1476) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.9.136 -->
 ### Changes since 20.9.136 release
 
 #### Merged Pull Requests
+- Bump omnibus-software from `0d5f81d` to `0e0686b` in /omnibus [#1476](https://github.com/chef/chef-workstation/pull/1476) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.9.147 -->
 - Bump test-kitchen from 2.7.0 to 2.7.1 in /omnibus [#1474](https://github.com/chef/chef-workstation/pull/1474) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.9.146 -->
 - Update make commands for docs previews [#1475](https://github.com/chef/chef-workstation/pull/1475) ([IanMadd](https://github.com/IanMadd)) <!-- 20.9.145 -->
 - Simplify the omnibus config to use __dir__ not __FILE__ [#1444](https://github.com/chef/chef-workstation/pull/1444) ([tas50](https://github.com/tas50)) <!-- 20.9.144 -->
