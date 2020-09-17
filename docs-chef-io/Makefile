@@ -24,8 +24,8 @@ chef_web_docs_submodule:
 	git submodule update --init --recursive
 	git submodule foreach git pull origin master
 	git submodule foreach git reset --hard
-	cp -R content/* chef-web-docs/_vendor/github.com/chef/chef-workstation/www/content
-	cp -R static/images/* chef-web-docs/_vendor/github.com/chef/chef-workstation/www/static/images
+	cp -R content/* chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/content
+	cp -R static/images/* chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/static/images
 
 reset_chef_web_docs:
 	git submodule foreach git reset --hard
