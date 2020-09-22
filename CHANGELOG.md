@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.9.150 -->
-## [20.9.150](https://github.com/chef/chef-workstation/tree/20.9.150) (2020-09-22)
+<!-- latest_release 20.9.151 -->
+## [20.9.151](https://github.com/chef/chef-workstation/tree/20.9.151) (2020-09-22)
 
 #### Merged Pull Requests
-- Bump omnibus from `22ce151` to `0f9a7a9` in /omnibus [#1480](https://github.com/chef/chef-workstation/pull/1480) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Copying patent notice into wrapper [#1481](https://github.com/chef/chef-workstation/pull/1481) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.9.136 -->
 ### Changes since 20.9.136 release
 
 #### Merged Pull Requests
+- Copying patent notice into wrapper [#1481](https://github.com/chef/chef-workstation/pull/1481) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.9.151 -->
 - Bump omnibus from `22ce151` to `0f9a7a9` in /omnibus [#1480](https://github.com/chef/chef-workstation/pull/1480) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.9.150 -->
 - Update Chef Infra Client to 16.5 [#1479](https://github.com/chef/chef-workstation/pull/1479) ([tas50](https://github.com/tas50)) <!-- 20.9.149 -->
 - Update Test Kitchen and Cookstyle [#1477](https://github.com/chef/chef-workstation/pull/1477) ([tas50](https://github.com/tas50)) <!-- 20.9.148 -->
