@@ -27,7 +27,7 @@ group(:omnibus_package, :development, :test) do
   gem "pry"
   gem "yard"
   gem "guard"
-  gem "cookstyle", "~> 6.8"
+  gem "cookstyle", "~> 6.18"
   gem "foodcritic", ">= 16.3"
   gem "ffi-libarchive"
 end
@@ -48,9 +48,9 @@ group(:omnibus_package) do
   # gems to Rubygems now, so letting this float on latest should always give us the latest
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
-  gem "chef", "= 16.4.41"
-  gem "chef-bin", "= 16.4.41"
-  gem "ohai", ">= 16.4"
+  gem "chef", "= 16.5.64"
+  gem "chef-bin", "= 16.5.64"
+  gem "ohai", ">= 16.5"
   gem "cheffish", ">= 16.0"
 
   # chefspec
@@ -58,22 +58,22 @@ group(:omnibus_package) do
   gem "fauxhai-ng", "~> 8"
 
   # inspec
-  gem "inspec-bin", "~> 4.21" # the actual inspec CLI binary
-  gem "inspec", "~> 4.21"
+  gem "inspec-bin", "~> 4.23" # the actual inspec CLI binary
+  gem "inspec", "~> 4.23"
 
   # test-kitchen and plugins
-  gem "test-kitchen", ">= 2.5"
-  gem "kitchen-azurerm", ">= 1.0"
-  gem "kitchen-ec2", ">= 3.6"
+  gem "test-kitchen", ">= 2.7"
+  gem "kitchen-azurerm", ">= 1.3"
+  gem "kitchen-ec2", ">= 3.7"
   gem "kitchen-digitalocean", ">= 0.11"
-  gem "kitchen-dokken", ">= 2.9"
+  gem "kitchen-dokken", ">= 2.11"
   gem "docker-api", ">= 2.0" # make sure we get the Ruby 2.7 compatible release
   gem "kitchen-google", ">= 2.0.0"
   gem "kitchen-hyperv", ">= 0.5.1"
-  gem "kitchen-inspec", ">= 2.0"
+  gem "kitchen-inspec", ">= 2.2"
   gem "kitchen-openstack", ">= 5.0"
-  gem "kitchen-vagrant", ">= 1.6"
-  gem "kitchen-vcenter", ">= 2.7"
+  gem "kitchen-vagrant", ">= 1.7"
+  gem "kitchen-vcenter", ">= 2.8"
 
   # knife plugins
   gem "knife-azure", ">= 3.0.0"
