@@ -83,7 +83,7 @@ func usage() {
 	// TODO @afiune add actual usage, this might only list top level sub-commands
 	// we should avoid to add specific options per sub-command
 	// TODO @mp this needs updating to use `dist` for command names.
-	msg := `The Chef command line tool for managaing your infrastructure from your workstation.
+	msg := `The Chef command line tool for managing your infrastructure from your workstation.
 Docs: https://docs.chef.io/workstation/
 Patents: https://www.chef.io/patents
 
