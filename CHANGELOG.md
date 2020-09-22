@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.9.148 -->
-## [20.9.148](https://github.com/chef/chef-workstation/tree/20.9.148) (2020-09-17)
+<!-- latest_release 20.9.149 -->
+## [20.9.149](https://github.com/chef/chef-workstation/tree/20.9.149) (2020-09-22)
 
 #### Merged Pull Requests
-- Update Test Kitchen and Cookstyle [#1477](https://github.com/chef/chef-workstation/pull/1477) ([tas50](https://github.com/tas50))
+- Update Chef Infra Client to 16.5 [#1479](https://github.com/chef/chef-workstation/pull/1479) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.9.136 -->
 ### Changes since 20.9.136 release
 
 #### Merged Pull Requests
+- Update Chef Infra Client to 16.5 [#1479](https://github.com/chef/chef-workstation/pull/1479) ([tas50](https://github.com/tas50)) <!-- 20.9.149 -->
 - Update Test Kitchen and Cookstyle [#1477](https://github.com/chef/chef-workstation/pull/1477) ([tas50](https://github.com/tas50)) <!-- 20.9.148 -->
 - Bump omnibus-software from `0d5f81d` to `0e0686b` in /omnibus [#1476](https://github.com/chef/chef-workstation/pull/1476) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.9.147 -->
 - Bump test-kitchen from 2.7.0 to 2.7.1 in /omnibus [#1474](https://github.com/chef/chef-workstation/pull/1474) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.9.146 -->
