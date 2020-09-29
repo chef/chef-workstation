@@ -10,7 +10,7 @@ draft = false
     weight = 60
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/troubleshooting.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/troubleshooting.md)
 
 ## Chef Workstation Logs
 

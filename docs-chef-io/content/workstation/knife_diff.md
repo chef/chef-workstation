@@ -11,7 +11,7 @@ aliases = ["/knife_diff.html", "/knife_diff/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_diff.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_diff.md)
 
 {{% knife_diff_summary %}}
 

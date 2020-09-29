@@ -11,7 +11,7 @@ aliases = ["/knife_azurerm.html", "/knife_azurerm/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_azurerm.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_azurerm.md)
 
 ## Knife Azure Overview
 

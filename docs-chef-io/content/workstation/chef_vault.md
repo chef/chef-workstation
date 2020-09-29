@@ -12,7 +12,7 @@ aliases = ["/chef_vault.html", "/chef_vault/"]
     weight = 50
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/chef_vault.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/chef_vault.md)
 
 `chef-vault` is a Ruby Gem that is included in Chef Workstation and Chef
 Infra Client. Chef Vault lets you encrypt a data bag item using asymmetric keys.

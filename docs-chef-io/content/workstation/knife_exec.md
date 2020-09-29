@@ -11,7 +11,7 @@ aliases = ["/knife_exec.html", "/knife_exec/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_exec.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_exec.md)
 
 {{% knife_exec_summary %}}
 
