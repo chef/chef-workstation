@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.9.154 -->
-## [20.9.154](https://github.com/chef/chef-workstation/tree/20.9.154) (2020-09-29)
+<!-- latest_release 20.9.155 -->
+## [20.9.155](https://github.com/chef/chef-workstation/tree/20.9.155) (2020-09-29)
 
 #### Merged Pull Requests
-- Fix Edit on GitHub links [#1486](https://github.com/chef/chef-workstation/pull/1486) ([IanMadd](https://github.com/IanMadd))
+- Bump Chef Workstation App to 0.1.83 [#1488](https://github.com/chef/chef-workstation/pull/1488) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.9.136 -->
 ### Changes since 20.9.136 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.83 [#1488](https://github.com/chef/chef-workstation/pull/1488) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.9.155 -->
 - Fix Edit on GitHub links [#1486](https://github.com/chef/chef-workstation/pull/1486) ([IanMadd](https://github.com/IanMadd)) <!-- 20.9.154 -->
 - Update kitchen-ec2 and kitchen-digitalocean [#1487](https://github.com/chef/chef-workstation/pull/1487) ([tas50](https://github.com/tas50)) <!-- 20.9.153 -->
 - Bump deps to pull in the latest Chef Infra, Cookstyle, Inspec, etc [#1483](https://github.com/chef/chef-workstation/pull/1483) ([tas50](https://github.com/tas50)) <!-- 20.9.152 -->
