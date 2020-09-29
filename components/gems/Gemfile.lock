@@ -308,7 +308,7 @@ GEM
       tty-spinner
     chef-bin (16.5.77)
       chef (= 16.5.77)
-    chef-cli (3.0.31)
+    chef-cli (3.0.32)
       addressable (>= 2.3.5, < 2.8)
       chef (>= 15.0)
       cookbook-omnifetch (~> 0.5)
