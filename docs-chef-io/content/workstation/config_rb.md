@@ -12,7 +12,7 @@ aliases = ["/config_rb.html", "/config_rb_knife.html", "/config_rb/"]
     weight = 40
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/config_rb.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/config_rb.md)
 
 {{< warning >}}
 

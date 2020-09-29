@@ -1,15 +1,21 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.9.151 -->
-## [20.9.151](https://github.com/chef/chef-workstation/tree/20.9.151) (2020-09-22)
+<!-- latest_release 20.9.157 -->
+## [20.9.157](https://github.com/chef/chef-workstation/tree/20.9.157) (2020-09-29)
 
 #### Merged Pull Requests
-- Copying patent notice into wrapper [#1481](https://github.com/chef/chef-workstation/pull/1481) ([tyler-ball](https://github.com/tyler-ball))
+- Update Test Kitchen to 2.7.2 [#1490](https://github.com/chef/chef-workstation/pull/1490) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.9.136 -->
 ### Changes since 20.9.136 release
 
 #### Merged Pull Requests
+- Update Test Kitchen to 2.7.2 [#1490](https://github.com/chef/chef-workstation/pull/1490) ([tas50](https://github.com/tas50)) <!-- 20.9.157 -->
+- Update kitchen-azurerm and kitchen-vcenter [#1489](https://github.com/chef/chef-workstation/pull/1489) ([tas50](https://github.com/tas50)) <!-- 20.9.156 -->
+- Bump Chef Workstation App to 0.1.83 [#1488](https://github.com/chef/chef-workstation/pull/1488) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.9.155 -->
+- Fix Edit on GitHub links [#1486](https://github.com/chef/chef-workstation/pull/1486) ([IanMadd](https://github.com/IanMadd)) <!-- 20.9.154 -->
+- Update kitchen-ec2 and kitchen-digitalocean [#1487](https://github.com/chef/chef-workstation/pull/1487) ([tas50](https://github.com/tas50)) <!-- 20.9.153 -->
+- Bump deps to pull in the latest Chef Infra, Cookstyle, Inspec, etc [#1483](https://github.com/chef/chef-workstation/pull/1483) ([tas50](https://github.com/tas50)) <!-- 20.9.152 -->
 - Copying patent notice into wrapper [#1481](https://github.com/chef/chef-workstation/pull/1481) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.9.151 -->
 - Bump omnibus from `22ce151` to `0f9a7a9` in /omnibus [#1480](https://github.com/chef/chef-workstation/pull/1480) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.9.150 -->
 - Update Chef Infra Client to 16.5 [#1479](https://github.com/chef/chef-workstation/pull/1479) ([tas50](https://github.com/tas50)) <!-- 20.9.149 -->

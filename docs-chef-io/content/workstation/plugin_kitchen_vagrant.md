@@ -12,7 +12,7 @@ aliases = ["/plugin_kitchen_vagrant.html", "/plugin_kitchen_vagrant/"]
     weight = 40
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/plugin_kitchen_vagrant.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/plugin_kitchen_vagrant.md)
 
 {{% test_kitchen_driver_vagrant %}}
 

@@ -12,7 +12,7 @@ aliases = ["/knife.html", "/knife_using.html", "/knife/"]
     weight = 10
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife.md)
 
 knife is a command-line tool that provides an interface between a local
 chef-repo and the Chef Infra Server. knife helps users to manage:

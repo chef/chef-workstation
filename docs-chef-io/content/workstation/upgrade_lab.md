@@ -10,7 +10,7 @@ aliases = ["/workstation/upgrade_labs/"]
     parent = "chef_workstation"
     weight = 35
 +++
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/upgrade_lab.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/upgrade_lab.md)
 
 Chef Software's Upgrade Lab provides an isolated cookbook development environment and in-line support to help you upgrade your system, so you can stop using legacy Chef Infra and start using modern Chef Infra.
 

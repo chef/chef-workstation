@@ -12,7 +12,7 @@ aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html",
     weight = 40
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/getting_started.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/getting_started.md)
 
 This guide contains common configuration options used when setting up a
 new Chef Workstation installation. If you do not have Chef Workstation
