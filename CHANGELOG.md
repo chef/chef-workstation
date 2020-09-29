@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.9.157 -->
-## [20.9.157](https://github.com/chef/chef-workstation/tree/20.9.157) (2020-09-29)
+<!-- latest_release 20.9.158 -->
+## [20.9.158](https://github.com/chef/chef-workstation/tree/20.9.158) (2020-09-29)
 
 #### Merged Pull Requests
-- Update Test Kitchen to 2.7.2 [#1490](https://github.com/chef/chef-workstation/pull/1490) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.84 [#1492](https://github.com/chef/chef-workstation/pull/1492) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.9.136 -->
 ### Changes since 20.9.136 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.84 [#1492](https://github.com/chef/chef-workstation/pull/1492) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.9.158 -->
 - Update Test Kitchen to 2.7.2 [#1490](https://github.com/chef/chef-workstation/pull/1490) ([tas50](https://github.com/tas50)) <!-- 20.9.157 -->
 - Update kitchen-azurerm and kitchen-vcenter [#1489](https://github.com/chef/chef-workstation/pull/1489) ([tas50](https://github.com/tas50)) <!-- 20.9.156 -->
 - Bump Chef Workstation App to 0.1.83 [#1488](https://github.com/chef/chef-workstation/pull/1488) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.9.155 -->
