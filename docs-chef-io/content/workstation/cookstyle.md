@@ -12,7 +12,7 @@ aliases = ["/cookstyle.html", "/rubocop.html", "/cookstyle/"]
     weight = 90
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/cookstyle.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/cookstyle.md)
 
 Cookstyle is a code linting tool that helps you write better Chef Infra
 cookbooks by detecting and automatically correcting style, syntax, and

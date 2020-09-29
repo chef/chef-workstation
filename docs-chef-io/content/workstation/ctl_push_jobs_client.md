@@ -12,7 +12,7 @@ aliases = ["/ctl_push_jobs_client.html", "/ctl_push_jobs_client/"]
     weight = 140
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/ctl_push_jobs_client.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/ctl_push_jobs_client.md)
 
 {{% push_jobs_summary %}}
 

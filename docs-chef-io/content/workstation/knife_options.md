@@ -12,7 +12,7 @@ aliases = ["/knife_options.html", "/knife_options/"]
     weight = 30
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_options.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_options.md)
 
 The following options can be run with all knife subcommands and
 plug-ins:

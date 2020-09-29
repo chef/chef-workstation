@@ -12,7 +12,7 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
     weight = 30
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/install_workstation.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/install_workstation.md)
 
 Start your infrastructure automation quickly and easily with [Chef
 Workstation](https://www.chef.sh/) . Chef Workstation gives you
