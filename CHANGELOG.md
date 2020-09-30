@@ -1,40 +1,38 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.9.158 -->
-## [20.9.158](https://github.com/chef/chef-workstation/tree/20.9.158) (2020-09-29)
-
-#### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.84 [#1492](https://github.com/chef/chef-workstation/pull/1492) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=20.9.136 -->
-### Changes since 20.9.136 release
-
-#### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.84 [#1492](https://github.com/chef/chef-workstation/pull/1492) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.9.158 -->
-- Update Test Kitchen to 2.7.2 [#1490](https://github.com/chef/chef-workstation/pull/1490) ([tas50](https://github.com/tas50)) <!-- 20.9.157 -->
-- Update kitchen-azurerm and kitchen-vcenter [#1489](https://github.com/chef/chef-workstation/pull/1489) ([tas50](https://github.com/tas50)) <!-- 20.9.156 -->
-- Bump Chef Workstation App to 0.1.83 [#1488](https://github.com/chef/chef-workstation/pull/1488) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.9.155 -->
-- Fix Edit on GitHub links [#1486](https://github.com/chef/chef-workstation/pull/1486) ([IanMadd](https://github.com/IanMadd)) <!-- 20.9.154 -->
-- Update kitchen-ec2 and kitchen-digitalocean [#1487](https://github.com/chef/chef-workstation/pull/1487) ([tas50](https://github.com/tas50)) <!-- 20.9.153 -->
-- Bump deps to pull in the latest Chef Infra, Cookstyle, Inspec, etc [#1483](https://github.com/chef/chef-workstation/pull/1483) ([tas50](https://github.com/tas50)) <!-- 20.9.152 -->
-- Copying patent notice into wrapper [#1481](https://github.com/chef/chef-workstation/pull/1481) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.9.151 -->
-- Bump omnibus from `22ce151` to `0f9a7a9` in /omnibus [#1480](https://github.com/chef/chef-workstation/pull/1480) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.9.150 -->
-- Update Chef Infra Client to 16.5 [#1479](https://github.com/chef/chef-workstation/pull/1479) ([tas50](https://github.com/tas50)) <!-- 20.9.149 -->
-- Update Test Kitchen and Cookstyle [#1477](https://github.com/chef/chef-workstation/pull/1477) ([tas50](https://github.com/tas50)) <!-- 20.9.148 -->
-- Bump omnibus-software from `0d5f81d` to `0e0686b` in /omnibus [#1476](https://github.com/chef/chef-workstation/pull/1476) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.9.147 -->
-- Bump test-kitchen from 2.7.0 to 2.7.1 in /omnibus [#1474](https://github.com/chef/chef-workstation/pull/1474) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.9.146 -->
-- Update make commands for docs previews [#1475](https://github.com/chef/chef-workstation/pull/1475) ([IanMadd](https://github.com/IanMadd)) <!-- 20.9.145 -->
-- Simplify the omnibus config to use __dir__ not __FILE__ [#1444](https://github.com/chef/chef-workstation/pull/1444) ([tas50](https://github.com/tas50)) <!-- 20.9.144 -->
-- Update Cookstyle and kitchen-inspec [#1472](https://github.com/chef/chef-workstation/pull/1472) ([tas50](https://github.com/tas50)) <!-- 20.9.143 -->
-- Im/migrate workstation docs [#1471](https://github.com/chef/chef-workstation/pull/1471) ([IanMadd](https://github.com/IanMadd)) <!-- 20.9.142 -->
-- Update all components to the latest [#1470](https://github.com/chef/chef-workstation/pull/1470) ([tas50](https://github.com/tas50)) <!-- 20.9.141 -->
-- Update knife-azure and knife-windows deps [#1468](https://github.com/chef/chef-workstation/pull/1468) ([tas50](https://github.com/tas50)) <!-- 20.9.140 -->
-- Update openssl to 1.0.2w [#1467](https://github.com/chef/chef-workstation/pull/1467) ([tas50](https://github.com/tas50)) <!-- 20.9.139 -->
-- Update knife-cloud to shave 1 sec off knife commands + update Test Kitchen deps [#1466](https://github.com/chef/chef-workstation/pull/1466) ([tas50](https://github.com/tas50)) <!-- 20.9.138 -->
-- Remove documentation for very old chef releases [#1448](https://github.com/chef/chef-workstation/pull/1448) ([tas50](https://github.com/tas50)) <!-- 20.9.137 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [20.9.158](https://github.com/chef/chef-workstation/tree/20.9.158) (2020-09-30)
+
+#### Merged Pull Requests
+- Remove documentation for very old chef releases [#1448](https://github.com/chef/chef-workstation/pull/1448) ([tas50](https://github.com/tas50))
+- Update knife-cloud to shave 1 sec off knife commands + update Test Kitchen deps [#1466](https://github.com/chef/chef-workstation/pull/1466) ([tas50](https://github.com/tas50))
+- Update openssl to 1.0.2w [#1467](https://github.com/chef/chef-workstation/pull/1467) ([tas50](https://github.com/tas50))
+- Update knife-azure and knife-windows deps [#1468](https://github.com/chef/chef-workstation/pull/1468) ([tas50](https://github.com/tas50))
+- Update all components to the latest [#1470](https://github.com/chef/chef-workstation/pull/1470) ([tas50](https://github.com/tas50))
+- Im/migrate workstation docs [#1471](https://github.com/chef/chef-workstation/pull/1471) ([IanMadd](https://github.com/IanMadd))
+- Update Cookstyle and kitchen-inspec [#1472](https://github.com/chef/chef-workstation/pull/1472) ([tas50](https://github.com/tas50))
+- Simplify the omnibus config to use __dir__ not __FILE__ [#1444](https://github.com/chef/chef-workstation/pull/1444) ([tas50](https://github.com/tas50))
+- Update make commands for docs previews [#1475](https://github.com/chef/chef-workstation/pull/1475) ([IanMadd](https://github.com/IanMadd))
+- Bump test-kitchen from 2.7.0 to 2.7.1 in /omnibus [#1474](https://github.com/chef/chef-workstation/pull/1474) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump omnibus-software from `0d5f81d` to `0e0686b` in /omnibus [#1476](https://github.com/chef/chef-workstation/pull/1476) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Update Test Kitchen and Cookstyle [#1477](https://github.com/chef/chef-workstation/pull/1477) ([tas50](https://github.com/tas50))
+- Update Chef Infra Client to 16.5 [#1479](https://github.com/chef/chef-workstation/pull/1479) ([tas50](https://github.com/tas50))
+- Bump omnibus from `22ce151` to `0f9a7a9` in /omnibus [#1480](https://github.com/chef/chef-workstation/pull/1480) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Copying patent notice into wrapper [#1481](https://github.com/chef/chef-workstation/pull/1481) ([tyler-ball](https://github.com/tyler-ball))
+- Bump deps to pull in the latest Chef Infra, Cookstyle, Inspec, etc [#1483](https://github.com/chef/chef-workstation/pull/1483) ([tas50](https://github.com/tas50))
+- Update kitchen-ec2 and kitchen-digitalocean [#1487](https://github.com/chef/chef-workstation/pull/1487) ([tas50](https://github.com/tas50))
+- Fix Edit on GitHub links [#1486](https://github.com/chef/chef-workstation/pull/1486) ([IanMadd](https://github.com/IanMadd))
+- Bump Chef Workstation App to 0.1.83 [#1488](https://github.com/chef/chef-workstation/pull/1488) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update kitchen-azurerm and kitchen-vcenter [#1489](https://github.com/chef/chef-workstation/pull/1489) ([tas50](https://github.com/tas50))
+- Update Test Kitchen to 2.7.2 [#1490](https://github.com/chef/chef-workstation/pull/1490) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.84 [#1492](https://github.com/chef/chef-workstation/pull/1492) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_stable_release -->
+
 ## [20.9.136](https://github.com/chef/chef-workstation/tree/20.9.136) (2020-09-03)
 
 #### Merged Pull Requests
@@ -49,7 +47,6 @@
 - Minor docs updates [#1433](https://github.com/chef/chef-workstation/pull/1433) ([IanMadd](https://github.com/IanMadd))
 - Bump cookstyle and treetop to resolve 2 issues [#1462](https://github.com/chef/chef-workstation/pull/1462) ([tas50](https://github.com/tas50))
 - After removing the /usr/local symlink we need to chef exec our test so it finds the utility in embedded/bin [#1464](https://github.com/chef/chef-workstation/pull/1464) ([tyler-ball](https://github.com/tyler-ball))
-<!-- latest_stable_release -->
 
 ## [20.8.125](https://github.com/chef/chef-workstation/tree/20.8.125) (2020-08-19)
 
