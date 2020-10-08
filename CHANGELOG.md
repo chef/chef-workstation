@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 20.10.159 -->
+## [20.10.159](https://github.com/chef/chef-workstation/tree/20.10.159) (2020-10-08)
+
+#### Merged Pull Requests
+- Update to Cookstyle 6.20 [#1498](https://github.com/chef/chef-workstation/pull/1498) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=20.9.158 -->
+### Changes since 20.9.158 release
+
+#### Merged Pull Requests
+- Update to Cookstyle 6.20 [#1498](https://github.com/chef/chef-workstation/pull/1498) ([tas50](https://github.com/tas50)) <!-- 20.10.159 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
