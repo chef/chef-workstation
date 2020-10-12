@@ -3,8 +3,9 @@ test_results/
 tags
 .DS_Store
 
-# ruby
+# ruby / bundler
 Gemfile.lock
+*/vendor/*
 
 # vi
 *.swp
