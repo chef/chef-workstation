@@ -639,7 +639,7 @@ This argument has the following options:
 
 `-N NAME`, `--node-name NAME`
 
-:   The name of the node. Node names, when used with Microsoft Azure,
+:   The unique identifier of the node. Node names, when used with Microsoft Azure,
     must be 91 characters or shorter.
 
 `--[no-]host-key-verify`
@@ -786,7 +786,7 @@ This argument has the following options:
 
 `-N NODE_NAME`, `--node-name NODE_NAME`
 
-:   The name of the node to be deleted, if different from the server
+:   The unique identifier of the node to be deleted, if different from the server
     name. This must be used with the `-p` (purge) option.
 
 `-p FILE_NAME`, `--azure-mgmt-cert FILE_NAME`
@@ -800,7 +800,7 @@ This argument has the following options:
     Server, in addition to the Microsoft Azure node itself. This action
     (by itself) assumes that the node and client have the same name as
     the server; if they do not have the same names, then the
-    `--node-name` option must be used to specify the name of the node.
+    `--node-name` option must be used to specify The unique identifier of the node.
 
 `--preserve-azure-dns-name`
 

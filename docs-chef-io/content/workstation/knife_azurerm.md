@@ -475,7 +475,7 @@ This argument has the following options:
 
 `-N`, `--node-name NAME`
 
-:   The name of the node and client to delete, if it differs from the
+:   The unique identifier of the node and client to delete, if it differs from the
     server name. Only has meaning when used with the '--purge' option.
 
 `--print-after`

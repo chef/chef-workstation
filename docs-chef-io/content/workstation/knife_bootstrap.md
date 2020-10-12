@@ -223,7 +223,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 `-N NAME`, `--node-name NAME`
 
-:   The name of the node.
+:   The unique identifier of the node.
 
     {{< note spaces=4 >}}
 
