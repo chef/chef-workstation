@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.10.161 -->
-## [20.10.161](https://github.com/chef/chef-workstation/tree/20.10.161) (2020-10-12)
+<!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- Update to Ruby 2.7.2 [#1500](https://github.com/chef/chef-workstation/pull/1500) ([tas50](https://github.com/tas50))
+- node name -&gt; unique identifier [#1501](https://github.com/chef/chef-workstation/pull/1501) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.9.158 -->
 ### Changes since 20.9.158 release
 
 #### Merged Pull Requests
+- node name -&gt; unique identifier [#1501](https://github.com/chef/chef-workstation/pull/1501) ([tas50](https://github.com/tas50)) <!-- 20.10.161 -->
 - Update to Ruby 2.7.2 [#1500](https://github.com/chef/chef-workstation/pull/1500) ([tas50](https://github.com/tas50)) <!-- 20.10.161 -->
 - Update to Cookstyle 6.20.2 [#1499](https://github.com/chef/chef-workstation/pull/1499) ([tas50](https://github.com/tas50)) <!-- 20.10.160 -->
 - Update to Cookstyle 6.20 [#1498](https://github.com/chef/chef-workstation/pull/1498) ([tas50](https://github.com/tas50)) <!-- 20.10.159 -->
