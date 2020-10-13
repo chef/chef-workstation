@@ -565,7 +565,7 @@ GEM
       chef (>= 15.11)
       excon (>= 0.50)
       mixlib-shellout
-    knife-ec2 (2.0.4)
+    knife-ec2 (2.0.6)
       aws-sdk-ec2 (~> 1.95)
       aws-sdk-s3 (~> 1.43)
       chef (>= 15.11)
@@ -778,7 +778,7 @@ GEM
       rubocop-ast (>= 0.6.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (0.7.1)
+    rubocop-ast (0.8.0)
       parser (>= 2.7.1.5)
     ruby-prof (1.4.1)
     ruby-prof (1.4.1-x64-mingw32)
