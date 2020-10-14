@@ -1,16 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.10.162 -->
-## [20.10.162](https://github.com/chef/chef-workstation/tree/20.10.162) (2020-10-14)
+<!-- latest_release 20.10.163 -->
+## [20.10.163](https://github.com/chef/chef-workstation/tree/20.10.163) (2020-10-14)
 
 #### Merged Pull Requests
-- Update kitchen-ec2 and knife-ec2 + cacerts [#1506](https://github.com/chef/chef-workstation/pull/1506) ([tas50](https://github.com/tas50))
-- node name -&gt; unique identifier [#1501](https://github.com/chef/chef-workstation/pull/1501) ([tas50](https://github.com/tas50))
+- Bump Chef Infra Client to 16.6.14 [#1507](https://github.com/chef/chef-workstation/pull/1507) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.9.158 -->
 ### Changes since 20.9.158 release
 
 #### Merged Pull Requests
+- Bump Chef Infra Client to 16.6.14 [#1507](https://github.com/chef/chef-workstation/pull/1507) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.10.163 -->
 - Update kitchen-ec2 and knife-ec2 + cacerts [#1506](https://github.com/chef/chef-workstation/pull/1506) ([tas50](https://github.com/tas50)) <!-- 20.10.162 -->
 - node name -&gt; unique identifier [#1501](https://github.com/chef/chef-workstation/pull/1501) ([tas50](https://github.com/tas50)) <!-- 20.10.161 -->
 - Update to Ruby 2.7.2 [#1500](https://github.com/chef/chef-workstation/pull/1500) ([tas50](https://github.com/tas50)) <!-- 20.10.161 -->
