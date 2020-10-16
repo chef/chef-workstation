@@ -177,7 +177,7 @@ This configuration file has the following settings:
 
 `node_name`
 
-:   The name of the node. This may be a username with permission to
+:   The unique identifier of the node. This may be a username with permission to
     authenticate to the Chef Infra Server or it may be the name of the
     machine from which knife is run. For example:
 
