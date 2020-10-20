@@ -9,11 +9,11 @@ Try {
 
   if ( test-path $conemulocation )
   {
-      start-process $conemulocation -verb runas -argumentlist '/title',"`"$chefwstitle`"",'/cmd','powershell.exe','-noexit','-command',$chefwscommand
+      start-process $conemulocation -verb open -argumentlist '/title',"`"$chefwstitle`"",'/cmd','powershell.exe','-noexit','-command',$chefwscommand
   }
   else
   {
-      start-process powershell.exe -verb runas -argumentlist '-noexit','-command',"$chefwscommand; (get-host).ui.rawui.windowtitle = '$chefwstitle'"
+      start-process powershell.exe -verb open -argumentlist '-noexit','-command',"$chefwscommand; (get-host).ui.rawui.windowtitle = '$chefwstitle'"
   }
 }
 Catch
