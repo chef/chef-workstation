@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/chef/omnibus.git
-  revision: f3ed5d38d9cf44c110a993e268ca5ed7f457e339
+  revision: 222d66e53b1836c941051078e68b86048bf308a7
   branch: master
   specs:
-    omnibus (7.0.32)
+    omnibus (7.0.33)
       aws-sdk-s3 (~> 1)
       chef-cleanroom (~> 1.0)
       chef-sugar (>= 3.3)
@@ -32,7 +32,7 @@ GEM
     artifactory (3.0.15)
     awesome_print (1.8.0)
     aws-eventstream (1.1.0)
-    aws-partitions (1.381.0)
+    aws-partitions (1.383.0)
     aws-sdk-core (3.109.1)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
@@ -41,7 +41,7 @@ GEM
     aws-sdk-kms (1.39.0)
       aws-sdk-core (~> 3, >= 3.109.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.83.0)
+    aws-sdk-s3 (1.83.1)
       aws-sdk-core (~> 3, >= 3.109.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
@@ -250,7 +250,7 @@ GEM
     octokit (4.18.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
-    ohai (16.5.6)
+    ohai (16.6.5)
       chef-config (>= 12.8, < 17)
       chef-utils (>= 16.0, < 17)
       ffi (~> 1.9)
@@ -261,6 +261,7 @@ GEM
       mixlib-log (>= 2.0.1, < 4.0)
       mixlib-shellout (>= 2.0, < 4.0)
       plist (~> 3.1)
+      train-core
       wmi-lite (~> 1.0)
     pastel (0.8.0)
       tty-color (~> 0.5)
