@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.10.164 -->
-## [20.10.164](https://github.com/chef/chef-workstation/tree/20.10.164) (2020-10-15)
+<!-- latest_release 20.10.165 -->
+## [20.10.165](https://github.com/chef/chef-workstation/tree/20.10.165) (2020-10-20)
 
 #### Merged Pull Requests
-- Update Hugo version [#1502](https://github.com/chef/chef-workstation/pull/1502) ([IanMadd](https://github.com/IanMadd))
+- WS powershell on windows does not require runas [#1482](https://github.com/chef/chef-workstation/pull/1482) ([marcparadise](https://github.com/marcparadise))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.9.158 -->
 ### Changes since 20.9.158 release
 
 #### Merged Pull Requests
+- WS powershell on windows does not require runas [#1482](https://github.com/chef/chef-workstation/pull/1482) ([marcparadise](https://github.com/marcparadise)) <!-- 20.10.165 -->
 - Update Hugo version [#1502](https://github.com/chef/chef-workstation/pull/1502) ([IanMadd](https://github.com/IanMadd)) <!-- 20.10.164 -->
 - Bump Chef Infra Client to 16.6.14 [#1507](https://github.com/chef/chef-workstation/pull/1507) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.10.163 -->
 - Update kitchen-ec2 and knife-ec2 + cacerts [#1506](https://github.com/chef/chef-workstation/pull/1506) ([tas50](https://github.com/tas50)) <!-- 20.10.162 -->
