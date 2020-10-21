@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.10.166 -->
-## [20.10.166](https://github.com/chef/chef-workstation/tree/20.10.166) (2020-10-20)
+<!-- latest_release 20.10.167 -->
+## [20.10.167](https://github.com/chef/chef-workstation/tree/20.10.167) (2020-10-21)
 
 #### Merged Pull Requests
-- Update all components + pull in new omnibus for faster MSI installs [#1509](https://github.com/chef/chef-workstation/pull/1509) ([tas50](https://github.com/tas50))
+- Bumping omnibus and omnibus-software to get new cacerts [#1512](https://github.com/chef/chef-workstation/pull/1512) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.9.158 -->
 ### Changes since 20.9.158 release
 
 #### Merged Pull Requests
+- Bumping omnibus and omnibus-software to get new cacerts [#1512](https://github.com/chef/chef-workstation/pull/1512) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.10.167 -->
 - Update all components + pull in new omnibus for faster MSI installs [#1509](https://github.com/chef/chef-workstation/pull/1509) ([tas50](https://github.com/tas50)) <!-- 20.10.166 -->
 - WS powershell on windows does not require runas [#1482](https://github.com/chef/chef-workstation/pull/1482) ([marcparadise](https://github.com/marcparadise)) <!-- 20.10.165 -->
 - Update Hugo version [#1502](https://github.com/chef/chef-workstation/pull/1502) ([IanMadd](https://github.com/IanMadd)) <!-- 20.10.164 -->
