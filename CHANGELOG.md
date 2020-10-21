@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.10.167 -->
-## [20.10.167](https://github.com/chef/chef-workstation/tree/20.10.167) (2020-10-21)
+<!-- latest_release 20.10.168 -->
+## [20.10.168](https://github.com/chef/chef-workstation/tree/20.10.168) (2020-10-21)
 
 #### Merged Pull Requests
-- Bumping omnibus and omnibus-software to get new cacerts [#1512](https://github.com/chef/chef-workstation/pull/1512) ([tyler-ball](https://github.com/tyler-ball))
+- Update chef-cli and knife-ec2 [#1514](https://github.com/chef/chef-workstation/pull/1514) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.9.158 -->
 ### Changes since 20.9.158 release
 
 #### Merged Pull Requests
+- Update chef-cli and knife-ec2 [#1514](https://github.com/chef/chef-workstation/pull/1514) ([tas50](https://github.com/tas50)) <!-- 20.10.168 -->
 - Bumping omnibus and omnibus-software to get new cacerts [#1512](https://github.com/chef/chef-workstation/pull/1512) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.10.167 -->
 - Update all components + pull in new omnibus for faster MSI installs [#1509](https://github.com/chef/chef-workstation/pull/1509) ([tas50](https://github.com/tas50)) <!-- 20.10.166 -->
 - WS powershell on windows does not require runas [#1482](https://github.com/chef/chef-workstation/pull/1482) ([marcparadise](https://github.com/marcparadise)) <!-- 20.10.165 -->
