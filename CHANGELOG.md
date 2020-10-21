@@ -1,29 +1,27 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.10.168 -->
-## [20.10.168](https://github.com/chef/chef-workstation/tree/20.10.168) (2020-10-21)
-
-#### Merged Pull Requests
-- Update chef-cli and knife-ec2 [#1514](https://github.com/chef/chef-workstation/pull/1514) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=20.9.158 -->
-### Changes since 20.9.158 release
-
-#### Merged Pull Requests
-- Update chef-cli and knife-ec2 [#1514](https://github.com/chef/chef-workstation/pull/1514) ([tas50](https://github.com/tas50)) <!-- 20.10.168 -->
-- Bumping omnibus and omnibus-software to get new cacerts [#1512](https://github.com/chef/chef-workstation/pull/1512) ([tyler-ball](https://github.com/tyler-ball)) <!-- 20.10.167 -->
-- Update all components + pull in new omnibus for faster MSI installs [#1509](https://github.com/chef/chef-workstation/pull/1509) ([tas50](https://github.com/tas50)) <!-- 20.10.166 -->
-- WS powershell on windows does not require runas [#1482](https://github.com/chef/chef-workstation/pull/1482) ([marcparadise](https://github.com/marcparadise)) <!-- 20.10.165 -->
-- Update Hugo version [#1502](https://github.com/chef/chef-workstation/pull/1502) ([IanMadd](https://github.com/IanMadd)) <!-- 20.10.164 -->
-- Bump Chef Infra Client to 16.6.14 [#1507](https://github.com/chef/chef-workstation/pull/1507) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.10.163 -->
-- Update kitchen-ec2 and knife-ec2 + cacerts [#1506](https://github.com/chef/chef-workstation/pull/1506) ([tas50](https://github.com/tas50)) <!-- 20.10.162 -->
-- node name -&gt; unique identifier [#1501](https://github.com/chef/chef-workstation/pull/1501) ([tas50](https://github.com/tas50)) <!-- 20.10.161 -->
-- Update to Ruby 2.7.2 [#1500](https://github.com/chef/chef-workstation/pull/1500) ([tas50](https://github.com/tas50)) <!-- 20.10.161 -->
-- Update to Cookstyle 6.20.2 [#1499](https://github.com/chef/chef-workstation/pull/1499) ([tas50](https://github.com/tas50)) <!-- 20.10.160 -->
-- Update to Cookstyle 6.20 [#1498](https://github.com/chef/chef-workstation/pull/1498) ([tas50](https://github.com/tas50)) <!-- 20.10.159 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [20.10.168](https://github.com/chef/chef-workstation/tree/20.10.168) (2020-10-21)
+
+#### Merged Pull Requests
+- Update to Cookstyle 6.20 [#1498](https://github.com/chef/chef-workstation/pull/1498) ([tas50](https://github.com/tas50))
+- Update to Cookstyle 6.20.2 [#1499](https://github.com/chef/chef-workstation/pull/1499) ([tas50](https://github.com/tas50))
+- Update to Ruby 2.7.2 [#1500](https://github.com/chef/chef-workstation/pull/1500) ([tas50](https://github.com/tas50))
+- node name -&gt; unique identifier [#1501](https://github.com/chef/chef-workstation/pull/1501) ([tas50](https://github.com/tas50))
+- Update kitchen-ec2 and knife-ec2 + cacerts [#1506](https://github.com/chef/chef-workstation/pull/1506) ([tas50](https://github.com/tas50))
+- Bump Chef Infra Client to 16.6.14 [#1507](https://github.com/chef/chef-workstation/pull/1507) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update Hugo version [#1502](https://github.com/chef/chef-workstation/pull/1502) ([IanMadd](https://github.com/IanMadd))
+- WS powershell on windows does not require runas [#1482](https://github.com/chef/chef-workstation/pull/1482) ([marcparadise](https://github.com/marcparadise))
+- Update all components + pull in new omnibus for faster MSI installs [#1509](https://github.com/chef/chef-workstation/pull/1509) ([tas50](https://github.com/tas50))
+- Bumping omnibus and omnibus-software to get new cacerts [#1512](https://github.com/chef/chef-workstation/pull/1512) ([tyler-ball](https://github.com/tyler-ball))
+- Update chef-cli and knife-ec2 [#1514](https://github.com/chef/chef-workstation/pull/1514) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [20.9.158](https://github.com/chef/chef-workstation/tree/20.9.158) (2020-09-30)
 
 #### Merged Pull Requests
@@ -49,7 +47,6 @@
 - Update kitchen-azurerm and kitchen-vcenter [#1489](https://github.com/chef/chef-workstation/pull/1489) ([tas50](https://github.com/tas50))
 - Update Test Kitchen to 2.7.2 [#1490](https://github.com/chef/chef-workstation/pull/1490) ([tas50](https://github.com/tas50))
 - Bump Chef Workstation App to 0.1.84 [#1492](https://github.com/chef/chef-workstation/pull/1492) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [20.9.136](https://github.com/chef/chef-workstation/tree/20.9.136) (2020-09-03)
 
