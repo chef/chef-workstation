@@ -284,14 +284,6 @@ kitchen.yml file when the provisioner is chef-zero or chef-solo.
 </tbody>
 </table>
 
-{{< note >}}
-
-There are two community provisioners for Kitchen:
-[kitchen-dsc](https://github.com/smurawski/kitchen-dsc) and
-[kitchen-pester](https://github.com/smurawski/kitchen-pester).
-
-{{< /note >}}
-
 ## Transport Settings
 
 Kitchen can configure a transport with the following settings for either
