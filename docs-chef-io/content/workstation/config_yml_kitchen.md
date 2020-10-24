@@ -42,15 +42,7 @@ about Test Kitchen.
 
 ## Provisioner Settings
 
-Test Kitchen's provisioner settings will be changing in a future
-version. See [Chef RFC
-091](https://github.com/chef/chef-rfc/blob/master/rfc091-deprecate-kitchen-settings.md)
-for details. Settings that will be deprecated are listed in the
-descriptions below. The new recommended settings are listed in the [New
-Provisioner Settings](/workstation/config_yml_kitchen/#new-provisioner-settings)
-table.
-
-Kitchen can configure the chef-zero provisioner with the following
+Test Kitchen can configure the chef-zero provisioner with the following
 Chef-specific settings:
 
 <table>
