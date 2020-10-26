@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.10.169 -->
-## [20.10.169](https://github.com/chef/chef-workstation/tree/20.10.169) (2020-10-23)
+<!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- Bump inspec and kitchen-vcenter [#1515](https://github.com/chef/chef-workstation/pull/1515) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Fix a few Test Kitchen docs [#1516](https://github.com/chef/chef-workstation/pull/1516) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.10.168 -->
 ### Changes since 20.10.168 release
 
 #### Merged Pull Requests
+- Fix a few Test Kitchen docs [#1516](https://github.com/chef/chef-workstation/pull/1516) ([tas50](https://github.com/tas50)) <!-- 20.10.169 -->
 - Bump inspec and kitchen-vcenter [#1515](https://github.com/chef/chef-workstation/pull/1515) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.10.169 -->
 <!-- release_rollup -->
 
