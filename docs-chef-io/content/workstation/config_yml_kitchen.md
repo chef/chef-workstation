@@ -31,7 +31,7 @@ data across any combination of platforms and test suites:
 {{< note >}}
 
 This topic details functionality that is packaged with Chef Workstation.
-See <https://kitchen.ci/docs/getting-started/> for more information
+See <https://kitchen.ci/docs/getting-started/introduction/> for more information
 about Test Kitchen.
 
 {{< /note >}}
@@ -42,15 +42,7 @@ about Test Kitchen.
 
 ## Provisioner Settings
 
-Test Kitchen's provisioner settings will be changing in a future
-version. See [Chef RFC
-091](https://github.com/chef/chef-rfc/blob/master/rfc091-deprecate-kitchen-settings.md)
-for details. Settings that will be deprecated are listed in the
-descriptions below. The new recommended settings are listed in the [New
-Provisioner Settings](/workstation/config_yml_kitchen/#new-provisioner-settings)
-table.
-
-Kitchen can configure the chef-zero provisioner with the following
+Test Kitchen can configure the chef-zero provisioner with the following
 Chef-specific settings:
 
 <table>
@@ -291,14 +283,6 @@ kitchen.yml file when the provisioner is chef-zero or chef-solo.
 </tr>
 </tbody>
 </table>
-
-{{< note >}}
-
-There are two community provisioners for Kitchen:
-[kitchen-dsc](https://github.com/smurawski/kitchen-dsc) and
-[kitchen-pester](https://github.com/smurawski/kitchen-pester).
-
-{{< /note >}}
 
 ## Transport Settings
 
