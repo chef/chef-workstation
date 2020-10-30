@@ -29,7 +29,7 @@ Dependabot and Expeditor are configured to create PRs when dependent packages ar
 * [InSpec](https://github.com/inspec/inspec/)
 * [Test Kitchen](https://github.com/test-kitchen/test-kitchen/) and its drivers
 
-Check with the teams responsible for these dependencies to see if they have any updates they want to get in the upcoming release.
+Check with the teams responsible for these dependencies to see if they have any updates they want to get in the upcoming release. Also check with the #eng-infra-chef team (responsible for Chef Infra development) to see if they have any PRs they want merged before release.
 
 Finally, run a `bundle update` on the `omnibus` and `components/gems` folders to see if there are any random dependencies that can be updated.
 
@@ -45,13 +45,15 @@ The bulk of the release note content comes from the `components/gems/Gemfile.loc
 
 Drop a note in the `#docs-support` Slack channel and ask for a review of the [release notes](https://github.com/chef/chef-workstation/wiki/Pending-Release-Notes). Docs team has up to 3 days to review the release notes.
 
+Ask the Inspec and Chef Infra developers for review as well. They often have insight into what should be announced or not.
+
 ## Perform the Release
 
 In slack, run the `/expeditor promote chef-workstation 20.10.168` and supply the desired `current` channel package to promote. This will kick off the release process. Watch for notifications in the `#chef-ws-notify` channel for any build failures.
 
 ### Common Failures
 
-Sometimes the Omnitruck cache takes a long time to refresh. If you run `curl 'https://omnitruck.chef.io/stable/chef-workstation/metadata?p=mac_os_x&pv=10.15&m=x86_64&v=latest'` and it does not return the version you just promoted, the omnitruck cache has not been updated. Run this periodically (it can sometimes take a few hours) and retry the failed portion of the promote process after the correct version is returned.
+Sometimes the Omnitruck cache takes a long time to refresh. If you run `curl 'https://omnitruck.chef.io/stable/chef-workstation/metadata?p=mac_os_x&pv=10.15&m=x86_64&v=latest'` and it does not return the version you just promoted, the omnitruck cache has not been updated. Run this periodically (it can sometimes take a few hours) and retry the failed portion of the promote process after the correct version is returned. Retries can be performed on the Expeditor messages in `#chef-ws-notify`.
 
 The released package is also uploaded to Homebrew and Chocolatey via a triggered [third party packages](https://buildkite.com/chef/chef-chef-workstation-master-third-party-packages) pipeline. This often fails if the Omnitruck cache is slow to update. Continue retrying the Chocolatey pipeline after Omnitruck has refreshed and it should eventually succeed.
 
