@@ -1,16 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.11.170 -->
-## [20.11.170](https://github.com/chef/chef-workstation/tree/20.11.170) (2020-11-03)
+<!-- latest_release 20.11.171 -->
+## [20.11.171](https://github.com/chef/chef-workstation/tree/20.11.171) (2020-11-03)
 
 #### Merged Pull Requests
-- Update rspec to 3.10 and kitchen-vcenter to 2.9.0 [#1523](https://github.com/chef/chef-workstation/pull/1523) ([tas50](https://github.com/tas50))
-- Fix a few Test Kitchen docs [#1516](https://github.com/chef/chef-workstation/pull/1516) ([tas50](https://github.com/tas50))
+- Update kitchen-vagrant to 1.7.1 [#1525](https://github.com/chef/chef-workstation/pull/1525) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.10.168 -->
 ### Changes since 20.10.168 release
 
 #### Merged Pull Requests
+- Update kitchen-vagrant to 1.7.1 [#1525](https://github.com/chef/chef-workstation/pull/1525) ([tas50](https://github.com/tas50)) <!-- 20.11.171 -->
 - Update rspec to 3.10 and kitchen-vcenter to 2.9.0 [#1523](https://github.com/chef/chef-workstation/pull/1523) ([tas50](https://github.com/tas50)) <!-- 20.11.170 -->
 - Fix a few Test Kitchen docs [#1516](https://github.com/chef/chef-workstation/pull/1516) ([tas50](https://github.com/tas50)) <!-- 20.10.169 -->
 - Bump inspec and kitchen-vcenter [#1515](https://github.com/chef/chef-workstation/pull/1515) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.10.169 -->
