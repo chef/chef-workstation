@@ -230,9 +230,6 @@ subscriptions:
   - workload: ruby_gem_published:opscode-pushy-client-*
     actions:
        - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:stove-*
-    actions:
-       - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:test-kitchen-*
     actions:
        - bash:.expeditor/update_dep.sh

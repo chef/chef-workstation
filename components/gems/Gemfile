@@ -28,7 +28,6 @@ group(:omnibus_package, :development, :test) do
   gem "yard"
   gem "guard"
   gem "cookstyle", "~> 7.1"
-  gem "foodcritic", ">= 16.3"
   gem "ffi-libarchive"
 end
 
@@ -115,7 +114,6 @@ group(:omnibus_package) do
   gem "rb-readline"
   gem "winrm-fs"
   gem "winrm-elevated"
-  gem "stove", ">= 7.1.6"
   gem "berkshelf", ">= 7.0.10"
   gem "mdl", ">= 0.7.0"
 end
