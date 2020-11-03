@@ -1,8 +1,9 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release unreleased -->
-## Unreleased
+<!-- latest_release 20.11.170 -->
+## [20.11.170](https://github.com/chef/chef-workstation/tree/20.11.170) (2020-11-03)
 
 #### Merged Pull Requests
+- Update rspec to 3.10 and kitchen-vcenter to 2.9.0 [#1523](https://github.com/chef/chef-workstation/pull/1523) ([tas50](https://github.com/tas50))
 - Fix a few Test Kitchen docs [#1516](https://github.com/chef/chef-workstation/pull/1516) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
@@ -10,6 +11,7 @@
 ### Changes since 20.10.168 release
 
 #### Merged Pull Requests
+- Update rspec to 3.10 and kitchen-vcenter to 2.9.0 [#1523](https://github.com/chef/chef-workstation/pull/1523) ([tas50](https://github.com/tas50)) <!-- 20.11.170 -->
 - Fix a few Test Kitchen docs [#1516](https://github.com/chef/chef-workstation/pull/1516) ([tas50](https://github.com/tas50)) <!-- 20.10.169 -->
 - Bump inspec and kitchen-vcenter [#1515](https://github.com/chef/chef-workstation/pull/1515) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.10.169 -->
 <!-- release_rollup -->
