@@ -27,7 +27,7 @@ group(:omnibus_package, :development, :test) do
   gem "pry"
   gem "yard"
   gem "guard"
-  gem "cookstyle", "~> 6.20"
+  gem "cookstyle", "~> 7.1"
   gem "foodcritic", ">= 16.3"
   gem "ffi-libarchive"
 end
