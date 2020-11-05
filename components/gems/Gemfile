@@ -120,11 +120,6 @@ group(:omnibus_package) do
   gem "mdl", ">= 0.7.0"
 end
 
-# Everything except AIX
-group(:ruby_prof) do
-  gem "ruby-prof"
-end
-
 # Everything except Windows
 group(:ruby_shadow) do
   gem "ruby-shadow", platform: :ruby
