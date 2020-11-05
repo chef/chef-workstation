@@ -41,6 +41,9 @@ end
 # We should only be using "~>" to work around bugs, or temporarily pinning some tech debt.
 # We equality pin the chef gem itself to assert which version we're shipping.
 group(:omnibus_package) do
+  # add small binaries that warn against the use of legacy apps. For now this is foodcritic/stove
+  gem "chef_deprecations", ">= 0.1.1"
+
   gem "appbundler"
 
   # Expeditor manages the version of chef released to Rubygems. We only release 'stable' chef

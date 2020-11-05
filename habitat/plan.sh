@@ -121,7 +121,7 @@ do_install() {
     appbundle ohai "changelog"
     wrap_ruby_bin "ohai"
 
-    appbundle "foodcritic" "development,test"
+    appbundle "chef_deprecations" "development,test"
     wrap_ruby_bin "foodcritic"
 
     appbundle "test-kitchen" "changelog,debug,docs,development"
