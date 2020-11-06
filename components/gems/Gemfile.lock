@@ -1096,7 +1096,7 @@ DEPENDENCIES
   win32-dir
   win32-event
   win32-mutex
-  win32-process (~> 0.8.2)
+  win32-process (>= 0.8.2)
   win32-service (>= 2.1.5)
   windows-pr
   winrm-elevated
