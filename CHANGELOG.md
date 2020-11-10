@@ -1,8 +1,9 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release unreleased -->
-## Unreleased
+<!-- latest_release 20.11.174 -->
+## [20.11.174](https://github.com/chef/chef-workstation/tree/20.11.174) (2020-11-10)
 
 #### Merged Pull Requests
+- Update kitchen-vagrant and fauxhai to the latest [#1532](https://github.com/chef/chef-workstation/pull/1532) ([tas50](https://github.com/tas50))
 - Bump omnibus from `1782bac` to `d890d36` in /omnibus [#1530](https://github.com/chef/chef-workstation/pull/1530) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
@@ -10,6 +11,7 @@
 ### Changes since 20.10.168 release
 
 #### Merged Pull Requests
+- Update kitchen-vagrant and fauxhai to the latest [#1532](https://github.com/chef/chef-workstation/pull/1532) ([tas50](https://github.com/tas50)) <!-- 20.11.174 -->
 - Bump omnibus from `1782bac` to `d890d36` in /omnibus [#1530](https://github.com/chef/chef-workstation/pull/1530) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.11.173 -->
 - Update cookstyle to 7.1.2 [#1528](https://github.com/chef/chef-workstation/pull/1528) ([tas50](https://github.com/tas50)) <!-- 20.11.173 -->
 - Bump kitchen-vagrant from 1.7.0 to 1.7.1 in /omnibus [#1526](https://github.com/chef/chef-workstation/pull/1526) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.11.172 -->
