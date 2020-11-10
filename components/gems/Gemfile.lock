@@ -783,8 +783,6 @@ GEM
       unicode-display_width (>= 1.4.0, < 2.0)
     rubocop-ast (1.1.1)
       parser (>= 2.7.1.5)
-    ruby-prof (1.4.2)
-    ruby-prof (1.4.2-x64-mingw32)
     ruby-progressbar (1.10.1)
     ruby-shadow (2.5.0)
     rubyntlm (0.6.2)
@@ -1088,7 +1086,6 @@ DEPENDENCIES
   rake (>= 13.0.1)
   rb-readline
   rdp-ruby-wmi
-  ruby-prof
   ruby-shadow
   stove (>= 7.1.6)
   test-kitchen (>= 2.7)
