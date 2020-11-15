@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.11.176 -->
-## [20.11.176](https://github.com/chef/chef-workstation/tree/20.11.176) (2020-11-15)
+<!-- latest_release 20.11.177 -->
+## [20.11.177](https://github.com/chef/chef-workstation/tree/20.11.177) (2020-11-15)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.91 [#1543](https://github.com/chef/chef-workstation/pull/1543) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update to the latest omnibus + bump other deps [#1544](https://github.com/chef/chef-workstation/pull/1544) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.10.168 -->
 ### Changes since 20.10.168 release
 
 #### Merged Pull Requests
+- Update to the latest omnibus + bump other deps [#1544](https://github.com/chef/chef-workstation/pull/1544) ([tas50](https://github.com/tas50)) <!-- 20.11.177 -->
 - Bump Chef Workstation App to 0.1.91 [#1543](https://github.com/chef/chef-workstation/pull/1543) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.11.176 -->
 - Remove ruby-prof gem [#1527](https://github.com/chef/chef-workstation/pull/1527) ([tas50](https://github.com/tas50)) <!-- 20.11.175 -->
 - Update kitchen-vagrant and fauxhai to the latest [#1532](https://github.com/chef/chef-workstation/pull/1532) ([tas50](https://github.com/tas50)) <!-- 20.11.174 -->
