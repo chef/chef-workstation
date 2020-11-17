@@ -72,7 +72,7 @@ build do
 
   appbundle "chef", lockdir: project_dir, gem: "chef", without: %w{docgen chefstyle omnibus_package}, env: env
 
-  appbundle "foodcritic", lockdir: project_dir, gem: "foodcritic", without: %w{development test}, env: env
+  appbundle "foodcritic", lockdir: project_dir, gem: "chef_deprecations", without: %w{development test}, env: env
   appbundle "test-kitchen", lockdir: project_dir, gem: "test-kitchen", without: %w{changelog debug docs development integration}, env: env
   appbundle "inspec", lockdir: project_dir, gem: "inspec-bin", without: %w{deploy tools maintenance integration}, env: env
   appbundle "chef-run", lockdir: project_dir, gem: "chef-apply", without: %w{changelog docs debug}, env: env
