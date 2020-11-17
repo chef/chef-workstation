@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.11.178 -->
-## [20.11.178](https://github.com/chef/chef-workstation/tree/20.11.178) (2020-11-16)
+<!-- latest_release 20.11.179 -->
+## [20.11.179](https://github.com/chef/chef-workstation/tree/20.11.179) (2020-11-17)
 
 #### Merged Pull Requests
-- Update omnibus to 8.0.6 + bump cookstyle [#1546](https://github.com/chef/chef-workstation/pull/1546) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.93 [#1547](https://github.com/chef/chef-workstation/pull/1547) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.10.168 -->
 ### Changes since 20.10.168 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.93 [#1547](https://github.com/chef/chef-workstation/pull/1547) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.11.179 -->
 - Update omnibus to 8.0.6 + bump cookstyle [#1546](https://github.com/chef/chef-workstation/pull/1546) ([tas50](https://github.com/tas50)) <!-- 20.11.178 -->
 - Update to the latest omnibus + bump other deps [#1544](https://github.com/chef/chef-workstation/pull/1544) ([tas50](https://github.com/tas50)) <!-- 20.11.177 -->
 - Bump Chef Workstation App to 0.1.91 [#1543](https://github.com/chef/chef-workstation/pull/1543) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.11.176 -->
