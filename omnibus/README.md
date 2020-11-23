@@ -9,7 +9,7 @@ We use Omnibus to describe our packaging. [Expeditor](https://expeditor.chef.io/
 The build pipeline generally looks like the following:
 
 1. User opens a PR. Unit tests run in Buildkite. Reviews occur in GitHub.
-1. When the PR is merged Expeditor takes over. It runs the list of tasks we have specified in `.expeditor/config.yml`.
+1. When the PR is merged, the Expeditor takes over. It runs the list of tasks we have specified in `.expeditor/config.yml`.
 1.1. These tasks include things like automatically bumping versions, updating the changelog, kicking off builds in Buildkite, etc. Look at the config file for the current list of [actions](https://expeditor.chef.io/docs/reference/built_in/).
 1.1. The Buildkite build pipeline is configured in `.expeditor/release.omnibus.yml`
 1. Notifications from Expeditor will be posted in Chef's internal slack to #chef-ws-notify (also configured in `.expeditor/config.yml`). Any failures will need to be addressed.
