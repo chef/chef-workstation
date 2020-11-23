@@ -48,7 +48,7 @@ build do
   # before the project_dir contains the extracted package.
   block "Relocating habitat" do
     dest = File.join(install_dir, "bin")
-    # We don"t just copy the bin itself because on Windows additional
+    # We don't just copy the bin itself because on Windows additional
     # supporting DLLs are included.
     Dir.glob("#{project_dir}/hab-*/*").each do |f|
       copy f, dest
