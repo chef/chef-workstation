@@ -63,7 +63,7 @@ func newReportNewRolloutCommand() *cobra.Command {
 		"g",
 		"",
 		"policy node group (`policy_group` in a Chef Server architecture)",
-	)	
+	)
 	requiredStringVarP(&reportNewRolloutFlags.policyDomainURL,
 		"policy-domain-url",
 		"s", // matches knife
@@ -152,7 +152,6 @@ func runReportNewRolloutCommand(cmd *cobra.Command, args []string) error {
 	tr.TLSClientConfig = &tls.Config{InsecureSkipVerify: automate.InsecureTLS}
 	httpClient := &http.Client{Transport: tr}
 
-	fmt.Println(automate.URL)
 	url, err := automate.CreateRolloutURL()
 	reportNewRolloutFailErr(err, fmt.Sprintf("invalid Automate URL %q", automate.URL))
 
@@ -170,6 +169,19 @@ func runReportNewRolloutCommand(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		reportNewRolloutFailErr(err, fmt.Sprintf("HTTP API request to %q failed", url))
 	}
+
+	if response.StatusCode >= 500 && response.StatusCode <= 504 {
+		for retryCount := 2; retryCount > 0 ; retryCount -- {
+			response, err := httpClient.Do(req)
+			if err != nil {
+				reportNewRolloutFailErr(err, fmt.Sprintf("HTTP API request to %q failed", url))
+			}
+			if response.StatusCode < 500 || response.StatusCode > 504 {
+				break
+			}	
+		}
+	}
+
 	defer func() {
 		_ = response.Body.Close()
 	}()
