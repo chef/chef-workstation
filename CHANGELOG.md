@@ -1,16 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.11.182 -->
-## [20.11.182](https://github.com/chef/chef-workstation/tree/20.11.182) (2020-11-26)
+<!-- latest_release 20.11.183 -->
+## [20.11.183](https://github.com/chef/chef-workstation/tree/20.11.183) (2020-11-26)
 
 #### Merged Pull Requests
-- Update Chef Infra Client to 16.7.61 [#1562](https://github.com/chef/chef-workstation/pull/1562) ([tas50](https://github.com/tas50))
-- Update the docs for supported platforms [#1555](https://github.com/chef/chef-workstation/pull/1555) ([tas50](https://github.com/tas50))
+- Update omnibus-software to resolve windows builds [#1563](https://github.com/chef/chef-workstation/pull/1563) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.11.180 -->
 ### Changes since 20.11.180 release
 
 #### Merged Pull Requests
+- Update omnibus-software to resolve windows builds [#1563](https://github.com/chef/chef-workstation/pull/1563) ([tas50](https://github.com/tas50)) <!-- 20.11.183 -->
 - Update Chef Infra Client to 16.7.61 [#1562](https://github.com/chef/chef-workstation/pull/1562) ([tas50](https://github.com/tas50)) <!-- 20.11.182 -->
 - Update the docs for supported platforms [#1555](https://github.com/chef/chef-workstation/pull/1555) ([tas50](https://github.com/tas50)) <!-- 20.11.181 -->
 - Remove Foodcritic and Stove binaries [#1524](https://github.com/chef/chef-workstation/pull/1524) ([tas50](https://github.com/tas50)) <!-- 20.11.181 -->
