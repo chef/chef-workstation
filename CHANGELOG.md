@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.12.187 -->
-## [20.12.187](https://github.com/chef/chef-workstation/tree/20.12.187) (2020-12-02)
+<!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- Stop building on soon to be EOL EL6 [#1545](https://github.com/chef/chef-workstation/pull/1545) ([tas50](https://github.com/tas50))
+- Update the install Chef Workstation page [#1568](https://github.com/chef/chef-workstation/pull/1568) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.11.180 -->
 ### Changes since 20.11.180 release
 
 #### Merged Pull Requests
+- Update the install Chef Workstation page [#1568](https://github.com/chef/chef-workstation/pull/1568) ([tas50](https://github.com/tas50)) <!-- 20.12.187 -->
 - Stop building on soon to be EOL EL6 [#1545](https://github.com/chef/chef-workstation/pull/1545) ([tas50](https://github.com/tas50)) <!-- 20.12.187 -->
 - Update Test Kitchen and Fauxhai to the latest releases [#1569](https://github.com/chef/chef-workstation/pull/1569) ([tas50](https://github.com/tas50)) <!-- 20.12.186 -->
 - Bump Chef Workstation App to 0.1.97 [#1566](https://github.com/chef/chef-workstation/pull/1566) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.185 -->
