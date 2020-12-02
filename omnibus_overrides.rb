@@ -9,9 +9,9 @@ override "delivery-cli", version: "0.0.54"
 override "chef-workstation-app", version: "v0.1.97"
 # /DO NOT MODIFY
 
-override "libarchive", version: "3.4.3"
+override "libarchive", version: "3.5.0"
 override "libffi", version: "3.3"
-override "libiconv", version: "1.15"
+override "libiconv", version: "1.16"
 override "liblzma", version: "5.2.5"
 override "libxml2", version: "2.9.10"
 override "libxslt", version: "1.1.34"
