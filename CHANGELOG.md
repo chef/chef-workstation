@@ -1,29 +1,44 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.11.177 -->
-## [20.11.177](https://github.com/chef/chef-workstation/tree/20.11.177) (2020-11-15)
+<!-- latest_release 20.12.186 -->
+## [20.12.186](https://github.com/chef/chef-workstation/tree/20.12.186) (2020-12-02)
 
 #### Merged Pull Requests
-- Update to the latest omnibus + bump other deps [#1544](https://github.com/chef/chef-workstation/pull/1544) ([tas50](https://github.com/tas50))
+- Update Test Kitchen and Fauxhai to the latest releases [#1569](https://github.com/chef/chef-workstation/pull/1569) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup since=20.10.168 -->
-### Changes since 20.10.168 release
+<!-- release_rollup since=20.11.180 -->
+### Changes since 20.11.180 release
 
 #### Merged Pull Requests
-- Update to the latest omnibus + bump other deps [#1544](https://github.com/chef/chef-workstation/pull/1544) ([tas50](https://github.com/tas50)) <!-- 20.11.177 -->
-- Bump Chef Workstation App to 0.1.91 [#1543](https://github.com/chef/chef-workstation/pull/1543) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.11.176 -->
-- Remove ruby-prof gem [#1527](https://github.com/chef/chef-workstation/pull/1527) ([tas50](https://github.com/tas50)) <!-- 20.11.175 -->
-- Update kitchen-vagrant and fauxhai to the latest [#1532](https://github.com/chef/chef-workstation/pull/1532) ([tas50](https://github.com/tas50)) <!-- 20.11.174 -->
-- Bump omnibus from `1782bac` to `d890d36` in /omnibus [#1530](https://github.com/chef/chef-workstation/pull/1530) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.11.173 -->
-- Update cookstyle to 7.1.2 [#1528](https://github.com/chef/chef-workstation/pull/1528) ([tas50](https://github.com/tas50)) <!-- 20.11.173 -->
-- Bump kitchen-vagrant from 1.7.0 to 1.7.1 in /omnibus [#1526](https://github.com/chef/chef-workstation/pull/1526) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.11.172 -->
-- Update kitchen-vagrant to 1.7.1 [#1525](https://github.com/chef/chef-workstation/pull/1525) ([tas50](https://github.com/tas50)) <!-- 20.11.171 -->
-- Update rspec to 3.10 and kitchen-vcenter to 2.9.0 [#1523](https://github.com/chef/chef-workstation/pull/1523) ([tas50](https://github.com/tas50)) <!-- 20.11.170 -->
-- Fix a few Test Kitchen docs [#1516](https://github.com/chef/chef-workstation/pull/1516) ([tas50](https://github.com/tas50)) <!-- 20.10.169 -->
-- Bump inspec and kitchen-vcenter [#1515](https://github.com/chef/chef-workstation/pull/1515) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 20.10.169 -->
+- Update Test Kitchen and Fauxhai to the latest releases [#1569](https://github.com/chef/chef-workstation/pull/1569) ([tas50](https://github.com/tas50)) <!-- 20.12.186 -->
+- Bump Chef Workstation App to 0.1.97 [#1566](https://github.com/chef/chef-workstation/pull/1566) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.185 -->
+- Bump Chef Workstation App to 0.1.97 [#1565](https://github.com/chef/chef-workstation/pull/1565) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.11.184 -->
+- Update omnibus-software to resolve windows builds [#1563](https://github.com/chef/chef-workstation/pull/1563) ([tas50](https://github.com/tas50)) <!-- 20.11.183 -->
+- Update Chef Infra Client to 16.7.61 [#1562](https://github.com/chef/chef-workstation/pull/1562) ([tas50](https://github.com/tas50)) <!-- 20.11.182 -->
+- Update the docs for supported platforms [#1555](https://github.com/chef/chef-workstation/pull/1555) ([tas50](https://github.com/tas50)) <!-- 20.11.181 -->
+- Remove Foodcritic and Stove binaries [#1524](https://github.com/chef/chef-workstation/pull/1524) ([tas50](https://github.com/tas50)) <!-- 20.11.181 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [20.11.180](https://github.com/chef/chef-workstation/tree/20.11.180) (2020-11-17)
+
+#### Merged Pull Requests
+- Bump inspec and kitchen-vcenter [#1515](https://github.com/chef/chef-workstation/pull/1515) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Fix a few Test Kitchen docs [#1516](https://github.com/chef/chef-workstation/pull/1516) ([tas50](https://github.com/tas50))
+- Update rspec to 3.10 and kitchen-vcenter to 2.9.0 [#1523](https://github.com/chef/chef-workstation/pull/1523) ([tas50](https://github.com/tas50))
+- Update kitchen-vagrant to 1.7.1 [#1525](https://github.com/chef/chef-workstation/pull/1525) ([tas50](https://github.com/tas50))
+- Bump kitchen-vagrant from 1.7.0 to 1.7.1 in /omnibus [#1526](https://github.com/chef/chef-workstation/pull/1526) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Update cookstyle to 7.1.2 [#1528](https://github.com/chef/chef-workstation/pull/1528) ([tas50](https://github.com/tas50))
+- Bump omnibus from `1782bac` to `d890d36` in /omnibus [#1530](https://github.com/chef/chef-workstation/pull/1530) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Update kitchen-vagrant and fauxhai to the latest [#1532](https://github.com/chef/chef-workstation/pull/1532) ([tas50](https://github.com/tas50))
+- Remove ruby-prof gem [#1527](https://github.com/chef/chef-workstation/pull/1527) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.91 [#1543](https://github.com/chef/chef-workstation/pull/1543) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update to the latest omnibus + bump other deps [#1544](https://github.com/chef/chef-workstation/pull/1544) ([tas50](https://github.com/tas50))
+- Update omnibus to 8.0.6 + bump cookstyle [#1546](https://github.com/chef/chef-workstation/pull/1546) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.93 [#1547](https://github.com/chef/chef-workstation/pull/1547) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.94 [#1549](https://github.com/chef/chef-workstation/pull/1549) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_stable_release -->
+
 ## [20.10.168](https://github.com/chef/chef-workstation/tree/20.10.168) (2020-10-21)
 
 #### Merged Pull Requests
@@ -38,7 +53,6 @@
 - Update all components + pull in new omnibus for faster MSI installs [#1509](https://github.com/chef/chef-workstation/pull/1509) ([tas50](https://github.com/tas50))
 - Bumping omnibus and omnibus-software to get new cacerts [#1512](https://github.com/chef/chef-workstation/pull/1512) ([tyler-ball](https://github.com/tyler-ball))
 - Update chef-cli and knife-ec2 [#1514](https://github.com/chef/chef-workstation/pull/1514) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [20.9.158](https://github.com/chef/chef-workstation/tree/20.9.158) (2020-09-30)
 

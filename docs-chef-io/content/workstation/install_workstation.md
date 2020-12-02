@@ -23,12 +23,11 @@ package.
 
 Chef Workstation includes:
 
--   Chef Infra Client
--   Chef InSpec
--   chef and knife command line tools
--   Testing tools such as Test Kitchen, ChefSpec, and Cookstyle
--   Everything else needed to author cookbooks and upload them to the
-    Chef Infra Server
+- Chef Infra Client
+- Chef InSpec
+- chef and knife command line tools
+- Testing tools such as Test Kitchen, ChefSpec, and Cookstyle
+- Everything else needed to author cookbooks and upload them to the Chef Infra Server
 
 ## Supported Platforms
 
@@ -48,7 +47,7 @@ Supported Host Operating Systems:
 <tbody>
 <tr class="odd">
 <td>Apple macOS</td>
-<td>10.13, 10.14, 10.15</td>
+<td>10.13, 10.14, 10.15, 11.0</td>
 </tr>
 <tr class="even">
 <td>Microsoft Windows</td>
@@ -60,11 +59,11 @@ Supported Host Operating Systems:
 </tr>
 <tr class="even">
 <td>Ubuntu</td>
-<td>16.04, 18.04</td>
+<td>16.04, 18.04, 20.04</td>
 </tr>
 <tr class="odd">
 <td>Debian</td>
-<td>8.x, 9.x, 10.x</td>
+<td>9.x, 10.x</td>
 </tr>
 </tbody>
 </table>
@@ -73,28 +72,21 @@ Supported Host Operating Systems:
 
 Minimum system requirements:
 
--   RAM: 2GB
--   Disk: 4GB
--   Running minimum settings may limit your ability to take advantage of
-    Chef Workstation tools such as Test Kitchen which creates and
-    manages virtualized test environments.
+- RAM: 2GB
+- Disk: 4GB
+- Running minimum settings may limit your ability to take advantage of Chef Workstation tools such as Test Kitchen which creates and manages virtualized test environments.
 
 Recommended system requirements:
 
--   RAM: 4GB
--   Disk 8GB
+- RAM: 4GB
+- Disk 8GB
 
 ### Chef Workstation App Requirements
 
--   Windows: No additional requirements
--   Mac: No additional requirements
--   Linux: You must have a graphical window manager running with support
-    for system tray icons.
-    -   On some distributions you may need to install additional
-        libraries. After you install the Chef Workstation package from
-        the terminal, the post-install message will tell you which, if
-        any, additional libraries are required to run the Chef
-        Workstation App.
+- Windows: No additional requirements
+- Mac: No additional requirements
+- Linux: You must have a graphical window manager running with support for system tray icons.
+  - On some distributions you may need to install additional libraries. After you install the Chef Workstation package from the terminal, the post-install message will tell you which, if any, additional libraries are required to run the Chef Workstation App.
 
 ## Installation
 
@@ -135,7 +127,6 @@ Alternately, install Chef Workstation using Homebrew:
 
 #### Headless Unattended Install
 
-
 "Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse.  They are usually controlled over a network connection.
 
 To install Chef Workstation on a headless Windows system,
@@ -146,7 +137,6 @@ the downloaded Chef Workstation installer.
 ```
 msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
 ```
-
 
 #### Spaces and Directories
 
@@ -191,12 +181,13 @@ chef -v
 Which returns the versions of all installed Chef tools:
 
 ``` shell
-Chef Workstation version: 0.16.31
-Chef Infra Client version: 15.8.23
-Chef InSpec version: 4.18.85
-Chef CLI version: 2.0.0
-Test Kitchen version: 2.3.4
-Cookstyle version: 5.21.9
+Chef Workstation version: 20.11.180
+Chef Infra Client version: 16.6.14
+Chef InSpec version: 4.23.15
+Chef CLI version: 3.0.33
+Chef Habitat version: 1.6.56
+Test Kitchen version: 2.7.2
+Cookstyle version: 7.2.1
 ```
 
 ## Upgrading
@@ -209,8 +200,7 @@ For all platforms, follow the steps provided under [Installing]({{< ref "install
 
 #### Linux
 
-The Chef Workstation package conflicts with an installed ChefDK package to prevent
-unintentional upgrades.
+The Chef Workstation package conflicts with an installed ChefDK package to prevent unintentional upgrades.
 
 Prior to installing Chef Workstation, first uninstall ChefDK:
 
@@ -256,6 +246,4 @@ sudo rpm -e chef-workstation
 
 ## Next Steps
 
-Now that you've installed Chef Workstation, proceed to the
-[Getting Started](/workstation/getting_started/) guide to
-configure your Chef Workstation installation.
+Now that you've installed Chef Workstation, proceed to the [Getting Started](/workstation/getting_started/) guide to configure your Chef Workstation installation.
