@@ -6,22 +6,25 @@
 - Update the install Chef Workstation page [#1568](https://github.com/chef/chef-workstation/pull/1568) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup since=20.11.180 -->
-### Changes since 20.11.180 release
-
-#### Merged Pull Requests
-- Update the install Chef Workstation page [#1568](https://github.com/chef/chef-workstation/pull/1568) ([tas50](https://github.com/tas50)) <!-- 20.12.187 -->
-- Stop building on soon to be EOL EL6 [#1545](https://github.com/chef/chef-workstation/pull/1545) ([tas50](https://github.com/tas50)) <!-- 20.12.187 -->
-- Update Test Kitchen and Fauxhai to the latest releases [#1569](https://github.com/chef/chef-workstation/pull/1569) ([tas50](https://github.com/tas50)) <!-- 20.12.186 -->
-- Bump Chef Workstation App to 0.1.97 [#1566](https://github.com/chef/chef-workstation/pull/1566) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.185 -->
-- Bump Chef Workstation App to 0.1.97 [#1565](https://github.com/chef/chef-workstation/pull/1565) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.11.184 -->
-- Update omnibus-software to resolve windows builds [#1563](https://github.com/chef/chef-workstation/pull/1563) ([tas50](https://github.com/tas50)) <!-- 20.11.183 -->
-- Update Chef Infra Client to 16.7.61 [#1562](https://github.com/chef/chef-workstation/pull/1562) ([tas50](https://github.com/tas50)) <!-- 20.11.182 -->
-- Update the docs for supported platforms [#1555](https://github.com/chef/chef-workstation/pull/1555) ([tas50](https://github.com/tas50)) <!-- 20.11.181 -->
-- Remove Foodcritic and Stove binaries [#1524](https://github.com/chef/chef-workstation/pull/1524) ([tas50](https://github.com/tas50)) <!-- 20.11.181 -->
+<!-- release_rollup since=20.12.187 -->
+### Changes since 20.12.187 release
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [20.12.187](https://github.com/chef/chef-workstation/tree/20.12.187) (2020-12-02)
+
+#### Merged Pull Requests
+- Remove Foodcritic and Stove binaries [#1524](https://github.com/chef/chef-workstation/pull/1524) ([tas50](https://github.com/tas50))
+- Update the docs for supported platforms [#1555](https://github.com/chef/chef-workstation/pull/1555) ([tas50](https://github.com/tas50))
+- Update Chef Infra Client to 16.7.61 [#1562](https://github.com/chef/chef-workstation/pull/1562) ([tas50](https://github.com/tas50))
+- Update omnibus-software to resolve windows builds [#1563](https://github.com/chef/chef-workstation/pull/1563) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.97 [#1565](https://github.com/chef/chef-workstation/pull/1565) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.97 [#1566](https://github.com/chef/chef-workstation/pull/1566) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update Test Kitchen and Fauxhai to the latest releases [#1569](https://github.com/chef/chef-workstation/pull/1569) ([tas50](https://github.com/tas50))
+- Stop building on soon to be EOL EL6 [#1545](https://github.com/chef/chef-workstation/pull/1545) ([tas50](https://github.com/tas50))
+- Update the install Chef Workstation page [#1568](https://github.com/chef/chef-workstation/pull/1568) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [20.11.180](https://github.com/chef/chef-workstation/tree/20.11.180) (2020-11-17)
 
 #### Merged Pull Requests
@@ -39,7 +42,6 @@
 - Update omnibus to 8.0.6 + bump cookstyle [#1546](https://github.com/chef/chef-workstation/pull/1546) ([tas50](https://github.com/tas50))
 - Bump Chef Workstation App to 0.1.93 [#1547](https://github.com/chef/chef-workstation/pull/1547) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump Chef Workstation App to 0.1.94 [#1549](https://github.com/chef/chef-workstation/pull/1549) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [20.10.168](https://github.com/chef/chef-workstation/tree/20.10.168) (2020-10-21)
 
