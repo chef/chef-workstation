@@ -14,17 +14,13 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/install_workstation.md)
 
-Start your infrastructure automation quickly and easily with [Chef
-Workstation](https://www.chef.sh/) . Chef Workstation gives you
-everything you need to get started with Chef - ad hoc remote execution,
-remote scanning, configuration tasks, cookbook creation tools as well as
-robust dependency and testing software - all in one easy-to-install
-package.
+Start your infrastructure automation quickly and easily with [Chef Workstation](/workstation/). Chef Workstation gives you everything you need to get started with Chef - ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software - all in one easy-to-install package.
 
 Chef Workstation includes:
 
 - Chef Infra Client
 - Chef InSpec
+- Chef Habitat
 - chef and knife command line tools
 - Testing tools such as Test Kitchen, ChefSpec, and Cookstyle
 - Everything else needed to author cookbooks and upload them to the Chef Infra Server
@@ -129,10 +125,7 @@ Alternately, install Chef Workstation using Homebrew:
 
 "Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse.  They are usually controlled over a network connection.
 
-To install Chef Workstation on a headless Windows system,
-exclude the Chef Workstation App from auto-starting on login by using the following
-command in Windows PowerShell or `cmd.exe`.  Replace `MsiPath` with the path of
-the downloaded Chef Workstation installer.
+To install Chef Workstation on a headless Windows system, exclude the Chef Workstation App from auto-starting on login by using the following command in Windows PowerShell or `cmd.exe`.  Replace `MsiPath` with the path of the downloaded Chef Workstation installer.
 
 ```
 msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
@@ -149,11 +142,11 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
 ### Linux
 
 1.  Visit the [Chef Workstation downloads
-    page](https://downloads.chef.io/chef-workstation) and download the
+    page](https://downloads.chef.io/products/workstation) and download the
     appropriate package for your distribution:
 
     ``` bash
-    wget https://packages.chef.io/files/stable/chefworkstation/0.14/ubuntu/18.04/chefworkstation_0.14.16-1_amd64.deb
+    wget https://packages.chef.io/files/stable/chef-workstation/20.11.180/ubuntu/20.04/chef-workstation_20.11.180-1_amd64.deb
     ```
 
 2.  Use your distribution's package manager to install Chef Workstation:
@@ -161,13 +154,13 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
     -   Red Hat Enterprise Linux:
 
         ``` bash
-        rpm -Uvh chef-workstation-0.14.16-1.el7.x86_64.rpm
+        rpm -Uvh chef-workstation-20.11.180-1.el7.x86_64.rpm
         ```
 
     -   Debian/Ubuntu:
 
         ``` bash
-        dpkg -i chefworkstation_0.14.16-1_amd64.deb
+        dpkg -i chef-workstation_20.11.180-1_amd64.deb
         ```
 
 ## Verify the Installation
