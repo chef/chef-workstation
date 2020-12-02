@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "omnibus", git: "https://github.com/chef/omnibus.git", branch: "master"
+gem "omnibus", git: "https://github.com/chef/omnibus.git", branch: "mp/m1-xcompile-test"
 gem "omnibus-software", git: "https://github.com/chef/omnibus-software.git", branch: "master"
 gem "artifactory"
 
