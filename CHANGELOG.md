@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.12.185 -->
-## [20.12.185](https://github.com/chef/chef-workstation/tree/20.12.185) (2020-12-02)
+<!-- latest_release 20.12.186 -->
+## [20.12.186](https://github.com/chef/chef-workstation/tree/20.12.186) (2020-12-02)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.97 [#1566](https://github.com/chef/chef-workstation/pull/1566) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update Test Kitchen and Fauxhai to the latest releases [#1569](https://github.com/chef/chef-workstation/pull/1569) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.11.180 -->
 ### Changes since 20.11.180 release
 
 #### Merged Pull Requests
+- Update Test Kitchen and Fauxhai to the latest releases [#1569](https://github.com/chef/chef-workstation/pull/1569) ([tas50](https://github.com/tas50)) <!-- 20.12.186 -->
 - Bump Chef Workstation App to 0.1.97 [#1566](https://github.com/chef/chef-workstation/pull/1566) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.185 -->
 - Bump Chef Workstation App to 0.1.97 [#1565](https://github.com/chef/chef-workstation/pull/1565) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.11.184 -->
 - Update omnibus-software to resolve windows builds [#1563](https://github.com/chef/chef-workstation/pull/1563) ([tas50](https://github.com/tas50)) <!-- 20.11.183 -->
