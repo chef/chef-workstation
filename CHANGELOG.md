@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.12.189 -->
-## [20.12.189](https://github.com/chef/chef-workstation/tree/20.12.189) (2020-12-04)
+<!-- latest_release 20.12.190 -->
+## [20.12.190](https://github.com/chef/chef-workstation/tree/20.12.190) (2020-12-04)
 
 #### Merged Pull Requests
-- Update Cookstyle to 7.3.11 [#1574](https://github.com/chef/chef-workstation/pull/1574) ([tas50](https://github.com/tas50))
+- Ensure we set only major/minor version for MACOSX_DEPLOYMENT_TARGET [#1572](https://github.com/chef/chef-workstation/pull/1572) ([ramereth](https://github.com/ramereth))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.12.187 -->
 ### Changes since 20.12.187 release
 
 #### Merged Pull Requests
+- Ensure we set only major/minor version for MACOSX_DEPLOYMENT_TARGET [#1572](https://github.com/chef/chef-workstation/pull/1572) ([ramereth](https://github.com/ramereth)) <!-- 20.12.190 -->
 - Update Cookstyle to 7.3.11 [#1574](https://github.com/chef/chef-workstation/pull/1574) ([tas50](https://github.com/tas50)) <!-- 20.12.189 -->
 - Update libiconv and libarchive to the latest [#1571](https://github.com/chef/chef-workstation/pull/1571) ([tas50](https://github.com/tas50)) <!-- 20.12.188 -->
 <!-- release_rollup -->
