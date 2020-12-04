@@ -31,7 +31,14 @@ build do
   env = with_standard_compiler_flags(with_embedded_path)
   # Look up active sdk version.
   sdk_ver = `xcrun --sdk macosx --show-sdk-version`.strip
-  env["MACOSX_DEPLOYMENT_TARGET"] = sdk_ver
+  # Newer versions of xcode on MacOS 10.15 returns a full semver so see if we
+  # have a full semver and account for that.
+  ver = Gem::Version.new(sdk_ver)
+  if ver.canonical_segments.count < 3
+    env["MACOSX_DEPLOYMENT_TARGET"] = sdk_ver
+  else
+    env["MACOSX_DEPLOYMENT_TARGET"] = "#{ver.canonical_segments[0]}.#{ver.canonical_segments[1]}"
+  end
 
   # We specifically don't want to install the rb-fsevent deps into the Workstation
   # bundle because it causes dependency conflicts. But we probably need to
