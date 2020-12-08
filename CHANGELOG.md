@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.12.193 -->
-## [20.12.193](https://github.com/chef/chef-workstation/tree/20.12.193) (2020-12-08)
+<!-- latest_release 20.12.194 -->
+## [20.12.194](https://github.com/chef/chef-workstation/tree/20.12.194) (2020-12-08)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.98 [#1577](https://github.com/chef/chef-workstation/pull/1577) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.99 [#1578](https://github.com/chef/chef-workstation/pull/1578) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.12.187 -->
 ### Changes since 20.12.187 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.99 [#1578](https://github.com/chef/chef-workstation/pull/1578) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.194 -->
 - Bump Chef Workstation App to 0.1.98 [#1577](https://github.com/chef/chef-workstation/pull/1577) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.193 -->
 - Update train and license-acceptance [#1576](https://github.com/chef/chef-workstation/pull/1576) ([tas50](https://github.com/tas50)) <!-- 20.12.192 -->
 - Update kitchen-dokken to the latest [#1575](https://github.com/chef/chef-workstation/pull/1575) ([tas50](https://github.com/tas50)) <!-- 20.12.191 -->
