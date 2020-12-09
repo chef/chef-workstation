@@ -24,9 +24,9 @@
 # package_dir   './local/omnibus/pkg'
 # package_tmp   './local/omnibus/pkg-tmp'
 
-# Disable git caching
+# Enable git caching to speed up builds
 # ------------------------------
-# use_git_caching false
+use_git_caching true
 
 # Enable S3 asset caching
 # ------------------------------
