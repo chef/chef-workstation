@@ -519,8 +519,8 @@ GEM
       test-kitchen
     kitchen-hyperv (0.5.5)
       test-kitchen (>= 1.4, < 3)
-    kitchen-inspec (2.2.1)
-      hashie (~> 3.4)
+    kitchen-inspec (2.2.2)
+      hashie (>= 3.4, < 5)
       inspec (>= 2.2.64, < 5.0)
       test-kitchen (>= 2.7, < 3)
     kitchen-openstack (5.0.1)
