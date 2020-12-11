@@ -20,6 +20,3 @@ chef_web_docs:
 	else \
 		git clone https://github.com/chef/chef-web-docs.git; \
 	fi
-
-lint:
-	hugo -D
