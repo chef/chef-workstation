@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.12.197 -->
-## [20.12.197](https://github.com/chef/chef-workstation/tree/20.12.197) (2020-12-11)
+<!-- latest_release 20.12.198 -->
+## [20.12.198](https://github.com/chef/chef-workstation/tree/20.12.198) (2020-12-11)
 
 #### Merged Pull Requests
-- Bump kitchen-inspec to 2.2.2 [#1583](https://github.com/chef/chef-workstation/pull/1583) ([tas50](https://github.com/tas50))
+- Bump Chef to 16.8.9 and chef-workstation-app to 0.1.103 [#1584](https://github.com/chef/chef-workstation/pull/1584) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.12.187 -->
 ### Changes since 20.12.187 release
 
 #### Merged Pull Requests
+- Bump Chef to 16.8.9 and chef-workstation-app to 0.1.103 [#1584](https://github.com/chef/chef-workstation/pull/1584) ([tas50](https://github.com/tas50)) <!-- 20.12.198 -->
 - Bump kitchen-inspec to 2.2.2 [#1583](https://github.com/chef/chef-workstation/pull/1583) ([tas50](https://github.com/tas50)) <!-- 20.12.197 -->
 - Update InSpec to 4.24.8 [#1581](https://github.com/chef/chef-workstation/pull/1581) ([tas50](https://github.com/tas50)) <!-- 20.12.196 -->
 - Bump Chef Workstation App to 0.1.102 [#1579](https://github.com/chef/chef-workstation/pull/1579) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.195 -->
