@@ -1,16 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.12.199 -->
-## [20.12.199](https://github.com/chef/chef-workstation/tree/20.12.199) (2020-12-12)
+<!-- latest_release 20.12.200 -->
+## [20.12.200](https://github.com/chef/chef-workstation/tree/20.12.200) (2020-12-12)
 
 #### Merged Pull Requests
-- Bump Chef Infra Client to 16.8.14 [#1585](https://github.com/chef/chef-workstation/pull/1585) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-- Update docs build previews locally and with Netlify [#1582](https://github.com/chef/chef-workstation/pull/1582) ([IanMadd](https://github.com/IanMadd))
+- Update openssl to 1.0.2x [#1586](https://github.com/chef/chef-workstation/pull/1586) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.12.187 -->
 ### Changes since 20.12.187 release
 
 #### Merged Pull Requests
+- Update openssl to 1.0.2x [#1586](https://github.com/chef/chef-workstation/pull/1586) ([tas50](https://github.com/tas50)) <!-- 20.12.200 -->
 - Bump Chef Infra Client to 16.8.14 [#1585](https://github.com/chef/chef-workstation/pull/1585) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.199 -->
 - Update docs build previews locally and with Netlify [#1582](https://github.com/chef/chef-workstation/pull/1582) ([IanMadd](https://github.com/IanMadd)) <!-- 20.12.198 -->
 - Bump Chef to 16.8.9 and chef-workstation-app to 0.1.103 [#1584](https://github.com/chef/chef-workstation/pull/1584) ([tas50](https://github.com/tas50)) <!-- 20.12.198 -->
