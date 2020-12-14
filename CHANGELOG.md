@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.12.202 -->
-## [20.12.202](https://github.com/chef/chef-workstation/tree/20.12.202) (2020-12-14)
+<!-- latest_release 20.12.203 -->
+## [20.12.203](https://github.com/chef/chef-workstation/tree/20.12.203) (2020-12-14)
 
 #### Merged Pull Requests
-- Update train to 3.4.4 [#1589](https://github.com/chef/chef-workstation/pull/1589) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.105 [#1590](https://github.com/chef/chef-workstation/pull/1590) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.12.187 -->
 ### Changes since 20.12.187 release
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.105 [#1590](https://github.com/chef/chef-workstation/pull/1590) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.203 -->
 - Update train to 3.4.4 [#1589](https://github.com/chef/chef-workstation/pull/1589) ([tas50](https://github.com/tas50)) <!-- 20.12.202 -->
 - Update omnibus to the latest [#1587](https://github.com/chef/chef-workstation/pull/1587) ([tas50](https://github.com/tas50)) <!-- 20.12.201 -->
 - Update openssl to 1.0.2x [#1586](https://github.com/chef/chef-workstation/pull/1586) ([tas50](https://github.com/tas50)) <!-- 20.12.200 -->
