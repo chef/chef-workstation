@@ -1,39 +1,36 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.12.205 -->
-## [20.12.205](https://github.com/chef/chef-workstation/tree/20.12.205) (2020-12-14)
-
-#### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.109 [#1595](https://github.com/chef/chef-workstation/pull/1595) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-- Bump omnibus from `e8951da` to `d13ae16` in /omnibus [#1593](https://github.com/chef/chef-workstation/pull/1593) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=20.12.187 -->
-### Changes since 20.12.187 release
-
-#### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.109 [#1595](https://github.com/chef/chef-workstation/pull/1595) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.205 -->
-- Bump omnibus from `e8951da` to `d13ae16` in /omnibus [#1593](https://github.com/chef/chef-workstation/pull/1593) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 20.12.204 -->
-- Bump Chef Workstation App to 0.1.107 [#1592](https://github.com/chef/chef-workstation/pull/1592) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.204 -->
-- Bump Chef Workstation App to 0.1.105 [#1590](https://github.com/chef/chef-workstation/pull/1590) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.203 -->
-- Update train to 3.4.4 [#1589](https://github.com/chef/chef-workstation/pull/1589) ([tas50](https://github.com/tas50)) <!-- 20.12.202 -->
-- Update omnibus to the latest [#1587](https://github.com/chef/chef-workstation/pull/1587) ([tas50](https://github.com/tas50)) <!-- 20.12.201 -->
-- Update openssl to 1.0.2x [#1586](https://github.com/chef/chef-workstation/pull/1586) ([tas50](https://github.com/tas50)) <!-- 20.12.200 -->
-- Bump Chef Infra Client to 16.8.14 [#1585](https://github.com/chef/chef-workstation/pull/1585) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.199 -->
-- Update docs build previews locally and with Netlify [#1582](https://github.com/chef/chef-workstation/pull/1582) ([IanMadd](https://github.com/IanMadd)) <!-- 20.12.198 -->
-- Bump Chef to 16.8.9 and chef-workstation-app to 0.1.103 [#1584](https://github.com/chef/chef-workstation/pull/1584) ([tas50](https://github.com/tas50)) <!-- 20.12.198 -->
-- Bump kitchen-inspec to 2.2.2 [#1583](https://github.com/chef/chef-workstation/pull/1583) ([tas50](https://github.com/tas50)) <!-- 20.12.197 -->
-- Update InSpec to 4.24.8 [#1581](https://github.com/chef/chef-workstation/pull/1581) ([tas50](https://github.com/tas50)) <!-- 20.12.196 -->
-- Bump Chef Workstation App to 0.1.102 [#1579](https://github.com/chef/chef-workstation/pull/1579) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.195 -->
-- Bump Chef Workstation App to 0.1.99 [#1578](https://github.com/chef/chef-workstation/pull/1578) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.194 -->
-- Bump Chef Workstation App to 0.1.98 [#1577](https://github.com/chef/chef-workstation/pull/1577) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 20.12.193 -->
-- Update train and license-acceptance [#1576](https://github.com/chef/chef-workstation/pull/1576) ([tas50](https://github.com/tas50)) <!-- 20.12.192 -->
-- Update kitchen-dokken to the latest [#1575](https://github.com/chef/chef-workstation/pull/1575) ([tas50](https://github.com/tas50)) <!-- 20.12.191 -->
-- Ensure we set only major/minor version for MACOSX_DEPLOYMENT_TARGET [#1572](https://github.com/chef/chef-workstation/pull/1572) ([ramereth](https://github.com/ramereth)) <!-- 20.12.190 -->
-- Update Cookstyle to 7.3.11 [#1574](https://github.com/chef/chef-workstation/pull/1574) ([tas50](https://github.com/tas50)) <!-- 20.12.189 -->
-- Update libiconv and libarchive to the latest [#1571](https://github.com/chef/chef-workstation/pull/1571) ([tas50](https://github.com/tas50)) <!-- 20.12.188 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [20.12.205](https://github.com/chef/chef-workstation/tree/20.12.205) (2020-12-15)
+
+#### Merged Pull Requests
+- Update libiconv and libarchive to the latest [#1571](https://github.com/chef/chef-workstation/pull/1571) ([tas50](https://github.com/tas50))
+- Update Cookstyle to 7.3.11 [#1574](https://github.com/chef/chef-workstation/pull/1574) ([tas50](https://github.com/tas50))
+- Ensure we set only major/minor version for MACOSX_DEPLOYMENT_TARGET [#1572](https://github.com/chef/chef-workstation/pull/1572) ([ramereth](https://github.com/ramereth))
+- Update kitchen-dokken to the latest [#1575](https://github.com/chef/chef-workstation/pull/1575) ([tas50](https://github.com/tas50))
+- Update train and license-acceptance [#1576](https://github.com/chef/chef-workstation/pull/1576) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.98 [#1577](https://github.com/chef/chef-workstation/pull/1577) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.99 [#1578](https://github.com/chef/chef-workstation/pull/1578) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.102 [#1579](https://github.com/chef/chef-workstation/pull/1579) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update InSpec to 4.24.8 [#1581](https://github.com/chef/chef-workstation/pull/1581) ([tas50](https://github.com/tas50))
+- Bump kitchen-inspec to 2.2.2 [#1583](https://github.com/chef/chef-workstation/pull/1583) ([tas50](https://github.com/tas50))
+- Bump Chef to 16.8.9 and chef-workstation-app to 0.1.103 [#1584](https://github.com/chef/chef-workstation/pull/1584) ([tas50](https://github.com/tas50))
+- Update docs build previews locally and with Netlify [#1582](https://github.com/chef/chef-workstation/pull/1582) ([IanMadd](https://github.com/IanMadd))
+- Bump Chef Infra Client to 16.8.14 [#1585](https://github.com/chef/chef-workstation/pull/1585) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update openssl to 1.0.2x [#1586](https://github.com/chef/chef-workstation/pull/1586) ([tas50](https://github.com/tas50))
+- Update omnibus to the latest [#1587](https://github.com/chef/chef-workstation/pull/1587) ([tas50](https://github.com/tas50))
+- Update train to 3.4.4 [#1589](https://github.com/chef/chef-workstation/pull/1589) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.105 [#1590](https://github.com/chef/chef-workstation/pull/1590) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.107 [#1592](https://github.com/chef/chef-workstation/pull/1592) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus from `e8951da` to `d13ae16` in /omnibus [#1593](https://github.com/chef/chef-workstation/pull/1593) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Bump Chef Workstation App to 0.1.109 [#1595](https://github.com/chef/chef-workstation/pull/1595) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_stable_release -->
+
 ## [20.12.187](https://github.com/chef/chef-workstation/tree/20.12.187) (2020-12-02)
 
 #### Merged Pull Requests
@@ -46,7 +43,6 @@
 - Update Test Kitchen and Fauxhai to the latest releases [#1569](https://github.com/chef/chef-workstation/pull/1569) ([tas50](https://github.com/tas50))
 - Stop building on soon to be EOL EL6 [#1545](https://github.com/chef/chef-workstation/pull/1545) ([tas50](https://github.com/tas50))
 - Update the install Chef Workstation page [#1568](https://github.com/chef/chef-workstation/pull/1568) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [20.11.180](https://github.com/chef/chef-workstation/tree/20.11.180) (2020-11-17)
 
