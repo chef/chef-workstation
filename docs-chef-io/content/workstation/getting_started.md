@@ -196,7 +196,7 @@ your workstation create the `config.rb` file with the `knife` tool.
 
 #### Create an Organization
 
-On the Chef Infra Server machine create the `ORGANIZATION-validator.pem`
+On the Chef Infra Server machine, create the `ORGANIZATION-validator.pem`
 from the command line using `chef-server-ctl`. Run the following
 command:
 
@@ -209,7 +209,7 @@ where
 -   The name must begin with a lower-case letter or digit, may only
     contain lower-case letters, digits, hyphens, and underscores, and
     must be between 1 and 255 characters. For example: `chef`
--   The full name must begin with a non-white space character and must
+-   The full name must begin with a non-whitespace character and must
     be between 1 and 1023 characters. For example:
     `"Chef Software, Inc."`
 -   `-f FILE_NAME`: Write the `ORGANIZATION-validator.pem` to
@@ -226,7 +226,7 @@ chef-server-ctl org-create chef "Chef Software, Inc." -f /tmp/chef.key
 
 #### Create a User
 
-On the Chef Infra Server machine create the `USER.pem` from the command
+On the Chef Infra Server machine, create the `USER.pem` from the command
 line using `chef-server-ctl`. Run the following command:
 
 ``` bash
@@ -379,7 +379,7 @@ With `chef-run`, you can run the resource directly from the command-line, conver
 chef-run myhost package ntp action=install
 ```
 
-Combined with executing an InSpec scan to validate successful package installation, we have everything we need to define our requirements, and make sure they're met with two simple commands, either locally or remotely.
+Combined with executing an InSpec scan to validate successful package installation, we have everything we need to define our requirements and make sure they're met with two simple commands, either locally or remotely.
 
 ```ruby
 inspec exec ntp-check -t ssh://myuser@myhost -i ~/.ssh/mykey
