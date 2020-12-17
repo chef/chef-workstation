@@ -107,49 +107,6 @@ create the Chef repository. For example, to create a repository called
 chef generate repo chef-repo
 ```
 
-### Create .chef Directory
-
-The `.chef` directory is used to store three files:
-
--   `config.rb`
--   `ORGANIZATION-validator.pem`
--   `USER.pem`
-
-Where `ORGANIZATION` and `USER` represent strings that are unique to
-each organization. These files must be present in the `.chef` directory
-in order for Chef Workstation to be able to connect to a Chef Infra
-Server.
-
-To create the `.chef` directory:
-
-1.  In a command window, enter the following:
-
-    ``` bash
-    mkdir -p ~/chef-repo/.chef
-    ```
-
-    Note that you'll need to replace `chef-repo` with the name of the
-    repository you created previously.
-
-2.  After the `.chef` directory has been created, the following folder
-    structure will be present on the local machine:
-
-        chef-repo/
-           .chef/        << the hidden directory
-           certificates/
-           config/
-           cookbooks/
-           data_bags
-           environments/
-           roles/
-
-3.  Add `.chef` to the `.gitignore` file to prevent uploading the
-    contents of the `.chef` folder to GitHub. For example:
-
-    ``` bash
-    echo '.chef' >> ~/chef-repo/.gitignore
-    ```
-
 ### Install a Code Editor
 
 A good visual code editor is not a requirement for working with Chef
