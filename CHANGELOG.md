@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release unreleased -->
+## Unreleased
+
+#### Merged Pull Requests
+- Chef directory update [#1597](https://github.com/chef/chef-workstation/pull/1597) ([dishanktiwari2501](https://github.com/dishanktiwari2501))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=20.12.205 -->
+### Changes since 20.12.205 release
+
+#### Merged Pull Requests
+- Chef directory update [#1597](https://github.com/chef/chef-workstation/pull/1597) ([dishanktiwari2501](https://github.com/dishanktiwari2501)) <!-- 20.12.205 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
