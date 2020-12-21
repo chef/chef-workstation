@@ -1,16 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.12.206 -->
-## [20.12.206](https://github.com/chef/chef-workstation/tree/20.12.206) (2020-12-18)
+<!-- latest_release 20.12.207 -->
+## [20.12.207](https://github.com/chef/chef-workstation/tree/20.12.207) (2020-12-21)
 
 #### Merged Pull Requests
-- Bump everything to the latest [#1598](https://github.com/chef/chef-workstation/pull/1598) ([tas50](https://github.com/tas50))
-- Chef directory update [#1597](https://github.com/chef/chef-workstation/pull/1597) ([dishanktiwari2501](https://github.com/dishanktiwari2501))
+- Bump Cookstyle + other deps [#1600](https://github.com/chef/chef-workstation/pull/1600) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.12.205 -->
 ### Changes since 20.12.205 release
 
 #### Merged Pull Requests
+- Bump Cookstyle + other deps [#1600](https://github.com/chef/chef-workstation/pull/1600) ([tas50](https://github.com/tas50)) <!-- 20.12.207 -->
 - Bump everything to the latest [#1598](https://github.com/chef/chef-workstation/pull/1598) ([tas50](https://github.com/tas50)) <!-- 20.12.206 -->
 - Chef directory update [#1597](https://github.com/chef/chef-workstation/pull/1597) ([dishanktiwari2501](https://github.com/dishanktiwari2501)) <!-- 20.12.205 -->
 <!-- release_rollup -->
