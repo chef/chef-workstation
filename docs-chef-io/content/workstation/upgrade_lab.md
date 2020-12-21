@@ -8,7 +8,7 @@ aliases = ["/workstation/upgrade_labs/"]
     title = "Upgrade Lab"
     identifier = "chef_workstation/upgrade_lab.md Upgrade Lab"
     parent = "chef_workstation/chef_workstation_tools"
-    weight = 35
+    weight = 150
 +++
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/upgrade_lab.md)
 
