@@ -171,10 +171,6 @@ The following operating systems are supported:
     Depending on how OpenSSL is configured, the `ssl_ca_path` may need
     to be specified. Default value: `:verify_peer`.
 
-`syntax_check_cache_path`
-
-: All files in a cookbook must contain valid Ruby syntax. Use this setting to specify the location in which knife caches information about files that have been checked for valid Ruby syntax.
-
 `tmux_split`
 
 : Split the Tmux window. Default value: `false`.
