@@ -1,17 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.12.209 -->
-## [20.12.209](https://github.com/chef/chef-workstation/tree/20.12.209) (2020-12-22)
+<!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- Remove legacy push-jobs-client docs [#1607](https://github.com/chef/chef-workstation/pull/1607) ([tas50](https://github.com/tas50))
-- How to set up knife [#1224](https://github.com/chef/chef-workstation/pull/1224) ([kagarmoe](https://github.com/kagarmoe))
-- Move Upgrade Lab under tools menu [#1601](https://github.com/chef/chef-workstation/pull/1601) ([tas50](https://github.com/tas50))
+- Remove the old syntax_check_cache_path config [#1606](https://github.com/chef/chef-workstation/pull/1606) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.12.205 -->
 ### Changes since 20.12.205 release
 
 #### Merged Pull Requests
+- Remove the old syntax_check_cache_path config [#1606](https://github.com/chef/chef-workstation/pull/1606) ([tas50](https://github.com/tas50)) <!-- 20.12.209 -->
 - Remove legacy push-jobs-client docs [#1607](https://github.com/chef/chef-workstation/pull/1607) ([tas50](https://github.com/tas50)) <!-- 20.12.209 -->
 - How to set up knife [#1224](https://github.com/chef/chef-workstation/pull/1224) ([kagarmoe](https://github.com/kagarmoe)) <!-- 20.12.208 -->
 - Move Upgrade Lab under tools menu [#1601](https://github.com/chef/chef-workstation/pull/1601) ([tas50](https://github.com/tas50)) <!-- 20.12.208 -->
