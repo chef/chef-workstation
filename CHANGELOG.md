@@ -3,6 +3,7 @@
 ## Unreleased
 
 #### Merged Pull Requests
+- Minor cleanup of the config.rb page [#1605](https://github.com/chef/chef-workstation/pull/1605) ([tas50](https://github.com/tas50))
 - Remove the old syntax_check_cache_path config [#1606](https://github.com/chef/chef-workstation/pull/1606) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
@@ -10,6 +11,7 @@
 ### Changes since 20.12.205 release
 
 #### Merged Pull Requests
+- Minor cleanup of the config.rb page [#1605](https://github.com/chef/chef-workstation/pull/1605) ([tas50](https://github.com/tas50)) <!-- 20.12.209 -->
 - Remove the old syntax_check_cache_path config [#1606](https://github.com/chef/chef-workstation/pull/1606) ([tas50](https://github.com/tas50)) <!-- 20.12.209 -->
 - Remove legacy push-jobs-client docs [#1607](https://github.com/chef/chef-workstation/pull/1607) ([tas50](https://github.com/tas50)) <!-- 20.12.209 -->
 - How to set up knife [#1224](https://github.com/chef/chef-workstation/pull/1224) ([kagarmoe](https://github.com/kagarmoe)) <!-- 20.12.208 -->
