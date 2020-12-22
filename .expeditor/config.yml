@@ -24,6 +24,7 @@ merge_actions:
       ignore_labels:
         - "Expeditor: Skip Version Bump"
         - "Expeditor: Skip All"
+        - "Aspect: Documentation"
   - built_in:update_changelog:
       ignore_labels:
         - "Expeditor: Skip Changelog"
@@ -36,6 +37,7 @@ merge_actions:
       ignore_labels:
         - "Expeditor: Skip Omnibus"
         - "Expeditor: Skip All"
+        - "Aspect: Documentation"
       only_if: bash:.expeditor/determine_version.sh
 
 pipelines:
