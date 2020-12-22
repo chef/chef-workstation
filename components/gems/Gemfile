@@ -93,16 +93,10 @@ group(:omnibus_package) do
   gem "chef-cli", ">= 3.0.4"
   gem "chef-apply", ">= 0.4.16"
 
-  # For Delivery build node
-  gem "mixlib-versioning"
-  gem "artifactory"
-  gem "opscode-pushy-client", ">= 2.100"
-  gem "ffi-rzmq-core"
-  gem "knife-push"
-
   # chef-telemetry previously pulled in an unecessary library (http)
   gem "chef-telemetry", ">= 1.0.8"
 
+  gem "artifactory"
   gem "mixlib-archive", ">= 1.0"
   gem "net-ssh", ">= 4.2.0"
   gem "listen"

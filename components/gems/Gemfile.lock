@@ -398,10 +398,6 @@ GEM
     ffi (1.14.2-x86-mingw32)
     ffi-libarchive (1.0.4)
       ffi (~> 1.0)
-    ffi-rzmq (2.0.7)
-      ffi-rzmq-core (>= 1.0.7)
-    ffi-rzmq-core (1.0.7)
-      ffi
     ffi-win32-extensions (1.0.4)
       ffi
     ffi-yajl (2.3.4)
@@ -560,9 +556,6 @@ GEM
       google-api-client (>= 0.23.9, < 0.43.0)
       knife-cloud (>= 4.0.0)
     knife-opc (0.4.7)
-    knife-push (2.0.1)
-      addressable
-      chef (>= 15.0)
     knife-tidy (2.1.2)
     knife-vcenter (5.0.5)
       chef (>= 15.11)
@@ -686,11 +679,6 @@ GEM
       plist (~> 3.1)
       train-core
       wmi-lite (~> 1.0)
-    opscode-pushy-client (2.100.0)
-      chef (>= 15.0, < 17.0)
-      ffi-rzmq
-      ohai (>= 15.0, < 17.0)
-      uuidtools
     optimist (3.0.1)
     os (1.1.1)
     parallel (1.20.1)
@@ -1023,7 +1011,6 @@ DEPENDENCIES
   ed25519
   fauxhai-ng (~> 8)
   ffi-libarchive
-  ffi-rzmq-core
   guard
   inspec (~> 4.23)
   inspec-bin (~> 4.23)
@@ -1041,7 +1028,6 @@ DEPENDENCIES
   knife-ec2 (>= 1.0.28)
   knife-google (>= 4.2.7)
   knife-opc (>= 0.4.1)
-  knife-push
   knife-tidy (>= 2.0.9)
   knife-vcenter (>= 3.0.1)
   knife-vsphere (>= 4.1.1)
@@ -1051,11 +1037,9 @@ DEPENDENCIES
   minitest (= 5.13.0)
   mixlib-archive (>= 1.0)
   mixlib-install
-  mixlib-versioning
   net-ssh (>= 4.2.0)
   nokogiri (>= 1.10.10, < 1.11)
   ohai (>= 16.7)
-  opscode-pushy-client (>= 2.100)
   pry
   pry-byebug
   pry-remote
