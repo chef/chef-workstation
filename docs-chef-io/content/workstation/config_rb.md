@@ -16,7 +16,7 @@ aliases = ["/config_rb.html", "/config_rb_knife.html", "/config_rb/"]
 
 {{< warning >}}
 
-The `config.rb` file is a replacement for the knife.rb file. The `config.rb` file has identical settings and behavior to the knife.rb file. Chef Infra Client looks first for the presence of the `config.rb` file and if it is not found, then looks for the `knife.rb` file.
+The `config.rb` file is a replacement for the `knife.rb` file. The `config.rb` file has identical settings and behavior to the `knife.rb` file. Chef Infra Client looks first for the presence of the `config.rb` file and if it is not found, then looks for the `knife.rb` file.
 
 {{< /warning >}}
 
