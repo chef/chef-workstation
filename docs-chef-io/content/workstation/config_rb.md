@@ -152,13 +152,9 @@ The following operating systems are supported:
 : Set the verify mode for HTTPS requests.
 
     - Use `:verify_none` to do no validation of SSL certificates.
-    - Use `:verify_peer` to do validation of all SSL certificates,
-        including the Chef Infra Server connections, S3 connections, and
-        any HTTPS **remote_file** resource URLs used in a Chef Infra
-        Client run. This is the recommended setting.
+    - Use `:verify_peer` to do validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in a Chef Infra Client run. This is the recommended setting.
 
-    Depending on how OpenSSL is configured, the `ssl_ca_path` may need
-    to be specified. Default value: `:verify_peer`.
+    Depending on how OpenSSL is configured, the `ssl_ca_path` may need to be specified. Default value: `:verify_peer`.
 
 `syntax_check_cache_path`
 
@@ -170,7 +166,7 @@ The following operating systems are supported:
 
 `validation_client_name`
 
-: The name of the chef-validator key that is used by Chef Infra Client to access the Chef Infra Server during the initial Chef Infra Client run. For example:
+: The name of the chef-validator key that is used by Chef Infra Client to access the Chef Infra Server during the initial Chef Infra Client run when not using validatorless bootstrapping. For example:
 
     ``` ruby
     validation_client_name 'chef-validator'
