@@ -16,11 +16,7 @@ aliases = ["/config_rb.html", "/config_rb_knife.html", "/config_rb/"]
 
 {{< warning >}}
 
-The `config.rb` file is a replacement for the knife.rb file, starting
-with the Chef Client 12.0 release. The `config.rb` file has identical
-settings and behavior to the knife.rb file. Chef Infra Client looks
-first for the presence of the `config.rb` file and if it is not found,
-then looks for the `knife.rb` file.
+The `config.rb` file is a replacement for the knife.rb file. The `config.rb` file has identical settings and behavior to the knife.rb file. Chef Infra Client looks first for the presence of the `config.rb` file and if it is not found, then looks for the `knife.rb` file.
 
 {{< /warning >}}
 
@@ -30,19 +26,12 @@ A `config.rb` file:
 
 - Is loaded every time the knife executable is run
 - Is not created by default
-- Is located by default at `~/.chef/config.rb` (macOS and Linux
-    platforms) or `c:\Users\username\.chef\config.rb` (Microsoft Windows
-    platform), use the `--config` option from the command line to change
-    this location
-- Will override the default configuration when a `config.rb` file
-    exists at the default path or the path specified by the `--config`
-    option
+- Is located by default at `~/.chef/config.rb` (macOS and Linux platforms) or `c:\Users\username\.chef\config.rb` (Microsoft Windows platform), use the `--config` option from the command line to change this location
+- Will override the default configuration when a `config.rb` file exists at the default path or the path specified by the `--config` option
 
 {{< note >}}
 
-When running Microsoft Windows, the `config.rb` file is located at
-`%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<username>\.chef`). If
-this path needs to be scripted, use `%USERPROFILE%\chef-repo\.chef`.
+When running Microsoft Windows, the `config.rb` file is located at `%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<username>\.chef`). If this path needs to be scripted, use `%USERPROFILE%\chef-repo\.chef`.
 
 {{< /note >}}
 
