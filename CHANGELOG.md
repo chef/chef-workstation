@@ -3,6 +3,7 @@
 ## Unreleased
 
 #### Merged Pull Requests
+- How to set up knife [#1224](https://github.com/chef/chef-workstation/pull/1224) ([kagarmoe](https://github.com/kagarmoe))
 - Move Upgrade Lab under tools menu [#1601](https://github.com/chef/chef-workstation/pull/1601) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
@@ -10,6 +11,7 @@
 ### Changes since 20.12.205 release
 
 #### Merged Pull Requests
+- How to set up knife [#1224](https://github.com/chef/chef-workstation/pull/1224) ([kagarmoe](https://github.com/kagarmoe)) <!-- 20.12.208 -->
 - Move Upgrade Lab under tools menu [#1601](https://github.com/chef/chef-workstation/pull/1601) ([tas50](https://github.com/tas50)) <!-- 20.12.208 -->
 - Update the workstation description [#1599](https://github.com/chef/chef-workstation/pull/1599) ([tas50](https://github.com/tas50)) <!-- 20.12.208 -->
 - Bump Cookstyle + other deps [#1600](https://github.com/chef/chef-workstation/pull/1600) ([tas50](https://github.com/tas50)) <!-- 20.12.207 -->
