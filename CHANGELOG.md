@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.12.208 -->
-## [20.12.208](https://github.com/chef/chef-workstation/tree/20.12.208) (2020-12-22)
+<!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- Update the workstation description [#1599](https://github.com/chef/chef-workstation/pull/1599) ([tas50](https://github.com/tas50))
+- Move Upgrade Lab under tools menu [#1601](https://github.com/chef/chef-workstation/pull/1601) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.12.205 -->
 ### Changes since 20.12.205 release
 
 #### Merged Pull Requests
+- Move Upgrade Lab under tools menu [#1601](https://github.com/chef/chef-workstation/pull/1601) ([tas50](https://github.com/tas50)) <!-- 20.12.208 -->
 - Update the workstation description [#1599](https://github.com/chef/chef-workstation/pull/1599) ([tas50](https://github.com/tas50)) <!-- 20.12.208 -->
 - Bump Cookstyle + other deps [#1600](https://github.com/chef/chef-workstation/pull/1600) ([tas50](https://github.com/tas50)) <!-- 20.12.207 -->
 - Bump everything to the latest [#1598](https://github.com/chef/chef-workstation/pull/1598) ([tas50](https://github.com/tas50)) <!-- 20.12.206 -->
