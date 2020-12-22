@@ -178,9 +178,6 @@ subscriptions:
   - workload: ruby_gem_published:knife-opc-*
     actions:
        - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:knife-push-*
-    actions:
-       - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:knife-tidy-*
     actions:
        - bash:.expeditor/update_dep.sh
@@ -227,9 +224,6 @@ subscriptions:
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:ohai-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:opscode-pushy-client-*
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:test-kitchen-*

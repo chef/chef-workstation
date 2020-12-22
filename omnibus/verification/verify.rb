@@ -401,16 +401,6 @@ module ChefWorkstation
         end
       end
 
-      add_component "opscode-pushy-client" do |c|
-        c.gem_base_dir = "opscode-pushy-client"
-
-        c.smoke_test do
-          tmpdir do |cwd|
-            sh("#{bin("pushy-client")} -v", cwd: cwd)
-          end
-        end
-      end
-
       attr_reader :verification_threads
       attr_reader :verification_results
       attr_reader :verification_status

@@ -38,9 +38,6 @@ dependency "libarchive"
 # For berkshelf
 dependency "libarchive"
 
-# For opscode-pushy-client
-dependency "libzmq"
-
 # for train
 dependency "google-protobuf"
 
