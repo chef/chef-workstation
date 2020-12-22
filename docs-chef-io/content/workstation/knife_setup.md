@@ -165,10 +165,6 @@ In a script for Microsoft Windows, use: `%USERPROFILE%\chef-repo\.chef`.
 
 ### config.rb Configuration Within a Chef Repository
 
-{{% ws_chef_repo_many_users_same_knife %}}
-
-## Generating a config.rb File
-
 Use <span class="title-ref">knife configure</span> command to generate your initial `config.rb` file in your home directory.
 See [knife configure](/workstation/knife_configure/) for details.
 
