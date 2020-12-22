@@ -16,11 +16,7 @@ aliases = ["/config_rb.html", "/config_rb_knife.html", "/config_rb/"]
 
 {{< warning >}}
 
-The `config.rb` file is a replacement for the knife.rb file, starting
-with the Chef Client 12.0 release. The `config.rb` file has identical
-settings and behavior to the knife.rb file. Chef Infra Client looks
-first for the presence of the `config.rb` file and if it is not found,
-then looks for the `knife.rb` file.
+The `config.rb` file is a replacement for the `knife.rb` file. The `config.rb` file has identical settings and behavior to the `knife.rb` file. Chef Infra Client looks first for the presence of the `config.rb` file and if it is not found, then looks for the `knife.rb` file.
 
 {{< /warning >}}
 
@@ -30,19 +26,12 @@ A `config.rb` file:
 
 - Is loaded every time the knife executable is run
 - Is not created by default
-- Is located by default at `~/.chef/config.rb` (macOS and Linux
-    platforms) or `c:\Users\username\.chef\config.rb` (Microsoft Windows
-    platform), use the `--config` option from the command line to change
-    this location
-- Will override the default configuration when a `config.rb` file
-    exists at the default path or the path specified by the `--config`
-    option
+- Is located by default at `~/.chef/config.rb` (macOS and Linux platforms) or `c:\Users\username\.chef\config.rb` (Microsoft Windows platform), use the `--config` option from the command line to change this location
+- Will override the default configuration when a `config.rb` file exists at the default path or the path specified by the `--config` option
 
 {{< note >}}
 
-When running Microsoft Windows, the `config.rb` file is located at
-`%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<username>\.chef`). If
-this path needs to be scripted, use `%USERPROFILE%\chef-repo\.chef`.
+When running Microsoft Windows, the `config.rb` file is located at `%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<username>\.chef`).
 
 {{< /note >}}
 
@@ -112,7 +101,7 @@ This configuration file has the following settings:
 
 `fips`
 : Allows OpenSSL to enforce FIPS-validated security during a Chef Infra Client run. Set to `true` to enable FIPS-validated security.
-FIPS support is available in Chef Infra Client versions 12.8 and above.
+
 The following operating systems are supported:
 
     - Red Hat Enterprise Linux
@@ -163,13 +152,9 @@ The following operating systems are supported:
 : Set the verify mode for HTTPS requests.
 
     - Use `:verify_none` to do no validation of SSL certificates.
-    - Use `:verify_peer` to do validation of all SSL certificates,
-        including the Chef Infra Server connections, S3 connections, and
-        any HTTPS **remote_file** resource URLs used in a Chef Infra
-        Client run. This is the recommended setting.
+    - Use `:verify_peer` to do validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in a Chef Infra Client run. This is the recommended setting.
 
-    Depending on how OpenSSL is configured, the `ssl_ca_path` may need
-    to be specified. Default value: `:verify_peer`.
+    Depending on how OpenSSL is configured, the `ssl_ca_path` may need to be specified. Default value: `:verify_peer`.
 
 `tmux_split`
 
@@ -177,7 +162,7 @@ The following operating systems are supported:
 
 `validation_client_name`
 
-: The name of the chef-validator key that is used by Chef Infra Client to access the Chef Infra Server during the initial Chef Infra Client run. For example:
+: The name of the chef-validator key that is used by Chef Infra Client to access the Chef Infra Server during the initial Chef Infra Client run when not using validatorless bootstrapping. For example:
 
     ``` ruby
     validation_client_name 'chef-validator'
