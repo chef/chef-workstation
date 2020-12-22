@@ -101,7 +101,7 @@ This configuration file has the following settings:
 
 `fips`
 : Allows OpenSSL to enforce FIPS-validated security during a Chef Infra Client run. Set to `true` to enable FIPS-validated security.
-FIPS support is available in Chef Infra Client versions 12.8 and above.
+
 The following operating systems are supported:
 
     - Red Hat Enterprise Linux
