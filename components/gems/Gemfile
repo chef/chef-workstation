@@ -96,7 +96,6 @@ group(:omnibus_package) do
   # chef-telemetry previously pulled in an unecessary library (http)
   gem "chef-telemetry", ">= 1.0.8"
 
-  gem "mixlib-versioning"
   gem "artifactory"
   gem "mixlib-archive", ">= 1.0"
   gem "net-ssh", ">= 4.2.0"

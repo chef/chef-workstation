@@ -1037,7 +1037,6 @@ DEPENDENCIES
   minitest (= 5.13.0)
   mixlib-archive (>= 1.0)
   mixlib-install
-  mixlib-versioning
   net-ssh (>= 4.2.0)
   nokogiri (>= 1.10.10, < 1.11)
   ohai (>= 16.7)
