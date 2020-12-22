@@ -31,7 +31,7 @@ A `config.rb` file:
 
 {{< note >}}
 
-When running Microsoft Windows, the `config.rb` file is located at `%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<username>\.chef`). If this path needs to be scripted, use `%USERPROFILE%\chef-repo\.chef`.
+When running Microsoft Windows, the `config.rb` file is located at `%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<username>\.chef`).
 
 {{< /note >}}
 
