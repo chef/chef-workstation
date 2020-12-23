@@ -1,17 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.12.210 -->
-## [20.12.210](https://github.com/chef/chef-workstation/tree/20.12.210) (2020-12-22)
+<!-- latest_release 20.12.211 -->
+## [20.12.211](https://github.com/chef/chef-workstation/tree/20.12.211) (2020-12-23)
 
 #### Merged Pull Requests
-- Remove the EOL Push Jobs Client [#1608](https://github.com/chef/chef-workstation/pull/1608) ([tas50](https://github.com/tas50))
-- Minor cleanup of the config.rb page [#1605](https://github.com/chef/chef-workstation/pull/1605) ([tas50](https://github.com/tas50))
-- Remove the old syntax_check_cache_path config [#1606](https://github.com/chef/chef-workstation/pull/1606) ([tas50](https://github.com/tas50))
+- Bump omnibus-software and product deps [#1612](https://github.com/chef/chef-workstation/pull/1612) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.12.205 -->
 ### Changes since 20.12.205 release
 
 #### Merged Pull Requests
+- Bump omnibus-software and product deps [#1612](https://github.com/chef/chef-workstation/pull/1612) ([tas50](https://github.com/tas50)) <!-- 20.12.211 -->
 - Remove the EOL Push Jobs Client [#1608](https://github.com/chef/chef-workstation/pull/1608) ([tas50](https://github.com/tas50)) <!-- 20.12.210 -->
 - Minor cleanup of the config.rb page [#1605](https://github.com/chef/chef-workstation/pull/1605) ([tas50](https://github.com/tas50)) <!-- 20.12.209 -->
 - Remove the old syntax_check_cache_path config [#1606](https://github.com/chef/chef-workstation/pull/1606) ([tas50](https://github.com/tas50)) <!-- 20.12.209 -->
