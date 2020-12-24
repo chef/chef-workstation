@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 20.12.213 -->
-## [20.12.213](https://github.com/chef/chef-workstation/tree/20.12.213) (2020-12-24)
+<!-- latest_release 20.12.214 -->
+## [20.12.214](https://github.com/chef/chef-workstation/tree/20.12.214) (2020-12-24)
 
 #### Merged Pull Requests
-- Don&#39;t define libarchive twice in the omnibus config [#1617](https://github.com/chef/chef-workstation/pull/1617) ([tas50](https://github.com/tas50))
+- Pin rake to avoid double rake, bump git, bump Test Kitchen [#1616](https://github.com/chef/chef-workstation/pull/1616) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.12.205 -->
 ### Changes since 20.12.205 release
 
 #### Merged Pull Requests
+- Pin rake to avoid double rake, bump git, bump Test Kitchen [#1616](https://github.com/chef/chef-workstation/pull/1616) ([tas50](https://github.com/tas50)) <!-- 20.12.214 -->
 - Don&#39;t define libarchive twice in the omnibus config [#1617](https://github.com/chef/chef-workstation/pull/1617) ([tas50](https://github.com/tas50)) <!-- 20.12.213 -->
 - Add Habitat to the installer info page [#1613](https://github.com/chef/chef-workstation/pull/1613) ([tas50](https://github.com/tas50)) <!-- 20.12.212 -->
 - Bump omnibus-software and product deps [#1612](https://github.com/chef/chef-workstation/pull/1612) ([tas50](https://github.com/tas50)) <!-- 20.12.211 -->
