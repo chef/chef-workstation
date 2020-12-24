@@ -28,14 +28,11 @@ dependency "ruby"
 
 # However, for gems that depend on c-libs, we must include the c-libraries directly here.
 
-# For nokogiri
+# For nokogiri, archive_file in chef infra client, and berkshelf
 dependency "libxml2"
 dependency "libxslt"
 dependency "liblzma"
 dependency "zlib"
-dependency "libarchive"
-
-# For berkshelf
 dependency "libarchive"
 
 # for train
