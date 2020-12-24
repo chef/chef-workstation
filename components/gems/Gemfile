@@ -23,7 +23,7 @@ group(:omnibus_package, :development, :test) do
   # at these pins and adjust them.
   gem "minitest", "= 5.13.0"
 
-  gem "rake", ">= 13.0.1"
+  gem "rake", "= 13.0.1" # prevent double rake as of 12.2020
   gem "pry"
   gem "yard"
   gem "guard"
