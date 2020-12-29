@@ -1,11 +1,9 @@
 # Documentation available at https://expeditor.chef.io/docs/getting-started/
+---
 
 # The name of the product keys for this product (from mixlib-install)
 product_key:
   - chef-workstation
-
-project:
-  alias: chef-workstation
 
 # Slack channel in Chef Software slack to send notifications about build failures, etc
 slack:
@@ -14,6 +12,9 @@ slack:
 github:
   # This deletes the GitHub PR branch after successfully merged into the release branch
   delete_branch_on_merge: true
+
+changelog:
+  rollup_header: Changes not yet released to stable
 
 # https://expeditor.chef.io/docs/getting-started/subscriptions/#merge-actions
 # The `merge_actions` key is a shortcut for the
@@ -29,6 +30,7 @@ merge_actions:
       ignore_labels:
         - "Expeditor: Skip Changelog"
         - "Expeditor: Skip All"
+        - "Aspect: Documentation"
   # The git commit happens here
   - bash:.expeditor/push-git-tag.sh:
       only_if: bash:.expeditor/determine_version.sh
