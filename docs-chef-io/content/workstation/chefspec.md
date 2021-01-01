@@ -213,7 +213,7 @@ end
 require 'chefspec'
 
 describe 'file::delete' do
-  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04').converge(described_recipe) }
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '20.04').converge(described_recipe) }
 
   it 'deletes a file with an explicit action' do
     expect(chef_run).to delete_file('/tmp/explicit_action')
@@ -259,7 +259,7 @@ end
 require 'chefspec'
 
 describe 'template::create' do
-  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04').converge(described_recipe) }
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '20.04').converge(described_recipe) }
 
   it 'creates a template with the default action' do
     expect(chef_run).to create_template('/tmp/default_action')
@@ -316,7 +316,7 @@ end
 require 'chefspec'
 
 describe 'package::remove' do
-  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04').converge(described_recipe) }
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '20.04').converge(described_recipe) }
 
   it 'removes a package with an explicit action' do
     expect(chef_run).to remove_package('explicit_action')
@@ -360,7 +360,7 @@ end
 require 'chefspec'
 
 describe 'chef_gem::install' do
-  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04').converge(described_recipe) }
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '20.04').converge(described_recipe) }
 
   it 'installs a chef_gem with the default action' do
     expect(chef_run).to install_chef_gem('default_action')
@@ -409,7 +409,7 @@ end
 require 'chefspec'
 
 describe 'directory::create' do
-  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04').converge(described_recipe) }
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '20.04').converge(described_recipe) }
 
   it 'creates a directory with the default action' do
     expect(chef_run).to create_directory('/tmp/default_action')
@@ -464,7 +464,7 @@ end
 require 'chefspec'
 
 describe 'guards::default' do
-  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04').converge(described_recipe) }
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '20.04').converge(described_recipe) }
 
   it 'includes resource that have guards that evaluate to true' do
     expect(chef_run).to start_service('true_guard')
@@ -494,7 +494,7 @@ include_recipe 'include_recipe::other'
 require 'chefspec'
 
 describe 'include_recipe::default' do
-  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04').converge(described_recipe) }
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '20.04').converge(described_recipe) }
 
   it 'includes the `other` recipe' do
     expect(chef_run).to include_recipe('include_recipe::other')
@@ -526,7 +526,7 @@ end
 require 'chefspec'
 
 describe 'multiple_actions::sequential' do
-  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04', log_level: :fatal).converge(described_recipe) }
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '20.04', log_level: :fatal).converge(described_recipe) }
 
   it 'executes both actions' do
     expect(chef_run).to start_service('resource')
