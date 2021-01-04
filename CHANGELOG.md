@@ -1,8 +1,9 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release unreleased -->
-## Unreleased
+<!-- latest_release 21.1.216 -->
+## [21.1.216](https://github.com/chef/chef-workstation/tree/21.1.216) (2021-01-04)
 
 #### Merged Pull Requests
+- Bump cookstyle to 7.5.3 and fauxhai-ng to 8.7.0 [#1623](https://github.com/chef/chef-workstation/pull/1623) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - More updates to our expeditor config [#1611](https://github.com/chef/chef-workstation/pull/1611) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
@@ -10,6 +11,7 @@
 ### Changes since 20.12.205 release
 
 #### Merged Pull Requests
+- Bump cookstyle to 7.5.3 and fauxhai-ng to 8.7.0 [#1623](https://github.com/chef/chef-workstation/pull/1623) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.216 -->
 - More updates to our expeditor config [#1611](https://github.com/chef/chef-workstation/pull/1611) ([tas50](https://github.com/tas50)) <!-- 20.12.215 -->
 - Remove the omnibus_override for libzmq [#1619](https://github.com/chef/chef-workstation/pull/1619) ([tas50](https://github.com/tas50)) <!-- 20.12.215 -->
 - Pin rake to avoid double rake, bump git, bump Test Kitchen [#1616](https://github.com/chef/chef-workstation/pull/1616) ([tas50](https://github.com/tas50)) <!-- 20.12.214 -->
