@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.1.221 -->
-## [21.1.221](https://github.com/chef/chef-workstation/tree/21.1.221) (2021-01-05)
+<!-- latest_release 21.1.222 -->
+## [21.1.222](https://github.com/chef/chef-workstation/tree/21.1.222) (2021-01-05)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.102 [#1631](https://github.com/chef/chef-workstation/pull/1631) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Infra Client to 16.9.16 [#1632](https://github.com/chef/chef-workstation/pull/1632) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=20.12.205 -->
 ### Changes since 20.12.205 release
 
 #### Merged Pull Requests
+- Bump Chef Infra Client to 16.9.16 [#1632](https://github.com/chef/chef-workstation/pull/1632) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.222 -->
 - Bump chef-analyze CLI to 0.1.102 [#1631](https://github.com/chef/chef-workstation/pull/1631) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.221 -->
 - Bump chef-zero to 15.0.4 [#1629](https://github.com/chef/chef-workstation/pull/1629) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.220 -->
 - Update inspec, knife-ec2, and others to latest versions [#1628](https://github.com/chef/chef-workstation/pull/1628) ([tas50](https://github.com/tas50)) <!-- 21.1.219 -->
