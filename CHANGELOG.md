@@ -1,41 +1,39 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.1.222 -->
-## [21.1.222](https://github.com/chef/chef-workstation/tree/21.1.222) (2021-01-05)
-
-#### Merged Pull Requests
-- Bump Chef Infra Client to 16.9.16 [#1632](https://github.com/chef/chef-workstation/pull/1632) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=20.12.205 -->
-### Changes since 20.12.205 release
-
-#### Merged Pull Requests
-- Bump Chef Infra Client to 16.9.16 [#1632](https://github.com/chef/chef-workstation/pull/1632) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.222 -->
-- Bump chef-analyze CLI to 0.1.102 [#1631](https://github.com/chef/chef-workstation/pull/1631) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.221 -->
-- Bump chef-zero to 15.0.4 [#1629](https://github.com/chef/chef-workstation/pull/1629) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.220 -->
-- Update inspec, knife-ec2, and others to latest versions [#1628](https://github.com/chef/chef-workstation/pull/1628) ([tas50](https://github.com/tas50)) <!-- 21.1.219 -->
-- Bump omnibus-software from `e7c643e` to `869ef4e` in /omnibus [#1620](https://github.com/chef/chef-workstation/pull/1620) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.1.218 -->
-- Bump omnibus from `7e26b89` to `44f1303` in /omnibus [#1621](https://github.com/chef/chef-workstation/pull/1621) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.1.217 -->
-- Bump cookstyle to 7.5.3 and fauxhai-ng to 8.7.0 [#1623](https://github.com/chef/chef-workstation/pull/1623) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.216 -->
-- More updates to our expeditor config [#1611](https://github.com/chef/chef-workstation/pull/1611) ([tas50](https://github.com/tas50)) <!-- 20.12.215 -->
-- Remove the omnibus_override for libzmq [#1619](https://github.com/chef/chef-workstation/pull/1619) ([tas50](https://github.com/tas50)) <!-- 20.12.215 -->
-- Pin rake to avoid double rake, bump git, bump Test Kitchen [#1616](https://github.com/chef/chef-workstation/pull/1616) ([tas50](https://github.com/tas50)) <!-- 20.12.214 -->
-- Don&#39;t define libarchive twice in the omnibus config [#1617](https://github.com/chef/chef-workstation/pull/1617) ([tas50](https://github.com/tas50)) <!-- 20.12.213 -->
-- Add Habitat to the installer info page [#1613](https://github.com/chef/chef-workstation/pull/1613) ([tas50](https://github.com/tas50)) <!-- 20.12.212 -->
-- Bump omnibus-software and product deps [#1612](https://github.com/chef/chef-workstation/pull/1612) ([tas50](https://github.com/tas50)) <!-- 20.12.211 -->
-- Remove the EOL Push Jobs Client [#1608](https://github.com/chef/chef-workstation/pull/1608) ([tas50](https://github.com/tas50)) <!-- 20.12.210 -->
-- Minor cleanup of the config.rb page [#1605](https://github.com/chef/chef-workstation/pull/1605) ([tas50](https://github.com/tas50)) <!-- 20.12.209 -->
-- Remove the old syntax_check_cache_path config [#1606](https://github.com/chef/chef-workstation/pull/1606) ([tas50](https://github.com/tas50)) <!-- 20.12.209 -->
-- Remove legacy push-jobs-client docs [#1607](https://github.com/chef/chef-workstation/pull/1607) ([tas50](https://github.com/tas50)) <!-- 20.12.209 -->
-- How to set up knife [#1224](https://github.com/chef/chef-workstation/pull/1224) ([kagarmoe](https://github.com/kagarmoe)) <!-- 20.12.208 -->
-- Move Upgrade Lab under tools menu [#1601](https://github.com/chef/chef-workstation/pull/1601) ([tas50](https://github.com/tas50)) <!-- 20.12.208 -->
-- Update the workstation description [#1599](https://github.com/chef/chef-workstation/pull/1599) ([tas50](https://github.com/tas50)) <!-- 20.12.208 -->
-- Bump Cookstyle + other deps [#1600](https://github.com/chef/chef-workstation/pull/1600) ([tas50](https://github.com/tas50)) <!-- 20.12.207 -->
-- Bump everything to the latest [#1598](https://github.com/chef/chef-workstation/pull/1598) ([tas50](https://github.com/tas50)) <!-- 20.12.206 -->
-- Chef directory update [#1597](https://github.com/chef/chef-workstation/pull/1597) ([dishanktiwari2501](https://github.com/dishanktiwari2501)) <!-- 20.12.205 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [21.1.222](https://github.com/chef/chef-workstation/tree/21.1.222) (2021-01-06)
+
+#### Merged Pull Requests
+- Chef directory update [#1597](https://github.com/chef/chef-workstation/pull/1597) ([dishanktiwari2501](https://github.com/dishanktiwari2501))
+- Bump everything to the latest [#1598](https://github.com/chef/chef-workstation/pull/1598) ([tas50](https://github.com/tas50))
+- Bump Cookstyle + other deps [#1600](https://github.com/chef/chef-workstation/pull/1600) ([tas50](https://github.com/tas50))
+- Update the workstation description [#1599](https://github.com/chef/chef-workstation/pull/1599) ([tas50](https://github.com/tas50))
+- Move Upgrade Lab under tools menu [#1601](https://github.com/chef/chef-workstation/pull/1601) ([tas50](https://github.com/tas50))
+- How to set up knife [#1224](https://github.com/chef/chef-workstation/pull/1224) ([kagarmoe](https://github.com/kagarmoe))
+- Remove legacy push-jobs-client docs [#1607](https://github.com/chef/chef-workstation/pull/1607) ([tas50](https://github.com/tas50))
+- Remove the old syntax_check_cache_path config [#1606](https://github.com/chef/chef-workstation/pull/1606) ([tas50](https://github.com/tas50))
+- Minor cleanup of the config.rb page [#1605](https://github.com/chef/chef-workstation/pull/1605) ([tas50](https://github.com/tas50))
+- Remove the EOL Push Jobs Client [#1608](https://github.com/chef/chef-workstation/pull/1608) ([tas50](https://github.com/tas50))
+- Bump omnibus-software and product deps [#1612](https://github.com/chef/chef-workstation/pull/1612) ([tas50](https://github.com/tas50))
+- Add Habitat to the installer info page [#1613](https://github.com/chef/chef-workstation/pull/1613) ([tas50](https://github.com/tas50))
+- Don&#39;t define libarchive twice in the omnibus config [#1617](https://github.com/chef/chef-workstation/pull/1617) ([tas50](https://github.com/tas50))
+- Pin rake to avoid double rake, bump git, bump Test Kitchen [#1616](https://github.com/chef/chef-workstation/pull/1616) ([tas50](https://github.com/tas50))
+- Remove the omnibus_override for libzmq [#1619](https://github.com/chef/chef-workstation/pull/1619) ([tas50](https://github.com/tas50))
+- More updates to our expeditor config [#1611](https://github.com/chef/chef-workstation/pull/1611) ([tas50](https://github.com/tas50))
+- Bump cookstyle to 7.5.3 and fauxhai-ng to 8.7.0 [#1623](https://github.com/chef/chef-workstation/pull/1623) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus from `7e26b89` to `44f1303` in /omnibus [#1621](https://github.com/chef/chef-workstation/pull/1621) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump omnibus-software from `e7c643e` to `869ef4e` in /omnibus [#1620](https://github.com/chef/chef-workstation/pull/1620) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Update inspec, knife-ec2, and others to latest versions [#1628](https://github.com/chef/chef-workstation/pull/1628) ([tas50](https://github.com/tas50))
+- Bump chef-zero to 15.0.4 [#1629](https://github.com/chef/chef-workstation/pull/1629) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.102 [#1631](https://github.com/chef/chef-workstation/pull/1631) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Infra Client to 16.9.16 [#1632](https://github.com/chef/chef-workstation/pull/1632) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_stable_release -->
+
 ## [20.12.205](https://github.com/chef/chef-workstation/tree/20.12.205) (2020-12-15)
 
 #### Merged Pull Requests
@@ -59,7 +57,6 @@
 - Bump Chef Workstation App to 0.1.107 [#1592](https://github.com/chef/chef-workstation/pull/1592) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump omnibus from `e8951da` to `d13ae16` in /omnibus [#1593](https://github.com/chef/chef-workstation/pull/1593) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 - Bump Chef Workstation App to 0.1.109 [#1595](https://github.com/chef/chef-workstation/pull/1595) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [20.12.187](https://github.com/chef/chef-workstation/tree/20.12.187) (2020-12-02)
 
