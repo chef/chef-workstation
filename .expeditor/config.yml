@@ -132,7 +132,7 @@ subscriptions:
   - workload: ruby_gem_published:ffi-yajl-*
     actions:
        - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:inspec-*
+  - workload: ruby_gem_published:inspec-bin-*
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:kitchen-azurerm-*
