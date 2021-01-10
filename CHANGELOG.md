@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.1.223 -->
-## [21.1.223](https://github.com/chef/chef-workstation/tree/21.1.223) (2021-01-09)
+<!-- latest_release 21.1.224 -->
+## [21.1.224](https://github.com/chef/chef-workstation/tree/21.1.224) (2021-01-10)
 
 #### Merged Pull Requests
-- Bump knife-ec2 to 2.1.2 [#1637](https://github.com/chef/chef-workstation/pull/1637) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Infra Client to 16.9.17 [#1639](https://github.com/chef/chef-workstation/pull/1639) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.1.222 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Infra Client to 16.9.17 [#1639](https://github.com/chef/chef-workstation/pull/1639) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.224 -->
 - Bump knife-ec2 to 2.1.2 [#1637](https://github.com/chef/chef-workstation/pull/1637) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.223 -->
 <!-- release_rollup -->
 
