@@ -34,7 +34,7 @@ GPG and Amazon KMS.
 
 The chef-vault cookbook is maintained by Chef Software. Use it along
 with Chef Vault itself. This cookbook adds the `chef_vault_item`
-helper method to the Recipe DSL and the `chef_vault_secret` resource.
+helper method to the Chef Infra Language and the `chef_vault_secret` resource.
 Use them both in recipes to work with data bag secrets.
 
 {{< warning >}}
