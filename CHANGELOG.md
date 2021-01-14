@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.1.226 -->
-## [21.1.226](https://github.com/chef/chef-workstation/tree/21.1.226) (2021-01-11)
+<!-- latest_release 21.1.227 -->
+## [21.1.227](https://github.com/chef/chef-workstation/tree/21.1.227) (2021-01-14)
 
 #### Merged Pull Requests
-- Bump kitchen-google to 2.2.0 [#1644](https://github.com/chef/chef-workstation/pull/1644) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump inspec-bin to 4.24.32 [#1646](https://github.com/chef/chef-workstation/pull/1646) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.1.222 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump inspec-bin to 4.24.32 [#1646](https://github.com/chef/chef-workstation/pull/1646) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.227 -->
 - Bump kitchen-google to 2.2.0 [#1644](https://github.com/chef/chef-workstation/pull/1644) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.226 -->
 - Bump train-core to 3.4.7 [#1643](https://github.com/chef/chef-workstation/pull/1643) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.225 -->
 - Bump Chef Infra Client to 16.9.17 [#1639](https://github.com/chef/chef-workstation/pull/1639) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.224 -->
