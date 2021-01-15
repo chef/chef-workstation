@@ -1,29 +1,27 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.1.233 -->
-## [21.1.233](https://github.com/chef/chef-workstation/tree/21.1.233) (2021-01-15)
-
-#### Merged Pull Requests
-- Update omnibus-software again for libarchive fixes [#1653](https://github.com/chef/chef-workstation/pull/1653) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=21.1.222 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Update omnibus-software again for libarchive fixes [#1653](https://github.com/chef/chef-workstation/pull/1653) ([tas50](https://github.com/tas50)) <!-- 21.1.233 -->
-- Update omnibus-software dep to the latest [#1652](https://github.com/chef/chef-workstation/pull/1652) ([tas50](https://github.com/tas50)) <!-- 21.1.232 -->
-- Bump knife-ec2 to 2.1.3 [#1650](https://github.com/chef/chef-workstation/pull/1650) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.231 -->
-- libarchive version updated to 3.5.1 [#1649](https://github.com/chef/chef-workstation/pull/1649) ([nikhil2611](https://github.com/nikhil2611)) <!-- 21.1.230 -->
-- Update Chef Infra Client to 16.9.20 [#1648](https://github.com/chef/chef-workstation/pull/1648) ([tas50](https://github.com/tas50)) <!-- 21.1.229 -->
-- Bump chef-cli to 3.0.35 [#1647](https://github.com/chef/chef-workstation/pull/1647) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.228 -->
-- Bump inspec-bin to 4.24.32 [#1646](https://github.com/chef/chef-workstation/pull/1646) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.227 -->
-- Bump kitchen-google to 2.2.0 [#1644](https://github.com/chef/chef-workstation/pull/1644) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.226 -->
-- Bump train-core to 3.4.7 [#1643](https://github.com/chef/chef-workstation/pull/1643) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.225 -->
-- Bump Chef Infra Client to 16.9.17 [#1639](https://github.com/chef/chef-workstation/pull/1639) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.224 -->
-- Bump knife-ec2 to 2.1.2 [#1637](https://github.com/chef/chef-workstation/pull/1637) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.223 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [21.1.233](https://github.com/chef/chef-workstation/tree/21.1.233) (2021-01-15)
+
+#### Merged Pull Requests
+- Bump knife-ec2 to 2.1.2 [#1637](https://github.com/chef/chef-workstation/pull/1637) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Infra Client to 16.9.17 [#1639](https://github.com/chef/chef-workstation/pull/1639) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump train-core to 3.4.7 [#1643](https://github.com/chef/chef-workstation/pull/1643) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-google to 2.2.0 [#1644](https://github.com/chef/chef-workstation/pull/1644) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump inspec-bin to 4.24.32 [#1646](https://github.com/chef/chef-workstation/pull/1646) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-cli to 3.0.35 [#1647](https://github.com/chef/chef-workstation/pull/1647) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update Chef Infra Client to 16.9.20 [#1648](https://github.com/chef/chef-workstation/pull/1648) ([tas50](https://github.com/tas50))
+- libarchive version updated to 3.5.1 [#1649](https://github.com/chef/chef-workstation/pull/1649) ([nikhil2611](https://github.com/nikhil2611))
+- Bump knife-ec2 to 2.1.3 [#1650](https://github.com/chef/chef-workstation/pull/1650) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update omnibus-software dep to the latest [#1652](https://github.com/chef/chef-workstation/pull/1652) ([tas50](https://github.com/tas50))
+- Update omnibus-software again for libarchive fixes [#1653](https://github.com/chef/chef-workstation/pull/1653) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [21.1.222](https://github.com/chef/chef-workstation/tree/21.1.222) (2021-01-06)
 
 #### Merged Pull Requests
@@ -50,7 +48,6 @@
 - Bump chef-zero to 15.0.4 [#1629](https://github.com/chef/chef-workstation/pull/1629) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump chef-analyze CLI to 0.1.102 [#1631](https://github.com/chef/chef-workstation/pull/1631) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump Chef Infra Client to 16.9.16 [#1632](https://github.com/chef/chef-workstation/pull/1632) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [20.12.205](https://github.com/chef/chef-workstation/tree/20.12.205) (2020-12-15)
 
