@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.1.231 -->
-## [21.1.231](https://github.com/chef/chef-workstation/tree/21.1.231) (2021-01-15)
+<!-- latest_release 21.1.232 -->
+## [21.1.232](https://github.com/chef/chef-workstation/tree/21.1.232) (2021-01-15)
 
 #### Merged Pull Requests
-- Bump knife-ec2 to 2.1.3 [#1650](https://github.com/chef/chef-workstation/pull/1650) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update omnibus-software dep to the latest [#1652](https://github.com/chef/chef-workstation/pull/1652) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.1.222 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update omnibus-software dep to the latest [#1652](https://github.com/chef/chef-workstation/pull/1652) ([tas50](https://github.com/tas50)) <!-- 21.1.232 -->
 - Bump knife-ec2 to 2.1.3 [#1650](https://github.com/chef/chef-workstation/pull/1650) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.231 -->
 - libarchive version updated to 3.5.1 [#1649](https://github.com/chef/chef-workstation/pull/1649) ([nikhil2611](https://github.com/nikhil2611)) <!-- 21.1.230 -->
 - Update Chef Infra Client to 16.9.20 [#1648](https://github.com/chef/chef-workstation/pull/1648) ([tas50](https://github.com/tas50)) <!-- 21.1.229 -->
