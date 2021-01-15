@@ -19,7 +19,7 @@ aliases = ["/ctl_kitchen.html", "/ctl_kitchen/"]
 {{< note >}}
 
 This topic details functionality that is packaged with Chef Workstation.
-See <https://kitchen.ci/docs/getting-started/> for more information
+See <https://kitchen.ci/docs/getting-started/introduction/> for more information
 about Test Kitchen.
 
 {{< /note >}}
