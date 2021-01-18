@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 21.1.234 -->
+## [21.1.234](https://github.com/chef/chef-workstation/tree/21.1.234) (2021-01-18)
+
+#### Merged Pull Requests
+- Bump test-kitchen to 2.10.0 [#1654](https://github.com/chef/chef-workstation/pull/1654) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=21.1.233 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Bump test-kitchen to 2.10.0 [#1654](https://github.com/chef/chef-workstation/pull/1654) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.234 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
