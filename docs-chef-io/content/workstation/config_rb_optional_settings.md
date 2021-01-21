@@ -18,9 +18,9 @@ In addition to the default settings in a knife config.rb file, there are
 other subcommand-specific settings that can be added. When a subcommand
 is run, knife will use:
 
-1.  A value passed via the command-line
-2.  A value contained in the config.rb file
-3.  The default value
+1. A value passed via the command-line
+2. A value contained in the config.rb file
+3. The default value
 
 A value passed via the command line will override a value in the
 config.rb file; a value in a config.rb file will override a default
@@ -49,7 +49,7 @@ added to the configuration file:
 
 `knife[:admin]`
 
-:   Create a client as an admin client.
+: Create a client as an admin client.
 
 `knife[:admin_client_key]`
 
@@ -57,115 +57,97 @@ added to the configuration file:
 
 `knife[:after]`
 
-:   Add a run-list item after the specified run-list item.
+: Add a run-list item after the specified run-list item.
 
 `knife[:all]`
 
-:   Indicates that all environments, cookbooks, cookbook versions,
-    metadata, and/or data bags will be uploaded, deleted, generated, or
-    tested. The context depends on which knife subcommand and argument
-    is used.
+: Indicates that all environments, cookbooks, cookbook versions, metadata, and/or data bags will be uploaded, deleted, generated, or tested. The context depends on which knife subcommand and argument is used.
 
 `knife[:all_versions]`
 
-:   Return all available versions for every cookbook.
+: Return all available versions for every cookbook.
 
 `knife[:attribute]`
 
-:   The attribute (or attributes) to show.
+: The attribute (or attributes) to show.
 
 `knife[:attribute_from_cli]`
 
 `knife[:authentication_protocol_version]`
 
-:   Sets the authentication protocol that is used to communicate with
-    Chef Infra Server. For example, specify protocol version 1.3 to
-    enable support for SHA-256 algorithms:
+: Sets the authentication protocol that is used to communicate with Chef Infra Server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
 
-    ``` ruby
-    knife[:authentication_protocol_version] = '1.3'
-    ```
+  ``` ruby
+  knife[:authentication_protocol_version] = '1.3'
+  ```
 
-    Note that authentication protocol 1.3 is only supported on Chef
-    Server versions 12.4.0 and above.
+  Note that authentication protocol 1.3 is only supported on Chef
+  Server versions 12.4.0 and above.
 
 `knife[:bare_directories]`
 
-:   Prevent a directory's children from showing when a directory matches
-    a pattern.
+: Prevent a directory's children from showing when a directory matches a pattern.
 
 `knife[:before]`
 
 `knife[:bootstrap_curl_options]`
 
-:   Arbitrary options to be added to the bootstrap command when using
-    cURL. This option may not be used in the same command with
-    `--bootstrap-install-command`.
+: Arbitrary options to be added to the bootstrap command when using cURL. This option may not be used in the same command with `--bootstrap-install-command`.
 
 `knife[:bootstrap_install_command]`
 
-:   Execute a custom installation command sequence for Chef Infra
-    Client. This option may not be used in the same command with
-    `--bootstrap-curl-options`, `--bootstrap-install-sh`, or
-    `--bootstrap-wget-options`.
+: Execute a custom installation command sequence for Chef Infra Client. This option may not be used in the same command with `--bootstrap-curl-options`, `--bootstrap-install-sh`, or `--bootstrap-wget-options`.
 
 `knife[:bootstrap_no_proxy]`
 
-:   A URL or IP address that specifies a location that should not be
-    proxied.
+: A URL or IP address that specifies a location that should not be proxied.
 
 `knife[:bootstrap_proxy]`
 
-:   The proxy server for the node that is the target of a bootstrap
-    operation.
+: The proxy server for the node that is the target of a bootstrap operation.
 
 `knife[:bootstrap_template]`
 
-:   The path to a template file to be used during a bootstrap operation.
+: The path to a template file to be used during a bootstrap operation.
 
 `knife[:bootstrap_vault_file]`
 
-:   The path to a JSON file that contains a list of vaults and items to
-    be updated.
-
+: The path to a JSON file that contains a list of vaults and items to be updated.
 `knife[:bootstrap_vault_item]`
 
-:   A single vault and item to update as `vault:item`.
+: A single vault and item to update as `vault:item`.
 
 `knife[:bootstrap_vault_json]`
 
-:   A JSON string that contains a list of vaults and items to be
-    updated.
+: A JSON string that contains a list of vaults and items to be updated.
 
 `knife[:bootstrap_version]`
 
-:   The version of the Chef Infra Client to install.
+: The version of the Chef Infra Client to install.
 
 `knife[:bootstrap_wget_options]`
 
-:   Arbitrary options to be added to the bootstrap command when using
-    GNU Wget. This option may not be used in the same command with
-    `--bootstrap-install-command`.
+: Arbitrary options to be added to the bootstrap command when using GNU Wget. This option may not be used in the same command with `--bootstrap-install-command`.
 
 `knife[:both]`
 
-:   Delete both local and remote copies of an object.
+: Delete both local and remote copies of an object.
 
 `knife[:chef_node_name]`
 
 `knife[:chef_repo_path]`
 
-:   The path to the chef-repo.
+: The path to the chef-repo.
 
 `knife[:chef_server_url]`
 
 `knife[:chef_zero_host]`
 
-:   Override the host on which chef-zero listens.
+: Override the host on which chef-zero listens.
 
 `knife[:chef_zero_post]`
 
-:   The port on which chef-zero listens.
+: The port on which chef-zero listens.
 
 `knife[:client_key]`
 
@@ -173,11 +155,11 @@ added to the configuration file:
 
 `knife[:concurrency]`
 
-:   The number of allowed concurrent connections.
+: The number of allowed concurrent connections.
 
 `knife[:config_file]`
 
-:   The configuration file to use.
+: The configuration file to use.
 
 `knife[:cookbook_copyright]`
 
@@ -191,40 +173,35 @@ added to the configuration file:
 
 `knife[:depends]`
 
-:   Ensure that when a cookbook has a dependency on one (or more)
-    cookbooks, those cookbooks are also uploaded.
+: Ensure that when a cookbook has a dependency on one (or more) cookbooks, those cookbooks are also uploaded.
 
 `knife[:description]`
 
-:   The description for an environment and/or a role.
+: The description for an environment and/or a role.
 
 `knife[:diff]`
 
 `knife[:diff_filter]`
 
-:   Select only files that have been added (`A`), deleted (`D`),
-    modified (`M`), and/or have had their type changed (`T`). Any
-    combination of filter characters may be used, including no filter
-    characters. Use `*` to select all paths if a file matches other
-    criteria in the comparison.
+: Select only files that have been added (`A`), deleted (`D`), modified (`M`), and/or have had their type changed (`T`). Any combination of filter characters may be used, including no filter characters. Use `*` to select all paths if a file matches other criteria in the comparison.
 
 `knife[:disable_editing]`
 
-:   Prevent the \$EDITOR from being opened and accept data as-is.
+: Prevent the \$EDITOR from being opened and accept data as-is.
 
 `knife[:distro]`
 
 `knife[:download_directory]`
 
-:   The directory in which cookbooks are located.
+: The directory in which cookbooks are located.
 
 `knife[:dry_run]`
 
-:   Take no action and only print out results.
+: Take no action and only print out results.
 
 `knife[:editor]`
 
-:   The \$EDITOR that is used for all interactive commands.
+: The \$EDITOR that is used for all interactive commands.
 
 `knife[:encrypt]`
 
@@ -232,15 +209,15 @@ added to the configuration file:
 
 `knife[:environment]`
 
-:   The name of the environment.
+: The name of the environment.
 
 `knife[:exec]`
 
-:   A string of code that to be executed.
+: A string of code that to be executed.
 
 `knife[:file]`
 
-:   Save a private key to the specified file name.
+: Save a private key to the specified file name.
 
 `knife[:filter_result]`
 
@@ -248,65 +225,61 @@ added to the configuration file:
 
 `knife[:flat]`
 
-:   Show a list of file names. Set to `false` to view `ls`-like output.
+: Show a list of file names. Set to `false` to view `ls`-like output.
 
 `knife[:force]`
 
-:   Overwrite an existing directory.
+: Overwrite an existing directory.
 
 `knife[:format]`
 
 `knife[:forward_agent]`
 
-:   Enable SSH agent forwarding.
+: Enable SSH agent forwarding.
 
 `knife[:fqdn]`
 
-:   FQDN
+: FQDN
 
 `knife[:freeze]`
 
-:   Require changes to a cookbook be included as a new version. Only the
-    `--force` option can override this setting.
+: Require changes to a cookbook be included as a new version. Only the `--force` option can override this setting.
 
 `knife[:help]`
 
 `knife[:hide_healthy]`
 
-:   Hide nodes on which a Chef Infra Client run has occurred within the
-    previous hour.
+: Hide nodes on which a Chef Infra Client run has occurred within the previous hour.
 
 `knife[:hints]`
 
-:   An Ohai hint to be set on the target node.
+: An Ohai hint to be set on the target node.
 
 `knife[:host_key_verify]`
 
-:   Use `--no-host-key-verify` to disable host key verification.
+: Use `--no-host-key-verify` to disable host key verification.
 
 `knife[:id_only]`
 
 `knife[:identity_file]`
 
-:   The SSH identity file used for authentication. Key-based
-    authentication is recommended.
+: The SSH identity file used for authentication. Key-based authentication is recommended.
 
 `knife[:initial]`
 
-:   Create a API client, typically an administrator client on a
-    freshly-installed Chef Infra Server.
+: Create a API client, typically an administrator client on a freshly-installed Chef Infra Server.
 
 `knife[:input]`
 
-:   The name of a file to be used with the `PUT` or a `POST` request.
+: The name of a file to be used with the `PUT` or a `POST` request.
 
 `knife[:latest]`
 
-:   Download the most recent version of a cookbook.
+: Download the most recent version of a cookbook.
 
 `knife[:local]`
 
-:   Return only the contents of the local directory.
+: Return only the contents of the local directory.
 
 `knife[:local_mode]`
 
@@ -316,7 +289,7 @@ added to the configuration file:
 
 `knife[:manual]`
 
-:   Define a search query as a space-separated list of servers.
+: Define a search query as a space-separated list of servers.
 
 `knife[:max_arguments_per_command]`
 
@@ -324,39 +297,35 @@ added to the configuration file:
 
 `knife[:method]`
 
-:   The request method: `DELETE`, `GET`, `POST`, or `PUT`.
+: The request method: `DELETE`, `GET`, `POST`, or `PUT`.
 
 `knife[:mismatch]`
 
 `knife[:name_only]`
 
-:   Show only the names of modified files.
+: Show only the names of modified files.
 
 `knife[:name_status]`
 
-:   Show only the names of files with a status of `Added`, `Deleted`,
-    `Modified`, or `Type Changed`.
+: Show only the names of files with a status of `Added`, `Deleted`, `Modified`, or `Type Changed`.
 
 `knife[:no_deps]`
 
-:   Ensure that all cookbooks to which the installed cookbook has a
-    dependency are not installed.
+: Ensure that all cookbooks to which the installed cookbook has a dependency are not installed.
 
 `knife[:node_name]`
 
-:   The unique identifier of the node. This may be a username with permission to
-    authenticate to the Chef Infra Server or it may be the name of the
-    machine from which knife is run. For example:
+: The unique identifier of the node. This may be a username with permission to authenticate to the Chef Infra Server or it may be the name of the machine from which knife is run. For example:
 
-    ``` ruby
-    node_name 'user_name'
-    ```
+  ``` ruby
+  node_name 'user_name'
+  ```
 
-    or:
+  or:
 
-    ``` ruby
-    node_name 'machine_name'
-    ```
+  ``` ruby
+  node_name 'machine_name'
+  ```
 
 `knife[:null_separator]`
 
@@ -364,49 +333,43 @@ added to the configuration file:
 
 `knife[:one_column]`
 
-:   Show only one column of results.
+: Show only one column of results.
 
 `knife[:patterns]`
 
 `knife[:platform]`
 
-:   The platform for which a cookbook is designed.
+: The platform for which a cookbook is designed.
 
 `knife[:platform_version]`
 
-:   The version of the platform.
+: The version of the platform.
 
 `knife[:pretty]`
 
-:   Use `--no-pretty` to disable pretty-print output for JSON.
+: Use `--no-pretty` to disable pretty-print output for JSON.
 
 `knife[:print_after]`
 
-:   Show data after a destructive operation.
+: Show data after a destructive operation.
 
 `knife[:proxy_auth]`
 
-:   Enable proxy authentication to the Chef Infra Server web user
-    interface.
+: Enable proxy authentication to the Chef Infra Server web user interface.
 
 `knife[:purge]`
 
-:   Entirely remove a cookbook (or cookbook version) from the Chef Infra
-    Server. Use this action carefully because only one copy of any
-    single file is stored on the Chef Infra Server. Consequently,
-    purging a cookbook disables any other cookbook that references one
-    or more files from the cookbook that has been purged.
+: Entirely remove a cookbook (or cookbook version) from the Chef Infra Server. Use this action carefully because only one copy of any single file is stored on the Chef Infra Server. Consequently, purging a cookbook disables any other cookbook that references one or more files from the cookbook that has been purged.
 
 `knife[:query]`
 
 `knife[:readme_format]`
 
-:   The document format of the readme file: `md` (markdown) and `rdoc`
-    (Ruby docs).
+: The document format of the readme file: `md` (markdown) and `rdoc` (Ruby docs).
 
 `knife[:recurse]`
 
-:   Use `--recurse` to delete directories recursively.
+: Use `--recurse` to delete directories recursively.
 
 `knife[:recursive]`
 
@@ -418,71 +381,61 @@ added to the configuration file:
 
 `knife[:repo_mode]`
 
-:   The layout of the local chef-repo. Possible values: `static`,
-    `everything`, or `hosted_everything`. Use `static` for just roles,
-    environments, cookbooks, and data bags. By default, `everything` and
-    `hosted_everything` are dynamically selected depending on the server
-    type.
+: The layout of the local chef-repo. Possible values: `static`, `everything`, or `hosted_everything`. Use `static` for just roles, environments, cookbooks, and data bags. By default, `everything` and `hosted_everything` are dynamically selected depending on the server type.
 
 `knife[:repository]`
 
-:   The path to the chef-repo.
+: The path to the chef-repo.
 
 `knife[:rows]`
 
 `knife[:run_list]`
 
-:   A comma-separated list of roles and/or recipes to be applied.
+: A comma-separated list of roles and/or recipes to be applied.
 
 `knife[:script_path]`
 
-:   A colon-separated path at which Ruby scripts are located.
+: A colon-separated path at which Ruby scripts are located.
 
 `knife[:secret]`
 
-:   The encryption key that is used for values contained within a data
-    bag item.
+: The encryption key that is used for values contained within a data bag item.
 
 `knife[:secret_file]`
 
-:   The path to the file that contains the encryption key.
+: The path to the file that contains the encryption key.
 
 `knife[:server_name]`
 
-:   Same as node_name. Recommended configuration is to allow Ohai to
-    collect this value during each Chef Infra Client run.
+: Same as node_name. Recommended configuration is to allow Ohai to collect this value during each Chef Infra Client run.
 
 `knife[:ssh_attribute]`
 
-:   The attribute used when opening an SSH connection.
+: The attribute used when opening an SSH connection.
 
 `knife[:ssh_gateway]`
 
-:   The SSH tunnel or gateway that is used to run a bootstrap action on
-    a machine that is not accessible from the workstation.
+: The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
 
 `knife[:ssh_password]`
 
-:   The SSH password. This can be used to pass the password directly on
-    the command line. If this option is not specified (and a password is
-    required) knife prompts for the password.
+: The SSH password. This can be used to pass the password directly on the command line. If this option is not specified (and a password is required) knife prompts for the password.
 
 `knife[:ssh_password_ng]`
 
 `knife[:ssh_port]`
 
-:   The SSH port.
+: The SSH port.
 
 `knife[:ssh_user]`
 
-:   The SSH user name.
+: The SSH user name.
 
 `knife[:start]`
 
 `knife[:supermarket_site]`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    <https://supermarket.chef.io>.
+: The URL at which the Chef Supermarket is located. Default value: <https://supermarket.chef.io>.
 
 `knife[:template_file]`
 
@@ -490,32 +443,29 @@ added to the configuration file:
 
 `knife[:tree]`
 
-:   Show dependencies in a visual tree structure (including duplicates,
-    if they exist).
+: Show dependencies in a visual tree structure (including duplicates, if they exist).
 
 `knife[:use current_branch]`
 
-:   Ensure that the current branch is used.
+: Ensure that the current branch is used.
 
 `knife[:use_sudo]`
 
-:   Execute a bootstrap operation with sudo.
+: Execute a bootstrap operation with sudo.
 
 `knife[:use_sudo_password]`
 
 `knife[:user]` and/or `knife[:user_home]`
 
-:   The user name used by knife to sign requests made by the API client
-    to the Chef Infra Server. Authentication fails if the user name does
-    not match the private key.
+: The user name used by knife to sign requests made by the API client to the Chef Infra Server. Authentication fails if the user name does not match the private key.
 
 `knife[:user_key]`
 
-:   Save a public key to the specified file name.
+: Save a public key to the specified file name.
 
 `knife[:user_password]`
 
-:   The user password.
+: The user password.
 
 `knife[:validation_client_name]`
 
@@ -531,7 +481,7 @@ added to the configuration file:
 
 `knife[:yes]`
 
-:   Respond to all confirmation prompts with "Yes".
+: Respond to all confirmation prompts with "Yes".
 
 ## By Subcommand
 
@@ -545,51 +495,51 @@ file:
 
 `knife[:bootstrap_curl_options]`
 
-:   Adds the `--bootstrap-curl-options` option.
+: Adds the `--bootstrap-curl-options` option.
 
 `knife[:bootstrap_install_command]`
 
-:   Adds the `--bootstrap-install-command` option.
+: Adds the `--bootstrap-install-command` option.
 
 `knife[:bootstrap_no_proxy]`
 
-:   Adds the `--bootstrap-no-proxy` option.
+: Adds the `--bootstrap-no-proxy` option.
 
 `knife[:bootstrap_proxy]`
 
-:   Adds the `--bootstrap-proxy` option.
+: Adds the `--bootstrap-proxy` option.
 
 `knife[:bootstrap_template]`
 
-:   Adds the the `--bootstrap-template` option.
+: Adds the the `--bootstrap-template` option.
 
 `knife[:bootstrap_url]`
 
-:   Adds the the `--bootstrap-url` option.
+: Adds the the `--bootstrap-url` option.
 
 `knife[:bootstrap_vault_item]`
 
-:   Adds the the `--bootstrap-vault-item` option.
+: Adds the the `--bootstrap-vault-item` option.
 
 `knife[:bootstrap_version]`
 
-:   Adds the the `--bootstrap-version` option.
+: Adds the the `--bootstrap-version` option.
 
 `knife[:bootstrap_wget_options]`
 
-:   Adds the the `--bootstrap-wget-options` option.
+: Adds the the `--bootstrap-wget-options` option.
 
 `knife[:run_list]`
 
-:   Adds the the `--run-list` option.
+: Adds the the `--run-list` option.
 
 `knife[:template_file]`
 
-:   Adds the the `--bootstrap-template` option.
+: Adds the the `--bootstrap-template` option.
 
 `knife[:use_sudo]`
 
-:   Adds the the `--sudo` option.
+: Adds the the `--sudo` option.
 
 {{< note >}}
 
@@ -605,11 +555,11 @@ config.rb file:
 
 `knife[:admin]`
 
-:   Adds the the `--admin` option.
+: Adds the the `--admin` option.
 
 `knife[:file]`
 
-:   Adds the the `--file` option.
+: Adds the the `--file` option.
 
 ### client reregister
 
@@ -618,7 +568,7 @@ config.rb file:
 
 `knife[:file]`
 
-:   Adds the the `--file` option.
+: Adds the the `--file` option.
 
 ### configure
 
@@ -627,40 +577,39 @@ file:
 
 `knife[:admin_client_name]`
 
-:   The name of the admin client that is passed as part of the command
-    itself.
+: The name of the admin client that is passed as part of the command itself.
 
 `knife[:config_file]`
 
-:   Adds the the `--config` option.
+: Adds the the `--config` option.
 
 `knife[:disable_editing]`
 
-:   Adds the the `--disable-editing` option.
+: Adds the the `--disable-editing` option.
 
 `knife[:file]`
 
-:   Adds the the `--file` option.
+: Adds the the `--file` option.
 
 `knife[:initial]`
 
-:   Adds the the `--initial` option.
+: Adds the the `--initial` option.
 
 `knife[:repository]`
 
-:   Adds the the `--repository` option.
+: Adds the the `--repository` option.
 
 `knife[:user_home]`
 
-:   Adds the the `--user` option.
+: Adds the the `--user` option.
 
 `knife[:user_password]`
 
-:   Adds the the `--password` option.
+: Adds the the `--password` option.
 
 `knife[:yes]`
 
-:   Adds the the `--yes` option.
+: Adds the the `--yes` option.
 
 ### cookbook bulk delete
 
@@ -669,11 +618,11 @@ config.rb file:
 
 `knife[:purge]`
 
-:   Adds the the `--purge` option.
+: Adds the the `--purge` option.
 
 `knife[:yes]`
 
-:   Adds the the `--yes` option.
+: Adds the the `--yes` option.
 
 ### cookbook create
 
@@ -682,7 +631,7 @@ config.rb file:
 
 `knife[:readme_format]`
 
-:   Adds the the `--readme-format` option.
+: Adds the the `--readme-format` option.
 
 ### cookbook delete
 
@@ -691,15 +640,15 @@ config.rb file:
 
 `knife[:all]`
 
-:   Adds the the `--all` option.
+: Adds the the `--all` option.
 
 `knife[:print_after]`
 
-:   Adds the the `--print-after` option.
+: Adds the the `--print-after` option.
 
 `knife[:purge]`
 
-:   Adds the the `--purge` option.
+: Adds the the `--purge` option.
 
 ### cookbook download
 
@@ -708,15 +657,15 @@ config.rb file:
 
 `knife[:download_directory]`
 
-:   Adds the the `--dir` option.
+: Adds the the `--dir` option.
 
 `knife[:force]`
 
-:   Adds the the `--force` option.
+: Adds the the `--force` option.
 
 `knife[:latest]`
 
-:   Adds the the `--latest` option.
+: Adds the the `--latest` option.
 
 ### cookbook list
 
@@ -725,11 +674,11 @@ config.rb file:
 
 `knife[:all]`
 
-:   Adds the the `--all` option.
+: Adds the the `--all` option.
 
 `knife[:environment]`
 
-:   Adds the the `--environment` option.
+: Adds the the `--environment` option.
 
 ### cookbook metadata
 
@@ -738,7 +687,7 @@ config.rb file:
 
 `knife[:all]`
 
-:   Adds the the `--all` option.
+: Adds the the `--all` option.
 
 ### cookbook show
 
@@ -747,15 +696,15 @@ config.rb file:
 
 `knife[:fqdn]`
 
-:   Adds the the `--fqdn` option.
+: Adds the the `--fqdn` option.
 
 `knife[:platform]`
 
-:   Adds the the `--platform` option.
+: Adds the the `--platform` option.
 
 `knife[:platform_version]`
 
-:   Adds the the `--platform-version` option.
+: Adds the the `--platform-version` option.
 
 ### cookbook upload
 
@@ -764,23 +713,23 @@ config.rb file:
 
 `knife[:all]`
 
-:   Adds the the `--all` option.
+: Adds the the `--all` option.
 
 `knife[:depends]`
 
-:   Adds the the `--include-dependencies` option.
+: Adds the the `--include-dependencies` option.
 
 `knife[:environment]`
 
-:   Adds the the `--environment` option.
+: Adds the the `--environment` option.
 
 `knife[:force]`
 
-:   Adds the the `--force` option.
+: Adds the the `--force` option.
 
 `knife[:freeze]`
 
-:   Adds the the `--freeze` option.
+: Adds the the `--freeze` option.
 
 ### supermarket download
 
@@ -789,16 +738,15 @@ config.rb file:
 
 `knife[:file]`
 
-:   Adds the the `--file` option.
+: Adds the the `--file` option.
 
 `knife[:force]`
 
-:   Adds the the `--force` option.
+: Adds the the `--force` option.
 
 `knife[:supermarket_site]`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    <https://supermarket.chef.io>.
+: The URL at which the Chef Supermarket is located. Default value: <https://supermarket.chef.io>.
 
 ### supermarket install
 
@@ -807,24 +755,23 @@ config.rb file:
 
 `knife[:cookbook_path]`
 
-:   Adds the the `--cookbook-path` option.
+: Adds the the `--cookbook-path` option.
 
 `knife[:file]`
 
-:   Adds the the `--file` option.
+: Adds the the `--file` option.
 
 `knife[:no_deps]`
 
-:   Adds the the `--skip-dependencies` option.
+: Adds the the `--skip-dependencies` option.
 
 `knife[:use_current_branch]`
 
-:   Adds the the `--use-current-branch` option.
+: Adds the the `--use-current-branch` option.
 
 `knife[:supermarket_site]`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    <https://supermarket.chef.io>.
+: The URL at which the Chef Supermarket is located. Default value: <https://supermarket.chef.io>.
 
 ### supermarket share
 
@@ -833,12 +780,11 @@ config.rb file:
 
 `knife[:cookbook_path]`
 
-:   Adds the the `--cookbook-path` option.
+: Adds the the `--cookbook-path` option.
 
 `knife[:supermarket_site]`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    <https://supermarket.chef.io>.
+: The URL at which the Chef Supermarket is located. Default value: <https://supermarket.chef.io>.
 
 ### data bag create
 
@@ -847,11 +793,11 @@ config.rb file:
 
 `knife[:secret]`
 
-:   Adds the the `--secret` option.
+: Adds the the `--secret` option.
 
 `knife[:secret_file]`
 
-:   Adds the the `--secret-file` option.
+: Adds the the `--secret-file` option.
 
 ### data bag edit
 
@@ -860,15 +806,15 @@ config.rb file:
 
 `knife[:print_after]`
 
-:   Adds the the `--print-after` option.
+: Adds the the `--print-after` option.
 
 `knife[:secret]`
 
-:   Adds the the `--secret` option.
+: Adds the the `--secret` option.
 
 `knife[:secret_file]`
 
-:   Adds the the `--secret-file` option.
+: Adds the the `--secret-file` option.
 
 ### data bag from file
 
@@ -877,15 +823,15 @@ config.rb file:
 
 `knife[:all]`
 
-:   Adds the the `--all` option.
+: Adds the the `--all` option.
 
 `knife[:secret]`
 
-:   Adds the the `--secret` option.
+: Adds the the `--secret` option.
 
 `knife[:secret_file]`
 
-:   Adds the the `--secret-file` option.
+: Adds the the `--secret-file` option.
 
 ### data bag show
 
@@ -894,11 +840,11 @@ config.rb file:
 
 `knife[:secret]`
 
-:   Adds the the `--secret` option.
+: Adds the the `--secret` option.
 
 `knife[:secret_file]`
 
-:   Adds the the `--secret-file` option.
+: Adds the the `--secret-file` option.
 
 ### delete
 
@@ -907,19 +853,19 @@ file:
 
 `knife[:chef_repo_path]`
 
-:   Adds the the `--chef-repo-path` option.
+: Adds the the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-:   Adds the the `--concurrency` option.
+: Adds the the `--concurrency` option.
 
 `knife[:recurse]`
 
-:   Adds the the `--recurse` option.
+: Adds the the `--recurse` option.
 
 `knife[:repo_mode]`
 
-:   Adds the the `--repo-mode` option.
+: Adds the the `--repo-mode` option.
 
 ### deps
 
@@ -927,27 +873,27 @@ The following `knife deps` settings can be added to the config.rb file:
 
 `knife[:chef_repo_path]`
 
-:   Adds the the `--chef-repo-path` option.
+: Adds the the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-:   Adds the the `--concurrency` option.
+: Adds the the `--concurrency` option.
 
 `knife[:recurse]`
 
-:   Adds the the `--recurse` option.
+: Adds the the `--recurse` option.
 
 `knife[:remote]`
 
-:   Adds the the `--remote` option.
+: Adds the the `--remote` option.
 
 `knife[:repo_mode]`
 
-:   Adds the the `--repo-mode` option.
+: Adds the the `--repo-mode` option.
 
 `knife[:tree]`
 
-:   Adds the the `--tree` option.
+: Adds the the `--tree` option.
 
 ### diff
 
@@ -955,27 +901,27 @@ The following `knife diff` settings can be added to the config.rb file:
 
 `knife[:chef_repo_path]`
 
-:   Adds the the `--chef-repo-path` option.
+: Adds the the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-:   Adds the the `--concurrency` option.
+: Adds the the `--concurrency` option.
 
 `knife[:name_only]`
 
-:   Adds the the `--name-only` option.
+: Adds the the `--name-only` option.
 
 `knife[:name_status]`
 
-:   Adds the the `--name-status` option.
+: Adds the the `--name-status` option.
 
 `knife[:recurse]`
 
-:   Adds the the `--recurse` option.
+: Adds the the `--recurse` option.
 
 `knife[:repo_mode]`
 
-:   Adds the the `--repo-mode` option.
+: Adds the the `--repo-mode` option.
 
 ### download
 
@@ -984,19 +930,19 @@ file:
 
 `knife[:chef_repo_path]`
 
-:   Adds the the `--chef-repo-path` option.
+: Adds the the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-:   Adds the the `--concurrency` option.
+: Adds the the `--concurrency` option.
 
 `knife[:recurse]`
 
-:   Adds the the `--recurse` option.
+: Adds the the `--recurse` option.
 
 `knife[:repo_mode]`
 
-:   Adds the the `--repo-mode` option.
+: Adds the the `--repo-mode` option.
 
 ### edit
 
@@ -1004,27 +950,27 @@ The following `knife edit` settings can be added to the config.rb file:
 
 `knife[:chef_repo_path]`
 
-:   Adds the the `--chef-repo-path` option.
+: Adds the the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-:   Adds the the `--concurrency` option.
+: Adds the the `--concurrency` option.
 
 `knife[:disable_editing]`
 
-:   Adds the the `--disable-editing` option.
+: Adds the the `--disable-editing` option.
 
 `knife[:editor]`
 
-:   Adds the the `--editor` option.
+: Adds the the `--editor` option.
 
 `knife[:local]`
 
-:   Adds the the `--local` option.
+: Adds the the `--local` option.
 
 `knife[:repo_mode]`
 
-:   Adds the the `--repo-mode` option.
+: Adds the the `--repo-mode` option.
 
 ### environment create
 
@@ -1033,7 +979,7 @@ The following `knife environment create` settings can be added to the
 
 `knife[:description]`
 
-:   Adds the the `--description` option.
+: Adds the the `--description` option.
 
 ### environment from file
 
@@ -1042,11 +988,11 @@ config.rb file:
 
 `knife[:all]`
 
-:   Adds the the `--all` option.
+: Adds the the `--all` option.
 
 `knife[:print_after]`
 
-:   Adds the the `--print-after` option.
+: Adds the the `--print-after` option.
 
 ### exec
 
@@ -1054,11 +1000,11 @@ The following `knife exec` settings can be added to the config.rb file:
 
 `knife[:exec]`
 
-:   Adds the the `--exec` option.
+: Adds the the `--exec` option.
 
 `knife[:script_path]`
 
-:   Adds the the `--script-path` option.
+: Adds the the `--script-path` option.
 
 ### list
 
@@ -1066,23 +1012,23 @@ The following `knife list` settings can be added to the config.rb file:
 
 `knife[:bare_directories]`
 
-:   Adds the the `-d` option.
+: Adds the the `-d` option.
 
 `knife[:chef_repo_path]`
 
-:   Adds the the `--chef-repo-path` option.
+: Adds the the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-:   Adds the the `--concurrency` option.
+: Adds the the `--concurrency` option.
 
 `knife[:recursive]`
 
-:   Adds the the `-R` option.
+: Adds the the `-R` option.
 
 `knife[:repo_mode]`
 
-:   Adds the the `--repo-mode` option.
+: Adds the the `--repo-mode` option.
 
 ### node from file
 
@@ -1091,7 +1037,7 @@ config.rb file:
 
 `knife[:print_after]`
 
-:   Adds the the `--print-after` option.
+: Adds the the `--print-after` option.
 
 ### node list
 
@@ -1100,7 +1046,7 @@ file:
 
 `knife[:environment]`
 
-:   Adds the the `--environment` option.
+: Adds the the `--environment` option.
 
 ### node run list add
 
@@ -1109,11 +1055,11 @@ config.rb file:
 
 `knife[:after]`
 
-:   Adds the the `--after` option.
+: Adds the the `--after` option.
 
 `knife[:run_list]`
 
-:   The run-list that is passed as part of the command itself.
+: The run-list that is passed as part of the command itself.
 
 ### node run list remove
 
@@ -1122,7 +1068,7 @@ config.rb file:
 
 `knife[:run_list]`
 
-:   The run-list that is passed as part of the command itself.
+: The run-list that is passed as part of the command itself.
 
 ### raw
 
@@ -1130,27 +1076,27 @@ The following `knife raw` settings can be added to the config.rb file:
 
 `knife[:chef_repo_path]`
 
-:   Adds the the `--chef-repo-path` option.
+: Adds the the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-:   Adds the the `--concurrency` option.
+: Adds the the `--concurrency` option.
 
 `knife[:input]`
 
-:   Adds the the `--input` option.
+: Adds the the `--input` option.
 
 `knife[:method]`
 
-:   Adds the the `--method` option.
+: Adds the the `--method` option.
 
 `knife[:pretty]`
 
-:   Adds the the `--[no-]pretty` option.
+: Adds the the `--[no-]pretty` option.
 
 `knife[:repo_mode]`
 
-:   Adds the the `--repo-mode` option.
+: Adds the the `--repo-mode` option.
 
 ### role create
 
@@ -1159,7 +1105,7 @@ file:
 
 `knife[:description]`
 
-:   Adds the the `--description` option.
+: Adds the the `--description` option.
 
 ### role from file
 
@@ -1168,7 +1114,7 @@ config.rb file:
 
 `knife[:print_after]`
 
-:   Adds the the `--print-after` option.
+: Adds the the `--print-after` option.
 
 ### role show
 
@@ -1177,7 +1123,7 @@ file:
 
 `knife[:environment]`
 
-:   Adds the the `--environment` option.
+: Adds the the `--environment` option.
 
 ### ssh
 
@@ -1185,39 +1131,39 @@ The following `knife ssh` settings can be added to the config.rb file:
 
 `knife[:concurrency]`
 
-:   Adds the the `--concurrency` option.
+: Adds the the `--concurrency` option.
 
 `knife[:identity_file]`
 
-:   Adds the the `--identity-file` option.
+: Adds the the `--identity-file` option.
 
 `knife[:host_key_verify]`
 
-:   Adds the the `--[no-]host-key-verify` option.
+: Adds the the `--[no-]host-key-verify` option.
 
 `knife[:manual]`
 
-:   Adds the the `--manual-list` option.
+: Adds the the `--manual-list` option.
 
 `knife[:ssh_attribute]`
 
-:   Adds the the `--attribute` option.
+: Adds the the `--attribute` option.
 
 `knife[:ssh_gateway]`
 
-:   Adds the the `--ssh-gateway` option.
+: Adds the the `--ssh-gateway` option.
 
 `knife[:ssh_password]`
 
-:   Adds the the `--ssh-password` option.
+: Adds the the `--ssh-password` option.
 
 `knife[:ssh_port]`
 
-:   Adds the the `--ssh-port` option.
+: Adds the the `--ssh-port` option.
 
 `knife[:ssh_user]`
 
-:   Adds the the `--ssh-user` option.
+: Adds the the `--ssh-user` option.
 
 ### status
 
@@ -1226,15 +1172,15 @@ file:
 
 `knife[:hide_by_mins]`
 
-:   Adds the the `--hide-by-mins` option.
+: Adds the the `--hide-by-mins` option.
 
 `knife[:run_list]`
 
-:   Adds the the `--run-list` option.
+: Adds the the `--run-list` option.
 
 `knife[:sort_reverse]`
 
-:   Adds the the `--sort-reverse` option.
+: Adds the the `--sort-reverse` option.
 
 ### upload
 
@@ -1243,19 +1189,19 @@ file:
 
 `knife[:chef_repo_path]`
 
-:   Adds the the `--chef-repo-path` option.
+: Adds the the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-:   Adds the the `--concurrency` option.
+: Adds the the `--concurrency` option.
 
 `knife[:recurse]`
 
-:   Adds the the `--recurse` option.
+: Adds the the `--recurse` option.
 
 `knife[:repo_mode]`
 
-:   Adds the the `--repo-mode` option.
+: Adds the the `--repo-mode` option.
 
 ### user create
 
@@ -1264,19 +1210,19 @@ file:
 
 `knife[:admin]`
 
-:   Adds the the `--admin` option.
+: Adds the the `--admin` option.
 
 `knife[:file]`
 
-:   Adds the the `--file` option.
+: Adds the the `--file` option.
 
 `knife[:user_key]`
 
-:   Adds the the `--user-key` option.
+: Adds the the `--user-key` option.
 
 `knife[:user_password]`
 
-:   Adds the the `--password` option.
+: Adds the the `--password` option.
 
 ### user reregister
 
@@ -1285,7 +1231,7 @@ config.rb file:
 
 `knife[:file]`
 
-:   Adds the the `--file` option.
+: Adds the the `--file` option.
 
 ### xargs
 
@@ -1294,56 +1240,56 @@ file:
 
 `knife[:chef_repo_path]`
 
-:   Adds the the `--chef-repo-path` option.
+: Adds the the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-:   Adds the the `--concurrency` option.
+: Adds the the `--concurrency` option.
 
 `knife[:diff]`
 
-:   Adds the the `--diff` option.
+: Adds the the `--diff` option.
 
 `knife[:dry_run]`
 
-:   Adds the the `--dry-run` option.
+: Adds the the `--dry-run` option.
 
 `knife[:force]`
 
-:   Adds the the `--force` option.
+: Adds the the `--force` option.
 
 `knife[:local]`
 
-:   Adds the the `--local` option.
+: Adds the the `--local` option.
 
 `knife[:max_arguments_per_command]`
 
-:   Adds the the `--max-args` option.
+: Adds the the `--max-args` option.
 
 `knife[:max_command_line]`
 
-:   Adds the the `--max-chars` option.
+: Adds the the `--max-chars` option.
 
 `knife[:null_separator]`
 
-:   Adds the the `-0` option.
+: Adds the the `-0` option.
 
 `knife[:patterns]`
 
-:   Adds the the `--pattern` option.
+: Adds the the `--pattern` option.
 
 `knife[:replace_all]`
 
-:   Adds the the `--replace` option.
+: Adds the the `--replace` option.
 
 `knife[:replace_first]`
 
-:   Adds the the `--replace-first` option.
+: Adds the the `--replace-first` option.
 
 `knife[:repo_mode]`
 
-:   Adds the the `--repo-mode` option.
+: Adds the the `--repo-mode` option.
 
 `knife[:verbose_commands]`
 
-:   Adds the the `-t` option.
+: Adds the the `-t` option.

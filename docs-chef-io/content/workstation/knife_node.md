@@ -164,7 +164,7 @@ This argument has the following options:
 
 `-a`, `--all`
 
-:   Display a node in the \$EDITOR. By default, attributes that are
+: Display a node in the \$EDITOR. By default, attributes that are
     default, override, or automatic, are not shown.
 
 ### Examples
@@ -272,7 +272,7 @@ This argument has the following options:
 
 `-w`, `--with-uri`
 
-:   Show the corresponding URIs.
+: Show the corresponding URIs.
 
 {{< note >}}
 
@@ -455,23 +455,23 @@ This argument has the following options:
 
 `-a ATTR`, `--attribute ATTR`
 
-:   The attribute (or attributes) to show.
+: The attribute (or attributes) to show.
 
 `-F json`, `--format=json`
 
-:   Display output as JSON.
+: Display output as JSON.
 
 `-l`, `--long`
 
-:   Display all attributes in the output.
+: Display all attributes in the output.
 
 `-m`, `--medium`
 
-:   Display normal attributes in the output.
+: Display normal attributes in the output.
 
 `-r`, `--run-list`
 
-:   Show only the run-list.
+: Show only the run-list.
 
 ### Examples
 
@@ -488,7 +488,7 @@ knife node show build
 to return:
 
 ``` bash
-Node Name:   build
+Node Name: build
 Environment: _default
 FQDN:
 IP:

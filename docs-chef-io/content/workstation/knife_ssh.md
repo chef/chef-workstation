@@ -35,73 +35,57 @@ This subcommand has the following options:
 
 `-a SSH_ATTR`, `--attribute SSH_ATTR`
 
-:   The attribute used when opening an SSH connection. The default
-    attribute is the FQDN of the host. Other possible values include a
-    public IP address, a private IP address, or a hostname.
+: The attribute used when opening an SSH connection. The default attribute is the FQDN of the host. Other possible values include a public IP address, a private IP address, or a hostname.
 
 `-A`, `--forward-agent`
 
-:   Enable SSH agent forwarding.
+: Enable SSH agent forwarding.
 
 `-C NUM`, `--concurrency NUM`
 
-:   The number of allowed concurrent connections.
+: The number of allowed concurrent connections.
 
 `-e`, `--exit-on-error`
 
-:   Use to exit immediately upon error.
+: Use to exit immediately upon error.
 
 `-G GATEWAY`, `--ssh-gateway GATEWAY`
 
-:   The SSH tunnel or gateway that is used to run a bootstrap action on
-    a machine that is not accessible from the workstation.
+: The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
 
 `--ssh-gateway-identity SSH_GATEWAY_IDENTITY`
 
-:   The SSH identity file used to connect to the SSH gateway.
+: The SSH identity file used to connect to the SSH gateway.
 
-    *New in Chef Client 13.0.*
+   *New in Chef Client 13.0.*
 
 `-i IDENTITY_FILE`, `--ssh-identity-file IDENTIFY_FILE`
 
-:   The SSH identity file used for authentication. Key-based
-    authentication is recommended.
+: The SSH identity file used for authentication. Key-based authentication is recommended.
 
 `-m`, `--manual-list`
 
-:   Define a search query as a space-separated list of servers. If there
-    is more than one item in the list, put quotes around the entire
-    list. For example: `--manual-list "server01 server02 server03"`
+: Define a search query as a space-separated list of servers. If there is more than one item in the list, put quotes around the entire list. For example: `--manual-list "server01 server02 server03"`
 
 `--[no-]host-key-verify`
 
-:   Use `--no-host-key-verify` to disable host key verification. Default
-    setting: `--host-key-verify`.
+: Use `--no-host-key-verify` to disable host key verification. Default setting: `--host-key-verify`.
 
 `OTHER`
 
-:   The shell type. Possible values: `interactive`, `screen`, `tmux`,
-    `macterm`, or `cssh`. (`csshx` is deprecated in favor of `cssh`.)
+: The shell type. Possible values: `interactive`, `screen`, `tmux`, `macterm`, or `cssh`. (`csshx` is deprecated in favor of `cssh`.)
 
 `-p PORT`, `--ssh-port PORT`
 
-:   The SSH port.
+: The SSH port.
 
 `-P PASSWORD`, `--ssh-password PASSWORD`
 
-:   The SSH password. This can be used to pass the password directly on
-    the command line. If this option is not specified (and a password is
-    required) knife prompts for the password.
+: The SSH password. This can be used to pass the password directly on the command line. If this option is not specified (and a password is required) knife prompts for the password.
 
 `SEARCH_QUERY`
 
-:   The search query used to return a list of servers to be accessed
-    using SSH and the specified `SSH_COMMAND`. This option uses the same
-    syntax as the search subcommand. If the `SEARCH_QUERY` does not
-    contain a colon character (`:`), then the default query pattern is
-    `tags:*#{@query}* OR roles:*#{@query}* OR fqdn:*#{@query}* OR addresses:*#{@query}*`,
-    which means the following two search queries are effectively the
-    same:
+: The search query used to return a list of servers to be accessed using SSH and the specified `SSH_COMMAND`. This option uses the same syntax as the search subcommand. If the `SEARCH_QUERY` does not contain a colon character (`:`), then the default query pattern is `tags:*#{@query}* OR roles:*#{@query}* OR fqdn:*#{@query}* OR addresses:*#{@query}*`, which means the following two search queries are effectively the same:
 
 <!-- -->
 
@@ -117,20 +101,19 @@ knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
 
 `SSH_COMMAND`
 
-:   The command to be run against the results of a search query.
+: The command to be run against the results of a search query.
 
 `-t SECONDS`, `--ssh-timeout SECONDS`
 
-:   The amount of time (in seconds) to wait for an SSH connection time
-    out.
+: The amount of time (in seconds) to wait for an SSH connection time out.
 
 `--tmux-split`
 
-:   Split the Tmux window. Default value: `false`.
+: Split the Tmux window. Default value: `false`.
 
 `-x USER_NAME`, `--ssh-user USER_NAME`
 
-:   The SSH user name.
+: The SSH user name.
 
 {{< note >}}
 

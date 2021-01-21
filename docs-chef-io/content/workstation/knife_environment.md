@@ -42,11 +42,11 @@ This argument has the following options:
 
 `-a`, `--all`
 
-:   Upload all environments found at the specified path.
+: Upload all environments found at the specified path.
 
 `-m`, `--mismatch`
 
-:   Show only matching versions.
+: Show only matching versions.
 
 ### Examples
 
@@ -150,7 +150,7 @@ This argument has the following options:
 
 `--description DESCRIPTION`
 
-:   The description of the environment. This value populates the
+: The description of the environment. This value populates the
     description field for the environment on the Chef Infra Server.
 
 {{< note >}}
@@ -253,7 +253,7 @@ This argument has the following options:
 
 `-a`, `--all`
 
-:   Upload all environments found at the specified path.
+: Upload all environments found at the specified path.
 
 {{< note >}}
 
@@ -292,7 +292,7 @@ This argument has the following options:
 
 `-w`, `--with-uri`
 
-:   Show the corresponding URIs.
+: Show the corresponding URIs.
 
 ### Examples
 
@@ -325,7 +325,7 @@ This argument has the following options:
 
 `-a ATTR`, `--attribute ATTR`
 
-:   The attribute (or attributes) to show.
+: The attribute (or attributes) to show.
 
 ### Examples
 
@@ -343,12 +343,12 @@ to return:
 
 ``` bash
 % knife environment show dev
-chef_type:            environment
+chef_type:          environment
 cookbook_versions:
 default_attributes:
 description:
-json_class:           Chef::Environment
-name:                 dev
+json_class:         Chef::Environment
+name:               dev
 override_attributes:
 
 \\

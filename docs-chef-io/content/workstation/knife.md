@@ -17,12 +17,12 @@ aliases = ["/knife.html", "/knife_using.html", "/knife/"]
 knife is a command-line tool that provides an interface between a local
 chef-repo and the Chef Infra Server. knife helps users to manage:
 
--   Nodes
--   Cookbooks and recipes
--   Roles, Environments, and Data Bags
--   Resources within various cloud environments
--   The installation of Chef Infra Client onto nodes
--   Searching of indexed data on the Chef Infra Server
+- Nodes
+- Cookbooks and recipes
+- Roles, Environments, and Data Bags
+- Resources within various cloud environments
+- The installation of Chef Infra Client onto nodes
+- Searching of indexed data on the Chef Infra Server
 
 The Knife Quick Reference provides an all-in-one quick reference of
 knife commands. You can view the
@@ -230,26 +230,11 @@ with any object stored in the chef-repo or stored on the Chef Infra
 Server. Some important principles behind this group of subcommands
 includes:
 
--   A command that works with each object in the chef-repo. The
-    subcommands specify the desired action (the "verb"), and then
-    directory in which that object resides (`clients`, `cookbooks/`,
-    `data_bags/`, `environments/`, `nodes`, `roles/`, and `users`). For
-    example: `download cookbooks/`
--   A command that works with certain objects in the Chef Infra Server,
-    including `acls`, `groups`, and `containers`
--   Uses the Chef Infra Server as if it were a file system, allowing the
-    chef-repo on the Chef Infra Server to behave like a mirror of the
-    chef-repo on the workstation. The Chef Infra Server will have the
-    same objects as the local chef-repo. To make changes to the files on
-    the Chef Infra Server, just download files from the Chef Infra
-    Server or upload files from the chef-repo
--   The context from which a command is run matters. For example, when
-    working in the `roles/` directory, knife will know what is being
-    worked with. Enter `knife show base.json` and knife will return the
-    base role from the Chef Infra Server. From the chef-repo root, enter
-    `knife show roles/base.json` to get the same result
--   Parallel requests can be made to the Chef Infra Server and are
-    configurable on a per-command basis
+- A command that works with each object in the chef-repo. The subcommands specify the desired action (the "verb"), and then directory in which that object resides (`clients`, `cookbooks/`, `data_bags/`, `environments/`, `nodes`, `roles/`, and `users`). For example: `download cookbooks/`
+- A command that works with certain objects in the Chef Infra Server, including `acls`, `groups`, and `containers`
+- Uses the Chef Infra Server as if it were a file system, allowing the chef-repo on the Chef Infra Server to behave like a mirror of the chef-repo on the workstation. The Chef Infra Server will have the same objects as the local chef-repo. To make changes to the files on the Chef Infra Server, just download files from the Chef Infra Server or upload files from the chef-repo
+- The context from which a command is run matters. For example, when working in the `roles/` directory, knife will know what is being worked with. Enter `knife show base.json` and knife will return the base role from the Chef Infra Server. From the chef-repo root, enter `knife show roles/base.json` to get the same result
+- Parallel requests can be made to the Chef Infra Server and are configurable on a per-command basis
 
 ### Wildcard Search
 
@@ -257,10 +242,8 @@ A wildcard matching pattern can be used for substring matches that
 replace zero (or more) characters. There are two types of wildcard
 patterns:
 
--   A question mark ("?") can be used to replace exactly one character
-    (as long as that character is not the first character)
--   An asterisk ("\*") can be used to replace any number of characters
-    (including zero)
+- A question mark ("?") can be used to replace exactly one character (as long as that character is not the first character)
+- An asterisk ("\*") can be used to replace any number of characters (including zero)
 
 Wildcard patterns must be escaped (using a backslash) so that the
 wildcard itself can reach the Chef Infra Server. If they are not
@@ -333,17 +316,17 @@ knife rehash
 
 Chef maintains the following plugins which ship with Chef Workstation:
 
--   `knife-acl`
--   `knife-azure`
--   `knife-ec2`
--   `knife-google`
--   `knife-lpar`
--   `knife-opc`
--   `knife-openstack`
--   `knife-rackspace`
--   `knife-reporting`
--   `knife-vcenter`
--   `knife-windows`
+- `knife-acl`
+- `knife-azure`
+- `knife-ec2`
+- `knife-google`
+- `knife-lpar`
+- `knife-opc`
+- `knife-openstack`
+- `knife-rackspace`
+- `knife-reporting`
+- `knife-vcenter`
+- `knife-windows`
 
 ### Community Knife Plugins
 

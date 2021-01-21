@@ -17,14 +17,11 @@ aliases = ["/config_yml_kitchen.html", "/config_yml_kitchen/"]
 Use [Test Kitchen](https://kitchen.ci/) to automatically test cookbook
 data across any combination of platforms and test suites:
 
--   Defined in a kitchen.yml file
--   Uses a driver plugin architecture
--   Supports cookbook testing across many cloud providers and
-    virtualization technologies
--   Supports all common testing frameworks that are used by the Ruby
-    community
--   Uses a comprehensive set of base images provided by
-    [Bento](https://github.com/chef/bento)
+- Defined in a kitchen.yml file
+- Uses a driver plugin architecture
+- Supports cookbook testing across many cloud providers and virtualization technologies
+- Supports all common testing frameworks that are used by the Ruby community
+- Uses a comprehensive set of base images provided by [Bento](https://github.com/chef/bento)
 
 {{% test_kitchen_yml %}}
 
@@ -452,15 +449,9 @@ suites:
 
 where:
 
--   `require_chef_omnibus` is used to ensure that the Chef installer
-    will be used to install Chef Infra Client to all platform instances;
-    `require_chef_omnibus` may also be set to `latest`, which means the
-    newest version of Chef Infra Client for that platform will be used
-    for cookbook testing
--   `chef_omnibus_url` is used to specify the URL from which Chef Infra
-    Client is downloaded
--   All of the `attributes` for the `config` test suite contain specific
-    client.rb settings for use with this test suite
+- `require_chef_omnibus` is used to ensure that the Chef installer will be used to install Chef Infra Client to all platform instances; `require_chef_omnibus` may also be set to `latest`, which means the newest version of Chef Infra Client for that platform will be used for cookbook testing
+- `chef_omnibus_url` is used to specify the URL from which Chef Infra Client is downloaded
+- All of the `attributes` for the `config` test suite contain specific client.rb settings for use with this test suite
 
 ## Driver Settings
 
@@ -753,12 +744,7 @@ provisioner:
      client_fork: false  # Forked instances don't return the real exit code
 ```
 
-**One note on Linux nodes**: The shutdown command blocks (as opposed to
-the Windows variant which registers the reboot and returns right away),
-so once the timeout period passes, Chef Infra Client and the node are in
-a race to see who can exit/shutdown first - so you may or may not get
-the exit code out of Linux instances. In that case, you can add `1` to
-the `retry_on_exit_code` array and that should catch both cases.
+**One note on Linux nodes**: The shutdown command blocks (as opposed to the Windows variant which registers the reboot and returns right away), so once the timeout period passes, Chef Infra Client and the node are in a race to see who can exit/shutdown first - so you may or may not get the exit code out of Linux instances. In that case, you can add `1` to the `retry_on_exit_code` array and that should catch both cases.
 
 Please refer [YAML
 documentation](https://symfony.com/doc/current/components/yaml/yaml_format.html#collections)

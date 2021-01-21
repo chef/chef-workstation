@@ -86,7 +86,7 @@ This argument has the following options:
 
 `-w`, `--with-uri`
 
-:   Show corresponding URIs.
+: Show corresponding URIs.
 
 ### Example
 
@@ -117,24 +117,24 @@ This argument has the following options:
 
 `-l`, `--with-orgs`
 
-:   Show the organizations of which the user is a member.
+: Show the organizations of which the user is a member.
 
 ### Example
 
 ``` bash
 knife opc user show alice -l
 display_name:  Alice Schmidt
-email:         alice@chef.io
-first_name:    Alice
-last_name:     Schmidt
+email:       alice@chef.io
+first_name:  Alice
+last_name:   Schmidt
 middle_name:
 organizations: acme
-public_key:    -----BEGIN PUBLIC KEY-----
+public_key:  -----BEGIN PUBLIC KEY-----
 [...]
 -----END PUBLIC KEY-----
 
 
-username:     alice
+username:   alice
 ```
 
 opc user create [plugin_knife_opc-opc-user-create]
@@ -157,7 +157,7 @@ This argument has the following options:
 
 `-f FILENAME`, `--filename FILENAME`
 
-:   Write private key to `FILENAME` rather than `STDOUT`.
+: Write private key to `FILENAME` rather than `STDOUT`.
 
 ### Example
 
@@ -186,11 +186,11 @@ This argument has the following options:
 
 `-d`, `--no-disassociate-user`
 
-:   Don't disassociate the user first.
+: Don't disassociate the user first.
 
 `-R`, `--remove-from-admin-groups`
 
-:   If the user is a member of any org admin groups, attempt to remove
+: If the user is a member of any org admin groups, attempt to remove
     from those groups. Ignored if `--no-disassociate-user` is set.
 
 ### Example
@@ -238,16 +238,16 @@ wq
 Saved arno.
 knife opc user show arno
 display_name: arno schmidt
-email:        arno@opscode.io
-first_name:   arno
-last_name:    schmidt
+email:      arno@opscode.io
+first_name: arno
+last_name:  schmidt
 middle_name:
-public_key:   -----BEGIN PUBLIC KEY-----
+public_key: -----BEGIN PUBLIC KEY-----
 [...]
 -----END PUBLIC KEY-----
 
 
-username:     arno
+username:   arno
 ```
 
 ## opc user password
@@ -293,11 +293,11 @@ This argument has the following options:
 
 `-w`, `--with-uri`
 
-:   Show corresponding URIs.
+: Show corresponding URIs.
 
 `-a`, `--all-orgs`
 
-:   Display auto-generated hidden orgs.
+: Display auto-generated hidden orgs.
 
 ### Example
 
@@ -325,8 +325,8 @@ knife opc org show ORG_NAME
 ``` bash
 knife opc org show acme
 full_name: Acme
-guid:      cc9f9d0d4f6e7e35272e327e22e7affc
-name:      acme
+guid:    cc9f9d0d4f6e7e35272e327e22e7affc
+name:    acme
 ```
 
 opc org create [plugin_knife_opc-opc-org-create]
@@ -349,11 +349,11 @@ This argument has the following options:
 
 `-f FILENAME`, `--filename FILENAME`
 
-:   Write private key to `FILENAME` rather than `STDOUT`.
+: Write private key to `FILENAME` rather than `STDOUT`.
 
 `-a USER_NAME`, `--association_user USER_NAME`
 
-:   Associate `USER_NAME` with the organization after creation.
+: Associate `USER_NAME` with the organization after creation.
 
 ### Example
 
@@ -383,8 +383,8 @@ knife opc org delete ORG_NAME
 knife opc org delete acme2
 Do you want to delete the organization acme2? (Y/N) Y
 full_name: The Other Acme
-guid:      2adec1140cf777a15d82d9099304da71
-name:      acme2
+guid:    2adec1140cf777a15d82d9099304da71
+name:    acme2
 ```
 
 ## opc org user add

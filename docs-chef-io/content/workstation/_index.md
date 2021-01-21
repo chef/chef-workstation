@@ -39,22 +39,10 @@ the actual configuration.
 
 Chef Infra defines a common workflow for cookbook development:
 
-1.  Create a skeleton cookbook by running <span class="title-ref">chef
-    generate cookbook MY_COOKBOOK_NAME</span>. This will generate a
-    cookbook with a single recipe and testing configuration with
-    ChefSpec and Delivery Local Mode.
-2.  Write cookbook recipes or resources and debug those recipes as they
-    are being written using Cookstyle and Test Kitchen. This is
-    typically an iterative process, where cookbooks are tested as they
-    are developed, bugs are fixed quickly, and then cookbooks are tested
-    again. A text editor---Visual Studio Code, Atom, vim, or any other
-    preferred text editor---is used to author the files in the cookbook.
-3.  Perform acceptance tests. These tests are not done in a development
-    environment, but rather are done against using an environment that
-    matches the production environment as closely as possible.
-4.  When the cookbooks pass all the acceptance tests and have been
-    verified to work in the desired manner, deploy the cookbooks to the
-    production environment.
+1. Create a skeleton cookbook by running <span class="title-ref">chef generate cookbook MY_COOKBOOK_NAME</span>. This will generate a cookbook with a single recipe and testing configuration with ChefSpec and Delivery Local Mode.
+2. Write cookbook recipes or resources and debug those recipes as they are being written using Cookstyle and Test Kitchen. This is typically an iterative process, where cookbooks are tested as they are developed, bugs are fixed quickly, and then cookbooks are tested again. A text editor---Visual Studio Code, Atom, vim, or any other preferred text editor---is used to author the files in the cookbook.
+3. Perform acceptance tests. These tests are not done in a development environment, but rather are done against using an environment that matches the production environment as closely as possible.
+4. When the cookbooks pass all the acceptance tests and have been verified to work in the desired manner, deploy the cookbooks to the production environment.
 
 ## Tools
 

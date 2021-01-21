@@ -17,9 +17,9 @@ aliases = ["/ctl_chef_apply.html", "/ctl_chef_apply/"]
 chef-apply is an executable program that runs a single recipe from the
 command line:
 
--   Is part of Chef Workstation
--   A great way to explore resources
--   Is **NOT** how Chef is run in production
+- Is part of Chef Workstation
+- A great way to explore resources
+- Is **NOT** how Chef is run in production
 
 ## Options
 
@@ -33,31 +33,27 @@ This tool has the following options:
 
 `-e RECIPE_TEXT`, `--execute RECIPE_TEXT`
 
-:   Execute a resource using a string.
+: Execute a resource using a string.
 
 `-l LEVEL`, `--log_level LEVEL`
 
-:   The level of logging to be stored in a log file.
+: The level of logging to be stored in a log file.
 
 `-s`, `--stdin`
 
-:   Execute a resource using standard input.
+: Execute a resource using standard input.
 
 `-v`, `--version`
 
-:   The Chef Infra Client version.
+: The Chef Infra Client version.
 
 `-W`, `--why-run`
 
-:   Run the executable in why-run mode, which is a type of Chef Infra
-    Client run that does everything except modify the system. Use
-    why-run mode to understand why Chef Infra Client makes the decisions
-    that it makes and to learn more about the current and proposed state
-    of the system.
+: Run the executable in why-run mode, which is a type of Chef Infra Client run that does everything except modify the system. Use why-run mode to understand why Chef Infra Client makes the decisions that it makes and to learn more about the current and proposed state of the system.
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 ## Examples
 

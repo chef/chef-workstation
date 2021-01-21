@@ -81,7 +81,7 @@ This argument has the following options:
 
 `--description DESCRIPTION`
 
-:   The description of the role. This value populates the description
+: The description of the role. This value populates the description
     field for the role on the Chef Infra Server.
 
 {{< note >}}
@@ -254,7 +254,7 @@ This argument has the following options:
 
 `-w`, `--with-uri`
 
-:   Show the corresponding URIs.
+: Show the corresponding URIs.
 
 ### Examples
 
@@ -287,7 +287,7 @@ This argument has the following options:
 
 `-a ATTR`, `--attribute ATTR`
 
-:   The attribute (or attributes) to show.
+: The attribute (or attributes) to show.
 
 {{< note >}}
 

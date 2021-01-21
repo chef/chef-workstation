@@ -16,10 +16,8 @@ aliases = ["/ctl_chef.html", "/ctl_chef/"]
 
 The chef executable is a command-line tool that does the following:
 
--   Generates repositories, cookbooks, recipes, attributes, templates,
-    and custom resources.
--   Installs gems into the Chef development environment's Ruby
-    installation.
+- Generates repositories, cookbooks, recipes, attributes, templates, and custom resources.
+- Installs gems into the Chef development environment's Ruby installation.
 
 ## chef capture
 
@@ -37,35 +35,35 @@ chef capture NODE-NAME [options]
 
 `-c`, `--credentials`
 
-:   Credentials file (default $HOME/.chef/credentials).
+: Credentials file (default $HOME/.chef/credentials).
 
 `-d`, `--with-data-bags`
 
-:   Download all data bags as part of node capture.
+: Download all data bags as part of node capture.
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 `-k`, `--client-key`
 
-:   Chef Infra Server API client key.
+: Chef Infra Server API client key.
 
 `-n`, `--client-name`
 
-:   Chef Infra Server API client name.
+: Chef Infra Server API client name.
 
 `-o`, `--ssl-no-verify`
 
-:   Do not verify SSL when connecting to Chef Infra Server (default: verify).
+: Do not verify SSL when connecting to Chef Infra Server (default: verify).
 
 `-p`, `--profile`
 
-:   Profile to use from credentials file (default "default").
+: Profile to use from credentials file (default "default").
 
 `-s`, `--chef-server-url`
 
-:   Chef Infra Server URL.
+: Chef Infra Server URL.
 
 ### Examples
 
@@ -154,11 +152,11 @@ This subcommand has the following options:
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 `-v`, `--version`
 
-:   The Chef Infra Client version.
+: The Chef Infra Client version.
 
 ### Examples
 
@@ -188,11 +186,11 @@ This subcommand has the following options:
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 `-v`, `--version`
 
-:   The Chef Infra Client version.
+: The Chef Infra Client version.
 
 ### Examples
 
@@ -326,20 +324,15 @@ This subcommand has the following options:
 
 `-g GENERATOR_COOKBOOK_PATH`, `--generator-cookbook GENERATOR_COOKBOOK_PATH`
 
-:   The path at which a cookbook named `code_generator` is located. This
-    cookbook is used by the `chef generate` subcommands to generate
-    cookbooks, cookbook files, templates, attribute files, and so on.
-    Default value: `lib/chef-dk/skeletons`, under which is the default
-    `code_generator` cookbook that is included as part of Chef
-    Workstation.
+: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 `-v`, `--version`
 
-:   The Chef Infra Client version.
+: The Chef Infra Client version.
 
 ### Examples
 
@@ -386,58 +379,43 @@ This subcommand has the following options:
 
 `-g GENERATOR_COOKBOOK_PATH`, `--generator-cookbook GENERATOR_COOKBOOK_PATH`
 
-:   The path at which a cookbook named `code_generator` is located. This
-    cookbook is used by the `chef generate` subcommands to generate
-    cookbooks, cookbook files, templates, attribute files, and so on.
-    Default value: `lib/chef-dk/skeletons`, under which is the default
-    `code_generator` cookbook that is included as part of Chef
-    Workstation.
+: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
 
 `-b`, `--berks`
 
-:   Create a Berksfile in the cookbook. Default: disabled. Optional.
-    Use to create a berksfile by overriding default creation of a Policyfile.
+: Create a Berksfile in the cookbook. Default: disabled. Optional. Use to create a berksfile by overriding default creation of a Policyfile.
 
 `-C COPYRIGHT`, `--copyright COPYRIGHT`
 
-:   Specify the copyright holder for copyright notices in generated
-    files. Default value: `The Authors`
+: Specify the copyright holder for copyright notices in generated files. Default value: `The Authors`
 
 `-d`, `--delivery`
 
-:   Generate a delivery config file and build cookbook inside the new
-    cookbook. Default value: disabled. This option is disabled. It has
-    no effect and exists only for compatibility with past releases
+: Generate a delivery config file and build cookbook inside the new cookbook. Default value: disabled. This option is disabled. It has no effect and exists only for compatibility with past releases
 
 `-m EMAIL`, `--email EMAIL`
 
-:   Specify the email address of the author. Default value:
-    `you@example.com`.
+: Specify the email address of the author. Default value: `you@example.com`.
 
 `-a KEY=VALUE`, `--generator-arg KEY=VALUE`
 
-:   Sets a property named `KEY` to the given `VALUE` on the generator
-    context object in the generator cookbook. This allows custom
-    generator cookbooks to accept optional user input on the command
-    line.
+: Sets a property named `KEY` to the given `VALUE` on the generator context object in the generator cookbook. This allows custom generator cookbooks to accept optional user input on the command line.
 
 `-I LICENSE`, `--license LICENSE`
 
-:   Sets the license. Valid values are `all_rights`, `apache2`, `mit`,
-    `gplv2`, or `gplv3`. Default value: `all_rights`.
+: Sets the license. Valid values are `all_rights`, `apache2`, `mit`, `gplv2`, or `gplv3`. Default value: `all_rights`.
 
 `-P`, `--policy`
 
-:   Create a Policyfile in the cookbook instead of a Berksfile.
-    Default: enabled.
+: Create a Policyfile in the cookbook instead of a Berksfile. Default: enabled.
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 `-v`, `--version`
 
-:   The Chef Infra Client version.
+: The Chef Infra Client version.
 
 ### Examples
 
@@ -565,42 +543,31 @@ This subcommand has the following options:
 
 `-g GENERATOR_COOKBOOK_PATH`, `--generator-cookbook GENERATOR_COOKBOOK_PATH`
 
-:   The path at which a cookbook named `code_generator` is located. This
-    cookbook is used by the `chef generate` subcommands to generate
-    cookbooks, cookbook files, templates, attribute files, and so on.
-    Default value: `lib/chef-dk/skeletons`, under which is the default
-    `code_generator` cookbook that is included as part of Chef
-    Workstation.
+: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
 
 `-C COPYRIGHT`, `--copyright COPYRIGHT`
 
-:   Specify the copyright holder for copyright notices in generated
-    files. Default value: `The Authors`
+: Specify the copyright holder for copyright notices in generated files. Default value: `The Authors`
 
 `-m EMAIL`, `--email EMAIL`
 
-:   Specify the email address of the author. Default value:
-    `you@example.com`.
+: Specify the email address of the author. Default value: `you@example.com`.
 
 `-a KEY=VALUE`, `--generator-arg KEY=VALUE`
 
-:   Sets a property named `KEY` to the given `VALUE` on the generator
-    context object in the generator cookbook. This allows custom
-    generator cookbooks to accept optional user input on the command
-    line.
+: Sets a property named `KEY` to the given `VALUE` on the generator context object in the generator cookbook. This allows custom generator cookbooks to accept optional user input on the command line.
 
 `-I LICENSE`, `--license LICENSE`
 
-:   Sets the license. Valid values are `all_rights`, `apache2`, `mit`,
-    `gplv2`, or `gplv3`. Default value: `all_rights`.
+: Sets the license. Valid values are `all_rights`, `apache2`, `mit`, `gplv2`, or `gplv3`. Default value: `all_rights`.
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 `-v`, `--version`
 
-:   The Chef Infra Client version.
+: The Chef Infra Client version.
 
 ### Examples
 
@@ -625,24 +592,19 @@ This subcommand has the following options:
 
 `-g GENERATOR_COOKBOOK_PATH`, `--generator-cookbook GENERATOR_COOKBOOK_PATH`
 
-:   The path at which a cookbook named `code_generator` is located. This
-    cookbook is used by the `chef generate` subcommands to generate
-    cookbooks, cookbook files, templates, attribute files, and so on.
-    Default value: `lib/chef-dk/skeletons`, under which is the default
-    `code_generator` cookbook that is included as part of Chef
-    Workstation.
+: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 `-s SOURCE_FILE`, `--source SOURCE_FILE`
 
-:   Copy the contents from a source file.
+: Copy the contents from a source file.
 
 `-v`, `--version`
 
-:   The Chef Infra Client version.
+: The Chef Infra Client version.
 
 ### Examples
 
@@ -673,20 +635,15 @@ This subcommand has the following options:
 
 `-g GENERATOR_COOKBOOK_PATH`, `--generator-cookbook GENERATOR_COOKBOOK_PATH`
 
-:   The path at which a cookbook named `code_generator` is located. This
-    cookbook is used by the `chef generate` subcommands to generate
-    cookbooks, cookbook files, templates, attribute files, and so on.
-    Default value: `lib/chef-dk/skeletons`, under which is the default
-    `code_generator` cookbook that is included as part of Chef
-    Workstation.
+: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 `-v`, `--version`
 
-:   The Chef Infra Client version.
+: The Chef Infra Client version.
 
 ### Examples
 
@@ -711,20 +668,15 @@ This subcommand has the following options:
 
 `-g GENERATOR_COOKBOOK_PATH`, `--generator-cookbook GENERATOR_COOKBOOK_PATH`
 
-:   The path at which a cookbook named `code_generator` is located. This
-    cookbook is used by the `chef generate` subcommands to generate
-    cookbooks, cookbook files, templates, attribute files, and so on.
-    Default value: `lib/chef-dk/skeletons`, under which is the default
-    `code_generator` cookbook that is included as part of Chef
-    Workstation.
+: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 `-v`, `--version`
 
-:   The Chef Infra Client version.
+: The Chef Infra Client version.
 
 ### Examples
 
@@ -765,24 +717,19 @@ This subcommand has the following options:
 
 `-g GENERATOR_COOKBOOK_PATH`, `--generator-cookbook GENERATOR_COOKBOOK_PATH`
 
-:   The path at which a cookbook named `code_generator` is located. This
-    cookbook is used by the `chef generate` subcommands to generate
-    cookbooks, cookbook files, templates, attribute files, and so on.
-    Default value: `lib/chef-dk/skeletons`, under which is the default
-    `code_generator` cookbook that is included as part of Chef
-    Workstation.
+: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 `-s SOURCE_FILE`, `--source SOURCE_FILE`
 
-:   Copy the contents from a source file.
+: Copy the contents from a source file.
 
 `-v`, `--version`
 
-:   The Chef Infra Client version.
+: The Chef Infra Client version.
 
 ### Examples
 
@@ -807,55 +754,55 @@ This subcommand has the following options:
 
 `-a`, `--anonymize`
 
-:   Replace cookbook and node names with hash values to protect the sensitive information.
+: Replace cookbook and node names with hash values to protect the sensitive information.
 
 `-c`, `--credentials string`
 
-:   Credentials file (default $HOME/.chef/credentials).
+: Credentials file (default $HOME/.chef/credentials).
 
 `-f`, `--format`
 
-:   Output format: txt is human readable, csv is machine readable (default "txt").
+: Output format: txt is human readable, csv is machine readable (default "txt").
 
 `-F`, `--node-filter`
 
-:   Search filter to apply to nodes.
+: Search filter to apply to nodes.
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 `-k`, `--client-key`
 
-:   Chef Infra Server API client key.
+: Chef Infra Server API client key.
 
 `-n`, `--client-name`
 
-:   Chef Infra Server API client name.
+: Chef Infra Server API client name.
 
 `-o`, `--ssl-no-verify`
 
-:   Do not verify SSL when connecting to Chef Infra Server (default: verify).
+: Do not verify SSL when connecting to Chef Infra Server (default: verify).
 
 `-p`, `--profile`
 
-:   Profile to use from credentials file (default "default").
+: Profile to use from credentials file (default "default").
 
 `-s`, `--chef-server-url`
 
-:   Chef Infra Server URL.
+: Chef Infra Server URL.
 
 `-u`, `--only-unused`
 
-:   Generate a report that only includes cookbooks that are not included in any node's runlist.
+: Generate a report that only includes cookbooks that are not included in any node's runlist.
 
 `-V`, `--verify-upgrade`
 
-:   Verify the upgrade compatibility of every cookbook.
+: Verify the upgrade compatibility of every cookbook.
 
 `-w`, `--workers`
 
-:   Maximum number of parallel workers at once (default 50).
+: Maximum number of parallel workers at once (default 50).
 
 
 ### Examples
@@ -912,43 +859,43 @@ This subcommand has the following options:
 
 `-a`, `--anonymize`
 
-:   Replace cookbook and node names with hash values to protect the sensitive information.
+: Replace cookbook and node names with hash values to protect the sensitive information.
 
 `-c`, `--credentials string`
 
-:   Credentials file (default $HOME/.chef/credentials).
+: Credentials file (default $HOME/.chef/credentials).
 
 `-f`, `--format`
 
-:   Output format: txt is human readable, csv is machine readable (default "txt").
+: Output format: txt is human readable, csv is machine readable (default "txt").
 
 `-F`, `--node-filter`
 
-:   Search filter to apply to nodes.
+: Search filter to apply to nodes.
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 `-k`, `--client-key`
 
-:   Chef Infra Server API client key.
+: Chef Infra Server API client key.
 
 `-n`, `--client-name`
 
-:   Chef Infra Server API client name.
+: Chef Infra Server API client name.
 
 `-o`, `--ssl-no-verify`
 
-:   Do not verify SSL when connecting to Chef Infra Server (default: verify).
+: Do not verify SSL when connecting to Chef Infra Server (default: verify).
 
 `-p`, `--profile`
 
-:   Profile to use from credentials file (default "default").
+: Profile to use from credentials file (default "default").
 
 `-s`, `--chef-server-url`
 
-:   Chef Infra Server URL.
+: Chef Infra Server URL.
 
 
 ### Examples
@@ -1008,11 +955,11 @@ This subcommand has the following options:
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 `-v`, `--version`
 
-:   The Chef Infra Client version.
+: The Chef Infra Client version.
 
 ### Examples
 

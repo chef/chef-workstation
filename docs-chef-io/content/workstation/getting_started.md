@@ -31,7 +31,7 @@ These instructions are intended for macOS and Linux users.
 
 {{< /note >}}
 
-1.  Open a terminal and enter the following:
+1. Open a terminal and enter the following:
 
     ``` bash
     which ruby
@@ -39,10 +39,7 @@ These instructions are intended for macOS and Linux users.
 
     which will return something like `/usr/bin/ruby`.
 
-2.  To use Chef Workstation-provided Ruby as the default Ruby on your
-    system, edit the `$PATH` and `GEM` environment variables to include
-    paths to Chef Workstation. For example, on a machine that runs Bash,
-    run:
+2. To use Chef Workstation-provided Ruby as the default Ruby on your system, edit the `$PATH` and `GEM` environment variables to include paths to Chef Workstation. For example, on a machine that runs Bash, run:
 
     ``` bash
     echo 'eval "$(chef shell-init bash)"' >> ~/.bash_profile
@@ -56,7 +53,7 @@ These instructions are intended for macOS and Linux users.
     echo 'eval "$(chef shell-init zsh)"' >> ~/.zshrc
     ```
 
-3.  Run `which ruby` again. It should return
+3. Run `which ruby` again. It should return
     `/opt/chef-workstation/embedded/bin/ruby`.
 
 {{< note >}}
@@ -117,15 +114,13 @@ folder/repository you are working with, and a Git integration.
 
 These are a few common editors:
 
--   [Visual Studio Code (free/open
-    source)](http://code.visualstudio.com)
--   [GitHub Atom - (free/open source)](http://atom.io)
+- [Visual Studio Code (free/open source)](http://code.visualstudio.com)
+- [GitHub Atom - (free/open source)](http://atom.io)
 
 Chef Infra support in editors:
 
--   [VSCode Chef Infra
-    Extension](https://marketplace.visualstudio.com/items?itemName=chef-software.Chef)
--   [Chef on Atom](https://atom.io/packages/language-chef)
+- [VSCode Chef Infra Extension](https://marketplace.visualstudio.com/items?itemName=chef-software.Chef)
+- [Chef on Atom](https://atom.io/packages/language-chef)
 
 ### Starter Kit
 
@@ -149,12 +144,9 @@ For a Chef Workstation installation that will interact with the Chef
 Infra Server (including the hosted Chef Infra Server), log on and
 download the following files:
 
--   `config.rb`. This configuration file can be downloaded from the
-    **Organizations** page.
--   `ORGANIZATION-validator.pem`. This private key can be downloaded
-    from the **Organizations** page.
--   `USER.pem`. This private key can be downloaded from the **Change
-    Password** section of the **Account Management** page.
+- `config.rb`. This configuration file can be downloaded from the **Organizations** page.
+- `ORGANIZATION-validator.pem`. This private key can be downloaded from the **Organizations** page.
+- `USER.pem`. This private key can be downloaded from the **Change Password** section of the **Account Management** page.
 
 #### Move Config Files
 
@@ -164,7 +156,7 @@ Chef Infra Server.
 
 To move files to the `.chef` directory:
 
-1.  In a command window, enter each of the following:
+1. In a command window, enter each of the following:
 
     ``` bash
     cp /path/to/config.rb ~/chef-repo/.chef
@@ -185,7 +177,7 @@ To move files to the `.chef` directory:
     where `/path/to/` represents the path to the location in which these
     three files were placed after they were downloaded.
 
-2.  Verify that the files are in the `.chef` folder.
+2. Verify that the files are in the `.chef` folder.
 
 ### Without WebUI
 
@@ -206,13 +198,13 @@ chef-server-ctl org-create ORG_NAME ORG_FULL_NAME -f FILE_NAME
 
 where
 
--   The name must begin with a lower-case letter or digit, may only
+- The name must begin with a lower-case letter or digit, may only
     contain lower-case letters, digits, hyphens, and underscores, and
     must be between 1 and 255 characters. For example: `chef`
--   The full name must begin with a non-whitespace character and must
+- The full name must begin with a non-whitespace character and must
     be between 1 and 1023 characters. For example:
     `"Chef Software, Inc."`
--   `-f FILE_NAME`: Write the `ORGANIZATION-validator.pem` to
+- `-f FILE_NAME`: Write the `ORGANIZATION-validator.pem` to
     `FILE_NAME` instead of printing it to `STDOUT`. For example:
     `/tmp/chef.key`.
 
@@ -235,7 +227,7 @@ chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL PASSWORD -f FIL
 
 where
 
--   `-f FILE_NAME` writes the `USER.pem` to a file instead of `STDOUT`.
+- `-f FILE_NAME` writes the `USER.pem` to a file instead of `STDOUT`.
     For example: `/tmp/grantmc.key`.
 
 For example: a user named `grantmc`, with a first and last name of
@@ -253,7 +245,7 @@ Chef Infra Server and move them to the `.chef` directory.
 
 To move files to the .chef directory:
 
-1.  In a command window, enter each of the following:
+1. In a command window, enter each of the following:
 
     ``` bash
     cp /path/to/ORGANIZATION-validator.pem ~/chef-repo/.chef
@@ -268,7 +260,7 @@ To move files to the .chef directory:
     where `/path/to/` represents the path to the location in which these
     three files were placed after they were downloaded.
 
-2.  Verify that the files are in the `.chef` folder.
+2. Verify that the files are in the `.chef` folder.
 
 #### Create the config.rb File
 
@@ -293,13 +285,13 @@ cookbook_path            ["#{current_dir}/../cookbooks"]
 At a minimum, you must update the following settings with the
 appropriate values:
 
--   `client_key` should point to the location of the Chef Infra Server
+- `client_key` should point to the location of the Chef Infra Server
     user's `.pem` file on your Chef Workstation machine.
--   `validation_client_name` should be updated with the name of the
+- `validation_client_name` should be updated with the name of the
     desired organization that was created on the Chef Infra Server.
--   `validation_key` should point to the location of your organization's
+- `validation_key` should point to the location of your organization's
     `.pem` file on your Chef Workstation machine.
--   `chef_server_url` must be updated with the domain or IP address used
+- `chef_server_url` must be updated with the domain or IP address used
     to access the Chef Infra Server.
 
 See the [knife config.rb documentation](/workstation/config_rb/) for more
@@ -330,13 +322,13 @@ certificates generated by the Chef Infra Server.
 
 To verify that Chef Workstation can connect to the Chef Infra Server:
 
-1.  In a command window, navigate to the Chef repository:
+1. In a command window, navigate to the Chef repository:
 
     ``` bash
     cd ~/chef-repo
     ```
 
-2.  In a command window, enter the following:
+2. In a command window, enter the following:
 
     ``` bash
     knife client list

@@ -45,20 +45,17 @@ certificate is required for secure communication with the Microsoft
 Azure platform via the REST APIs. To generate the management certificate
 (.pem file):
 
-1.  Download the settings file:
-    <http://go.microsoft.com/fwlink/?LinkId=254432>.
+1. Download the settings file: <http://go.microsoft.com/fwlink/?LinkId=254432>.
 
-2.  Extract the data from the `ManagementCertificate` field into a
-    separate file named `cert.pfx`.
+2. Extract the data from the `ManagementCertificate` field into a separate file named `cert.pfx`.
 
-3.  Decode the certificate file with the following command:
+3. Decode the certificate file with the following command:
 
     ``` bash
     base64 -d cert.pfx > cert_decoded.pfx
     ```
 
-4.  Convert the decoded PFX file to a PEM file with the following
-    command:
+4. Convert the decoded PFX file to a PEM file with the followingcommand:
 
     ``` bash
     openssl pkcs12 -in cert_decoded.pfx -out managementCertificate.pem -nodes
@@ -92,40 +89,35 @@ This argument has the following options:
 
 `-a`, `--azure-affinity-group GROUP`
 
-:   The affinity group to which the virtual machine belongs. Required
-    when not using a service location. Required when not using
-    `--azure-service-location`.
+: The affinity group to which the virtual machine belongs. Required when not using a service location. Required when not using `--azure-service-location`.
 
 `--azure-ag-desc DESCRIPTION`
 
-:   The description of the Microsoft Azure affinity group.
+: The description of the Microsoft Azure affinity group.
 
 `--azure-publish-settings-file FILE_NAME`
 
-:   The name of the Azure Publish Settings file, including the path. For
-    example: `"/path/to/your.publishsettings"`.
+: The name of the Azure Publish Settings file, including the path. For example: `"/path/to/your.publishsettings"`.
 
 `-H HOST_NAME`, `--azure_host_name HOST_NAME`
 
-:   The host name for the Microsoft Azure environment.
+: The host name for the Microsoft Azure environment.
 
 `-m LOCATION`, `--azure-service-location LOCATION`
 
-:   The geographic location for a virtual machine and its services.
-    Required when not using `--azure-affinity-group`.
+: The geographic location for a virtual machine and its services. Required when not using `--azure-affinity-group`.
 
 `-p FILE_NAME`, `--azure-mgmt-cert FILE_NAME`
 
-:   The name of the file that contains the SSH public key that is used
-    when authenticating to Microsoft Azure.
+: The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
 
 `-S ID`, `--azure-subscription-id ID`
 
-:   The subscription identifier for the Microsoft Azure portal.
+: The subscription identifier for the Microsoft Azure portal.
 
 `--verify-ssl-cert`
 
-:   The SSL certificate used to verify communication over HTTPS.
+: The SSL certificate used to verify communication over HTTPS.
 
 #### ag list
 
@@ -145,25 +137,23 @@ This argument has the following options:
 
 `--azure-publish-settings-file FILE_NAME`
 
-:   The name of the Azure Publish Settings file, including the path. For
-    example: `"/path/to/your.publishsettings"`.
+: The name of the Azure Publish Settings file, including the path. For example: `"/path/to/your.publishsettings"`.
 
 `-H HOST_NAME`, `--azure_host_name HOST_NAME`
 
-:   The host name for the Microsoft Azure environment.
+: The host name for the Microsoft Azure environment.
 
 `-p FILE_NAME`, `--azure-mgmt-cert FILE_NAME`
 
-:   The name of the file that contains the SSH public key that is used
-    when authenticating to Microsoft Azure.
+: The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
 
 `-S ID`, `--azure-subscription-id ID`
 
-:   The subscription identifier for the Microsoft Azure portal.
+: The subscription identifier for the Microsoft Azure portal.
 
 `--verify-ssl-cert`
 
-:   The SSL certificate used to verify communication over HTTPS.
+: The SSL certificate used to verify communication over HTTPS.
 
 #### image list
 
@@ -185,29 +175,27 @@ This argument has the following options:
 
 `--azure-publish-settings-file FILE_NAME`
 
-:   The name of the Azure Publish Settings file, including the path. For
-    example: `"/path/to/your.publishsettings"`.
+: The name of the Azure Publish Settings file, including the path. For example: `"/path/to/your.publishsettings"`.
 
 `--full`
 
-:   Show all fields for all images.
+: Show all fields for all images.
 
 `-H HOST_NAME`, `--azure_host_name HOST_NAME`
 
-:   The host name for the Microsoft Azure environment.
+: The host name for the Microsoft Azure environment.
 
 `-p FILE_NAME`, `--azure-mgmt-cert FILE_NAME`
 
-:   The name of the file that contains the SSH public key that is used
-    when authenticating to Microsoft Azure.
+: The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
 
 `-S ID`, `--azure-subscription-id ID`
 
-:   The subscription identifier for the Microsoft Azure portal.
+: The subscription identifier for the Microsoft Azure portal.
 
 `--verify-ssl-cert`
 
-:   The SSL certificate used to verify communication over HTTPS.
+: The SSL certificate used to verify communication over HTTPS.
 
 #### internal lb create
 
@@ -228,131 +216,127 @@ This argument has the following options:
 
 `--azure-dns-name DNS_NAME`
 
-:   The DNS prefix name that will be used to add this load balancer to.
-    This must be an existing service/deployment.
+: The DNS prefix name that will be used to add this load balancer to. This must be an existing service/deployment.
 
 `--azure-lb-static-vip VIP`
 
-:   The Virtual IP that will be used for the load balancer.
+: The Virtual IP that will be used for the load balancer.
 
 `--azure-publish-settings-file FILENAME`
 
-:   Your Azure Publish Settings File
+: Your Azure Publish Settings File
 
 `--azure-subnet-name SUBNET_NAME`
 
-:   Required if static VIP is set. Specifies the subnename the load
-    balancer is located in.
+: Required if static VIP is set. Specifies the subnename the load balancer is located in.
 
 `-c`, `--config CONFIG`
 
-:   The configuration file to use.
+: The configuration file to use.
 
 `--chef-zero-host HOST`
 
-:   Host for starting chef-zero.
+: Host for starting chef-zero.
 
 `--chef-zero-port PORT`
 
-:   Port (or port range) to start chef-zero on. Port ranges lik1000,1010
-    or 8889-9999 will try all given ports until one works.
+: Port (or port range) to start chef-zero on. Port ranges lik1000,1010 or 8889-9999 will try all given ports until one works.
 
 `--config-option OPTION=VALUE`
 
-:   Override a single configuration option.
+: Override a single configuration option.
 
 `--[no-]color`
 
-:   Use colored output, defaults to enabled.
+: Use colored output, defaults to enabled.
 
 `-d`, `--disable-editing`
 
-:   Do not open EDITOR, just accept the data as is.
+: Do not open EDITOR, just accept the data as is.
 
 `--defaults`
 
-:   Accept default values for all questions
+: Accept default values for all questions
 
 `-e`, `--editor EDITOR`
 
-:   Set the editor to use for interactive commands
+: Set the editor to use for interactive commands
 
 `-E`, `--environment ENVIRONMENT`
 
-:   Set the Chef environment (except for in searches where this will be
-    flagrantly ignored)
+: Set the Chef environment (except for in searches where this will be flagrantly ignored)
 
 `-F`, `--format FORMAT`
 
-:   Which format to use for output.
+: Which format to use for output.
 
 `--[no-]fips`
 
-:   Enable fips mode.
+: Enable fips mode.
 
 `--[no-]listen`
 
-:   Whether a local mode (-z) server binds to a port.
+: Whether a local mode (-z) server binds to a port.
 
 `-h`, `--help`
 
-:   Show help message.
+: Show help message.
 
 `-H HOSTNAME`, `--azure-api-host-name`
 
-:   Your Azure host name
+: Your Azure host name
 
 `-k`, `--key KEY`
 
-:   API Client Key
+: API Client Key
 
 `-n`, `--azure-load-balancer NAME`
 
-:   Required. Specifies new load balancer name.
+: Required. Specifies new load balancer name.
 
 `-p`, `--azure-mgmt-cert FILENAME`
 
-:   Your Azure PEM file name.
+: Your Azure PEM file name.
 
 `-s`, `--server-url URL`
 
-:   Chef Infra Server URL.
+: Chef Infra Server URL.
 
 `-S`, `--azure-subscription-id ID`
 
-:   Your Azure subscription ID
+: Your Azure subscription ID
 
 `--print-after`
 
-:   Show the data after a destructive operation
+: Show the data after a destructive operation
 
 `--profile PROFILE`
 
-:   The credentials profile to select
+: The credentials profile to select
 
 `-u`, `--user USER API`
 
-:   Client Username.
+: Client Username.
 
 `-v`, `--version`
 
-:   Show Chef version.
+: Show Chef version.
 
 `-V`, `--verbose`
 
-:   More verbose output. Use twice for maximum verbosity.
+: More verbose output. Use twice for maximum verbosity.
 
 `--verify-ssl-cert`
 
-:   Verify SSL Certificates for communication over HTTPS.
+: Verify SSL Certificates for communication over HTTPS.
 
 `-y`, `--yes`
 
-:   Say yes to all prompts for confirmation.
+: Say yes to all prompts for confirmation.
 
 `-z`, `--local-mode`
 
-:   Point knife commands at local repository instead of server.
+: Point knife commands at local repository instead of server.
 
 #### internal lb list
 
@@ -374,113 +358,111 @@ This argument has the following options:
 
 `--azure-publish-settings-file FILENAME`
 
-:   Your Azure Publish Settings File
+: Your Azure Publish Settings File
 
 `-c`, `--config CONFIG`
 
-:   The configuration file to use.
+: The configuration file to use.
 
 `--chef-zero-host HOST`
 
-:   Host for starting chef-zero.
+: Host for starting chef-zero.
 
 `--chef-zero-port PORT`
 
-:   Port (or port range) to start chef-zero on. Port ranges lik1000,1010
-    or 8889-9999 will try all given ports until one works.
+: Port (or port range) to start chef-zero on. Port ranges such as 1000,1010 or 8889-9999 will try all given ports until one works.
 
 `--config-option OPTION=VALUE`
 
-:   Override a single configuration option.
+: Override a single configuration option.
 
 `--[no-]color`
 
-:   Use colored output, defaults to enabled.
+: Use colored output, defaults to enabled.
 
 `-d`, `--disable-editing`
 
-:   Do not open EDITOR, just accept the data as is.
+: Do not open EDITOR, just accept the data as is.
 
 `--defaults`
 
-:   Accept default values for all questions
+: Accept default values for all questions
 
 `-e`, `--editor EDITOR`
 
-:   Set the editor to use for interactive commands
+: Set the editor to use for interactive commands
 
 `-E`, `--environment ENVIRONMENT`
 
-:   Set the Chef environment (except for in searches where this will be
-    flagrantly ignored)
+: Set the Chef environment (except for in searches where this will be flagrantly ignored)
 
 `-F`, `--format FORMAT`
 
-:   Which format to use for output.
+: Which format to use for output.
 
 `--[no-]fips`
 
-:   Enable fips mode.
+: Enable fips mode.
 
 `--[no-]listen`
 
-:   Whether a local mode (-z) server binds to a port.
+: Whether a local mode (-z) server binds to a port.
 
 `-h`, `--help`
 
-:   Show help message.
+: Show help message.
 
 `-H HOSTNAME`, `--azure-api-host-name`
 
-:   Your Azure host name
+: Your Azure host name
 
 `-k`, `--key KEY`
 
-:   API Client Key
+: API Client Key
 
 `-p`, `--azure-mgmt-cert FILENAME`
 
-:   Your Azure PEM file name.
+: Your Azure PEM file name.
 
 `-s`, `--server-url URL`
 
-:   Chef Infra Server URL.
+: Chef Infra Server URL.
 
 `-S`, `--azure-subscription-id ID`
 
-:   Your Azure subscription ID
+: Your Azure subscription ID
 
 `--print-after`
 
-:   Show the data after a destructive operation
+: Show the data after a destructive operation
 
 `--profile PROFILE`
 
-:   The credentials profile to select
+: The credentials profile to select
 
 `-u`, `--user USER API`
 
-:   Client Username.
+: Client Username.
 
 `-v`, `--version`
 
-:   Show Chef version.
+: Show Chef version.
 
 `-V`, `--verbose`
 
-:   More verbose output. Use twice for maximum verbosity.
+: More verbose output. Use twice for maximum verbosity.
 
 `--verify-ssl-cert`
 
-:   Verify SSL Certificates for communication over HTTPS.
+: Verify SSL Certificates for communication over HTTPS.
 
 `-y`, `--yes`
 
-:   Say yes to all prompts for confirmation.
+: Say yes to all prompts for confirmation.
 
 `-z`, `--local-mode`
 
-:   Point knife commands at local repository instead of server.
+: Point knife commands at local repository instead of server.
 
 #### server create
 
@@ -504,218 +486,186 @@ This argument has the following options:
 
 `-a`, `--azure-affinity-group GROUP`
 
-:   The affinity group to which the virtual machine belongs. Required
-    when not using a service location. Required when not using
-    `--azure-service-location`.
+: The affinity group to which the virtual machine belongs. Required when not using a service location. Required when not using `--azure-service-location`.
 
 `--auto-update-client`
 
-:   Enable automatic updates for Chef Infra Client in Microsoft Azure.
-    This option may only be used when `--bootstrap-protocol` is set to
-    `cloud-api`. Default value: `false`.
+: Enable automatic updates for Chef Infra Client in Microsoft Azure. This option may only be used when `--bootstrap-protocol` is set to `cloud-api`. Default value: `false`.
 
 `--azure-availability-set NAME`
 
-:   The name of the availability set for the virtual machine.
+: The name of the availability set for the virtual machine.
 
 `--azure-dns-name DNS_NAME`
 
-:   Required. The name of the DNS prefix that is used to access the
-    cloud service. This name must be unique within Microsoft Azure. Use
-    with `--azure-connect-to-existing-dns` to use an existing DNS
-    prefix.
+: Required. The name of the DNS prefix that is used to access the cloud service. This name must be unique within Microsoft Azure. Use with `--azure-connect-to-existing-dns` to use an existing DNS prefix.
 
 `--azure-network-name NETWORK_NAME`
 
-:   The network for the virtual machine.
+: The network for the virtual machine.
 
 `--azure-publish-settings-file FILE_NAME`
 
-:   The name of the Azure Publish Settings file, including the path. For
-    example: `"/path/to/your.publishsettings"`.
+: The name of the Azure Publish Settings file, including the path. For example: `"/path/to/your.publishsettings"`.
 
 `--azure-storage-account STORAGE_ACCOUNT_NAME`
 
-:   The name of the storage account used with the hosted service. A
-    storage account name may be between 3 and 24 characters (lower-case
-    letters and numbers only) and must be unique within Microsoft Azure.
+: The name of the storage account used with the hosted service. A storage account name may be between 3 and 24 characters (lower-case letters and numbers only) and must be unique within Microsoft Azure.
 
 `--azure-subnet-name SUBNET_NAME`
 
-:   The subnet for the virtual machine.
+: The subnet for the virtual machine.
 
 `--azure-vm-name NAME`
 
-:   The name of the virtual machine. Must be unique within Microsoft
-    Azure. Required for advanced server creation options.
+: The name of the virtual machine. Must be unique within Microsoft Azure. Required for advanced server creation options.
 
 `--azure-vm-ready-timeout TIMEOUT`
 
-:   A number (in minutes) to wait for a virtual machine to reach the
-    `provisioning` state. Default value: `10`.
+: A number (in minutes) to wait for a virtual machine to reach the `provisioning` state. Default value: `10`.
 
 `--azure-vm-startup-timeout TIMEOUT`
 
-:   A number (in minutes) to wait for a virtual machine to transition
-    from the `provisioning` state to the `ready` state. Default value:
-    `15`.
+: A number (in minutes) to wait for a virtual machine to transition from the `provisioning` state to the `ready` state. Default value: `15`.
 
 `--bootstrap-protocol PROTOCOL`
 
-:   The protocol used to bootstrap on a machine that is running Windows
-    Server: `cloud-api`, `ssh`, or `winrm`. Default value: `winrm`.
+: The protocol used to bootstrap on a machine that is running Windows Server: `cloud-api`, `ssh`, or `winrm`. Default value: `winrm`.
 
-    Use the `cloud-api` option to bootstrap a machine in Microsoft
-    Azure. The bootstrap operation will enable the guest agent to
-    install, configure, and run Chef Infra Client on a node, after which
-    Chef Infra Client is configured to run as a daemon/service. (This is
-    a similar process to using the Azure portal.)
+   Use the `cloud-api` option to bootstrap a machine in Microsoft
+   Azure. The bootstrap operation will enable the guest agent to
+   install, configure, and run Chef Infra Client on a node, after which
+   Chef Infra Client is configured to run as a daemon/service. (This is
+   a similar process to using the Azure portal.)
 
-    Microsoft Azure maintains images of Chef Infra Client on the guest,
-    so connectivity between the guest and the workstation from which the
-    bootstrap operation was initiated is not required, after a
-    `cloud-api` bootstrap is started.
+   Microsoft Azure maintains images of Chef Infra Client on the guest,
+   so connectivity between the guest and the workstation from which the
+   bootstrap operation was initiated is not required, after a
+   `cloud-api` bootstrap is started.
 
-    During the `cloud-api` bootstrap operation, knife does not print the
-    output of a Chef Infra Client run like it does when the `winrm` and
-    `ssh` options are used. knife reports only on the status of the
-    bootstrap process: `provisioning`, `installing`, `ready`, and so on,
-    along with reporting errors.
+   During the `cloud-api` bootstrap operation, knife does not print the
+   output of a Chef Infra Client run like it does when the `winrm` and
+   `ssh` options are used. knife reports only on the status of the
+   bootstrap process: `provisioning`, `installing`, `ready`, and so on,
+   along with reporting errors.
 
 `--bootstrap-version VERSION`
 
-:   The version of Chef Infra Client to install.
+: The version of Chef Infra Client to install.
 
 `-c`, `--azure-connect-to-existing-dns`
 
-:   Add a new virtual machine to the existing deployment and/or service.
-    Use with `--azure-dns-name` to ensure the correct DNS is used.
+: Add a new virtual machine to the existing deployment and/or service.Use with `--azure-dns-name` to ensure the correct DNS is used.
 
 `--cert-passphrase PASSWORD`
 
-:   The password for the SSL certificate.
+: The password for the SSL certificate.
 
 `--cert-path PATH`
 
-:   The path to the location of the SSL certificate.
+: The path to the location of the SSL certificate.
 
 `-H HOST_NAME`, `--azure_host_name HOST_NAME`
 
-:   The host name for the virtual machine.
+: The host name for the virtual machine.
 
 `--hint HINT_NAME[=HINT_FILE]`
 
-:   An Ohai hint to be set on the target node. See the
-    [Ohai](/ohai/#hints) documentation for more information.
-    `HINT_FILE` is the name of the JSON file. `HINT_NAME` is the name of
-    a hint in a JSON file. Use multiple `--hint` options to specify
-    multiple hints.
+: An Ohai hint to be set on the target node. See the [Ohai](/ohai/#hints) documentation for more information. `HINT_FILE` is the name of the JSON file. `HINT_NAME` is the name of a hint in a JSON file. Use multiple `--hint` options to specify multiple hints.
 
 `--host-name HOST_NAME`
 
-:   The host name for the Microsoft Azure environment.
+: The host name for the Microsoft Azure environment.
 
 `-I IMAGE`, `--azure-source-image IMAGE`
 
-:   The name of the disk image to be used to create the virtual machine.
+: The name of the disk image to be used to create the virtual machine.
 
 `--identity-file IDENTITY_FILE`
 
-:   The SSH identity file used for authentication. Key-based
-    authentication is recommended.
+: The SSH identity file used for authentication. Key-based authentication is recommended.
 
 `--identity-file_passphrase PASSWORD`
 
-:   The passphrase for the SSH key. Use only with `--identity-file`.
+: The passphrase for the SSH key. Use only with `--identity-file`.
 
 `-j JSON_ATTRIBS`, `--json-attributes JSON_ATTRIBS`
 
-:   A JSON string that is added to the first run of a Chef Infra Client.
+: A JSON string that is added to the first run of a Chef Infra Client.
 
 `-m LOCATION`, `--azure-service-location LOCATION`
 
-:   The geographic location for a virtual machine and its services.
-    Required when not using `--azure-affinity-group`.
+: The geographic location for a virtual machine and its services. Required when not using `--azure-affinity-group`.
 
 `-N NAME`, `--node-name NAME`
 
-:   The unique identifier of the node. Node names, when used with Microsoft Azure,
-    must be 91 characters or shorter.
+: The unique identifier of the node. Node names, when used with Microsoft Azure, must be 91 characters or shorter.
 
 `--[no-]host-key-verify`
 
-:   Use `--no-host-key-verify` to disable host key verification. Default
-    setting: `--host-key-verify`.
+: Use `--no-host-key-verify` to disable host key verification. Defa setting: `--host-key-verify`.
 
 `-o DISK_NAME`, `--azure-os-disk-name DISK_NAME`
 
-:   The operating system type of the Microsoft Azure OS image: `Linux`
-    or `Windows`.
+: The operating system type of the Microsoft Azure OS image: `Lin or `Windows`.
 
 `-p FILE_NAME`, `--azure-mgmt-cert FILE_NAME`
 
-:   The name of the file that contains the SSH public key that is used
-    when authenticating to Microsoft Azure.
+: The name of the file that contains the SSH public key that is u when authenticating to Microsoft Azure.
 
 `-P PASSWORD`, `--ssh-password PASSWORD`
 
-:   The SSH password. This can be used to pass the password directly on
-    the command line. If this option is not specified (and a password is
-    required) knife prompts for the password.
+: The SSH password. This can be used to pass the password directly the command line. If this option is not specified (and a password is required) knife prompts for the password.
 
 `--prerelease`
 
-:   Install pre-release gems.
+: Install pre-release gems.
 
 `-r RUN_LIST`, `--run-list RUN_LIST`
 
-:   A comma-separated list of roles and/or recipes to be applied.
+: A comma-separated list of roles and/or recipes to be applied.
 
 `-R ROLE_NAME`, `--role-name ROLE_NAME`
 
-:   The name of the virtual machine.
+: The name of the virtual machine.
 
 `--ssh-port PORT`
 
-:   The SSH port. Default value: `22`.
+: The SSH port. Default value: `22`.
 
 `-t PORT_LIST`, `--tcp-endpoints PORT_LIST`
 
-:   A comma-separated list of local and public TCP ports that are to be
-    opened. For example: `80:80,433:5000`.
+: A comma-separated list of local and public TCP ports that are to be opened. For example: `80:80,433:5000`.
 
 `--template-file TEMPLATE`
 
-:   The path to a template file to be used during a bootstrap operation.
+: The path to a template file to be used during a bootstrap operation.
 
-    Deprecated in Chef Client 12.0.
+  Deprecated in Chef Client 12.0.
 
 `--thumbprint THUMBPRINT`
 
-:   The thumbprint of the SSL certificate.
+: The thumbprint of the SSL certificate.
 
 `-u PORT_LIST`, `---udp-endpoints PORT_LIST`
 
-:   A comma-separated list of local and public UDP ports that are to be
-    opened. For example: `80:80,433:5000`.
+: A comma-separated list of local and public UDP ports that are to be opened. For example: `80:80,433:5000`.
 
 `--verify-ssl-cert`
 
-:   The SSL certificate used to verify communication over HTTPS.
+: The SSL certificate used to verify communication over HTTPS.
 
 `--windows-auth-timeout MINUTES`
 
-:   The amount of time (in minutes) to wait for authentication to
-    succeed. Default value: `25`.
+: The amount of time (in minutes) to wait for authentication to succeed. Default value: `25`.
 
 `-x USER_NAME`, `--ssh-user USER_NAME`
 
-:   The SSH user name.
+: The SSH user name.
 
 `-z SIZE`, `--azure-vm-size SIZE`
 
-:   The size of the virtual machine: `ExtraSmall`, `Small`, `Medium`,
-    `Large`, or `ExtraLarge`. Default value: `Small`.
+: The size of the virtual machine: `ExtraSmall`, `Small`, `Medium`, `Large`, or `ExtraLarge`. Default value: `Small`.
 
 **Examples**
 
@@ -767,67 +717,55 @@ This argument has the following options:
 
 `--azure-dns-name NAME`
 
-:   The name of the DNS server (also known as the Hosted Service Name).
+: The name of the DNS server (also known as the Hosted Service Name).
 
 `--azure-publish-settings-file FILE_NAME`
 
-:   The name of the Azure Publish Settings file, including the path. For
-    example: `"/path/to/your.publishsettings"`.
+: The name of the Azure Publish Settings file, including the path. For example: `"/path/to/your.publishsettings"`.
 
 `--delete-azure-storage-account`
 
-:   Delete any corresponding storage account. When this option is
-    `true`, any storage account not used by any virtual machine is
-    deleted.
+: Delete any corresponding storage account. When this option is `true`, any storage account not used by any virtual machine is deleted.
 
 `-H HOST_NAME`, `--azure_host_name HOST_NAME`
 
-:   The host name for the Microsoft Azure environment.
+: The host name for the Microsoft Azure environment.
 
 `-N NODE_NAME`, `--node-name NODE_NAME`
 
-:   The unique identifier of the node to be deleted, if different from the server
-    name. This must be used with the `-p` (purge) option.
+: The unique identifier of the node to be deleted, if different from the server name. This must be used with the `-p` (purge) option.
 
 `-p FILE_NAME`, `--azure-mgmt-cert FILE_NAME`
 
-:   The name of the file that contains the SSH public key that is used
-    when authenticating to Microsoft Azure.
+: The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
 
 `-P`, `--purge`
 
-:   Destroy all corresponding nodes and clients on the Chef Infra
-    Server, in addition to the Microsoft Azure node itself. This action
-    (by itself) assumes that the node and client have the same name as
-    the server; if they do not have the same names, then the
-    `--node-name` option must be used to specify The unique identifier of the node.
+: Destroy all corresponding nodes and clients on the Chef Infra Server, in addition to the Microsoft Azure node itself. This action (by itself) assumes that the node and client have the same name as the server; if they do not have the same names, then the `--node-name` option must be used to specify The unique identifier of the node.
 
 `--preserve-azure-dns-name`
 
-:   Preserve the DNS entries for the corresponding cloud services. If
-    this option is `false`, any service not used by any virtual machine
-    is deleted.
+: Preserve the DNS entries for the corresponding cloud services. If this option is `false`, any service not used by any virtual machine is deleted.
 
 `--preserve-azure-os-disk`
 
-:   Preserve the corresponding operating system disk.
+: Preserve the corresponding operating system disk.
 
 `--preserve-azure-vhd`
 
-:   Preserve the underlying virtual hard disk (VHD).
+: Preserve the underlying virtual hard disk (VHD).
 
 `-S ID`, `--azure-subscription-id ID`
 
-:   The subscription identifier for the Microsoft Azure portal.
+: The subscription identifier for the Microsoft Azure portal.
 
 `--verify-ssl-cert`
 
-:   The SSL certificate used to verify communication over HTTPS.
+: The SSL certificate used to verify communication over HTTPS.
 
 `--wait`
 
-:   Pause the console until the server has finished processing the
-    request.
+: Pause the console until the server has finished processing the request.
 
 **Examples**
 
@@ -859,25 +797,23 @@ This argument has the following options:
 
 `--azure-publish-settings-file FILE_NAME`
 
-:   The name of the Azure Publish Settings file, including the path. For
-    example: `"/path/to/your.publishsettings"`.
+: The name of the Azure Publish Settings file, including the path. For example: `"/path/to/your.publishsettings"`.
 
 `-H HOST_NAME`, `--azure_host_name HOST_NAME`
 
-:   The host name for the Microsoft Azure environment.
+: The host name for the Microsoft Azure environment.
 
 `-p FILE_NAME`, `--azure-mgmt-cert FILE_NAME`
 
-:   The name of the file that contains the SSH public key that is used
-    when authenticating to Microsoft Azure.
+: The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
 
 `-S ID`, `--azure-subscription-id ID`
 
-:   The subscription identifier for the Microsoft Azure portal.
+: The subscription identifier for the Microsoft Azure portal.
 
 `--verify-ssl-cert`
 
-:   The SSL certificate used to verify communication over HTTPS.
+: The SSL certificate used to verify communication over HTTPS.
 
 #### server show
 
@@ -898,25 +834,23 @@ This argument has the following options:
 
 `--azure-publish-settings-file FILE_NAME`
 
-:   The name of the Azure Publish Settings file, including the path. For
-    example: `"/path/to/your.publishsettings"`.
+: The name of the Azure Publish Settings file, including the path. For example: `"/path/to/your.publishsettings"`.
 
 `-H HOST_NAME`, `--azure_host_name HOST_NAME`
 
-:   The host name for the Microsoft Azure environment.
+: The host name for the Microsoft Azure environment.
 
 `-p FILE_NAME`, `--azure-mgmt-cert FILE_NAME`
 
-:   The name of the file that contains the SSH public key that is used
-    when authenticating to Microsoft Azure.
+: The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
 
 `-S ID`, `--azure-subscription-id ID`
 
-:   The subscription identifier for the Microsoft Azure portal.
+: The subscription identifier for the Microsoft Azure portal.
 
 `--verify-ssl-cert`
 
-:   The SSL certificate used to verify communication over HTTPS.
+: The SSL certificate used to verify communication over HTTPS.
 
 #### vnet create
 
@@ -936,44 +870,39 @@ This argument has the following options:
 
 `-a`, `--azure-affinity-group GROUP`
 
-:   The affinity group to which the virtual machine belongs. Required
-    when not using a service location.
+: The affinity group to which the virtual machine belongs. Required when not using a service location.
 
 `--azure-address-space CIDR`
 
-:   The address space of the virtual network. Use with classless
-    inter-domain routing (CIDR) notation.
+: The address space of the virtual network. Use with classless inter-domain routing (CIDR) notation.
 
 `--azure-publish-settings-file FILE_NAME`
 
-:   The name of the Azure Publish Settings file, including the path. For
-    example: `"/path/to/your.publishsettings"`.
+: The name of the Azure Publish Settings file, including the path. For example: `"/path/to/your.publishsettings"`.
 
 `--azure-subnet-name CIDR`
 
-:   The subnet for the virtual machine. Use with classless inter-domain
-    routing (CIDR) notation.
+: The subnet for the virtual machine. Use with classless inter-domain routing (CIDR) notation.
 
 `-H HOST_NAME`, `--azure_host_name HOST_NAME`
 
-:   The host name for the Microsoft Azure environment.
+: The host name for the Microsoft Azure environment.
 
 `-n`, `--azure-network-name NETWORK_NAME`
 
-:   The network for the virtual machine.
+: The network for the virtual machine.
 
 `-p FILE_NAME`, `--azure-mgmt-cert FILE_NAME`
 
-:   The name of the file that contains the SSH public key that is used
-    when authenticating to Microsoft Azure.
+: The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
 
 `-S ID`, `--azure-subscription-id ID`
 
-:   The subscription identifier for the Microsoft Azure portal.
+: The subscription identifier for the Microsoft Azure portal.
 
 `--verify-ssl-cert`
 
-:   The SSL certificate used to verify communication over HTTPS.
+: The SSL certificate used to verify communication over HTTPS.
 
 #### vnet list
 
@@ -993,22 +922,20 @@ This argument has the following options:
 
 `--azure-publish-settings-file FILE_NAME`
 
-:   The name of the Azure Publish Settings file, including the path. For
-    example: `"/path/to/your.publishsettings"`.
+: The name of the Azure Publish Settings file, including the path. For example: `"/path/to/your.publishsettings"`.
 
 `-H HOST_NAME`, `--azure_host_name HOST_NAME`
 
-:   The host name for the Microsoft Azure environment.
+: The host name for the Microsoft Azure environment.
 
 `-p FILE_NAME`, `--azure-mgmt-cert FILE_NAME`
 
-:   The name of the file that contains the SSH public key that is used
-    when authenticating to Microsoft Azure.
+: The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
 
 `-S ID`, `--azure-subscription-id ID`
 
-:   The subscription identifier for the Microsoft Azure portal.
+: The subscription identifier for the Microsoft Azure portal.
 
 `--verify-ssl-cert`
 
-:   The SSL certificate used to verify communication over HTTPS.
+: The SSL certificate used to verify communication over HTTPS.

@@ -34,67 +34,62 @@ This command has the following options:
 
 `-a`, `--standalone`
 
-:   Run chef-shell in standalone mode.
+: Run chef-shell in standalone mode.
 
 `-c CONFIG`, `--config CONFIG`
 
-:   The configuration file to use.
+: The configuration file to use.
 
 `-h`, `--help`
 
-:   Show help for the command.
+: Show help for the command.
 
 `-j PATH`, `--json-attributes PATH`
 
-:   The path to a file that contains JSON data.
+: The path to a file that contains JSON data. Use this option to define a `run_list` object. For example, a JSON file similar to:
 
-    Use this option to define a `run_list` object. For example, a JSON
-    file similar to:
+  ``` javascript
+  "run_list": [
+    "recipe[base]",
+    "recipe[foo]",
+    "recipe[bar]",
+    "role[webserver]"
+  ],
+  ```
 
-    ``` javascript
-    "run_list": [
-      "recipe[base]",
-      "recipe[foo]",
-      "recipe[bar]",
-      "role[webserver]"
-    ],
-    ```
+  may be used by running `chef-shell -j path/to/file.json`.
 
-    may be used by running `chef-shell -j path/to/file.json`.
+  In certain situations this option may be used to update `normal` attributes.
 
-    In certain situations this option may be used to update `normal`
-    attributes.
+  {{< warning >}}
 
-    {{< warning >}}
+  {{% node_ctl_attribute %}}
 
-    {{% node_ctl_attribute %}}
-
-    {{< /warning >}}
+  {{< /warning >}}
 
 `-l LEVEL`, `--log-level LEVEL`
 
-:   The level of logging to be stored in a log file.
+: The level of logging to be stored in a log file.
 
 `-o RUN_LIST_ITEM`, `--override-runlist RUN_LIST_ITEM`
 
-:   Replace the current run-list with the specified items. Only
-    applicable when also using `solo` or `server` modes.
+: Replace the current run-list with the specified items. Only applicable when also using `solo` or `server` modes.
 
 `-s`, `--solo`
 
-:   Run chef-shell in chef-solo mode.
+: Run chef-shell in chef-solo mode.
 
 `-S CHEF_SERVER_URL`, `--server CHEF_SERVER_URL`
 
-:   The URL for the Chef Infra Server.
+: The URL for the Chef Infra Server.
 
 `-v`, `--version`
 
-:   The Chef Infra Client version.
+: The Chef Infra Client version.
 
 `-z`, `--client`
 
-:   Run chef-shell in Chef Infra Client mode.
+: Run chef-shell in Chef Infra Client mode.
 
 ## Configure
 

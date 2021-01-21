@@ -32,8 +32,8 @@ An remote error has occurred:
   Your SSH Agent has no keys added, and you have not specified a password or a key file.
 ```
 
-This error now appears as CHEFTRN007.  If you're running an older version of chef-run
-it will appear as CHEFINT001 with the message above.  Follow the steps detailed under
+This error now appears as CHEFTRN007. If you're running an older version of chef-run
+it will appear as CHEFINT001 with the message above. Follow the steps detailed under
 CHEFTRN007 below to resolve.
 
 ### CHEFTRN007
@@ -60,7 +60,7 @@ chef-run --identity-file /path/to/your/ssh/key
 
 #### resolve by adding key(s) to ssh-agent
 ```
-## ensure ssh-agent is running.  This may report it is already started:
+## ensure ssh-agent is running. This may report it is already started:
 $ ssh-agent
 
 ## Add your key file(s):

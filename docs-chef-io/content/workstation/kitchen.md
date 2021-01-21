@@ -18,21 +18,11 @@ aliases = ["/kitchen.html", "/kitchen/"]
 
 The key concepts in Test Kitchen are:
 
--   A platform is the operating system or target environment on which a
-    cookbook is to be tested
--   A suite is the Chef Infra Client configuration, a Policyfile or
-    run-list, and (optionally) node attributes
--   An instance is the combination of a specific platform and a specific
-    suite, with each instance being assigned an auto-generated name
--   A driver is the lifecycle that implements the actions associated
-    with a specific instance---create the instance, do what is needed to
-    converge on that instance (such as installing Chef Infra Client,
-    uploading cookbooks, starting a Chef Infra Client run, and so on),
-    setup anything else needed for testing, verify one (or more) suites
-    post-converge, and then destroy that instance
--   A provisioner is the component on which the Chef Infra Client code
-    will be run, either using chef-zero or chef-solo via the `chef_zero`
-    and `chef_solo` provisioners, respectively
+- A platform is the operating system or target environment on which a cookbook is to be tested
+- A suite is the Chef Infra Client configuration, a Policyfile or run-list, and (optionally) node attributes
+- An instance is the combination of a specific platform and a specific suite, with each instance being assigned an auto-generated name
+- A driver is the lifecycle that implements the actions associated with a specific instance---create the instance, do what is needed to converge on that instance (such as installing Chef Infra Client, uploading cookbooks, starting a Chef Infra Client run, and so on), setup anything else needed for testing, verify one (or more) suites post-converge, and then destroy that instance
+- A provisioner is the component on which the Chef Infra Client code will be run, either using chef-zero or chef-solo via the `chef_zero` and `chef_solo` provisioners, respectively
 
 ## Bento
 
@@ -85,6 +75,5 @@ For more information about the kitchen.yml file, see
 
 For more information about test-driven development and Test Kitchen:
 
--   [kitchen.ci](https://kitchen.ci/)
--   [Getting Started with Test
-    Kitchen](https://kitchen.ci/docs/getting-started/introduction/)
+- [kitchen.ci](https://kitchen.ci/)
+- [Getting Started with Test Kitchen](https://kitchen.ci/docs/getting-started/introduction/)
