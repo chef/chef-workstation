@@ -43,11 +43,7 @@ This argument has the following options:
 
 `-p`, `--purge`
 
-: Entirely remove a cookbook (or cookbook version) from the Chef Infra
-    Server. Use this action carefully because only one copy of any
-    single file is stored on the Chef Infra Server. Consequently,
-    purging a cookbook disables any other cookbook that references one
-    or more files from the cookbook that has been purged.
+: Entirely remove a cookbook (or cookbook version) from the Chef Infra Server. Use this action carefully because only one copy of any single file is stored on the Chef Infra Server. Consequently, purging a cookbook disables any other cookbook that references one or more files from the cookbook that has been purged.
 
 {{< note >}}
 
@@ -91,18 +87,11 @@ This argument has the following options:
 
 `COOKBOOK_VERSION`
 
-: The version of a cookbook to be deleted. If a cookbook has only one
-    version, this option does not need to be specified. If a cookbook
-    has more than one version and this option is not specified, knife
-    prompts for a version.
+: The version of a cookbook to be deleted. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, knife prompts for a version.
 
 `-p`, `--purge`
 
-: Entirely remove a cookbook (or cookbook version) from the Chef Infra
-    Server. Use this action carefully because only one copy of any
-    single file is stored on the Chef Infra Server. Consequently,
-    purging a cookbook disables any other cookbook that references one
-    or more files from the cookbook that has been purged.
+: Entirely remove a cookbook (or cookbook version) from the Chef Infra Server. Use this action carefully because only one copy of any single file is stored on the Chef Infra Server. Consequently, purging a cookbook disables any other cookbook that references one or more files from the cookbook that has been purged.
 
 {{< note >}}
 
@@ -242,8 +231,7 @@ This argument has the following options:
 
 `-o PATH:PATH`, `--cookbook-path PATH:PATH`
 
-: The directory in which cookbooks are created. This can be a
-    colon-separated path.
+: The directory in which cookbooks are created. This can be a colon-separated path.
 
 {{< note >}}
 
@@ -309,10 +297,7 @@ This argument has the following options:
 
 `COOKBOOK_VERSION`
 
-: The version of a cookbook to be shown. If a cookbook has only one
-    version, this option does not need to be specified. If a cookbook
-    has more than one version and this option is not specified, a list
-    of cookbook versions is returned.
+: The version of a cookbook to be shown. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, a list of cookbook versions is returned.
 
 `-f FQDN`, `--fqdn FQDN`
 
@@ -328,9 +313,7 @@ This argument has the following options:
 
 `PART`
 
-: The part of the cookbook to show: `attributes`, `definitions`,
-    `files`, `libraries`, `providers`, `recipes`, `resources`, or
-    `templates`. More than one part can be specified.
+: The part of the cookbook to show: `attributes`, `definitions`, `files`, `libraries`, `providers`, `recipes`, `resources`, or `templates`. More than one part can be specified.
 
 `-V PLATFORM_VERSION`, `--platform-version PLATFORM_VERSION`
 

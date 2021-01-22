@@ -237,10 +237,10 @@ wq
 643
 Saved arno.
 knife opc user show arno
-display_name: arno schmidt
-email:      arno@opscode.io
-first_name: arno
-last_name:  schmidt
+display_name:  arno schmidt
+email:         arno@opscode.io
+first_name:     arno
+last_name:     schmidt
 middle_name:
 public_key: -----BEGIN PUBLIC KEY-----
 [...]
@@ -325,8 +325,8 @@ knife opc org show ORG_NAME
 ``` bash
 knife opc org show acme
 full_name: Acme
-guid:    cc9f9d0d4f6e7e35272e327e22e7affc
-name:    acme
+guid:      cc9f9d0d4f6e7e35272e327e22e7affc
+name:      acme
 ```
 
 opc org create [plugin_knife_opc-opc-org-create]
@@ -383,8 +383,8 @@ knife opc org delete ORG_NAME
 knife opc org delete acme2
 Do you want to delete the organization acme2? (Y/N) Y
 full_name: The Other Acme
-guid:    2adec1140cf777a15d82d9099304da71
-name:    acme2
+guid:      2adec1140cf777a15d82d9099304da71
+name:      acme2
 ```
 
 ## opc org user add

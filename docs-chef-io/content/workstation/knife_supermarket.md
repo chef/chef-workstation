@@ -249,20 +249,20 @@ where `mysql` is the search term. This will return something similar to:
 
 ``` bash
 mysql:
-  cookbook:           https://supermarket.chef.io/api/v1/cookbooks/mysql
+  cookbook:             https://supermarket.chef.io/api/v1/cookbooks/mysql
   cookbook_description: Provides mysql_service, mysql_config, and mysql_client resources
   cookbook_maintainer:  chef
-  cookbook_name:      mysql
+  cookbook_name:        mysql
 mysql-apt-config:
-  cookbook:           https://supermarket.chef.io/api/v1/cookbooks/mysql-apt-config
+  cookbook:             https://supermarket.chef.io/api/v1/cookbooks/mysql-apt-config
   cookbook_description: Installs/Configures mysql-apt-config
   cookbook_maintainer:  tata
-  cookbook_name:      mysql-apt-config
+  cookbook_name:        mysql-apt-config
 mysql-multi:
-  cookbook:           https://supermarket.chef.io/api/v1/cookbooks/mysql-multi
+  cookbook:             https://supermarket.chef.io/api/v1/cookbooks/mysql-multi
   cookbook_description: MySQL replication wrapper cookbook
   cookbook_maintainer:  rackops
-  cookbook_name:      mysql-multi
+  cookbook_name:        mysql-multi
 ```
 
 ## share

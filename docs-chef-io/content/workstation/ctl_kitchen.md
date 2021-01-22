@@ -1016,21 +1016,15 @@ This subcommand has the following options:
 
 `-c`, `--concurrency`
 
-: The number of allowed concurrent connections. Default: `9999` (all
-    instances, effectively).
+: The number of allowed concurrent connections. Default: `9999` (all instances, effectively).
 
 `-l`, `--log-level`
 
-: The level of logging to be stored in a log file. Options (in order
-    of priority): `debug`, `info`, `warn`, `error`, and `fatal`.
-    Default: `info`.
+: The level of logging to be stored in a log file. Options (in order of priority): `debug`, `info`, `warn`, `error`, and `fatal`. Default: `info`.
 
 `PLATFORMS`
 
-: Run Test Kitchen against one or more platforms listed in the
-    kitchen.yml file. Use `all` to run Test Kitchen against all
-    platforms. Use a Ruby regular expression to glob two or more
-    platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
     {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 

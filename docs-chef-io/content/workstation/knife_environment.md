@@ -150,8 +150,7 @@ This argument has the following options:
 
 `--description DESCRIPTION`
 
-: The description of the environment. This value populates the
-    description field for the environment on the Chef Infra Server.
+: The description of the environment. This value populates the description field for the environment on the Chef Infra Server.
 
 {{< note >}}
 
