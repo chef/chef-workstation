@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.1.236 -->
-## [21.1.236](https://github.com/chef/chef-workstation/tree/21.1.236) (2021-01-25)
+<!-- latest_release 21.1.237 -->
+## [21.1.237](https://github.com/chef/chef-workstation/tree/21.1.237) (2021-01-25)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `023e6bf` to `05f7073` in /omnibus [#1660](https://github.com/chef/chef-workstation/pull/1660) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Infra Client to 16.9.29 [#1658](https://github.com/chef/chef-workstation/pull/1658) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.1.233 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Infra Client to 16.9.29 [#1658](https://github.com/chef/chef-workstation/pull/1658) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.237 -->
 - Bump omnibus-software from `023e6bf` to `05f7073` in /omnibus [#1660](https://github.com/chef/chef-workstation/pull/1660) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.1.236 -->
 - Bump inspec-bin to 4.25.1 [#1657](https://github.com/chef/chef-workstation/pull/1657) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.235 -->
 - Bump test-kitchen to 2.10.0 [#1654](https://github.com/chef/chef-workstation/pull/1654) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.234 -->
