@@ -27,7 +27,6 @@ import (
 
 func main() {
 
-	debugLog(fmt.Sprintf("*** This is modified Chef wip version ***"))
 	err := doStartupTasks()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
