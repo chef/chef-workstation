@@ -1,5 +1,5 @@
 +++
-title = "Upgrade Lab: Chef Infra Client 12 to 16"
+title = "Upgrade Lab: Chef Infra Client 12 to latest"
 draft = false
 aliases = ["/workstation/upgrade_labs/"]
 
@@ -7,8 +7,8 @@ aliases = ["/workstation/upgrade_labs/"]
   [menu.workstation]
     title = "Upgrade Lab"
     identifier = "chef_workstation/upgrade_lab.md Upgrade Lab"
-    parent = "chef_workstation"
-    weight = 35
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 150
 +++
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/upgrade_lab.md)
 
@@ -36,7 +36,7 @@ The Chef Upgrade Lab makes some basic assumptions about your existing system:
   - A Chef Infra Server running some older version
   - A newly installed Chef Infra Server running the latest software, set up and configured for knife, but otherwise empty
 - One or more nodes
-  - Running Chef Infra Client 12-15
+  - Running Chef Infra Client 12 or later
   - Minimum 512 MB RAM
   - [Recommended](/chef_system_requirements/#chef-infra-client) 5GB space
   - Bootstrapped to the older Chef Infra Server

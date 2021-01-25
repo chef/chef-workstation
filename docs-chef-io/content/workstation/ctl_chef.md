@@ -236,7 +236,6 @@ which returns the following output:
 *** LOCAL GEMS ***
 
 knife-opc (0.3.2)
-knife-push (1.0.2)
 knife-windows (1.9.0)
 ```
 

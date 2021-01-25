@@ -2,37 +2,21 @@
 # so we have to override the default shell here
 SHELL=bash
 
-assets:
-	git submodule update --init --recursive
-	git submodule foreach git pull origin master
-	git submodule foreach git reset --hard
-	pushd chef-web-docs/themes/docs-new && make assets && popd
-
-clean:
-	pushd chef-web-docs/themes/docs-new && make clean && popd
-	rm -rf chef-web-docs/resources/
-
 clean_all:
-	pushd chef-web-docs/themes/docs-new && make clean_all && popd
-	rm -rf chef-web-docs/resources/
-	rm -rf chef-web-docs/results/
+	pushd chef-web-docs && make clean_all && popd
 
-preview_netlify: chef_web_docs_submodule
-	pushd chef-web-docs && make assets; hugo --buildFuture --gc --minify --enableGitInfo && popd
-
-chef_web_docs_submodule:
-	git submodule update --init --recursive
-	git submodule foreach git pull origin master
-	git submodule foreach git reset --hard
+preview_netlify: chef_web_docs
 	cp -R content/* chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/content
-	cp -R static/images/* chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/static/images
+	cp -R static/* chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/static
+	pushd chef-web-docs && make assets; hugo --buildFuture --gc --minify && popd
 
-reset_chef_web_docs:
-	git submodule foreach git reset --hard
-	git submodule foreach git clean -f -d
+serve: chef_web_docs
+		echo "replace github.com/chef/chef-workstation/docs-chef-io => ../" >> chef-web-docs/go.mod
+	pushd chef-web-docs && make assets; hugo server --buildDrafts --buildFuture --noHTTPCache --ignoreVendorPaths "github.com/chef/chef-workstation/**" && popd
 
-serve: assets
-	hugo server --buildDrafts --buildFuture --noHTTPCache
-
-lint: assets
-	hugo -D
+chef_web_docs:
+	if [ -d "chef-web-docs/" ]; then \
+		pushd chef-web-docs && git reset HEAD --hard; git pull origin master && popd; \
+	else \
+		git clone https://github.com/chef/chef-web-docs.git; \
+	fi

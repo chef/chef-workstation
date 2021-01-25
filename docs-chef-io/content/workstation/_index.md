@@ -18,9 +18,7 @@ aliases = ["/about_workstation.html", "/about_chefdk.html", "/chef_dk.html", "/a
 
 Chef Workstation replaces ChefDK, combining all the existing features
 with new features, such as ad-hoc task support and the new Chef
-Workstation desktop application. Chef will continue to maintain ChefDK,
-but new development will take place in Chef Workstation without
-back-porting features.
+Workstation desktop application.
 
 ## Getting Started
 
@@ -34,8 +32,8 @@ tell Chef Infra Client how each node in your organization should be
 configured. Chef Infra Client---which is installed on every node---does
 the actual configuration.
 
--   [An Overview of Chef Infra](/chef_overview/)
--   [Install Chef Workstation](/workstation/install_workstation/)
+- [An Overview of Chef Infra](/chef_overview/)
+- [Install Chef Workstation](/workstation/install_workstation/)
 
 ### Cookbook Development Workflow
 
@@ -52,9 +50,8 @@ Chef Infra defines a common workflow for cookbook development:
     again. A text editor---Visual Studio Code, Atom, vim, or any other
     preferred text editor---is used to author the files in the cookbook.
 3.  Perform acceptance tests. These tests are not done in a development
-    environment, but rather are done against a full Chef Infra Server
-    using an environment that matches the production environment as
-    closely as possible.
+    environment, but rather are done against using an environment that
+    matches the production environment as closely as possible.
 4.  When the cookbooks pass all the acceptance tests and have been
     verified to work in the desired manner, deploy the cookbooks to the
     production environment.
@@ -86,7 +83,7 @@ The most important tools included in Chef Workstation are:
 </tr>
 <tr class="even">
 <td>Chef Infra Client</td>
-<td>The agent that runs Chef.</td>
+<td>The Chef Infra agent.</td>
 </tr>
 <tr class="odd">
 <td>ChefSpec</td>
@@ -97,28 +94,20 @@ The most important tools included in Chef Workstation are:
 <td>A linting tool that helps you write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.</td>
 </tr>
 <tr class="odd">
-<td>Delivery CLI</td>
-<td>A command-line tool for continuous delivery workflow. Is used to setup and execute phase jobs on a Chef Automate server.</td>
-</tr>
-<tr class="even">
 <td>Test Kitchen</td>
 <td>An integration testing framework tool that tests cookbooks across platforms.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>kitchen-dokken</td>
 <td>A Test Kitchen plugin that provides a driver, transport, and provisioner for rapid cookbook testing and container development using Docker and Chef.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>kitchen-vagrant</td>
 <td>A Test Kitchen plugin for local cookbook testing using Vagrant with VirtualBox, Parallels, VMware, and Hyper-V hypervisors</td>
 </tr>
-<tr class="odd">
-<td>kitchen-ec2, kitchen-google, kitchen-azurerm</td>
-<td>Test Kitchen drivers for cookbook testing on common cloud providers</td>
-</tr>
 <tr class="even">
-<td>Ruby</td>
-<td>The reference language for Chef Infra and InSpec.</td>
+<td>kitchen-ec2, kitchen-google, kitchen-azurerm, kitchen-vcenter</td>
+<td>Test Kitchen drivers for cookbook testing on common cloud providers</td>
 </tr>
 </tbody>
 </table>

@@ -72,10 +72,6 @@ knife client create CLIENT_NAME (options)
 
 This argument has the following options:
 
-`-a`, `--admin`
-
-:   Create a client as an admin client.
-
 `-f FILE`, `--file FILE`
 
 :   Save a private key to the specified file name.
