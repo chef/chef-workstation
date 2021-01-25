@@ -14,21 +14,16 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/install_workstation.md)
 
-Start your infrastructure automation quickly and easily with [Chef
-Workstation](https://www.chef.sh/) . Chef Workstation gives you
-everything you need to get started with Chef - ad hoc remote execution,
-remote scanning, configuration tasks, cookbook creation tools as well as
-robust dependency and testing software - all in one easy-to-install
-package.
+Start your infrastructure automation quickly and easily with [Chef Workstation](/workstation/). Chef Workstation gives you everything you need to get started with Chef - ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software - all in one easy-to-install package.
 
 Chef Workstation includes:
 
--   Chef Infra Client
--   Chef InSpec
--   chef and knife command line tools
--   Testing tools such as Test Kitchen, ChefSpec, and Cookstyle
--   Everything else needed to author cookbooks and upload them to the
-    Chef Infra Server
+- Chef Infra Client
+- Chef InSpec
+- Chef Habitat
+- chef and knife command line tools
+- Testing tools such as Test Kitchen, ChefSpec, and Cookstyle
+- Everything else needed to author cookbooks and upload them to the Chef Infra Server
 
 ## Supported Platforms
 
@@ -48,7 +43,7 @@ Supported Host Operating Systems:
 <tbody>
 <tr class="odd">
 <td>Apple macOS</td>
-<td>10.13, 10.14, 10.15</td>
+<td>10.13, 10.14, 10.15, 11.0</td>
 </tr>
 <tr class="even">
 <td>Microsoft Windows</td>
@@ -56,15 +51,15 @@ Supported Host Operating Systems:
 </tr>
 <tr class="odd">
 <td>Red Hat Enterprise Linux / CentOS</td>
-<td>6.x, 7.x, 8.x</td>
+<td>7.x, 8.x</td>
 </tr>
 <tr class="even">
 <td>Ubuntu</td>
-<td>16.04, 18.04</td>
+<td>16.04, 18.04, 20.04</td>
 </tr>
 <tr class="odd">
 <td>Debian</td>
-<td>8.x, 9.x, 10.x</td>
+<td>9.x, 10.x</td>
 </tr>
 </tbody>
 </table>
@@ -73,28 +68,21 @@ Supported Host Operating Systems:
 
 Minimum system requirements:
 
--   RAM: 2GB
--   Disk: 4GB
--   Running minimum settings may limit your ability to take advantage of
-    Chef Workstation tools such as Test Kitchen which creates and
-    manages virtualized test environments.
+- RAM: 2GB
+- Disk: 4GB
+- Running minimum settings may limit your ability to take advantage of Chef Workstation tools such as Test Kitchen which creates and manages virtualized test environments.
 
 Recommended system requirements:
 
--   RAM: 4GB
--   Disk 8GB
+- RAM: 4GB
+- Disk 8GB
 
 ### Chef Workstation App Requirements
 
--   Windows: No additional requirements
--   Mac: No additional requirements
--   Linux: You must have a graphical window manager running with support
-    for system tray icons.
-    -   On some distributions you may need to install additional
-        libraries. After you install the Chef Workstation package from
-        the terminal, the post-install message will tell you which, if
-        any, additional libraries are required to run the Chef
-        Workstation App.
+- Windows: No additional requirements
+- Mac: No additional requirements
+- Linux: You must have a graphical window manager running with support for system tray icons.
+  - On some distributions you may need to install additional libraries. After you install the Chef Workstation package from the terminal, the post-install message will tell you which, if any, additional libraries are required to run the Chef Workstation App.
 
 ## Installation
 
@@ -135,18 +123,13 @@ Alternately, install Chef Workstation using Homebrew:
 
 #### Headless Unattended Install
 
-
 "Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse.  They are usually controlled over a network connection.
 
-To install Chef Workstation on a headless Windows system,
-exclude the Chef Workstation App from auto-starting on login by using the following
-command in Windows PowerShell or `cmd.exe`.  Replace `MsiPath` with the path of
-the downloaded Chef Workstation installer.
+To install Chef Workstation on a headless Windows system, exclude the Chef Workstation App from auto-starting on login by using the following command in Windows PowerShell or `cmd.exe`.  Replace `MsiPath` with the path of the downloaded Chef Workstation installer.
 
 ```
 msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
 ```
-
 
 #### Spaces and Directories
 
@@ -159,11 +142,11 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
 ### Linux
 
 1.  Visit the [Chef Workstation downloads
-    page](https://downloads.chef.io/chef-workstation) and download the
+    page](https://downloads.chef.io/products/workstation) and download the
     appropriate package for your distribution:
 
     ``` bash
-    wget https://packages.chef.io/files/stable/chefworkstation/0.14/ubuntu/18.04/chefworkstation_0.14.16-1_amd64.deb
+    wget https://packages.chef.io/files/stable/chef-workstation/20.12.212/ubuntu/20.04/chef-workstation_20.12.212-1_amd64.deb
     ```
 
 2.  Use your distribution's package manager to install Chef Workstation:
@@ -171,13 +154,13 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
     -   Red Hat Enterprise Linux:
 
         ``` bash
-        rpm -Uvh chef-workstation-0.14.16-1.el7.x86_64.rpm
+        rpm -Uvh chef-workstation-20.12.212-1.el7.x86_64.rpm
         ```
 
     -   Debian/Ubuntu:
 
         ``` bash
-        dpkg -i chefworkstation_0.14.16-1_amd64.deb
+        dpkg -i chef-workstation_20.12.212-1_amd64.deb
         ```
 
 ## Verify the Installation
@@ -191,12 +174,13 @@ chef -v
 Which returns the versions of all installed Chef tools:
 
 ``` shell
-Chef Workstation version: 0.16.31
-Chef Infra Client version: 15.8.23
-Chef InSpec version: 4.18.85
-Chef CLI version: 2.0.0
-Test Kitchen version: 2.3.4
-Cookstyle version: 5.21.9
+Chef Workstation version: 20.12.212
+Chef Infra Client version: 16.8.14
+Chef InSpec version: 4.24.8
+Chef CLI version: 3.0.33
+Chef Habitat version: 1.6.181
+Test Kitchen version: 2.8.0
+Cookstyle version: 7.4.0
 ```
 
 ## Upgrading
@@ -209,8 +193,7 @@ For all platforms, follow the steps provided under [Installing]({{< ref "install
 
 #### Linux
 
-The Chef Workstation package conflicts with an installed ChefDK package to prevent
-unintentional upgrades.
+The Chef Workstation package conflicts with an installed ChefDK package to prevent unintentional upgrades.
 
 Prior to installing Chef Workstation, first uninstall ChefDK:
 
@@ -256,6 +239,4 @@ sudo rpm -e chef-workstation
 
 ## Next Steps
 
-Now that you've installed Chef Workstation, proceed to the
-[Getting Started](/workstation/getting_started/) guide to
-configure your Chef Workstation installation.
+Now that you've installed Chef Workstation, proceed to the [Getting Started](/workstation/getting_started/) guide to configure your Chef Workstation installation.

@@ -107,49 +107,6 @@ create the Chef repository. For example, to create a repository called
 chef generate repo chef-repo
 ```
 
-### Create .chef Directory
-
-The `.chef` directory is used to store three files:
-
--   `config.rb`
--   `ORGANIZATION-validator.pem`
--   `USER.pem`
-
-Where `ORGANIZATION` and `USER` represent strings that are unique to
-each organization. These files must be present in the `.chef` directory
-in order for Chef Workstation to be able to connect to a Chef Infra
-Server.
-
-To create the `.chef` directory:
-
-1.  In a command window, enter the following:
-
-    ``` bash
-    mkdir -p ~/chef-repo/.chef
-    ```
-
-    Note that you'll need to replace `chef-repo` with the name of the
-    repository you created previously.
-
-2.  After the `.chef` directory has been created, the following folder
-    structure will be present on the local machine:
-
-        chef-repo/
-           .chef/        << the hidden directory
-           certificates/
-           config/
-           cookbooks/
-           data_bags
-           environments/
-           roles/
-
-3.  Add `.chef` to the `.gitignore` file to prevent uploading the
-    contents of the `.chef` folder to GitHub. For example:
-
-    ``` bash
-    echo '.chef' >> ~/chef-repo/.gitignore
-    ```
-
 ### Install a Code Editor
 
 A good visual code editor is not a requirement for working with Chef
@@ -239,7 +196,7 @@ your workstation create the `config.rb` file with the `knife` tool.
 
 #### Create an Organization
 
-On the Chef Infra Server machine create the `ORGANIZATION-validator.pem`
+On the Chef Infra Server machine, create the `ORGANIZATION-validator.pem`
 from the command line using `chef-server-ctl`. Run the following
 command:
 
@@ -252,7 +209,7 @@ where
 -   The name must begin with a lower-case letter or digit, may only
     contain lower-case letters, digits, hyphens, and underscores, and
     must be between 1 and 255 characters. For example: `chef`
--   The full name must begin with a non-white space character and must
+-   The full name must begin with a non-whitespace character and must
     be between 1 and 1023 characters. For example:
     `"Chef Software, Inc."`
 -   `-f FILE_NAME`: Write the `ORGANIZATION-validator.pem` to
@@ -269,7 +226,7 @@ chef-server-ctl org-create chef "Chef Software, Inc." -f /tmp/chef.key
 
 #### Create a User
 
-On the Chef Infra Server machine create the `USER.pem` from the command
+On the Chef Infra Server machine, create the `USER.pem` from the command
 line using `chef-server-ctl`. Run the following command:
 
 ``` bash
@@ -422,7 +379,7 @@ With `chef-run`, you can run the resource directly from the command-line, conver
 chef-run myhost package ntp action=install
 ```
 
-Combined with executing an InSpec scan to validate successful package installation, we have everything we need to define our requirements, and make sure they're met with two simple commands, either locally or remotely.
+Combined with executing an InSpec scan to validate successful package installation, we have everything we need to define our requirements and make sure they're met with two simple commands, either locally or remotely.
 
 ```ruby
 inspec exec ntp-check -t ssh://myuser@myhost -i ~/.ssh/mykey

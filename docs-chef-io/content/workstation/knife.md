@@ -340,7 +340,6 @@ Chef maintains the following plugins which ship with Chef Workstation:
 -   `knife-lpar`
 -   `knife-opc`
 -   `knife-openstack`
--   `knife-push`
 -   `knife-rackspace`
 -   `knife-reporting`
 -   `knife-vcenter`
@@ -348,6 +347,4 @@ Chef maintains the following plugins which ship with Chef Workstation:
 
 ### Community Knife Plugins
 
-Knife plugins written by Chef community members can be found on
-Supermarket under [Knife
-Plugins](https://supermarket.chef.io/tools?type=knife_plugin).
+Knife plugins written by Chef community members can be found on Supermarket under [Knife Plugins](https://supermarket.chef.io/tools?type=knife_plugin).

@@ -48,7 +48,7 @@ When Foodcritic returns a violation, this does not automatically mean
 the code needs to be changed. It is important to first understand the
 intention of the rule before making the changes it suggests. For
 example, rule `FC003` describes a scenario where a recipe uses the
-`search` method in the Recipe DSL to retrieve data from the Chef Infra
+`search` method in the Chef Infra Language to retrieve data from the Chef Infra
 Server. Rule `FC003` may suggest that a cookbook will raise an error if
 that cookbook is run in a situation where a Chef Infra Server is not
 present. Adopting this rule is only necessary when chef-solo is part of
