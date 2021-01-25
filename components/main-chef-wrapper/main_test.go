@@ -1,5 +1,5 @@
 //
-// Copyright 2019 Chef Software, Inc.
+// Copyright © 2021 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,15 +35,39 @@ func Test_validateRolloutSetup(t *testing.T) {
 
 func Test_validateRolloutSetup_Invalid(t *testing.T) {
 
-	os.Setenv("CHEF_AC_SERVER_URL", "http://testhost")
-	os.Setenv("CHEF_AC_SERVER_USER", "testuser")
-	os.Setenv("CHEF_AC_AUTOMATE_TOKEN", "xyz123455677709u0")
+	// No var is set
 	got := validateRolloutSetup()
 	assert.Equal(t, got, false)
+
+	// all are set except CHEF_AC_SERVER_URL
+	os.Setenv("CHEF_AC_SERVER_USER", "testuser")
+	os.Setenv("CHEF_AC_AUTOMATE_URL", "http://testhost2")
+	os.Setenv("CHEF_AC_AUTOMATE_TOKEN", "xyz123455677709u0")
+	got = validateRolloutSetup()
+	assert.Equal(t, got, false)
+
+	// all are set except CHEF_AC_SERVER_USER
+	os.Setenv("CHEF_AC_SERVER_URL", "http://testhost")
+	os.Unsetenv("CHEF_AC_SERVER_USER")
+	got = validateRolloutSetup()
+	assert.Equal(t, got, false)
+
+	// all are set except CHEF_AC_AUTOMATE_URL
+	os.Setenv("CHEF_AC_SERVER_USER", "testuser")
+	os.Unsetenv("CHEF_AC_AUTOMATE_URL")
+	got = validateRolloutSetup()
+	assert.Equal(t, got, false)
+
+	// all are set except CHEF_AC_AUTOMATE_TOKEN
+	os.Setenv("CHEF_AC_AUTOMATE_URL", "http://testhost2")
+	os.Unsetenv("CHEF_AC_AUTOMATE_TOKEN")
+	got = validateRolloutSetup()
+	assert.Equal(t, got, false)	
+
 }
 
 func Test_getAction(t *testing.T) {
-	
+
 	cmd := getAction("push")
 	assert.Equal(t, cmd, "push")
 	cmd = getAction("report")
@@ -58,7 +82,7 @@ func Test_getAction(t *testing.T) {
 	os.Setenv("CHEF_AC_SERVER_URL", "http://testhost")
 	cmd = getAction("push")
 	assert.Equal(t, cmd, "none")
-	
+
 	os.Setenv("CHEF_AC_SERVER_USER", "testuser")
 	os.Setenv("CHEF_AC_AUTOMATE_URL", "http://testhost2")
 	os.Setenv("CHEF_AC_AUTOMATE_TOKEN", "xyz123455677709u0")
@@ -66,4 +90,3 @@ func Test_getAction(t *testing.T) {
 	assert.Equal(t, cmd, "policy-rollout")
 
 }
-
