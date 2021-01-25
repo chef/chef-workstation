@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.1.238 -->
-## [21.1.238](https://github.com/chef/chef-workstation/tree/21.1.238) (2021-01-25)
+<!-- latest_release 21.1.239 -->
+## [21.1.239](https://github.com/chef/chef-workstation/tree/21.1.239) (2021-01-25)
 
 #### Merged Pull Requests
-- Bump train-habitat to 0.2.22 and train-aws to latest [#1663](https://github.com/chef/chef-workstation/pull/1663) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- roll out reporting [#1559](https://github.com/chef/chef-workstation/pull/1559) ([mudash](https://github.com/mudash))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.1.233 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- roll out reporting [#1559](https://github.com/chef/chef-workstation/pull/1559) ([mudash](https://github.com/mudash)) <!-- 21.1.239 -->
 - Bump train-habitat to 0.2.22 and train-aws to latest [#1663](https://github.com/chef/chef-workstation/pull/1663) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.238 -->
 - Bump Chef Infra Client to 16.9.29 [#1658](https://github.com/chef/chef-workstation/pull/1658) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.237 -->
 - Bump omnibus-software from `023e6bf` to `05f7073` in /omnibus [#1660](https://github.com/chef/chef-workstation/pull/1660) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.1.236 -->
