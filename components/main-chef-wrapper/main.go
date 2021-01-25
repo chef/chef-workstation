@@ -26,6 +26,8 @@ import (
 )
 
 func main() {
+
+	debugLog(fmt.Sprintf("*** This is modified Chef wip version ***"))
 	err := doStartupTasks()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
@@ -45,27 +47,22 @@ func main() {
 		cmd        *exec.Cmd
 	)
 
-	switch subCommand {
+	switch getAction(subCommand) {
 	case "report", "capture":
 		cmd = exec.Command(dist.AnalyzeExec, allArgs...)
 
-	case "push", "push-archive":
+	case "policy-rollout":
 		cmd = exec.Command(dist.WorkstationExec, allArgs...)
 		runCmd(cmd)
-		if validateRolloutSetup() {
-			policyGroup := fmt.Sprintf("-g%s", allArgs[1])
-			policyLockFile := fmt.Sprintf("-l%s", allArgs[2])
-			policyDomainURL := fmt.Sprintf("-s%s", os.Getenv("CHEF_AC_SERVER_URL"))
-			policyDomainUser := fmt.Sprintf("-u%s", os.Getenv("CHEF_AC_SERVER_USER"))
-			allArgs = []string{"report-new-rollout", policyGroup, policyLockFile, policyDomainURL, policyDomainUser}
-			cmd = exec.Command("chef-automate-collect", allArgs...)
-		} else {
-			debugLog("Rollout Functionality is disabled")
-			os.Exit(0)
-		}
+		allArgs = []string{"report-new-rollout", "-g", allArgs[1], "-l", allArgs[2],
+			"-s", os.Getenv("CHEF_AC_SERVER_URL"), "-u", os.Getenv("CHEF_AC_SERVER_USER")}
+		cmd = exec.Command(dist.AutomateCollectExec, allArgs...)
 
 	case "help", "-h", "--help":
 		usage()
+		os.Exit(0)
+
+	case "none":
 		os.Exit(0)
 
 	// We want to pass every sub-command to the old 'chef' CLI binary that was renamed to
@@ -101,30 +98,42 @@ func runCmd(cmd *exec.Cmd) {
 	}
 }
 
-func validateRolloutSetup() bool {
+func getAction(subCommand string) string {
 
-	if os.Getenv("CHEF_AC_ROLLOUT_ENABLED") != "" {
-
-		if os.Getenv("CHEF_AC_SERVER_URL") == "" {
-			fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_SERVER_URL environment variable must be set for rollout reporting")
-			return false
+	if subCommand == "push" || subCommand == "push-archive" {
+		// user wants to do policy push + roll out
+		if os.Getenv("CHEF_AC_ROLLOUT_ENABLED") != "" {
+			// required setup for rollout is missing
+			if !validateRolloutSetup() {
+				return "none"
+			}
+			return "policy-rollout"
 		}
-		if os.Getenv("CHEF_AC_SERVER_USER") == "" {
-			fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_SERVER_USER environment variable must be set for rollout reporting")
-			return false
-		}
-		if os.Getenv("CHEF_AC_AUTOMATE_URL") == "" {
-			fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_AUTOMATE_URL environment variable must be set for rollout reporting")
-			return false
-		}
-		if os.Getenv("CHEF_AC_AUTOMATE_TOKEN") == "" {
-			fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_AUTOMATE_TOKEN environment variable must be set for rollout reporting")
-			return false
-		}
-		return true
 	}
 
-	return false
+	return subCommand
+}
+
+func validateRolloutSetup() bool {
+
+	if os.Getenv("CHEF_AC_SERVER_URL") == "" {
+		fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_SERVER_URL environment variable must be set for rollout reporting")
+		return false
+	}
+	if os.Getenv("CHEF_AC_SERVER_USER") == "" {
+		fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_SERVER_USER environment variable must be set for rollout reporting")
+		return false
+	}
+	if os.Getenv("CHEF_AC_AUTOMATE_URL") == "" {
+		fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_AUTOMATE_URL environment variable must be set for rollout reporting")
+		return false
+	}
+	if os.Getenv("CHEF_AC_AUTOMATE_TOKEN") == "" {
+		fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_AUTOMATE_TOKEN environment variable must be set for rollout reporting")
+		return false
+	}
+
+	return true
 }
 
 func usage() {

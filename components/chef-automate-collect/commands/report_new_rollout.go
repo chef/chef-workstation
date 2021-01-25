@@ -170,17 +170,14 @@ func runReportNewRolloutCommand(cmd *cobra.Command, args []string) error {
 		reportNewRolloutFailErr(err, fmt.Sprintf("HTTP API request to %q failed", url))
 	}
 
-	if response.StatusCode >= 500 && response.StatusCode <= 504 {
-		for retryCount := 2; retryCount > 0 ; retryCount -- {
-			response, err := httpClient.Do(req)
-			if err != nil {
-				reportNewRolloutFailErr(err, fmt.Sprintf("HTTP API request to %q failed", url))
-			}
-			if response.StatusCode < 500 || response.StatusCode > 504 {
-				break
-			}	
+	retryErrorCodes := map[int]bool { 500: true, 502: true, 503: true, 504: true }
+	for retryCount := 2; retryCount > 0 && retryErrorCodes[response.StatusCode]; retryCount -- {
+		response, err = httpClient.Do(req)
+		if err != nil {
+			reportNewRolloutFailErr(err, fmt.Sprintf("HTTP API request to %q failed", url))
 		}
 	}
+
 
 	defer func() {
 		_ = response.Body.Close()
@@ -194,7 +191,7 @@ func runReportNewRolloutCommand(cmd *cobra.Command, args []string) error {
 	case 403:
 		cliIO.msg("ERROR: API Request to %q failed with status code 403. Your auth_token does not have permissions to create rollout records", url)
 		os.Exit(1)
-	case 500, 501, 502, 503, 504:
+	case 502, 503, 504:
 		cliIO.msg("ERROR: API Request to %q failed with status code %d. Your Chef Automate server is unavailable for requests at this time.", url, response.StatusCode)
 		os.Exit(1)
 	default:
