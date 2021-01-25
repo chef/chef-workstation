@@ -10,6 +10,7 @@ package dist
 const (
 	AnalyzeExec        = "chef-analyze"
 	ApplyExec          = "chef-apply"
+	AutomateCollectExec = "chef-automate-collect"
 	AutomateProduct    = "Chef Automate"
 	CLIWrapperExec     = "chef"
 	ClientExec         = "chef-client"

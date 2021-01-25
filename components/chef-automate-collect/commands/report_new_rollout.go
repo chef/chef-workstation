@@ -63,7 +63,7 @@ func newReportNewRolloutCommand() *cobra.Command {
 		"g",
 		"",
 		"policy node group (`policy_group` in a Chef Server architecture)",
-	)	
+	)
 	requiredStringVarP(&reportNewRolloutFlags.policyDomainURL,
 		"policy-domain-url",
 		"s", // matches knife
@@ -152,7 +152,6 @@ func runReportNewRolloutCommand(cmd *cobra.Command, args []string) error {
 	tr.TLSClientConfig = &tls.Config{InsecureSkipVerify: automate.InsecureTLS}
 	httpClient := &http.Client{Transport: tr}
 
-	fmt.Println(automate.URL)
 	url, err := automate.CreateRolloutURL()
 	reportNewRolloutFailErr(err, fmt.Sprintf("invalid Automate URL %q", automate.URL))
 
@@ -170,6 +169,16 @@ func runReportNewRolloutCommand(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		reportNewRolloutFailErr(err, fmt.Sprintf("HTTP API request to %q failed", url))
 	}
+
+	retryErrorCodes := map[int]bool { 500: true, 502: true, 503: true, 504: true }
+	for retryCount := 2; retryCount > 0 && retryErrorCodes[response.StatusCode]; retryCount -- {
+		response, err = httpClient.Do(req)
+		if err != nil {
+			reportNewRolloutFailErr(err, fmt.Sprintf("HTTP API request to %q failed", url))
+		}
+	}
+
+
 	defer func() {
 		_ = response.Body.Close()
 	}()
@@ -182,7 +191,7 @@ func runReportNewRolloutCommand(cmd *cobra.Command, args []string) error {
 	case 403:
 		cliIO.msg("ERROR: API Request to %q failed with status code 403. Your auth_token does not have permissions to create rollout records", url)
 		os.Exit(1)
-	case 500, 501, 502, 503, 504:
+	case 502, 503, 504:
 		cliIO.msg("ERROR: API Request to %q failed with status code %d. Your Chef Automate server is unavailable for requests at this time.", url, response.StatusCode)
 		os.Exit(1)
 	default:
