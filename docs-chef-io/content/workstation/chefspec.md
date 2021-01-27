@@ -2,6 +2,8 @@
 title = "ChefSpec"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/chefspec.html", "/chefspec/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/chefspec.html", "/chefspec/"]
     parent = "chef_workstation/chef_workstation_tools"
     weight = 60
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/chefspec.md)
 
 {{% chefspec_summary %}}
 

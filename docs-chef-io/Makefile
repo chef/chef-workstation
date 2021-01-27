@@ -8,6 +8,7 @@ clean_all:
 preview_netlify: chef_web_docs
 	cp -R content/* chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/content
 	cp -R static/* chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/static
+	cp -R config.toml chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/
 	pushd chef-web-docs && make assets; hugo --buildFuture --gc --minify && popd
 
 serve: chef_web_docs

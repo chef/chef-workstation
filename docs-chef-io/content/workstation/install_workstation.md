@@ -2,6 +2,8 @@
 title = "Install Chef Workstation"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_windows.html", "/dk_windows.html", "/install_workstation/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
     parent = "chef_workstation"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/install_workstation.md)
 
 Start your infrastructure automation quickly and easily with [Chef Workstation](/workstation/). Chef Workstation gives you everything you need to get started with Chef - ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software - all in one easy-to-install package.
 

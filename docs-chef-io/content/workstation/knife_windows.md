@@ -2,6 +2,8 @@
 title = "Knife Windows"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_windows.html", "/knife_windows/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_windows.html", "/knife_windows/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_windows.md knife windows"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_windows.md)
 
 ## Knife Windows Overview
 

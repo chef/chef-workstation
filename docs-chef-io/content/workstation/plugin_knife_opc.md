@@ -2,6 +2,8 @@
 title = "knife opc"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/plugin_knife_opc.html", "/plugin_knife_opc/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/plugin_knife_opc.html", "/plugin_knife_opc/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/plugin_knife_opc.md knife opc"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/plugin_knife_opc.md)
 
 The `knife opc` subcommand is used to manage organizations and users in
 Chef Server 12.

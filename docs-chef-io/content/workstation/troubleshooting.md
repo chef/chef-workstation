@@ -2,6 +2,8 @@
 title = "Troubleshooting"
 draft = false
 
+gh_repo = "chef-workstation"
+
 [menu]
   [menu.workstation]
     title = "Troubleshooting"
@@ -9,8 +11,6 @@ draft = false
     parent = "chef_workstation"
     weight = 60
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/troubleshooting.md)
 
 ## Chef Workstation Logs
 

@@ -2,6 +2,8 @@
 title = "Knife Azure"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_azure.html", "/knife_azure/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_azure.html", "/knife_azure/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_azure.md knife azure"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_azure.md)
 
 ## Knife Azure Overview
 
