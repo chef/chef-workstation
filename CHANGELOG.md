@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.1.240 -->
-## [21.1.240](https://github.com/chef/chef-workstation/tree/21.1.240) (2021-01-27)
+<!-- latest_release 21.1.241 -->
+## [21.1.241](https://github.com/chef/chef-workstation/tree/21.1.241) (2021-01-27)
 
 #### Merged Pull Requests
-- Bump train to 3.4.8 [#1666](https://github.com/chef/chef-workstation/pull/1666) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump train-core to 3.4.9 [#1670](https://github.com/chef/chef-workstation/pull/1670) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.1.233 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump train-core to 3.4.9 [#1670](https://github.com/chef/chef-workstation/pull/1670) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.241 -->
 - Bump train to 3.4.8 [#1666](https://github.com/chef/chef-workstation/pull/1666) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.240 -->
 - roll out reporting [#1559](https://github.com/chef/chef-workstation/pull/1559) ([mudash](https://github.com/mudash)) <!-- 21.1.239 -->
 - Bump train-habitat to 0.2.22 and train-aws to latest [#1663](https://github.com/chef/chef-workstation/pull/1663) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.238 -->
