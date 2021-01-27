@@ -102,12 +102,12 @@ This configuration file has the following settings:
 `fips`
 : Allows OpenSSL to enforce FIPS-validated security during a Chef Infra Client run. Set to `true` to enable FIPS-validated security.
 
-The following operating systems are supported:
+  The following operating systems are supported:
 
-- Red Hat Enterprise Linux
-- Oracle Enterprise Linux
-- CentOS
-- Windows
+  - Red Hat Enterprise Linux
+  - Oracle Enterprise Linux
+  - CentOS
+  - Windows
 
 `local_mode`
 : Run Chef Infra Client in local mode. This allows all commands that work against the Chef Infra Server to also work against the local chef-repo. For example:
