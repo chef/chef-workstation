@@ -553,9 +553,6 @@ settings that are handled by the `knife ssh` subcommand.
 The following `knife client create` settings can be added to the
 config.rb file:
 
-`knife[:admin]`
-
-: Adds the the `--admin` option.
 
 `knife[:file]`
 
@@ -1208,10 +1205,13 @@ file:
 The following `knife user create` settings can be added to the config.rb
 file:
 
+<<<<<<< HEAD
 `knife[:admin]`
 
 : Adds the the `--admin` option.
 
+=======
+>>>>>>> 3a9966a7 (Removes admin flag)
 `knife[:file]`
 
 : Adds the the `--file` option.
