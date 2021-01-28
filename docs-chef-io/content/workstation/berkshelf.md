@@ -310,20 +310,19 @@ The Berkshelf CLI is the interface to Berkshelf.
 
 `-c PATH`, `--config PATH`
 
-:   The path to the Berkshelf configuration file.
+: The path to the Berkshelf configuration file.
 
 `-d`, `--debug`
 
-:   Use to print debug information. Default value: `false`.
+: Use to print debug information. Default value: `false`.
 
 `-F JSON`, `--format JSON`
 
-:   Use to specify the output format to be used. Default value: `human`
-    Possible values: `base`, `human`, `json`, and `null`.
+: Use to specify the output format to be used. Default value: `human` Possible values: `base`, `human`, `json`, and `null`.
 
 `-q`, `--quiet`
 
-:   Use to silence all informational output. Default value: `false`.
+: Use to silence all informational output. Default value: `false`.
 
 ### berks apply
 
@@ -344,18 +343,15 @@ This command has the following options:
 
 `-b LOCK_FILE_PATH`, `--lockfile LOCK_FILE_PATH`
 
-:   The path to the Berksfile lock file from which Berksfile version
-    locks are applied.
+: The path to the Berksfile lock file from which Berksfile version locks are applied.
 
 `-f JSON_FILE_PATH`, `--envfile PATH`
 
-:   The path to an environment file (in JSON format) to which Berksfile
-    version locks are applied.
+: The path to an environment file (in JSON format) to which Berksfileversion locks are applied.
 
 `--ssl-verify`
 
-:   Use to enable (`true`) or disable (`false`) SSL verification when
-    applying Berksfile version locks to an environment.
+: Use to enable (`true`) or disable (`false`) SSL verification when applying Berksfile version locks to an environment.
 
 ### berks contingent
 
@@ -376,7 +372,7 @@ This command has the following options:
 
 `-b PATH`, `--berksfile PATH`
 
-:   The path to the Berksfile in which the cookbook is located.
+: The path to the Berksfile in which the cookbook is located.
 
 ### berks cookbook
 
@@ -407,7 +403,7 @@ This command has the following options:
 
 `-b PATH`, `--berksfile PATH`
 
-:   The path to the Berksfile in which the cookbook is located.
+: The path to the Berksfile in which the cookbook is located.
 
 ### berks init
 
@@ -438,16 +434,15 @@ This command has the following options:
 
 `-b PATH`, `--berksfile PATH`
 
-:   The path to the Berksfile in which the cookbook is located.
+: The path to the Berksfile in which the cookbook is located.
 
 `-e [GROUP, GROUP, ...]`, `--except [GROUP, GROUP, ...]`
 
-:   An array of cookbook groups that will not be listed.
+: An array of cookbook groups that will not be listed.
 
 `-o [GROUP, GROUP, ...]`, `--only [GROUP, GROUP, ...]`
 
-:   An array of cookbook groups to be listed. When this option is used,
-    cookbooks that exist in groups not listed will not be listed.
+: An array of cookbook groups to be listed. When this option is used, cookbooks that exist in groups not listed will not be listed.
 
 ### berks list
 
@@ -467,16 +462,15 @@ This command has the following options:
 
 `-b PATH`, `--berksfile PATH`
 
-:   The path to the Berksfile in which the cookbook is located.
+: The path to the Berksfile in which the cookbook is located.
 
 `-e [GROUP, GROUP, ...]`, `--except [GROUP, GROUP, ...]`
 
-:   An array of cookbook groups that will not be listed.
+: An array of cookbook groups that will not be listed.
 
 `-o [GROUP, GROUP, ...]`, `--only [GROUP, GROUP, ...]`
 
-:   An array of cookbook groups to be listed. When this option is used,
-    cookbooks that exist in groups not listed will not be listed.
+: An array of cookbook groups to be listed. When this option is used, cookbooks that exist in groups not listed will not be listed.
 
 ### berks outdated
 
@@ -498,18 +492,15 @@ This command has the following options:
 
 `-b PATH`, `--berksfile PATH`
 
-:   The path to the Berksfile in which the cookbook is located.
+: The path to the Berksfile in which the cookbook is located.
 
 `-e [GROUP, GROUP, ...]`, `--except [GROUP, GROUP, ...]`
 
-:   An array of cookbook groups that will not be checked for version
-    constraints.
+: An array of cookbook groups that will not be checked for version constraints.
 
 `-o [GROUP, GROUP, ...]`, `--only [GROUP, GROUP, ...]`
 
-:   An array of cookbook groups to be checked for version constraints.
-    When this option is used, cookbooks that exist in groups not listed
-    will not be checked for version constraints.
+: An array of cookbook groups to be checked for version constraints. When this option is used, cookbooks that exist in groups not listed will not be checked for version constraints.
 
 ### berks package
 
@@ -530,18 +521,15 @@ This command has the following options:
 
 `-b PATH`, `--berksfile PATH`
 
-:   The path to the Berksfile to be vendored, and then archived.
+: The path to the Berksfile to be vendored, and then archived.
 
 `-e [GROUP, GROUP, ...]`, `--except [GROUP, GROUP, ...]`
 
-:   An array of cookbook groups that will not be vendored, and then
-    archived.
+: An array of cookbook groups that will not be vendored, and then  archived.
 
 `-o [GROUP, GROUP, ...]`, `--only [GROUP, GROUP, ...]`
 
-:   An array of cookbook groups to be vendored, and then archived. When
-    this option is used, cookbooks that exist in groups not listed will
-    not be vendored or archived.
+: An array of cookbook groups to be vendored, and then archived. When this option is used, cookbooks that exist in groups not listed will not be vendored or archived.
 
 ### berks search
 
@@ -562,8 +550,7 @@ This command has the following options:
 
 `--source URL`
 
-:   The URL at which remote cookbooks are located. Default value:
-    `https://supermarket.chef.io`.
+: The URL at which remote cookbooks are located. Default value: `https://supermarket.chef.io`.
 
 ### berks show
 
@@ -583,7 +570,7 @@ This command has the following options:
 
 `-b PATH`, `--berksfile PATH`
 
-:   The path to the Berksfile in which the named cookbook is defined.
+: The path to the Berksfile in which the named cookbook is defined.
 
 ### berks update
 
@@ -604,16 +591,15 @@ This command has the following options:
 
 `-b PATH`, `--berksfile PATH`
 
-:   The path to the Berksfile in which the named cookbook is defined.
+: The path to the Berksfile in which the named cookbook is defined.
 
 `-e [GROUP, GROUP, ...]`, `--except [GROUP, GROUP, ...]`
 
-:   An array of cookbook groups that will not be updated.
+: An array of cookbook groups that will not be updated.
 
 `-o [GROUP, GROUP, ...]`, `--only [GROUP, GROUP, ...]`
 
-:   An array of cookbook groups to be updated. When this option is used,
-    cookbooks that exist in groups not listed will not be updated.
+: An array of cookbook groups to be updated. When this option is used, cookbooks that exist in groups not listed will not be updated.
 
 ### berks upload
 
@@ -634,43 +620,35 @@ This command has the following options:
 
 `-b PATH`, `--berksfile PATH`
 
-:   The path to the Berksfile in which the named cookbook is defined.
+: The path to the Berksfile in which the named cookbook is defined.
 
 `-e [GROUP, GROUP, ...]`, `--except [GROUP, GROUP, ...]`
 
-:   An array of cookbook groups that will not be uploaded.
+: An array of cookbook groups that will not be uploaded.
 
 `--force`
 
-:   Use to upload any named cookbook even if that cookbook exists on the
-    Chef Infra Server and is frozen.
+: Use to upload any named cookbook even if that cookbook exists on the Chef Infra Server and is frozen.
 
 `--halt-on-frozen`
 
-:   Use to exit the command with a non-zero exit code if this version of
-    a cookbook already exists on the Chef Infra Server.
+: Use to exit the command with a non-zero exit code if this version of a cookbook already exists on the Chef Infra Server.
 
 `-o [GROUP, GROUP, ...]`, `--only [GROUP, GROUP, ...]`
 
-:   An array of cookbook groups to be uploaded. When this option is
-    used, cookbooks that exist in groups not listed will not be
-    uploaded.
+: An array of cookbook groups to be uploaded. When this option is used, cookbooks that exist in groups not listed will not be uploaded.
 
 `--no-freeze`
 
-:   A frozen cookbook requires changes to that cookbook to be submitted
-    as a new version of that cookbook. Use this option to prevent this
-    cookbook from being frozen. Default value: `false` (i.e. "frozen").
+: A frozen cookbook requires changes to that cookbook to be submitted as a new version of that cookbook. Use this option to prevent this cookbook from being frozen. Default value: `false` (i.e. "frozen").
 
 `--ssl-verify`
 
-:   Use to enable (`true`) or disable (`false`) SSL verification when
-    uploading cookbooks to the Chef Infra Server.
+: Use to enable (`true`) or disable (`false`) SSL verification when uploading cookbooks to the Chef Infra Server.
 
 `-s`, `--skip-syntax-check`
 
-:   Use to skip Ruby syntax checking when uploading a cookbook to the
-    Chef Infra Server. Default value: `false`.
+: Use to skip Ruby syntax checking when uploading a cookbook to the Chef Infra Server. Default value: `false`.
 
 ### berks vendor
 
@@ -691,22 +669,19 @@ This command has the following options:
 
 `-b PATH`, `--berksfile PATH`
 
-:   The path to the Berksfile from which cookbooks will be vendored.
+: The path to the Berksfile from which cookbooks will be vendored.
 
 `--delete`
 
-:   Use to clean the directory in which vendored cookbooks will be
-    placed prior to executing this command.
+: Use to clean the directory in which vendored cookbooks will be placed prior to executing this command.
 
 `-e [GROUP, GROUP, ...]`, `--except [GROUP, GROUP, ...]`
 
-:   An array of cookbook groups that will not be vendored.
+: An array of cookbook groups that will not be vendored.
 
 `-o [GROUP, GROUP, ...]`, `--only [GROUP, GROUP, ...]`
 
-:   An array of cookbook groups to be vendored. When this option is
-    used, cookbooks that exist in groups not listed will not be
-    vendored.
+: An array of cookbook groups to be vendored. When this option is used, cookbooks that exist in groups not listed will not be vendored.
 
 ### berks verify
 
@@ -727,8 +702,7 @@ This command has the following options:
 
 `-b PATH`, `--berksfile PATH`
 
-:   The path to the Berksfile from which resolved cookbooks are
-    validated.
+: The path to the Berksfile from which resolved cookbooks are validated.
 
 ### berks version
 
@@ -752,9 +726,8 @@ This command has the following options:
 
 `-b PATH`, `--berksfile PATH`
 
-:   The path to the Berksfile for which the dependency graph is built.
+: The path to the Berksfile for which the dependency graph is built.
 
 `-o NAME`, `--outfile NAME`
 
-:   The name of the file to which output is saved. Default value:
-    `graph.png`.
+: The name of the file to which output is saved. Default value: `graph.png`.

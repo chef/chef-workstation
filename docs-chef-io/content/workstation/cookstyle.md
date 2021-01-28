@@ -29,14 +29,12 @@ on the latest releases of Chef Infra Client.
 
 Cookstyle increases code quality by:
 
--   Enforcing style conventions and best practices.
--   Helping every member of a team author similarly structured code.
--   Maintaining uniformity in the source code.
--   Setting expectations for fellow (and future) project contributors.
--   Detecting deprecated code that creates errors after upgrading to a
-    newer Chef Infra Client release.
--   Detecting common Chef Infra mistakes that cause code to fail or
-    behave incorrectly.
+- Enforcing style conventions and best practices.
+- Helping every member of a team author similarly structured code.
+- Maintaining uniformity in the source code.
+- Setting expectations for fellow (and future) project contributors.
+- Detecting deprecated code that creates errors after upgrading to a newer Chef Infra Client release.
+- Detecting common Chef Infra mistakes that cause code to fail or behave incorrectly.
 
 ## Cookstyle vs. Rubocop
 
@@ -110,14 +108,9 @@ default["apache"]["indexfile"] = "index1.html"
 
 Cookstyle output:
 
--   States the number of files found and examined. For example:
-    `Inspecting 8 files`
--   Lists the results of those files as a series of symbols. For
-    example: `CWCWCCCC`
--   For each symbol, states the file name, line number, character
-    number, type of issue or error, describes the issue or error, and
-    specifies the location in the source code at which the issue or
-    error is located
+- States the number of files found and examined. For example: `Inspecting 8 files`
+- Lists the results of those files as a series of symbols. For example: `CWCWCCCC`
+- For each symbol, states the file name, line number, character number, type of issue or error, describes the issue or error, and specifies the location in the source code at which the issue or error is located
 
 A Cookstyle evaluation has the following syntax:
 
@@ -229,16 +222,10 @@ NAME_OF_RULE:
 
 where
 
--   `NAME_OF_RULE` is the name of a rule
--   `Description` is the string that prints as part of the standard
-    output that describes the rule if it is triggered during the
-    evaluation
--   `Enabled` enables a rule (`true`) or disables a rule (`false`); for
-    non-custom rules, this value will override the settings in the
-    `enabled.yml` and `disabled.yml` files in Cookstyle
--   `KEY: VALUE` adds additional details for a rule, if necessary. For
-    example, `Max: 200` sets the line length to 200 characters for the
-    `LineLength` rule
+- `NAME_OF_RULE` is the name of a rule
+- `Description` is the string that prints as part of the standard output that describes the rule if it is triggered during the evaluation
+- `Enabled` enables a rule (`true`) or disables a rule (`false`); for non-custom rules, this value will override the settings in the `enabled.yml` and `disabled.yml` files in Cookstyle
+- `KEY: VALUE` adds additional details for a rule, if necessary. For example, `Max: 200` sets the line length to 200 characters for the `LineLength` rule
 
 ### .rubocop_todo.yml
 

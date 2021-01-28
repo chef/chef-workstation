@@ -35,54 +35,39 @@ This subcommand has the following options:
 
 `--chef-repo-path PATH`
 
-:   The path to the chef-repo. This setting will override the default
-    path to the chef-repo. Default: same value as specified by
-    `chef_repo_path` in client.rb.
+: The path to the chef-repo. This setting will override the default path to the chef-repo. Default: same value as specified by `chef_repo_path` in client.rb.
 
 `--concurrency`
 
-:   The number of allowed concurrent connections. Default: `10`.
+: The number of allowed concurrent connections. Default: `10`.
 
 `--[no-]diff`
 
-:   Upload only new and modified files. Set to `false` to upload all
-    files. Default: `true`.
+: Upload only new and modified files. Set to `false` to upload all files. Default: `true`.
 
 `--[no-]force`
 
-:   Use `--force` to upload roles, cookbooks, etc. even if the file in
-    the directory is identical (by default, no `POST` or `PUT` is
-    performed unless an actual change would be made). Default:
-    `--no-force`.
+: Use `--force` to upload roles, cookbooks, etc. even if the file in the directory is identical (by default, no `POST` or `PUT` is performed unless an actual change would be made). Default: `--no-force`.
 
 `--[no-]freeze`
 
-:   Require changes to a cookbook be included as a new version. Only the
-    `--force` option can override this setting. Default: `false`.
+: Require changes to a cookbook be included as a new version. Only the `--force` option can override this setting. Default: `false`.
 
 `-n`, `--dry-run`
 
-:   Take no action and only print out results. Default: `false`.
+: Take no action and only print out results. Default: `false`.
 
 `--[no-]purge`
 
-:   Use `--purge` to delete roles, cookbooks, etc. from the Chef Infra
-    Server if their corresponding files do not exist in the chef-repo.
-    By default, such objects are left alone and NOT purged. Default:
-    `--no-purge`.
+: Use `--purge` to delete roles, cookbooks, etc. from the Chef Infra Server if their corresponding files do not exist in the chef-repo. By default, such objects are left alone and NOT purged. Default: `--no-purge`.
 
 `--[no-]recurse`
 
-:   Use `--no-recurse` to disable uploading a directory recursively.
-    Default: `--recurse`.
+: Use `--no-recurse` to disable uploading a directory recursively. Default: `--recurse`.
 
 `--repo-mode MODE`
 
-:   The layout of the local chef-repo. Possible values: `static`,
-    `everything`, or `hosted_everything`. Use `static` for just roles,
-    environments, cookbooks, and data bags. By default, `everything` and
-    `hosted_everything` are dynamically selected depending on the server
-    type. Default: `everything` / `hosted_everything`.
+: The layout of the local chef-repo. Possible values: `static`, `everything`, or `hosted_everything`. Use `static` for just roles, environments, cookbooks, and data bags. By default, `everything` and `hosted_everything` are dynamically selected depending on the server type. Default: `everything` / `hosted_everything`.
 
 {{< note >}}
 

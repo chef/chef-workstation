@@ -41,7 +41,7 @@ This argument has the following options:
 
 `-D`, `--delete-validators`
 
-:   Force the deletion of the client when it is also a chef-validator.
+: Force the deletion of the client when it is also a chef-validator.
 
 ### Examples
 
@@ -54,11 +54,8 @@ generate an RSA key pair for the named API client. The public key will
 be stored on the Chef Infra Server and the private key will be displayed
 on `STDOUT` or written to a named file.
 
--   For Chef Infra Client, the private key should be copied to the
-    system as `/etc/chef/client.pem`.
--   For knife, the private key is typically copied to
-    `~/.chef/client_name.pem` and referenced in the config.rb
-    configuration file.
+. For Chef Infra Client, the private key should be copied to the system as `/etc/chef/client.pem`.
+. For knife, the private key is typically copied to `~/.chef/client_name.pem` and referenced in the config.rb configuration file.
 
 ### Syntax
 
@@ -72,38 +69,31 @@ knife client create CLIENT_NAME (options)
 
 This argument has the following options:
 
+`-a`, `--admin`
+
+: Create a client as an admin client.
+
 `-f FILE`, `--file FILE`
 
-:   Save a private key to the specified file name.
+: Save a private key to the specified file name.
 
 `-k`, `--prevent-keygen`
 
-:   Create a user without a public key. This key may be managed later by
-    using the `knife user key` subcommands.
+: Create a user without a public key. This key may be managed later by using the `knife user key` subcommands.
 
     {{< note spaces=4 >}}
 
-    This option is valid only with Chef Infra Server API, version 1.0,
-    which was released with Chef Server 12.1. If this option or the
-    `--user-key` option are not passed in the command, the Chef Infra
-    Server will create a user with a public key named `default` and will
-    return the private key. For the Chef Server versions earlier than
-    12.1, this option will not work; a public key is always generated
-    unless `--user-key` is passed in the command.
+    This option is valid only with Chef Infra Server API, version 1.0, which was released with Chef Server 12.1. If this option or the `--user-key` option are not passed in the command, the Chef Infra Server will create a user with a public key named `default` and will return the private key. For the Chef Server versions earlier than 12.1, this option will not work; a public key is always generated unless `--user-key` is passed in the command.
 
     {{< /note >}}
 
 `-p FILE`, `--public-key FILE`
 
-:   The path to a file that contains the public key. This option may not
-    be passed in the same command with `--prevent-keygen`. When using
-    Chef a default key is generated if this option is not passed in the
-    command. For Chef Server version 12.x, see the `--prevent-keygen`
-    option.
+: The path to a file that contains the public key. This option may not be passed in the same command with `--prevent-keygen`. When using Chef a default key is generated if this option is not passed in the command. For Chef Server version 12.x, see the `--prevent-keygen` option.
 
 `--validator`
 
-:   Create the client as the chef-validator. Default value: `true`.
+: Create the client as the chef-validator. Default value: `true`.
 
 {{< note >}}
 
@@ -146,7 +136,7 @@ This argument has the following options:
 
 `-D`, `--delete-validators`
 
-:   Force the deletion of the client when it is also a chef-validator.
+: Force the deletion of the client when it is also a chef-validator.
 
 ### Examples
 
@@ -212,26 +202,19 @@ This argument has the following options:
 
 `-e DATE`, `--expiration-date DATE`
 
-:   The expiration date for the public key, specified as an ISO 8601
-    formatted string: `YYYY-MM-DDTHH:MM:SSZ`. If this option is not
-    specified, the public key will not have an expiration date. For
-    example: `2013-12-24T21:00:00Z`.
+: The expiration date for the public key, specified as an ISO 8601 formatted string: `YYYY-MM-DDTHH:MM:SSZ`. If this option is not specified, the public key will not have an expiration date. For example: `2013-12-24T21:00:00Z`.
 
 `-f FILE`, `--file FILE`
 
-:   Save a private key to the specified file name. If the `--public-key`
-    option is not specified the Chef Infra Server will generate a
-    private key.
+: Save a private key to the specified file name. If the `--public-key` option is not specified the Chef Infra Server will generate a private key.
 
 `-k NAME`, `--key-name NAME`
 
-:   The name of the public key.
+: The name of the public key.
 
 `-p FILE_NAME`, `--public-key FILE_NAME`
 
-:   The path to a file that contains the public key. If this option is
-    not specified, and only if `--key-name` is specified, the Chef Infra
-    Server will generate a public/private key pair.
+: The path to a file that contains the public key. If this option is not specified, and only if `--key-name` is specified, the Chef Infra Server will generate a public/private key pair.
 
 ### Examples
 
@@ -271,32 +254,23 @@ This argument has the following options:
 
 `-c`, `--create-key`
 
-:   Generate a new public/private key pair and replace an existing
-    public key with the newly-generated public key. To replace the
-    public key with an existing public key, use `--public-key` instead.
+: Generate a new public/private key pair and replace an existing public key with the newly-generated public key. To replace the public key with an existing public key, use `--public-key` instead.
 
 `-e DATE`, `--expiration-date DATE`
 
-:   The expiration date for the public key, specified as an ISO 8601
-    formatted string: `YYYY-MM-DDTHH:MM:SSZ`. If this option is not
-    specified, the public key will not have an expiration date. For
-    example: `2013-12-24T21:00:00Z`.
+: The expiration date for the public key, specified as an ISO 8601 formatted string: `YYYY-MM-DDTHH:MM:SSZ`. If this option is not specified, the public key will not have an expiration date. For example: `2013-12-24T21:00:00Z`.
 
 `-f FILE`, `--file FILE`
 
-:   Save a private key to the specified file name. If the `--public-key`
-    option is not specified the Chef Infra Server will generate a
-    private key.
+: Save a private key to the specified file name. If the `--public-key` option is not specified the Chef Infra Server will generate a private key.
 
 `-k NAME`, `--key-name NAME`
 
-:   The name of the public key.
+: The name of the public key.
 
 `-p FILE_NAME`, `--public-key FILE_NAME`
 
-:   The path to a file that contains the public key. If this option is
-    not specified, and only if `--key-name` is specified, the Chef Infra
-    Server will generate a public/private key pair.
+: The path to a file that contains the public key. If this option is not specified, and only if `--key-name` is specified, the Chef Infra Server will generate a public/private key pair.
 
 ### Examples
 
@@ -321,15 +295,15 @@ This argument has the following options:
 
 `-e`, `--only-expired`
 
-:   Show a list of public keys that have expired.
+: Show a list of public keys that have expired.
 
 `-n`, `--only-non-expired`
 
-:   Show a list of public keys that have not expired.
+: Show a list of public keys that have not expired.
 
 `-w`, `--with-details`
 
-:   Show a list of public keys, including URIs and expiration status.
+: Show a list of public keys, including URIs and expiration status.
 
 ### Examples
 
@@ -369,7 +343,7 @@ This argument has the following options:
 
 `-w`, `--with-uri`
 
-:   Show the corresponding URIs.
+: Show the corresponding URIs.
 
 ### Examples
 
@@ -426,7 +400,7 @@ This argument has the following options:
 
 `-f FILE_NAME`, `--file FILE_NAME`
 
-:   Save a private key to the specified file name.
+: Save a private key to the specified file name.
 
 {{< note >}}
 
@@ -465,7 +439,7 @@ This argument has the following options:
 
 `-a ATTR`, `--attribute ATTR`
 
-:   The attribute (or attributes) to show.
+: The attribute (or attributes) to show.
 
 ### Examples
 
@@ -482,10 +456,10 @@ knife client show testclient
 to return something like:
 
 ``` none
-admin:       false
-chef_type:   client
+admin:     false
+chef_type: client
 json_class:  Chef::ApiClient
-name:        testclient
+name:      testclient
 public_key:
 ```
 

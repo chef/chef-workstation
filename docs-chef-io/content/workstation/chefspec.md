@@ -60,19 +60,12 @@ end
 
 where:
 
--   `describe` creates the testing scenario: `1 plus 1`
--   `it` is a block that defines a list of parameters to test, along
-    with parameters that define the expected outcome
--   `describe` and `it` should have human readable descriptions: "one
-    plus one equals two"
--   `a`, `b`, and `sum` define the testing scenario: `a` equals one, `b`
-    equals one, the `sum` of one plus equals two
--   `expect()` defines the expectation: the sum of one plus one equals
-    two---`expect(sum).to eq(2)`---and does not equal
-    three--`expect(sum).not_to eq(3)`
--   `.to` tests the results of the test for true; `.not_to` tests the
-    result of the test for false; a test passes when the results of the
-    test are true
+- `describe` creates the testing scenario: `1 plus 1`
+- `it` is a block that defines a list of parameters to test, along with parameters that define the expected outcome
+- `describe` and `it` should have human readable descriptions: "one plus one equals two"
+- `a`, `b`, and `sum` define the testing scenario: `a` equals one, `b` equals one, the `sum` of one plus equals two
+- `expect()` defines the expectation: the sum of one plus one equals two---`expect(sum).to eq(2)`---and does not equal three--`expect(sum).not_to eq(3)`
+- `.to` tests the results of the test for true; `.not_to` tests the result of the test for false; a test passes when the results of the test are true
 
 #### context
 
@@ -160,12 +153,8 @@ end
 
 where:
 
--   The first `let` statement creates the `:sum` symbol, and then
-    assigns it the value of one plus one. The `expect` statement later
-    in the test uses `sum` to test that one plus one equals two
--   The second `let` statement creates the `:sum` symbol, and then
-    assigns it the value of two plus two. The `expect` statement later
-    in the test uses `sum` to test that two plus two equals four
+- The first `let` statement creates the `:sum` symbol, and then assigns it the value of one plus one. The `expect` statement later in the test uses `sum` to test that one plus one equals two
+- The second `let` statement creates the `:sum` symbol, and then assigns it the value of two plus two. The `expect` statement later in the test uses `sum` to test that two plus two equals four
 
 ### Require ChefSpec
 
@@ -542,4 +531,4 @@ end
 
 For more information about ChefSpec:
 
--   [ChefSpec GitHub Repo](https://github.com/chefspec/chefspec)
+- [ChefSpec GitHub Repo](https://github.com/chefspec/chefspec)

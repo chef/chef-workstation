@@ -35,27 +35,24 @@ This subcommand has the following options:
 
 `QUERY`
 
-:   The search query used to identify a list of items on a Chef Infra
-    Server. This option uses the same syntax as the `search` subcommand.
+: The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the `search` subcommand.
 
 `--hide-by-mins`
 
-:   Hide nodes that have performed a successful Chef Infra Client run
-    within the last specified number of minutes. The number of minutes
-    to hide is provided as an integer, such as `--hide-by-mins 10`.
+: Hide nodes that have performed a successful Chef Infra Client run within the last specified number of minutes. The number of minutes to hide is provided as an integer, such as `--hide-by-mins 10`.
 
 `-l`, `--long`
 
-:   Display all attributes in the output and show the output as JSON.
+: Display all attributes in the output and show the output as JSON.
 
 `-m`, `--medium`
 
-:   Display normal attributes in the output and to show the output as
+: Display normal attributes in the output and to show the output as
     JSON.
 
 `-r RUN_LIST`, `--run-list RUN_LIST`
 
-:   A comma-separated list of roles and/or recipes to be applied.
+: A comma-separated list of roles and/or recipes to be applied.
 
 {{< note >}}
 

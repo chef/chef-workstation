@@ -168,53 +168,47 @@ This subcommand has the following options:
 
 `-a ATTR`, `--attribute ATTR`
 
-:   The attribute (or attributes) to show.
+: The attribute (or attributes) to show.
 
 `-b ROW`, `--start ROW`
 
-:   The row at which return results begin.
+: The row at which return results begin.
 
 `-f FILTER`, `--filter-result FILTER`
 
-:   Use to filter the search output based on the pattern that matches
-    the specified `FILTER`. Only attributes in the `FILTER` will be
-    returned. For example: `\"ServerName=name, Kernel=kernel.version\`.
+: Use to filter the search output based on the pattern that matc the specified `FILTER`. Only attributes in the `FILTER` will returned. For example: `\"ServerName=name, Kernel=kernel.version\`.
 
 `-i`, `--id-only`
 
-:   Show only matching object IDs.
+: Show only matching object IDs.
 
 `INDEX`
 
-:   The name of the index to be queried: `client`, `environment`,
-    `node`, `role`, or `DATA_BAG_NAME`. Default index: `node`.
+: The name of the index to be queried: `client`, `environment`, `node`, `role`, or `DATA_BAG_NAME`. Default index: `node`.
 
 `-l`, `--long`
 
-:   Display all attributes in the output and show the output as JSON.
+: Display all attributes in the output and show the output as JSON.
 
 `-m`, `--medium`
 
-:   Display normal attributes in the output and to show the output as
-    JSON.
+: Display normal attributes in the output and to show the output as JSON.
 
 `-q SEARCH_QUERY`, `--query SEARCH_QUERY`
 
-:   Protect search queries that start with a hyphen (-). A `-q` query
-    may be specified as an argument or an option, but not both.
+: Protect search queries that start with a hyphen (-). A `-q` query may be specified as an argument or an option, but not both.
 
 `-r`, `--run-list`
 
-:   Show only the run-list.
+: Show only the run-list.
 
 `-R INT`, `--rows INT`
 
-:   The number of rows to be returned.
+: The number of rows to be returned.
 
 `SEARCH_QUERY`
 
-:   The search query used to identify a list of items on a Chef Infra
-    Server. This option uses the same syntax as the `search` subcommand.
+: The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the `search` subcommand.
 
 ## Examples
 

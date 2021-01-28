@@ -43,11 +43,7 @@ This argument has the following options:
 
 `-p`, `--purge`
 
-:   Entirely remove a cookbook (or cookbook version) from the Chef Infra
-    Server. Use this action carefully because only one copy of any
-    single file is stored on the Chef Infra Server. Consequently,
-    purging a cookbook disables any other cookbook that references one
-    or more files from the cookbook that has been purged.
+: Entirely remove a cookbook (or cookbook version) from the Chef Infra Server. Use this action carefully because only one copy of any single file is stored on the Chef Infra Server. Consequently, purging a cookbook disables any other cookbook that references one or more files from the cookbook that has been purged.
 
 {{< note >}}
 
@@ -87,22 +83,15 @@ This argument has the following options:
 
 `-a`, `--all`
 
-:   Delete all cookbooks (and cookbook versions).
+: Delete all cookbooks (and cookbook versions).
 
 `COOKBOOK_VERSION`
 
-:   The version of a cookbook to be deleted. If a cookbook has only one
-    version, this option does not need to be specified. If a cookbook
-    has more than one version and this option is not specified, knife
-    prompts for a version.
+: The version of a cookbook to be deleted. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, knife prompts for a version.
 
 `-p`, `--purge`
 
-:   Entirely remove a cookbook (or cookbook version) from the Chef Infra
-    Server. Use this action carefully because only one copy of any
-    single file is stored on the Chef Infra Server. Consequently,
-    purging a cookbook disables any other cookbook that references one
-    or more files from the cookbook that has been purged.
+: Entirely remove a cookbook (or cookbook version) from the Chef Infra Server. Use this action carefully because only one copy of any single file is stored on the Chef Infra Server. Consequently, purging a cookbook disables any other cookbook that references one or more files from the cookbook that has been purged.
 
 {{< note >}}
 
@@ -147,15 +136,15 @@ This argument has the following options:
 
 `-d DOWNLOAD_DIRECTORY`, `--dir DOWNLOAD_DIRECTORY`
 
-:   The directory in which cookbooks are located.
+: The directory in which cookbooks are located.
 
 `-f`, `--force`
 
-:   Overwrite an existing directory.
+: Overwrite an existing directory.
 
 `-N`, `--latest`
 
-:   Download the most recent version of a cookbook.
+: Download the most recent version of a cookbook.
 
 {{< note >}}
 
@@ -195,11 +184,11 @@ This argument has the following options:
 
 `-a`, `--all`
 
-:   Return all available versions for every cookbook.
+: Return all available versions for every cookbook.
 
 `-w`, `--with-uri`
 
-:   Show the corresponding URIs.
+: Show the corresponding URIs.
 
 {{< note >}}
 
@@ -238,12 +227,11 @@ This argument has the following options:
 
 `-a`, `--all`
 
-:   Generate metadata for all cookbooks.
+: Generate metadata for all cookbooks.
 
 `-o PATH:PATH`, `--cookbook-path PATH:PATH`
 
-:   The directory in which cookbooks are created. This can be a
-    colon-separated path.
+: The directory in which cookbooks are created. This can be a colon-separated path.
 
 {{< note >}}
 
@@ -309,36 +297,31 @@ This argument has the following options:
 
 `COOKBOOK_VERSION`
 
-:   The version of a cookbook to be shown. If a cookbook has only one
-    version, this option does not need to be specified. If a cookbook
-    has more than one version and this option is not specified, a list
-    of cookbook versions is returned.
+: The version of a cookbook to be shown. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, a list of cookbook versions is returned.
 
 `-f FQDN`, `--fqdn FQDN`
 
-:   The FQDN of the host.
+: The FQDN of the host.
 
 `FILE_NAME`
 
-:   The name of a file that is associated with a cookbook.
+: The name of a file that is associated with a cookbook.
 
 `-p PLATFORM`, `--platform PLATFORM`
 
-:   The platform for which a cookbook is designed.
+: The platform for which a cookbook is designed.
 
 `PART`
 
-:   The part of the cookbook to show: `attributes`, `definitions`,
-    `files`, `libraries`, `providers`, `recipes`, `resources`, or
-    `templates`. More than one part can be specified.
+: The part of the cookbook to show: `attributes`, `definitions`, `files`, `libraries`, `providers`, `recipes`, `resources`, or `templates`. More than one part can be specified.
 
 `-V PLATFORM_VERSION`, `--platform-version PLATFORM_VERSION`
 
-:   The version of the platform.
+: The version of the platform.
 
 `-w`, `--with-uri`
 
-:   Show the corresponding URIs.
+: Show the corresponding URIs.
 
 {{< note >}}
 
@@ -378,18 +361,18 @@ to return something like:
 
 ``` none
 attributes:
-  checksum:     fa0fc4abf3f6787aeb5c3c5c35de667c
-  name:         default.rb
-  path:         attributes/default.rb
+  checksum:   fa0fc4abf3f6787aeb5c3c5c35de667c
+  name:       default.rb
+  path:       attributes/default.rb
   specificity:  default
-  url:          https://somelongurlhere.com
-chef_type:      cookbook_version
+  url:        https://somelongurlhere.com
+chef_type:    cookbook_version
 cookbook_name:  getting-started
-definitions:    []
-files:          []
-frozen?:        false
-json_class:     Chef::CookbookVersion
-libraries:      []
+definitions:  []
+files:        []
+frozen?:      false
+json_class:   Chef::CookbookVersion
+libraries:    []
 ```
 
 **Show a cookbook version**
@@ -403,11 +386,11 @@ knife cookbook show getting-started 0.3.0 templates
 to return something like:
 
 ``` none
-checksum:     a29d6f254577b830091f140c3a78b1fe
-name:         chef-getting-started.txt.erb
-path:         templates/default/chef-getting-started.txt.erb
+checksum:   a29d6f254577b830091f140c3a78b1fe
+name:       chef-getting-started.txt.erb
+path:       templates/default/chef-getting-started.txt.erb
 specificity:  default
-url:          https://someurlhere.com
+url:        https://someurlhere.com
 ```
 
 **Show cookbook data as JSON**
@@ -450,12 +433,11 @@ This argument has the following options:
 
 `-a`, `--all`
 
-:   Test all cookbooks.
+: Test all cookbooks.
 
 `-o PATH:PATH`, `--cookbook-path PATH:PATH`
 
-:   The directory in which cookbooks are created. This can be a
-    colon-separated path.
+: The directory in which cookbooks are created. This can be a colon-separated path.
 
 {{< note >}}
 
@@ -512,35 +494,31 @@ This argument has the following options:
 
 `-a`, `--all`
 
-:   Upload all cookbooks.
+: Upload all cookbooks.
 
 `--concurrency`
 
-:   The number of allowed concurrent connections. Default: `10`.
+: The number of allowed concurrent connections. Default: `10`.
 
 `-d`, `--include-dependencies`
 
-:   Ensure that when a cookbook has a dependency on one (or more)
-    cookbooks, those cookbooks are also uploaded.
+: Ensure that when a cookbook has a dependency on one (or more) cookbooks, those cookbooks are also uploaded.
 
 `-E ENVIRONMENT`, `--environment ENVIRONMENT`
 
-:   Use to set the environment version dependency to the cookbook
-    version being uploaded.
+: Use to set the environment version dependency to the cookbook version being uploaded.
 
 `--force`
 
-:   Update a cookbook even if the `--freeze` flag has been set.
+: Update a cookbook even if the `--freeze` flag has been set.
 
 `--freeze`
 
-:   Require changes to a cookbook be included as a new version. Only the
-    `--force` option can override this setting.
+: Require changes to a cookbook be included as a new version. Only the `--force` option can override this setting.
 
 `-o PATH:PATH`, `--cookbook-path PATH:PATH`
 
-:   The directory in which cookbooks are created. This can be a
-    colon-separated path.
+: The directory in which cookbooks are created. This can be a colon-separated path.
 
 {{< note >}}
 

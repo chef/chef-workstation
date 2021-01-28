@@ -61,9 +61,8 @@ knife exec -E 'api.method(/endpoint)'
 
 where:
 
--   `api.method` is the corresponding authentication method ---
-    `api.delete`, `api.get`, `api.post`, or `api.put`
--   `/endpoint` is an endpoint in the Chef Infra Server API
+- `api.method` is the corresponding authentication method --- `api.delete`, `api.get`, `api.post`, or `api.put`
+- `/endpoint` is an endpoint in the Chef Infra Server API
 
 For example, to get the data for a node named "Example_Node":
 
@@ -100,18 +99,9 @@ client_desc = {
 For Ruby scripts that will be run using the `exec` subcommand, note the
 following:
 
--   The Ruby script must be located on the system from which knife is
-    run (and not be located on any of the systems that knife will be
-    managing).
--   Shell commands will be run from a management workstation. For
-    example, something like `%x[ls -lash /opt/only-on-a-node]` would
-    give you the directory listing for the "opt/only-on-a-node"
-    directory or a "No such file or directory" error if the file does
-    not already exist locally.
--   When the chef-shell DSL is available, the Chef Infra Client DSL will
-    not be (unless the management workstation is also a Chef Infra
-    Client). Without the Chef Infra Client DSL, a bash block cannot be
-    used to run bash commands.
+- The Ruby script must be located on the system from which knife is run (and not be located on any of the systems that knife will be managing).
+- Shell commands will be run from a management workstation. For example, something like `%x[ls -lash /opt/only-on-a-node]` would give you the directory listing for the "opt/only-on-a-node" directory or a "No such file or directory" error if the file does not already exist locally.
+- When the chef-shell DSL is available, the Chef Infra Client DSL will not be (unless the management workstation is also a Chef Infra Client). Without the Chef Infra Client DSL, a bash block cannot be used to run bash commands.
 
 ## Syntax
 
@@ -133,14 +123,11 @@ This subcommand has the following options:
 
 `-E CODE`, `--exec CODE`
 
-:   A string of code to be executed.
+: A string of code to be executed.
 
 `-p PATH:PATH`, `--script-path PATH:PATH`
 
-:   A colon-separated path at which Ruby scripts are located. Use to
-    override the default location for scripts. When this option is not
-    specified, knife will look for scripts located in
-    `chef-repo/.chef/scripts` directory.
+: A colon-separated path at which Ruby scripts are located. Use to override the default location for scripts. When this option is not specified, knife will look for scripts located in `chef-repo/.chef/scripts` directory.
 
 {{< note >}}
 

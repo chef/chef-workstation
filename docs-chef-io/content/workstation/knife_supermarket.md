@@ -56,23 +56,19 @@ This argument has the following options:
 
 `COOKBOOK_VERSION`
 
-:   The version of a cookbook to be downloaded. If a cookbook has only
-    one version, this option does not need to be specified. If a
-    cookbook has more than one version and this option is not specified,
-    the most recent version of the cookbook is downloaded.
+: The version of a cookbook to be downloaded. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, the most recent version of the cookbook is downloaded.
 
 `-f FILE`, `--file FILE`
 
-:   The file to which a cookbook download is written.
+: The file to which a cookbook download is written.
 
 `--force`
 
-:   Overwrite an existing directory.
+: Overwrite an existing directory.
 
 `-m`, `--supermarket-site`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    `https://supermarket.chef.io`.
+: The URL at which the Chef Supermarket is located. Default value: `https://supermarket.chef.io`.
 
 ### Examples
 
@@ -94,14 +90,11 @@ uses the git version control system in conjunction with Chef Supermarket
 site to install community-contributed cookbooks to the local chef-repo.
 Using this argument does the following:
 
-1.  A new "pristine copy" branch is created in git for tracking the
-    upstream.
-2.  All existing versions of a cookbook are removed from the branch.
-3.  The cookbook is downloaded from Chef Supermarket in the tar.gz
-    format.
-4.  The downloaded cookbook is untarred and its contents are committed
-    to git and a tag is created.
-5.  The "pristine copy" branch is merged into the master branch.
+1. A new "pristine copy" branch is created in git for tracking the upstream.
+2. All existing versions of a cookbook are removed from the branch.
+3. The cookbook is downloaded from Chef Supermarket in the tar.gz format.
+4. The downloaded cookbook is untarred and its contents are committed to git and a tag is created.
+5. The "pristine copy" branch is merged into the master branch.
 
 This process allows the upstream cookbook in the master branch to be
 modified while letting git maintain changes as a separate patch. When an
@@ -122,31 +115,27 @@ This argument has the following options:
 
 `-b`, `--use-current-branch`
 
-:   Ensure that the current branch is used.
+: Ensure that the current branch is used.
 
 `-B BRANCH`, `--branch BRANCH`
 
-:   The name of the default branch. This defaults to the master branch.
+: The name of the default branch. This defaults to the master branch.
 
 `COOKBOOK_VERSION`
 
-:   The version of the cookbook to be installed. If a version is not
-    specified, the most recent version of the cookbook is installed.
+: The version of the cookbook to be installed. If a version is not specified, the most recent version of the cookbook is installed.
 
 `-D`, `--skip-dependencies`
 
-:   Ensure that all cookbooks to which the installed cookbook has a
-    dependency are not installed.
+: Ensure that all cookbooks to which the installed cookbook has a dependency are not installed.
 
 `-m`, `--supermarket-site`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    `https://supermarket.chef.io`.
+: The URL at which the Chef Supermarket is located. Default value: `https://supermarket.chef.io`.
 
 `-o PATH:PATH`, `--cookbook-path PATH:PATH`
 
-:   The directory in which cookbooks are created. This can be a
-    colon-separated path.
+: The directory in which cookbooks are created. This can be a colon-separated path.
 
 ### Examples
 
@@ -179,12 +168,11 @@ This argument has the following options:
 
 `-m`, `--supermarket-site`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    `https://supermarket.chef.io`.
+: The URL at which the Chef Supermarket is located. Default value: `https://supermarket.chef.io`.
 
 `-w`, `--with-uri`
 
-:   Show the corresponding URIs.
+: Show the corresponding URIs.
 
 ### Examples
 
@@ -243,8 +231,7 @@ This argument has the following options:
 
 `-m`, `--supermarket-site`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    `https://supermarket.chef.io`.
+: The URL at which the Chef Supermarket is located. Default value: `https://supermarket.chef.io`.
 
 ### Examples
 
@@ -303,21 +290,15 @@ This argument has the following options:
 
 `CATEGORY`
 
-:   The cookbook category: `"Databases"`, `"Web Servers"`,
-    `"Process Management"`, `"Monitoring & Trending"`,
-    `"Programming Languages"`, `"Package Management"`, `"Applications"`,
-    `"Networking"`, `"Operating Systems & Virtualization"`,
-    `"Utilities"`, or `"Other"`.
+: The cookbook category: `"Databases"`, `"Web Servers"`, `"Process Management"`, `"Monitoring & Trending"`, `"Programming Languages"`, `"Package Management"`, `"Applications"`, `"Networking"`, `"Operating Systems & Virtualization"`, `"Utilities"`, or `"Other"`.
 
 `-m`, `--supermarket-site`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    `https://supermarket.chef.io`.
+: The URL at which the Chef Supermarket is located. Default value: `https://supermarket.chef.io`.
 
 `-o PATH:PATH`, `--cookbook-path PATH:PATH`
 
-:   The directory in which cookbooks are created. This can be a
-    colon-separated path.
+: The directory in which cookbooks are created. This can be a colon-separated path.
 
 ### Examples
 
@@ -351,15 +332,11 @@ This argument has the following options:
 
 `COOKBOOK_VERSION`
 
-:   The version of a cookbook to be shown. If a cookbook has only one
-    version, this option does not need to be specified. If a cookbook
-    has more than one version and this option is not specified, a list
-    of cookbook versions is returned.
+: The version of a cookbook to be shown. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, a list of cookbook versions is returned.
 
 `-m`, `--supermarket-site`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    `https://supermarket.chef.io`.
+: The URL at which the Chef Supermarket is located. Default value: `https://supermarket.chef.io`.
 
 ### Examples
 
@@ -377,18 +354,18 @@ to return something similar to:
 
 ``` bash
 average_rating:
-category:        Other
-created_at:      2009-10-28T19:16:54.000Z
-deprecated:      false
-description:     Provides mysql_service, mysql_config, and mysql_client resources
-external_url:    https://github.com/chef-cookbooks/mysql
-issues_url:      https://github.com/chef-cookbooks/mysql/issues
+category:      Other
+created_at:    2009-10-28T19:16:54.000Z
+deprecated:    false
+description:   Provides mysql_service, mysql_config, and mysql_client resources
+external_url:  https://github.com/chef-cookbooks/mysql
+issues_url:    https://github.com/chef-cookbooks/mysql/issues
 latest_version:  https://supermarket.chef.io/api/v1/cookbooks/mysql/versions/8.5.1
-maintainer:      sous-chefs
+maintainer:    sous-chefs
 metrics:
   collaborators: 2
   downloads:
-    total:    128998032
+    total:  128998032
   versions:
     0.10.0: 927561
     0.15.0: 927536
@@ -417,56 +394,56 @@ will return something similar to:
 
 ``` bash
 average_rating:
-cookbook:          https://supermarket.chef.io/api/v1/cookbooks/mysql
-file:              https://supermarket.chef.io/api/v1/cookbooks/mysql/versions/8.5.1/download
-license:           Apache-2.0
-published_at:      2017-08-23T19:01:28Z
+cookbook:        https://supermarket.chef.io/api/v1/cookbooks/mysql
+file:            https://supermarket.chef.io/api/v1/cookbooks/mysql/versions/8.5.1/download
+license:         Apache-2.0
+published_at:    2017-08-23T19:01:28Z
 quality_metrics:
-  failed:   false
+  failed: false
   feedback: passed the No Binaries metric. Contains no obvious binaries.
-  name:     No Binaries
+  name:   No Binaries
 
-  failed:   false
+  failed: false
   feedback: mysql passed the publish metric
-  name:     Publish
+  name:   Publish
 
-  failed:   false
+  failed: false
   feedback: mysql supports at least one platform.
-  name:     Supported Platforms
+  name:   Supported Platforms
 
-  failed:   false
+  failed: false
   feedback: passed the Collaborators Metric with 2 collaborators.
-  name:     Collaborator Number
+  name:   Collaborator Number
 
-  failed:   false
+  failed: false
   feedback:
   Run with Foodcritic Version 14.0.0 with tags metadata,correctness ~FC031 ~FC045 and failure tags any
-  name:     Foodcritic
+  name:   Foodcritic
 
-  failed:   false
+  failed: false
   feedback: passed the CONTRIBUTING.md file metric.
-  name:     Contributing File
+  name:   Contributing File
 
-  failed:   false
+  failed: false
   feedback: passed the version tag metric.
-  name:     Version Tag
+  name:   Version Tag
 
-  failed:   false
+  failed: false
   feedback: passed the TESTING.md file metric.
-  name:     Testing File
+  name:   Testing File
 supports:
-  amazon:       >= 0.0.0
-  centos:       >= 6.0
-  debian:       >= 7.0
-  fedora:       >= 0.0.0
+  amazon:     >= 0.0.0
+  centos:     >= 6.0
+  debian:     >= 7.0
+  fedora:     >= 0.0.0
   opensuseleap: >= 0.0.0
-  oracle:       >= 6.0
-  redhat:       >= 6.0
-  scientific:   >= 6.0
-  suse:         >= 12.0
-  ubuntu:       >= 12.04
+  oracle:     >= 6.0
+  redhat:     >= 6.0
+  scientific: >= 6.0
+  suse:       >= 12.0
+  ubuntu:     >= 12.04
 tarball_file_size: 23763
-version:           8.5.1
+version:         8.5.1
 ```
 
 ## unshare
@@ -496,8 +473,7 @@ This argument has the following options:
 
 `-m`, `--supermarket-site`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    `https://supermarket.chef.io`.
+: The URL at which the Chef Supermarket is located. Default value: `https://supermarket.chef.io`.
 
 ### Examples
 

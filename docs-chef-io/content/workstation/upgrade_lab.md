@@ -368,7 +368,7 @@ to a Chef Server:
 
 You're ready to begin!
 
-Start with 'kitchen converge'.  As you identify issues, you
+Start with 'kitchen converge'. As you identify issues, you
 can modify cookbooks in their original checkout locations or
 in the repository's cookbooks directory and they will be picked
 up on subsequent runs of 'kitchen converge'.

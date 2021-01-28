@@ -34,12 +34,8 @@ Start Chef Workstation App by running the command `chef-workstation-app`.
 
 #### Notes
 
-1. Chef Workstation App requires a running display manager with support for
-   system tray icons.
-1. On some distributions you may need to install additional libraries.  The
-   post-install message shown when you install the Chef Workstation package
-   from the terminal will tell you which -- if any -- additional libraries are
-   required to run Chef Workstation App.
+1. Chef Workstation App requires a running display manager with support for system tray icons.
+1. On some distributions you may need to install additional libraries. The post-install message shown when you install the Chef Workstation package from the terminal will tell you which -- if any -- additional libraries are required to run Chef Workstation App.
 
 ### Mac
 
@@ -61,7 +57,7 @@ To set the channel used for update checking, bring up the CWA tray app
 menu (Windows/Linux) or the application menu (Mac) and select "About Chef
 Workstation".
 
-Select the "Channel" button and choose your preferred channel.  This will
+Select the "Channel" button and choose your preferred channel. This will
 trigger an immediate update check.
 
 ```toml

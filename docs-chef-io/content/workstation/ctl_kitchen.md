@@ -107,9 +107,8 @@ testing is being done correctly.
 
 The following exit codes are used by Test Kitchen:
 
--   `0` means the operation was successful
--   Any non-zero value means at least one part of the operation was
-    unsuccessful
+- `0` means the operation was successful
+- Any non-zero value means at least one part of the operation was unsuccessful
 
 In general, use the `test` subcommand to verify the end-to-end quality
 of a cookbook. Use the `converge` and `verify` subcommands during the
@@ -129,23 +128,17 @@ This subcommand has the following options:
 
 `-c`, `--concurrency`
 
-:   The number of allowed concurrent connections. Default: `9999` (all
-    instances, effectively).
+: The number of allowed concurrent connections. Default: `9999` (all instances, effectively).
 
 `-l`, `--log-level`
 
-:   The level of logging to be stored in a log file. Options (in order
-    of priority): `debug`, `info`, `warn`, `error`, and `fatal`.
-    Default: `info`.
+: The level of logging to be stored in a log file. Options (in order of priority): `debug`, `info`, `warn`, `error`, and `fatal`. Default: `info`.
 
 `PLATFORMS`
 
-:   Run Test Kitchen against one or more platforms listed in the
-    kitchen.yml file. Use `all` to run Test Kitchen against all
-    platforms. Use a Ruby regular expression to glob two or more
-    platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
+  {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -285,21 +278,15 @@ This subcommand has the following options:
 
 `-c`, `--concurrency`
 
-:   The number of allowed concurrent connections. Default: `9999` (all
-    instances, effectively).
+: The number of allowed concurrent connections. Default: `9999` (all instances, effectively).
 
 `-l`, `--log-level`
 
-:   The level of logging to be stored in a log file. Options (in order
-    of priority): `debug`, `info`, `warn`, `error`, and `fatal`.
-    Default: `info`.
+: The level of logging to be stored in a log file. Options (in order of priority): `debug`, `info`, `warn`, `error`, and `fatal`. Default: `info`.
 
 `PLATFORMS`
 
-:   Run Test Kitchen against one or more platforms listed in the
-    kitchen.yml file. Use `all` to run Test Kitchen against all
-    platforms. Use a Ruby regular expression to glob two or more
-    platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
     {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
@@ -417,23 +404,17 @@ This subcommand has the following options:
 
 `-c`, `--concurrency`
 
-:   The number of allowed concurrent connections. Default: `9999` (all
-    instances, effectively).
+: The number of allowed concurrent connections. Default: `9999` (all instances, effectively).
 
 `-l`, `--log-level`
 
-:   The level of logging to be stored in a log file. Options (in order
-    of priority): `debug`, `info`, `warn`, `error`, and `fatal`.
-    Default: `info`.
+: The level of logging to be stored in a log file. Options (in order of priority): `debug`, `info`, `warn`, `error`, and `fatal`. Default: `info`.
 
 `PLATFORMS`
 
-:   Run Test Kitchen against one or more platforms listed in the
-    kitchen.yml file. Use `all` to run Test Kitchen against all
-    platforms. Use a Ruby regular expression to glob two or more
-    platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
+  {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -460,30 +441,25 @@ This subcommand has the following options:
 
 `--all`
 
-:   Include all diagnostics. Default: `false`.
+: Include all diagnostics. Default: `false`.
 
 `--instances`
 
-:   Include instance diagnostics. Default: `true`.
+: Include instance diagnostics. Default: `true`.
 
 `-l`, `--log-level`
 
-:   The level of logging to be stored in a log file. Options (in order
-    of priority): `debug`, `info`, `warn`, `error`, and `fatal`.
-    Default: `info`.
+: The level of logging to be stored in a log file. Options (in order of priority): `debug`, `info`, `warn`, `error`, and `fatal`. Default: `info`.
 
 `--loader`
 
-:   Include data loader diagnostics. Default: `false`.
+: Include data loader diagnostics. Default: `false`.
 
 `PLATFORMS`
 
-:   Run Test Kitchen against one or more platforms listed in the
-    kitchen.yml file. Use `all` to run Test Kitchen against all
-    platforms. Use a Ruby regular expression to glob two or more
-    platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
+  {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -608,8 +584,7 @@ This subcommand has the following options:
 
 `-l`, `--license`
 
-:   The license for the RubyGems file. Possible values: `apachev2`,
-    `lgplv3`, `mit`, and `reserved`. Default: `apachev2`.
+: The license for the RubyGems file. Possible values: `apachev2`, `lgplv3`, `mit`, and `reserved`. Default: `apachev2`.
 
 ### Examples
 
@@ -633,16 +608,13 @@ This subcommand has the following options:
 
 `-c REMOTE_COMMAND`
 
-:   Use to specify a remote command to be run via SSH.
+: Use to specify a remote command to be run via SSH.
 
 `PLATFORMS`
 
-:   Run Test Kitchen against one or more platforms listed in the
-    kitchen.yml file. Use `all` to run Test Kitchen against all
-    platforms. Use a Ruby regular expression to glob two or more
-    platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
+  {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -653,9 +625,9 @@ None.
 Use the `init` subcommand to create an initial Test Kitchen environment,
 including:
 
--   Creating a kitchen.yml file
--   Appending Test Kitchen to the RubyGems file, .gitignore, and .thor
--   Creating the `test/integration/default` directory
+- Creating a kitchen.yml file
+- Appending Test Kitchen to the RubyGems file, .gitignore, and .thor
+- Creating the `test/integration/default` directory
 
 ### Syntax
 
@@ -671,32 +643,25 @@ This subcommand has the following options:
 
 `--create_gemfile`
 
-:   Create a RubyGems file, if one does not already exist. Default:
-    `false`.
+: Create a RubyGems file, if one does not already exist. Default: `false`.
 
 `-D`, `--driver`
 
-:   Add one (or more) Test Kitchen drivers to a RubyGems file. Default:
-    `kitchen-vagrant`.
+: Add one (or more) Test Kitchen drivers to a RubyGems file. Default: `kitchen-vagrant`.
 
 `-l`, `--log-level`
 
-:   The level of logging to be stored in a log file. Options (in order
-    of priority): `debug`, `info`, `warn`, `error`, and `fatal`.
-    Default: `info`.
+: The level of logging to be stored in a log file. Options (in order of priority): `debug`, `info`, `warn`, `error`, and `fatal`. Default: `info`.
 
 `-P`, `--provisioner`
 
-:   The default provisioner that is used by Test Kitchen.
+: The default provisioner that is used by Test Kitchen.
 
 `PLATFORMS`
 
-:   Run Test Kitchen against one or more platforms listed in the
-    kitchen.yml file. Use `all` to run Test Kitchen against all
-    platforms. Use a Ruby regular expression to glob two or more
-    platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
+  {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -743,23 +708,17 @@ This subcommand has the following options:
 
 `-b`, `--bare`
 
-:   Print the name of each instance, one instance per line. Default:
-    `false`.
+: Print the name of each instance, one instance per line. Default: `false`.
 
 `-l`, `--log-level`
 
-:   The level of logging to be stored in a log file. Options (in order
-    of priority): `debug`, `info`, `warn`, `error`, and `fatal`.
-    Default: `info`.
+: The level of logging to be stored in a log file. Options (in order of priority): `debug`, `info`, `warn`, `error`, and `fatal`. Default: `info`.
 
 `PLATFORMS`
 
-:   Run Test Kitchen against one or more platforms listed in the
-    kitchen.yml file. Use `all` to run Test Kitchen against all
-    platforms. Use a Ruby regular expression to glob two or more
-    platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
+  {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -836,18 +795,13 @@ This subcommand has the following options:
 
 `-l`, `--log-level`
 
-:   The level of logging to be stored in a log file. Options (in order
-    of priority): `debug`, `info`, `warn`, `error`, and `fatal`.
-    Default: `info`.
+: The level of logging to be stored in a log file. Options (in order of priority): `debug`, `info`, `warn`, `error`, and `fatal`. Default: `info`.
 
 `PLATFORMS`
 
-:   Run Test Kitchen against one or more platforms listed in the
-    kitchen.yml file. Use `all` to run Test Kitchen against all
-    platforms. Use a Ruby regular expression to glob two or more
-    platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
+  {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -885,23 +839,17 @@ This subcommand has the following options:
 
 `-c`, `--concurrency`
 
-:   The number of allowed concurrent connections. Default: `9999` (all
-    instances, effectively).
+: The number of allowed concurrent connections. Default: `9999` (all instances, effectively).
 
 `-l`, `--log-level`
 
-:   The level of logging to be stored in a log file. Options (in order
-    of priority): `debug`, `info`, `warn`, `error`, and `fatal`.
-    Default: `info`.
+: The level of logging to be stored in a log file. Options (in order of priority): `debug`, `info`, `warn`, `error`, and `fatal`. Default: `info`.
 
 `PLATFORMS`
 
-:   Run Test Kitchen against one or more platforms listed in the
-    kitchen.yml file. Use `all` to run Test Kitchen against all
-    platforms. Use a Ruby regular expression to glob two or more
-    platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
+  {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -934,37 +882,26 @@ This subcommand has the following options:
 
 `--auto-init`
 
-:   Invoke the `init` command if kitchen.yml is missing. Default:
+: Invoke the `init` command if kitchen.yml is missing. Default:
     `false`.
 
 `-c NUMBER`, `--concurrency NUMBER`
 
-:   The number of allowed concurrent connections. Use this option to
-    limit the number of instances that are tested concurrently. For
-    example, `--concurrency 6` will set this limit to six concurrent
-    instances. Default: `9999` (all instances, effectively).
+: The number of allowed concurrent connections. Use this option to limit the number of instances that are tested concurrently. For example, `--concurrency 6` will set this limit to six concurrent instances. Default: `9999` (all instances, effectively).
 
 `-d`, `--destroy`
 
-:   The destroy strategy used at the conclusion of a Test Kitchen run.
-    Possible values: `always` (always destroy instances), `never` (never
-    destroy instances), or `passing` (only destroy instances that
-    passed). Default: `passing`.
+: The destroy strategy used at the conclusion of a Test Kitchen run. Possible values: `always` (always destroy instances), `never` (never destroy instances), or `passing` (only destroy instances that passed). Default: `passing`.
 
 `-l`, `--log-level`
 
-:   The level of logging to be stored in a log file. Options (in order
-    of priority): `debug`, `info`, `warn`, `error`, and `fatal`.
-    Default: `info`.
+: The level of logging to be stored in a log file. Options (in order of priority): `debug`, `info`, `warn`, `error`, and `fatal`. Default: `info`.
 
 `PLATFORMS`
 
-:   Run Test Kitchen against one or more platforms listed in the
-    kitchen.yml file. Use `all` to run Test Kitchen against all
-    platforms. Use a Ruby regular expression to glob two or more
-    platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-    {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
+  {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -1079,21 +1016,15 @@ This subcommand has the following options:
 
 `-c`, `--concurrency`
 
-:   The number of allowed concurrent connections. Default: `9999` (all
-    instances, effectively).
+: The number of allowed concurrent connections. Default: `9999` (all instances, effectively).
 
 `-l`, `--log-level`
 
-:   The level of logging to be stored in a log file. Options (in order
-    of priority): `debug`, `info`, `warn`, `error`, and `fatal`.
-    Default: `info`.
+: The level of logging to be stored in a log file. Options (in order of priority): `debug`, `info`, `warn`, `error`, and `fatal`. Default: `info`.
 
 `PLATFORMS`
 
-:   Run Test Kitchen against one or more platforms listed in the
-    kitchen.yml file. Use `all` to run Test Kitchen against all
-    platforms. Use a Ruby regular expression to glob two or more
-    platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
     {{< readFile_shortcode file="ctl_kitchen_common_option_platforms.md" >}}
 

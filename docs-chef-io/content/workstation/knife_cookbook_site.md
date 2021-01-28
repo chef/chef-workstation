@@ -76,23 +76,19 @@ This argument has the following options:
 
 `COOKBOOK_VERSION`
 
-:   The version of a cookbook to be downloaded. If a cookbook has only
-    one version, this option does not need to be specified. If a
-    cookbook has more than one version and this option is not specified,
-    the most recent version of the cookbook is downloaded.
+: The version of a cookbook to be downloaded. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, the most recent version of the cookbook is downloaded.
 
 `-f FILE`, `--file FILE`
 
-:   The file to which a cookbook download is written.
+: The file to which a cookbook download is written.
 
 `--force`
 
-:   Overwrite an existing directory.
+: Overwrite an existing directory.
 
 `-m SUPERMARKET_SITE`, `--supermarket-site SUPERMARKET_SITE`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    <https://supermarket.chef.io>.
+: The URL at which the Chef Supermarket is located. Default value: <https://supermarket.chef.io>.
 
 {{< note >}}
 
@@ -129,15 +125,11 @@ action uses the git version control system in conjunction with the the
 install community-contributed cookbooks to the local chef-repo. Using
 this argument does the following:
 
-1.  A new "pristine copy" branch is created in git for tracking the
-    upstream.
-2.  All existing versions of a cookbook are removed from the branch.
-3.  The cookbook is downloaded from the [Chef
-    Supermarket](https://supermarket.chef.io/cookbooks) in the tar.gz
-    format.
-4.  The downloaded cookbook is untarred and its contents are committed
-    to git and a tag is created.
-5.  The "pristine copy" branch is merged into the master branch.
+1. A new "pristine copy" branch is created in git for tracking the upstream.
+2. All existing versions of a cookbook are removed from the branch.
+3. The cookbook is downloaded from the [Chef Supermarket](https://supermarket.chef.io/cookbooks) in the tar.gz format.
+4. The downloaded cookbook is untarred and its contents are committed to git and a tag is created.
+5. The "pristine copy" branch is merged into the master branch.
 
 This process allows the upstream cookbook in the master branch to be
 modified while letting git maintain changes as a separate patch. When an
@@ -158,31 +150,27 @@ This argument has the following options:
 
 `-b`, `--use-current-branch`
 
-:   Ensure that the current branch is used.
+: Ensure that the current branch is used.
 
 `-B BRANCH`, `--branch BRANCH`
 
-:   The name of the default branch. This defaults to the master branch.
+: The name of the default branch. This defaults to the master branch.
 
 `COOKBOOK_VERSION`
 
-:   The version of the cookbook to be installed. If a version is not
-    specified, the most recent version of the cookbook is installed.
+: The version of the cookbook to be installed. If a version is not specified, the most recent version of the cookbook is installed.
 
 `-D`, `--skip-dependencies`
 
-:   Ensure that all cookbooks to which the installed cookbook has a
-    dependency are not installed.
+: Ensure that all cookbooks to which the installed cookbook has a dependency are not installed.
 
 `-m SUPERMARKET_SITE`, `--supermarket-site SUPERMARKET_SITE`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    <https://supermarket.chef.io>.
+: The URL at which the Chef Supermarket is located. Default value: <https://supermarket.chef.io>.
 
 `-o PATH:PATH`, `--cookbook-path PATH:PATH`
 
-:   The directory in which cookbooks are created. This can be a
-    colon-separated path.
+: The directory in which cookbooks are created. This can be a colon-separated path.
 
 {{< note >}}
 
@@ -255,12 +243,11 @@ This argument has the following options:
 
 `-m SUPERMARKET_SITE`, `--supermarket-site SUPERMARKET_SITE`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    <https://supermarket.chef.io>.
+: The URL at which the Chef Supermarket is located. Default value: <https://supermarket.chef.io>.
 
 `-w`, `--with-uri`
 
-:   Show the corresponding URIs.
+: Show the corresponding URIs.
 
 ### Examples
 
@@ -313,8 +300,7 @@ This argument has the following options:
 
 `-m SUPERMARKET_SITE`, `--supermarket-site SUPERMARKET_SITE`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    <https://supermarket.chef.io>.
+: The URL at which the Chef Supermarket is located. Default value: <https://supermarket.chef.io>.
 
 ### Examples
 
@@ -332,35 +318,26 @@ to return something like:
 
 ``` bash
 apache2:
-  cookbook:             https://supermarket.chef.io/api/v1/cookbooks/apache2
+  cookbook:           https://supermarket.chef.io/api/v1/cookbooks/apache2
   cookbook_description: Installs and configures apache2
   cookbook_maintainer:  sous-chefs
-  cookbook_name:        apache2
+  cookbook_name:      apache2
 apache_hadoop:
-  cookbook:             https://supermarket.chef.io/api/v1/cookbooks/apache_hadoop
+  cookbook:           https://supermarket.chef.io/api/v1/cookbooks/apache_hadoop
   cookbook_description: Installs/Configures the Apache Hadoop distribution
   cookbook_maintainer:  dowlingj
-  cookbook_name:        apache_hadoop
+  cookbook_name:      apache_hadoop
 apache_kafka:
-  cookbook:             https://supermarket.chef.io/api/v1/cookbooks/apache_kafka
+  cookbook:           https://supermarket.chef.io/api/v1/cookbooks/apache_kafka
   cookbook_description: Installs/Configures Apache Kafka >= 0.7.0
   cookbook_maintainer:  mathyourlife
-  cookbook_name:        apache_kafka
+  cookbook_name:      apache_kafka
 [...truncated...]
 ```
 
 ## share
 
-Use the `share` argument to add a cookbook to the [Chef
-Supermarket](https://supermarket.chef.io/cookbooks). This action will
-require a user account and a certificate for [Chef
-Supermarket](https://supermarket.chef.io/). By default, knife will use
-the user name and API key that is identified in the configuration file
-used during the upload; otherwise these values must be specified on the
-command line or in an alternate configuration file. If a cookbook
-already exists on the [Chef
-Supermarket](https://supermarket.chef.io/cookbooks), then only an owner
-or maintainer of that cookbook can make updates.
+Use the `share` argument to add a cookbook to the [Chef Supermarket](https://supermarket.chef.io/cookbooks). This action will require a user account and a certificate for [Chef Supermarket](https://supermarket.chef.io/). By default, knife will use the user name and API key that is identified in the configuration file used during the upload; otherwise these values must be specified on the command line or in an alternate configuration file. If a cookbook already exists on the [Chef Supermarket](https://supermarket.chef.io/cookbooks), then only an owner or maintainer of that cookbook can make updates.
 
 ### Syntax
 
@@ -376,25 +353,19 @@ This argument has the following options:
 
 `CATEGORY`
 
-:   The cookbook category: `"Databases"`, `"Web Servers"`,
-    `"Process Management"`, `"Monitoring & Trending"`,
-    `"Programming Languages"`, `"Package Management"`, `"Applications"`,
-    `"Networking"`, `"Operating Systems & Virtualization"`,
-    `"Utilities"`, or `"Other"`.
+: The cookbook category: `"Databases"`, `"Web Servers"`, `"Process Management"`, `"Monitoring & Trending"`, `"Programming Languages"`, `"Package Management"`, `"Applications"`, `"Networking"`, `"Operating Systems & Virtualization"`, `"Utilities"`, or `"Other"`.
 
 `-m SUPERMARKET_SITE`, `--supermarket-site SUPERMARKET_SITE`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    <https://supermarket.chef.io>.
+: The URL at which the Chef Supermarket is located. Default value: <https://supermarket.chef.io>.
 
 `-n`, `--dry-run`
 
-:   Take no action and only print out results. Default: `false`.
+: Take no action and only print out results. Default: `false`.
 
 `-o PATH:PATH`, `--cookbook-path PATH:PATH`
 
-:   The directory in which cookbooks are created. This can be a
-    colon-separated path.
+: The directory in which cookbooks are created. This can be a colon-separated path.
 
 {{< note >}}
 
@@ -433,15 +404,11 @@ This argument has the following options:
 
 `COOKBOOK_VERSION`
 
-:   The version of a cookbook to be shown. If a cookbook has only one
-    version, this option does not need to be specified. If a cookbook
-    has more than one version and this option is not specified, a list
-    of cookbook versions is returned.
+: The version of a cookbook to be shown. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, a list of cookbook versions is returned.
 
 `-m SUPERMARKET_SITE`, `--supermarket-site SUPERMARKET_SITE`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    <https://supermarket.chef.io>.
+: The URL at which the Chef Supermarket is located. Default value: <https://supermarket.chef.io>.
 
 ### Examples
 
@@ -459,27 +426,27 @@ to return something like:
 
 ``` bash
 average_rating:
-category:        Other
-created_at:      2009-10-25T23:51:07.000Z
-deprecated:      false
-description:     Installs and configures haproxy
-external_url:    https://github.com/sous-chefs/haproxy
-issues_url:      https://github.com/sous-chefs/haproxy/issues
+category:      Other
+created_at:    2009-10-25T23:51:07.000Z
+deprecated:    false
+description:   Installs and configures haproxy
+external_url:  https://github.com/sous-chefs/haproxy
+issues_url:    https://github.com/sous-chefs/haproxy/issues
 latest_version:  https://supermarket.chef.io/api/v1/cookbooks/haproxy/versions/6.2.3
-maintainer:      sous-chefs
+maintainer:    sous-chefs
 metrics:
   collaborators: 3
   downloads:
-    total:    29114892
+    total:  29114892
     versions:
       0.7.0: 1258890
       0.8.0: 1258804
       [...truncated...]
-  followers:     139
-name:            haproxy
-source_url:      https://github.com/sous-chefs/haproxy
+  followers:   139
+name:          haproxy
+source_url:    https://github.com/sous-chefs/haproxy
 up_for_adoption:
-updated_at:      2018-08-08T20:09:52.334Z
+updated_at:    2018-08-08T20:09:52.334Z
 versions:
   https://supermarket.chef.io/api/v1/cookbooks/haproxy/versions/6.2.3
   https://supermarket.chef.io/api/v1/cookbooks/haproxy/versions/6.2.2
@@ -524,8 +491,7 @@ This argument has the following options:
 
 `-m SUPERMARKET_SITE`, `--supermarket-site SUPERMARKET_SITE`
 
-:   The URL at which the Chef Supermarket is located. Default value:
-    <https://supermarket.chef.io>.
+: The URL at which the Chef Supermarket is located. Default value: <https://supermarket.chef.io>.
 
 ### Examples
 

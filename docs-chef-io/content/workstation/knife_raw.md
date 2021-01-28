@@ -35,22 +35,19 @@ This subcommand has the following options:
 
 `-i FILE`, `--input FILE`
 
-:   The name of a file to be used with the `PUT` or a `POST` request.
+: The name of a file to be used with the `PUT` or a `POST` request.
 
 `--[no-]pretty`
 
-:   Use `--no-pretty` to disable pretty-print output for JSON. Default:
-    `--pretty`.
+: Use `--no-pretty` to disable pretty-print output for JSON. Default: `--pretty`.
 
 `-m METHOD`, `--method METHOD`
 
-:   The request method: `DELETE`, `GET`, `POST`, or `PUT`. Default
-    value: `GET`.
+: The request method: `DELETE`, `GET`, `POST`, or `PUT`. Default value: `GET`.
 
 `--proxy-auth`
 
-:   Enable proxy authentication to the Chef Infra Server web user
-    interface. Default value: `false`.
+: Enable proxy authentication to the Chef Infra Server web user interface. Default value: `false`.
 
 {{< note >}}
 

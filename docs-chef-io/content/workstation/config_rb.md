@@ -45,23 +45,23 @@ This configuration file has the following settings:
 `chef_server_url`
 : The URL for the Chef Infra Server. For example:
 
-    ``` ruby
-    chef_server_url 'https://localhost/organizations/ORG_NAME'
-    ```
+  ``` ruby
+  chef_server_url 'https://localhost/organizations/ORG_NAME'
+  ```
 
 `chef_zero.enabled`
 : Enable chef-zero. This setting requires `local_mode` to be set to `true`. Default value: `false`. For example:
 
-    ``` ruby
-    chef_zero.enabled true
-    ```
+  ``` ruby
+  chef_zero.enabled true
+  ```
 
 `chef_zero[:port]`
 : The port on which chef-zero is to listen. Default value: `8889`. For example:
 
-    ``` ruby
-    chef_zero[:port] 8889
-    ```
+  ``` ruby
+  chef_zero[:port] 8889
+  ```
 
 `client_d_dir`
 : A directory that contains additional configuration scripts to load for Chef Infra Client.
@@ -69,9 +69,9 @@ This configuration file has the following settings:
 `client_key`
 : The location of the file that contains the client key, as an absolute path. Default value: `/etc/chef/client.pem`. For example:
 
-    ``` ruby
-    client_key '/etc/chef/client.pem'
-    ```
+  ``` ruby
+  client_key '/etc/chef/client.pem'
+  ```
 
 `cookbook_copyright`
 : The name of the copyright holder. This option places a copyright notice that contains the name of the copyright holder in each of the pre-created files. If this option is not specified, a copyright name of "COMPANY_NAME" is used instead; it can easily be modified later.
@@ -85,65 +85,65 @@ This configuration file has the following settings:
 `cookbook_path`
 : The Chef Infra Client sub-directory for storing cookbooks. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications. For example:
 
-    ``` ruby
-    cookbook_path [
-      '/var/chef/cookbooks',
-      '/var/chef/site-cookbooks'
-    ]
-    ```
+  ``` ruby
+  cookbook_path [
+    '/var/chef/cookbooks',
+    '/var/chef/site-cookbooks'
+  ]
+  ```
 
 `data_bag_encrypt_version`
 : The minimum required version of data bag encryption. Possible values: `1` or `2`. When all of the machines in an organization are running Chef Client 11.6 (or higher), it is recommended that this value be set to `2`. For example:
 
-    ``` ruby
-    data_bag_encrypt_version 2
-    ```
+  ``` ruby
+  data_bag_encrypt_version 2
+  ```
 
 `fips`
 : Allows OpenSSL to enforce FIPS-validated security during a Chef Infra Client run. Set to `true` to enable FIPS-validated security.
 
-The following operating systems are supported:
+  The following operating systems are supported:
 
-    - Red Hat Enterprise Linux
-    - Oracle Enterprise Linux
-    - CentOS
-    - Windows
+  - Red Hat Enterprise Linux
+  - Oracle Enterprise Linux
+  - CentOS
+  - Windows
 
 `local_mode`
 : Run Chef Infra Client in local mode. This allows all commands that work against the Chef Infra Server to also work against the local chef-repo. For example:
 
-    ``` ruby
-    local_mode true
-    ```
+  ``` ruby
+  local_mode true
+  ```
 
 `node_name`
 
 : The name of the node. This may be a username with permission to authenticate to the Chef Infra Server or it may be the name of the machine from which knife is run. For example:
 
-    ``` ruby
-    node_name 'user_name'
-    ```
+  ``` ruby
+  node_name 'user_name'
+  ```
 
-    or:
+  or:
 
-    ``` ruby
-    node_name 'machine_name'
-    ```
+  ``` ruby
+  node_name 'machine_name'
+  ```
 
 `no_proxy`
 
 : A comma-separated list of URLs that do not need a proxy. Default value: `nil`. For example:
 
-    ``` ruby
-    no_proxy 'localhost, 10.0.1.35, *.example.com, *.dev.example.com'
-    ```
+  ``` ruby
+  no_proxy 'localhost, 10.0.1.35, *.example.com, *.dev.example.com'
+  ```
 
 `ssh_agent_signing`
 : **New in 14.2** Use `ssh-agent` to authenticate. When using this option, specify the location of the public key in `client_key`. Default value: `false`. Ensure the public key is in PKCS\#1 format. You can convert an OpenSSH public key using `ssh-keygen`. For example:
 
-    ``` bash
-    ssh-keygen -f key.pub -e -m pem > key.pem
-    ```
+  ``` bash
+  ssh-keygen -f key.pub -e -m pem > key.pem
+  ```
 
 `ssh_timeout`
 : The amount of time (in seconds) to wait for an SSH connection time out.
@@ -151,10 +151,10 @@ The following operating systems are supported:
 `ssl_verify_mode`
 : Set the verify mode for HTTPS requests.
 
-    - Use `:verify_none` to do no validation of SSL certificates.
-    - Use `:verify_peer` to do validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in a Chef Infra Client run. This is the recommended setting.
+  - Use `:verify_none` to do no validation of SSL certificates.
+  - Use `:verify_peer` to do validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in a Chef Infra Client run. This is the recommended setting.
 
-    Depending on how OpenSSL is configured, the `ssl_ca_path` may need to be specified. Default value: `:verify_peer`.
+  Depending on how OpenSSL is configured, the `ssl_ca_path` may need to be specified. Default value: `:verify_peer`.
 
 `tmux_split`
 
@@ -164,17 +164,17 @@ The following operating systems are supported:
 
 : The name of the chef-validator key that is used by Chef Infra Client to access the Chef Infra Server during the initial Chef Infra Client run when not using validatorless bootstrapping. For example:
 
-    ``` ruby
-    validation_client_name 'chef-validator'
-    ```
+  ``` ruby
+  validation_client_name 'chef-validator'
+  ```
 
 `validation_key`
 
 : The location of the file that contains the key used when a Chef Infra Client is registered with a Chef Infra Server. A validation key is signed using the `validation_client_name` for authentication. Default value: `/etc/chef/validation.pem`. For example:
 
-    ``` ruby
-    validation_key '/etc/chef/validation.pem'
-    ```
+  ``` ruby
+  validation_key '/etc/chef/validation.pem'
+  ```
 
 `verify_api_cert`
 : Verify the SSL certificate on the Chef Infra Server. When `true`, Chef Infra Client always verifies the SSL certificate. When `false`. Chef Infra Client uses the value of `ssl_verify_mode` to determine if the SSL certificate requires verification. Default value: `false`.
@@ -254,8 +254,7 @@ other subcommand-specific settings that can be added:
 
 A value passed via the command line overrides a value in the `config.rb` file; a value in a `config.rb` file overrides a default value. Before adding any settings to the `config.rb` file:
 
-- Verify the settings by reviewing the documentation for the knife
-    subcommands and/or knife plugins
+- Verify the settings by reviewing the documentation for the knife subcommands and/or knife plugins
 - Verify the use case(s) your organization has for adding them
 
 Also note that:

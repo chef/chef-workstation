@@ -28,9 +28,7 @@ GPG and Amazon KMS.
 
 {{< /note >}}
 
--   For more information about using the chef-vault cookbook, its
-    helper methods and resources, see
-    <https://github.com/chef-cookbooks/chef-vault>
+- For more information about using the chef-vault cookbook, its helper methods and resources, see <https://github.com/chef-cookbooks/chef-vault>
 
 The chef-vault cookbook is maintained by Chef Software. Use it along
 with Chef Vault itself. This cookbook adds the `chef_vault_item`
@@ -88,10 +86,10 @@ knife vault SUBCOMMAND VAULT ITEM VALUES
 
 where:
 
--   `vault` names the location for storing the encrypted item.
--   `item` names the item stored in the vault.
--   `values` contains the data that will be encrypted and stored in the
-    vault.
+- `vault` names the location for storing the encrypted item.
+- `item` names the item stored in the vault.
+- `values` contains the data that will be encrypted and stored in the
+ vault.
 
 ### Vault Commands
 
@@ -115,117 +113,115 @@ knife vault update VAULT ITEM VALUES (options)
 
 `-A`, `--admins ADMINS`
 
-:   Chef users to be added as admins
+: Chef users to be added as admins
 
 `-s`, `--server-url URL`
 
-:   Chef Infra Server URL
+: Chef Infra Server URL
 
 `--chef-zero-host HOST`
 
-:   Host to start chef-zero on
+: Host to start chef-zero on
 
 `--chef-zero-port PORT`
 
-:   Port (or port range) to start chef-zero on. Port ranges like
-    1000,1010 or 8889-9999 will try all given ports until one works.
+: Port (or port range) to start chef-zero on. Port ranges like 1000,1010 or 8889-9999 will try all given ports until one works.
 
 `-k`, `--key KEY`
 
-:   API Client Key
+: API Client Key
 
 `-C`, `--clients CLIENTS`
 
-:   Chef clients to be added as clients
+: Chef clients to be added as clients
 
 `--[no-]color`
 
-:   Use colored output, defaults to enabled
+: Use colored output, defaults to enabled
 
 `-c`, `--config CONFIG`
 
-:   The configuration file to use
+: The configuration file to use
 
 `--config-option OPTION=VALUE`
 
-:   Override a single configuration option
+: Override a single configuration option
 
 `--defaults`
 
-:   Accept default values for all questions
+: Accept default values for all questions
 
 `-d`, --disable-editing
 
-:   Do not open EDITOR, just accept the data as is
+: Do not open EDITOR, just accept the data as is
 
 `-e`, `--editor EDITOR`
 
-:   Set the editor to use for interactive commands
+: Set the editor to use for interactive commands
 
 `-E`, `--environment ENVIRONMENT`
 
-:   Set the Chef environment (except for in searches, where this will be
-    flagrantly ignored)
+: Set the Chef environment (except for in searches, where this will be flagrantly ignored)
 
 `--file FILE`
 
-:   File to be added to vault item as file-content
+: File to be added to vault item as file-content
 
 `--[no-]fips`
 
-:   Enable or disable fips mode
+: Enable or disable fips mode
 
 `-F`, `--format FORMAT`
 
-:   Which format to use for output
+: Which format to use for output
 
 `-J`, `--json FILE`
 
-:   File containing JSON data to encrypt
+: File containing JSON data to encrypt
 
 `-K`, `--keys-mode KEYS_MODE`
 
-:   Mode in which to save vault keys
+: Mode in which to save vault keys
 
 `--[no-]listen`
 
-:   Whether a local mode (-z) server binds to a port
+: Whether a local mode (-z) server binds to a port
 
 `-z`, `--local-mode`
 
-:   Point knife commands at local repository instead of server
+: Point knife commands at local repository instead of server
 
 `-u`, `--user USER`
 
-:   API Client Username
+: API Client Username
 
 `--print-after`
 
-:   Show the data after a destructive operation
+: Show the data after a destructive operation
 
 `-S`, `--search SEARCH`
 
-:   Chef SOLR search for clients
+: Chef SOLR search for clients
 
 `-M`, `--mode MODE`
 
-:   Chef mode to run in. Default Value: `solo`
+: Chef mode to run in. Default Value: `solo`
 
 `-V`, `--verbose`
 
-:   More verbose output. Use twice for max verbosity
+: More verbose output. Use twice for max verbosity
 
 `-v`, `--version`
 
-:   Show chef version
+: Show chef version
 
 `-y`, `--yes`
 
-:   Say yes to all prompts for confirmation
+: Say yes to all prompts for confirmation
 
 `-h`, `--help`
 
-:   Show this message
+: Show this message
 
 ### Example Commands
 
@@ -607,16 +603,16 @@ knife vault itemtype VAULT ITEM
 
 ### Global Options
 
-| Short Command           | Long Command      | Description                                                                                        | Default | Valid Values                         | Sub-Commands                  |
-|-------------------------|-------------------|----------------------------------------------------------------------------------------------------|---------|--------------------------------------|-------------------------------|
-| `-M`, `MODE`            | `--mode MODE`     | Chef mode to run in. Can be set in config.rb                                                       | `solo`  | `solo`, `client`                     | all                           |
-| `-S` `SEARCH`           | `--search SEARCH` | Chef Infra Server SOLR Search Of Nodes                                                             | none    | none                                 | `create`, `remove` , `update` |
-| `-A` `ADMINS`           | `--admins ADMINS` | Chef clients or users to be vault admins, can be comma list                                        | none    | none                                 | `create`, `remove` , `update` |
-| `-J` `FILE`             | `--json FILE`     | JSON file to be used for values, will be merged with VALUES if VALUES is passed                    | none    | none                                 | `create`, `update`            |
-| `--file` `FILE`         | none              | File that `chef-vault` should encrypt. It adds "file-content" & "file-name" keys to the vault item | none    | none                                 | `create`, `update`            |
-| `-p` `DATA`             | `--print DATA`    | Print extra vault data                                                                             | none    | `search`, `clients`, `admins`, `all` | `show`                        |
-| `-F` `FORMAT`           | `--format FORMAT` | Format for decrypted output                                                                        | summary | `summary`, `json`, `yaml`, `pp`      | `show`                        |
-| --clean-unknown-clients | none              | Remove unknown clients during key rotation                                                         | none    | none                                 | `refresh`, `remove`, `rotate` |
+| Short Command | Long Command | Description | Default | Valid Values | Sub-Commands |
+|---------------|--------------|-------------|---------|--------------|--------------|
+| `-M`, `MODE` | `--mode MODE` | Chef mode to run in. Can be set in config.rb | `solo`  | `solo`, `client` | all |
+| `-S` `SEARCH` | `--search SEARCH` | Chef Infra Server SOLR Search Of Nodes | none | none | `create`, `remove` , `update` |
+| `-A` `ADMINS` | `--admins ADMINS` | Chef clients or users to be vault admins, can be comma list | none | none | `create`, `remove` , `update` |
+| `-J` `FILE` | `--json FILE` | JSON file to be used for values, will be merged with VALUES if VALUES is passed | none | none | `create`, `update` |
+| `--file` `FILE` | none | File that `chef-vault` should encrypt. It adds "file-content" & "file-name" keys to the vault item | none | none | `create`, `update` |
+| `-p` `DATA` | `--print DATA` | Print extra vault data | none | `search`, `clients`, `admins`, `all` | `show` |
+| `-F` `FORMAT` | `--format FORMAT` | Format for decrypted output | summary | `summary`, `json`, `yaml`, `pp` | `show` |
+| --clean-unknown-clients | none | Remove unknown clients during key rotation | none | none | `refresh`, `remove`, `rotate` |
 
 ## Options for knife bootstrap
 
@@ -625,18 +621,15 @@ items that are stored in Chef Vault:
 
 `--bootstrap-vault-file VAULT_FILE`
 
-:   The path to a JSON file that contains a list of vaults and items to
-    be updated.
+: The path to a JSON file that contains a list of vaults and items to be updated.
 
 `--bootstrap-vault-item VAULT_ITEM`
 
-:   A single vault and item to update as `vault:item`.
+: A single vault and item to update as `vault:item`.
 
 `--bootstrap-vault-json VAULT_JSON`
 
-:   A JSON string that contains a list of vaults and items to be
-    updated. --bootstrap-vault-json '{ "vault1": \["item1", "item2"\],
-    "vault2": "item2" }'
+: A JSON string that contains a list of vaults and items to be updated. --bootstrap-vault-json '{ "vault1": \["item1", "item2"\], "vault2": "item2" }'
 
 ### Using Chef Vault in recipes
 
@@ -763,11 +756,9 @@ gem.
 To fall back to unencrypted JSON files in Test Kitchen, use the
 `chef_vault_item` helper in the aforementioned chef-vault cookbook.
 
-## For more information ...
+## More Information
 
 For more information about `chef-vault`:
 
--   [Nell Shamrell-Harringon's blog
-    post](https://blog.chef.io/2016/01/21/chef-vault-what-is-it-and-what-can-it-do-for-you/)
--   [Joshua Timberman's blog
-    post](https://www.chef.io/blog/2013/09/19/managing-secrets-with-chef-vault/)
+- [Nell Shamrell-Harringon's blog post](https://blog.chef.io/2016/01/21/chef-vault-what-is-it-and-what-can-it-do-for-you/)
+- [Joshua Timberman's blog post](https://www.chef.io/blog/2013/09/19/managing-secrets-with-chef-vault/)
