@@ -1,15 +1,21 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.1.241 -->
-## [21.1.241](https://github.com/chef/chef-workstation/tree/21.1.241) (2021-01-27)
+<!-- latest_release 21.1.247 -->
+## [21.1.247](https://github.com/chef/chef-workstation/tree/21.1.247) (2021-01-28)
 
 #### Merged Pull Requests
-- Bump train-core to 3.4.9 [#1670](https://github.com/chef/chef-workstation/pull/1670) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-cli to 3.0.36 [#1675](https://github.com/chef/chef-workstation/pull/1675) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.1.233 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-cli to 3.0.36 [#1675](https://github.com/chef/chef-workstation/pull/1675) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.247 -->
+- Bump kitchen-inspec to 2.3.0 [#1674](https://github.com/chef/chef-workstation/pull/1674) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.246 -->
+- Bump  to 16.9.32 [#1673](https://github.com/chef/chef-workstation/pull/1673) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.245 -->
+- Bump inspec-bin to 4.26.4 [#1671](https://github.com/chef/chef-workstation/pull/1671) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.244 -->
+- Bump omnibus from `44f1303` to `65c5931` in /omnibus [#1668](https://github.com/chef/chef-workstation/pull/1668) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.1.243 -->
+- Bump train to 3.4.9 [#1669](https://github.com/chef/chef-workstation/pull/1669) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.242 -->
 - Bump train-core to 3.4.9 [#1670](https://github.com/chef/chef-workstation/pull/1670) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.241 -->
 - Bump train to 3.4.8 [#1666](https://github.com/chef/chef-workstation/pull/1666) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.240 -->
 - roll out reporting [#1559](https://github.com/chef/chef-workstation/pull/1559) ([mudash](https://github.com/mudash)) <!-- 21.1.239 -->
