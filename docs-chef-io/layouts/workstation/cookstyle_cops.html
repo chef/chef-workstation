@@ -1,0 +1,72 @@
+{{ define "main" }}
+
+  <main id="main-content-col" tabindex="-1">
+    <div class="col-content">
+
+    <h1 id="{{ anchorize ( .Title )}}">{{ .Title }}</h1>
+
+    <button type="button" class="TOC-button hide-for-large" data-toggle="offCanvasRightTOC"
+      data-close="left-nav-off-canvas">
+      <i class="fas fa-bars"></i> Table of Contents
+    </button>
+
+    <div class="prose">
+
+    {{ $yaml_file := index $.Site.Data .Params.data_path }}
+    {{ $department := $yaml_file.department }}
+
+    <p>
+      <a href="/workstation/cookstyle/cops/">All Cookstyle Cops</a>
+    </p>
+    {{ range $yaml_file.cops }}
+      <h2 id="{{ $department | urlize }}-{{ .name | urlize }}">{{ $department}}/{{ .name }}</h2>
+
+      <p>
+        <table style="width:80%">
+          <tr>
+            <th>Enabled by default</th>
+            <th>Supports autocorrection</th>
+            <th>Target Chef Version</th>
+          </tr>
+          <tr>
+            <td style="text-align: center">{{ if .enabled }}Enabled{{ else }}Not Enabled{{ end }}</td>
+            <td style="text-align: center">{{ if .autocorrection }}Yes{{ else }}No{{ end }}</td>
+            <td style="text-align: center">{{ .target_chef_version | markdownify }}</td>
+          </tr>
+        </table>
+      </p>
+
+      <p>{{ .description | markdownify }}</p>
+
+      <h3 id="examples-{{ .name | urlize }}">Examples</h3>
+      <p>{{ .examples | markdownify }}</p>
+
+      <h3 id="configurable-attributes-{{ .name | urlize }}" >Configurable attributes</h3>
+
+      <table style="width:80%">
+        <tr>
+          <th>Name</th>
+          <th>Default value</th>
+          <th>Configurable values</th>
+        </tr>
+        <tr>
+          <td style="text-align: center">Version Added</td>
+          <td style="text-align: center">{{ .version_added }}</td>
+          <td style="text-align: center">String</td>
+        </tr>
+          <td style="text-align: center">{{ with .excluded_file_paths }}Exclude{{ end }}{{ with .included_file_paths }}Include{{ end }}</td>
+          <td style="text-align: center">{{ with .excluded_file_paths }}{{ . | markdownify }}{{ end }}{{ with .included_file_paths }}{{ . | markdownify }}{{ end }}</td>
+          <td style="text-align: center">Array</td>
+      </table>
+
+      <h3 id="references-{{ .name | urlize }}">References</h3>
+      <ul>
+        <li><a href="{{ .references }}">{{ .references }}</a></li>
+      </ul>
+
+    {{ end }}
+
+    </div>
+    {{ partialCached "feedback" . }}
+  </main>
+{{ end }}

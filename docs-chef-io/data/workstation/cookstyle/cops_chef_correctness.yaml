@@ -1,0 +1,43 @@
+department: "ChefCorrectness"
+cops:
+- name: BlockGuardWithOnlyString
+  description: "A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run."
+  enabled: true
+  autocorrection: true
+  target_chef_version: "All Versions"
+  examples: |
+      ```ruby
+      # bad
+      template '/etc/foo' do
+        mode '0644'
+        source 'foo.erb'
+        only_if { 'test -f /etc/foo' }
+      end
+
+      # good
+      template '/etc/foo' do
+        mode '0644'
+        source 'foo.erb'
+        only_if 'test -f /etc/foo'
+      end
+      ```
+  version_added: "5.2.0"
+  excluded_file_paths: "`**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile`"
+  references: https://rubystyle.guide#chefcorrectnessblockguardwithonlystring
+
+- name: ChefApplicationFatal
+  description: "Use raise to force Chef Infra Client to fail instead of using Chef::Application.fatal, which masks the full stack trace of the failure and makes debugging difficult."
+  enabled: true
+  autocorrection: true
+  target_chef_version: "All Versions"
+  examples: |
+      ```ruby
+      # bad
+      Chef::Application.fatal!('Something horrible happened!')
+
+      # good
+      raise "Something horrible happened!"
+      ```
+  version_added: "6.0.0"
+  excluded_file_paths: "`**/metadata.rb`, `**/Berksfile`"
+  references: https://rubystyle.guide#chefcorrectnessblockguardwithonlystring
