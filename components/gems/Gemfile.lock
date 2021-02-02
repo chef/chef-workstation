@@ -569,7 +569,7 @@ GEM
       fog-openstack (~> 1.0)
       ohai
       test-kitchen (>= 1.4.1, < 3)
-    kitchen-vagrant (1.7.2)
+    kitchen-vagrant (1.8.0)
       test-kitchen (>= 1.4, < 3)
     kitchen-vcenter (2.9.0)
       net-ping (>= 2.0.0, < 3.0)
@@ -1081,7 +1081,7 @@ DEPENDENCIES
   kitchen-hyperv (>= 0.5.1)
   kitchen-inspec (>= 2.2)
   kitchen-openstack (>= 5.0)
-  kitchen-vagrant (>= 1.7)
+  kitchen-vagrant (>= 1.8)
   kitchen-vcenter (>= 2.8)
   knife-azure (>= 3.0.0)
   knife-ec2 (>= 1.0.28)
