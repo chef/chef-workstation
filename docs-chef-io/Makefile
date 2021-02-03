@@ -20,15 +20,3 @@ chef_web_docs:
 	else \
 		git clone https://github.com/chef/chef-web-docs.git; \
 	fi
-
-# Generates blank Cookstyle Cop pages, one for each yaml file in data/workstation/cookstyle directory
-# And an index page that lists all of the cops.
-cookstyle_cops_pages:
-	find content/workstation/cookstyle/* ! -name '_index.md' -type f -exec rm -f {} +
-	dataDir=data/workstation/cookstyle; \
-	for f in $$(ls $${dataDir}); \
-		do echo $${f}; \
-		file=$${f%.yaml}; \
-		hugo new -k cops content/workstation/cookstyle/$${file}.md ; \
-	done
-	hugo new -k cops_list_all content/workstation/cookstyle/cops.md ;
