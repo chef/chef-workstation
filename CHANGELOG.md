@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.253 -->
-## [21.2.253](https://github.com/chef/chef-workstation/tree/21.2.253) (2021-02-03)
+<!-- latest_release 21.2.254 -->
+## [21.2.254](https://github.com/chef/chef-workstation/tree/21.2.254) (2021-02-03)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.110 [#1691](https://github.com/chef/chef-workstation/pull/1691) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `197c895` to `c523ead` in /omnibus [#1692](https://github.com/chef/chef-workstation/pull/1692) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.1.247 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `197c895` to `c523ead` in /omnibus [#1692](https://github.com/chef/chef-workstation/pull/1692) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.2.254 -->
 - Bump Chef Workstation App to 0.1.110 [#1691](https://github.com/chef/chef-workstation/pull/1691) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.253 -->
 - Bump ohai to 16.10.6 [#1690](https://github.com/chef/chef-workstation/pull/1690) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.252 -->
 - Update kitchen-vagrant to 1.8.0 [#1685](https://github.com/chef/chef-workstation/pull/1685) ([tas50](https://github.com/tas50)) <!-- 21.2.251 -->
