@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.251 -->
-## [21.2.251](https://github.com/chef/chef-workstation/tree/21.2.251) (2021-02-02)
+<!-- latest_release 21.2.252 -->
+## [21.2.252](https://github.com/chef/chef-workstation/tree/21.2.252) (2021-02-03)
 
 #### Merged Pull Requests
-- Update kitchen-vagrant to 1.8.0 [#1685](https://github.com/chef/chef-workstation/pull/1685) ([tas50](https://github.com/tas50))
+- Bump ohai to 16.10.6 [#1690](https://github.com/chef/chef-workstation/pull/1690) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.1.247 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump ohai to 16.10.6 [#1690](https://github.com/chef/chef-workstation/pull/1690) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.252 -->
 - Update kitchen-vagrant to 1.8.0 [#1685](https://github.com/chef/chef-workstation/pull/1685) ([tas50](https://github.com/tas50)) <!-- 21.2.251 -->
 - Bump cookstyle to 7.7.2 [#1684](https://github.com/chef/chef-workstation/pull/1684) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.250 -->
 - Bump cookstyle to 7.6.1 [#1683](https://github.com/chef/chef-workstation/pull/1683) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.1.249 -->
