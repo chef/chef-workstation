@@ -43,11 +43,7 @@ knife user create USERNAME DISPLAY_NAME FIRST_NAME LAST_NAME EMAIL PASSWORD (opt
 
 This argument has the following options:
 
-`-a`, `--admin`
-
-: Create a client as an admin client.
-
-`-f FILE_NAME`, `--file FILE_NAME`
+`-f FILE`, `--file FILE`
 
 : Save a private key to the specified file name.
 
@@ -55,7 +51,7 @@ This argument has the following options:
 
 : The user password.
 
-`--user-key FILE_NAME`
+`--user-key FILENAME`
 
 : The path to a file that contains the public key. If this option is not specified, the Chef Infra Server will generate a public/private key pair.
 
@@ -72,7 +68,7 @@ The following examples show how to use this knife subcommand:
 **Create a user**
 
 ``` bash
-knife user create rbirdman "Radio Birdman" Radio Birdman radio@bird.man -f /keys/radio_birdman
+knife user create tbucatar "Tamira Bucatar" tbucatar@example.com -f /keys/tbucatar
 ```
 
 ## delete
@@ -98,7 +94,7 @@ The following examples show how to use this knife subcommand:
 **Delete a user**
 
 ``` bash
-knife user delete "Steve Danno"
+knife user delete "Arjun Koch"
 ```
 
 ## edit
@@ -330,7 +326,7 @@ The following examples show how to use this knife subcommand:
 **Regenerate the RSA key-pair**
 
 ``` bash
-knife user reregister "Robert Younger"
+knife user reregister "Arjun Koch"
 ```
 
 ## show
@@ -359,10 +355,10 @@ The following examples show how to use this knife subcommand:
 
 **Show user data**
 
-To view a user named `Dennis Teck`, enter:
+To view a user named `Tamira Bucatar`, enter:
 
 ``` bash
-knife user show "Dennis Teck"
+knife user show "Tamira Bucatar"
 ```
 
 to return something like:
@@ -370,7 +366,7 @@ to return something like:
 ``` bash
 chef_type: user
 json_class:  Chef::User
-name:      Dennis Teck
+name:        Tamira Bucatar
 public_key:
 ```
 
@@ -380,7 +376,7 @@ To view information in JSON format, use the `-F` common option as part
 of the command like this:
 
 ``` bash
-knife user show "Dennis Teck" -F json
+knife user show "Tamira Bucatar" -F json
 ```
 
 (Other formats available include `text`, `yaml`, and `pp`, e.g.
