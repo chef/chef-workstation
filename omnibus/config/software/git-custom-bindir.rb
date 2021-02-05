@@ -23,6 +23,8 @@
 # TODO - when deleting this, also delete omnibus/config/templates/git-custom-bindir
 
 name "git-custom-bindir"
+skip_transitive_dependency_licensing true
+
 default_version "2.29.2"
 
 license "LGPL-2.1"
