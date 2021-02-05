@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.258 -->
-## [21.2.258](https://github.com/chef/chef-workstation/tree/21.2.258) (2021-02-05)
+<!-- latest_release 21.2.259 -->
+## [21.2.259](https://github.com/chef/chef-workstation/tree/21.2.259) (2021-02-05)
 
 #### Merged Pull Requests
-- Update nodejs to 14.15.4 [#1697](https://github.com/chef/chef-workstation/pull/1697) ([tas50](https://github.com/tas50))
+- Bump chef-cli to 3.1.0 [#1700](https://github.com/chef/chef-workstation/pull/1700) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.1.247 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-cli to 3.1.0 [#1700](https://github.com/chef/chef-workstation/pull/1700) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.259 -->
 - Update nodejs to 14.15.4 [#1697](https://github.com/chef/chef-workstation/pull/1697) ([tas50](https://github.com/tas50)) <!-- 21.2.258 -->
 - Product Amazon Linux 2 packages [#1696](https://github.com/chef/chef-workstation/pull/1696) ([tas50](https://github.com/tas50)) <!-- 21.2.257 -->
 - Bump Chef Infra Client to 16.10.8 [#1695](https://github.com/chef/chef-workstation/pull/1695) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.256 -->
