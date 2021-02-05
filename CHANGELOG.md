@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.256 -->
-## [21.2.256](https://github.com/chef/chef-workstation/tree/21.2.256) (2021-02-05)
+<!-- latest_release 21.2.257 -->
+## [21.2.257](https://github.com/chef/chef-workstation/tree/21.2.257) (2021-02-05)
 
 #### Merged Pull Requests
-- Bump Chef Infra Client to 16.10.8 [#1695](https://github.com/chef/chef-workstation/pull/1695) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Product Amazon Linux 2 packages [#1696](https://github.com/chef/chef-workstation/pull/1696) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.1.247 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Product Amazon Linux 2 packages [#1696](https://github.com/chef/chef-workstation/pull/1696) ([tas50](https://github.com/tas50)) <!-- 21.2.257 -->
 - Bump Chef Infra Client to 16.10.8 [#1695](https://github.com/chef/chef-workstation/pull/1695) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.256 -->
 - Bump kitchen-vcenter to 2.9.8 [#1694](https://github.com/chef/chef-workstation/pull/1694) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.255 -->
 - Bump omnibus-software from `197c895` to `c523ead` in /omnibus [#1692](https://github.com/chef/chef-workstation/pull/1692) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.2.254 -->
