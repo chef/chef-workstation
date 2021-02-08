@@ -1130,10 +1130,6 @@ None.
 
 {{% ctl_chef_export_syntax %}}
 
-#### Configuration Settings
-
-{{% ctl_chef_export_config %}}
-
 #### Options
 
 {{% ctl_chef_export_options %}}
