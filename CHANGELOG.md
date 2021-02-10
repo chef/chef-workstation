@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.260 -->
-## [21.2.260](https://github.com/chef/chef-workstation/tree/21.2.260) (2021-02-08)
+<!-- latest_release 21.2.261 -->
+## [21.2.261](https://github.com/chef/chef-workstation/tree/21.2.261) (2021-02-10)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `c523ead` to `1fa2052` in /omnibus [#1701](https://github.com/chef/chef-workstation/pull/1701) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Add a dep on win32-security to resolve failures in kitchen-vcenter [#1706](https://github.com/chef/chef-workstation/pull/1706) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.259 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Add a dep on win32-security to resolve failures in kitchen-vcenter [#1706](https://github.com/chef/chef-workstation/pull/1706) ([tas50](https://github.com/tas50)) <!-- 21.2.261 -->
 - Bump omnibus-software from `c523ead` to `1fa2052` in /omnibus [#1701](https://github.com/chef/chef-workstation/pull/1701) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.2.260 -->
 <!-- release_rollup -->
 
