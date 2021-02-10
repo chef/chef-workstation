@@ -132,4 +132,5 @@ platforms :mswin, :mingw do
   gem "win32-mutex"
   gem "win32-process", ">= 0.9.0" # resolves Ruby 2.7 warnings
   gem "win32-service", ">= 2.1.5" # 2.1.5 resolves ffi warnings
+  gem "win32-security" # remove this once https://github.com/eitoball/net-ping/pull/32 is merged
 end
