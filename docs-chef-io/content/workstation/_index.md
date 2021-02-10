@@ -1,8 +1,10 @@
 +++
 title = "About Chef Workstation"
 draft = false
-
 aliases = ["/about_workstation.html", "/about_chefdk.html", "/chef_dk.html", "/about_workstation/"]
+
+[cascade]
+  product = ["workstation"]
 
 [menu]
   [menu.workstation]
