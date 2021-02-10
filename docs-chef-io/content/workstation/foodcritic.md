@@ -3,13 +3,6 @@ title = "About Foodcritic"
 draft = false
 
 aliases = ["/foodcritic.html", "/foodcritic/"]
-
-[menu]
-  [menu.workstation]
-    title = "Foodcritic"
-    identifier = "chef_workstation/chef_workstation_tools/foodcritic.md Foodcritic"
-    parent = "chef_workstation/chef_workstation_tools"
-    weight = 110
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/foodcritic.md)
