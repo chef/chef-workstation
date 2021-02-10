@@ -2,6 +2,8 @@
 title = "knife diff"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_diff.html", "/knife_diff/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_diff.html", "/knife_diff/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_diff.md knife diff"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_diff.md)
 
 {{% knife_diff_summary %}}
 

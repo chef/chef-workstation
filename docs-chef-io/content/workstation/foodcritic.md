@@ -2,10 +2,10 @@
 title = "About Foodcritic"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/foodcritic.html", "/foodcritic/"]
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/foodcritic.md)
 
 {{< warning >}}
 

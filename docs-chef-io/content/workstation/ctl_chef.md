@@ -2,6 +2,8 @@
 title = "chef (executable)"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/ctl_chef.html", "/ctl_chef/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/ctl_chef.html", "/ctl_chef/"]
     parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/workstation/blob/master/www/content/workstation/ctl_chef.md)
 
 The chef executable is a command-line tool that does the following:
 

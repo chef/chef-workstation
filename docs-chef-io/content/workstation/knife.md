@@ -2,6 +2,8 @@
 title = "About Knife"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife.html", "/knife_using.html", "/knife/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/knife.html", "/knife_using.html", "/knife/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife.md)
 
 knife is a command-line tool that provides an interface between a local
 chef-repo and the Chef Infra Server. knife helps users to manage:

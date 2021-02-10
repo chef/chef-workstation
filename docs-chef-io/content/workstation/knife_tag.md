@@ -2,6 +2,8 @@
 title = "knife tag"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_tag.html", "/knife_tag/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_tag.html", "/knife_tag/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_tag.md knife tag"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_tag.md)
 
 {{% chef_tags %}}
 

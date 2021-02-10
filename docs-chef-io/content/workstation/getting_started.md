@@ -2,6 +2,8 @@
 title = "Getting Started"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html", "/workstation_setup/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html",
     parent = "chef_workstation"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/getting_started.md)
 
 This guide contains common configuration options used when setting up a
 new Chef Workstation installation. If you do not have Chef Workstation

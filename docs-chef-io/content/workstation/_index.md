@@ -2,6 +2,8 @@
 title = "About Chef Workstation"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/about_workstation.html", "/about_chefdk.html", "/chef_dk.html", "/about_workstation/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/about_workstation.html", "/about_chefdk.html", "/chef_dk.html", "/a
     parent = "chef_workstation"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/_index.md)
 
 {{% chef_workstation %}}
 

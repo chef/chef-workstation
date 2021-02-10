@@ -2,6 +2,8 @@
 title = "knife environment"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_environment.html", "/knife_environment/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_environment.html", "/knife_environment/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_environment.md knife environment"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_environment.md)
 
 {{% environment %}}
 

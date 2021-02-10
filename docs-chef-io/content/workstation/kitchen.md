@@ -2,6 +2,8 @@
 title = "Test Kitchen"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/kitchen.html", "/kitchen/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/kitchen.html", "/kitchen/"]
     parent = "chef_workstation/chef_workstation_tools/test_kitchen"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/kitchen.md)
 
 {{% test_kitchen %}}
 

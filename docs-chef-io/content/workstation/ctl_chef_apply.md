@@ -2,6 +2,8 @@
 title = "chef-apply (executable)"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/ctl_chef_apply.html", "/ctl_chef_apply/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/ctl_chef_apply.html", "/ctl_chef_apply/"]
     parent = "chef_workstation/chef_workstation_tools"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/ctl_chef_apply.md)
 
 chef-apply is an executable program that runs a single recipe from the
 command line:
