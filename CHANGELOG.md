@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.263 -->
-## [21.2.263](https://github.com/chef/chef-workstation/tree/21.2.263) (2021-02-11)
+<!-- latest_release 21.2.264 -->
+## [21.2.264](https://github.com/chef/chef-workstation/tree/21.2.264) (2021-02-11)
 
 #### Merged Pull Requests
-- Bump chef-cli to 3.1.1 [#1711](https://github.com/chef/chef-workstation/pull/1711) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump mixlib-archive to 1.1.4 [#1710](https://github.com/chef/chef-workstation/pull/1710) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.259 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump mixlib-archive to 1.1.4 [#1710](https://github.com/chef/chef-workstation/pull/1710) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.264 -->
 - Bump chef-cli to 3.1.1 [#1711](https://github.com/chef/chef-workstation/pull/1711) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.263 -->
 - Bump mixlib-archive to 1.1.3 and ffi-libarchive to 1.0.17 [#1708](https://github.com/chef/chef-workstation/pull/1708) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.262 -->
 - Add a dep on win32-security to resolve failures in kitchen-vcenter [#1706](https://github.com/chef/chef-workstation/pull/1706) ([tas50](https://github.com/tas50)) <!-- 21.2.261 -->
