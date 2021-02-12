@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.265 -->
-## [21.2.265](https://github.com/chef/chef-workstation/tree/21.2.265) (2021-02-11)
+<!-- latest_release 21.2.266 -->
+## [21.2.266](https://github.com/chef/chef-workstation/tree/21.2.266) (2021-02-12)
 
 #### Merged Pull Requests
-- Bump kitchen-azurerm to 1.5.0 [#1712](https://github.com/chef/chef-workstation/pull/1712) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump berkshelf to 7.2.0 [#1713](https://github.com/chef/chef-workstation/pull/1713) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.259 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump berkshelf to 7.2.0 [#1713](https://github.com/chef/chef-workstation/pull/1713) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.266 -->
 - Bump kitchen-azurerm to 1.5.0 [#1712](https://github.com/chef/chef-workstation/pull/1712) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.265 -->
 - Bump mixlib-archive to 1.1.4 [#1710](https://github.com/chef/chef-workstation/pull/1710) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.264 -->
 - Bump chef-cli to 3.1.1 [#1711](https://github.com/chef/chef-workstation/pull/1711) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.263 -->
