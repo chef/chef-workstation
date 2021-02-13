@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.268 -->
-## [21.2.268](https://github.com/chef/chef-workstation/tree/21.2.268) (2021-02-13)
+<!-- latest_release 21.2.269 -->
+## [21.2.269](https://github.com/chef/chef-workstation/tree/21.2.269) (2021-02-13)
 
 #### Merged Pull Requests
-- Bump mixlib-shellout to 3.2.5 [#1720](https://github.com/chef/chef-workstation/pull/1720) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump knife-cloud to 4.0.15 [#1721](https://github.com/chef/chef-workstation/pull/1721) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.259 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump knife-cloud to 4.0.15 [#1721](https://github.com/chef/chef-workstation/pull/1721) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.269 -->
 - Bump mixlib-shellout to 3.2.5 [#1720](https://github.com/chef/chef-workstation/pull/1720) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.268 -->
 - Bump Chef Workstation App to 0.1.112 [#1718](https://github.com/chef/chef-workstation/pull/1718) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.267 -->
 - Bump berkshelf to 7.2.0 [#1713](https://github.com/chef/chef-workstation/pull/1713) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.266 -->
