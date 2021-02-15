@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.271 -->
-## [21.2.271](https://github.com/chef/chef-workstation/tree/21.2.271) (2021-02-15)
+<!-- latest_release 21.2.272 -->
+## [21.2.272](https://github.com/chef/chef-workstation/tree/21.2.272) (2021-02-15)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.114 [#1726](https://github.com/chef/chef-workstation/pull/1726) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update license/copyright headers in omnibus + kitchen config [#1725](https://github.com/chef/chef-workstation/pull/1725) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.259 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update license/copyright headers in omnibus + kitchen config [#1725](https://github.com/chef/chef-workstation/pull/1725) ([tas50](https://github.com/tas50)) <!-- 21.2.272 -->
 - Bump Chef Workstation App to 0.1.114 [#1726](https://github.com/chef/chef-workstation/pull/1726) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.271 -->
 - Bump Chef Workstation App to 0.1.113 [#1723](https://github.com/chef/chef-workstation/pull/1723) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.270 -->
 - Bump knife-cloud to 4.0.15 [#1721](https://github.com/chef/chef-workstation/pull/1721) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.269 -->
