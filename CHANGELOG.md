@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.277 -->
-## [21.2.277](https://github.com/chef/chef-workstation/tree/21.2.277) (2021-02-15)
+<!-- latest_release 21.2.278 -->
+## [21.2.278](https://github.com/chef/chef-workstation/tree/21.2.278) (2021-02-15)
 
 #### Merged Pull Requests
-- Compile with -O3 not -O2 optimizations on Linux/macOS [#1731](https://github.com/chef/chef-workstation/pull/1731) ([tas50](https://github.com/tas50))
+- Bump omnibus-software from `1fa2052` to `dd2a33e` in /omnibus [#1732](https://github.com/chef/chef-workstation/pull/1732) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.259 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `1fa2052` to `dd2a33e` in /omnibus [#1732](https://github.com/chef/chef-workstation/pull/1732) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.2.278 -->
 - Compile with -O3 not -O2 optimizations on Linux/macOS [#1731](https://github.com/chef/chef-workstation/pull/1731) ([tas50](https://github.com/tas50)) <!-- 21.2.277 -->
 - Bump cookstyle to 7.8.0 [#1730](https://github.com/chef/chef-workstation/pull/1730) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.276 -->
 - Launch Chef Workstation App post install on macOS [#1724](https://github.com/chef/chef-workstation/pull/1724) ([tas50](https://github.com/tas50)) <!-- 21.2.275 -->
