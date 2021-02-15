@@ -102,7 +102,7 @@ For a complete list of all commands and platforms, run `kitchen list` or `kitche
 ## License
 
 ```text
-Copyright 2012-2019, Chef Software, Inc.
+Copyright Chef Software, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
