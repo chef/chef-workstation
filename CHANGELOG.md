@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.274 -->
-## [21.2.274](https://github.com/chef/chef-workstation/tree/21.2.274) (2021-02-15)
+<!-- latest_release 21.2.275 -->
+## [21.2.275](https://github.com/chef/chef-workstation/tree/21.2.275) (2021-02-15)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.116 [#1729](https://github.com/chef/chef-workstation/pull/1729) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Launch Chef Workstation App post install on macOS [#1724](https://github.com/chef/chef-workstation/pull/1724) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.259 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Launch Chef Workstation App post install on macOS [#1724](https://github.com/chef/chef-workstation/pull/1724) ([tas50](https://github.com/tas50)) <!-- 21.2.275 -->
 - Bump Chef Workstation App to 0.1.116 [#1729](https://github.com/chef/chef-workstation/pull/1729) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.274 -->
 - Bump Chef Workstation App to 0.1.115 [#1727](https://github.com/chef/chef-workstation/pull/1727) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.273 -->
 - Update license/copyright headers in omnibus + kitchen config [#1725](https://github.com/chef/chef-workstation/pull/1725) ([tas50](https://github.com/tas50)) <!-- 21.2.272 -->
