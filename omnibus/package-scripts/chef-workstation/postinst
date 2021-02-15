@@ -102,14 +102,16 @@ if is_darwin; then
   sudo rm -rf "/Applications/Chef Workstation App.app"
   sudo mv "Chef Workstation App.app" /Applications/
   mv "/Applications/Chef Workstation App.app/Contents/Resources/assets/scripts/$app_launcher" $INSTALLER_DIR/bin || error_exit "Cannot move $app_launcher to $INSTALLER_DIR/bin"
-  rm -f chef-workstation-app-mac.zip
+  rm -rf "$INSTALLER_DIR/components"
   popd
 
   ln -sf $INSTALLER_DIR/bin/uninstall_chef_workstation $PREFIX/bin || error_exit "Cannot link uninstall_chef_workstation to $PREFIX/bin"
 
-  # Restart the app if it was running.
-  echo "Restarting Chef Workstation App..."
+  echo "Setting Chef Workstation App to run at boot..."
   su "$USER" $INSTALLER_DIR/bin/$app_launcher load
+
+  echo "Launching Chef Workstation App..."
+  osascript -e 'open app "Chef Workstation App"' > /dev/null 2>&1;
 else # linux - postinst does not run for windows.
   cwa_app_path="$INSTALLER_DIR/components/chef-workstation-app/chef-workstation-app"
   ldd "$cwa_app_path" | grep "not found" >/dev/null 2>&1
@@ -124,7 +126,7 @@ else # linux - postinst does not run for windows.
     echo "The App will then be available in the system tray."
   else
     echo ""
-    echo "The Chef Workstation App is available for you to try."
+    echo "The Chef Workstation App is available."
     echo ""
     echo "Launch the App by running 'chef-workstation-app'."
     echo "The App will then be available in the system tray."
