@@ -134,26 +134,26 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
     - Red Hat Enterprise Linux
 
       ```bash
-      wget https://packages.chef.io/files/stable/chef-workstation/21.1.233/el/8/chef-workstation-21.1.233-1.el7.x86_64.rpm
+      wget https://packages.chef.io/files/stable/chef-workstation/21.2.278/el/8/chef-workstation-21.2.278-1.el7.x86_64.rpm
       ```
 
     - Debian/Ubuntu
 
       ``` bash
-      wget https://packages.chef.io/files/stable/chef-workstation/21.1.233/ubuntu/20.04/chef-workstation_21.1.233-1_amd64.deb
+      wget https://packages.chef.io/files/stable/chef-workstation/21.2.278/ubuntu/20.04/chef-workstation_21.2.278-1_amd64.deb
       ```
 
 1. Use your distribution's package manager to install Chef Workstation:
    - Red Hat Enterprise Linux:
 
         ``` bash
-        rpm -Uvh chef-workstation-21.1.233-1.el8.x86_64.rpm
+        rpm -Uvh chef-workstation-21.2.278-1.el8.x86_64.rpm
         ```
 
    - Debian/Ubuntu:
 
         ``` bash
-        dpkg -i chef-workstation_21.1.233-1_amd64.deb
+        dpkg -i chef-workstation_21.2.278-1_amd64.deb
         ```
 
 ## Verify the Installation
@@ -167,13 +167,13 @@ chef -v
 Which returns the versions of all installed Chef tools:
 
 ``` shell
-Chef Workstation version: 21.1.233
-Chef Infra Client version: 16.9.20
-Chef InSpec version: 4.24.32
-Chef CLI version: 3.0.35
+Chef Workstation version: 21.2.278
+Chef Infra Client version: 16.10.8
+Chef InSpec version: 4.26.4
+Chef CLI version: 3.1.1
 Chef Habitat version: 1.6.181
-Test Kitchen version: 2.9.0
-Cookstyle version: 7.5.3
+Test Kitchen version: 2.10.0
+Cookstyle version: 7.8.0
 ```
 
 ## Upgrading
