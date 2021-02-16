@@ -2,6 +2,8 @@
 title = "kitchen.yml"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/config_yml_kitchen.html", "/config_yml_kitchen/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/config_yml_kitchen.html", "/config_yml_kitchen/"]
     parent = "chef_workstation/chef_workstation_tools/test_kitchen"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/config_yml_kitchen.md)
 
 Use [Test Kitchen](https://kitchen.ci/) to automatically test cookbook
 data across any combination of platforms and test suites:

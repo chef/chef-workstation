@@ -2,6 +2,8 @@
 title = "chef-shell (executable)"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/chef_shell.html", "/chef_shell/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/chef_shell.html", "/chef_shell/"]
     parent = "chef_workstation/chef_workstation_tools"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/ctl_chef_shell.md)
 
 {{% chef_shell_summary %}}
 

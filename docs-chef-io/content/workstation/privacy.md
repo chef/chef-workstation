@@ -2,6 +2,8 @@
 title = "Privacy and Telemetry"
 draft = false
 
+gh_repo = "chef-workstation"
+
 [menu]
   [menu.workstation]
     title = "Privacy and Telemetry"
@@ -9,8 +11,6 @@ draft = false
     parent = "chef_workstation"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/privacy.md)
 
 In order to continually improve Chef Workstation, we collect information to help us identify bugs and understand how people interact with Chef Workstation.
 

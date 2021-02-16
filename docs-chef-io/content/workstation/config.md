@@ -2,6 +2,8 @@
 title = "Configure Chef Workstation"
 draft = false
 
+gh_repo = "chef-workstation"
+
 [menu]
   [menu.workstation]
     title = "Configure Chef Workstation"
@@ -9,8 +11,6 @@ draft = false
     parent = "chef_workstation"
     weight = 50
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/config.md)
 
 
 # Configuration

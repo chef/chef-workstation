@@ -2,6 +2,8 @@
 title = "config.rb"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/config_rb.html", "/config_rb_knife.html", "/config_rb/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/config_rb.html", "/config_rb_knife.html", "/config_rb/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/config_rb.md)
 
 {{< warning >}}
 

@@ -8,7 +8,7 @@
     <description>Chef Workstation gives you everything you need to get started with Chef. Ad-hoc remote execution, scans and configuration tasks, cookbook creation tools, as well as robust dependency and testing software all in one easy-to-install package.</description>
     <authors>Chef Software, Inc.</authors>
     <owners>Chef Software, Inc.</owners>
-    <copyright>2018-2020 Chef Software, Inc.</copyright>
+    <copyright>2018-2021 Chef Software, Inc.</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <bugTrackerUrl>https://github.com/chef/chef-workstation/issues</bugTrackerUrl>
     <docsUrl>https://docs.chef.io/workstation/</docsUrl>

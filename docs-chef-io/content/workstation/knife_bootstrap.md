@@ -2,6 +2,8 @@
 title = "knife bootstrap"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_bootstrap.html", "/knife_bootstrap/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_bootstrap.html", "/knife_bootstrap/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_bootstrap.md knife bootstrap"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_bootstrap.md)
 
 {{% chef_client_bootstrap_node %}}
 

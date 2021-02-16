@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.4.4)
+    activesupport (5.2.4.5)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -14,7 +14,7 @@ GEM
     artifactory (3.0.15)
     ast (2.4.2)
     aws-eventstream (1.1.0)
-    aws-partitions (1.424.0)
+    aws-partitions (1.427.0)
     aws-sdk-apigateway (1.59.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
@@ -48,7 +48,7 @@ GEM
     aws-sdk-cloudhsmv2 (1.32.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-cloudtrail (1.32.0)
+    aws-sdk-cloudtrail (1.33.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-cloudwatch (1.49.0)
@@ -66,7 +66,7 @@ GEM
     aws-sdk-codedeploy (1.38.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-codepipeline (1.40.0)
+    aws-sdk-codepipeline (1.41.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-cognitoidentity (1.29.0)
@@ -75,7 +75,7 @@ GEM
     aws-sdk-cognitoidentityprovider (1.48.0)
       aws-sdk-core (~> 3, >= 3.109.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-configservice (1.56.0)
+    aws-sdk-configservice (1.57.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-core (3.112.0)
@@ -104,10 +104,10 @@ GEM
     aws-sdk-efs (1.37.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-eks (1.47.0)
+    aws-sdk-eks (1.48.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-elasticache (1.52.0)
+    aws-sdk-elasticache (1.53.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-elasticbeanstalk (1.41.0)
@@ -116,7 +116,7 @@ GEM
     aws-sdk-elasticloadbalancing (1.30.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-elasticloadbalancingv2 (1.58.0)
+    aws-sdk-elasticloadbalancingv2 (1.60.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-elasticsearchservice (1.48.0)
@@ -131,7 +131,7 @@ GEM
     aws-sdk-guardduty (1.44.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-iam (1.47.0)
+    aws-sdk-iam (1.48.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-kafka (1.34.0)
@@ -152,7 +152,7 @@ GEM
     aws-sdk-ram (1.22.0)
       aws-sdk-core (~> 3, >= 3.109.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-rds (1.112.0)
+    aws-sdk-rds (1.114.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-redshift (1.54.0)
@@ -167,7 +167,7 @@ GEM
     aws-sdk-route53resolver (1.23.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.88.0)
+    aws-sdk-s3 (1.88.1)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
@@ -227,13 +227,13 @@ GEM
     bcrypt_pbkdf (1.1.0.rc2)
     bcrypt_pbkdf (1.1.0.rc2-x64-mingw32)
     bcrypt_pbkdf (1.1.0.rc2-x86-mingw32)
-    berkshelf (7.1.0)
+    berkshelf (7.2.0)
       chef (>= 15.7.32)
       chef-config
       cleanroom (~> 1.0)
       concurrent-ruby (~> 1.0)
       minitar (>= 0.6)
-      mixlib-archive (>= 0.4, < 2.0)
+      mixlib-archive (>= 1.1.4, < 2.0)
       mixlib-config (>= 2.2.5)
       mixlib-shellout (>= 2.0, < 4.0)
       octokit (~> 4.0)
@@ -346,7 +346,7 @@ GEM
       tty-spinner
     chef-bin (16.10.8)
       chef (= 16.10.8)
-    chef-cli (3.1.0)
+    chef-cli (3.1.1)
       addressable (>= 2.3.5, < 2.8)
       chef (>= 15.0)
       cookbook-omnifetch (~> 0.5)
@@ -387,8 +387,8 @@ GEM
       chef-cli
       fauxhai-ng (>= 7.5)
       rspec (~> 3.0)
-    chefstyle (1.6.2)
-      rubocop (= 1.9.1)
+    chefstyle (1.7.1)
+      rubocop (= 1.10.0)
     citrus (3.0.2)
     cleanroom (1.0.0)
     coderay (1.1.3)
@@ -397,8 +397,8 @@ GEM
     concurrent-ruby (1.1.8)
     cookbook-omnifetch (0.11.1)
       mixlib-archive (>= 0.4, < 2.0)
-    cookstyle (7.7.2)
-      rubocop (= 1.9.1)
+    cookstyle (7.8.0)
+      rubocop (= 1.10.0)
     debug_inspector (1.0.0)
     declarative (0.0.20)
     declarative-option (0.1.0)
@@ -439,7 +439,7 @@ GEM
     ffi (1.14.2)
     ffi (1.14.2-x64-mingw32)
     ffi (1.14.2-x86-mingw32)
-    ffi-libarchive (1.0.4)
+    ffi-libarchive (1.0.17)
       ffi (~> 1.0)
     ffi-win32-extensions (1.0.4)
       ffi
@@ -495,7 +495,7 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httpclient (2.8.3)
-    i18n (1.8.8)
+    i18n (1.8.9)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     inifile (3.0.0)
@@ -538,7 +538,7 @@ GEM
     json (2.5.1)
     jwt (2.2.2)
     kartograph (0.2.8)
-    kitchen-azurerm (1.4.0)
+    kitchen-azurerm (1.5.0)
       azure_mgmt_network (~> 0.18, >= 0.18.2)
       azure_mgmt_resources (~> 0.17, >= 0.17.2)
       inifile (~> 3.0, >= 3.0.0)
@@ -586,7 +586,7 @@ GEM
       ipaddress
       listen (~> 3.1)
       nokogiri (>= 1.5.5)
-    knife-cloud (4.0.6)
+    knife-cloud (4.0.15)
       chef (>= 15.11)
       excon (>= 0.50)
       mixlib-shellout
@@ -646,14 +646,14 @@ GEM
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2020.1104)
+    mime-types-data (3.2021.0212)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitar (0.9)
     minitest (5.13.0)
-    mixlib-archive (1.0.7)
+    mixlib-archive (1.1.4)
       mixlib-log
-    mixlib-archive (1.0.7-universal-mingw32)
+    mixlib-archive (1.1.4-universal-mingw32)
       mixlib-log
     mixlib-authentication (3.0.7)
     mixlib-cli (2.1.8)
@@ -664,9 +664,9 @@ GEM
       mixlib-versioning
       thor
     mixlib-log (3.0.9)
-    mixlib-shellout (3.2.2)
+    mixlib-shellout (3.2.5)
       chef-utils
-    mixlib-shellout (3.2.2-universal-mingw32)
+    mixlib-shellout (3.2.5-universal-mingw32)
       chef-utils
       ffi-win32-extensions (~> 1.0.3)
       win32-process (~> 0.9)
@@ -742,7 +742,7 @@ GEM
     pry-remote (0.1.8)
       pry (~> 0.9)
       slop (~> 3.0)
-    pry-stack_explorer (0.6.0)
+    pry-stack_explorer (0.6.1)
       binding_of_caller (~> 1.0)
       pry (~> 0.13)
     public_suffix (4.0.6)
@@ -788,7 +788,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
-    rubocop (1.9.1)
+    rubocop (1.10.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -1011,6 +1011,9 @@ GEM
       win32-ipc (>= 0.6.0)
     win32-process (0.9.0)
       ffi (>= 1.0.0)
+    win32-security (0.5.0)
+      ffi
+      ffi-win32-extensions
     win32-service (2.2.0)
       ffi
       ffi-win32-extensions
@@ -1113,6 +1116,7 @@ DEPENDENCIES
   win32-event
   win32-mutex
   win32-process (>= 0.9.0)
+  win32-security
   win32-service (>= 2.1.5)
   windows-pr
   winrm-elevated
