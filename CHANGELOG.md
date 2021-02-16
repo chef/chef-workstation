@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.279 -->
-## [21.2.279](https://github.com/chef/chef-workstation/tree/21.2.279) (2021-02-16)
+<!-- latest_release 21.2.280 -->
+## [21.2.280](https://github.com/chef/chef-workstation/tree/21.2.280) (2021-02-16)
 
 #### Merged Pull Requests
-- Remove macOS 10.13 from the build matrix [#1556](https://github.com/chef/chef-workstation/pull/1556) ([tas50](https://github.com/tas50))
+- Bump kitchen-inspec to 2.4.0 [#1745](https://github.com/chef/chef-workstation/pull/1745) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.278 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-inspec to 2.4.0 [#1745](https://github.com/chef/chef-workstation/pull/1745) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.280 -->
 - Remove macOS 10.13 from the build matrix [#1556](https://github.com/chef/chef-workstation/pull/1556) ([tas50](https://github.com/tas50)) <!-- 21.2.279 -->
 <!-- release_rollup -->
 
