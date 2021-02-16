@@ -6,6 +6,9 @@ gh_repo = "chef-workstation"
 
 aliases = ["/about_workstation.html", "/about_chefdk.html", "/chef_dk.html", "/about_workstation/"]
 
+[cascade]
+  product = ["workstation"]
+
 [menu]
   [menu.workstation]
     title = "About Chef Workstation"
