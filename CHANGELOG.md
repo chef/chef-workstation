@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 21.2.279 -->
+## [21.2.279](https://github.com/chef/chef-workstation/tree/21.2.279) (2021-02-16)
+
+#### Merged Pull Requests
+- Remove macOS 10.13 from the build matrix [#1556](https://github.com/chef/chef-workstation/pull/1556) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=21.2.278 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Remove macOS 10.13 from the build matrix [#1556](https://github.com/chef/chef-workstation/pull/1556) ([tas50](https://github.com/tas50)) <!-- 21.2.279 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
