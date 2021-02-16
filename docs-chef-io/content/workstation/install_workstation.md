@@ -110,9 +110,9 @@ Alternately, install Chef Workstation using the [Homebrew](https://brew.sh/) pac
 
 #### Headless Unattended Install
 
-"Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse. They are usually controlled over a network connection.
+"Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse. They are usually administering remotely using protocols such as SSH or WinRM.
 
-To install Chef Workstation on a headless Windows system, exclude the Chef Workstation App from auto-starting on login by using the following command in Windows PowerShell or `cmd.exe`. Replace `MsiPath` with the path of the downloaded Chef Workstation installer.
+Chef Workstation can be installed on a headless system using the `msiexec` command and flags to skip the installation of the Chef Workstation Application, which requires a GUI. Run the following command in Windows PowerShell or `cmd.exe`, replacing `MsiPath` with the path of the downloaded Chef Workstation installer.
 
 ```
 msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
