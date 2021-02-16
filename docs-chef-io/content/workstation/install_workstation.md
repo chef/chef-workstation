@@ -41,6 +41,10 @@ Supported Host Operating Systems:
 </tr>
 </thead>
 <tbody>
+<tr class="even">
+<td>Amazon Linux</td>
+<td>2.x</td>
+</tr>
 <tr class="odd">
 <td>Apple macOS</td>
 <td>10.13, 10.14, 10.15, 11.0</td>
