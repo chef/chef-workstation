@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.283 -->
-## [21.2.283](https://github.com/chef/chef-workstation/tree/21.2.283) (2021-02-17)
+<!-- latest_release 21.2.284 -->
+## [21.2.284](https://github.com/chef/chef-workstation/tree/21.2.284) (2021-02-17)
 
 #### Merged Pull Requests
-- Bump mixlib-archive to 1.1.6 [#1748](https://github.com/chef/chef-workstation/pull/1748) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 7.8.3 [#1750](https://github.com/chef/chef-workstation/pull/1750) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.278 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump cookstyle to 7.8.3 [#1750](https://github.com/chef/chef-workstation/pull/1750) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.284 -->
 - Bump mixlib-archive to 1.1.6 [#1748](https://github.com/chef/chef-workstation/pull/1748) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.283 -->
 - Update kitchen-openstack to 6.0 [#1747](https://github.com/chef/chef-workstation/pull/1747) ([tas50](https://github.com/tas50)) <!-- 21.2.282 -->
 - Bump omnibus from `f939485` to `c882886` in /omnibus [#1746](https://github.com/chef/chef-workstation/pull/1746) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.2.281 -->
