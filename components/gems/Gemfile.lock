@@ -651,9 +651,9 @@ GEM
     mini_portile2 (2.4.0)
     minitar (0.9)
     minitest (5.13.0)
-    mixlib-archive (1.1.4)
+    mixlib-archive (1.1.6)
       mixlib-log
-    mixlib-archive (1.1.4-universal-mingw32)
+    mixlib-archive (1.1.6-universal-mingw32)
       mixlib-log
     mixlib-authentication (3.0.7)
     mixlib-cli (2.1.8)
