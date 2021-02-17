@@ -39,14 +39,14 @@ the actual configuration.
 
 Chef Infra defines a common workflow for cookbook development:
 
-1. Create a skeleton cookbook by running `chef generate cookbook MY_COOKBOOK_NAME`. This will generate a cookbook with a single recipe and testing configuration for Test Kitchen with Chef InSpec.
-1. Write cookbook recipes or resources and debug those recipes as they are being written using Cookstyle and Test Kitchen. This is typically an iterative process, where cookbooks are tested as they are developed, bugs are fixed quickly, and then cookbooks are tested again. A text editor---Visual Studio Code, Atom, vim, or any other preferred text editor---is used to author the files in the cookbook.
-1. Perform acceptance tests. These tests are not done in a development environment, but rather are done against using an environment that matches the production environment as closely as possible.
-1. When the cookbooks pass all the acceptance tests and have been verified to work in the desired manner, deploy the cookbooks to the production environment.
+1. Create a skeleton cookbook by running `chef generate cookbook MY_COOKBOOK_NAME`. This generates a cookbook with a single recipe and testing configuration for Test Kitchen with Chef InSpec.
+1. Write cookbook recipes or resources and lint and debug them with Cookstyle and Test Kitchen. Making your own cookbooks is an iterative process where you  develop, test, find and fix bugs, and then develop and test some more. A text editor---Visual Studio Code, Atom, vim, or any other preferred text editor---is the only tool that you need to author your cookbooks.
+1. Test in acceptance. Test your work in an environment that matches your production environment as closely as possible.
+1. Deploy your cookbooks to the production environment, but only after they pass all the acceptance tests and are verified to work in the desired manner.
 
 ## Tools
 
-Chef Workstation packages all the tools necessary to be successful with Chef Infra and InSpec. These tools are combined into native packages for common operating systems and include all the dependencies you need to get started.
+Chef Workstation packages all the tools necessary to be successful with Chef Infra and InSpec. These tools are combined into packages for common operating systems and include all the dependencies you need to get started.
 
 The most important tools included in Chef Workstation are:
 
