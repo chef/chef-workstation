@@ -93,28 +93,28 @@ and `C:\opscode\chef-workstation\` on Windows. These file locations
 should help avoid interference between these components and other
 applications that may be running on the target machine.
 
-### macOS
+### macOS Install
 
 1. Visit the [Chef Workstation downloads page](https://downloads.chef.io/tools/workstation#mac_os_x) and select the appropriate package for your macOS version. Select on the **Download** button.
-2. Follow the steps to accept the license and install Chef Workstation.
+1. Follow the steps to accept the license and install Chef Workstation.
 
 Alternately, install Chef Workstation using the [Homebrew](https://brew.sh/) package manager:
 
 `brew install --cask chef-workstation`
 
-### Windows
+### Windows Install
 
 1. Visit the [Chef Workstation downloads page](https://downloads.chef.io/tools/workstation#windows) and select the appropriate package for your Windows version. Click on the **Download** button.
-2. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the `C:\opscode\chef-workstation\` directory.
-3. **Optional:** Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell instead of `cmd.exe`.
+1. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the `C:\opscode\chef-workstation\` directory.
+1. **Optional:** Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell instead of `cmd.exe`.
 
 #### Headless Unattended Install
 
-"Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse. They are usually administering remotely using protocols such as SSH or WinRM.
+"Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse. They are usually administered remotely using protocols such as SSH or WinRM.
 
 Chef Workstation can be installed on a headless system using the `msiexec` command and flags to skip the installation of the Chef Workstation Application, which requires a GUI. Run the following command in Windows PowerShell or `cmd.exe`, replacing `MsiPath` with the path of the downloaded Chef Workstation installer.
 
-```
+```powershell
 msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
 ```
 
@@ -183,7 +183,7 @@ For all platforms, follow the steps provided under [Installing]({{< ref "install
 
 ### From ChefDK
 
-#### Linux
+#### Linux Upgrades
 
 The Chef Workstation package conflicts with an installed ChefDK package to prevent unintentional upgrades.
 
@@ -207,15 +207,15 @@ For other platforms, follow the steps provided under [Installing]({{< ref "#inst
 
 ## Uninstalling
 
-### Mac
+### Mac Uninstall
 
 Run `uninstall_chef_workstation` in your terminal.
 
-### Windows
+### Windows Uninstall
 
 Use **Add / Remove Programs** to remove Chef Workstation.
 
-### Linux
+### Linux Uninstall
 
 Ubuntu, Debian, and related:
 
