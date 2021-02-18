@@ -27,7 +27,7 @@ system.
 
 {{< note >}}
 
-These instructions are intended for macOS and Linux users.
+These instructions are intended for macOS and Linux users. On Windows Chef Workstation includes a desktop shortcut to a PowerShell prompt already configured for use.
 
 {{< /note >}}
 
