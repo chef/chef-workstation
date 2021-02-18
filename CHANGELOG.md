@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.286 -->
-## [21.2.286](https://github.com/chef/chef-workstation/tree/21.2.286) (2021-02-18)
+<!-- latest_release 21.2.287 -->
+## [21.2.287](https://github.com/chef/chef-workstation/tree/21.2.287) (2021-02-18)
 
 #### Merged Pull Requests
-- Bump kitchen-azurerm to 1.5.1 [#1751](https://github.com/chef/chef-workstation/pull/1751) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump mixlib-archive to 1.1.7 [#1752](https://github.com/chef/chef-workstation/pull/1752) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.278 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump mixlib-archive to 1.1.7 [#1752](https://github.com/chef/chef-workstation/pull/1752) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.287 -->
 - Bump kitchen-azurerm to 1.5.1 [#1751](https://github.com/chef/chef-workstation/pull/1751) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.286 -->
 - Bump omnibus-software from `dd2a33e` to `1dd8635` in /omnibus [#1749](https://github.com/chef/chef-workstation/pull/1749) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.2.285 -->
 - Bump cookstyle to 7.8.3 [#1750](https://github.com/chef/chef-workstation/pull/1750) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.284 -->
