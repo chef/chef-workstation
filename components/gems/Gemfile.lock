@@ -36,7 +36,7 @@ GEM
     aws-sdk-budgets (1.37.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-cloudformation (1.47.0)
+    aws-sdk-cloudformation (1.48.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-cloudfront (1.48.0)
@@ -659,7 +659,7 @@ GEM
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
-    mixlib-install (3.12.5)
+    mixlib-install (3.12.7)
       mixlib-shellout
       mixlib-versioning
       thor
