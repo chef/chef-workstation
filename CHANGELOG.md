@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.291 -->
-## [21.2.291](https://github.com/chef/chef-workstation/tree/21.2.291) (2021-02-19)
+<!-- latest_release 21.2.292 -->
+## [21.2.292](https://github.com/chef/chef-workstation/tree/21.2.292) (2021-02-19)
 
 #### Merged Pull Requests
-- Update openssl to 1.0.2y and fix fastmsi installs [#1757](https://github.com/chef/chef-workstation/pull/1757) ([tas50](https://github.com/tas50))
+- Bump Chef Infra Client to 16.10.17 [#1758](https://github.com/chef/chef-workstation/pull/1758) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.278 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Infra Client to 16.10.17 [#1758](https://github.com/chef/chef-workstation/pull/1758) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.292 -->
 - Update openssl to 1.0.2y and fix fastmsi installs [#1757](https://github.com/chef/chef-workstation/pull/1757) ([tas50](https://github.com/tas50)) <!-- 21.2.291 -->
 - Bump kitchen-azurerm to 1.5.2 [#1755](https://github.com/chef/chef-workstation/pull/1755) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.290 -->
 - Bump mixlib-install to 3.12.7 [#1754](https://github.com/chef/chef-workstation/pull/1754) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.289 -->
