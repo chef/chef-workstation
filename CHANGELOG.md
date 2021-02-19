@@ -1,32 +1,30 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.292 -->
-## [21.2.292](https://github.com/chef/chef-workstation/tree/21.2.292) (2021-02-19)
-
-#### Merged Pull Requests
-- Bump Chef Infra Client to 16.10.17 [#1758](https://github.com/chef/chef-workstation/pull/1758) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=21.2.278 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Bump Chef Infra Client to 16.10.17 [#1758](https://github.com/chef/chef-workstation/pull/1758) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.292 -->
-- Update openssl to 1.0.2y and fix fastmsi installs [#1757](https://github.com/chef/chef-workstation/pull/1757) ([tas50](https://github.com/tas50)) <!-- 21.2.291 -->
-- Bump kitchen-azurerm to 1.5.2 [#1755](https://github.com/chef/chef-workstation/pull/1755) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.290 -->
-- Bump mixlib-install to 3.12.7 [#1754](https://github.com/chef/chef-workstation/pull/1754) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.289 -->
-- Bump mixlib-archive to 1.1.7 [#1753](https://github.com/chef/chef-workstation/pull/1753) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.288 -->
-- Bump mixlib-archive to 1.1.7 [#1752](https://github.com/chef/chef-workstation/pull/1752) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.287 -->
-- Bump kitchen-azurerm to 1.5.1 [#1751](https://github.com/chef/chef-workstation/pull/1751) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.286 -->
-- Bump omnibus-software from `dd2a33e` to `1dd8635` in /omnibus [#1749](https://github.com/chef/chef-workstation/pull/1749) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.2.285 -->
-- Bump cookstyle to 7.8.3 [#1750](https://github.com/chef/chef-workstation/pull/1750) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.284 -->
-- Bump mixlib-archive to 1.1.6 [#1748](https://github.com/chef/chef-workstation/pull/1748) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.283 -->
-- Update kitchen-openstack to 6.0 [#1747](https://github.com/chef/chef-workstation/pull/1747) ([tas50](https://github.com/tas50)) <!-- 21.2.282 -->
-- Bump omnibus from `f939485` to `c882886` in /omnibus [#1746](https://github.com/chef/chef-workstation/pull/1746) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.2.281 -->
-- Bump kitchen-inspec to 2.4.0 [#1745](https://github.com/chef/chef-workstation/pull/1745) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.280 -->
-- Remove macOS 10.13 from the build matrix [#1556](https://github.com/chef/chef-workstation/pull/1556) ([tas50](https://github.com/tas50)) <!-- 21.2.279 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [21.2.292](https://github.com/chef/chef-workstation/tree/21.2.292) (2021-02-19)
+
+#### Merged Pull Requests
+- Remove macOS 10.13 from the build matrix [#1556](https://github.com/chef/chef-workstation/pull/1556) ([tas50](https://github.com/tas50))
+- Bump kitchen-inspec to 2.4.0 [#1745](https://github.com/chef/chef-workstation/pull/1745) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus from `f939485` to `c882886` in /omnibus [#1746](https://github.com/chef/chef-workstation/pull/1746) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Update kitchen-openstack to 6.0 [#1747](https://github.com/chef/chef-workstation/pull/1747) ([tas50](https://github.com/tas50))
+- Bump mixlib-archive to 1.1.6 [#1748](https://github.com/chef/chef-workstation/pull/1748) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 7.8.3 [#1750](https://github.com/chef/chef-workstation/pull/1750) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `dd2a33e` to `1dd8635` in /omnibus [#1749](https://github.com/chef/chef-workstation/pull/1749) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump kitchen-azurerm to 1.5.1 [#1751](https://github.com/chef/chef-workstation/pull/1751) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump mixlib-archive to 1.1.7 [#1752](https://github.com/chef/chef-workstation/pull/1752) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump mixlib-archive to 1.1.7 [#1753](https://github.com/chef/chef-workstation/pull/1753) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump mixlib-install to 3.12.7 [#1754](https://github.com/chef/chef-workstation/pull/1754) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-azurerm to 1.5.2 [#1755](https://github.com/chef/chef-workstation/pull/1755) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update openssl to 1.0.2y and fix fastmsi installs [#1757](https://github.com/chef/chef-workstation/pull/1757) ([tas50](https://github.com/tas50))
+- Bump Chef Infra Client to 16.10.17 [#1758](https://github.com/chef/chef-workstation/pull/1758) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_stable_release -->
+
 ## [21.2.278](https://github.com/chef/chef-workstation/tree/21.2.278) (2021-02-16)
 
 #### Merged Pull Requests
@@ -49,7 +47,6 @@
 - Bump cookstyle to 7.8.0 [#1730](https://github.com/chef/chef-workstation/pull/1730) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Compile with -O3 not -O2 optimizations on Linux/macOS [#1731](https://github.com/chef/chef-workstation/pull/1731) ([tas50](https://github.com/tas50))
 - Bump omnibus-software from `1fa2052` to `dd2a33e` in /omnibus [#1732](https://github.com/chef/chef-workstation/pull/1732) ([dependabot[bot]](https://github.com/dependabot[bot]))
-<!-- latest_stable_release -->
 
 ## [21.2.259](https://github.com/chef/chef-workstation/tree/21.2.259) (2021-02-06)
 
