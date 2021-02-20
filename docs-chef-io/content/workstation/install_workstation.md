@@ -181,33 +181,7 @@ Cookstyle version: 7.8.0
 
 ## Upgrading
 
-### From Chef Workstation
-
-For all platforms, follow the steps provided under [Installing]({{< ref "install_workstation.md" >}}).
-
-### From ChefDK
-
-#### Linux Upgrades
-
-The Chef Workstation package conflicts with an installed ChefDK package to prevent unintentional upgrades.
-
-Prior to installing Chef Workstation, first uninstall ChefDK:
-
-Ubuntu, Debian, and related:
-
-```bash
-sudo dpkg -P chefdk
-```
-
-Red Hat, CentOS, and related:
-
-```bash
-sudo rpm -e chefdk
-```
-
-#### Other
-
-For other platforms, follow the steps provided under [Installing]({{< ref "#installing" >}}).
+To upgrade from ChefDK or an earlier release of Chef Workstation follow the instructions provided under [Installing]({{< ref "install_workstation.md" >}}).
 
 ## Uninstalling
 
