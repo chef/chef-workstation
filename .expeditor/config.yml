@@ -86,6 +86,8 @@ subscriptions:
       - bash:.expeditor/update_chef-analyze_to_latest.sh
   - workload: artifact_published:stable:chef:16*
     actions:
+      # hack to make sure update_dep creates a proper PR title
+      - export EXPEDITOR_GEM_NAME="Chef Infra Client"
       # update our pinned version for chef/chef-bin in Gemfile
       - bash:.expeditor/update_chef.sh
       # update gemfile.lock and make it a PR
