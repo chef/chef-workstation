@@ -1062,16 +1062,16 @@ DEPENDENCIES
   chef-bin (= 16.10.17)
   chef-cli (>= 3.0.4)
   chef-telemetry (>= 1.0.8)
-  chef_deprecations (>= 0.1.1)
+  chef_deprecations (>= 0.1.2)
   cheffish (>= 16.0)
-  chefspec (>= 9.2.0, < 10.0)
+  chefspec (>= 9.2)
   chefstyle
-  cookstyle (~> 7.1)
+  cookstyle (>= 7.8)
   dep-selector-libgecode
   dep_selector
   docker-api (>= 2.0)
   ed25519
-  fauxhai-ng (~> 8)
+  fauxhai-ng (>= 8.7)
   ffi-libarchive
   guard
   inspec (~> 4.23)
