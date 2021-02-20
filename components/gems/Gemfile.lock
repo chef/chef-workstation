@@ -1074,7 +1074,6 @@ DEPENDENCIES
   fauxhai-ng (>= 8.7)
   ffi-libarchive
   guard
-  inspec (~> 4.23)
   inspec-bin (~> 4.23)
   kitchen-azurerm (>= 1.3)
   kitchen-digitalocean (>= 0.11)
