@@ -11,6 +11,7 @@ steps:
         docker:
           host_os: windows
           environment:
+    timeout_in_minutes: 60
 
   - label: ":mac: :github: Create PR to update Homebrew/homebrew-cask"
     command:
