@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.293 -->
-## [21.2.293](https://github.com/chef/chef-workstation/tree/21.2.293) (2021-02-20)
+<!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- Replace chefdk installs instead of failing [#1763](https://github.com/chef/chef-workstation/pull/1763) ([tas50](https://github.com/tas50))
+- Loosen deps and raise the floors [#1769](https://github.com/chef/chef-workstation/pull/1769) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.292 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Loosen deps and raise the floors [#1769](https://github.com/chef/chef-workstation/pull/1769) ([tas50](https://github.com/tas50)) <!-- 21.2.293 -->
 - Replace chefdk installs instead of failing [#1763](https://github.com/chef/chef-workstation/pull/1763) ([tas50](https://github.com/tas50)) <!-- 21.2.293 -->
 <!-- release_rollup -->
 
