@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.295 -->
-## [21.2.295](https://github.com/chef/chef-workstation/tree/21.2.295) (2021-02-22)
+<!-- latest_release 21.2.296 -->
+## [21.2.296](https://github.com/chef/chef-workstation/tree/21.2.296) (2021-02-22)
 
 #### Merged Pull Requests
-- Bump git to 2.30.1 [#1772](https://github.com/chef/chef-workstation/pull/1772) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.117 [#1774](https://github.com/chef/chef-workstation/pull/1774) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.292 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.117 [#1774](https://github.com/chef/chef-workstation/pull/1774) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.296 -->
 - Bump git to 2.30.1 [#1772](https://github.com/chef/chef-workstation/pull/1772) ([tas50](https://github.com/tas50)) <!-- 21.2.295 -->
 - Bump chef-telemetry to 1.0.29 [#1773](https://github.com/chef/chef-workstation/pull/1773) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.294 -->
 - Simplify our inspec dep in the gemfile [#1771](https://github.com/chef/chef-workstation/pull/1771) ([tas50](https://github.com/tas50)) <!-- 21.2.293 -->
