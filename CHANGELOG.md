@@ -1,17 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.294 -->
-## [21.2.294](https://github.com/chef/chef-workstation/tree/21.2.294) (2021-02-22)
+<!-- latest_release 21.2.295 -->
+## [21.2.295](https://github.com/chef/chef-workstation/tree/21.2.295) (2021-02-22)
 
 #### Merged Pull Requests
-- Bump chef-telemetry to 1.0.29 [#1773](https://github.com/chef/chef-workstation/pull/1773) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-- Simplify our inspec dep in the gemfile [#1771](https://github.com/chef/chef-workstation/pull/1771) ([tas50](https://github.com/tas50))
-- Loosen deps and raise the floors [#1769](https://github.com/chef/chef-workstation/pull/1769) ([tas50](https://github.com/tas50))
+- Bump git to 2.30.1 [#1772](https://github.com/chef/chef-workstation/pull/1772) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.292 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump git to 2.30.1 [#1772](https://github.com/chef/chef-workstation/pull/1772) ([tas50](https://github.com/tas50)) <!-- 21.2.295 -->
 - Bump chef-telemetry to 1.0.29 [#1773](https://github.com/chef/chef-workstation/pull/1773) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.294 -->
 - Simplify our inspec dep in the gemfile [#1771](https://github.com/chef/chef-workstation/pull/1771) ([tas50](https://github.com/tas50)) <!-- 21.2.293 -->
 - Loosen deps and raise the floors [#1769](https://github.com/chef/chef-workstation/pull/1769) ([tas50](https://github.com/tas50)) <!-- 21.2.293 -->
