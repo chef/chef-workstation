@@ -65,8 +65,7 @@ recommended.
 
 {{< /note >}}
 
-Add Ruby to \$PATH
-==================
+## Add Ruby to $PATH
 
 Chef Infra Client includes a stable version of Ruby as part of its
 installer. The path to this version of Ruby must be added to the `$PATH`
