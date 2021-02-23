@@ -25,7 +25,6 @@ group(:omnibus_package, :development, :test) do
 
   gem "rake", "= 13.0.1" # prevent double rake as of 12.2020
   gem "pry"
-  gem "yard"
   gem "guard"
   gem "cookstyle", ">= 7.8"
   gem "ffi-libarchive"
