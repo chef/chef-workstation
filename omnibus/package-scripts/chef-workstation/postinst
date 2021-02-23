@@ -118,8 +118,9 @@ else # linux - postinst does not run for windows.
   # 0 rc means grep found 'not found' text - and we have missing deps.
   if [ $? -eq 0 ]; then
     echo ""
-    echo "To run the Chef Workstation App, some additional dependencies must be installed."
-    echo "Using your platforms package manager to install the 'electron' package is "
+    echo "Chef Workstation ships with a toolbar application, the Chef Workstation App."
+    echo "To run this application some additional dependencies must be installed."
+    echo "Using your platform's package manager to install the 'electron' package is "
     echo "the easiest way to meet the dependency requirements."
     echo ""
     echo "You can then launch the App by running 'chef-workstation-app'."
