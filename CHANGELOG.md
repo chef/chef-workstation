@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.298 -->
-## [21.2.298](https://github.com/chef/chef-workstation/tree/21.2.298) (2021-02-23)
+<!-- latest_release 21.2.299 -->
+## [21.2.299](https://github.com/chef/chef-workstation/tree/21.2.299) (2021-02-23)
 
 #### Merged Pull Requests
-- Better describe what the workstation app is on Linux [#1764](https://github.com/chef/chef-workstation/pull/1764) ([tas50](https://github.com/tas50))
+- Bump train to 3.5.2 [#1778](https://github.com/chef/chef-workstation/pull/1778) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.292 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump train to 3.5.2 [#1778](https://github.com/chef/chef-workstation/pull/1778) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.299 -->
 - Better describe what the workstation app is on Linux [#1764](https://github.com/chef/chef-workstation/pull/1764) ([tas50](https://github.com/tas50)) <!-- 21.2.298 -->
 - Remove the yard dependency [#1770](https://github.com/chef/chef-workstation/pull/1770) ([tas50](https://github.com/tas50)) <!-- 21.2.297 -->
 - Bump Chef Workstation App to 0.1.117 [#1774](https://github.com/chef/chef-workstation/pull/1774) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.296 -->
