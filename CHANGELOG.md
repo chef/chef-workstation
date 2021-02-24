@@ -1,8 +1,9 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release unreleased -->
-## Unreleased
+<!-- latest_release 21.2.303 -->
+## [21.2.303](https://github.com/chef/chef-workstation/tree/21.2.303) (2021-02-24)
 
 #### Merged Pull Requests
+- Bump kitchen-azurerm to 1.5.3 [#1785](https://github.com/chef/chef-workstation/pull/1785) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump omnibus-software from `9390767` to `fb0fa04` in /omnibus [#1782](https://github.com/chef/chef-workstation/pull/1782) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
@@ -10,6 +11,7 @@
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-azurerm to 1.5.3 [#1785](https://github.com/chef/chef-workstation/pull/1785) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.303 -->
 - Bump omnibus-software from `9390767` to `fb0fa04` in /omnibus [#1782](https://github.com/chef/chef-workstation/pull/1782) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.2.302 -->
 - Bump inspec-bin to 4.26.13 [#1784](https://github.com/chef/chef-workstation/pull/1784) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.302 -->
 - Bump kitchen-inspec to 2.4.1 [#1783](https://github.com/chef/chef-workstation/pull/1783) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.301 -->
