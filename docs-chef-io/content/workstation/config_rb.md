@@ -49,6 +49,10 @@ This configuration file has the following settings:
   chef_server_url 'https://localhost/organizations/ORG_NAME'
   ```
 
+  {{< note >}}
+  If changes need to be made to any global end points like user or user keys, add `--server-url` flag pointing to `https://localhost/`.
+  {{< /note >}}
+
 `chef_zero.enabled`
 : Enable chef-zero. This setting requires `local_mode` to be set to `true`. Default value: `false`. For example:
 
