@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.300 -->
-## [21.2.300](https://github.com/chef/chef-workstation/tree/21.2.300) (2021-02-24)
+<!-- latest_release 21.2.301 -->
+## [21.2.301](https://github.com/chef/chef-workstation/tree/21.2.301) (2021-02-24)
 
 #### Merged Pull Requests
-- Bump kitchen-dokken to 2.12.0 [#1780](https://github.com/chef/chef-workstation/pull/1780) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-inspec to 2.4.1 [#1783](https://github.com/chef/chef-workstation/pull/1783) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.292 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-inspec to 2.4.1 [#1783](https://github.com/chef/chef-workstation/pull/1783) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.301 -->
 - Bump kitchen-dokken to 2.12.0 [#1780](https://github.com/chef/chef-workstation/pull/1780) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.300 -->
 - Bump train to 3.5.2 [#1778](https://github.com/chef/chef-workstation/pull/1778) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.299 -->
 - Better describe what the workstation app is on Linux [#1764](https://github.com/chef/chef-workstation/pull/1764) ([tas50](https://github.com/tas50)) <!-- 21.2.298 -->
