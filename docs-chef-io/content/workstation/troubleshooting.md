@@ -20,6 +20,10 @@ Chef Workstation logs are stored in ` ~/.chef-workstation/logs`.
 
 Follow the steps provided under [Uninstalling]({{< ref "install_workstation.md#uninstalling" >}}).
 
+## Trusted Certs
+
+If you have added trusted certs on a windows workstation with a command like `knife ssh fetch`, but `knife ssl check` for example is still not working, do the following. Exit your CW Powershell, click the icon, and try the same command again.
+
 ## Common Error Codes
 
 ### CHEFINT001
