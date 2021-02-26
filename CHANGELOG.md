@@ -1,33 +1,30 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.2.303 -->
-## [21.2.303](https://github.com/chef/chef-workstation/tree/21.2.303) (2021-02-24)
-
-#### Merged Pull Requests
-- Bump kitchen-azurerm to 1.5.3 [#1785](https://github.com/chef/chef-workstation/pull/1785) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-- Bump omnibus-software from `9390767` to `fb0fa04` in /omnibus [#1782](https://github.com/chef/chef-workstation/pull/1782) ([dependabot[bot]](https://github.com/dependabot[bot]))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=21.2.292 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Bump kitchen-azurerm to 1.5.3 [#1785](https://github.com/chef/chef-workstation/pull/1785) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.303 -->
-- Bump omnibus-software from `9390767` to `fb0fa04` in /omnibus [#1782](https://github.com/chef/chef-workstation/pull/1782) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.2.302 -->
-- Bump inspec-bin to 4.26.13 [#1784](https://github.com/chef/chef-workstation/pull/1784) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.302 -->
-- Bump kitchen-inspec to 2.4.1 [#1783](https://github.com/chef/chef-workstation/pull/1783) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.301 -->
-- Bump kitchen-dokken to 2.12.0 [#1780](https://github.com/chef/chef-workstation/pull/1780) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.300 -->
-- Bump train to 3.5.2 [#1778](https://github.com/chef/chef-workstation/pull/1778) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.299 -->
-- Better describe what the workstation app is on Linux [#1764](https://github.com/chef/chef-workstation/pull/1764) ([tas50](https://github.com/tas50)) <!-- 21.2.298 -->
-- Remove the yard dependency [#1770](https://github.com/chef/chef-workstation/pull/1770) ([tas50](https://github.com/tas50)) <!-- 21.2.297 -->
-- Bump Chef Workstation App to 0.1.117 [#1774](https://github.com/chef/chef-workstation/pull/1774) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.296 -->
-- Bump git to 2.30.1 [#1772](https://github.com/chef/chef-workstation/pull/1772) ([tas50](https://github.com/tas50)) <!-- 21.2.295 -->
-- Bump chef-telemetry to 1.0.29 [#1773](https://github.com/chef/chef-workstation/pull/1773) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.2.294 -->
-- Simplify our inspec dep in the gemfile [#1771](https://github.com/chef/chef-workstation/pull/1771) ([tas50](https://github.com/tas50)) <!-- 21.2.293 -->
-- Loosen deps and raise the floors [#1769](https://github.com/chef/chef-workstation/pull/1769) ([tas50](https://github.com/tas50)) <!-- 21.2.293 -->
-- Replace chefdk installs instead of failing [#1763](https://github.com/chef/chef-workstation/pull/1763) ([tas50](https://github.com/tas50)) <!-- 21.2.293 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [21.2.303](https://github.com/chef/chef-workstation/tree/21.2.303) (2021-02-26)
+
+#### Merged Pull Requests
+- Replace chefdk installs instead of failing [#1763](https://github.com/chef/chef-workstation/pull/1763) ([tas50](https://github.com/tas50))
+- Loosen deps and raise the floors [#1769](https://github.com/chef/chef-workstation/pull/1769) ([tas50](https://github.com/tas50))
+- Simplify our inspec dep in the gemfile [#1771](https://github.com/chef/chef-workstation/pull/1771) ([tas50](https://github.com/tas50))
+- Bump chef-telemetry to 1.0.29 [#1773](https://github.com/chef/chef-workstation/pull/1773) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump git to 2.30.1 [#1772](https://github.com/chef/chef-workstation/pull/1772) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.117 [#1774](https://github.com/chef/chef-workstation/pull/1774) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Remove the yard dependency [#1770](https://github.com/chef/chef-workstation/pull/1770) ([tas50](https://github.com/tas50))
+- Better describe what the workstation app is on Linux [#1764](https://github.com/chef/chef-workstation/pull/1764) ([tas50](https://github.com/tas50))
+- Bump train to 3.5.2 [#1778](https://github.com/chef/chef-workstation/pull/1778) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-dokken to 2.12.0 [#1780](https://github.com/chef/chef-workstation/pull/1780) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-inspec to 2.4.1 [#1783](https://github.com/chef/chef-workstation/pull/1783) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump inspec-bin to 4.26.13 [#1784](https://github.com/chef/chef-workstation/pull/1784) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `9390767` to `fb0fa04` in /omnibus [#1782](https://github.com/chef/chef-workstation/pull/1782) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump kitchen-azurerm to 1.5.3 [#1785](https://github.com/chef/chef-workstation/pull/1785) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_stable_release -->
+
 ## [21.2.292](https://github.com/chef/chef-workstation/tree/21.2.292) (2021-02-19)
 
 #### Merged Pull Requests
@@ -45,7 +42,6 @@
 - Bump kitchen-azurerm to 1.5.2 [#1755](https://github.com/chef/chef-workstation/pull/1755) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Update openssl to 1.0.2y and fix fastmsi installs [#1757](https://github.com/chef/chef-workstation/pull/1757) ([tas50](https://github.com/tas50))
 - Bump Chef Infra Client to 16.10.17 [#1758](https://github.com/chef/chef-workstation/pull/1758) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [21.2.278](https://github.com/chef/chef-workstation/tree/21.2.278) (2021-02-16)
 
