@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.3.308 -->
-## [21.3.308](https://github.com/chef/chef-workstation/tree/21.3.308) (2021-03-02)
+<!-- latest_release 21.3.309 -->
+## [21.3.309](https://github.com/chef/chef-workstation/tree/21.3.309) (2021-03-02)
 
 #### Merged Pull Requests
-- Bump test-kitchen to 2.11.1 [#1794](https://github.com/chef/chef-workstation/pull/1794) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-cli to 3.1.3 [#1795](https://github.com/chef/chef-workstation/pull/1795) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.303 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-cli to 3.1.3 [#1795](https://github.com/chef/chef-workstation/pull/1795) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.309 -->
 - Bump test-kitchen to 2.11.1 [#1794](https://github.com/chef/chef-workstation/pull/1794) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.308 -->
 - Bump Chef Workstation App to 0.1.119 [#1793](https://github.com/chef/chef-workstation/pull/1793) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.307 -->
 - Bump kitchen-dokken to 2.12.1 [#1791](https://github.com/chef/chef-workstation/pull/1791) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.306 -->
