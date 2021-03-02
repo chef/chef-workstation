@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.3.306 -->
-## [21.3.306](https://github.com/chef/chef-workstation/tree/21.3.306) (2021-03-01)
+<!-- latest_release 21.3.307 -->
+## [21.3.307](https://github.com/chef/chef-workstation/tree/21.3.307) (2021-03-02)
 
 #### Merged Pull Requests
-- Bump kitchen-dokken to 2.12.1 [#1791](https://github.com/chef/chef-workstation/pull/1791) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.119 [#1793](https://github.com/chef/chef-workstation/pull/1793) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.303 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.119 [#1793](https://github.com/chef/chef-workstation/pull/1793) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.307 -->
 - Bump kitchen-dokken to 2.12.1 [#1791](https://github.com/chef/chef-workstation/pull/1791) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.306 -->
 - Bump test-kitchen to 2.11.0 [#1790](https://github.com/chef/chef-workstation/pull/1790) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.305 -->
 - Bump omnibus-software from `fb0fa04` to `a1e9c90` in /omnibus [#1788](https://github.com/chef/chef-workstation/pull/1788) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.3.304 -->
