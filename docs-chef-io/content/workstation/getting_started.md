@@ -26,15 +26,15 @@ While you don't have to know the Ruby programming language to use Chef, you do n
 * If you don't plan on writing a lot of Chef cookbooks and you're not a Ruby developer, then we recommend that you use the [Chef Workstation Ruby as the system default]({{< relref "#Use Chef-Workstation Ruby as the System Default">}})
 * If you are a Ruby developer, then set up Ruby with an [environment variable]({{< relref "#Add Ruby as an Environment Variable" >}}).
 
-### Use Chef Workstation Ruby as the System Default ¸
-<!---* Tabs Section--->
+### Use Chef Workstation Ruby as the System Default
+<!---- Tabs Section--->
 {{< foundation_tabs tabs-id="tabs-panel-container" >}}
 {{< foundation_tab active="true" panel-link="ruby-macOS-panel" tab-text="macOS/Linux">}}
 {{< foundation_tab panel-link="ruby-windows-panel" tab-text="Windows" >}}
 {{< /foundation_tabs >}}
-<!---* End Tabs --->
+<!---- End Tabs --->
 
-<!---* Panels Section --->
+<!---- Panels Section --->
 {{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
 {{< foundation_tabs_panel active="true" panel-id="ruby-macOS-panel" >}}
 
@@ -82,20 +82,20 @@ Chef Workstation on Windows includes a desktop shortcut to a PowerShell prompt w
 {{< /foundation_tabs_panel >}}
 
 {{< /foundation_tabs_panels >}}
-<!---* End Panels --->
+<!----End Panels --->
 ### Add Ruby as an Environment Variable
 
 Chef Workstation includes a stable version of Ruby as part of its installer.
 To add the Chef Ruby as an environment variable, add the path to the Chef Ruby to the `$PATH` environment variable and save it in the configuration file for the command shell.
 
-<!---* Tabs Section--->
+<!----Tabs Section--->
 {{< foundation_tabs tabs-id="tabs-panel-container" >}}
 {{< foundation_tab active="true" panel-link="ruby-env-macOS-panel" tab-text="macOS/Linux">}}
 {{< foundation_tab panel-link="ruby-env-windows-panel" tab-text="Windows" >}}
 {{< /foundation_tabs >}}
-<!---* End Tabs --->
+<!----End Tabs --->
 
-<!---* Panels Section --->
+<!----Panels Section --->
 {{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
 {{< foundation_tabs_panel active="true" panel-id="ruby-env-macOS-panel" >}}
 
