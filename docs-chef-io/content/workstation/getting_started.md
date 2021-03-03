@@ -93,10 +93,13 @@ On Microsoft Windows, `C:/opscode/Chef Workstation/bin` must be before
 
 {{< /warning >}}
 
-## Create the Chef repository
+## Setup Your Chef Repo
 
-Use [the chef generate repo]({{< relref "ctl_chef.md#chef-generate-repo" >}}) to
-create the Chef repository. For example, to create a repository called
+{{% chef_repo_description %}}
+
+If you're setting up Chef for the very first time **in your organization**, then you will need a Chef Infra repository for saving your cookbooks and other work.
+
+Use the [chef generate repo]({{< relref "ctl_chef.md#chef-generate-repo" >}}) command to create your Chef Infra repository. For example, to create a repository called
 `chef-repo`:
 
 ``` bash
