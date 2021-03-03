@@ -6,10 +6,10 @@ gh_repo = "chef-workstation"
 
 [menu]
   [menu.workstation]
-    title = "Configure Chef Workstation"
+    title = "Configure"
     identifier = "chef_workstation/config.md Configure Chef Workstation"
     parent = "chef_workstation"
-    weight = 50
+    weight = 40
 +++
 
 
