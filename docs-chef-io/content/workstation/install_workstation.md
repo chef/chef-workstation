@@ -8,10 +8,10 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
 
 [menu]
   [menu.workstation]
-    title = "Install Chef Workstation"
+    title = "Install"
     identifier = "chef_workstation/install_workstation.md Install Chef Workstation"
     parent = "chef_workstation"
-    weight = 30
+    weight = 20
 +++
 
 Start your infrastructure automation quickly and easily with [Chef Workstation](/workstation/). Chef Workstation gives you everything you need to get started with Chef - ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software - all in one easy-to-install package.

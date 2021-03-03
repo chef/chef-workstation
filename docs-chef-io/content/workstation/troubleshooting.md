@@ -9,7 +9,7 @@ gh_repo = "chef-workstation"
     title = "Troubleshooting"
     identifier = "chef_workstation/troubleshooting.md Troubleshooting"
     parent = "chef_workstation"
-    weight = 60
+    weight = 50
 +++
 
 ## Chef Workstation Logs
