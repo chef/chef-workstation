@@ -11,7 +11,7 @@ aliases = ["/about_workstation.html", "/about_chefdk.html", "/chef_dk.html", "/a
 
 [menu]
   [menu.workstation]
-    title = "About Chef Workstation"
+    title = "Overview"
     identifier = "chef_workstation/about_workstation.md About Chef Workstation"
     parent = "chef_workstation"
     weight = 10

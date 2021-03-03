@@ -8,10 +8,10 @@ aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html",
 
 [menu]
   [menu.workstation]
-    title = "Getting Started"
-    identifier = "chef_workstation/getting_started.md Getting Started"
+    title = "Setup"
+    identifier = "chef_workstation/getting_started.md Setup Chef Workstation"
     parent = "chef_workstation"
-    weight = 40
+    weight = 30
 +++
 
 This guide contains common configuration options used when setting up a
