@@ -50,7 +50,7 @@ This configuration file has the following settings:
   ```
 
   {{< note >}}
-  If changes need to be made to any global end points like user or user keys, add `--server-url` flag pointing to `https://localhost/`.
+  If changes need to be made to any global end points like user or user keys, use [`knife exec`]({{< relref "workstation/knife_exec" >}}) with the `--server-url` flag to set `chef_server_url` to `https://localhost/`.
   {{< /note >}}
 
 `chef_zero.enabled`
