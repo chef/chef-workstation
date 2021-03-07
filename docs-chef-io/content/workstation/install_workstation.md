@@ -112,6 +112,10 @@ Alternately, install Chef Workstation using the [Homebrew](https://brew.sh/) pac
 1. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the `C:\opscode\chef-workstation\` directory.
 1. **Optional:** Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell instead of `cmd.exe`.
 
+Alternately, install Chef Workstation using the [Chocolatey](https://chocolatey.org/) package manager:
+
+`choco install chef-workstation`
+
 #### Headless Unattended Install
 
 "Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse. They are usually administered remotely using protocols such as SSH or WinRM.
