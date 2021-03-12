@@ -293,19 +293,19 @@ Move files to the `C:\.chef` directory:
 1. In a command window, enter each of the following:
 
     ```powershell
-    Move-Item -Path C:\path\to\config.rb -Destination C:\chef\
+    Move-Item -Path C:\path\to\config.rb -Destination C:\.chef
     ```
 
     and:
 
     ```powershell
-    Move-Item -Path C:\path\to\USER.pem -Destination C:\chef\
+    Move-Item -Path C:\path\to\USER.pem -Destination C:\.chef
     ```
 
     where `\path\to\` represents the path to the location in which these
     three files were placed after they were downloaded.
 
-1. Verify that the files are in the `C:\chef` folder.
+1. Verify that the files are in the `C:\.chef` folder.
 
    ```powershell
    Get-ChildItem -Path C:\.chef
