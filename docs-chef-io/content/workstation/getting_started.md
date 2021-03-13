@@ -101,8 +101,6 @@ chef generate repo chef-repo
 
 ## Setup Chef Credentials
 
-Chef Workstation installs [Chef products and tools]({{< relref "install_workstation.md" >}}) onto your computer.
-
 The first time you run the Chef Workstation app, it creates a `.chef` directory in your user directory. The `.chef` directory is where you will store your Chef Workstation configuration and your client keys.
 
 If you're setting up Chef **as a Chef Infra Server administrator**, then you will need to manage users with the [Chef Infra Server CLI](https://docs.chef.io/server/ctl_chef_server/#user-management). When you create a new user, Chef Infra Server creates a client for that user with a user-specific RSA client key, which you then need to share securely with that user.
