@@ -21,7 +21,7 @@ before proceeding further.
 
 ## Configure Ruby Environment
 
-For many users, Ruby is primarily used for developing Chef policy (for example, cookbooks, Policyfiles, and Chef InSpec profiles). If that's true for you, then we recommend using the Chef Workstation Ruby as your default system Ruby. If you use Ruby for software development, we recommend that you skip this step and use your existing Ruby installation.
+For many users, Ruby is primarily used for developing Chef policy (for example, cookbooks, Policyfiles, and Chef InSpec profiles). If that's true for you, then we recommend using the Chef Workstation Ruby as your default system Ruby. If you use Ruby for software development, we recommend adding Chef Workstation to your shell's PATH variable instead.
 
 {{< note >}}
 
