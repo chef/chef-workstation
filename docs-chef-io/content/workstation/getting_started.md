@@ -71,10 +71,6 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
 
 {{< /foundation_tabs_panel >}}
 {{< foundation_tabs_panel panel-id="path-ruby" >}}
-## Add Ruby to $PATH
-
-Chef Workstation includes a stable version of Ruby as part of its installer. The path to this version of Ruby must be added to the `$PATH` environment variable and saved in the configuration file for the command shell (Bash, Zsh, and so on) that is used on the machine running Chef Workstation.
-
 In a command window, type the following:
 
 ``` bash
