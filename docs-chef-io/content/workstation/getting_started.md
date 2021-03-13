@@ -124,15 +124,15 @@ details.
 
 <!----Tabs Section--->
 {{< foundation_tabs tabs-id="tabs-panel-container" >}}
-{{< foundation_tab active="true" panel-link="config-rb-example" tab-text="Example config.rb">}}
-{{< foundation_tab panel-link="config-rb-demo" tab-text="Completed config.rb" >}}
+{{< foundation_tab active="true" panel-link="credentials-example" tab-text="Example credentials file">}}
+{{< foundation_tab panel-link="credentials-demo" tab-text="Completed credentials file" >}}
 {{< /foundation_tabs >}}
 <!----End Tabs --->
 
 
 <!----Panels Section --->
 {{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
-{{< foundation_tabs_panel active="true" panel-id="config-rb-example" >}}
+{{< foundation_tabs_panel active="true" panel-id="credentials-example" >}}
 
 ```bash
 # This is the Chef Infra credentials file used by the knife CLI and other tools
