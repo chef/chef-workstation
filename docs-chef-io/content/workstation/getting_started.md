@@ -21,7 +21,7 @@ before proceeding further.
 
 ## Configure Ruby Environment
 
-For many users, Ruby is primarily used for developing Chef policy (for example, cookbooks, Policyfiles, and Chef InSpec profiles). If that's true for you, then we recommend using the Chef Workstation Ruby as your default system Ruby. If you use Ruby for software development, we recommend that you skip this step and use your existing Ruby installation.
+For many users, Ruby is primarily used for developing Chef policy (for example, cookbooks, Policyfiles, and Chef InSpec profiles). If that's true for you, then we recommend using the Chef Workstation Ruby as your default system Ruby. If you use Ruby for software development, we recommend adding Chef Workstation to your shell's PATH variable instead.
 
 {{< note >}}
 
@@ -71,10 +71,6 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
 
 {{< /foundation_tabs_panel >}}
 {{< foundation_tabs_panel panel-id="path-ruby" >}}
-## Add Ruby to $PATH
-
-Chef Workstation includes a stable version of Ruby as part of its installer. The path to this version of Ruby must be added to the `$PATH` environment variable and saved in the configuration file for the command shell (Bash, Zsh, and so on) that is used on the machine running Chef Workstation.
-
 In a command window, type the following:
 
 ``` bash
