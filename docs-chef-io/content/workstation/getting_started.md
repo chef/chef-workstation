@@ -173,9 +173,9 @@ To set up Chef Workstation to communicate with your Chef Infra Server, you need 
 
 The steps for downloading or generating these files vary depending on how you interact with Chef Infra Server. Select the option that best describes how you interact with the server:
 
-* From the command line
-* From macOS/Linux Hosted Chef or Chef Manage user interface (UI)
-* From Windows Hosted Chef or Chef Manage UI
+- From the command line
+- From macOS/Linux Hosted Chef or Chef Manage user interface (UI)
+- From Windows Hosted Chef or Chef Manage UI
 
 ### From the Command Line
 <!----Tabs Section--->
@@ -193,7 +193,7 @@ The steps for downloading or generating these files vary depending on how you in
 {{< foundation_tabs_panel active="true" panel-id="tls-cli" >}}
 If you interact with your Chef Infra Server from the command line, then you will need to:
 
-- Retrieve your user private key, the `USER.pem` file, from your Chef Infra server and save it in your Chef directory
+- Retrieve your user private key, the `USER.pem` file, from your Chef Infra Server and save it in your .chef directory
 - Configure the `knife` tool
 - Use `knife` to download and save your server's digital certificates
 
