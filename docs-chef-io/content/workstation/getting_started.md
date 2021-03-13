@@ -195,9 +195,9 @@ The steps for downloading or generating these files vary depending on how you in
 {{< foundation_tabs_panel active="true" panel-id="tls-cli" >}}
 If you interact with your Chef Infra Server from the command line, then you will need to:
 
-* Retrieve your user private key, the `USER.pem` file, from your Chef Infra server and save it in your Chef directory
-* Configure the `knife` tool
-* Use `knife` to download and save your server's digital certificates
+- Retrieve your user private key, the `USER.pem` file, from your Chef Infra server and save it in your Chef directory
+- Configure the `knife` tool
+- Use `knife` to download and save your server's digital certificates
 
 Download the `USER.pem` files from the Chef Infra Server and move them to the `.chef` directory.
 
@@ -230,12 +230,10 @@ If you have interact with Chef Infra Server through the Hosted Chef or legacy Ch
 
 #### Download Keys (.pem) and Configuration Files
 
-For a Chef Workstation installation that will interact with the Chef
-Infra Server (including the hosted Chef Infra Server) web interface, log on and
-download the following files:
+For a Chef Workstation installation that will interact with the Chef Infra Server (including the hosted Chef Infra Server) web interface, log on and download the following files:
 
-* Download the `config.rb` from the **Organizations** page.
-* Download the `USER.pem` from the **Change Password** section of the **Account Management** page.
+- Download the `config.rb` from the **Organizations** page.
+- Download the `USER.pem` from the **Change Password** section of the **Account Management** page.
 
 #### Move Keys and Configuration Files into the Chef Directory
 
@@ -277,8 +275,8 @@ For a Chef Workstation installation that will interact with the Chef
 Infra Server (including the hosted Chef Infra Server) web interface, log on and
 download the following files:
 
-* Download the `config.rb` from the **Organizations** page.
-* Download the `USER.pem` from the **Change Password** section of the **Account Management** page.
+- Download the `config.rb` from the **Organizations** page.
+- Download the `USER.pem` from the **Change Password** section of the **Account Management** page.
 
 #### Move Keys and Configuration Files into the Chef Directory
 
