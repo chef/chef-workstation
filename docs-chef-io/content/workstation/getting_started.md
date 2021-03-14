@@ -14,10 +14,7 @@ aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html",
     weight = 30
 +++
 
-This guide contains common configuration options used when setting up a
-new Chef Workstation installation. If you do not have Chef Workstation
-installed, see the [installation guide](/workstation/install_workstation/)
-before proceeding further.
+This guide contains common configuration options used when setting up a new Chef Workstation installation. If you do not have Chef Workstation installed, see the [installation guide](/workstation/install_workstation/) before proceeding further.
 
 ## Configure Ruby Environment
 
@@ -39,6 +36,7 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
 <!----Panels Section --->
 {{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
 {{< foundation_tabs_panel active="true" panel-id="sys-ruby" >}}
+
 1. Open a terminal and enter the following:
 
     ``` bash
@@ -47,7 +45,7 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
 
     which will return something like `/usr/bin/ruby`.
 
-2. To use Chef Workstation-provided Ruby as the default Ruby on your system, edit the `$PATH` and `GEM` environment variables to include paths to Chef Workstation. For example, on a machine that runs Bash, run:
+1. To use Chef Workstation-provided Ruby as the default Ruby on your system, edit the `$PATH` and `GEM` environment variables to include paths to Chef Workstation. For example, on a machine that runs Bash, run:
 
     ``` bash
     echo 'eval "$(chef shell-init bash)"' >> ~/.bashrc
@@ -67,7 +65,7 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
     echo 'eval (chef shell-init fish)' >> ~/.config/fish/config.fish
     ```
 
-3. Run `which ruby` again. It should return `/opt/chef-workstation/embedded/bin/ruby`.
+1. Run `which ruby` again. It should return `/opt/chef-workstation/embedded/bin/ruby`.
 
 {{< /foundation_tabs_panel >}}
 {{< foundation_tabs_panel panel-id="path-ruby" >}}
@@ -119,8 +117,7 @@ At a minimum, you must update the following settings with the appropriate values
 - `client_key`: the path to the client key in your `.chef` directory
 - `chef_server_url`: the full URL to your Chef Infra Server including the org
 
-See the [knife config.rb documentation](/workstation/config_rb/) for more
-details.
+See the [knife config.rb documentation](/workstation/config_rb/) for more details.
 
 <!----Tabs Section--->
 {{< foundation_tabs tabs-id="tabs-panel-container" >}}
@@ -128,7 +125,6 @@ details.
 {{< foundation_tab panel-link="credentials-demo" tab-text="Completed credentials file" >}}
 {{< /foundation_tabs >}}
 <!----End Tabs --->
-
 
 <!----Panels Section --->
 {{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
@@ -167,8 +163,6 @@ Ideally, you will set up your Chef Infra Server using a certificate signed by a 
 
 Chef Infra Server generates a self-signed certificate during the setup process unless you supply a trusted CA certificate. Because this certificate is unique to your server, you will need to take additional steps to enable communication between the Chef Infra Client and Server.
 
-Setting up Chef Workstation to trust the server's self-signed certificates you can use the `knife ssl fetch` subcommand to download the TLS/SSL certificate from the Chef Infra Server:
-
 To set up Chef Workstation to communicate with your Chef Infra Server, you need the to download files to your `.chef` directory.
 
 The steps for downloading or generating these files vary depending on how you interact with Chef Infra Server. Select the option that best describes how you interact with the server:
@@ -187,7 +181,6 @@ The steps for downloading or generating these files vary depending on how you in
 {{< /foundation_tabs >}}
 <!----End Tabs --->
 
-
 <!----Panels Section --->
 {{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
 {{< foundation_tabs_panel active="true" panel-id="tls-cli" >}}
@@ -201,8 +194,9 @@ Download the `USER.pem` files from the Chef Infra Server and move them to the `.
 
 #### Get SSL Certificates
 
-Chef Infra verifies the security of all requests made to the server from tools such a knife and Chef Infra Client. The certificate that is generated during the installation of the Chef Infra Server is self-signed, which means there isn't a signing certificate authority (CA) to verify. In addition, this certificate must
-be downloaded to any machine from which knife and/or Chef Infra Client will make requests to the Chef Infra Server.
+In the final step of setting up TLS/SSL with a custom CA certificate, you'll use the `knife ssl fetch` subcommand to download the the Chef Infra Server TLS/SSL certificate and save it in your `.chef/trusted_certs`.
+
+Chef Infra verifies the security of all requests made to the server from tools such a knife and Chef Infra Client. The certificate that is generated during the installation of the Chef Infra Server is self-signed, which means there isn't a signing certificate authority (CA) to verify. In addition, this certificate must be downloaded to any machine from which knife and/or Chef Infra Client will make requests to the Chef Infra Server.
 
 Use the `knife ssl fetch` subcommand to pull the SSL certificate down from the Chef Infra Server:
 
@@ -244,8 +238,7 @@ Move files to the `~/.chef` directory on macOS and Linux systems:
     cp /path/to/USER.pem ~/.chef
     ```
 
-    where `/path/to/` represents the path to the location in which these
-    three files were placed after they were downloaded.
+    `/path/to/` is the location of your downloaded files.
 
 1. Verify that the files are in the `.chef` folder.
 
@@ -262,16 +255,14 @@ If you have interact with Chef Infra Server through the Hosted Chef or legacy Ch
 
 #### Download Keys (.pem) and Configuration Files
 
-For a Chef Workstation installation that will interact with the Chef
-Infra Server (including the hosted Chef Infra Server) web interface, log on and
-download the following files:
+For a Chef Workstation installation that will interact with the Chef Infra Server (including the hosted Chef Infra Server) web interface, log on and download the following files:
 
 - Download the `config.rb` from the **Organizations** page.
 - Download the `USER.pem` from the **Change Password** section of the **Account Management** page.
 
 #### Move Keys and Configuration Files into the Chef Directory
 
-After downloading the  `config.rb` and `USER.pem` files from the Chef Infra Server, move them to the Chef directory on your computer. The Chef directory is `C:\.chef` on Windows.
+After downloading the  `config.rb` and `USER.pem` files from the Chef Infra Server, move them to the `.chef` directory on your computer. The Chef directory is `C:\.chef` on Windows.
 
 Move files to the `C:\.chef` directory:
 
@@ -287,8 +278,7 @@ Move files to the `C:\.chef` directory:
     Move-Item -Path C:\path\to\USER.pem -Destination C:\.chef
     ```
 
-    where `\path\to\` represents the path to the location in which these
-    three files were placed after they were downloaded.
+  `\path\to\` is the location of your downloaded files .
 
 1. Verify that the files are in the `C:\.chef` folder.
 
@@ -306,15 +296,13 @@ To verify that Chef Workstation can connect to the Chef Infra Server:
 
 Enter the following:
 
-  ``` bash
-  knife client list
-  ```
+``` bash
+knife client list
+```
 
-  to return a list of clients (registered nodes and Chef Workstation
-  installations) that have access to the Chef Infra Server. For
-  example:
+to return a list of clients (registered nodes and Chef Workstation installations) that have access to the Chef Infra Server. For example:
 
-  ``` bash
-  chef_machine
-  registered_node
-  ```
+``` bash
+chef_machine
+registered_node
+```
