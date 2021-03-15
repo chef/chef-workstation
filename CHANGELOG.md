@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.3.325 -->
-## [21.3.325](https://github.com/chef/chef-workstation/tree/21.3.325) (2021-03-15)
+<!-- latest_release 21.3.326 -->
+## [21.3.326](https://github.com/chef/chef-workstation/tree/21.3.326) (2021-03-15)
 
 #### Merged Pull Requests
-- Bump mixlib-authentication to 3.0.10 [#1826](https://github.com/chef/chef-workstation/pull/1826) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump train-core to 3.5.4 [#1829](https://github.com/chef/chef-workstation/pull/1829) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.303 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump train-core to 3.5.4 [#1829](https://github.com/chef/chef-workstation/pull/1829) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.326 -->
 - Bump mixlib-authentication to 3.0.10 [#1826](https://github.com/chef/chef-workstation/pull/1826) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.325 -->
 - Remove the duplicate description from the path setup [#1823](https://github.com/chef/chef-workstation/pull/1823) ([tas50](https://github.com/tas50)) <!-- 21.3.324 -->
 - Remove ChefSpec from the workstation description [#1822](https://github.com/chef/chef-workstation/pull/1822) ([tas50](https://github.com/tas50)) <!-- 21.3.323 -->
