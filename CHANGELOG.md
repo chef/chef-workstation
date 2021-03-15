@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.3.326 -->
-## [21.3.326](https://github.com/chef/chef-workstation/tree/21.3.326) (2021-03-15)
+<!-- latest_release 21.3.327 -->
+## [21.3.327](https://github.com/chef/chef-workstation/tree/21.3.327) (2021-03-15)
 
 #### Merged Pull Requests
-- Bump train-core to 3.5.4 [#1829](https://github.com/chef/chef-workstation/pull/1829) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus from `4a3c044` to `dd57896` in /omnibus [#1825](https://github.com/chef/chef-workstation/pull/1825) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.303 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus from `4a3c044` to `dd57896` in /omnibus [#1825](https://github.com/chef/chef-workstation/pull/1825) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.3.327 -->
 - Bump train-core to 3.5.4 [#1829](https://github.com/chef/chef-workstation/pull/1829) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.326 -->
 - Bump mixlib-authentication to 3.0.10 [#1826](https://github.com/chef/chef-workstation/pull/1826) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.325 -->
 - Remove the duplicate description from the path setup [#1823](https://github.com/chef/chef-workstation/pull/1823) ([tas50](https://github.com/tas50)) <!-- 21.3.324 -->
