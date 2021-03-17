@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.3.328 -->
-## [21.3.328](https://github.com/chef/chef-workstation/tree/21.3.328) (2021-03-16)
+<!-- latest_release 21.3.329 -->
+## [21.3.329](https://github.com/chef/chef-workstation/tree/21.3.329) (2021-03-17)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `daeb384` to `f903311` in /omnibus [#1831](https://github.com/chef/chef-workstation/pull/1831) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump inspec-bin to 4.28.0 [#1832](https://github.com/chef/chef-workstation/pull/1832) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.303 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump inspec-bin to 4.28.0 [#1832](https://github.com/chef/chef-workstation/pull/1832) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.329 -->
 - Bump omnibus-software from `daeb384` to `f903311` in /omnibus [#1831](https://github.com/chef/chef-workstation/pull/1831) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.3.328 -->
 - Bump omnibus from `4a3c044` to `dd57896` in /omnibus [#1825](https://github.com/chef/chef-workstation/pull/1825) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.3.327 -->
 - Bump train-core to 3.5.4 [#1829](https://github.com/chef/chef-workstation/pull/1829) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.326 -->
