@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.3.332 -->
-## [21.3.332](https://github.com/chef/chef-workstation/tree/21.3.332) (2021-03-18)
+<!-- latest_release 21.3.333 -->
+## [21.3.333](https://github.com/chef/chef-workstation/tree/21.3.333) (2021-03-23)
 
 #### Merged Pull Requests
-- Bump chef to 16.11.7 [#1835](https://github.com/chef/chef-workstation/pull/1835) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `f903311` to `5286aa6` in /omnibus [#1838](https://github.com/chef/chef-workstation/pull/1838) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.303 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `f903311` to `5286aa6` in /omnibus [#1838](https://github.com/chef/chef-workstation/pull/1838) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.3.333 -->
 - Bump chef to 16.11.7 [#1835](https://github.com/chef/chef-workstation/pull/1835) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.332 -->
 - Bump ohai to 16.10.7 [#1834](https://github.com/chef/chef-workstation/pull/1834) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.331 -->
 - Bump mixlib-install to 3.12.11 [#1833](https://github.com/chef/chef-workstation/pull/1833) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.330 -->
