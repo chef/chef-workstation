@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.3.345 -->
-## [21.3.345](https://github.com/chef/chef-workstation/tree/21.3.345) (2021-03-25)
+<!-- latest_release 21.3.346 -->
+## [21.3.346](https://github.com/chef/chef-workstation/tree/21.3.346) (2021-03-25)
 
 #### Merged Pull Requests
-- Bump knife-ec2 to 2.1.4 [#1852](https://github.com/chef/chef-workstation/pull/1852) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump inspec-bin to 4.29.3 [#1853](https://github.com/chef/chef-workstation/pull/1853) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.2.303 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump inspec-bin to 4.29.3 [#1853](https://github.com/chef/chef-workstation/pull/1853) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.346 -->
 - Bump knife-ec2 to 2.1.4 [#1852](https://github.com/chef/chef-workstation/pull/1852) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.345 -->
 - Bump knife-windows to 4.0.7 [#1851](https://github.com/chef/chef-workstation/pull/1851) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.344 -->
 - Bump knife-vsphere to 4.1.10 [#1850](https://github.com/chef/chef-workstation/pull/1850) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.343 -->
