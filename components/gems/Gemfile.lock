@@ -589,7 +589,7 @@ GEM
       chef (>= 15.11)
       excon (>= 0.50)
       mixlib-shellout
-    knife-ec2 (2.1.3)
+    knife-ec2 (2.1.4)
       aws-sdk-ec2 (~> 1.95)
       aws-sdk-s3 (~> 1.43)
       chef (>= 15.11)
@@ -612,7 +612,7 @@ GEM
       filesize (>= 0.1.1, < 0.3.0)
       netaddr (~> 1.5)
       rbvmomi (>= 1.8, < 4.0)
-    knife-windows (4.0.6)
+    knife-windows (4.0.7)
       chef (>= 15.11)
       winrm (~> 2.1)
       winrm-elevated (~> 1.0)
