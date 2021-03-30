@@ -16,6 +16,6 @@
   "WorkstationDir":     ".chef-workstation",
   "WorkstationExec":    "chef-cli",
   "DocsWebsite":        "https://docs.chef.io",
-  "WSWebsite":          "https://chef.sh",
+  "WSWebsite":          "https://community.chef.io/tools/chef-workstation/",
   "MainWebsite":        "https://chef.io"
 }

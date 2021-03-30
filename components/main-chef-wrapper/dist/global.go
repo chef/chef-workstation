@@ -24,7 +24,7 @@ const (
 	SoloExec           = "chef-solo"
 	SoloProduct        = "Chef Infra Solo"
 	UserConfDir        = ".chef"
-	WSWebsite          = "https://chef.sh"
+	WSWebsite          = "https://community.chef.io/tools/chef-workstation/"
 	WorkstationDir     = ".chef-workstation"
 	WorkstationExec    = "chef-cli"
 	WorkstationProduct = "Chef Workstation"

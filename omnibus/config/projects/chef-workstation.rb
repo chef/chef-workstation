@@ -18,7 +18,7 @@
 name          "chef-workstation"
 friendly_name "Chef Workstation"
 maintainer    "Chef Software, Inc. <maintainers@chef.io>"
-homepage      "https://chef.sh"
+homepage      "https://community.chef.io/tools/chef-workstation/"
 
 license "Chef EULA"
 license_file "CHEF-EULA.md"
