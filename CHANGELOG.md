@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.351 -->
-## [21.4.351](https://github.com/chef/chef-workstation/tree/21.4.351) (2021-04-02)
+<!-- latest_release 21.4.352 -->
+## [21.4.352](https://github.com/chef/chef-workstation/tree/21.4.352) (2021-04-02)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `142e76b` to `a0e7438` in /omnibus [#1863](https://github.com/chef/chef-workstation/pull/1863) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump cheffish to 16.0.26 [#1864](https://github.com/chef/chef-workstation/pull/1864) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.3.346 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump cheffish to 16.0.26 [#1864](https://github.com/chef/chef-workstation/pull/1864) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.352 -->
 - Bump omnibus-software from `142e76b` to `a0e7438` in /omnibus [#1863](https://github.com/chef/chef-workstation/pull/1863) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.4.351 -->
 - Bump chef-cli to 3.1.6 [#1861](https://github.com/chef/chef-workstation/pull/1861) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.350 -->
 - Bump omnibus-software from `f6aa2ed` to `caf6ae0` in /omnibus [#1858](https://github.com/chef/chef-workstation/pull/1858) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.3.349 -->
