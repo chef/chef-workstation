@@ -49,7 +49,17 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
 {{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
 {{< foundation_tabs_panel active="true" panel-id="sys-ruby" >}}
 
-1. To use Chef Workstation-provided Ruby as the default Ruby on your system, edit the `$PATH` and `GEM` environment variables to include paths to Chef Workstation. For example, on a machine that runs Bash, run:
+To configure Chef Workstation as your default Ruby installation you'll need to add Workstation initialization commands to your shell's init script.
+
+1. Determine your default shell by running:
+
+    ```bash
+    echo $SHELL
+    ```
+
+    This will give you the path to your default shell such as `/bin/zsh` for the Zsh shell.
+
+1. For example, on a machine that runs Bash, run:
 
     ``` bash
     echo 'eval "$(chef shell-init bash)"' >> ~/.bashrc
