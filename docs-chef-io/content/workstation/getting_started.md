@@ -79,7 +79,13 @@ To configure Chef Workstation as your default Ruby installation you'll need to a
     echo 'eval (chef shell-init fish)' >> ~/.config/fish/config.fish
     ```
 
-1. Open a new shell window and run `which ruby`. It should return `/opt/chef-workstation/embedded/bin/ruby`.
+1. Open a new shell window and run:
+
+    ```bash
+    which ruby
+    ```
+
+    The command should return `/opt/chef-workstation/embedded/bin/ruby`.
 
 {{< /foundation_tabs_panel >}}
 {{< foundation_tabs_panel panel-id="path-ruby" >}}
