@@ -433,7 +433,7 @@ GEM
     faraday-net_http (1.0.1)
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
-    fauxhai-ng (8.7.0)
+    fauxhai-ng (8.7.1)
       net-ssh
     ffi (1.15.0)
     ffi (1.15.0-x64-mingw32)
@@ -1070,7 +1070,7 @@ DEPENDENCIES
   dep_selector
   docker-api (>= 2.0)
   ed25519
-  fauxhai-ng (>= 8.7)
+  fauxhai-ng (>= 8.7.1)
   ffi-libarchive
   guard
   inspec-bin (~> 4.23)

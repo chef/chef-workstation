@@ -70,12 +70,16 @@ build do
   appbundle "foodcritic", lockdir: project_dir, gem: "chef_deprecations", without: %w{development test}, env: env
   appbundle "test-kitchen", lockdir: project_dir, gem: "test-kitchen", without: %w{changelog debug docs development integration}, env: env
   appbundle "inspec", lockdir: project_dir, gem: "inspec-bin", without: %w{deploy tools maintenance integration}, env: env
-  appbundle "chef-run", lockdir: project_dir, gem: "chef-apply", without: %w{changelog docs debug}, env: env
-  appbundle "chef-cli", lockdir: project_dir, gem: "chef-cli", without: %w{changelog docs debug}, env: env
+  appbundle "chef-run", lockdir: project_dir, gem: "chef-apply", without: %w{development docs debug}, env: env
+  appbundle "chef-cli", lockdir: project_dir, gem: "chef-cli", without: %w{development profile test}, env: env
   appbundle "berkshelf", lockdir: project_dir, gem: "berkshelf", without: %w{changelog build docs debug development}, env: env
+  appbundle "mixlib-install", lockdir: project_dir, gem: "mixlib-install", without: %w{test chefstyle debug}, env: env
+  appbundle "chef-zero", lockdir: project_dir, gem: "chef-zero", without: %w{pedant development debug}, env: env
+  appbundle "cookstyle", lockdir: project_dir, gem: "cookstyle", without: %w{docs profiling rubocop_gems development debug}, env: env
+  appbundle "fauxhai", lockdir: project_dir, gem: "fauxhai-ng", env: env
 
   # Note - 'chef-apply' gem provides 'chef-run', not 'chef-apply' which ships with chef-bin...
-  %w{chef-bin chef-apply chef-vault ohai cookstyle}.each do |gem|
+  %w{chef-bin chef-apply chef-vault ohai}.each do |gem|
     appbundle gem, lockdir: project_dir, gem: gem, without: %w{changelog}, env: env
   end
 
