@@ -51,7 +51,7 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
 
 To configure Chef Workstation as your default Ruby installation you'll need to add Workstation initialization commands to your shell's init script.
 
-1. Determine your default shell by running:
+ 1. Determine your default shell by running:
 
     ```bash
     echo $SHELL
@@ -83,17 +83,26 @@ To configure Chef Workstation as your default Ruby installation you'll need to a
 
 {{< /foundation_tabs_panel >}}
 {{< foundation_tabs_panel panel-id="path-ruby" >}}
-In a command window, type the following:
 
-``` bash
-echo 'export PATH="/opt/chef-workstation/embedded/bin:/opt/chef-workstation/embedded/bin:$PATH"' >> ~/.configuration_file && source ~/.configuration_file
-```
+1. In a command window, type the following:
 
-where `configuration_file` is the name of the configuration file for the specific command shell. For example, if Bash were the command shell and the configuration file were named `.bashrc`, the command would look something like:
+    ``` bash
+    echo 'export PATH="/opt/chef-workstation/embedded/bin:/opt/chef-workstation/embedded/bin:$PATH"' >> ~/.configuration_file
+    ```
 
-``` bash
-export PATH="/opt/chef-workstation/bin:/opt/chef-workstation/embedded/bin:$PATH" >> ~/.bashrc && source ~/.bashrc
-```
+    where `configuration_file` is the name of the configuration file for the specific command shell. For example, if Bash were the command shell and the configuration file were named `.bashrc`, the command would look something like:
+
+    ``` bash
+    export PATH="/opt/chef-workstation/bin:/opt/chef-workstation/embedded/bin:$PATH" >> ~/.bashrc && source ~/.bashrc
+    ```
+
+1. Open a new shell window and run:
+
+    ```bash
+    which chef
+    ```
+
+    The command should return `/opt/chef-workstation/bin/chef`.
 
 {{< /foundation_tabs_panel >}}
 {{< /foundation_tabs_panels >}}
