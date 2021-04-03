@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: a1e9c90875f9a6267bdbf9742881178245411c52
+  revision: a0e7438f3eda36164d05d1e76c6ecb0fadc508e5
   branch: master
   specs:
     omnibus-software (4.0.0)
@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/chef/omnibus.git
-  revision: fb2a0058e37d4bede556d085714d54a5ded99f58
+  revision: dd5789621fa32da5846b9cb92ea902015265734c
   branch: master
   specs:
-    omnibus (8.1.1)
+    omnibus (8.1.3)
       aws-sdk-s3 (~> 1)
       chef-cleanroom (~> 1.0)
       chef-utils (>= 15.4)
@@ -30,22 +30,22 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     artifactory (3.0.15)
-    awesome_print (1.8.0)
-    aws-eventstream (1.1.0)
-    aws-partitions (1.429.0)
-    aws-sdk-core (3.112.0)
+    awesome_print (1.9.2)
+    aws-eventstream (1.1.1)
+    aws-partitions (1.438.0)
+    aws-sdk-core (3.113.1)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
       aws-sigv4 (~> 1.1)
       jmespath (~> 1.0)
-    aws-sdk-kms (1.42.0)
+    aws-sdk-kms (1.43.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.89.0)
+    aws-sdk-s3 (1.93.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
-    aws-sigv4 (1.2.2)
+    aws-sigv4 (1.2.3)
       aws-eventstream (~> 1, >= 1.0.2)
     bcrypt_pbkdf (1.1.0.rc2)
     bcrypt_pbkdf (1.1.0.rc2-x64-mingw32)
@@ -185,9 +185,9 @@ GEM
     faraday-net_http (1.0.1)
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
-    ffi (1.14.2)
-    ffi (1.14.2-x64-mingw32)
-    ffi (1.14.2-x86-mingw32)
+    ffi (1.15.0)
+    ffi (1.15.0-x64-mingw32)
+    ffi (1.15.0-x86-mingw32)
     ffi-libarchive (1.0.17)
       ffi (~> 1.0)
     ffi-win32-extensions (1.0.4)
@@ -239,7 +239,7 @@ GEM
       tomlrb (>= 1.2, < 3.0)
       tty-box (~> 0.6)
       tty-prompt (~> 0.20)
-    license_scout (1.2.9)
+    license_scout (1.2.10)
       ffi-yajl (~> 2.2)
       mixlib-shellout (>= 2.2, < 4.0)
       toml-rb (>= 1, < 3)
@@ -257,7 +257,7 @@ GEM
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
-    mixlib-install (3.12.7)
+    mixlib-install (3.12.11)
       mixlib-shellout
       mixlib-versioning
       thor
@@ -287,7 +287,7 @@ GEM
     octokit (4.20.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
-    ohai (16.10.6)
+    ohai (16.10.7)
       chef-config (>= 12.8, < 17)
       chef-utils (>= 16.0, < 17)
       ffi (~> 1.9)
@@ -347,14 +347,14 @@ GEM
       molinillo (~> 0.6)
       semverse (>= 1.1, < 4.0)
     sslshake (1.3.1)
-    strings (0.2.0)
+    strings (0.2.1)
       strings-ansi (~> 0.2)
-      unicode-display_width (~> 1.5)
+      unicode-display_width (>= 1.5, < 3.0)
       unicode_utils (~> 1.4)
     strings-ansi (0.2.0)
     structured_warnings (0.4.0)
     syslog-logger (1.6.8)
-    test-kitchen (2.11.0)
+    test-kitchen (2.11.2)
       bcrypt_pbkdf (~> 1.0)
       chef-utils (>= 16.4.35)
       ed25519 (~> 1.2)
@@ -372,7 +372,7 @@ GEM
     toml-rb (2.0.1)
       citrus (~> 3.0, > 3.0)
     tomlrb (1.3.0)
-    train-core (3.5.2)
+    train-core (3.5.5)
       addressable (~> 2.5)
       ffi (!= 1.13.0)
       json (>= 1.8, < 3.0)
@@ -401,7 +401,7 @@ GEM
       pastel (~> 0.8)
       strings (~> 0.2.0)
       tty-screen (~> 0.8)
-    unicode-display_width (1.7.0)
+    unicode-display_width (2.0.0)
     unicode_utils (1.4.0)
     uuidtools (2.2.0)
     webrick (1.7.0)

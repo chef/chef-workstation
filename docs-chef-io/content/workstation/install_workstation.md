@@ -8,22 +8,13 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
 
 [menu]
   [menu.workstation]
-    title = "Install Chef Workstation"
+    title = "Install"
     identifier = "chef_workstation/install_workstation.md Install Chef Workstation"
     parent = "chef_workstation"
-    weight = 30
+    weight = 20
 +++
 
-Start your infrastructure automation quickly and easily with [Chef Workstation](/workstation/). Chef Workstation gives you everything you need to get started with Chef - ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software - all in one easy-to-install package.
-
-Chef Workstation includes:
-
-- Chef Infra Client
-- Chef InSpec
-- Chef Habitat
-- chef and knife command line tools
-- Testing tools such as Test Kitchen, ChefSpec, and Cookstyle
-- Everything else needed to author cookbooks and upload them to the Chef Infra Server
+{{% chef_workstation %}}
 
 ## Supported Platforms
 
@@ -112,6 +103,10 @@ Alternately, install Chef Workstation using the [Homebrew](https://brew.sh/) pac
 1. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the `C:\opscode\chef-workstation\` directory.
 1. **Optional:** Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell instead of `cmd.exe`.
 
+Alternately, install Chef Workstation using the [Chocolatey](https://chocolatey.org/) package manager:
+
+`choco install chef-workstation`
+
 #### Headless Unattended Install
 
 "Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse. They are usually administered remotely using protocols such as SSH or WinRM.
@@ -170,13 +165,13 @@ chef -v
 Which returns the versions of all installed Chef tools:
 
 ``` shell
-Chef Workstation version: 21.2.278
-Chef Infra Client version: 16.10.8
-Chef InSpec version: 4.26.4
+Chef Workstation version: 21.2.303
+Chef Infra Client version: 16.10.17
+Chef InSpec version: 4.26.13
 Chef CLI version: 3.1.1
 Chef Habitat version: 1.6.181
 Test Kitchen version: 2.10.0
-Cookstyle version: 7.8.0
+Cookstyle version: 7.8.3
 ```
 
 ## Upgrading

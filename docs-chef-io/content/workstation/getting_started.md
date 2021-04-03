@@ -8,18 +8,19 @@ aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html",
 
 [menu]
   [menu.workstation]
-    title = "Getting Started"
-    identifier = "chef_workstation/getting_started.md Getting Started"
+    title = "Setup"
+    identifier = "chef_workstation/getting_started.md Setup Chef Workstation"
     parent = "chef_workstation"
-    weight = 40
+    weight = 30
 +++
 
 This guide walks your through the four parts to set up Chef Workstation on your computer.
 
-* [Setup Ruby for Chef Workstation]({{< relref "#Setup Ruby for Chef Workstation" >}})
+* [Setup Ruby for Chef Workstation]({{< relref "#Configure Ruby Environment" >}})
 * [Set up your chef-repo]({{< relref "#Setup Your Chef Repo" >}}) for storing your cookbooks
-* [Understand your Chef Workstation installation]({{< relref "#Your Chef Workstation Installation" >}})
-* [Set Up Chef Infra Communication]({{< relref "#Set Up Chef Infra Communications" >}})
+* [Setup Chef Credentials]({{< relref "#Setup Chef Credentials" >}})
+* [Set Up Chef Infra Communication]({{< relref "#Setup TLS/SSL" >}})
+* [Verify Client-to-Server Communication]({{< relref "#Verify Client-to-Server Communication" >}})
 
 In order to use Chef Workstation effectively, you need to install and set up [Chef Infra Server]({{< relref "/server/install_server.md" >}}) first.
 
@@ -34,15 +35,24 @@ If you do not have Chef Workstation installed, start with the [installation guid
 
 ## Configure Ruby Environment
 
-For many users of Chef, the version of Ruby that is included in Chef
-Workstation should be configured as the default version of Ruby on your
-system.
+For many users, Ruby is primarily used for developing Chef policy (for example, cookbooks, Policyfiles, and Chef InSpec profiles). If that's true for you, then we recommend using the Chef Workstation Ruby as your default system Ruby. If you use Ruby for software development, we recommend adding Chef Workstation to your shell's PATH variable instead.
 
 {{< note >}}
 
-These instructions are intended for macOS and Linux users. On Windows Chef Workstation includes a desktop shortcut to a PowerShell prompt already configured for use.
+These instructions are intended for macOS and Linux users. On Windows, Chef Workstation includes a desktop shortcut to a PowerShell prompt already configured for use.
 
 {{< /note >}}
+
+<!----Tabs Section--->
+{{< foundation_tabs tabs-id="tabs-panel-container" >}}
+{{< foundation_tab active="true" panel-link="sys-ruby" tab-text="Set System Ruby">}}
+{{< foundation_tab panel-link="path-ruby" tab-text="Set $PATH Variable" >}}
+{{< /foundation_tabs >}}
+<!----End Tabs --->
+
+<!----Panels Section --->
+{{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
+{{< foundation_tabs_panel active="true" panel-id="sys-ruby" >}}
 
 1. Open a terminal and enter the following:
 
@@ -52,371 +62,264 @@ These instructions are intended for macOS and Linux users. On Windows Chef Works
 
     which will return something like `/usr/bin/ruby`.
 
-2. To use Chef Workstation-provided Ruby as the default Ruby on your system, edit the `$PATH` and `GEM` environment variables to include paths to Chef Workstation. For example, on a machine that runs Bash, run:
+1. To use Chef Workstation-provided Ruby as the default Ruby on your system, edit the `$PATH` and `GEM` environment variables to include paths to Chef Workstation. For example, on a machine that runs Bash, run:
 
     ``` bash
-    echo 'eval "$(chef shell-init bash)"' >> ~/.bash_profile
+    echo 'eval "$(chef shell-init bash)"' >> ~/.bashrc
     ```
 
-    where `bash` and `~/.bash_profile` represents the name of the shell.
+    where `bash` and `~/.bashrc` represents the name of the shell.
 
-    If zsh is your preferred shell then run the following:
+    If zsh is your preferred shell then run:
 
     ``` bash
     echo 'eval "$(chef shell-init zsh)"' >> ~/.zshrc
     ```
 
-3. Run `which ruby` again. It should return
-    `/opt/chef-workstation/embedded/bin/ruby`.
+    If Fish is your preferred shell then run:
 
-{{< note >}}
+    ``` bash
+    echo 'eval (chef shell-init fish)' >> ~/.config/fish/config.fish
+    ```
 
-Using Chef Workstation-provided Ruby as your system Ruby is optional.
-For many users, Ruby is primarily used for authoring Chef cookbooks. If
-that's true for you, then using the Chef Workstation-provided Ruby is
-recommended.
+1. Run `which ruby` again. It should return `/opt/chef-workstation/embedded/bin/ruby`.
 
-{{< /note >}}
-
-## Add Ruby to $PATH
-
-Chef Infra Client includes a stable version of Ruby as part of its
-installer. The path to this version of Ruby must be added to the `$PATH`
-environment variable and saved in the configuration file for the command
-shell (Bash, csh, and so on) that is used on the machine running Chef
-Workstation. In a command window, type the following:
+{{< /foundation_tabs_panel >}}
+{{< foundation_tabs_panel panel-id="path-ruby" >}}
+In a command window, type the following:
 
 ``` bash
-echo 'export PATH="/opt/chef-workstation/embedded/bin:$PATH"' >> ~/.configuration_file && source ~/.configuration_file
+echo 'export PATH="/opt/chef-workstation/embedded/bin:/opt/chef-workstation/embedded/bin:$PATH"' >> ~/.configuration_file && source ~/.configuration_file
 ```
 
-where `configuration_file` is the name of the configuration file for the
-specific command shell. For example, if Bash were the command shell and
-the configuration file were named `bash_profile`, the command would look
-something like the following:
+where `configuration_file` is the name of the configuration file for the specific command shell. For example, if Bash were the command shell and the configuration file were named `.bashrc`, the command would look something like:
 
 ``` bash
-echo 'export PATH="/opt/chef-workstation/embedded/bin:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
+export PATH="/opt/chef-workstation/bin:/opt/chef-workstation/embedded/bin:$PATH" >> ~/.bashrc && source ~/.bashrc
 ```
 
-{{< warning >}}
+{{< /foundation_tabs_panel >}}
+{{< /foundation_tabs_panels >}}
+<!----End Panels --->
 
-On Microsoft Windows, `C:/opscode/Chef Workstation/bin` must be before
-`C:/opscode/Chef Workstation/embedded/bin` in the `PATH`.
+## Setup Your Chef Repo
 
-{{< /warning >}}
+If you're setting up Chef for the very first time **in your organization**, then you will need a Chef Infra repository for saving your cookbooks and other work.
 
-## Create the Chef repository
+{{% chef_repo_description %}}
 
-Use [the chef generate repo]({{< relref "ctl_chef.md#chef-generate-repo" >}}) to
-create the Chef repository. For example, to create a repository called
-`chef-repo`:
+Use the [chef generate repo]({{< relref "ctl_chef.md#chef-generate-repo" >}}) command to create your Chef Infra repository. For example, to create a repository called `chef-repo`:
 
 ``` bash
 chef generate repo chef-repo
 ```
 
-### Install a Code Editor
+## Setup Chef Credentials
 
-A good visual code editor is not a requirement for working with Chef
-Infra, but a good code editor can save you time. A code editor should
-support the following: themes, plugins, snippets, syntax Ruby code
-coloring/highlighting, multiple cursors, a tree view of the entire
-folder/repository you are working with, and a Git integration.
+The first time you run the Chef Workstation app, it creates a `.chef` directory in your user directory. The `.chef` directory is where you will store your Chef Workstation configuration and your client keys.
 
-These are a few common editors:
+If you're setting up Chef **as a Chef Infra Server administrator**, then you will need to manage users with the [Chef Infra Server CLI](https://docs.chef.io/server/ctl_chef_server/#user-management). When you create a new user, Chef Infra Server creates a client for that user with a user-specific RSA client key, which you then need to share securely with that user.
 
-- [Visual Studio Code (free/open source)](http://code.visualstudio.com)
-- [GitHub Atom - (free/open source)](http://atom.io)
+If you're setting up Chef Workstation **as a Chef user**, then you will need to setup your unique client certificate that corresponds to a client on the Chef Infra Server that your server administrator creates for you. The client certificate is an RSA private key in the `.pem` format.
 
-Chef Infra support in editors:
+Save your client certificate in the `.chef` directory using the same name as the client created by your server administrator.
 
-- [VSCode Chef Infra Extension](https://marketplace.visualstudio.com/items?itemName=chef-software.Chef)
-- [Chef on Atom](https://atom.io/packages/language-chef)
+### Configure Your User Credentials File
 
-### Starter Kit
+Your `.chef` directory contains an example client `credentials` file, which you can modify to setup communication with your Chef Infra Server.
 
-If you have access to Chef Infra Server through Automate or Chef Manage,
-you can download the starter kit. The starter kit will create the
-necessary configuration files: the `.chef` directory, `config.rb`,
-`ORGANIZATION-validator.pem`, and `USER.pem`. Simply download the
-starter kit and then move it to the desired location on your Chef
-Workstation machine.
+At a minimum, you must update the following settings with the appropriate values:
 
-## Configure the Chef Repository
+- `client_name`: the client name your server administrator created for you
+- `client_key`: the path to the client key in your `.chef` directory
+- `chef_server_url`: the full URL to your Chef Infra Server including the org
 
-### With WebUI
+See the [knife config.rb documentation](/workstation/config_rb/) for more details.
 
-Use the following steps to manually set up the chef-repo and to use the
-Chef management console to get the `.pem` and `config.rb` files.
+<!----Tabs Section--->
+{{< foundation_tabs tabs-id="tabs-panel-container" >}}
+{{< foundation_tab active="true" panel-link="credentials-example" tab-text="Example credentials file">}}
+{{< foundation_tab panel-link="credentials-demo" tab-text="Completed credentials file" >}}
+{{< /foundation_tabs >}}
+<!----End Tabs --->
 
-#### Get Config Files
+<!----Panels Section --->
+{{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
+{{< foundation_tabs_panel active="true" panel-id="credentials-example" >}}
 
-For a Chef Workstation installation that will interact with the Chef
-Infra Server (including the hosted Chef Infra Server), log on and
-download the following files:
+```bash
+# This is the Chef Infra credentials file used by the knife CLI and other tools
+# This file supports defining multiple credentials profiles, to allow you to switch between users, orgs, and Chef Infra Servers.
 
-- `config.rb`. This configuration file can be downloaded from the **Organizations** page.
-- `ORGANIZATION-validator.pem`. This private key can be downloaded from the **Organizations** page.
-- `USER.pem`. This private key can be downloaded from the **Change Password** section of the **Account Management** page.
-
-#### Move Config Files
-
-The `config.rb`, `ORGANIZATION-validator.pem`, and `USER.pem` files must
-be moved to the `.chef` directory after they are downloaded from the
-Chef Infra Server.
-
-To move files to the `.chef` directory:
-
-1. In a command window, enter each of the following:
-
-    ``` bash
-    cp /path/to/config.rb ~/chef-repo/.chef
-    ```
-
-    and:
-
-    ``` bash
-    cp /path/to/ORGANIZATION-validator.pem ~/chef-repo/.chef
-    ```
-
-    and:
-
-    ``` bash
-    cp /path/to/USERNAME.pem ~/chef-repo/.chef
-    ```
-
-    where `/path/to/` represents the path to the location in which these
-    three files were placed after they were downloaded.
-
-2. Verify that the files are in the `.chef` folder.
-
-### Without WebUI
-
-Use the following steps to manually set up the Chef repository: On your
-Chef Infra Server, create the `ORGANIZATION-validator.pem` and
-`USER.pem` files with the `chef-server-ctl` command line tool. Then, on
-your workstation create the `config.rb` file with the `knife` tool.
-
-#### Create an Organization
-
-On the Chef Infra Server machine, create the `ORGANIZATION-validator.pem`
-from the command line using `chef-server-ctl`. Run the following
-command:
-
-``` bash
-chef-server-ctl org-create ORG_NAME ORG_FULL_NAME -f FILE_NAME
+# Example credential file configuration:
+# [default]
+# client_name = 'MY_USERNAME'
+# client_key = '/Users/USERNAME/.chef/MY_USERNAME.pem'
+# chef_server_url = 'https://api.chef.io/organizations/MY_ORG'
 ```
 
-where
+{{< /foundation_tabs_panel >}}
+{{< foundation_tabs_panel panel-id="config-rb-demo" >}}
 
-- The name must begin with a lower-case letter or digit, may only
-    contain lower-case letters, digits, hyphens, and underscores, and
-    must be between 1 and 255 characters. For example: `chef`
-- The full name must begin with a non-whitespace character and must
-    be between 1 and 1023 characters. For example:
-    `"Chef Software, Inc."`
-- `-f FILE_NAME`: Write the `ORGANIZATION-validator.pem` to
-    `FILE_NAME` instead of printing it to `STDOUT`. For example:
-    `/tmp/chef.key`.
-
-For example, an organization named `chef`, with a full name of
-`Chef Software, Inc.`, and with the ORGANIZATION-validator.pem file
-saved to `/tmp/chef.key`:
-
-``` bash
-chef-server-ctl org-create chef "Chef Software, Inc." -f /tmp/chef.key
+```bash
+# Example completed credential file configuration:
+[default]
+client_name = 'hshefu'
+client_key = '/Users/harishefu/.chef/hshefu.pem'
+chef_server_url = 'https://chef-server.4thcafe.com/organizations/web-team'
 ```
 
-#### Create a User
+{{< /foundation_tabs_panel >}}
+{{< /foundation_tabs_panels >}}
 
-On the Chef Infra Server machine, create the `USER.pem` from the command
-line using `chef-server-ctl`. Run the following command:
+## Setup TLS/SSL
 
-``` bash
-chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL PASSWORD -f FILE_NAME
-```
+All communication between Chef Workstation and the Chef Infra Server uses transport layer security and secure socket layer protocols (TLS/SSL) verification for security purposes.
 
-where
+Ideally, you will set up your Chef Infra Server using a certificate signed by a trusted certificate authority (CA), which will let you communicate with your server automatically.
 
-- `-f FILE_NAME` writes the `USER.pem` to a file instead of `STDOUT`.
-    For example: `/tmp/grantmc.key`.
+Chef Infra Server generates a self-signed certificate during the setup process unless you supply a trusted CA certificate. Because this certificate is unique to your server, you will need to take additional steps to enable communication between the Chef Infra Client and Server.
 
-For example: a user named `grantmc`, with a first and last name of
-`Grant McLennan`, an email address of `grantmc@chef.io`, a poorly-chosen
-password, and a `USER.pem` file saved to `/tmp/grantmc.key`:
+To set up Chef Workstation to communicate with your Chef Infra Server, you need the to download files to your `.chef` directory.
 
-``` bash
-chef-server-ctl user-create grantmc Grant McLennan grantmc@chef.io p@s5w0rD! -f /tmp/grantmc.key
-```
+The steps for downloading or generating these files vary depending on how you interact with Chef Infra Server. Select the option that best describes how you interact with the server:
 
-#### Move .pem Files
+- From the command line
+- From macOS/Linux Hosted Chef or Chef Manage user interface (UI)
+- From Windows Hosted Chef or Chef Manage UI
 
-Download the `ORGANIZATION-validator.pem` and `USER.pem` files from the
-Chef Infra Server and move them to the `.chef` directory.
+### From the Command Line
+<!----Tabs Section--->
+{{< foundation_tabs tabs-id="tabs-panel-container" >}}
+{{< foundation_tab active="true" panel-link="tls-cli" tab-text="Command Line">}}
+{{< foundation_tab panel-link="tls-nix-ui" tab-text="macOS/Linux Chef UI" >}}
+{{< foundation_tab panel-link="tls-win-ui" tab-text="Windows Chef UI" >}}
 
-To move files to the .chef directory:
+{{< /foundation_tabs >}}
+<!----End Tabs --->
 
-1. In a command window, enter each of the following:
+<!----Panels Section --->
+{{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
+{{< foundation_tabs_panel active="true" panel-id="tls-cli" >}}
+If you interact with your Chef Infra Server from the command line, then you will need to:
 
-    ``` bash
-    cp /path/to/ORGANIZATION-validator.pem ~/chef-repo/.chef
-    ```
+- Retrieve your user private key, the `USER.pem` file, from your Chef Infra Server and save it in your .chef directory
+- Configure the `knife` tool
+- Use `knife` to download and save your server's digital certificates
 
-    and:
+Download the `USER.pem` files from the Chef Infra Server and move them to the `.chef` directory.
 
-    ``` bash
-    cp /path/to/USERNAME.pem ~/chef-repo/.chef
-    ```
+#### Get SSL Certificates
 
-    where `/path/to/` represents the path to the location in which these
-    three files were placed after they were downloaded.
+In the final step of setting up TLS/SSL with a custom CA certificate, you'll use the `knife ssl fetch` subcommand to download the the Chef Infra Server TLS/SSL certificate and save it in your `.chef/trusted_certs`.
 
-2. Verify that the files are in the `.chef` folder.
+Chef Infra verifies the security of all requests made to the server from tools such a knife and Chef Infra Client. The certificate that is generated during the installation of the Chef Infra Server is self-signed, which means there isn't a signing certificate authority (CA) to verify. In addition, this certificate must be downloaded to any machine from which knife and/or Chef Infra Client will make requests to the Chef Infra Server.
 
-#### Create the config.rb File
-
-Navigate to the `~/chef-repo/.chef` directory and create the `config.rb`
-using the `knife configure` tool. The file must be created in the
-`.chef` folder. It should look similar to:
-
-``` ruby
-current_dir = File.dirname(__FILE__)
-log_level                :info
-log_location             STDOUT
-node_name                'node_name'
-client_key               "#{current_dir}/USER.pem"
-validation_client_name   'ORG_NAME-validator'
-validation_key           "#{current_dir}/ORGANIZATION-validator.pem"
-chef_server_url          'https://api.chef.io/organizations/ORG_NAME'
-cache_type               'BasicFile'
-cache_options( :path => "#{ENV['HOME']}/.chef/checksums" )
-cookbook_path            ["#{current_dir}/../cookbooks"]
-```
-
-At a minimum, you must update the following settings with the
-appropriate values:
-
-- `client_key` should point to the location of the Chef Infra Server
-    user's `.pem` file on your Chef Workstation machine.
-- `validation_client_name` should be updated with the name of the
-    desired organization that was created on the Chef Infra Server.
-- `validation_key` should point to the location of your organization's
-    `.pem` file on your Chef Workstation machine.
-- `chef_server_url` must be updated with the domain or IP address used
-    to access the Chef Infra Server.
-
-See the [knife config.rb documentation](/workstation/config_rb/) for more
-details.
-
-## Get SSL Certificates
-
-Chef Server 12 and later enables SSL verification by default for all
-requests made to the server, such as those made by knife and Chef Infra
-Client. The certificate that is generated during the installation of the
-Chef Infra Server is self-signed, which means there isn't a signing
-certificate authority (CA) to verify. In addition, this certificate must
-be downloaded to any machine from which knife and/or Chef Infra Client
-will make requests to the Chef Infra Server.
-
-Use the `knife ssl fetch` subcommand to pull the SSL certificate down
-from the Chef Infra Server:
+Use the `knife ssl fetch` subcommand to pull the SSL certificate down from the Chef Infra Server:
 
 ``` bash
 knife ssl fetch
 ```
 
-See [SSL Certificates](/chef_client_security/#ssl-certificates) for
-more information about how knife and Chef Infra Client use SSL
-certificates generated by the Chef Infra Server.
+See [SSL Certificates](/chef_client_security/#ssl-certificates) for more information about how knife and Chef Infra Client use SSL certificates generated by the Chef Infra Server.
 
-## Verify Server Communication
+{{< /foundation_tabs_panel >}}
+{{< foundation_tabs_panel panel-id="tls-nix-ui" >}}
+
+### From Hosted Chef or Chef Manage
+
+If you have interact with Chef Infra Server through the Hosted Chef or legacy Chef Manage web interface, these steps will help you use the Chef Management Console to download the `.pem` and `config.rb` files.
+
+#### Download Keys (.pem) and Configuration Files
+
+For a Chef Workstation installation that will interact with the Chef Infra Server (including the hosted Chef Infra Server) web interface, log on and download the following files:
+
+- Download the `config.rb` from the **Organizations** page.
+- Download the `USER.pem` from the **Change Password** section of the **Account Management** page.
+
+#### Move Keys and Configuration Files into the Chef Directory
+
+After downloading the `config.rb` and `USER.pem` files from the Chef Infra Server, move them to the Chef directory on your computer. The Chef directory is `~/.chef` on macOS and Linux systems.
+
+Move files to the `~/.chef` directory on macOS and Linux systems:
+
+1. In a command window, enter each of the following:
+
+    ``` bash
+    cp /path/to/config.rb ~/.chef
+    ```
+
+    and:
+
+    ``` bash
+    cp /path/to/USER.pem ~/.chef
+    ```
+
+    `/path/to/` is the location of your downloaded files.
+
+1. Verify that the files are in the `.chef` folder.
+
+   ``` bash
+   ls -la ~/.chef
+   ```
+
+{{< /foundation_tabs_panel >}}
+{{< foundation_tabs_panel panel-id="tls-win-ui" >}}
+
+### From Hosted Chef or Chef Manage
+
+If you have interact with Chef Infra Server through the Hosted Chef or legacy Chef Manage web interface, these steps will help you use the Chef Management Console to download the `.pem` and `config.rb` files.
+
+#### Download Keys (.pem) and Configuration Files
+
+For a Chef Workstation installation that will interact with the Chef Infra Server (including the hosted Chef Infra Server) web interface, log on and download the following files:
+
+- Download the `config.rb` from the **Organizations** page.
+- Download the `USER.pem` from the **Change Password** section of the **Account Management** page.
+
+#### Move Keys and Configuration Files into the Chef Directory
+
+After downloading the  `config.rb` and `USER.pem` files from the Chef Infra Server, move them to the `.chef` directory on your computer. The Chef directory is `C:\.chef` on Windows.
+
+Move files to the `C:\.chef` directory:
+
+1. In a command window, enter each of the following:
+
+    ```powershell
+    Move-Item -Path C:\path\to\config.rb -Destination C:\.chef
+    ```
+
+    and:
+
+    ```powershell
+    Move-Item -Path C:\path\to\USER.pem -Destination C:\.chef
+    ```
+
+  `\path\to\` is the location of your downloaded files .
+
+1. Verify that the files are in the `C:\.chef` folder.
+
+   ```powershell
+   Get-ChildItem -Path C:\.chef
+   ```
+
+{{< /foundation_tabs_panel >}}
+{{< /foundation_tabs_panels >}}
+<!----End Panels --->
+
+## Verify Client-to-Server Communication
 
 To verify that Chef Workstation can connect to the Chef Infra Server:
 
-1. In a command window, navigate to the Chef repository:
+Enter the following:
 
-    ``` bash
-    cd ~/chef-repo
-    ```
-
-2. In a command window, enter the following:
-
-    ``` bash
-    knife client list
-    ```
-
-    to return a list of clients (registered nodes and Chef Workstation
-    installations) that have access to the Chef Infra Server. For
-    example:
-
-    ``` bash
-    chefdk_machine
-    registered_node
-    ```
-
-## Ad-hoc remote execution with `chef-run`
-
-The `chef-run` utility allows you to execute ad-hoc configuration updates on the systems you manage without setting up a Chef server. With `chef-run`, you connect to servers over SSH or WinRM, and you can apply single resources, recipes, or even entire cookbooks directly from the command line.
-
-### Example: Installing NTP Server
-
-Chef Workstation combines the power of InSpec and `chef-run`, giving you the ability to easily detect and correct issues on any target instance. One common task that administrators perform in their environments is installing the Network Time Protocol (NTP), which keeps the clocks in sync between servers. InSpec allows us to check if the package is installed with a query, using the InSpec `package` resource:
-
-```ruby
-describe package('ntp') do
-  it { should be_installed }
-end
- ```
-
-Chef also provides a single-resource solution to install the Network Time Protocol package:
-
-```ruby
-package 'ntp' do
-  action :install
-end
+``` bash
+knife client list
 ```
 
-With `chef-run`, you can run the resource directly from the command-line, converging your targets with a single resource, without creating a cookbook or recipe:
+to return a list of clients (registered nodes and Chef Workstation installations) that have access to the Chef Infra Server. For example:
 
-```bash
-chef-run myhost package ntp action=install
+``` bash
+chef_machine
+registered_node
 ```
-
-Combined with executing an InSpec scan to validate successful package installation, we have everything we need to define our requirements and make sure they're met with two simple commands, either locally or remotely.
-
-```ruby
-inspec exec ntp-check -t ssh://myuser@myhost -i ~/.ssh/mykey
-```
-
-```bash
-chef-run -i ~/.ssh/mykey myuser@myhost package ntp action=install
-```
-
-![Chef Run NTP Installation](/images/chef-workstation/chef-run.gif)
-
-### Recipe and Multi-Node Convergence
-
-Use `chef-run` to execute Chef recipes and cookbooks as well, and run it against multiple targets in parallel. Here are a few  examples of chef-run in action:
-
-#### Example: Recipe execution on multiple targets
-
-Run the default recipe from the defined cookbook against two resources: myhost1 & myhost2.
-
-```bash
-chef-run myhost1,myhost2 /path/to/my/cookbook
-```
-
-#### Example: Alternate Recipe syntax and targets defined by a range
-
-Run the `my_cookbook::my_recipe` cookbook against twenty resources: myhost1 through myhost20
-
-```bash
-chef-run myhost[1:20] my_cookbook::my_recipe
-```
-
-## Further Reading
-
-* [Chef Run CLI Reference]({{< ref "chef_run.md" >}})
-* [Introducing Chef Workstation](https://blog.chef.io/2018/05/23/introducing-chef-workstation/)
-* [Chef Workstation - How We Made that Demo](https://blog.chef.io/2018/06/25/chef-workstation-how-we-made-that-demo/)

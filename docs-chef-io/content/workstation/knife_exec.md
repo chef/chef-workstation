@@ -199,6 +199,14 @@ To list all of the available search indexes, enter:
 knife exec -E 'puts api.get("search").keys'
 ```
 
+**Operations on Users and User Keys**
+
+To change any global end points like user or user keys, use the `--server-url` flag:
+
+``` bash
+knife exec -E 'api.delete("/users/myuser/keys/user33")' --server-url https://
+```
+
 **Query for multiple attributes**
 
 To query a node for multiple attributes using a Ruby script named

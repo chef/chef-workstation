@@ -49,6 +49,10 @@ This configuration file has the following settings:
   chef_server_url 'https://localhost/organizations/ORG_NAME'
   ```
 
+  {{< note >}}
+  If changes need to be made to any global end points like user or user keys, use [`knife exec`]({{< relref "workstation/knife_exec" >}}) with the `--server-url` flag to set `chef_server_url` to `https://localhost/`.
+  {{< /note >}}
+
 `chef_zero.enabled`
 : Enable chef-zero. This setting requires `local_mode` to be set to `true`. Default value: `false`. For example:
 
