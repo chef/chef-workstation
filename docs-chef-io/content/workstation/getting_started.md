@@ -16,22 +16,17 @@ aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html",
 
 This guide walks your through the four parts to set up Chef Workstation on your computer.
 
-* [Setup Ruby for Chef Workstation]({{< relref "#Configure Ruby Environment" >}})
-* [Set up your chef-repo]({{< relref "#Setup Your Chef Repo" >}}) for storing your cookbooks
-* [Setup Chef Credentials]({{< relref "#Setup Chef Credentials" >}})
-* [Set Up Chef Infra Communication]({{< relref "#Setup TLS/SSL" >}})
+* [Configure Ruby Environment]({{< relref "#configure-ruby-environment" >}})
+* [Set up your chef-repo]({{< relref "#setup-your-chef-repo" >}}) for storing your cookbooks
+* [Setup Chef Credentials]({{< relref "#setup-chef-credentials" >}})
+* [Set Up Chef Infra Communication]({{< relref "#setup-tlsssl" >}})
 * [Verify Client-to-Server Communication]({{< relref "#Verify Client-to-Server Communication" >}})
-
-In order to use Chef Workstation effectively, you need to install and set up [Chef Infra Server]({{< relref "/server/install_server.md" >}}) first.
-
-If you do not have Chef Workstation installed, start with the [installation guide]({{< relref "/workstation/install_workstation.md" >}}).
 
 ## Prerequisites
 
 1. [Download and install Chef Workstation]({{< relref "install_workstation.md" >}})
 1. A running instance of [Chef Infra Server]({{< relref "server/install_server.md" >}}) or [Hosted Chef Server](https://manage.chef.io/signup) and access to the:
    1. `USER.pem`
-1. Install a [Code Editor]({{< relref "#Code Editors" >}}) (optional)
 
 ## Configure Ruby Environment
 
