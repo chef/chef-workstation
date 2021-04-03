@@ -59,21 +59,21 @@ To configure Chef Workstation as your default Ruby installation you'll need to a
 
     This will give you the path to your default shell such as `/bin/zsh` for the Zsh shell.
 
-1. For example, on a machine that runs Bash, run:
+1. Add the Workstation initialization content to the appropriate shell rc file:
+
+    For Bash shells run:
 
     ``` bash
     echo 'eval "$(chef shell-init bash)"' >> ~/.bashrc
     ```
 
-    where `bash` and `~/.bashrc` represents the name of the shell.
-
-    If zsh is your preferred shell then run:
+    For Zsh shells run:
 
     ``` bash
     echo 'eval "$(chef shell-init zsh)"' >> ~/.zshrc
     ```
 
-    If Fish is your preferred shell then run:
+    For Fish shells run:
 
     ``` bash
     echo 'eval (chef shell-init fish)' >> ~/.config/fish/config.fish
