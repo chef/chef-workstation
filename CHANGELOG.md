@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.354 -->
-## [21.4.354](https://github.com/chef/chef-workstation/tree/21.4.354) (2021-04-02)
+<!-- latest_release 21.4.355 -->
+## [21.4.355](https://github.com/chef/chef-workstation/tree/21.4.355) (2021-04-03)
 
 #### Merged Pull Requests
-- Bump ohai to 16.12.3 [#1865](https://github.com/chef/chef-workstation/pull/1865) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Some updates to the credential setup / ssl setup docs [#1824](https://github.com/chef/chef-workstation/pull/1824) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.3.346 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Some updates to the credential setup / ssl setup docs [#1824](https://github.com/chef/chef-workstation/pull/1824) ([tas50](https://github.com/tas50)) <!-- 21.4.355 -->
 - Bump ohai to 16.12.3 [#1865](https://github.com/chef/chef-workstation/pull/1865) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.354 -->
 - Update our website URL to be the community site [#1862](https://github.com/chef/chef-workstation/pull/1862) ([tas50](https://github.com/tas50)) <!-- 21.4.353 -->
 - Bump cheffish to 16.0.26 [#1864](https://github.com/chef/chef-workstation/pull/1864) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.352 -->
