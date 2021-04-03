@@ -49,14 +49,6 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
 {{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
 {{< foundation_tabs_panel active="true" panel-id="sys-ruby" >}}
 
-1. Open a terminal and enter the following:
-
-    ``` bash
-    which ruby
-    ```
-
-    which will return something like `/usr/bin/ruby`.
-
 1. To use Chef Workstation-provided Ruby as the default Ruby on your system, edit the `$PATH` and `GEM` environment variables to include paths to Chef Workstation. For example, on a machine that runs Bash, run:
 
     ``` bash
@@ -77,7 +69,7 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
     echo 'eval (chef shell-init fish)' >> ~/.config/fish/config.fish
     ```
 
-1. Run `which ruby` again. It should return `/opt/chef-workstation/embedded/bin/ruby`.
+1. Open a new shell window and run `which ruby`. It should return `/opt/chef-workstation/embedded/bin/ruby`.
 
 {{< /foundation_tabs_panel >}}
 {{< foundation_tabs_panel panel-id="path-ruby" >}}
