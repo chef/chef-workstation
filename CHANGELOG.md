@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.359 -->
-## [21.4.359](https://github.com/chef/chef-workstation/tree/21.4.359) (2021-04-04)
+<!-- latest_release 21.4.360 -->
+## [21.4.360](https://github.com/chef/chef-workstation/tree/21.4.360) (2021-04-04)
 
 #### Merged Pull Requests
-- Appbundle chef-zero, mixlib-install, and fauxhai [#1869](https://github.com/chef/chef-workstation/pull/1869) ([tas50](https://github.com/tas50))
+- Bump chef-cli to 4.0.0 [#1871](https://github.com/chef/chef-workstation/pull/1871) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.3.346 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-cli to 4.0.0 [#1871](https://github.com/chef/chef-workstation/pull/1871) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.360 -->
 - Appbundle chef-zero, mixlib-install, and fauxhai [#1869](https://github.com/chef/chef-workstation/pull/1869) ([tas50](https://github.com/tas50)) <!-- 21.4.359 -->
 - Bump chef-apply to 0.6.0 [#1870](https://github.com/chef/chef-workstation/pull/1870) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.358 -->
 - Bump fauxhai-ng to 8.7.1 [#1868](https://github.com/chef/chef-workstation/pull/1868) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.357 -->
