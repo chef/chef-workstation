@@ -30,26 +30,13 @@ This guide walks your through the four parts to set up Chef Workstation on your 
 
 ## Configure Ruby Environment
 
-For many users, Ruby is primarily used for developing Chef policy (for example, cookbooks, Policyfiles, and Chef InSpec profiles). If that's true for you, then we recommend using the Chef Workstation Ruby as your default system Ruby. If you use Ruby for software development, we recommend adding Chef Workstation to your shell's PATH variable instead.
+For many users, Ruby is primarily used for developing Chef policy (for example, cookbooks, Policyfiles, and Chef InSpec profiles). If that's true for you, then we recommend using the Chef Workstation Ruby as your default system Ruby. If you use Ruby for software development, you'll want to skip this step.
 
 {{< note >}}
 
 These instructions are intended for macOS and Linux users. On Windows, Chef Workstation includes a desktop shortcut to a PowerShell prompt already configured for use.
 
 {{< /note >}}
-
-<!----Tabs Section--->
-{{< foundation_tabs tabs-id="tabs-panel-container" >}}
-{{< foundation_tab active="true" panel-link="sys-ruby" tab-text="Set System Ruby">}}
-{{< foundation_tab panel-link="path-ruby" tab-text="Set $PATH Variable" >}}
-{{< /foundation_tabs >}}
-<!----End Tabs --->
-
-<!----Panels Section --->
-{{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
-{{< foundation_tabs_panel active="true" panel-id="sys-ruby" >}}
-
-To configure Chef Workstation as your default Ruby installation you'll need to add Workstation initialization commands to your shell's init script.
 
  1. Determine your default shell by running:
 
@@ -86,33 +73,6 @@ To configure Chef Workstation as your default Ruby installation you'll need to a
     ```
 
     The command should return `/opt/chef-workstation/embedded/bin/ruby`.
-
-{{< /foundation_tabs_panel >}}
-{{< foundation_tabs_panel panel-id="path-ruby" >}}
-
-1. In a command window, type the following:
-
-    ``` bash
-    echo 'export PATH="/opt/chef-workstation/embedded/bin:/opt/chef-workstation/embedded/bin:$PATH"' >> ~/.configuration_file
-    ```
-
-    where `configuration_file` is the name of the configuration file for the specific command shell. For example, if Bash were the command shell and the configuration file were named `.bashrc`, the command would look something like:
-
-    ``` bash
-    export PATH="/opt/chef-workstation/bin:/opt/chef-workstation/embedded/bin:$PATH" >> ~/.bashrc && source ~/.bashrc
-    ```
-
-1. Open a new shell window and run:
-
-    ```bash
-    which chef
-    ```
-
-    The command should return `/opt/chef-workstation/bin/chef`.
-
-{{< /foundation_tabs_panel >}}
-{{< /foundation_tabs_panels >}}
-<!----End Panels --->
 
 ## Setup Your Chef Repo
 
