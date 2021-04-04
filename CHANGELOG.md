@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.356 -->
-## [21.4.356](https://github.com/chef/chef-workstation/tree/21.4.356) (2021-04-03)
+<!-- latest_release 21.4.357 -->
+## [21.4.357](https://github.com/chef/chef-workstation/tree/21.4.357) (2021-04-04)
 
 #### Merged Pull Requests
-- Bump chef to 16.12.3 [#1866](https://github.com/chef/chef-workstation/pull/1866) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump fauxhai-ng to 8.7.1 [#1868](https://github.com/chef/chef-workstation/pull/1868) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.3.346 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump fauxhai-ng to 8.7.1 [#1868](https://github.com/chef/chef-workstation/pull/1868) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.357 -->
 - Bump chef to 16.12.3 [#1866](https://github.com/chef/chef-workstation/pull/1866) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.356 -->
 - Some updates to the credential setup / ssl setup docs [#1824](https://github.com/chef/chef-workstation/pull/1824) ([tas50](https://github.com/tas50)) <!-- 21.4.355 -->
 - Bump ohai to 16.12.3 [#1865](https://github.com/chef/chef-workstation/pull/1865) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.354 -->
