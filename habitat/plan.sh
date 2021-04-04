@@ -130,7 +130,7 @@ do_install() {
     appbundle "berkshelf" "changelog,debug,docs,development"
     wrap_ruby_bin "berks"
 
-    appbundle cookstyle "changelog"
+    appbundle cookstyle "changelog,docs,profiling,rubocop_gems,development,debug"
     wrap_ruby_bin "cookstyle"
 
     appbundle "chef-vault" "changelog"
@@ -138,6 +138,15 @@ do_install() {
 
     appbundle chef-apply "changelog,docs,debug" # really, chef-run
     wrap_ruby_bin "chef-run"
+
+    appbundle mixlib-install "test,chefstyle,debug"
+    wrap_ruby_bin "mixlib-install"
+
+    appbundle fauxhai
+    wrap_ruby_bin "fauxhai"
+
+    appbundle chef-zero "pedant,development,debug"
+    wrap_ruby_bin "chef-zero"
   )
 
   if [ "$(readlink /usr/bin/env)" = "$(pkg_interpreter_for core/coreutils bin/env)" ]; then

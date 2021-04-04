@@ -56,7 +56,7 @@ group(:omnibus_package) do
 
   # chefspec
   gem "chefspec", ">= 9.2"
-  gem "fauxhai-ng", ">= 8.7"
+  gem "fauxhai-ng", ">= 8.7.1"
 
   # inspec
   gem "inspec-bin", "~> 4.23"

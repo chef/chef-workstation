@@ -1070,7 +1070,7 @@ DEPENDENCIES
   dep_selector
   docker-api (>= 2.0)
   ed25519
-  fauxhai-ng (>= 8.7)
+  fauxhai-ng (>= 8.7.1)
   ffi-libarchive
   guard
   inspec-bin (~> 4.23)
