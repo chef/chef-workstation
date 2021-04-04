@@ -329,7 +329,7 @@ GEM
       win32-service (>= 2.1.5, < 3.0)
       win32-taskscheduler (~> 2.0)
       wmi-lite (~> 1.0)
-    chef-apply (0.5.16)
+    chef-apply (0.6.0)
       chef (>= 16.0)
       chef-cli (>= 2.0.10)
       chef-telemetry (>= 1.0.2)
@@ -433,7 +433,7 @@ GEM
     faraday-net_http (1.0.1)
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
-    fauxhai-ng (8.7.0)
+    fauxhai-ng (8.7.1)
       net-ssh
     ffi (1.15.0)
     ffi (1.15.0-x64-mingw32)
