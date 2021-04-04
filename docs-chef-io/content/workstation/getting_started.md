@@ -19,7 +19,6 @@ This guide walks your through the four parts to set up Chef Workstation on your 
 * [Configure Ruby Environment]({{< relref "#configure-ruby-environment" >}})
 * [Set up your chef-repo]({{< relref "#setup-your-chef-repo" >}}) for storing your cookbooks
 * [Setup Chef Credentials]({{< relref "#setup-chef-credentials" >}})
-* [Set Up Chef Infra Communication]({{< relref "#setup-tlsssl" >}})
 * [Verify Client-to-Server Communication]({{< relref "#Verify Client-to-Server Communication" >}})
 
 ## Prerequisites
@@ -145,28 +144,22 @@ chef_server_url = 'https://chef-server.4thcafe.com/organizations/web-team'
 {{< /foundation_tabs_panel >}}
 {{< /foundation_tabs_panels >}}
 
-## Setup TLS/SSL
+### Setup Your Client Private Key
 
-All communication between Chef Workstation and the Chef Infra Server uses transport layer security and secure socket layer protocols (TLS/SSL) verification for security purposes.
-
-Ideally, you will set up your Chef Infra Server using a certificate signed by a trusted certificate authority (CA), which will let you communicate with your server automatically.
-
-Chef Infra Server generates a self-signed certificate during the setup process unless you supply a trusted CA certificate. Because this certificate is unique to your server, you will need to take additional steps to enable communication between the Chef Infra Client and Server.
-
-To set up Chef Workstation to communicate with your Chef Infra Server, you need the to download files to your `.chef` directory.
+All communication between Chef Workstation and the Chef Infra Server is authenticated using an RSA public/private key pair. This pair is generated on the Chef Infra Server and the private key must be copied to your local Chef Workstation installation for communication to function.
 
 The steps for downloading or generating these files vary depending on how you interact with Chef Infra Server. Select the option that best describes how you interact with the server:
 
-- From the command line
-- From macOS/Linux Hosted Chef or Chef Manage user interface (UI)
-- From Windows Hosted Chef or Chef Manage UI
+* From the command line
+* From macOS/Linux Hosted Chef or Chef Manage user interface (UI)
+* From Windows Hosted Chef or Chef Manage UI
 
-### From the Command Line
+#### From the Command Line
 <!----Tabs Section--->
 {{< foundation_tabs tabs-id="tabs-panel-container" >}}
 {{< foundation_tab active="true" panel-link="tls-cli" tab-text="Command Line">}}
-{{< foundation_tab panel-link="tls-nix-ui" tab-text="macOS/Linux Chef UI" >}}
-{{< foundation_tab panel-link="tls-win-ui" tab-text="Windows Chef UI" >}}
+{{< foundation_tab panel-link="tls-nix-ui" tab-text="macOS/Linux From Hosted Chef or Chef Manage" >}}
+{{< foundation_tab panel-link="tls-win-ui" tab-text="Windows  From Hosted Chef or Chef Manage" >}}
 
 {{< /foundation_tabs >}}
 <!----End Tabs --->
@@ -185,18 +178,18 @@ Download the `USER.pem` files from the Chef Infra Server and move them to the `.
 {{< /foundation_tabs_panel >}}
 {{< foundation_tabs_panel panel-id="tls-nix-ui" >}}
 
-### From Hosted Chef or Chef Manage
+#### From Hosted Chef or Chef Manage
 
 If you have interact with Chef Infra Server through the Hosted Chef or legacy Chef Manage web interface, these steps will help you use the Chef Management Console to download the `.pem` and `config.rb` files.
 
-#### Download Keys (.pem) and Configuration Files
+##### Download Keys (.pem) and Configuration Files
 
 For a Chef Workstation installation that will interact with the Chef Infra Server (including the hosted Chef Infra Server) web interface, log on and download the following files:
 
 - Download the `config.rb` from the **Organizations** page.
 - Download the `USER.pem` from the **Change Password** section of the **Account Management** page.
 
-#### Move Keys and Configuration Files into the Chef Directory
+##### Move Keys and Configuration Files into the Chef Directory
 
 After downloading the `config.rb` and `USER.pem` files from the Chef Infra Server, move them to the Chef directory on your computer. The Chef directory is `~/.chef` on macOS and Linux systems.
 
@@ -225,18 +218,18 @@ Move files to the `~/.chef` directory on macOS and Linux systems:
 {{< /foundation_tabs_panel >}}
 {{< foundation_tabs_panel panel-id="tls-win-ui" >}}
 
-### From Hosted Chef or Chef Manage
+#### From Hosted Chef or Chef Manage
 
 If you have interact with Chef Infra Server through the Hosted Chef or legacy Chef Manage web interface, these steps will help you use the Chef Management Console to download the `.pem` and `config.rb` files.
 
-#### Download Keys (.pem) and Configuration Files
+##### Download Keys (.pem) and Configuration Files
 
 For a Chef Workstation installation that will interact with the Chef Infra Server (including the hosted Chef Infra Server) web interface, log on and download the following files:
 
 - Download the `config.rb` from the **Organizations** page.
 - Download the `USER.pem` from the **Change Password** section of the **Account Management** page.
 
-#### Move Keys and Configuration Files into the Chef Directory
+##### Move Keys and Configuration Files into the Chef Directory
 
 After downloading the  `config.rb` and `USER.pem` files from the Chef Infra Server, move them to the `.chef` directory on your computer. The Chef directory is `C:\.chef` on Windows.
 
