@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.364 -->
-## [21.4.364](https://github.com/chef/chef-workstation/tree/21.4.364) (2021-04-05)
+<!-- latest_release 21.4.365 -->
+## [21.4.365](https://github.com/chef/chef-workstation/tree/21.4.365) (2021-04-05)
 
 #### Merged Pull Requests
-- Bump chef-apply to 0.6.3 [#1878](https://github.com/chef/chef-workstation/pull/1878) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Add missing linux/windows shas for Hab [#1880](https://github.com/chef/chef-workstation/pull/1880) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.3.346 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Add missing linux/windows shas for Hab [#1880](https://github.com/chef/chef-workstation/pull/1880) ([tas50](https://github.com/tas50)) <!-- 21.4.365 -->
 - Bump chef-apply to 0.6.3 [#1878](https://github.com/chef/chef-workstation/pull/1878) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.364 -->
 - Bump habitat to 1.6.288. [#1875](https://github.com/chef/chef-workstation/pull/1875) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.363 -->
 - Update omnibus-software to the latest  [#1874](https://github.com/chef/chef-workstation/pull/1874) ([tas50](https://github.com/tas50)) <!-- 21.4.362 -->
