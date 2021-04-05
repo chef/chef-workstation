@@ -77,7 +77,6 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
 
 The first time you run the Chef Workstation app, it creates a `.chef` directory in your user directory. The `.chef` directory is where you will store your Chef Workstation configuration and your client keys.
 
-{{< note >}}
 If you're setting up Chef Workstation **as a Chef Infra Server administrator**, then you will need to manage users with the [Chef Infra Server CLI](https://docs.chef.io/server/ctl_chef_server/#user-management) or the Manage UI. When you create a new user, a user-specific RSA client key will be generated, which you then need to share securely with that user.
 {{</ note >}}
 
