@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.360 -->
-## [21.4.360](https://github.com/chef/chef-workstation/tree/21.4.360) (2021-04-04)
+<!-- latest_release 21.4.361 -->
+## [21.4.361](https://github.com/chef/chef-workstation/tree/21.4.361) (2021-04-05)
 
 #### Merged Pull Requests
-- Bump chef-cli to 4.0.0 [#1871](https://github.com/chef/chef-workstation/pull/1871) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `a0e7438` to `76b31d1` in /omnibus [#1873](https://github.com/chef/chef-workstation/pull/1873) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.3.346 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `a0e7438` to `76b31d1` in /omnibus [#1873](https://github.com/chef/chef-workstation/pull/1873) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.4.361 -->
 - Bump chef-cli to 4.0.0 [#1871](https://github.com/chef/chef-workstation/pull/1871) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.360 -->
 - Appbundle chef-zero, mixlib-install, and fauxhai [#1869](https://github.com/chef/chef-workstation/pull/1869) ([tas50](https://github.com/tas50)) <!-- 21.4.359 -->
 - Bump chef-apply to 0.6.0 [#1870](https://github.com/chef/chef-workstation/pull/1870) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.358 -->
