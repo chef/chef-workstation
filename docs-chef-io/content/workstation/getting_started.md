@@ -107,7 +107,7 @@ At a minimum, you must update the following settings with the appropriate values
 
 <!----Tabs Section--->
 {{< foundation_tabs tabs-id="tabs-panel-container" >}}
-{{< foundation_tab active="true" panel-link="credentials" tab-text="Edit credentials File">}}
+{{< foundation_tab active="true" panel-link="credentials" tab-text="Edit Credentials File">}}
 {{< foundation_tab panel-link="credentials-demo" tab-text="Hosted Chef / Manage Starter Kit" >}}
 {{< /foundation_tabs >}}
 <!----End Tabs --->
