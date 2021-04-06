@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.365 -->
-## [21.4.365](https://github.com/chef/chef-workstation/tree/21.4.365) (2021-04-05)
+<!-- latest_release 21.4.366 -->
+## [21.4.366](https://github.com/chef/chef-workstation/tree/21.4.366) (2021-04-06)
 
 #### Merged Pull Requests
-- Add missing linux/windows shas for Hab [#1880](https://github.com/chef/chef-workstation/pull/1880) ([tas50](https://github.com/tas50))
+- Update Ruby to 2.7.3 [#1881](https://github.com/chef/chef-workstation/pull/1881) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.3.346 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update Ruby to 2.7.3 [#1881](https://github.com/chef/chef-workstation/pull/1881) ([tas50](https://github.com/tas50)) <!-- 21.4.366 -->
 - Add missing linux/windows shas for Hab [#1880](https://github.com/chef/chef-workstation/pull/1880) ([tas50](https://github.com/tas50)) <!-- 21.4.365 -->
 - Bump chef-apply to 0.6.3 [#1878](https://github.com/chef/chef-workstation/pull/1878) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.364 -->
 - Bump habitat to 1.6.288. [#1875](https://github.com/chef/chef-workstation/pull/1875) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.363 -->
