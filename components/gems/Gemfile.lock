@@ -725,7 +725,7 @@ GEM
     optimist (3.0.1)
     os (1.1.1)
     parallel (1.20.1)
-    parser (3.0.0.0)
+    parser (3.0.1.0)
       ast (~> 2.4.1)
     parslet (1.8.2)
     pastel (0.8.0)
