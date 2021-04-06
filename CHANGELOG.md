@@ -6,34 +6,39 @@
 - Update curl to resolve 2 CVEs [#1883](https://github.com/chef/chef-workstation/pull/1883) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup since=21.3.346 -->
+<!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
-- Update curl to resolve 2 CVEs [#1883](https://github.com/chef/chef-workstation/pull/1883) ([tas50](https://github.com/tas50)) <!-- 21.4.367 -->
 - Update Ruby to 2.7.3 [#1881](https://github.com/chef/chef-workstation/pull/1881) ([tas50](https://github.com/tas50)) <!-- 21.4.366 -->
-- Add missing linux/windows shas for Hab [#1880](https://github.com/chef/chef-workstation/pull/1880) ([tas50](https://github.com/tas50)) <!-- 21.4.365 -->
-- Bump chef-apply to 0.6.3 [#1878](https://github.com/chef/chef-workstation/pull/1878) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.364 -->
-- Bump habitat to 1.6.288. [#1875](https://github.com/chef/chef-workstation/pull/1875) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.363 -->
-- Update omnibus-software to the latest  [#1874](https://github.com/chef/chef-workstation/pull/1874) ([tas50](https://github.com/tas50)) <!-- 21.4.362 -->
-- Bump omnibus-software from `a0e7438` to `76b31d1` in /omnibus [#1873](https://github.com/chef/chef-workstation/pull/1873) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.4.361 -->
-- Bump chef-cli to 4.0.0 [#1871](https://github.com/chef/chef-workstation/pull/1871) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.360 -->
-- Appbundle chef-zero, mixlib-install, and fauxhai [#1869](https://github.com/chef/chef-workstation/pull/1869) ([tas50](https://github.com/tas50)) <!-- 21.4.359 -->
-- Bump chef-apply to 0.6.0 [#1870](https://github.com/chef/chef-workstation/pull/1870) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.358 -->
-- Bump fauxhai-ng to 8.7.1 [#1868](https://github.com/chef/chef-workstation/pull/1868) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.357 -->
-- Bump chef to 16.12.3 [#1866](https://github.com/chef/chef-workstation/pull/1866) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.356 -->
-- Some updates to the credential setup / ssl setup docs [#1824](https://github.com/chef/chef-workstation/pull/1824) ([tas50](https://github.com/tas50)) <!-- 21.4.355 -->
-- Bump ohai to 16.12.3 [#1865](https://github.com/chef/chef-workstation/pull/1865) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.354 -->
-- Update our website URL to be the community site [#1862](https://github.com/chef/chef-workstation/pull/1862) ([tas50](https://github.com/tas50)) <!-- 21.4.353 -->
-- Bump cheffish to 16.0.26 [#1864](https://github.com/chef/chef-workstation/pull/1864) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.352 -->
-- Bump omnibus-software from `142e76b` to `a0e7438` in /omnibus [#1863](https://github.com/chef/chef-workstation/pull/1863) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.4.351 -->
-- Bump chef-cli to 3.1.6 [#1861](https://github.com/chef/chef-workstation/pull/1861) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.350 -->
-- Bump omnibus-software from `f6aa2ed` to `caf6ae0` in /omnibus [#1858](https://github.com/chef/chef-workstation/pull/1858) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.3.349 -->
-- Bump Chef Workstation App to 0.1.135 [#1859](https://github.com/chef/chef-workstation/pull/1859) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.348 -->
-- Bump Chef Workstation App to 0.1.134 [#1856](https://github.com/chef/chef-workstation/pull/1856) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.3.347 -->
+- Update curl to resolve 2 CVEs [#1883](https://github.com/chef/chef-workstation/pull/1883) ([tas50](https://github.com/tas50)) <!-- 21.4.367 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [21.4.365](https://github.com/chef/chef-workstation/tree/21.4.365) (2021-04-06)
+
+#### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.134 [#1856](https://github.com/chef/chef-workstation/pull/1856) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.135 [#1859](https://github.com/chef/chef-workstation/pull/1859) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `f6aa2ed` to `caf6ae0` in /omnibus [#1858](https://github.com/chef/chef-workstation/pull/1858) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump chef-cli to 3.1.6 [#1861](https://github.com/chef/chef-workstation/pull/1861) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `142e76b` to `a0e7438` in /omnibus [#1863](https://github.com/chef/chef-workstation/pull/1863) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump cheffish to 16.0.26 [#1864](https://github.com/chef/chef-workstation/pull/1864) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update our website URL to be the community site [#1862](https://github.com/chef/chef-workstation/pull/1862) ([tas50](https://github.com/tas50))
+- Bump ohai to 16.12.3 [#1865](https://github.com/chef/chef-workstation/pull/1865) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Some updates to the credential setup / ssl setup docs [#1824](https://github.com/chef/chef-workstation/pull/1824) ([tas50](https://github.com/tas50))
+- Bump chef to 16.12.3 [#1866](https://github.com/chef/chef-workstation/pull/1866) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump fauxhai-ng to 8.7.1 [#1868](https://github.com/chef/chef-workstation/pull/1868) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-apply to 0.6.0 [#1870](https://github.com/chef/chef-workstation/pull/1870) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Appbundle chef-zero, mixlib-install, and fauxhai [#1869](https://github.com/chef/chef-workstation/pull/1869) ([tas50](https://github.com/tas50))
+- Bump chef-cli to 4.0.0 [#1871](https://github.com/chef/chef-workstation/pull/1871) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `a0e7438` to `76b31d1` in /omnibus [#1873](https://github.com/chef/chef-workstation/pull/1873) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Update omnibus-software to the latest  [#1874](https://github.com/chef/chef-workstation/pull/1874) ([tas50](https://github.com/tas50))
+- Bump habitat to 1.6.288. [#1875](https://github.com/chef/chef-workstation/pull/1875) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-apply to 0.6.3 [#1878](https://github.com/chef/chef-workstation/pull/1878) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Add missing linux/windows shas for Hab [#1880](https://github.com/chef/chef-workstation/pull/1880) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [21.3.346](https://github.com/chef/chef-workstation/tree/21.3.346) (2021-03-25)
 
 #### Merged Pull Requests
@@ -80,7 +85,6 @@
 - Bump knife-windows to 4.0.7 [#1851](https://github.com/chef/chef-workstation/pull/1851) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump knife-ec2 to 2.1.4 [#1852](https://github.com/chef/chef-workstation/pull/1852) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump inspec-bin to 4.29.3 [#1853](https://github.com/chef/chef-workstation/pull/1853) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [21.2.303](https://github.com/chef/chef-workstation/tree/21.2.303) (2021-02-26)
 
