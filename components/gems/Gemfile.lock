@@ -92,7 +92,7 @@ GEM
     aws-sdk-dynamodb (1.60.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-ec2 (1.232.0)
+    aws-sdk-ec2 (1.233.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-ecr (1.42.0)
@@ -195,7 +195,7 @@ GEM
     aws-sdk-sqs (1.38.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-ssm (1.107.0)
+    aws-sdk-ssm (1.108.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-states (1.38.0)
@@ -442,8 +442,8 @@ GEM
       ffi (~> 1.0)
     ffi-win32-extensions (1.0.4)
       ffi
-    ffi-yajl (2.3.4)
-      libyajl2 (~> 1.2)
+    ffi-yajl (2.4.0)
+      libyajl2 (>= 1.2)
     filesize (0.2.0)
     fog-core (2.2.3)
       builder
@@ -620,7 +620,7 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
-    libyajl2 (1.2.0)
+    libyajl2 (2.1.0)
     license-acceptance (2.1.13)
       pastel (~> 0.7)
       tomlrb (>= 1.2, < 3.0)
