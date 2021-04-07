@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.370 -->
-## [21.4.370](https://github.com/chef/chef-workstation/tree/21.4.370) (2021-04-07)
+<!-- latest_release 21.4.371 -->
+## [21.4.371](https://github.com/chef/chef-workstation/tree/21.4.371) (2021-04-07)
 
 #### Merged Pull Requests
-- Bump train to 3.6.0 [#1888](https://github.com/chef/chef-workstation/pull/1888) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `3d331d8` to `63456ec` in /omnibus [#1890](https://github.com/chef/chef-workstation/pull/1890) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `3d331d8` to `63456ec` in /omnibus [#1890](https://github.com/chef/chef-workstation/pull/1890) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.4.371 -->
 - Bump train to 3.6.0 [#1888](https://github.com/chef/chef-workstation/pull/1888) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.370 -->
 - Bump ffi-yajl to 2.4.0 [#1885](https://github.com/chef/chef-workstation/pull/1885) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.369 -->
 - Bump libyajl2 to 2.1.0 [#1884](https://github.com/chef/chef-workstation/pull/1884) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.368 -->
