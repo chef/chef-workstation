@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.367 -->
-## [21.4.367](https://github.com/chef/chef-workstation/tree/21.4.367) (2021-04-06)
+<!-- latest_release 21.4.368 -->
+## [21.4.368](https://github.com/chef/chef-workstation/tree/21.4.368) (2021-04-07)
 
 #### Merged Pull Requests
-- Update curl to resolve 2 CVEs [#1883](https://github.com/chef/chef-workstation/pull/1883) ([tas50](https://github.com/tas50))
+- Bump libyajl2 to 2.1.0 [#1884](https://github.com/chef/chef-workstation/pull/1884) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump libyajl2 to 2.1.0 [#1884](https://github.com/chef/chef-workstation/pull/1884) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.368 -->
 - Update Ruby to 2.7.3 [#1881](https://github.com/chef/chef-workstation/pull/1881) ([tas50](https://github.com/tas50)) <!-- 21.4.366 -->
 - Update curl to resolve 2 CVEs [#1883](https://github.com/chef/chef-workstation/pull/1883) ([tas50](https://github.com/tas50)) <!-- 21.4.367 -->
 <!-- release_rollup -->
