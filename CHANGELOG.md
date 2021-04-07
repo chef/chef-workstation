@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.373 -->
-## [21.4.373](https://github.com/chef/chef-workstation/tree/21.4.373) (2021-04-07)
+<!-- latest_release 21.4.374 -->
+## [21.4.374](https://github.com/chef/chef-workstation/tree/21.4.374) (2021-04-07)
 
 #### Merged Pull Requests
-- Bump inspec-bin to 4.31.0 [#1892](https://github.com/chef/chef-workstation/pull/1892) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump fauxhai-ng to 9.0.0 [#1895](https://github.com/chef/chef-workstation/pull/1895) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump fauxhai-ng to 9.0.0 [#1895](https://github.com/chef/chef-workstation/pull/1895) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.374 -->
 - Bump inspec-bin to 4.31.0 [#1892](https://github.com/chef/chef-workstation/pull/1892) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.373 -->
 - Bump omnibus-software from `63456ec` to `56f6321` in /omnibus [#1891](https://github.com/chef/chef-workstation/pull/1891) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.4.372 -->
 - Bump omnibus-software from `3d331d8` to `63456ec` in /omnibus [#1890](https://github.com/chef/chef-workstation/pull/1890) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.4.371 -->
