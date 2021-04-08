@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.376 -->
-## [21.4.376](https://github.com/chef/chef-workstation/tree/21.4.376) (2021-04-08)
+<!-- latest_release 21.4.377 -->
+## [21.4.377](https://github.com/chef/chef-workstation/tree/21.4.377) (2021-04-08)
 
 #### Merged Pull Requests
-- Bump ohai to 16.13.0 [#1898](https://github.com/chef/chef-workstation/pull/1898) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `56f6321` to `0dcaeb1` in /omnibus [#1896](https://github.com/chef/chef-workstation/pull/1896) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `56f6321` to `0dcaeb1` in /omnibus [#1896](https://github.com/chef/chef-workstation/pull/1896) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.4.377 -->
 - Bump ohai to 16.13.0 [#1898](https://github.com/chef/chef-workstation/pull/1898) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.376 -->
 - Bump inspec-bin to 4.31.1 [#1897](https://github.com/chef/chef-workstation/pull/1897) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.375 -->
 - Bump fauxhai-ng to 9.0.0 [#1895](https://github.com/chef/chef-workstation/pull/1895) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.374 -->
