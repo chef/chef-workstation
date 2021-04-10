@@ -550,7 +550,7 @@ GEM
       docker-api (>= 1.33, < 3)
       lockfile (~> 2.1)
       test-kitchen (>= 1.15, < 3)
-    kitchen-ec2 (3.8.0)
+    kitchen-ec2 (3.9.0)
       aws-sdk-ec2 (~> 1.0)
       retryable (>= 2.0, < 4.0)
       test-kitchen (>= 1.4.1, < 3)
