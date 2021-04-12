@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.380 -->
-## [21.4.380](https://github.com/chef/chef-workstation/tree/21.4.380) (2021-04-12)
+<!-- latest_release 21.4.381 -->
+## [21.4.381](https://github.com/chef/chef-workstation/tree/21.4.381) (2021-04-12)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.138 [#1905](https://github.com/chef/chef-workstation/pull/1905) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update all deps to the latest [#1906](https://github.com/chef/chef-workstation/pull/1906) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update all deps to the latest [#1906](https://github.com/chef/chef-workstation/pull/1906) ([tas50](https://github.com/tas50)) <!-- 21.4.381 -->
 - Bump Chef Workstation App to 0.1.138 [#1905](https://github.com/chef/chef-workstation/pull/1905) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.380 -->
 - Bump kitchen-ec2 to 3.9.0 [#1900](https://github.com/chef/chef-workstation/pull/1900) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.379 -->
 - Bump chef to 16.13.16 [#1899](https://github.com/chef/chef-workstation/pull/1899) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.378 -->
