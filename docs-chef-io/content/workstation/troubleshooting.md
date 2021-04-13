@@ -22,7 +22,7 @@ Follow the steps provided under [Uninstalling]({{< ref "install_workstation.md#u
 
 ## Trusted Certs
 
-If you have added trusted certs on a windows workstation with a command like `knife ssh fetch`, but `knife ssl check` for example is still not working, do the following. Exit your CW Powershell, click the icon, and try the same command again.
+We advise restarting the Chef Workstation Powershell after adding certificates to the `trusted_certs` directory on Windows machines. Sometimes certificate-related commands such as `knife ssl check` don't return the expected results after adding a certificate with `knife ssh fetch`. If this happens, exit the Chef Workstation Powershell, select the icon, and retry the command.
 
 ## Common Error Codes
 
