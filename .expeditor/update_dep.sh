@@ -23,7 +23,7 @@ git checkout -b "$branch"
 pushd components/gems
 tries=12
 for (( i=1; i<=$tries; i+=1 )); do
-  bundle lock --update --add-platform ruby x64-mingw32 x86-mingw32
+  bundle lock --update
   new_gem_included && break || sleep 20
   if [ $i -eq $tries ]; then
     echo "Searching for '${GEM_NAME} (${EXPEDITOR_VERSION})' ${i} times and did not find it"
