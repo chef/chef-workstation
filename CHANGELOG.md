@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.383 -->
-## [21.4.383](https://github.com/chef/chef-workstation/tree/21.4.383) (2021-04-14)
+<!-- latest_release 21.4.384 -->
+## [21.4.384](https://github.com/chef/chef-workstation/tree/21.4.384) (2021-04-14)
 
 #### Merged Pull Requests
-- Bump inspec-bin to 4.32.0 [#1912](https://github.com/chef/chef-workstation/pull/1912) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- updated Git to 2.31.1 [#1913](https://github.com/chef/chef-workstation/pull/1913) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- updated Git to 2.31.1 [#1913](https://github.com/chef/chef-workstation/pull/1913) ([nikhil2611](https://github.com/nikhil2611)) <!-- 21.4.384 -->
 - Bump inspec-bin to 4.32.0 [#1912](https://github.com/chef/chef-workstation/pull/1912) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.383 -->
 - Bump kitchen-digitalocean to 0.12.0 [#1908](https://github.com/chef/chef-workstation/pull/1908) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.382 -->
 - Update all deps to the latest [#1906](https://github.com/chef/chef-workstation/pull/1906) ([tas50](https://github.com/tas50)) <!-- 21.4.381 -->
