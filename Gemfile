@@ -7,3 +7,5 @@ group :development do
   gem "chef-cli"
   gem "rspec"
 end
+
+export EXPIRE_GEMFILE_LOCK=true
