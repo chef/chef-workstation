@@ -38,6 +38,7 @@ git config --global user.name "Your Name"
 
 export CHEF_LICENSE="accept-no-persist"
 export HAB_LICENSE="accept-no-persist"
+export EXPIRE_GEMFILE_LOCK=true
 
 echo "--- Ensure the 'chef' cli works (chef env)"
 chef env
