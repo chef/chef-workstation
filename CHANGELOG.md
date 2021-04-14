@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.384 -->
-## [21.4.384](https://github.com/chef/chef-workstation/tree/21.4.384) (2021-04-14)
+<!-- latest_release 21.4.385 -->
+## [21.4.385](https://github.com/chef/chef-workstation/tree/21.4.385) (2021-04-14)
 
 #### Merged Pull Requests
-- updated Git to 2.31.1 [#1913](https://github.com/chef/chef-workstation/pull/1913) ([nikhil2611](https://github.com/nikhil2611))
+- Bump train-core to 3.6.2 [#1910](https://github.com/chef/chef-workstation/pull/1910) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump train-core to 3.6.2 [#1910](https://github.com/chef/chef-workstation/pull/1910) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.385 -->
 - updated Git to 2.31.1 [#1913](https://github.com/chef/chef-workstation/pull/1913) ([nikhil2611](https://github.com/nikhil2611)) <!-- 21.4.384 -->
 - Bump inspec-bin to 4.32.0 [#1912](https://github.com/chef/chef-workstation/pull/1912) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.383 -->
 - Bump kitchen-digitalocean to 0.12.0 [#1908](https://github.com/chef/chef-workstation/pull/1908) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.382 -->
