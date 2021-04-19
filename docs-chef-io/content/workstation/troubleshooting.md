@@ -21,8 +21,13 @@ Chef Workstation logs are stored in `~/.chef-workstation/logs`.
 Follow the steps provided under [Uninstalling]({{< ref "install_workstation.md#uninstalling" >}}).
 
 ## Trusted Certs
+We recommend developing the habit of restarting Chef Workstation Powershell after adding certificates to the `trusted_certs` directory on Windows machines.
+Sometimes certificate-related commands such as `knife ssl check` don't return the expected results after adding a certificate with `knife ssh fetch`. If this happens:
 
-We advise restarting the Chef Workstation Powershell after adding certificates to the `trusted_certs` directory on Windows machines. Sometimes certificate-related commands such as `knife ssl check` don't return the expected results after adding a certificate with `knife ssh fetch`. If this happens, exit the Chef Workstation Powershell, select the icon, and retry the command.
+1. Exit the Chef Workstation Powershell.
+1. Select the Chef Workstation Powershell icon to restart.
+1. Retry the command.
+
 
 ## Common Error Codes
 
