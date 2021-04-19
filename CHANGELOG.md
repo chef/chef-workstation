@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.389 -->
-## [21.4.389](https://github.com/chef/chef-workstation/tree/21.4.389) (2021-04-17)
+<!-- latest_release 21.4.390 -->
+## [21.4.390](https://github.com/chef/chef-workstation/tree/21.4.390) (2021-04-19)
 
 #### Merged Pull Requests
-- Bump cookstyle to 7.10.1 [#1920](https://github.com/chef/chef-workstation/pull/1920) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update tests to handle local omnibus packages from Buildkite artifacts api [#1919](https://github.com/chef/chef-workstation/pull/1919) ([nkierpiec](https://github.com/nkierpiec))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update tests to handle local omnibus packages from Buildkite artifacts api [#1919](https://github.com/chef/chef-workstation/pull/1919) ([nkierpiec](https://github.com/nkierpiec)) <!-- 21.4.390 -->
 - Bump cookstyle to 7.10.1 [#1920](https://github.com/chef/chef-workstation/pull/1920) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.389 -->
 - Bump omnibus-software from `6e5d5e0` to `8d91dc6` in /omnibus [#1918](https://github.com/chef/chef-workstation/pull/1918) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.4.388 -->
 - Bump omnibus and omnibus-software [#1917](https://github.com/chef/chef-workstation/pull/1917) ([tas50](https://github.com/tas50)) <!-- 21.4.387 -->
