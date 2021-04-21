@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.400 -->
-## [21.4.400](https://github.com/chef/chef-workstation/tree/21.4.400) (2021-04-21)
+<!-- latest_release 21.4.401 -->
+## [21.4.401](https://github.com/chef/chef-workstation/tree/21.4.401) (2021-04-21)
 
 #### Merged Pull Requests
-- Bump chef-apply to 0.6.7 [#1930](https://github.com/chef/chef-workstation/pull/1930) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump inspec-bin to 4.33.1 [#1931](https://github.com/chef/chef-workstation/pull/1931) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump inspec-bin to 4.33.1 [#1931](https://github.com/chef/chef-workstation/pull/1931) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.401 -->
 - Bump chef-apply to 0.6.7 [#1930](https://github.com/chef/chef-workstation/pull/1930) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.400 -->
 - Distify chef-automate-collect component [#1902](https://github.com/chef/chef-workstation/pull/1902) ([tarcinil](https://github.com/tarcinil)) <!-- 21.4.399 -->
 - Update install_workstation.md [#1903](https://github.com/chef/chef-workstation/pull/1903) ([dwmarshall](https://github.com/dwmarshall)) <!-- 21.4.398 -->
