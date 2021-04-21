@@ -6,7 +6,7 @@
 
 override "chef-analyze", version: "0.1.102"
 override "delivery-cli", version: "0.0.54"
-override "chef-workstation-app", version: "v0.1.135"
+override "chef-workstation-app", version: "v0.1.138"
 # /DO NOT MODIFY
 
 override "libarchive", version: "3.5.1"
@@ -20,7 +20,7 @@ override "makedepend", version: "1.0.5"
 override "ncurses", version: "5.9"
 override "openssl", version: "1.0.2y"
 override "pkg-config-lite", version: "0.28-1"
-override "ruby", version: "2.7.3"
+override "ruby", version: "2.7.2"
 override "ruby-windows-devkit-bash", version: "3.1.23-4-msys-1.0.18"
 override "rust", version: "1.37.0"
 override "util-macros", version: "1.19.0"
