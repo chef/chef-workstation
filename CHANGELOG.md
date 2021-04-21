@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.398 -->
-## [21.4.398](https://github.com/chef/chef-workstation/tree/21.4.398) (2021-04-21)
+<!-- latest_release 21.4.399 -->
+## [21.4.399](https://github.com/chef/chef-workstation/tree/21.4.399) (2021-04-21)
 
 #### Merged Pull Requests
-- Update install_workstation.md [#1903](https://github.com/chef/chef-workstation/pull/1903) ([dwmarshall](https://github.com/dwmarshall))
+- Distify chef-automate-collect component [#1902](https://github.com/chef/chef-workstation/pull/1902) ([tarcinil](https://github.com/tarcinil))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Distify chef-automate-collect component [#1902](https://github.com/chef/chef-workstation/pull/1902) ([tarcinil](https://github.com/tarcinil)) <!-- 21.4.399 -->
 - Update install_workstation.md [#1903](https://github.com/chef/chef-workstation/pull/1903) ([dwmarshall](https://github.com/dwmarshall)) <!-- 21.4.398 -->
 - Reverted ruby to 2.7.2 [#1929](https://github.com/chef/chef-workstation/pull/1929) ([nikhil2611](https://github.com/nikhil2611)) <!-- 21.4.397 -->
 - Revert &quot;Bump omnibus-software from `8d91dc6` to `810a6c4` in /omnibus&quot; [#1928](https://github.com/chef/chef-workstation/pull/1928) ([tas50](https://github.com/tas50)) <!-- 21.4.396 -->
