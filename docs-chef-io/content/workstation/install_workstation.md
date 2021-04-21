@@ -145,7 +145,7 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
    - Red Hat Enterprise Linux:
 
         ``` bash
-        rpm -Uvh chef-workstation-21.2.278-1.el8.x86_64.rpm
+        yum localinstall chef-workstation-21.2.278-1.el8.x86_64.rpm
         ```
 
    - Debian/Ubuntu:
@@ -199,7 +199,7 @@ sudo dpkg -P chef-workstation
 Red Hat, CentOS, and related:
 
 ```bash
-sudo rpm -e chef-workstation
+sudo yum remove chef-workstation
 ```
 
 ## Next Steps
