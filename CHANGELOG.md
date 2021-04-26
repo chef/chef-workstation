@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.401 -->
-## [21.4.401](https://github.com/chef/chef-workstation/tree/21.4.401) (2021-04-21)
+<!-- latest_release 21.4.402 -->
+## [21.4.402](https://github.com/chef/chef-workstation/tree/21.4.402) (2021-04-26)
 
 #### Merged Pull Requests
-- Bump inspec-bin to 4.33.1 [#1931](https://github.com/chef/chef-workstation/pull/1931) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Pin go to 1.13.1 for now to fix failures [#1933](https://github.com/chef/chef-workstation/pull/1933) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Pin go to 1.13.1 for now to fix failures [#1933](https://github.com/chef/chef-workstation/pull/1933) ([tas50](https://github.com/tas50)) <!-- 21.4.402 -->
 - Bump inspec-bin to 4.33.1 [#1931](https://github.com/chef/chef-workstation/pull/1931) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.401 -->
 - Bump chef-apply to 0.6.7 [#1930](https://github.com/chef/chef-workstation/pull/1930) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.400 -->
 - Distify chef-automate-collect component [#1902](https://github.com/chef/chef-workstation/pull/1902) ([tarcinil](https://github.com/tarcinil)) <!-- 21.4.399 -->
