@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.403 -->
-## [21.4.403](https://github.com/chef/chef-workstation/tree/21.4.403) (2021-04-27)
+<!-- latest_release 21.4.404 -->
+## [21.4.404](https://github.com/chef/chef-workstation/tree/21.4.404) (2021-04-28)
 
 #### Merged Pull Requests
-- Update the macos 11 config in the omnibus pipeline [#1934](https://github.com/chef/chef-workstation/pull/1934) ([tas50](https://github.com/tas50))
+- Update Ruby to 2.7.3 [#1937](https://github.com/chef/chef-workstation/pull/1937) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update Ruby to 2.7.3 [#1937](https://github.com/chef/chef-workstation/pull/1937) ([tas50](https://github.com/tas50)) <!-- 21.4.404 -->
 - Update the macos 11 config in the omnibus pipeline [#1934](https://github.com/chef/chef-workstation/pull/1934) ([tas50](https://github.com/tas50)) <!-- 21.4.403 -->
 - Pin go to 1.13.1 for now to fix failures [#1933](https://github.com/chef/chef-workstation/pull/1933) ([tas50](https://github.com/tas50)) <!-- 21.4.402 -->
 - Bump inspec-bin to 4.33.1 [#1931](https://github.com/chef/chef-workstation/pull/1931) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.401 -->
