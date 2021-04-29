@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.405 -->
-## [21.4.405](https://github.com/chef/chef-workstation/tree/21.4.405) (2021-04-28)
+<!-- latest_release 21.4.406 -->
+## [21.4.406](https://github.com/chef/chef-workstation/tree/21.4.406) (2021-04-29)
 
 #### Merged Pull Requests
-- Bump train to 3.7.0 [#1935](https://github.com/chef/chef-workstation/pull/1935) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update go vendoring [#1940](https://github.com/chef/chef-workstation/pull/1940) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update go vendoring [#1940](https://github.com/chef/chef-workstation/pull/1940) ([tas50](https://github.com/tas50)) <!-- 21.4.406 -->
 - Bump train to 3.7.0 [#1935](https://github.com/chef/chef-workstation/pull/1935) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.405 -->
 - Update Ruby to 2.7.3 [#1937](https://github.com/chef/chef-workstation/pull/1937) ([tas50](https://github.com/tas50)) <!-- 21.4.404 -->
 - Update the macos 11 config in the omnibus pipeline [#1934](https://github.com/chef/chef-workstation/pull/1934) ([tas50](https://github.com/tas50)) <!-- 21.4.403 -->
