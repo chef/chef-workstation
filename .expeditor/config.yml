@@ -165,34 +165,7 @@ subscriptions:
   - workload: ruby_gem_published:kitchen-vcenter-*
     actions:
        - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:knife-acl-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:knife-azure-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:knife-cloud-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:knife-ec2-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:knife-google-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:knife-opc-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:knife-tidy-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:knife-vsphere-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:knife-vcenter-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:knife-windows-*
+  - workload: ruby_gem_published:knife-*
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:libyajl2-*
