@@ -83,6 +83,7 @@ github.com/chef/automate v0.0.0-20200818181041-394b5621f411/go.mod h1:pKvIlpC2BJ
 github.com/chef/chef-workstation v0.0.0-20210410003939-c8367d57bf63 h1:gG16TTIRIn1eRxGmxame77yRGitwbCSl0UxCaZdLCbA=
 github.com/chef/chef-workstation/components/main-chef-wrapper v0.0.0-20210410003939-c8367d57bf63 h1:UQ9jP4DJxGm4u76u49QG+mBYJ0Wfunhj2O4GuUJHTDA=
 github.com/chef/chef-workstation/components/main-chef-wrapper v0.0.0-20210410003939-c8367d57bf63/go.mod h1:VWEFcqvoJnB9/hDFq1hakHBgZI/n1LqXgKMPRrKg8T4=
+github.com/chef/go-libs v0.4.0 h1:FoiI9dRPLKp9bxxRiuFf+at8gG91tyttK53FM9+y0sw=
 github.com/chef/go-libs v0.4.0/go.mod h1:aGHwP5PXYdD0hVq+jodILnSqB/b04EhS/XCoqhE2PrA=
 github.com/chef/toml v0.3.1-0.20200730001027-920c30b33b5d/go.mod h1:WzupinluQEwU43AC1/UZItixzo5R849ewfPDB2ZMDDg=
 github.com/circonus-labs/circonus-gometrics v2.3.1+incompatible/go.mod h1:nmEj6Dob7S7YxXgwXpfOuvO54S+tGdZdw9fuRZt25Ag=

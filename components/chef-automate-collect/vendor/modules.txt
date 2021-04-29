@@ -11,6 +11,11 @@ github.com/chef/automate/lib/platform/sys
 github.com/chef/automate/lib/proc
 github.com/chef/automate/lib/stringutils
 github.com/chef/automate/lib/user
+# github.com/chef/chef-workstation/components/main-chef-wrapper v0.0.0-20210410003939-c8367d57bf63
+## explicit
+github.com/chef/chef-workstation/components/main-chef-wrapper/dist
+# github.com/chef/go-libs v0.4.0
+github.com/chef/go-libs/distgen
 # github.com/davecgh/go-spew v1.1.1
 github.com/davecgh/go-spew/spew
 # github.com/golang/protobuf v1.4.2
@@ -44,8 +49,6 @@ github.com/spf13/pflag
 # github.com/stretchr/testify v1.6.1
 ## explicit
 github.com/stretchr/testify/assert
-# github.com/ugorji/go v1.1.4
-## explicit
 # golang.org/x/sys v0.0.0-20200420163511-1957bb5e6d1f
 golang.org/x/sys/unix
 # google.golang.org/protobuf v1.25.0
