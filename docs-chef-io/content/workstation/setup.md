@@ -4,12 +4,12 @@ draft = false
 
 gh_repo = "chef-workstation"
 
-aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html", "/workstation_setup/"]
+aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html", "/workstation_setup/" "getting_started"]
 
 [menu]
   [menu.workstation]
     title = "Setup"
-    identifier = "chef_workstation/getting_started.md Setup Chef Workstation"
+    identifier = "chef_workstation/setup.md Setup Chef Workstation"
     parent = "chef_workstation"
     weight = 30
 +++
