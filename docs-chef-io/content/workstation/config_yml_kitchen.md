@@ -603,8 +603,8 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: ubuntu-16.04
   - name: ubuntu-18.04
+  - name: ubuntu-20.04
   - name: centos-7
   - name: centos-8
 
@@ -669,7 +669,7 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: ubuntu-16.04
+  - name: ubuntu-18.04
     attributes:
       chef-server:
         api_fqdn: backend.chef-server.com
