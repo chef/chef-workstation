@@ -1,8 +1,9 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release unreleased -->
-## Unreleased
+<!-- latest_release 21.4.414 -->
+## [21.4.414](https://github.com/chef/chef-workstation/tree/21.4.414) (2021-04-30)
 
 #### Merged Pull Requests
+- Require Ubuntu 18.04 or later [#1951](https://github.com/chef/chef-workstation/pull/1951) ([tas50](https://github.com/tas50))
 - Fix the setup page title / clarify needs [#1950](https://github.com/chef/chef-workstation/pull/1950) ([tas50](https://github.com/tas50))
 - More work on the configuration page [#1867](https://github.com/chef/chef-workstation/pull/1867) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
@@ -11,6 +12,7 @@
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Require Ubuntu 18.04 or later [#1951](https://github.com/chef/chef-workstation/pull/1951) ([tas50](https://github.com/tas50)) <!-- 21.4.414 -->
 - Fix the setup page title / clarify needs [#1950](https://github.com/chef/chef-workstation/pull/1950) ([tas50](https://github.com/tas50)) <!-- 21.4.413 -->
 - More work on the configuration page [#1867](https://github.com/chef/chef-workstation/pull/1867) ([tas50](https://github.com/tas50)) <!-- 21.4.413 -->
 - Bump Chef Workstation App to 0.1.141 [#1949](https://github.com/chef/chef-workstation/pull/1949) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.4.413 -->
