@@ -1,15 +1,15 @@
 +++
-title = "Getting Started"
+title = "Setup Chef Workstation"
 draft = false
 
 gh_repo = "chef-workstation"
 
-aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html", "/workstation_setup/"]
+aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html", "/workstation_setup/", "getting_started"]
 
 [menu]
   [menu.workstation]
     title = "Setup"
-    identifier = "chef_workstation/getting_started.md Setup Chef Workstation"
+    identifier = "chef_workstation/setup.md Setup Chef Workstation"
     parent = "chef_workstation"
     weight = 30
 +++
@@ -24,7 +24,8 @@ This guide walks your through the four parts to set up Chef Workstation on your 
 ## Prerequisites
 
 1. [Download and install Chef Workstation]({{< relref "install_workstation.md" >}})
-1. A running instance of [Chef Infra Server]({{< relref "server/install_server.md" >}}) or [Hosted Chef Server](https://manage.chef.io/signup) and access to the `USER.pem`.
+1. A running instance of [Chef Infra Server]({{< relref "server/install_server.md" >}}) or [Hosted Chef Server](https://manage.chef.io/signup).
+1. Unless using Chef Manage or Hosted Chef, the `CLIENT.PEM` file supplied by your Chef administrator.
 
 ## Configure Ruby Environment
 

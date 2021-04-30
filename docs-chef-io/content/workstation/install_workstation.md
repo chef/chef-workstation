@@ -204,4 +204,4 @@ sudo yum remove chef-workstation
 
 ## Next Steps
 
-Now that you've installed Chef Workstation, proceed to the [Getting Started](/workstation/getting_started/) guide to configure your Chef Workstation installation.
+Now that you've installed Chef Workstation, proceed to the [Setup](/workstation/setup/) guide to configure your Chef Workstation installation.
