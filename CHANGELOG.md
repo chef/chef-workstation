@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.4.415 -->
-## [21.4.415](https://github.com/chef/chef-workstation/tree/21.4.415) (2021-04-30)
+<!-- latest_release 21.4.416 -->
+## [21.4.416](https://github.com/chef/chef-workstation/tree/21.4.416) (2021-04-30)
 
 #### Merged Pull Requests
-- Use OpenSSL 1.1.1 on macOS [#1952](https://github.com/chef/chef-workstation/pull/1952) ([tas50](https://github.com/tas50))
+- Remove the pin on older Go release [#1953](https://github.com/chef/chef-workstation/pull/1953) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Remove the pin on older Go release [#1953](https://github.com/chef/chef-workstation/pull/1953) ([tas50](https://github.com/tas50)) <!-- 21.4.416 -->
 - Use OpenSSL 1.1.1 on macOS [#1952](https://github.com/chef/chef-workstation/pull/1952) ([tas50](https://github.com/tas50)) <!-- 21.4.415 -->
 - Require Ubuntu 18.04 or later [#1951](https://github.com/chef/chef-workstation/pull/1951) ([tas50](https://github.com/tas50)) <!-- 21.4.414 -->
 - Fix the setup page title / clarify needs [#1950](https://github.com/chef/chef-workstation/pull/1950) ([tas50](https://github.com/tas50)) <!-- 21.4.413 -->
