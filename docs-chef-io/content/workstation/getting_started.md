@@ -107,7 +107,7 @@ At a minimum, you must update the following settings with the appropriate values
 <!----Tabs Section--->
 {{< foundation_tabs tabs-id="tabs-panel-container" >}}
 {{< foundation_tab active="true" panel-link="infra_and_automate_credentials" tab-text="Chef Infra Server / Automate">}}
-{{< foundation_tab panel-link="hosted-credentials" tab-text="Hosted Chef / Manage Starter Kit" >}}
+{{< foundation_tab panel-link="hosted-credentials" tab-text="Hosted Chef / Manage" >}}
 {{< /foundation_tabs >}}
 <!----End Tabs --->
 
@@ -174,110 +174,47 @@ All communication between Chef Workstation and the Chef Infra Server is authenti
 
 The steps for downloading or generating these files vary depending on how you interact with Chef Infra Server. Select the option that best describes how you interact with the server:
 
-* From the command line
-* From macOS/Linux Hosted Chef or Chef Manage user interface (UI)
-* From Windows Hosted Chef or Chef Manage UI
-
-#### From the Command Line
 <!----Tabs Section--->
 {{< foundation_tabs tabs-id="tabs-panel-container" >}}
-{{< foundation_tab active="true" panel-link="tls-cli" tab-text="Command Line">}}
-{{< foundation_tab panel-link="tls-nix-ui" tab-text="macOS/Linux From Hosted Chef or Chef Manage" >}}
-{{< foundation_tab panel-link="tls-win-ui" tab-text="Windows  From Hosted Chef or Chef Manage" >}}
-
+{{< foundation_tab active="true" panel-link="infra_and_automate_keys" tab-text="Chef Infra Server / Automate">}}
+{{< foundation_tab panel-link="hosted-keys" tab-text="Hosted Chef / Manage" >}}
 {{< /foundation_tabs >}}
 <!----End Tabs --->
 
 <!----Panels Section --->
 {{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
-{{< foundation_tabs_panel active="true" panel-id="tls-cli" >}}
-If you interact with your Chef Infra Server from the command line, then you will need to:
+{{< foundation_tabs_panel active="true" panel-id="infra_and_automate_keys" >}}
 
-- Retrieve your user private key, the `USER.pem` file, from your Chef Infra Server and save it in your .chef directory
-- Configure the `knife` tool
-- Use `knife` to download and save your server's digital certificates
+Your Chef administrator will provide you with your client.pem file. Copy this file to the `~/.chef` directory.
 
-Download the `USER.pem` files from the Chef Infra Server and move them to the `.chef` directory.
+On macOS and Linux systems this looks something like:
 
-{{< /foundation_tabs_panel >}}
-{{< foundation_tabs_panel panel-id="tls-nix-ui" >}}
+```bash
+cp ~/Downloads/MY_NAME.pem ~/.chef/
+```
 
-#### From Hosted Chef or Chef Manage
+On Windows systems this will look something like this:
 
-If you have interact with Chef Infra Server through the Hosted Chef or legacy Chef Manage web interface, these steps will help you use the Chef Management Console to download the `.pem` and `config.rb` files.
-
-##### Download Keys (.pem) and Configuration Files
-
-For a Chef Workstation installation that will interact with the Chef Infra Server (including the hosted Chef Infra Server) web interface, log on and download the following files:
-
-- Download the `config.rb` from the **Organizations** page.
-- Download the `USER.pem` from the **Change Password** section of the **Account Management** page.
-
-##### Move Keys and Configuration Files into the Chef Directory
-
-After downloading the `config.rb` and `USER.pem` files from the Chef Infra Server, move them to the Chef directory on your computer. The Chef directory is `~/.chef` on macOS and Linux systems.
-
-Move files to the `~/.chef` directory on macOS and Linux systems:
-
-1. In a command window, enter each of the following:
-
-    ``` bash
-    cp /path/to/config.rb ~/.chef
-    ```
-
-    and:
-
-    ``` bash
-    cp /path/to/USER.pem ~/.chef
-    ```
-
-    `/path/to/` is the location of your downloaded files.
-
-1. Verify that the files are in the `.chef` folder.
-
-   ``` bash
-   ls -la ~/.chef
-   ```
+```powershell
+Copy-Item -Path C:\Users\MY_NAME\Downloads\MY_NAME.pem -Destination C:\Users\MY_NAME\.chef\
+```
 
 {{< /foundation_tabs_panel >}}
-{{< foundation_tabs_panel panel-id="tls-win-ui" >}}
+{{< foundation_tabs_panel panel-id="hosted-keys" >}}
 
-#### From Hosted Chef or Chef Manage
+The client key file is located in the Starter Kit at `.chef/MY_NAME.pem`. Copy the .pem file to the `~/.chef` directory.
 
-If you have interact with Chef Infra Server through the Hosted Chef or legacy Chef Manage web interface, these steps will help you use the Chef Management Console to download the `.pem` and `config.rb` files.
+On macOS and Linux systems this looks something like:
 
-##### Download Keys (.pem) and Configuration Files
+```bash
+cp ~/Downloads/chef-repo/.chef/MY_NAME.pem ~/.chef/
+```
 
-For a Chef Workstation installation that will interact with the Chef Infra Server (including the hosted Chef Infra Server) web interface, log on and download the following files:
+On Windows systems this will look something like this:
 
-- Download the `config.rb` from the **Organizations** page.
-- Download the `USER.pem` from the **Change Password** section of the **Account Management** page.
-
-##### Move Keys and Configuration Files into the Chef Directory
-
-After downloading the  `config.rb` and `USER.pem` files from the Chef Infra Server, move them to the `.chef` directory on your computer. The Chef directory is `C:\.chef` on Windows.
-
-Move files to the `C:\.chef` directory:
-
-1. In a command window, enter each of the following:
-
-    ```powershell
-    Move-Item -Path C:\path\to\config.rb -Destination C:\.chef
-    ```
-
-    and:
-
-    ```powershell
-    Move-Item -Path C:\path\to\USER.pem -Destination C:\.chef
-    ```
-
-  `\path\to\` is the location of your downloaded files .
-
-1. Verify that the files are in the `C:\.chef` folder.
-
-   ```powershell
-   Get-ChildItem -Path C:\.chef
-   ```
+```powershell
+Copy-Item -Path C:\Users\MY_NAME\Downloads\chef-repo\.chef\MY_NAME.pem -Destination C:\Users\MY_NAME\.chef\
+```
 
 {{< /foundation_tabs_panel >}}
 {{< /foundation_tabs_panels >}}
@@ -287,13 +224,13 @@ Move files to the `C:\.chef` directory:
 
 To verify that Chef Workstation can connect to the Chef Infra Server:
 
-Enter the following:
+Run the following command on the command line:
 
 ``` bash
 knife client list
 ```
 
-to return a list of clients (registered nodes and Chef Workstation installations) that have access to the Chef Infra Server. For example:
+Which should return a list of clients similar to:
 
 ``` bash
 chef_machine
