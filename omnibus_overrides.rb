@@ -26,4 +26,3 @@ override "rust", version: "1.37.0"
 override "util-macros", version: "1.19.0"
 override "xproto", version: "7.0.28"
 override "zlib", version: "1.2.11"
-override "go", version: "1.13.1" # prevent vendoring failures for now that occur with 1.16.3
