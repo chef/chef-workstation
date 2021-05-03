@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-workstation"
 
-aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html", "/workstation_setup/", "/getting_started", "/getting_started.md"]
+aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html", "/workstation_setup/"]
 
 [menu]
   [menu.workstation]
