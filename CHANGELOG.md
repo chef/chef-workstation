@@ -1,16 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.5.417 -->
-## [21.5.417](https://github.com/chef/chef-workstation/tree/21.5.417) (2021-05-04)
+<!-- latest_release 21.5.418 -->
+## [21.5.418](https://github.com/chef/chef-workstation/tree/21.5.418) (2021-05-04)
 
 #### Merged Pull Requests
-- Bump chef-cli to 5.0.1 [#1957](https://github.com/chef/chef-workstation/pull/1957) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-- Fix relref in docs [#1954](https://github.com/chef/chef-workstation/pull/1954) ([kagarmoe](https://github.com/kagarmoe))
+- Update ChefSpec to 9.3 and update minimum versions [#1959](https://github.com/chef/chef-workstation/pull/1959) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update ChefSpec to 9.3 and update minimum versions [#1959](https://github.com/chef/chef-workstation/pull/1959) ([tas50](https://github.com/tas50)) <!-- 21.5.418 -->
 - Bump chef-cli to 5.0.1 [#1957](https://github.com/chef/chef-workstation/pull/1957) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.417 -->
 - Fix relref in docs [#1954](https://github.com/chef/chef-workstation/pull/1954) ([kagarmoe](https://github.com/kagarmoe)) <!-- 21.4.416 -->
 - Remove the pin on older Go release [#1953](https://github.com/chef/chef-workstation/pull/1953) ([tas50](https://github.com/tas50)) <!-- 21.4.416 -->
