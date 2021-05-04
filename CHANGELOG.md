@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.5.419 -->
-## [21.5.419](https://github.com/chef/chef-workstation/tree/21.5.419) (2021-05-04)
+<!-- latest_release 21.5.420 -->
+## [21.5.420](https://github.com/chef/chef-workstation/tree/21.5.420) (2021-05-04)
 
 #### Merged Pull Requests
-- Revert &quot;Use OpenSSL 1.1.1 on macOS&quot; [#1960](https://github.com/chef/chef-workstation/pull/1960) ([tas50](https://github.com/tas50))
+- Update to Chef Infra Client 17, remove knife-opc and add knife [#1938](https://github.com/chef/chef-workstation/pull/1938) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.4.365 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update to Chef Infra Client 17, remove knife-opc and add knife [#1938](https://github.com/chef/chef-workstation/pull/1938) ([tas50](https://github.com/tas50)) <!-- 21.5.420 -->
 - Revert &quot;Use OpenSSL 1.1.1 on macOS&quot; [#1960](https://github.com/chef/chef-workstation/pull/1960) ([tas50](https://github.com/tas50)) <!-- 21.5.419 -->
 - Update ChefSpec to 9.3 and update minimum versions [#1959](https://github.com/chef/chef-workstation/pull/1959) ([tas50](https://github.com/tas50)) <!-- 21.5.418 -->
 - Bump chef-cli to 5.0.1 [#1957](https://github.com/chef/chef-workstation/pull/1957) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.417 -->
