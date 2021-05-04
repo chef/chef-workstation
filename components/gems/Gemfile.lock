@@ -384,8 +384,8 @@ GEM
     cheffish (16.0.26)
       chef-zero (>= 14.0)
       net-ssh
-    chefspec (9.2.1)
-      chef (>= 14)
+    chefspec (9.3.0)
+      chef (>= 15)
       chef-cli
       fauxhai-ng (>= 7.5)
       rspec (~> 3.0)
@@ -1067,11 +1067,11 @@ DEPENDENCIES
   chef (= 16.13.16)
   chef-apply (>= 0.4.16)
   chef-bin (= 16.13.16)
-  chef-cli (>= 3.0.4)
+  chef-cli (>= 5.0)
   chef-telemetry (>= 1.0.8)
   chef_deprecations (>= 0.1.2)
   cheffish (>= 16.0)
-  chefspec (>= 9.2)
+  chefspec (>= 9.3)
   chefstyle
   cookstyle (>= 7.8)
   dep-selector-libgecode
