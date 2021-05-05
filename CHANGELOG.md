@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.5.422 -->
-## [21.5.422](https://github.com/chef/chef-workstation/tree/21.5.422) (2021-05-05)
+<!-- latest_release 21.5.423 -->
+## [21.5.423](https://github.com/chef/chef-workstation/tree/21.5.423) (2021-05-05)
 
 #### Merged Pull Requests
-- Revert &quot;Revert &quot;Use OpenSSL 1.1.1 on macOS&quot;&quot; [#1963](https://github.com/chef/chef-workstation/pull/1963) ([tas50](https://github.com/tas50))
+- Fix bad link [#1965](https://github.com/chef/chef-workstation/pull/1965) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.5.420 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Fix bad link [#1965](https://github.com/chef/chef-workstation/pull/1965) ([IanMadd](https://github.com/IanMadd)) <!-- 21.5.423 -->
 - Revert &quot;Revert &quot;Use OpenSSL 1.1.1 on macOS&quot;&quot; [#1963](https://github.com/chef/chef-workstation/pull/1963) ([tas50](https://github.com/tas50)) <!-- 21.5.422 -->
 - Bump Delivery CLI to 0.0.55 [#1962](https://github.com/chef/chef-workstation/pull/1962) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.421 -->
 <!-- release_rollup -->
