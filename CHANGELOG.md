@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 21.5.421 -->
+## [21.5.421](https://github.com/chef/chef-workstation/tree/21.5.421) (2021-05-05)
+
+#### Merged Pull Requests
+- Bump Delivery CLI to 0.0.55 [#1962](https://github.com/chef/chef-workstation/pull/1962) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=21.5.420 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Bump Delivery CLI to 0.0.55 [#1962](https://github.com/chef/chef-workstation/pull/1962) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.421 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
