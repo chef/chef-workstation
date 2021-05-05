@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.5.424 -->
-## [21.5.424](https://github.com/chef/chef-workstation/tree/21.5.424) (2021-05-05)
+<!-- latest_release 21.5.425 -->
+## [21.5.425](https://github.com/chef/chef-workstation/tree/21.5.425) (2021-05-05)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.1.142 [#1967](https://github.com/chef/chef-workstation/pull/1967) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump inspec-bin to 4.37.0 [#1968](https://github.com/chef/chef-workstation/pull/1968) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.5.420 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump inspec-bin to 4.37.0 [#1968](https://github.com/chef/chef-workstation/pull/1968) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.425 -->
 - Bump Chef Workstation App to 0.1.142 [#1967](https://github.com/chef/chef-workstation/pull/1967) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.424 -->
 - Fix bad link [#1965](https://github.com/chef/chef-workstation/pull/1965) ([IanMadd](https://github.com/IanMadd)) <!-- 21.5.423 -->
 - Revert &quot;Revert &quot;Use OpenSSL 1.1.1 on macOS&quot;&quot; [#1963](https://github.com/chef/chef-workstation/pull/1963) ([tas50](https://github.com/tas50)) <!-- 21.5.422 -->
