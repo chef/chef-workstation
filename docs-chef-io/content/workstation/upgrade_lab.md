@@ -23,7 +23,7 @@ This guide covers the straightforward pattern of upgrading from Chef Infra Clien
 Unless otherwise indicated, you will run all commands in your local development environment.
 
 {{< note >}}
-This guide illustrates the basic case of upgrading a single node in isolation, including migrating the node from one Chef Infra Server to a new Chef Infra Server. More complex situations, such as those involving pooled nodes using Chef Infra Server search for peer discovery, are not covered here. Please contact [Chef Software customer support](https://www.chef.io/support/) for more complex cases.
+This guide illustrates the basic case of upgrading a single node in isolation, including migrating the node from one Chef Infra Server to a new Chef Infra Server. More complex situations, such as those involving pooled nodes using Chef Infra Server search for peer discovery, are not covered here. Please contact your Customer Success team for more complex cases.
 {{< /note >}}
 
 ## Chef Upgrade Lab Requirements
@@ -353,7 +353,7 @@ Reconciling cookbooks with untracked changes is a difficult and time-consuming p
 If you find yourself using many cookbooks--or complex cookbooks--downloaded from the Chef Infra Server, it will be worth the effort in the long run to try to track down their version-controlled sources.
 
 Tracking and testing changes in a CI/CD pipeline is an important part of managing your Chef infrastructure, but are beyond the scope of this guide.
-See [Learn Chef Rally](https://learn.chef.io/) for tutorials and contact [Chef Software customer support](https://www.chef.io/support/) when you are ready to modernize your system.
+See [Learn Chef Rally](https://learn.chef.io/) for tutorials and contact your Customer Success team when you are ready to modernize your system.
 
 ```bash
 ------------------------ WARNING ---------------------------
