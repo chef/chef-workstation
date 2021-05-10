@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.5.430 -->
-## [21.5.430](https://github.com/chef/chef-workstation/tree/21.5.430) (2021-05-08)
+<!-- latest_release 21.5.431 -->
+## [21.5.431](https://github.com/chef/chef-workstation/tree/21.5.431) (2021-05-10)
 
 #### Merged Pull Requests
-- Update some Netlify config and docs build things [#1966](https://github.com/chef/chef-workstation/pull/1966) ([IanMadd](https://github.com/IanMadd))
+- Bump cookstyle to 7.12.2 [#1977](https://github.com/chef/chef-workstation/pull/1977) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.5.420 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump cookstyle to 7.12.2 [#1977](https://github.com/chef/chef-workstation/pull/1977) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.431 -->
 - Update some Netlify config and docs build things [#1966](https://github.com/chef/chef-workstation/pull/1966) ([IanMadd](https://github.com/IanMadd)) <!-- 21.5.430 -->
 - Bump chef-cli to 5.1.0 [#1976](https://github.com/chef/chef-workstation/pull/1976) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.429 -->
 - Bump Chef Workstation App to 0.1.143 [#1975](https://github.com/chef/chef-workstation/pull/1975) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.428 -->
