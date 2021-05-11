@@ -52,7 +52,7 @@ describe ChefWorkstation::Command::Verify do
       "inspec",
       "git",
       "delivery-cli",
-      "curl"
+      "curl",
     ]
   end
 
