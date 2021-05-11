@@ -43,7 +43,7 @@ build do
 
   block "Removing additional non-code files from installed gems" do
     # find the embedded ruby gems dir and clean it up for globbing
-    target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
+    target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr("\\", "/")
     files = %w{
       .rspec-tm
       .sitearchdir.time
@@ -76,7 +76,7 @@ build do
 
   block "Removing Gemspec / Rakefile / Gemfile unless there's a bin dir" do
     # find the embedded ruby gems dir and clean it up for globbing
-    target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
+    target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr("\\", "/")
     files = %w{
       *.gemspec
       Gemfile
@@ -95,7 +95,7 @@ build do
 
   block "Removing spec dirs unless we're in components we test in the verify command" do
     # find the embedded ruby gems dir and clean it up for globbing
-    target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr('\\', "/")
+    target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems".tr("\\", "/")
 
     Dir.glob("#{target_dir}/*/spec").each do |f|
 
@@ -109,7 +109,7 @@ build do
 
   # remove the chef specs we don't run as this is a large number of files
   block "Removing functional / integration / stress specs from chef" do
-    target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems/chef-*/spec/{integration,functional,stress}".tr('\\', "/")
+    target_dir = "#{install_dir}/embedded/lib/ruby/gems/*/gems/chef-*/spec/{integration,functional,stress}".tr("\\", "/")
 
     Dir.glob(target_dir).each do |f|
       puts "Deleting unused spec dir #{f}"
