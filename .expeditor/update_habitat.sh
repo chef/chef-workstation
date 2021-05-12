@@ -39,8 +39,8 @@ MANIFEST_URL="$BASE_URL/manifest.json"
 MANIFEST=$(curl --silent "$MANIFEST_URL")
 version=$(jq -r '.version'<<< "$MANIFEST")
 
-sed -i -r "s/windows_sha= .*/windows_sha = \"$winsha\"/" $sw_def_file
-sed -i -r "s/linux_sha= .*/linux_sha = \"$linsha\"/" $sw_def_file
+sed -i -r "s/windows_sha = .*/windows_sha = \"$winsha\"/" $sw_def_file
+sed -i -r "s/linux_sha = .*/linux_sha = \"$linsha\"/" $sw_def_file
 sed -i -r "s/darwin_sha = .*/darwin_sha = \"$darwinsha\"/" $sw_def_file
 sed -i -r "s/^default_version \".*/default_version \"$version\"/" $sw_def_file
 
