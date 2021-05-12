@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.5.434 -->
-## [21.5.434](https://github.com/chef/chef-workstation/tree/21.5.434) (2021-05-11)
+<!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- Bump knife to 17.1.35 [#1983](https://github.com/chef/chef-workstation/pull/1983) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- update to properly find edit linux and windows shas [#1985](https://github.com/chef/chef-workstation/pull/1985) ([y-me-y](https://github.com/y-me-y))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.5.420 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- update to properly find edit linux and windows shas [#1985](https://github.com/chef/chef-workstation/pull/1985) ([y-me-y](https://github.com/y-me-y)) <!-- 21.5.434 -->
 - Bump knife to 17.1.35 [#1983](https://github.com/chef/chef-workstation/pull/1983) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.434 -->
 - Bump Chef Workstation App to 0.1.144 [#1982](https://github.com/chef/chef-workstation/pull/1982) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.433 -->
 - Adding test for curl cli [#1981](https://github.com/chef/chef-workstation/pull/1981) ([i5pranay93](https://github.com/i5pranay93)) <!-- 21.5.432 -->
