@@ -61,7 +61,7 @@ quotes when the name contains a period. For example:
 ``` none
 # Example .chef/credentials file
 [default]
-node_name = "barney"
+client_name = "barney"
 client_key = "barney_rubble.pem"
 chef_server_url = "https://api.chef.io/organizations/bedrock"
 
@@ -84,7 +84,7 @@ validator_key = "test-validator.pem"
 chef_server_url = "https://api.chef-server.dev/organizations/test"
 
 ['web.preprod']
-node_name = "brubble"
+client_name = "brubble"
 client_key = "preprod-brubble.pem"
 chef_server_url = "https://preprod.chef-server.dev/organizations/preprod"
 
