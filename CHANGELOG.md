@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.5.436 -->
-## [21.5.436](https://github.com/chef/chef-workstation/tree/21.5.436) (2021-05-13)
+<!-- latest_release 21.5.437 -->
+## [21.5.437](https://github.com/chef/chef-workstation/tree/21.5.437) (2021-05-13)
 
 #### Merged Pull Requests
-- Remove references to node_name on knife_setup doc for credentials [#1988](https://github.com/chef/chef-workstation/pull/1988) ([collinmcneese](https://github.com/collinmcneese))
+- Bump ohai to 17.1.0 [#1990](https://github.com/chef/chef-workstation/pull/1990) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.5.420 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump ohai to 17.1.0 [#1990](https://github.com/chef/chef-workstation/pull/1990) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.437 -->
 - Remove references to node_name on knife_setup doc for credentials [#1988](https://github.com/chef/chef-workstation/pull/1988) ([collinmcneese](https://github.com/collinmcneese)) <!-- 21.5.436 -->
 - Bump inspec-bin to 4.37.8 [#1986](https://github.com/chef/chef-workstation/pull/1986) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.435 -->
 - update to properly find edit linux and windows shas [#1985](https://github.com/chef/chef-workstation/pull/1985) ([y-me-y](https://github.com/y-me-y)) <!-- 21.5.434 -->
