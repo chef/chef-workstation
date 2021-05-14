@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.5.438 -->
-## [21.5.438](https://github.com/chef/chef-workstation/tree/21.5.438) (2021-05-14)
+<!-- latest_release 21.5.439 -->
+## [21.5.439](https://github.com/chef/chef-workstation/tree/21.5.439) (2021-05-14)
 
 #### Merged Pull Requests
-- Update knife to the latest [#1992](https://github.com/chef/chef-workstation/pull/1992) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.146 [#1994](https://github.com/chef/chef-workstation/pull/1994) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.5.420 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.1.146 [#1994](https://github.com/chef/chef-workstation/pull/1994) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.439 -->
 - Update knife to the latest [#1992](https://github.com/chef/chef-workstation/pull/1992) ([tas50](https://github.com/tas50)) <!-- 21.5.438 -->
 - Bump ohai to 17.1.0 [#1990](https://github.com/chef/chef-workstation/pull/1990) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.437 -->
 - Remove references to node_name on knife_setup doc for credentials [#1988](https://github.com/chef/chef-workstation/pull/1988) ([collinmcneese](https://github.com/collinmcneese)) <!-- 21.5.436 -->
