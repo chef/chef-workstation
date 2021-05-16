@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.5.442 -->
-## [21.5.442](https://github.com/chef/chef-workstation/tree/21.5.442) (2021-05-14)
+<!-- latest_release 21.5.443 -->
+## [21.5.443](https://github.com/chef/chef-workstation/tree/21.5.443) (2021-05-16)
 
 #### Merged Pull Requests
-- Bump habitat to 1.6.319. [#1984](https://github.com/chef/chef-workstation/pull/1984) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 7.12.3 [#1996](https://github.com/chef/chef-workstation/pull/1996) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.5.420 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump cookstyle to 7.12.3 [#1996](https://github.com/chef/chef-workstation/pull/1996) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.443 -->
 - Bump habitat to 1.6.319. [#1984](https://github.com/chef/chef-workstation/pull/1984) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.442 -->
 - Bump Chef Workstation App to 0.1.146 [#1995](https://github.com/chef/chef-workstation/pull/1995) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.441 -->
 - Remove the omnibus install of rb-fsevent [#1993](https://github.com/chef/chef-workstation/pull/1993) ([tas50](https://github.com/tas50)) <!-- 21.5.440 -->
