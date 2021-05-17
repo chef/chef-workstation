@@ -8,15 +8,6 @@ github.com/armon/consul-api v0.0.0-20180202201655-eb2c6b5be1b6/go.mod h1:grANhF5
 github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=
 github.com/beorn7/perks v1.0.0/go.mod h1:KWe93zE9D1o94FZ5RNwFwVgaQK1VOXiVxmqh+CedLV8=
 github.com/cespare/xxhash v1.1.0/go.mod h1:XrSqR1VqqWfGrhpAt58auRo0WTKS1nRRg3ghfAqPWnc=
-<<<<<<< HEAD
-github.com/chef/chef-workstation v0.0.0-20200409205805-97040ae5cf4e h1:4wuaXNcUc7+r1kbPKesMpkcb6ZELICVuefFV3FHgpLY=
-github.com/chef/chef-workstation v0.0.0-20200903214525-7f5cc353be5a h1:/h+BrhrW9sNZXIPiAEfwbW+vHgg4xLyjku4bVOsiqHo=
-github.com/chef/go-libs v0.1.0 h1:ljwMsGhp0tjnsjn7g9aZSTQgjzjn+vfVZpkzJh0wmOQ=
-github.com/chef/go-libs v0.1.0/go.mod h1:aGHwP5PXYdD0hVq+jodILnSqB/b04EhS/XCoqhE2PrA=
-github.com/chef/go-libs v0.2.0 h1:9/YU0CFKpN8PvlVJGo8E3XfzPc+AU3lpmm/ziR54FrQ=
-github.com/chef/go-libs v0.2.0/go.mod h1:aGHwP5PXYdD0hVq+jodILnSqB/b04EhS/XCoqhE2PrA=
-=======
->>>>>>> bf2c436fc54abb5b77eb3fd477d2ad82bc29a797
 github.com/chef/go-libs v0.4.0 h1:FoiI9dRPLKp9bxxRiuFf+at8gG91tyttK53FM9+y0sw=
 github.com/chef/go-libs v0.4.0/go.mod h1:aGHwP5PXYdD0hVq+jodILnSqB/b04EhS/XCoqhE2PrA=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
@@ -53,10 +44,7 @@ github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0/go.mod h1:8NvIoxWQoOIhqOTXgf
 github.com/grpc-ecosystem/grpc-gateway v1.9.0/go.mod h1:vNeuVxBJEsws4ogUvrchl83t/GYV9WGTSLVdBhOQFDY=
 github.com/hashicorp/hcl v1.0.0 h1:0Anlzjpi4vEasTeNFn2mLJgTSwt0+6sfsiTG8qcWGx4=
 github.com/hashicorp/hcl v1.0.0/go.mod h1:E5yfLk+7swimpb2L/Alb/PJmXilQ/rhwaUYs4T20WEQ=
-<<<<<<< HEAD
-=======
 github.com/inconshreveable/mousetrap v1.0.0 h1:Z8tu5sraLXCXIcARxBp/8cbvlwVa7Z1NHg9XEKhtSvM=
->>>>>>> bf2c436fc54abb5b77eb3fd477d2ad82bc29a797
 github.com/inconshreveable/mousetrap v1.0.0/go.mod h1:PxqpIevigyE2G7u3NXJIT2ANytuPF1OarO4DADm73n8=
 github.com/jonboulle/clockwork v0.1.0/go.mod h1:Ii8DK3G1RaLaWxj9trq07+26W01tbo22gdxWY5EU2bo=
 github.com/julienschmidt/httprouter v1.2.0/go.mod h1:SYymIcj16QtmaHHD7aYtjjsJG7VTCxuUUipMqKk8s4w=

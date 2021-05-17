@@ -19,10 +19,7 @@
 package cmd
 
 import (
-<<<<<<< HEAD
-=======
 	"errors"
->>>>>>> bf2c436fc54abb5b77eb3fd477d2ad82bc29a797
 	"fmt"
 	"os"
 
