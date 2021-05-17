@@ -28,18 +28,12 @@ dependency "ruby"
 
 # However, for gems that depend on c-libs, we must include the c-libraries directly here.
 
-# For nokogiri
+# For nokogiri, archive_file in chef infra client, and berkshelf
 dependency "libxml2"
 dependency "libxslt"
 dependency "liblzma"
 dependency "zlib"
 dependency "libarchive"
-
-# For berkshelf
-dependency "libarchive"
-
-# For opscode-pushy-client
-dependency "libzmq"
 
 # for train
 dependency "google-protobuf"
@@ -48,12 +42,6 @@ dependency "google-protobuf"
 # Only matters on mac.
 # @todo Contact gem mainter about getting new release.
 dependency "rb-fsevent-gem" if mac_os_x?
-
-# The docker-api gem has not been maintained so we are building and installing
-# a fork of it. If the maintainer releases a fix with our change we can switch
-# back to just installing it. The docker-api gem is required by kitchen-dokken
-# in its gemspec.
-dependency "docker-api"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
@@ -78,7 +66,7 @@ build do
 
   appbundle "chef", lockdir: project_dir, gem: "chef", without: %w{docgen chefstyle omnibus_package}, env: env
 
-  appbundle "foodcritic", lockdir: project_dir, gem: "foodcritic", without: %w{development test}, env: env
+  appbundle "foodcritic", lockdir: project_dir, gem: "chef_deprecations", without: %w{development test}, env: env
   appbundle "test-kitchen", lockdir: project_dir, gem: "test-kitchen", without: %w{changelog debug docs development integration}, env: env
   appbundle "inspec", lockdir: project_dir, gem: "inspec-bin", without: %w{deploy tools maintenance integration}, env: env
   appbundle "chef-run", lockdir: project_dir, gem: "chef-apply", without: %w{changelog docs debug}, env: env
@@ -86,7 +74,7 @@ build do
   appbundle "berkshelf", lockdir: project_dir, gem: "berkshelf", without: %w{changelog build docs debug development}, env: env
 
   # Note - 'chef-apply' gem provides 'chef-run', not 'chef-apply' which ships with chef-bin...
-  %w{chef-bin chef-apply chef-vault ohai opscode-pushy-client cookstyle}.each do |gem|
+  %w{chef-bin chef-apply chef-vault ohai cookstyle}.each do |gem|
     appbundle gem, lockdir: project_dir, gem: gem, without: %w{changelog}, env: env
   end
 

@@ -19,6 +19,10 @@
 package cmd
 
 import (
+<<<<<<< HEAD
+=======
+	"errors"
+>>>>>>> bf2c436fc54abb5b77eb3fd477d2ad82bc29a797
 	"fmt"
 	"os"
 
@@ -41,6 +45,19 @@ https://docs.chef.io/policyfile/
 `,
 	FParseErrWhitelist: cobra.FParseErrWhitelist{UnknownFlags: true},
 	RunE: func(cmd *cobra.Command, args []string) error {
+		allArgs := os.Args[1:]
+		if isRollOutEnabled() {
+			if !validateRolloutSetup() { // roll-out is enabled but setup not complete, we don't do anything
+				return errors.New("Policy roll-out is enabled but required variables are not set")
+			}
+			err := passThroughCommand(dist.WorkstationExec, "", allArgs)
+			if err != nil {
+				return err
+			}
+			allArgs := []string{"report-new-rollout", "-g", allArgs[1], "-l", allArgs[2],
+				"-s", os.Getenv("CHEF_AC_SERVER_URL"), "-u", os.Getenv("CHEF_AC_SERVER_USER")}
+			return passThroughCommand(dist.AutomateCollectExec, "", allArgs)
+		}
 		return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},
 }
@@ -49,4 +66,34 @@ func init() {
 	pushCmd.Short = fmt.Sprintf(pushCmd.Short, dist.ServerProduct)
 	pushCmd.Long = fmt.Sprintf(pushCmd.Long, dist.ServerProduct)
 	rootCmd.AddCommand(pushCmd)
+}
+
+func isRollOutEnabled() bool {
+	// user wants to do policy push + roll out
+	if os.Getenv("CHEF_AC_ROLLOUT_ENABLED") != "" {
+		return true
+	}
+	return false
+}
+
+func validateRolloutSetup() bool {
+
+	if os.Getenv("CHEF_AC_SERVER_URL") == "" {
+		fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_SERVER_URL environment variable must be set for rollout reporting")
+		return false
+	}
+	if os.Getenv("CHEF_AC_SERVER_USER") == "" {
+		fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_SERVER_USER environment variable must be set for rollout reporting")
+		return false
+	}
+	if os.Getenv("CHEF_AC_AUTOMATE_URL") == "" {
+		fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_AUTOMATE_URL environment variable must be set for rollout reporting")
+		return false
+	}
+	if os.Getenv("CHEF_AC_AUTOMATE_TOKEN") == "" {
+		fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_AUTOMATE_TOKEN environment variable must be set for rollout reporting")
+		return false
+	}
+
+	return true
 }

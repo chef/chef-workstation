@@ -1,11 +1,9 @@
 # Documentation available at https://expeditor.chef.io/docs/getting-started/
+---
 
 # The name of the product keys for this product (from mixlib-install)
 product_key:
   - chef-workstation
-
-project:
-  alias: chef-workstation
 
 # Slack channel in Chef Software slack to send notifications about build failures, etc
 slack:
@@ -14,6 +12,9 @@ slack:
 github:
   # This deletes the GitHub PR branch after successfully merged into the release branch
   delete_branch_on_merge: true
+
+changelog:
+  rollup_header: Changes not yet released to stable
 
 # https://expeditor.chef.io/docs/getting-started/subscriptions/#merge-actions
 # The `merge_actions` key is a shortcut for the
@@ -24,10 +25,12 @@ merge_actions:
       ignore_labels:
         - "Expeditor: Skip Version Bump"
         - "Expeditor: Skip All"
+        - "Aspect: Documentation"
   - built_in:update_changelog:
       ignore_labels:
         - "Expeditor: Skip Changelog"
         - "Expeditor: Skip All"
+        - "Aspect: Documentation"
   # The git commit happens here
   - bash:.expeditor/push-git-tag.sh:
       only_if: bash:.expeditor/determine_version.sh
@@ -36,6 +39,7 @@ merge_actions:
       ignore_labels:
         - "Expeditor: Skip Omnibus"
         - "Expeditor: Skip All"
+        - "Aspect: Documentation"
       only_if: bash:.expeditor/determine_version.sh
 
 pipelines:
@@ -128,7 +132,7 @@ subscriptions:
   - workload: ruby_gem_published:ffi-yajl-*
     actions:
        - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:inspec-*
+  - workload: ruby_gem_published:inspec-bin-*
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:kitchen-azurerm-*
@@ -174,9 +178,6 @@ subscriptions:
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:knife-opc-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:knife-push-*
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:knife-tidy-*
@@ -225,12 +226,6 @@ subscriptions:
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:ohai-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:opscode-pushy-client-*
-    actions:
-       - bash:.expeditor/update_dep.sh
-  - workload: ruby_gem_published:stove-*
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:test-kitchen-*

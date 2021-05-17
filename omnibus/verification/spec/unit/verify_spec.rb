@@ -50,7 +50,6 @@ describe ChefWorkstation::Command::Verify do
       "package installation",
       "openssl",
       "inspec",
-      "opscode-pushy-client",
       "git",
       "delivery-cli",
     ]
@@ -60,7 +59,7 @@ describe ChefWorkstation::Command::Verify do
     expect(command_instance.run(command_options)).to eq(expected_exit_code)
   end
 
-  it "defines berks, tk, chef and chef-cli components by default" do
+  it "defines berks, test kitchen, chef and chef-cli components by default" do
     expected_components = default_components
     expect(command_instance.components).not_to be_empty
     expect(command_instance.components.map(&:name)).to match_array(expected_components)

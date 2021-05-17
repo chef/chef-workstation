@@ -4,4 +4,4 @@
 .expeditor/                 @chef/jex-team
 *.md                        @chef/docs-team
 components/chef-cli/i18n/** @chef/user-experience
-docs                        @chef/docs-team
+docs-chef-io                @chef/docs-team

@@ -21,10 +21,10 @@ skip_transitive_dependency_licensing true
 
 # DO NOT MODIFY: default_version and checksums are populated by
 #                workstation/.expeditor/update_habitat.sh
-default_version "1.6.56"
-linux_sha = "a87f4ff7558f23724289e2c5a9b75920da364818167f63b26411be5a8b344800"
-darwin_sha = "42b6c417b88351e0b8ce99cb6ebcc104bbb5bc819ffc795f980d1201068035e6"
-windows_sha = "648157f1db680233b676725d3142ef118e5a77da000209a532fb54ff153b57dd"
+default_version "1.6.181"
+linux_sha = "efa91792f9d116dd63c481b3d3ee88e65e0cb49f0654578fc93166f614590809"
+darwin_sha = "268c149431842a58cdbdcf3e7354f90dec38cd548568520b8a602e48d8d4cbb8"
+windows_sha = "097da90435458a2ac2739e12c63bfba55bb4c7ba163b2ae65ab93968e9ced8c3"
 # END DO NOT MODIFY
 
 if windows?
@@ -44,7 +44,7 @@ source url: "https://packages.chef.io/files/stable/habitat/#{version}/hab-x86_64
   sha256: sha256
 
 build do
-  # 'block' is needed to prevent evaluating the ruby code
+  # "block" is needed to prevent evaluating the ruby code
   # before the project_dir contains the extracted package.
   block "Relocating habitat" do
     dest = File.join(install_dir, "bin")

@@ -12,6 +12,7 @@ Chef Workstation installs everything you need to get started using Chef products
 * Chef Workstation App
 * Chef Infra Client
 * Chef InSpec
+* Chef Habitat
 * Chef Command Line Tool
 * Test Kitchen
 * Cookstyle

@@ -23,12 +23,11 @@ group(:omnibus_package, :development, :test) do
   # at these pins and adjust them.
   gem "minitest", "= 5.13.0"
 
-  gem "rake", ">= 13.0.1"
+  gem "rake", "= 13.0.1" # prevent double rake as of 12.2020
   gem "pry"
   gem "yard"
   gem "guard"
-  gem "cookstyle", "~> 6.8"
-  gem "foodcritic", ">= 16.3"
+  gem "cookstyle", "~> 7.1"
   gem "ffi-libarchive"
 end
 
@@ -42,15 +41,18 @@ end
 # We should only be using "~>" to work around bugs, or temporarily pinning some tech debt.
 # We equality pin the chef gem itself to assert which version we're shipping.
 group(:omnibus_package) do
+  # add small binaries that warn against the use of legacy apps. For now this is foodcritic/stove
+  gem "chef_deprecations", ">= 0.1.1"
+
   gem "appbundler"
 
   # Expeditor manages the version of chef released to Rubygems. We only release 'stable' chef
   # gems to Rubygems now, so letting this float on latest should always give us the latest
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
-  gem "chef", "= 16.4.41"
-  gem "chef-bin", "= 16.4.41"
-  gem "ohai", ">= 16.4"
+  gem "chef", "= 16.10.8"
+  gem "chef-bin", "= 16.10.8"
+  gem "ohai", ">= 16.7"
   gem "cheffish", ">= 16.0"
 
   # chefspec
@@ -58,27 +60,22 @@ group(:omnibus_package) do
   gem "fauxhai-ng", "~> 8"
 
   # inspec
-  gem "inspec-bin", "~> 4.21" # the actual inspec CLI binary
-  gem "inspec", "~> 4.21"
+  gem "inspec-bin", "~> 4.23" # the actual inspec CLI binary
+  gem "inspec", "~> 4.23"
 
   # test-kitchen and plugins
-  gem "test-kitchen", ">= 2.5"
-  gem "kitchen-azurerm", ">= 1.0"
-  gem "kitchen-ec2", ">= 3.6"
+  gem "test-kitchen", ">= 2.7"
+  gem "kitchen-azurerm", ">= 1.3"
+  gem "kitchen-ec2", ">= 3.7"
   gem "kitchen-digitalocean", ">= 0.11"
-  gem "kitchen-dokken", ">= 2.9"
-  # docker-api appears to be unmaintained, and has a noisy deprecation
-  # warning under ruby 2.7. Using a fork via an omnibus software def.
-  # Must use the software def because the ruby cleanup deletes the
-  # bundled gem. Chef Infra Client does not have this issue with Ohai
-  # and I do not understand why.
-  gem "docker-api" # , git: "https://github.com/chef/docker-api.git", branch: "master"
+  gem "kitchen-dokken", ">= 2.11"
+  gem "docker-api", ">= 2.0" # make sure we get the Ruby 2.7 compatible release
   gem "kitchen-google", ">= 2.0.0"
   gem "kitchen-hyperv", ">= 0.5.1"
-  gem "kitchen-inspec", ">= 2.0"
+  gem "kitchen-inspec", ">= 2.2"
   gem "kitchen-openstack", ">= 5.0"
-  gem "kitchen-vagrant", ">= 1.6"
-  gem "kitchen-vcenter", ">= 2.7"
+  gem "kitchen-vagrant", ">= 1.8"
+  gem "kitchen-vcenter", ">= 2.8"
 
   # knife plugins
   gem "knife-azure", ">= 3.0.0"
@@ -96,16 +93,10 @@ group(:omnibus_package) do
   gem "chef-cli", ">= 3.0.4"
   gem "chef-apply", ">= 0.4.16"
 
-  # For Delivery build node
-  gem "mixlib-versioning"
-  gem "artifactory"
-  gem "opscode-pushy-client", ">= 2.100"
-  gem "ffi-rzmq-core"
-  gem "knife-push"
-
   # chef-telemetry previously pulled in an unecessary library (http)
   gem "chef-telemetry", ">= 1.0.8"
 
+  gem "artifactory"
   gem "mixlib-archive", ">= 1.0"
   gem "net-ssh", ">= 4.2.0"
   gem "listen"
@@ -120,14 +111,8 @@ group(:omnibus_package) do
   gem "rb-readline"
   gem "winrm-fs"
   gem "winrm-elevated"
-  gem "stove", ">= 7.1.6"
   gem "berkshelf", ">= 7.0.10"
   gem "mdl", ">= 0.7.0"
-end
-
-# Everything except AIX
-group(:ruby_prof) do
-  gem "ruby-prof"
 end
 
 # Everything except Windows
@@ -145,6 +130,6 @@ platforms :mswin, :mingw do
   gem "win32-dir"
   gem "win32-event"
   gem "win32-mutex"
-  gem "win32-process", "~> 0.8.2"
+  gem "win32-process", ">= 0.9.0" # resolves Ruby 2.7 warnings
   gem "win32-service", ">= 2.1.5" # 2.1.5 resolves ffi warnings
 end

@@ -1,0 +1,22 @@
+# we use pushd/popd here, and /bin/sh of our chefes/buildkite image is not bash
+# so we have to override the default shell here
+SHELL=bash
+
+clean_all:
+	pushd chef-web-docs && make clean_all && popd
+
+preview_netlify: chef_web_docs
+	cp -R content/* chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/content
+	cp -R static/* chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/static
+	pushd chef-web-docs && make assets; hugo --buildFuture --gc --minify && popd
+
+serve: chef_web_docs
+		echo "replace github.com/chef/chef-workstation/docs-chef-io => ../" >> chef-web-docs/go.mod
+	pushd chef-web-docs && make assets; hugo server --buildDrafts --buildFuture --noHTTPCache --ignoreVendorPaths "github.com/chef/chef-workstation/**" && popd
+
+chef_web_docs:
+	if [ -d "chef-web-docs/" ]; then \
+		pushd chef-web-docs && git reset HEAD --hard; git pull origin master && popd; \
+	else \
+		git clone https://github.com/chef/chef-web-docs.git; \
+	fi

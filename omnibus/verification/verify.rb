@@ -290,7 +290,6 @@ module ChefWorkstation
             end
 
             sh!("#{usr_bin_path("ohai")} -v")
-            sh!("#{usr_bin_path("foodcritic")} -V")
             sh!("#{usr_bin_path("inspec")} version")
             sh!("#{usr_bin_path("hab")} --version")
           end
@@ -398,16 +397,6 @@ module ChefWorkstation
               failure_str = "`<chef_dk>/bin/git --help` should fail as git should be installed in gitbin"
               fail_if_exit_zero("#{bin("git")} --help", failure_str)
             end
-          end
-        end
-      end
-
-      add_component "opscode-pushy-client" do |c|
-        c.gem_base_dir = "opscode-pushy-client"
-
-        c.smoke_test do
-          tmpdir do |cwd|
-            sh("#{bin("pushy-client")} -v", cwd: cwd)
           end
         end
       end

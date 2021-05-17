@@ -121,7 +121,7 @@ do_install() {
     appbundle ohai "changelog"
     wrap_ruby_bin "ohai"
 
-    appbundle "foodcritic" "development,test"
+    appbundle "chef_deprecations" "development,test"
     wrap_ruby_bin "foodcritic"
 
     appbundle "test-kitchen" "changelog,debug,docs,development"
@@ -135,11 +135,6 @@ do_install() {
 
     appbundle "chef-vault" "changelog"
     wrap_ruby_bin "chef-vault"
-
-    appbundle "opscode-pushy-client" "changelog"
-    wrap_ruby_bin "pushy-client"
-    wrap_ruby_bin "push-apply"
-    wrap_ruby_bin "pushy-service-manager"
 
     appbundle chef-apply "changelog,docs,debug" # really, chef-run
     wrap_ruby_bin "chef-run"
