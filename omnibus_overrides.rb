@@ -6,7 +6,7 @@
 
 override "chef-analyze", version: "0.1.108"
 override "delivery-cli", version: "0.0.55"
-override "chef-workstation-app", version: "v0.2.0"
+override "chef-workstation-app", version: "v0.2.3"
 # /DO NOT MODIFY
 
 override "libarchive", version: "3.5.1"
