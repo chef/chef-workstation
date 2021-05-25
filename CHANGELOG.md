@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.5.456 -->
-## [21.5.456](https://github.com/chef/chef-workstation/tree/21.5.456) (2021-05-25)
+<!-- latest_release 21.5.457 -->
+## [21.5.457](https://github.com/chef/chef-workstation/tree/21.5.457) (2021-05-25)
 
 #### Merged Pull Requests
-- Update nodejs to 14.17 [#2021](https://github.com/chef/chef-workstation/pull/2021) ([tas50](https://github.com/tas50))
+- Remove curl as a default component in the verify tests [#2023](https://github.com/chef/chef-workstation/pull/2023) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.5.420 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Remove curl as a default component in the verify tests [#2023](https://github.com/chef/chef-workstation/pull/2023) ([tas50](https://github.com/tas50)) <!-- 21.5.457 -->
 - Update nodejs to 14.17 [#2021](https://github.com/chef/chef-workstation/pull/2021) ([tas50](https://github.com/tas50)) <!-- 21.5.456 -->
 - Remove the unused rb-fsevent-gem patch [#2022](https://github.com/chef/chef-workstation/pull/2022) ([tas50](https://github.com/tas50)) <!-- 21.5.455 -->
 - Update all omnibus deps to the latest [#2020](https://github.com/chef/chef-workstation/pull/2020) ([tas50](https://github.com/tas50)) <!-- 21.5.454 -->
