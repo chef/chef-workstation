@@ -402,9 +402,9 @@ module ChefWorkstation
       end
 
       add_component "curl" do |c|
-        c.base_dir = "chef"
+        c.base_dir = "embedded/bin"
         c.smoke_test do
-          sh!(`curl --version`)
+          sh!('curl --version')
         end
       end
 
