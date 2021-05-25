@@ -47,26 +47,26 @@
 # ```
 
 name "nodejs-binary"
-default_version "14.15.4"
+default_version "14.17.0"
 
 license "MIT"
 license_file "LICENSE"
 skip_transitive_dependency_licensing true
 
-version "14.15.4" do
-  source_hash = if mac_os_x?
-                  "6b0e19e5c2601ef97510f7eb4f52cc8ee261ba14cb05f31eb1a41a5043b0304e"
+version "14.17.0" do
+  source_hash = if macos?
+                  "7b210652e11d1ee25650c164cf32381895e1dcb3e0ff1d0841d8abc1f47ac73e"
                 elsif linux?
-                  "b51c033d40246cd26e52978125a3687df5cd02ee532e8614feff0ba6c13a774f"
+                  "3d06eabc73ec8626337bff370474306eac1c3c21122f677720d154c556ceafaf"
                 elsif windows?
-                  "b2a0765240f8fbd3ba90a050b8c87069d81db36c9f3745aff7516e833e4d2ed6"
+                  "6582a7259c433e9f667dcc4ed3e5d68bc514caba2eed40e4626c8b4c7e5ecd5c"
                 else
                   raise "nodejs-binary does not have configuration for this build platform"
                 end
   source sha256: source_hash
 end
 
-platform_name, platform_ext = if mac_os_x?
+platform_name, platform_ext = if macos?
                                 %w{darwin tar.gz}
                               elsif linux?
                                 %w{linux tar.gz}
