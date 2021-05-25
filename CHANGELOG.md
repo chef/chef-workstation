@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.5.454 -->
-## [21.5.454](https://github.com/chef/chef-workstation/tree/21.5.454) (2021-05-25)
+<!-- latest_release 21.5.455 -->
+## [21.5.455](https://github.com/chef/chef-workstation/tree/21.5.455) (2021-05-25)
 
 #### Merged Pull Requests
-- Update all omnibus deps to the latest [#2020](https://github.com/chef/chef-workstation/pull/2020) ([tas50](https://github.com/tas50))
+- Remove the unused rb-fsevent-gem patch [#2022](https://github.com/chef/chef-workstation/pull/2022) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.5.420 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Remove the unused rb-fsevent-gem patch [#2022](https://github.com/chef/chef-workstation/pull/2022) ([tas50](https://github.com/tas50)) <!-- 21.5.455 -->
 - Update all omnibus deps to the latest [#2020](https://github.com/chef/chef-workstation/pull/2020) ([tas50](https://github.com/tas50)) <!-- 21.5.454 -->
 - Revert &quot;Remove the omnibus install of rb-fsevent&quot; [#2019](https://github.com/chef/chef-workstation/pull/2019) ([tas50](https://github.com/tas50)) <!-- 21.5.453 -->
 - Bump Chef Workstation App to 0.2.4 [#2016](https://github.com/chef/chef-workstation/pull/2016) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.452 -->
