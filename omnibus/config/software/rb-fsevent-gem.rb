@@ -21,13 +21,10 @@
 name "rb-fsevent-gem"
 default_version "master"
 
-# this is a fork that has patches for m1 macs
-# we should switch back to the gem install when this is all released
-source git: "https://github.com/imajes/rb-fsevent.git", branch: "add-support-for-m1"
+source git: "https://github.com/thibaudgg/rb-fsevent.git"
 
 license "Apache-2.0"
-# this is a fork that has patches for m1 macs
-license_file "https://raw.githubusercontent.com/imajes/rb-fsevent/master/LICENSE.txt"
+license_file "https://raw.githubusercontent.com/thibaudgg/rb-fsevent/master/LICENSE.txt"
 
 dependency "ruby"
 
