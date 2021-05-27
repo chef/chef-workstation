@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.5.458 -->
-## [21.5.458](https://github.com/chef/chef-workstation/tree/21.5.458) (2021-05-25)
+<!-- latest_release 21.5.459 -->
+## [21.5.459](https://github.com/chef/chef-workstation/tree/21.5.459) (2021-05-27)
 
 #### Merged Pull Requests
-- Fix curl test [#2025](https://github.com/chef/chef-workstation/pull/2025) ([tas50](https://github.com/tas50))
+- Bump inspec-bin to 4.37.20 [#2027](https://github.com/chef/chef-workstation/pull/2027) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.5.420 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump inspec-bin to 4.37.20 [#2027](https://github.com/chef/chef-workstation/pull/2027) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.459 -->
 - Fix curl test [#2025](https://github.com/chef/chef-workstation/pull/2025) ([tas50](https://github.com/tas50)) <!-- 21.5.458 -->
 - Remove curl as a default component in the verify tests [#2023](https://github.com/chef/chef-workstation/pull/2023) ([tas50](https://github.com/tas50)) <!-- 21.5.457 -->
 - Update nodejs to 14.17 [#2021](https://github.com/chef/chef-workstation/pull/2021) ([tas50](https://github.com/tas50)) <!-- 21.5.456 -->
