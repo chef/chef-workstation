@@ -1,61 +1,59 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.5.462 -->
-## [21.5.462](https://github.com/chef/chef-workstation/tree/21.5.462) (2021-05-27)
-
-#### Merged Pull Requests
-- Bump cookstyle to 7.13.0 [#2032](https://github.com/chef/chef-workstation/pull/2032) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=21.5.420 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Bump cookstyle to 7.13.0 [#2032](https://github.com/chef/chef-workstation/pull/2032) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.462 -->
-- Bump cookstyle to 7.12.6 [#2031](https://github.com/chef/chef-workstation/pull/2031) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.461 -->
-- Bump Chef Workstation App to 0.2.7 [#2030](https://github.com/chef/chef-workstation/pull/2030) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.460 -->
-- Bump inspec-bin to 4.37.20 [#2027](https://github.com/chef/chef-workstation/pull/2027) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.459 -->
-- Fix curl test [#2025](https://github.com/chef/chef-workstation/pull/2025) ([tas50](https://github.com/tas50)) <!-- 21.5.458 -->
-- Remove curl as a default component in the verify tests [#2023](https://github.com/chef/chef-workstation/pull/2023) ([tas50](https://github.com/tas50)) <!-- 21.5.457 -->
-- Update nodejs to 14.17 [#2021](https://github.com/chef/chef-workstation/pull/2021) ([tas50](https://github.com/tas50)) <!-- 21.5.456 -->
-- Remove the unused rb-fsevent-gem patch [#2022](https://github.com/chef/chef-workstation/pull/2022) ([tas50](https://github.com/tas50)) <!-- 21.5.455 -->
-- Update all omnibus deps to the latest [#2020](https://github.com/chef/chef-workstation/pull/2020) ([tas50](https://github.com/tas50)) <!-- 21.5.454 -->
-- Revert &quot;Remove the omnibus install of rb-fsevent&quot; [#2019](https://github.com/chef/chef-workstation/pull/2019) ([tas50](https://github.com/tas50)) <!-- 21.5.453 -->
-- Bump Chef Workstation App to 0.2.4 [#2016](https://github.com/chef/chef-workstation/pull/2016) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.452 -->
-- Bump knife-google to 5.0.11 [#2018](https://github.com/chef/chef-workstation/pull/2018) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.451 -->
-- Bump knife to 17.2.11 [#2017](https://github.com/chef/chef-workstation/pull/2017) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.450 -->
-- Bump Chef Workstation App to 0.2.3 [#2015](https://github.com/chef/chef-workstation/pull/2015) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.449 -->
-- Bump Chef Workstation App to 0.2.0 [#2012](https://github.com/chef/chef-workstation/pull/2012) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.448 -->
-- Bump train-core to 3.7.2 [#2009](https://github.com/chef/chef-workstation/pull/2009) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.447 -->
-- Bump inspec-bin to 4.37.17 [#2004](https://github.com/chef/chef-workstation/pull/2004) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.446 -->
-- Bump Chef Workstation App to 0.1.147 [#2003](https://github.com/chef/chef-workstation/pull/2003) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.445 -->
-- Bump cookstyle to 7.12.5 [#1998](https://github.com/chef/chef-workstation/pull/1998) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.444 -->
-- Bump cookstyle to 7.12.3 [#1996](https://github.com/chef/chef-workstation/pull/1996) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.443 -->
-- Bump habitat to 1.6.319. [#1984](https://github.com/chef/chef-workstation/pull/1984) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.442 -->
-- Bump Chef Workstation App to 0.1.146 [#1995](https://github.com/chef/chef-workstation/pull/1995) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.441 -->
-- Remove the omnibus install of rb-fsevent [#1993](https://github.com/chef/chef-workstation/pull/1993) ([tas50](https://github.com/tas50)) <!-- 21.5.440 -->
-- Bump Chef Workstation App to 0.1.146 [#1994](https://github.com/chef/chef-workstation/pull/1994) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.439 -->
-- Update knife to the latest [#1992](https://github.com/chef/chef-workstation/pull/1992) ([tas50](https://github.com/tas50)) <!-- 21.5.438 -->
-- Bump ohai to 17.1.0 [#1990](https://github.com/chef/chef-workstation/pull/1990) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.437 -->
-- Remove references to node_name on knife_setup doc for credentials [#1988](https://github.com/chef/chef-workstation/pull/1988) ([collinmcneese](https://github.com/collinmcneese)) <!-- 21.5.436 -->
-- Bump inspec-bin to 4.37.8 [#1986](https://github.com/chef/chef-workstation/pull/1986) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.435 -->
-- update to properly find edit linux and windows shas [#1985](https://github.com/chef/chef-workstation/pull/1985) ([y-me-y](https://github.com/y-me-y)) <!-- 21.5.434 -->
-- Bump knife to 17.1.35 [#1983](https://github.com/chef/chef-workstation/pull/1983) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.434 -->
-- Bump Chef Workstation App to 0.1.144 [#1982](https://github.com/chef/chef-workstation/pull/1982) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.433 -->
-- Adding test for curl cli [#1981](https://github.com/chef/chef-workstation/pull/1981) ([i5pranay93](https://github.com/i5pranay93)) <!-- 21.5.432 -->
-- Bump cookstyle to 7.12.2 [#1977](https://github.com/chef/chef-workstation/pull/1977) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.431 -->
-- Update some Netlify config and docs build things [#1966](https://github.com/chef/chef-workstation/pull/1966) ([IanMadd](https://github.com/IanMadd)) <!-- 21.5.430 -->
-- Bump chef-cli to 5.1.0 [#1976](https://github.com/chef/chef-workstation/pull/1976) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.429 -->
-- Bump Chef Workstation App to 0.1.143 [#1975](https://github.com/chef/chef-workstation/pull/1975) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.428 -->
-- Bump cookstyle to 7.11.3 [#1972](https://github.com/chef/chef-workstation/pull/1972) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.427 -->
-- Bump chefstyle to 2.0.3 and cookstyle to 7.11.1 [#1969](https://github.com/chef/chef-workstation/pull/1969) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.426 -->
-- Bump inspec-bin to 4.37.0 [#1968](https://github.com/chef/chef-workstation/pull/1968) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.425 -->
-- Bump Chef Workstation App to 0.1.142 [#1967](https://github.com/chef/chef-workstation/pull/1967) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.424 -->
-- Fix bad link [#1965](https://github.com/chef/chef-workstation/pull/1965) ([IanMadd](https://github.com/IanMadd)) <!-- 21.5.423 -->
-- Revert &quot;Revert &quot;Use OpenSSL 1.1.1 on macOS&quot;&quot; [#1963](https://github.com/chef/chef-workstation/pull/1963) ([tas50](https://github.com/tas50)) <!-- 21.5.422 -->
-- Bump Delivery CLI to 0.0.55 [#1962](https://github.com/chef/chef-workstation/pull/1962) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.5.421 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [21.5.462](https://github.com/chef/chef-workstation/tree/21.5.462) (2021-05-28)
+
+#### Merged Pull Requests
+- Bump Delivery CLI to 0.0.55 [#1962](https://github.com/chef/chef-workstation/pull/1962) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Revert &quot;Revert &quot;Use OpenSSL 1.1.1 on macOS&quot;&quot; [#1963](https://github.com/chef/chef-workstation/pull/1963) ([tas50](https://github.com/tas50))
+- Fix bad link [#1965](https://github.com/chef/chef-workstation/pull/1965) ([IanMadd](https://github.com/IanMadd))
+- Bump Chef Workstation App to 0.1.142 [#1967](https://github.com/chef/chef-workstation/pull/1967) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump inspec-bin to 4.37.0 [#1968](https://github.com/chef/chef-workstation/pull/1968) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chefstyle to 2.0.3 and cookstyle to 7.11.1 [#1969](https://github.com/chef/chef-workstation/pull/1969) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 7.11.3 [#1972](https://github.com/chef/chef-workstation/pull/1972) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.143 [#1975](https://github.com/chef/chef-workstation/pull/1975) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-cli to 5.1.0 [#1976](https://github.com/chef/chef-workstation/pull/1976) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update some Netlify config and docs build things [#1966](https://github.com/chef/chef-workstation/pull/1966) ([IanMadd](https://github.com/IanMadd))
+- Bump cookstyle to 7.12.2 [#1977](https://github.com/chef/chef-workstation/pull/1977) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Adding test for curl cli [#1981](https://github.com/chef/chef-workstation/pull/1981) ([i5pranay93](https://github.com/i5pranay93))
+- Bump Chef Workstation App to 0.1.144 [#1982](https://github.com/chef/chef-workstation/pull/1982) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump knife to 17.1.35 [#1983](https://github.com/chef/chef-workstation/pull/1983) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- update to properly find edit linux and windows shas [#1985](https://github.com/chef/chef-workstation/pull/1985) ([y-me-y](https://github.com/y-me-y))
+- Bump inspec-bin to 4.37.8 [#1986](https://github.com/chef/chef-workstation/pull/1986) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Remove references to node_name on knife_setup doc for credentials [#1988](https://github.com/chef/chef-workstation/pull/1988) ([collinmcneese](https://github.com/collinmcneese))
+- Bump ohai to 17.1.0 [#1990](https://github.com/chef/chef-workstation/pull/1990) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update knife to the latest [#1992](https://github.com/chef/chef-workstation/pull/1992) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.146 [#1994](https://github.com/chef/chef-workstation/pull/1994) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Remove the omnibus install of rb-fsevent [#1993](https://github.com/chef/chef-workstation/pull/1993) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.1.146 [#1995](https://github.com/chef/chef-workstation/pull/1995) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump habitat to 1.6.319. [#1984](https://github.com/chef/chef-workstation/pull/1984) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 7.12.3 [#1996](https://github.com/chef/chef-workstation/pull/1996) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 7.12.5 [#1998](https://github.com/chef/chef-workstation/pull/1998) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.1.147 [#2003](https://github.com/chef/chef-workstation/pull/2003) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump inspec-bin to 4.37.17 [#2004](https://github.com/chef/chef-workstation/pull/2004) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump train-core to 3.7.2 [#2009](https://github.com/chef/chef-workstation/pull/2009) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.0 [#2012](https://github.com/chef/chef-workstation/pull/2012) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.3 [#2015](https://github.com/chef/chef-workstation/pull/2015) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump knife to 17.2.11 [#2017](https://github.com/chef/chef-workstation/pull/2017) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump knife-google to 5.0.11 [#2018](https://github.com/chef/chef-workstation/pull/2018) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.4 [#2016](https://github.com/chef/chef-workstation/pull/2016) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Revert &quot;Remove the omnibus install of rb-fsevent&quot; [#2019](https://github.com/chef/chef-workstation/pull/2019) ([tas50](https://github.com/tas50))
+- Update all omnibus deps to the latest [#2020](https://github.com/chef/chef-workstation/pull/2020) ([tas50](https://github.com/tas50))
+- Remove the unused rb-fsevent-gem patch [#2022](https://github.com/chef/chef-workstation/pull/2022) ([tas50](https://github.com/tas50))
+- Update nodejs to 14.17 [#2021](https://github.com/chef/chef-workstation/pull/2021) ([tas50](https://github.com/tas50))
+- Remove curl as a default component in the verify tests [#2023](https://github.com/chef/chef-workstation/pull/2023) ([tas50](https://github.com/tas50))
+- Fix curl test [#2025](https://github.com/chef/chef-workstation/pull/2025) ([tas50](https://github.com/tas50))
+- Bump inspec-bin to 4.37.20 [#2027](https://github.com/chef/chef-workstation/pull/2027) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.7 [#2030](https://github.com/chef/chef-workstation/pull/2030) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 7.12.6 [#2031](https://github.com/chef/chef-workstation/pull/2031) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 7.13.0 [#2032](https://github.com/chef/chef-workstation/pull/2032) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_stable_release -->
+
 ## [21.5.420](https://github.com/chef/chef-workstation/tree/21.5.420) (2021-05-05)
 
 #### Merged Pull Requests
@@ -117,7 +115,6 @@
 - Update ChefSpec to 9.3 and update minimum versions [#1959](https://github.com/chef/chef-workstation/pull/1959) ([tas50](https://github.com/tas50))
 - Revert &quot;Use OpenSSL 1.1.1 on macOS&quot; [#1960](https://github.com/chef/chef-workstation/pull/1960) ([tas50](https://github.com/tas50))
 - Update to Chef Infra Client 17, remove knife-opc and add knife [#1938](https://github.com/chef/chef-workstation/pull/1938) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [21.4.365](https://github.com/chef/chef-workstation/tree/21.4.365) (2021-04-06)
 
