@@ -53,32 +53,38 @@ build do
   # clever.
   make "distclean", env: env
 
+  # Universal options
   config_hash = {
-    # Universal options
     NO_GETTEXT: "YesPlease",
     NEEDS_LIBICONV: "YesPlease",
     NO_INSTALL_HARDLINKS: "YesPlease",
     NO_PERL: "YesPlease",
     NO_PYTHON: "YesPlease",
     NO_TCLTK: "YesPlease",
+    NO_R_TO_GCC_LINKER: "YesPlease",
+    HAVE_PATHS_H: "YesPlease",
   }
 
   if freebsd?
     config_hash["CHARSET_LIB"] = "-lcharset"
     config_hash["FREAD_READS_DIRECTORIES"] = "UnfortunatelyYes"
+    config_hash["HAVE_BSD_SYSCTL"] = "YesPlease"
     config_hash["HAVE_CLOCK_GETTIME"] = "YesPlease"
     config_hash["HAVE_CLOCK_MONOTONIC"] = "YesPlease"
     config_hash["HAVE_GETDELIM"] = "YesPlease"
-    config_hash["HAVE_PATHS_H"] = "YesPlease"
     config_hash["HAVE_STRINGS_H"] = "YesPlease"
     config_hash["PTHREAD_LIBS"] = "-pthread"
     config_hash["USE_ST_TIMESPEC"] = "YesPlease"
+  elsif macos?
+    config_hash["CHARSET_LIB"] = "-lcharset"
+    config_hash["FREAD_READS_DIRECTORIES"] = "UnfortunatelyYes"
     config_hash["HAVE_BSD_SYSCTL"] = "YesPlease"
-    config_hash["NO_R_TO_GCC_LINKER"] = "YesPlease"
-  else
-    # Linux things!
-    config_hash["HAVE_PATHS_H"] = "YesPlease"
-    config_hash["NO_R_TO_GCC_LINKER"] = "YesPlease"
+    config_hash["HAVE_CLOCK_GETTIME"] = "YesPlease"
+    config_hash["HAVE_CLOCK_MONOTONIC"] = "YesPlease"
+    config_hash["HAVE_GETDELIM"] = "YesPlease"
+    config_hash["HAVE_LIBCHARSET_H"] = "YesPlease"
+    config_hash["HAVE_STRINGS_H"] = "YesPlease"
+    config_hash["USE_ST_TIMESPEC"] = "YesPlease"
   end
 
   erb source: "config.mak.erb",
