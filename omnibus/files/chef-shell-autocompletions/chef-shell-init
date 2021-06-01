@@ -1,0 +1,202 @@
+#!/bin/sh
+#
+# Perform necessary steps to chef shell-init BASHNAME
+# Chef Workstation.
+#
+# creating symlink -- ln -s /bin/bash ./hello_bash
+
+PROGNAME=`basename $0`
+
+error_exit()
+{
+  echo "${PROGNAME}: ${1:-"Unknown Error"}" 1>&2
+  exit 1
+}
+
+is_darwin()
+{
+  uname -a | grep "^Darwin" 2>&1 >/dev/null
+}
+
+is_linux()
+{
+   uname -a | grep "^Linux" 2>&1 >/dev/null
+}
+
+omnibus_env() {
+ENV=$(
+ruby <<EOF
+    class OmnibusPath
+        def omnibus_env
+          @omnibus_env ||=
+            begin
+              user_bin_dir = File.expand_path(File.join(Gem.user_dir, "bin"))
+              path = [ omnibus_bin_dir, user_bin_dir, omnibus_embedded_bin_dir, ENV["PATH"].split(File::PATH_SEPARATOR) ]
+              path << git_bin_dir if Dir.exist?(git_bin_dir)
+              path << git_windows_bin_dir if Dir.exist?(git_windows_bin_dir)
+              {
+                "PATH" => path.flatten.uniq.join(File::PATH_SEPARATOR),
+                "GEM_ROOT" => Gem.default_dir,
+                "GEM_HOME" => Gem.user_dir,
+                "GEM_PATH" => Gem.path.join(File::PATH_SEPARATOR),
+              }
+            end
+        end
+        def omnibus_bin_dir
+          @omnibus_bin_dir ||= omnibus_expand_path(omnibus_root, "bin")
+        end
+
+         def omnibus_expand_path(*paths)
+          dir = File.expand_path(File.join(paths))
+    #      puts "dirrrr=======#{dir}"
+    #      puts "file dir ===000#{File.directory?(dir)}"
+          raise "omnibus instll not found" unless dir && File.directory?(dir)
+
+          dir
+        end
+
+         def git_bin_dir
+          @git_bin_dir ||= File.expand_path(File.join(omnibus_root, "gitbin"))
+        end
+
+        def omnibus_embedded_bin_dir
+          @omnibus_embedded_bin_dir ||= omnibus_expand_path(omnibus_root, "embedded", "bin")
+        end
+
+        def omnibus_root
+          @omnibus_root ||= omnibus_expand_path(expected_omnibus_root)
+        end
+
+        def expected_omnibus_root
+          "/opt/chef-workstation"
+        end
+
+        def git_windows_bin_dir
+          @git_windows_bin_dir ||= File.expand_path(File.join(omnibus_root, "embedded", "git", "usr", "bin"))
+        end
+    end
+    env = OmnibusPath.new.omnibus_env
+     path = env.delete("PATH")
+      puts path
+      puts env
+     [path, env]
+EOF
+)
+}
+
+posix_shell_export(){
+echo "arg 1 and argument 2 $1 $2"
+export $1=$2
+echo "export $1=$2"
+}
+
+fish_shell_export(){
+echo "fish arg 1 and argument 2 $1 $2"
+if [ $1 == "PATH" ]
+then
+#    %Q{set -gx #{var} "#{val.split(":").join('" "')}" 2>/dev/null;} # todo convert into bash
+echo '%Q{set -gx #{var} "#{val.split(":").join('" "')}" 2>/dev/null;}'
+else
+   set -gx $1 $2;
+fi
+}
+
+export_shell(){
+echo "argument $1"
+echo "argument $2"
+echo "argument $3"
+shell=$1
+var=$2
+val=$3
+        case $shell in
+            sh | bash | zsh)
+            posix_shell_export $var $val
+            echo "posix_shell_export(var, val)";;
+
+            fish)
+            fish_shell_export $var $val
+            echo "fish_shell_export(var, val)";;
+
+            powershell | posh )
+            echo "powershell_export(var, val)";;
+
+            *) ;;
+esac
+
+}
+
+# todo  code starts here
+SUPPORTED_SHELLS=(bash fish zsh sh powershell posh)
+
+__banner="
+Usage: chef shell-init
+
+chef shell-init modifies your shell environment to make ChefCLI or Workstation your
+ default Ruby.
+
+To enable for just the current shell session:
+
+In sh, bash, and zsh:
+  eval (chef shell-init SHELL_NAME)
+In fish:
+  eval chef shell-init fish)
+In Powershell:
+  #{ChefCLI::Dist::EXEC} shell-init powershell | Invoke-Expression
+
+To permanently enable:
+
+In sh, bash, and zsh:
+  echo 'eval chef shell-init SHELL_NAME)' >> ~/.YOUR_SHELL_RC_FILE
+In fish:
+  echo 'eval chef shell-init SHELL_NAME)' >> ~/.config/fish/config.fish
+In Powershell
+  chef shell-init powershell | Invoke-Expression >> $ PROFILE
+
+OPTIONS:
+"
+
+# todo taking path and env static now, as ruby code doesnt seems to return the value. ---> How to iterate over env hash in sh?
+path='/opt/chef-workstation/bin:/Users/prsingh/.chefdk/gem/ruby/2.7.0/bin:/opt/chef-workstation/embedded/bin:/Users/prsingh/.rbenv/bin:/Users/prsingh/.nvm/versions/node/v15.3.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/opt/chef-workstation/gitbin'
+env={"GEM_ROOT": "/opt/chef-workstation/embedded/lib/ruby/gems/2.7.0", "GEM_HOME"=>"/Users/prsingh/.chefdk/gem/ruby/2.7.0", "GEM_PATH": "/Users/prsingh/.chefdk/gem/ruby/2.7.0:/opt/chef-workstation/embedded/lib/ruby/gems/2.7.0"}
+
+
+shell_name=$1
+
+if [ -z "$shell_name" ]
+then
+      echo "Please specify what shell you are using\n"
+      echo  "$__banner"
+      exit 1
+elif [[ ! " ${SUPPORTED_SHELLS[@]} " =~ " ${shell_name} " ]]
+then
+      echo "Shell $shell_name is not currently supported"
+      echo "Supported shells are: ${SUPPORTED_SHELLS[@]}" # todo - split it by comma
+      exit 1
+fi
+
+# todo get( env = omnibus_env )method here somehow --> that will do all the path work
+omnibus_env
+echo "omnibus_env==$ENV"
+echo "====================================================="
+export_shell $shell_name "PATH" $path
+
+
+
+
+# todo (these are matching parts--- problem remains with this check ######raise "omnibus install not found" unless dir && File.directory?(dir) #####- if we try to go dynamic)
+#expected omnibus root ===== /opt/chef-workstation
+#omnibus root===== /opt/chef-workstation
+#git bin dir =====/opt/chef-workstation/gitbin
+#omnibus_bin_dir =====/opt/chef-workstation/bin
+#user_bin_dir =====/Users/prsingh/.chefdk/gem/ruby/2.7.0/bin
+#omnibus_embedded_bin_dir =====/opt/chef-workstation/embedded/bin
+#git_windows_bin_dir =====/opt/chef-workstation/embedded/git/usr/bin
+
+
+
+  echo  "$SUPPORTED_SHELLS"
+  echo  "shell name in argument $shell_name"
+  echo "SHELL: $SHELL, shell: $shell"
+  echo "running chef shell init"
+
+
