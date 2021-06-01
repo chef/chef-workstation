@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 21.6.463 -->
+## [21.6.463](https://github.com/chef/chef-workstation/tree/21.6.463) (2021-06-01)
+
+#### Merged Pull Requests
+- Improve how we built git on macOS [#2036](https://github.com/chef/chef-workstation/pull/2036) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=21.5.462 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Improve how we built git on macOS [#2036](https://github.com/chef/chef-workstation/pull/2036) ([tas50](https://github.com/tas50)) <!-- 21.6.463 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
