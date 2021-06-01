@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.6.463 -->
-## [21.6.463](https://github.com/chef/chef-workstation/tree/21.6.463) (2021-06-01)
+<!-- latest_release 21.6.464 -->
+## [21.6.464](https://github.com/chef/chef-workstation/tree/21.6.464) (2021-06-01)
 
 #### Merged Pull Requests
-- Improve how we built git on macOS [#2036](https://github.com/chef/chef-workstation/pull/2036) ([tas50](https://github.com/tas50))
+- Bump omnibus-software from `6b77f49` to `606edf8` in /omnibus [#2035](https://github.com/chef/chef-workstation/pull/2035) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.5.462 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `6b77f49` to `606edf8` in /omnibus [#2035](https://github.com/chef/chef-workstation/pull/2035) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.6.464 -->
 - Improve how we built git on macOS [#2036](https://github.com/chef/chef-workstation/pull/2036) ([tas50](https://github.com/tas50)) <!-- 21.6.463 -->
 <!-- release_rollup -->
 
