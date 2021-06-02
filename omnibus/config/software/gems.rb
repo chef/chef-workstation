@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright Chef Software, Inc.
+# Copyright:: Copyright (c) Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -45,7 +45,15 @@ dependency "google-protobuf"
 dependency "rb-fsevent-gem" if macos?
 
 build do
-  env = with_standard_compiler_flags(with_embedded_path)
+  env = if !windows?
+          with_standard_compiler_flags(with_embedded_path)
+        else
+          # On windows we use all the compiler flags from the ruby we just built and use
+          # the built-in devkit rather than using omnibus-toolchain.  This both works much
+          # better at this moment in time, and ensures that we can install gems with the
+          # ruby that we just built.
+          { "Path" => "#{install_dir}\\embedded\\bin;#{ENV['PATH']}" }
+        end
 
   #######################################################
   # !!!              IMPORTANT REMINDER             !!! #
