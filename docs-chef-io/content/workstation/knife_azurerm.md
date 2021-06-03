@@ -24,25 +24,11 @@ this (and all) knife subcommands and plugins.
 
 {{< /note >}}
 
-`knife-azure` version 1.6.0 and later supports Azure Resource Manager.
-Commands starting with `knife azurerm` use the Azure Resource Manager
-API. Commands starting with `knife azure` use the Azure Service
-Management API. While you can switch between the two command sets, they
-are not designed to work together.
-
-### Install Chef Workstation
-
-Install the latest version of Chef Workstation from [Chef
-Downloads](https://downloads.chef.io/chef-workstation).
-
-### Installation
-
-knife-azure ships in Chef Workstation. Install the latest version of Chef
-Workstation from [Chef Downloads](https://downloads.chef.io/chef-workstation)
+`knife-azure` version 4.0 and later no longer support the legacy `knife azure` commands that utilized the now deprecated Azure ASM APIs.
 
 ### Configuration
 
-The `knife azurem` (ARM mode) requires setting up a service principal
+The `knife azurem` requires setting up a service principal
 for authentication and permissioning. For setting up a service principal
 from the command line, see [Create service principal with PowerShell /
 Azure CLI
@@ -74,7 +60,7 @@ knife[:azure_client_secret] # password you set at the beginning
 
 Microsoft Azure encourages the use of Azure CLI 2.0. If you are still
 using [azure-xplat-cli](https://github.com/Azure/azure-xplat-cli) _then
-simply run `azure login` and skip creating the service principal.
+run `azure login` and skip creating the service principal.
 
 ### Knife Azurerm Commands
 
