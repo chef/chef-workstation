@@ -78,7 +78,7 @@ config.rb file:
 
 The following examples show how to use this knife subcommand:
 
-**Configure crecentials file**
+**Configure credentials file**
 
 ``` bash
 knife configure
