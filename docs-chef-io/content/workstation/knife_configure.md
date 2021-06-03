@@ -17,7 +17,7 @@ aliases = ["/knife_configure.html", "/knife_configure/"]
 
 ## Syntax
 
-This subcommand has the following syntax when creating a config.rb file:
+This subcommand has the following syntax when creating a credentials file:
 
 ``` bash
 knife configure (options)
@@ -78,7 +78,7 @@ config.rb file:
 
 The following examples show how to use this knife subcommand:
 
-**Configure config.rb**
+**Configure crecentials file**
 
 ``` bash
 knife configure
