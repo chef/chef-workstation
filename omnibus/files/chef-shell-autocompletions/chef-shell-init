@@ -13,6 +13,8 @@ error_exit()
   exit 1
 }
 
+# CHECKING MACHINE TYPE
+
 is_darwin()
 {
   uname -a | grep "^Darwin" 2>&1 >/dev/null
@@ -23,6 +25,7 @@ is_linux()
    uname -a | grep "^Linux" 2>&1 >/dev/null
 }
 
+# RUBY FUNCTION CODE TO GET OMNIBUS ENVIRONMENT
 omnibus_env() {
 ENV=$(
 ruby <<EOF
@@ -84,12 +87,14 @@ EOF
 )
 }
 
+# METHOD FOR POSIX_SHELL WHICH WILL BE CALLED LATER
 posix_shell_export(){
 echo "arg 1 and argument 2 $1 $2"
 export $1=$2
 echo "export $1=$2"
 }
 
+# METHOD FOR FISH_SHELL WHICH WILL BE CALLED LATER
 fish_shell_export(){
 echo "fish arg 1 and argument 2 $1 $2"
 if [ $1 == "PATH" ]
@@ -100,7 +105,14 @@ else
    set -gx $1 $2;
 fi
 }
+powershell_export(){
+echo "arg 1 and argument 2 $1 $2"
+$env:$1=$2
+echo "$env:$1=$2"
+ }
 
+
+# THIS METHOD CALLS SHELL EXECUTION BASED ON SHELL TYPE IT REIVES
 export_shell(){
 echo "argument $1"
 echo "argument $2"
@@ -125,9 +137,12 @@ esac
 
 }
 
-# todo  code starts here
+
+# CONSTANT TO VERIFY ALLOWED SHELLS
 SUPPORTED_SHELLS=(bash fish zsh sh powershell posh)
 
+
+# BANNER FOR HELP IN CASE WRONG INPUT GIVEN OR NO SHELL GIVEN -- HELP
 __banner="
 Usage: chef shell-init
 
@@ -157,8 +172,18 @@ OPTIONS:
 
 # todo taking path and env static now, as ruby code doesnt seems to return the value. ---> How to iterate over env hash in sh?
 path='/opt/chef-workstation/bin:/Users/prsingh/.chefdk/gem/ruby/2.7.0/bin:/opt/chef-workstation/embedded/bin:/Users/prsingh/.rbenv/bin:/Users/prsingh/.nvm/versions/node/v15.3.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/opt/chef-workstation/gitbin'
-env={"GEM_ROOT": "/opt/chef-workstation/embedded/lib/ruby/gems/2.7.0", "GEM_HOME"=>"/Users/prsingh/.chefdk/gem/ruby/2.7.0", "GEM_PATH": "/Users/prsingh/.chefdk/gem/ruby/2.7.0:/opt/chef-workstation/embedded/lib/ruby/gems/2.7.0"}
+# environment={"GEM_ROOT": "/opt/chef-workstation/embedded/lib/ruby/gems/2.7.0", "GEM_HOME": "/Users/prsingh/.chefdk/gem/ruby/2.7.0", "GEM_PATH": "/Users/prsingh/.chefdk/gem/ruby/2.7.0:/opt/chef-workstation/embedded/lib/ruby/gems/2.7.0"}
+# TODO - make hasmap to iterated over, #### note ####the one below is failed attempt
+#declare -A environment
+#environment["gem_path"]="/Users/prsingh/.chefdk/gem/ruby/2.7.0:/opt/chef-workstation/embedded/lib/ruby/gems/2.7.0"
+#environment["gem_root"]="/opt/chef-workstation/embedded/lib/ruby/gems/2.7.0"
+#environment["gem_home"]="/Users/prsingh/.chefdk/gem/ruby/2.7.0"
 
+
+
+######################### BASH CODE EXECUTION STARTS HERE ################################
+
+ echo "running chef shell init"
 
 shell_name=$1
 
@@ -180,6 +205,19 @@ echo "omnibus_env==$ENV"
 echo "====================================================="
 export_shell $shell_name "PATH" $path
 
+# todo - loop through environment map
+#echo "$GEM_PATH"  -- this gives value need to find from where this value might be coming??
+# Note- rather than looping calling methood 3 times
+export_shell $shell_name "GEM_ROOT" "/opt/chef-workstation/embedded/lib/ruby/gems/2.7.0"
+export_shell $shell_name "GEM_HOME" "/Users/prsingh/.chefdk/gem/ruby/2.7.0"
+export_shell $shell_name "GEM_PATH" "/Users/prsingh/.chefdk/gem/ruby/2.7.0:/opt/chef-workstation/embedded/lib/ruby/gems/2.7.0"
+
+
+# Todo - replicate this method ---- emit_shell_cmd(completion_for(shell_name))
+
+
+####################################### BASH CODE EXECUTION STOPS HERE ################################################
+
 
 
 
@@ -192,11 +230,5 @@ export_shell $shell_name "PATH" $path
 #omnibus_embedded_bin_dir =====/opt/chef-workstation/embedded/bin
 #git_windows_bin_dir =====/opt/chef-workstation/embedded/git/usr/bin
 
-
-
-  echo  "$SUPPORTED_SHELLS"
-  echo  "shell name in argument $shell_name"
-  echo "SHELL: $SHELL, shell: $shell"
-  echo "running chef shell init"
 
 
