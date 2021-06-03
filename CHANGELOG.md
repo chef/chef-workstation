@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 21.6.468 -->
+## [21.6.468](https://github.com/chef/chef-workstation/tree/21.6.468) (2021-06-03)
+
+#### Merged Pull Requests
+- knife configure actually creates a credentials file [#2041](https://github.com/chef/chef-workstation/pull/2041) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=21.6.467 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- knife configure actually creates a credentials file [#2041](https://github.com/chef/chef-workstation/pull/2041) ([tas50](https://github.com/tas50)) <!-- 21.6.468 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
