@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.6.470 -->
-## [21.6.470](https://github.com/chef/chef-workstation/tree/21.6.470) (2021-06-03)
+<!-- latest_release 21.6.471 -->
+## [21.6.471](https://github.com/chef/chef-workstation/tree/21.6.471) (2021-06-03)
 
 #### Merged Pull Requests
-- Bump knife-azure to 4.0.0 [#2044](https://github.com/chef/chef-workstation/pull/2044) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump inspec-bin to 4.37.23 [#2045](https://github.com/chef/chef-workstation/pull/2045) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.6.467 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump inspec-bin to 4.37.23 [#2045](https://github.com/chef/chef-workstation/pull/2045) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.471 -->
 - Bump knife-azure to 4.0.0 [#2044](https://github.com/chef/chef-workstation/pull/2044) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.470 -->
 - Bump Chef Workstation App to 0.2.9 [#2043](https://github.com/chef/chef-workstation/pull/2043) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.469 -->
 - Remove the mention of the chef-vault cookbook and gem installation [#2042](https://github.com/chef/chef-workstation/pull/2042) ([tas50](https://github.com/tas50)) <!-- 21.6.468 -->
