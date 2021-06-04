@@ -1,8 +1,9 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release unreleased -->
-## Unreleased
+<!-- latest_release 21.6.472 -->
+## [21.6.472](https://github.com/chef/chef-workstation/tree/21.6.472) (2021-06-04)
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.10 [#2049](https://github.com/chef/chef-workstation/pull/2049) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Remove legacy knife azure docs and update azurerm docs [#2040](https://github.com/chef/chef-workstation/pull/2040) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
@@ -10,6 +11,7 @@
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.10 [#2049](https://github.com/chef/chef-workstation/pull/2049) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.472 -->
 - Remove legacy knife azure docs and update azurerm docs [#2040](https://github.com/chef/chef-workstation/pull/2040) ([tas50](https://github.com/tas50)) <!-- 21.6.471 -->
 - Bump inspec-bin to 4.37.23 [#2045](https://github.com/chef/chef-workstation/pull/2045) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.471 -->
 - Bump knife-azure to 4.0.0 [#2044](https://github.com/chef/chef-workstation/pull/2044) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.470 -->
