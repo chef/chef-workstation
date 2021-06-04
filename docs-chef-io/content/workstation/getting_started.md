@@ -91,9 +91,9 @@ The first time you run the Chef Workstation app, it creates a `.chef` directory 
 
 If you're setting up Chef Workstation **as a Chef Infra Server administrator**, then you will need to manage users with the [Chef Infra Server CLI](https://docs.chef.io/server/ctl_chef_server/#user-management) or the Manage UI. When you create a new user, a user-specific RSA client key will be generated, which you then need to share securely with that user.
 
-If you're setting up Chef Workstation **as a Chef user**, then you will need to setup your unique client certificate that corresponds to a client on the Chef Infra Server that your server administrator creates for you. The client certificate is an RSA private key in the `.pem` format.
+If you're setting up Chef Workstation **as a Chef user**, then you will need to setup your unique client private key that corresponds to a client on the Chef Infra Server that your server administrator creates for you. The client private key is an RSA private key in the `.pem` format.
 
-Save your client certificate in the `.chef` directory using the same name as the client created by your server administrator.
+Save your client private key in the `.chef` directory using the same name as the client created by your server administrator.
 
 ### Configure Your User Credentials File
 
