@@ -99,7 +99,7 @@ Your `.chef` directory contains a `credentials` file used to communicate with th
 
 The `knife configure` command requires the following values:
 
-* `Chef Server URL`: the full URL to your Chef Infra Server including the org
+- `Chef Server URL`: the full URL to your Chef Infra Server including the org
 - `Client Name`: the client name your server administrator created for you
 
 This information should be provided by your Chef administrator. If using Hosted Chef or Chef Manage this information can be found in the Starter Kit file. Download the file on the Manage site by navigating to the Administration tab and selecting Starter Kit. (**Manage > Administration > Starter Kit > Download Starter Kit**)
