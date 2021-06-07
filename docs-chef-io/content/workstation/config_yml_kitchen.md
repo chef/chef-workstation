@@ -546,8 +546,8 @@ provisioner:
 platforms:
   - name: centos-8
   - name: fedora-latest
-  - name: ubuntu-1604
   - name: ubuntu-1804
+  - name: ubuntu-2004
 
 suites:
 
