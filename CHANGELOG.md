@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.6.476 -->
-## [21.6.476](https://github.com/chef/chef-workstation/tree/21.6.476) (2021-06-08)
+<!-- latest_release 21.6.477 -->
+## [21.6.477](https://github.com/chef/chef-workstation/tree/21.6.477) (2021-06-08)
 
 #### Merged Pull Requests
-- Update setup instructions to use knife configure [#2048](https://github.com/chef/chef-workstation/pull/2048) ([tas50](https://github.com/tas50))
+- Upgrade workstation to ruby 3.0 [#2010](https://github.com/chef/chef-workstation/pull/2010) ([lamont-granquist](https://github.com/lamont-granquist))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.6.467 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Upgrade workstation to ruby 3.0 [#2010](https://github.com/chef/chef-workstation/pull/2010) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 21.6.477 -->
 - Update setup instructions to use knife configure [#2048](https://github.com/chef/chef-workstation/pull/2048) ([tas50](https://github.com/tas50)) <!-- 21.6.476 -->
 - Bump Chef Workstation App to 0.2.12 [#2053](https://github.com/chef/chef-workstation/pull/2053) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.475 -->
 - Bump omnibus-software from `606edf8` to `d85ed8b` in /omnibus [#2052](https://github.com/chef/chef-workstation/pull/2052) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.6.474 -->
