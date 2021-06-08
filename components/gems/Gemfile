@@ -21,7 +21,7 @@ group(:omnibus_package, :development, :test) do
   # Require a minimum version that is packaged in the Ruby install, so we do
   # not install old unecessary versions. When we bump Ruby we need to look
   # at these pins and adjust them.
-  gem "minitest", "= 5.13.0"
+  gem "minitest", "= 5.14.2"
 
   gem "rake", "= 13.0.1" # prevent double rake as of 12.2020
   gem "pry"
@@ -99,9 +99,7 @@ group(:omnibus_package) do
   gem "net-ssh", ">= 4.2.0"
   gem "listen"
   gem "mixlib-install"
-  # When we update to Nokogiri 1.11 we will need to manually compile it
-  # see https://github.com/chef/chef-workstation/commit/1bd21d83af130ccb4bcfd3e5bcf621d2a5231608
-  gem "nokogiri", ">= 1.10.10", "< 1.11"
+  gem "nokogiri", ">= 1.11.7"
   gem "pry-byebug"
   gem "pry-remote"
   # pry-stack_explorer 0.4.9.3 emits warnings under 2.7 under inspec shell
@@ -115,7 +113,8 @@ end
 
 # Everything except Windows
 group(:ruby_shadow) do
-  gem "ruby-shadow", platform: :ruby
+  # if ruby-shadow does a release that supports ruby-3.0 this can be removed
+  gem "ruby-shadow", git: "https://github.com/chef/ruby-shadow", branch: "lcg/ruby-3.0", platforms: :ruby
 end
 
 gem "chefstyle", group: :test
