@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.6.474 -->
-## [21.6.474](https://github.com/chef/chef-workstation/tree/21.6.474) (2021-06-08)
+<!-- latest_release 21.6.475 -->
+## [21.6.475](https://github.com/chef/chef-workstation/tree/21.6.475) (2021-06-08)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `606edf8` to `d85ed8b` in /omnibus [#2052](https://github.com/chef/chef-workstation/pull/2052) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.12 [#2053](https://github.com/chef/chef-workstation/pull/2053) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.6.467 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.12 [#2053](https://github.com/chef/chef-workstation/pull/2053) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.475 -->
 - Bump omnibus-software from `606edf8` to `d85ed8b` in /omnibus [#2052](https://github.com/chef/chef-workstation/pull/2052) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.6.474 -->
 - Redirect to chef-server-ctl commands [#2051](https://github.com/chef/chef-workstation/pull/2051) ([sean-horn](https://github.com/sean-horn)) <!-- 21.6.473 -->
 - Bump Chef Workstation App to 0.2.10 [#2049](https://github.com/chef/chef-workstation/pull/2049) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.472 -->
