@@ -93,55 +93,16 @@ If you're setting up Chef Workstation **as a Chef Infra Server administrator**, 
 
 If you're setting up Chef Workstation **as a Chef user**, then you will need to setup your unique client private key that corresponds to a client on the Chef Infra Server that your server administrator creates for you. The client private key is an RSA private key in the `.pem` format.
 
-Save your client private key in the `.chef` directory using the same name as the client created by your server administrator.
-
 ### Configure Your User Credentials File
 
-Your `.chef` directory contains an example client `credentials` file, which you can modify to setup communication with your Chef Infra Server.
+Your `.chef` directory contains a `credentials` file used to communicate with the Chef Infra Server. You can generate this file by running `knife configure` and following the prompts.
 
-At a minimum, you must update the following settings with the appropriate values:
+The `knife configure` command requires the following values:
 
-* `client_name`: the client name your server administrator created for you
-* `client_key`: the path to the client key in your `.chef` directory
-* `chef_server_url`: the full URL to your Chef Infra Server including the org
+- `Chef Server URL`: the full URL to your Chef Infra Server including the org
+- `Client Name`: the client name your server administrator created for you
 
-<!----Tabs Section--->
-{{< foundation_tabs tabs-id="tabs-panel-container" >}}
-{{< foundation_tab active="true" panel-link="infra_and_automate_credentials" tab-text="Chef Infra Server / Automate">}}
-{{< foundation_tab panel-link="hosted-credentials" tab-text="Hosted Chef / Manage" >}}
-{{< /foundation_tabs >}}
-<!----End Tabs --->
-
-<!----Panels Section --->
-{{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
-{{< foundation_tabs_panel active="true" panel-id="infra_and_automate_credentials" >}}
-
-The sample credentials file at `~/.chef/credentials`:
-
-```toml
-# This is the Chef Infra credentials file used by the knife CLI and other tools
-# This file supports defining multiple credentials profiles, to allow you to switch between users, orgs, and Chef Infra Servers.
-
-# Example credentials file configuration:
-# [default]
-# client_name = 'MY_USERNAME'
-# client_key = '/Users/USERNAME/.chef/MY_USERNAME.pem'
-# chef_server_url = 'https://api.chef.io/organizations/MY_ORG'
-```
-
-Your Chef administrator will provide you with the information you need to configure your credentials file. The completed credentials file should look similar to this:
-
-```toml
-[default]
-client_name = 'hshefu'
-client_key = '/Users/harishefu/.chef/hshefu.pem'
-chef_server_url = 'https://chef-server.4thcafe.com/organizations/web-team'
-```
-
-{{< /foundation_tabs_panel >}}
-{{< foundation_tabs_panel panel-id="hosted-credentials" >}}
-
-Hosted Chef and Chef Manage provide a Starter Kit file with your credentials information. Download the file on the Manage site by navigating to the Administration tab and selecting Starter Kit. (**Manage > Administration > Starter Kit > Download Starter Kit**)
+Your Chef administrator should provide this information. For Hosted Chef or Chef Manage, you can find this information in the Starter Kit file. Download the file on the Manage site by navigating to the Administration tab and selecting Starter Kit. (**Manage > Administration > Starter Kit > Download Starter Kit**)
 
 Find the `.chef/config.rb` file in the Starter Kit. It should look like:
 
@@ -155,19 +116,7 @@ chef_server_url          "https://api.chef.io/organizations/4thcafe-web-team"
 cookbook_path            ["#{current_dir}/../cookbooks"]
 ```
 
-Copy the values for `node_name`, `client_key`, and `chef_server_url` and use them to complete the credentials file at `~/.chef/credentials`. Use the value for `node_name` in the `client_key` field of the credentials file and make sure to use the complete path to the client_key in your .chef directory.
-
-The completed credentials file should look similar to this:
-
-```toml
-[default]
-client_name = 'hshefu'
-client_key = '/Users/harishefu/.chef/hshefu.pem'
-chef_server_url = 'https://api.chef.io/organizations/4thcafe-web-team'
-```
-
-{{< /foundation_tabs_panel >}}
-{{< /foundation_tabs_panels >}}
+Use the `chef_server_url` and `node_name` values from this file when running `knife configure`.
 
 ### Setup Your Client Private Key
 
