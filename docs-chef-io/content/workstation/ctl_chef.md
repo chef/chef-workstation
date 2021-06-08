@@ -1222,7 +1222,37 @@ None.
 
 #### Examples
 
-None.
+View an entire Policyfile:
+
+```
+chef show-policy POLICYNAME POLICYGROUP
+```
+
+Returns entire Policyfile.lock.json:
+
+```
+chef show-policy POLICY_NAME POLICY_GROUP --pager
+```
+
+```
+chef show-policy POLICY sce | jq "[.cookbook_locks | to_entries[] | [ .key, .value.version ]]" -Mc
+```
+
+```
+ chef show-policy support_bastion sce | jq "[.cookbook_locks | to_entries[] | [ .key, .value.version ]]" -Mc
+
+["audit","9.0.1"]
+["chef-client","11.5.0"]
+["chef-vault","4.0.0"]
+["chef_client_updater","3.8.2"]
+["cron","6.2.2"]
+["logrotate","2.2.2"]
+["os-hardening","4.0.0"]
+["support_base","0.8.0"]
+["support_bastion","0.1.0"]
+```
+
+
 
 ### chef undelete
 
