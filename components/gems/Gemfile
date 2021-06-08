@@ -99,9 +99,7 @@ group(:omnibus_package) do
   gem "net-ssh", ">= 4.2.0"
   gem "listen"
   gem "mixlib-install"
-  # When we update to Nokogiri 1.11 we will need to manually compile it
-  # see https://github.com/chef/chef-workstation/commit/1bd21d83af130ccb4bcfd3e5bcf621d2a5231608
-  gem "nokogiri", ">= 1.10.10", "< 1.11"
+  gem "nokogiri", ">= 1.11.7"
   gem "pry-byebug"
   gem "pry-remote"
   # pry-stack_explorer 0.4.9.3 emits warnings under 2.7 under inspec shell
