@@ -1,32 +1,30 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.6.479 -->
-## [21.6.479](https://github.com/chef/chef-workstation/tree/21.6.479) (2021-06-09)
-
-#### Merged Pull Requests
-- Update Chef Infra Client to 17.2 [#2057](https://github.com/chef/chef-workstation/pull/2057) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=21.6.467 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Update Chef Infra Client to 17.2 [#2057](https://github.com/chef/chef-workstation/pull/2057) ([tas50](https://github.com/tas50)) <!-- 21.6.479 -->
-- Bump kitchen-inspec to 2.4.3 [#2055](https://github.com/chef/chef-workstation/pull/2055) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.478 -->
-- Upgrade workstation to ruby 3.0 [#2010](https://github.com/chef/chef-workstation/pull/2010) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 21.6.477 -->
-- Update setup instructions to use knife configure [#2048](https://github.com/chef/chef-workstation/pull/2048) ([tas50](https://github.com/tas50)) <!-- 21.6.476 -->
-- Bump Chef Workstation App to 0.2.12 [#2053](https://github.com/chef/chef-workstation/pull/2053) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.475 -->
-- Bump omnibus-software from `606edf8` to `d85ed8b` in /omnibus [#2052](https://github.com/chef/chef-workstation/pull/2052) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.6.474 -->
-- Redirect to chef-server-ctl commands [#2051](https://github.com/chef/chef-workstation/pull/2051) ([sean-horn](https://github.com/sean-horn)) <!-- 21.6.473 -->
-- Bump Chef Workstation App to 0.2.10 [#2049](https://github.com/chef/chef-workstation/pull/2049) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.472 -->
-- Remove legacy knife azure docs and update azurerm docs [#2040](https://github.com/chef/chef-workstation/pull/2040) ([tas50](https://github.com/tas50)) <!-- 21.6.471 -->
-- Bump inspec-bin to 4.37.23 [#2045](https://github.com/chef/chef-workstation/pull/2045) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.471 -->
-- Bump knife-azure to 4.0.0 [#2044](https://github.com/chef/chef-workstation/pull/2044) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.470 -->
-- Bump Chef Workstation App to 0.2.9 [#2043](https://github.com/chef/chef-workstation/pull/2043) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.469 -->
-- Remove the mention of the chef-vault cookbook and gem installation [#2042](https://github.com/chef/chef-workstation/pull/2042) ([tas50](https://github.com/tas50)) <!-- 21.6.468 -->
-- knife configure actually creates a credentials file [#2041](https://github.com/chef/chef-workstation/pull/2041) ([tas50](https://github.com/tas50)) <!-- 21.6.468 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [21.6.479](https://github.com/chef/chef-workstation/tree/21.6.479) (2021-06-09)
+
+#### Merged Pull Requests
+- knife configure actually creates a credentials file [#2041](https://github.com/chef/chef-workstation/pull/2041) ([tas50](https://github.com/tas50))
+- Remove the mention of the chef-vault cookbook and gem installation [#2042](https://github.com/chef/chef-workstation/pull/2042) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.2.9 [#2043](https://github.com/chef/chef-workstation/pull/2043) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump knife-azure to 4.0.0 [#2044](https://github.com/chef/chef-workstation/pull/2044) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump inspec-bin to 4.37.23 [#2045](https://github.com/chef/chef-workstation/pull/2045) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Remove legacy knife azure docs and update azurerm docs [#2040](https://github.com/chef/chef-workstation/pull/2040) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.2.10 [#2049](https://github.com/chef/chef-workstation/pull/2049) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Redirect to chef-server-ctl commands [#2051](https://github.com/chef/chef-workstation/pull/2051) ([sean-horn](https://github.com/sean-horn))
+- Bump omnibus-software from `606edf8` to `d85ed8b` in /omnibus [#2052](https://github.com/chef/chef-workstation/pull/2052) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.12 [#2053](https://github.com/chef/chef-workstation/pull/2053) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update setup instructions to use knife configure [#2048](https://github.com/chef/chef-workstation/pull/2048) ([tas50](https://github.com/tas50))
+- Upgrade workstation to ruby 3.0 [#2010](https://github.com/chef/chef-workstation/pull/2010) ([lamont-granquist](https://github.com/lamont-granquist))
+- Bump kitchen-inspec to 2.4.3 [#2055](https://github.com/chef/chef-workstation/pull/2055) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update Chef Infra Client to 17.2 [#2057](https://github.com/chef/chef-workstation/pull/2057) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [21.6.467](https://github.com/chef/chef-workstation/tree/21.6.467) (2021-06-02)
 
 #### Merged Pull Requests
@@ -35,7 +33,6 @@
 - Bump knife to 17.2.15 [#2037](https://github.com/chef/chef-workstation/pull/2037) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump Chef Workstation App to 0.2.8 [#2038](https://github.com/chef/chef-workstation/pull/2038) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump knife to 17.2.18 [#2039](https://github.com/chef/chef-workstation/pull/2039) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [21.5.462](https://github.com/chef/chef-workstation/tree/21.5.462) (2021-05-28)
 
