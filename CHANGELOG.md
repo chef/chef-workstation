@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.6.477 -->
-## [21.6.477](https://github.com/chef/chef-workstation/tree/21.6.477) (2021-06-08)
+<!-- latest_release 21.6.478 -->
+## [21.6.478](https://github.com/chef/chef-workstation/tree/21.6.478) (2021-06-09)
 
 #### Merged Pull Requests
-- Upgrade workstation to ruby 3.0 [#2010](https://github.com/chef/chef-workstation/pull/2010) ([lamont-granquist](https://github.com/lamont-granquist))
+- Bump kitchen-inspec to 2.4.3 [#2055](https://github.com/chef/chef-workstation/pull/2055) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.6.467 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-inspec to 2.4.3 [#2055](https://github.com/chef/chef-workstation/pull/2055) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.478 -->
 - Upgrade workstation to ruby 3.0 [#2010](https://github.com/chef/chef-workstation/pull/2010) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 21.6.477 -->
 - Update setup instructions to use knife configure [#2048](https://github.com/chef/chef-workstation/pull/2048) ([tas50](https://github.com/tas50)) <!-- 21.6.476 -->
 - Bump Chef Workstation App to 0.2.12 [#2053](https://github.com/chef/chef-workstation/pull/2053) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.475 -->
