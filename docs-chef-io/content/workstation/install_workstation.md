@@ -77,7 +77,7 @@ The Chef Workstation installer must run as a privileged user.
 
 Chef Workstation installs to `/opt/chef-workstation/` on macOS / Linux
 and `C:\opscode\chef-workstation\` on Windows. These file locations
-should help avoid interference between these components and other
+help avoid interference between these components and other
 applications that may be running on the target machine.
 
 ### macOS Install
