@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
-
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
 	"github.com/mitchellh/go-homedir"
 )
 
@@ -59,6 +59,10 @@ func main() {
 
 	case "help", "-h", "--help":
 		usage()
+		os.Exit(0)
+
+	case "version", "-v", "--version":
+		lib.Version()
 		os.Exit(0)
 
 	case "none":
@@ -177,6 +181,7 @@ func doStartupTasks() error {
 	createDotChef()
 	return nil
 }
+
 
 // Attempts to create the ~/.chef directory.
 // Does not report an error if this fails, because it is non-fatal:
