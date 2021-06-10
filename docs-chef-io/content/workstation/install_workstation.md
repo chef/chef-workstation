@@ -63,14 +63,9 @@ Supported Host Operating Systems:
 
 Minimum system requirements:
 
-- RAM: 2GB
-- Disk: 4GB
-- Running minimum settings may limit your ability to take advantage of Chef Workstation tools such as Test Kitchen which creates and manages virtualized test environments.
-
-Recommended system requirements:
-
 - RAM: 4GB
-- Disk 8GB
+- Disk: 8GB
+- Additional memory and storage space may be necessary to take advantage of Chef Workstation tools such as Test Kitchen which creates and manages virtualized test environments.
 
 ### Chef Workstation App Requirements
 
