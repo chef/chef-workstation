@@ -1,16 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.6.481 -->
-## [21.6.481](https://github.com/chef/chef-workstation/tree/21.6.481) (2021-06-10)
+<!-- latest_release 21.6.482 -->
+## [21.6.482](https://github.com/chef/chef-workstation/tree/21.6.482) (2021-06-10)
 
 #### Merged Pull Requests
-- Remove a should in the docs [#2063](https://github.com/chef/chef-workstation/pull/2063) ([tas50](https://github.com/tas50))
-- Use more reasonable ram/disk requirements [#2060](https://github.com/chef/chef-workstation/pull/2060) ([tas50](https://github.com/tas50))
+- Bump test-kitchen to 2.12.0 [#2064](https://github.com/chef/chef-workstation/pull/2064) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.6.479 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump test-kitchen to 2.12.0 [#2064](https://github.com/chef/chef-workstation/pull/2064) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.482 -->
 - Remove a should in the docs [#2063](https://github.com/chef/chef-workstation/pull/2063) ([tas50](https://github.com/tas50)) <!-- 21.6.481 -->
 - Use more reasonable ram/disk requirements [#2060](https://github.com/chef/chef-workstation/pull/2060) ([tas50](https://github.com/tas50)) <!-- 21.6.480 -->
 - Bump inspec-bin to 4.37.25 [#2058](https://github.com/chef/chef-workstation/pull/2058) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.480 -->
