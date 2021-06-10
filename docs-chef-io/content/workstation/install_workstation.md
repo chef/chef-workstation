@@ -72,12 +72,9 @@ Recommended system requirements:
 - RAM: 4GB
 - Disk 8GB
 
-### Chef Workstation App Requirements
+Additional Chef Workstation App Requirements:
 
-- Windows: No additional requirements
-- Mac: No additional requirements
-- Linux: You must have a graphical window manager running with support for system tray icons.
-  - On some distributions you may need to install additional libraries. After you install the Chef Workstation package from the terminal, the post-install message will tell you which, if any, additional libraries are required to run the Chef Workstation App.
+- On Linux you must have a graphical window manager running with support for system tray icons. For some distributions you may also need to install additional libraries. After you install the Chef Workstation package from the terminal, the post-install message will tell you which, if any, additional libraries are required to run the Chef Workstation App.
 
 ## Installation
 
