@@ -29,4 +29,10 @@ const (
 	WorkstationExec    = "chef-cli"
 	WorkstationProduct = "Chef Workstation"
 	ZeroExec           = "chef-zero"
+	InspecProduct      = "Chef InSpec"
+	InspecCli          = "inspec"
+	CliProduct         = "Chef CLI"
+	CliGem             = "chef-cli"
+	HabProduct         = "Chef Habitat"
+	HabSoftwareName    = "habitat"
 )
