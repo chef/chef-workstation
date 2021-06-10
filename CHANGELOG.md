@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release unreleased -->
+## Unreleased
+
+#### Merged Pull Requests
+- Collapse the requirements down to a single section [#2059](https://github.com/chef/chef-workstation/pull/2059) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=21.6.479 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Collapse the requirements down to a single section [#2059](https://github.com/chef/chef-workstation/pull/2059) ([tas50](https://github.com/tas50)) <!-- 21.6.479 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
