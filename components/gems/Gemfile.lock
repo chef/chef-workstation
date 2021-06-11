@@ -550,7 +550,7 @@ GEM
     kitchen-digitalocean (0.12.0)
       droplet_kit (>= 3.7, < 4.0)
       test-kitchen (>= 1.17, < 3)
-    kitchen-dokken (2.12.1)
+    kitchen-dokken (2.13.0)
       docker-api (>= 1.33, < 3)
       lockfile (~> 2.1)
       test-kitchen (>= 1.15, < 3)
