@@ -990,9 +990,7 @@ GEM
     uber (0.1.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.7)
-    unf_ext (0.0.7.7-x64-mingw32)
-    unf_ext (0.0.7.7-x86-mingw32)
+    unf_ext (0.0.7.6)
     unicode-display_width (2.0.0)
     unicode_utils (1.4.0)
     uuidtools (2.2.0)
