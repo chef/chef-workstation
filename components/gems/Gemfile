@@ -43,6 +43,9 @@ group(:omnibus_package) do
   # add small binaries that warn against the use of legacy apps. For now this is foodcritic/stove
   gem "chef_deprecations", ">= 0.1.2"
 
+  # avoid failures running 0.0.7.7 on windows
+  gem "unf_ext", "=0.0.7.6"
+
   gem "appbundler"
 
   # Expeditor manages the version of chef released to Rubygems. We only release 'stable' chef
