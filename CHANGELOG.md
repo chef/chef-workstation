@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.6.488 -->
-## [21.6.488](https://github.com/chef/chef-workstation/tree/21.6.488) (2021-06-15)
+<!-- latest_release 21.6.489 -->
+## [21.6.489](https://github.com/chef/chef-workstation/tree/21.6.489) (2021-06-15)
 
 #### Merged Pull Requests
-- Bump berkshelf to 7.2.1 [#2072](https://github.com/chef/chef-workstation/pull/2072) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump knife to 17.2.38 [#2073](https://github.com/chef/chef-workstation/pull/2073) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.6.479 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump knife to 17.2.38 [#2073](https://github.com/chef/chef-workstation/pull/2073) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.489 -->
 - Bump berkshelf to 7.2.1 [#2072](https://github.com/chef/chef-workstation/pull/2072) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.488 -->
 - Bump Chef Workstation App to 0.2.14 [#2070](https://github.com/chef/chef-workstation/pull/2070) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.487 -->
 - Rollback unf_ext to 0.0.7.6 [#2069](https://github.com/chef/chef-workstation/pull/2069) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 21.6.486 -->
