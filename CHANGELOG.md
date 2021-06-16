@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.6.493 -->
-## [21.6.493](https://github.com/chef/chef-workstation/tree/21.6.493) (2021-06-16)
+<!-- latest_release 21.6.494 -->
+## [21.6.494](https://github.com/chef/chef-workstation/tree/21.6.494) (2021-06-16)
 
 #### Merged Pull Requests
-- Bump inspec-bin to 4.37.30 [#2078](https://github.com/chef/chef-workstation/pull/2078) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Make kitchen docs config change in the right place [#2079](https://github.com/chef/chef-workstation/pull/2079) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.6.479 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Make kitchen docs config change in the right place [#2079](https://github.com/chef/chef-workstation/pull/2079) ([tas50](https://github.com/tas50)) <!-- 21.6.494 -->
 - Bump inspec-bin to 4.37.30 [#2078](https://github.com/chef/chef-workstation/pull/2078) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.493 -->
 - Bump omnibus-software from `d85ed8b` to `bdb61f0` in /omnibus [#2077](https://github.com/chef/chef-workstation/pull/2077) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.6.492 -->
 - Bump berkshelf from 7.2.0 to 7.2.2 in /omnibus [#2076](https://github.com/chef/chef-workstation/pull/2076) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.6.491 -->
