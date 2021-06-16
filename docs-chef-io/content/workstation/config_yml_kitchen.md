@@ -76,7 +76,7 @@ Chef-specific settings:
 </tr>
 <tr class="even">
 <td><code>chef_omnibus_url</code></td>
-<td>The URL for an <code>install.sh</code> script that will install Chef Infra Client on the machine under test. Default value: <code>https://www.chef.io/chef/install.sh</code>. <strong>This will be deprecated in a future version.</strong></td>
+<td>The URL for an <code>install.sh</code> script that will install Chef Infra Client on the machine under test. Default value: <code>https://omnitruck.chef.io/install.sh</code>. <strong>This will be deprecated in a future version.</strong></td>
 </tr>
 <tr class="odd">
 <td><code>chef_solo_path</code></td>
@@ -275,6 +275,12 @@ kitchen.yml file when the provisioner is chef-zero or chef-solo.
 <tr class="odd">
 <td><code>architecture</code></td>
 <td>Override platform architecture.</td>
+<td>&lt;auto detected&gt;</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>always_update_cookbooks</code></td>
+<td>Updates the policyfile.lock.json when changes are made to the cookbook. Supports <code>true</code> or <code>false</code> </td>
 <td>&lt;auto detected&gt;</td>
 <td></td>
 </tr>
