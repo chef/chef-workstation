@@ -52,7 +52,7 @@ build do
           # the built-in devkit rather than using omnibus-toolchain.  This both works much
           # better at this moment in time, and ensures that we can install gems with the
           # ruby that we just built.
-          { "Path" => "#{install_dir}\\embedded\\bin;#{ENV['PATH']}" }
+          { "Path" => "#{install_dir}\\embedded\\bin;#{ENV["PATH"]}" }
         end
 
   #######################################################
