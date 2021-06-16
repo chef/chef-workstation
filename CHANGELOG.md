@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.6.491 -->
-## [21.6.491](https://github.com/chef/chef-workstation/tree/21.6.491) (2021-06-16)
+<!-- latest_release 21.6.492 -->
+## [21.6.492](https://github.com/chef/chef-workstation/tree/21.6.492) (2021-06-16)
 
 #### Merged Pull Requests
-- Bump berkshelf from 7.2.0 to 7.2.2 in /omnibus [#2076](https://github.com/chef/chef-workstation/pull/2076) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump omnibus-software from `d85ed8b` to `bdb61f0` in /omnibus [#2077](https://github.com/chef/chef-workstation/pull/2077) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.6.479 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `d85ed8b` to `bdb61f0` in /omnibus [#2077](https://github.com/chef/chef-workstation/pull/2077) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.6.492 -->
 - Bump berkshelf from 7.2.0 to 7.2.2 in /omnibus [#2076](https://github.com/chef/chef-workstation/pull/2076) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.6.491 -->
 - Bump berkshelf to 7.2.2 [#2075](https://github.com/chef/chef-workstation/pull/2075) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.490 -->
 - Bump knife to 17.2.38 [#2073](https://github.com/chef/chef-workstation/pull/2073) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.489 -->
