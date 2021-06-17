@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.6.496 -->
-## [21.6.496](https://github.com/chef/chef-workstation/tree/21.6.496) (2021-06-17)
+<!-- latest_release 21.6.497 -->
+## [21.6.497](https://github.com/chef/chef-workstation/tree/21.6.497) (2021-06-17)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `bdb61f0` to `68f693d` in /omnibus [#2083](https://github.com/chef/chef-workstation/pull/2083) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump omnibus-software from `68f693d` to `c626aa2` in /omnibus [#2084](https://github.com/chef/chef-workstation/pull/2084) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.6.479 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `68f693d` to `c626aa2` in /omnibus [#2084](https://github.com/chef/chef-workstation/pull/2084) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.6.497 -->
 - Bump omnibus-software from `bdb61f0` to `68f693d` in /omnibus [#2083](https://github.com/chef/chef-workstation/pull/2083) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.6.496 -->
 - Bump chef-analyze CLI to 0.1.109 [#2081](https://github.com/chef/chef-workstation/pull/2081) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.495 -->
 - Make kitchen docs config change in the right place [#2079](https://github.com/chef/chef-workstation/pull/2079) ([tas50](https://github.com/tas50)) <!-- 21.6.494 -->
