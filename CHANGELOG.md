@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.6.502 -->
-## [21.6.502](https://github.com/chef/chef-workstation/tree/21.6.502) (2021-06-24)
+<!-- latest_release 21.6.503 -->
+## [21.6.503](https://github.com/chef/chef-workstation/tree/21.6.503) (2021-06-24)
 
 #### Merged Pull Requests
-- Bump cookstyle to 7.14.2 [#2097](https://github.com/chef/chef-workstation/pull/2097) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus from `87db446` to `1ea0713` in /omnibus [#2096](https://github.com/chef/chef-workstation/pull/2096) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.6.497 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus from `87db446` to `1ea0713` in /omnibus [#2096](https://github.com/chef/chef-workstation/pull/2096) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.6.503 -->
 - Bump cookstyle to 7.14.2 [#2097](https://github.com/chef/chef-workstation/pull/2097) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.502 -->
 - Bump Chef Workstation App to 0.2.18 [#2091](https://github.com/chef/chef-workstation/pull/2091) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.501 -->
 - Bump train to 3.7.4 [#2093](https://github.com/chef/chef-workstation/pull/2093) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.500 -->
