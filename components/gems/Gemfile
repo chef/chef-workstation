@@ -24,7 +24,6 @@ group(:omnibus_package, :development, :test) do
   gem "minitest", "= 5.14.2"
 
   gem "rake", "= 13.0.1" # prevent double rake as of 12.2020
-  gem "pry"
   gem "guard"
   gem "cookstyle", ">= 7.8"
   gem "ffi-libarchive"
@@ -103,6 +102,9 @@ group(:omnibus_package) do
   gem "listen"
   gem "mixlib-install"
   gem "nokogiri", ">= 1.11.7"
+  # Locked because pry-byebug is broken with 13+
+  # some work is ongoing? https://github.com/deivid-rodriguez/pry-byebug/issues/343
+  gem "pry", "= 0.13.0"
   gem "pry-byebug"
   gem "pry-remote"
   # pry-stack_explorer 0.4.9.3 emits warnings under 2.7 under inspec shell
