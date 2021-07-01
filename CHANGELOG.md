@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.6.509 -->
-## [21.6.509](https://github.com/chef/chef-workstation/tree/21.6.509) (2021-06-30)
+<!-- latest_release 21.7.510 -->
+## [21.7.510](https://github.com/chef/chef-workstation/tree/21.7.510) (2021-07-01)
 
 #### Merged Pull Requests
-- Bump appbundler to 0.13.4 [#2109](https://github.com/chef/chef-workstation/pull/2109) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-cli to 5.2.0 [#2110](https://github.com/chef/chef-workstation/pull/2110) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.6.497 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-cli to 5.2.0 [#2110](https://github.com/chef/chef-workstation/pull/2110) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.510 -->
 - Bump appbundler to 0.13.4 [#2109](https://github.com/chef/chef-workstation/pull/2109) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.509 -->
 - Bump knife to 17.3.13 [#2106](https://github.com/chef/chef-workstation/pull/2106) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.6.508 -->
 - Enable FIPS on Ubuntu builds [#2107](https://github.com/chef/chef-workstation/pull/2107) ([tas50](https://github.com/tas50)) <!-- 21.6.507 -->
