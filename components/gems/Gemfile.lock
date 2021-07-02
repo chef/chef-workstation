@@ -562,8 +562,8 @@ GEM
       gcewinpass (~> 1.1)
       google-api-client (>= 0.23.9, <= 0.52.0)
       test-kitchen
-    kitchen-hyperv (0.5.5)
-      test-kitchen (>= 1.4, < 3)
+    kitchen-hyperv (0.6.0)
+      test-kitchen (>= 1.4, < 4)
     kitchen-inspec (2.5.0)
       hashie (>= 3.4, <= 5.0)
       inspec (>= 2.2.64, < 5.0)
@@ -854,7 +854,7 @@ GEM
     strings-ansi (0.2.0)
     structured_warnings (0.4.0)
     syslog-logger (1.6.8)
-    test-kitchen (2.12.0)
+    test-kitchen (3.0.0)
       bcrypt_pbkdf (~> 1.0)
       chef-utils (>= 16.4.35)
       ed25519 (~> 1.2)
@@ -1104,15 +1104,15 @@ DEPENDENCIES
   ffi-libarchive
   guard
   inspec-bin (~> 4.23)
-  kitchen-azurerm (>= 1.3)
-  kitchen-digitalocean (>= 0.11)
-  kitchen-dokken (>= 2.11)
-  kitchen-ec2 (>= 3.7)
-  kitchen-google (>= 2.0.0)
-  kitchen-hyperv (>= 0.5.1)
-  kitchen-inspec (>= 2.2)
+  kitchen-azurerm (>= 1.7)
+  kitchen-digitalocean (>= 0.13)
+  kitchen-dokken (>= 2.14)
+  kitchen-ec2 (>= 3.10)
+  kitchen-google (>= 2.2)
+  kitchen-hyperv (>= 0.6)
+  kitchen-inspec (>= 2.5)
   kitchen-openstack (>= 5.0)
-  kitchen-vagrant (>= 1.8)
+  kitchen-vagrant (>= 1.9)
   kitchen-vcenter (>= 2.8)
   knife
   knife-azure (>= 3.0.0)
@@ -1138,7 +1138,7 @@ DEPENDENCIES
   rb-readline
   rdp-ruby-wmi
   ruby-shadow!
-  test-kitchen (>= 2.7)
+  test-kitchen (>= 3.0)
   unf_ext (= 0.0.7.6)
   win32-api
   win32-dir
