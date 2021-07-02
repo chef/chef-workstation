@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.7.516 -->
-## [21.7.516](https://github.com/chef/chef-workstation/tree/21.7.516) (2021-07-02)
+<!-- latest_release 21.7.517 -->
+## [21.7.517](https://github.com/chef/chef-workstation/tree/21.7.517) (2021-07-02)
 
 #### Merged Pull Requests
-- Bump kitchen-ec2 to 3.10.0 and kitchen-openstack to 6.1.0  [#2119](https://github.com/chef/chef-workstation/pull/2119) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-dokken to 2.14.0 kitchen-vagrant to 1.9.0 and kitchen-azurerm to 1.7.0 [#2123](https://github.com/chef/chef-workstation/pull/2123) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.6.497 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-dokken to 2.14.0 kitchen-vagrant to 1.9.0 and kitchen-azurerm to 1.7.0 [#2123](https://github.com/chef/chef-workstation/pull/2123) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.517 -->
 - Bump kitchen-ec2 to 3.10.0 and kitchen-openstack to 6.1.0  [#2119](https://github.com/chef/chef-workstation/pull/2119) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.516 -->
 - Bump inspec to 4.38.3 [#2118](https://github.com/chef/chef-workstation/pull/2118) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.515 -->
 - Bump cookstyle to 7.15.0 [#2117](https://github.com/chef/chef-workstation/pull/2117) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.514 -->
