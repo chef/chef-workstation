@@ -564,10 +564,10 @@ GEM
       test-kitchen
     kitchen-hyperv (0.5.5)
       test-kitchen (>= 1.4, < 3)
-    kitchen-inspec (2.4.3)
+    kitchen-inspec (2.5.0)
       hashie (>= 3.4, <= 5.0)
       inspec (>= 2.2.64, < 5.0)
-      test-kitchen (>= 2.7, < 3)
+      test-kitchen (>= 2.7, < 4)
     kitchen-openstack (6.1.0)
       fog-openstack (~> 1.0)
       ohai
