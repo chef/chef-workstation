@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.7.521 -->
-## [21.7.521](https://github.com/chef/chef-workstation/tree/21.7.521) (2021-07-02)
+<!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- Update Test Kitchen to 3.0 [#2128](https://github.com/chef/chef-workstation/pull/2128) ([tas50](https://github.com/tas50))
+- Bump kitchen-vagrant from 1.8.0 to 1.9.0 in /omnibus [#2129](https://github.com/chef/chef-workstation/pull/2129) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.6.497 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-vagrant from 1.8.0 to 1.9.0 in /omnibus [#2129](https://github.com/chef/chef-workstation/pull/2129) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.7.521 -->
 - Update Test Kitchen to 3.0 [#2128](https://github.com/chef/chef-workstation/pull/2128) ([tas50](https://github.com/tas50)) <!-- 21.7.521 -->
 - Bump kitchen-digitalocean to 0.13.0 [#2126](https://github.com/chef/chef-workstation/pull/2126) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.520 -->
 - Bump kitchen-vcenter to 2.10.0 [#2125](https://github.com/chef/chef-workstation/pull/2125) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.519 -->
