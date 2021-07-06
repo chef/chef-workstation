@@ -35,7 +35,8 @@ Delete all revisions of the policy POLICY_NAME on the configured
 %s. All policy revisions will be backed up locally, allowing you to
 undo this operation via the '%s undelete' command.
 `,
-	Args: cobra.ExactArgs(1),
+	DisableFlagParsing: true,
+	Args:               cobra.ExactArgs(1),
 
 	RunE: func(cmd *cobra.Command, args []string) error {
 		return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])

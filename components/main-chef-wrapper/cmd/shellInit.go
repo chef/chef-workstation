@@ -53,6 +53,7 @@ default Ruby.
     In Powershell
       "chef shell-init powershell | Invoke-Expression" >> $PROFILE
 `,
+	DisableFlagParsing: true,
 
 	RunE: func(cmd *cobra.Command, args []string) error {
 		return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])

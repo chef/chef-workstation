@@ -40,6 +40,7 @@ See the Policyfile documentation for more information:
 
 https://docs.chef.io/policyfile/
 `,
+	DisableFlagParsing: true,
 	FParseErrWhitelist: cobra.FParseErrWhitelist{UnknownFlags: true},
 	RunE: func(cmd *cobra.Command, args []string) error {
 		allArgs := os.Args[1:]

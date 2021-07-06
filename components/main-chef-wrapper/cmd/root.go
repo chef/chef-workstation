@@ -61,7 +61,7 @@ var (
 		// Stop framework from showing default errors. This prevents duplicate errors or
 		// unncessary info from showing on passthrough commands; and
 		// allows us control over error rendering for internal commands.
-		SilenceErrors: true,
+		SilenceErrors: false,
 
 		// Don't spam the user with usage message when any error occurs -
 		// this just makes it harder to see the actual message, obscuring it by dumping
@@ -74,6 +74,7 @@ var (
 func Execute() {
 	var ee *exec.ExitError
 	if err := rootCmd.Execute(); err != nil {
+		fmt.Println(err.Error())
 		if errors.As(err, &ee) {
 			os.Exit(ee.ExitCode())
 		}

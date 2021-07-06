@@ -44,6 +44,7 @@ var (
 upgrade compatibility errors and node cookbook usage.
 
 The result is written to file.`,
+		DisableFlagParsing: true,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return passThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
 		},

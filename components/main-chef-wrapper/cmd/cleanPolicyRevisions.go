@@ -37,6 +37,7 @@ are therefore not in active use by any nodes.
 To list orphaned Policyfile revisions before deletying them,
 use '%s show-policy --orphans'.
 `,
+	DisableFlagParsing: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},

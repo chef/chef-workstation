@@ -43,6 +43,7 @@ Available generators:
 	generator       Copy %s's generator cookbook so you can customize it
 	build-cookbook  Generate a build cookbook
 `,
+	DisableFlagParsing: true,
 
 	RunE: func(cmd *cobra.Command, args []string) error {
 		return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])

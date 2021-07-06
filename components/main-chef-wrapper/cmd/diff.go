@@ -66,6 +66,7 @@ assigned to the 'staging' Policy Group.
 to the 'production' Policy Group to the lock currently assigned to the
 'staging' Policy Group.
 `,
+		DisableFlagParsing: true,
 
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
