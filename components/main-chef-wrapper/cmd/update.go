@@ -30,16 +30,16 @@ var (
 	excludeDeps bool
 
 	updateCmd = &cobra.Command{
-		Use:   "update [ POLICYFILE ] [cookbook1 [cookbook2 [...cookbookN] ] ] ",
+		Use:   "update [ Policyfile ] [cookbook1 [cookbook2 [...cookbookN] ] ] ",
 		Short: "Updates a Policyfile.lock.json with the latest run_list and cookbooks",
 		Long: `
-This command reads the given POLICYFILE, applies any changes, resolves updated
-dependencies within the constraints provided in the POLICYFILE, and replaces
+This command reads the given Policyfile, applies any changes, resolves updated
+dependencies within the constraints provided in the Policyfile, and replaces
 'Policyfile.lock.json'.  The updated lockfile reflects changes to the 'run_list'
 and includes any compatible dependency updates.
 
 Individual dependent cookbooks (and their dependencies) may be updated by
-passing their names after the POLICYFILE. The POLICYFILE parameter is mandatory
+passing their names after the Policyfile. The Policyfile parameter is mandatory
 if you want to update individual cookbooks.
 
 See the Policyfile documentation for more information:

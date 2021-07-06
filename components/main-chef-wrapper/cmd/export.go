@@ -29,7 +29,7 @@ import (
 var (
 	force     bool
 	exportCmd = &cobra.Command{
-		Use:   "export [ POLICY_FILE ] DESTINATION_DIRECTORY",
+		Use:   "export [ Policyfile ] DESTINATION_DIRECTORY",
 		Short: "Export a policy lock as a %s code repository",
 		Long: `
 Create a %s Zero-compatible repository containing the
