@@ -1,8 +1,9 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release unreleased -->
-## Unreleased
+<!-- latest_release 21.7.522 -->
+## [21.7.522](https://github.com/chef/chef-workstation/tree/21.7.522) (2021-07-06)
 
 #### Merged Pull Requests
+- Bump omnibus-software from `c626aa2` to `b02a8c3` in /omnibus [#2131](https://github.com/chef/chef-workstation/pull/2131) ([dependabot[bot]](https://github.com/dependabot[bot]))
 - Bump kitchen-vagrant from 1.8.0 to 1.9.0 in /omnibus [#2129](https://github.com/chef/chef-workstation/pull/2129) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
@@ -10,6 +11,7 @@
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `c626aa2` to `b02a8c3` in /omnibus [#2131](https://github.com/chef/chef-workstation/pull/2131) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.7.522 -->
 - Bump kitchen-vagrant from 1.8.0 to 1.9.0 in /omnibus [#2129](https://github.com/chef/chef-workstation/pull/2129) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.7.521 -->
 - Update Test Kitchen to 3.0 [#2128](https://github.com/chef/chef-workstation/pull/2128) ([tas50](https://github.com/tas50)) <!-- 21.7.521 -->
 - Bump kitchen-digitalocean to 0.13.0 [#2126](https://github.com/chef/chef-workstation/pull/2126) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.520 -->
