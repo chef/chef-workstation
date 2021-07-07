@@ -123,11 +123,18 @@ func omnibusRoot()string  {
 }
 
 func ExpectedOmnibusRoot()string {
-	groot := os.Getenv("GEM_ROOT")
-	rootPath, err := filepath.Abs(path.Join(groot,"..","..", "..", "..", ".."))
+	ex, _ := os.Executable()
+	exReal, err := filepath.EvalSymlinks(ex)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err)
 	}
+	rootPath := filepath.Dir(exReal)
+	// below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v
+	//groot := os.Getenv("GEM_ROOT")
+	//rootPath, err := filepath.Abs(path.Join(groot,"..","..", "..", "..", ".."))
+	//if err != nil {
+	//	fmt.Fprintln(os.Stderr, "ERROR:", err)
+	//}
 	return rootPath
 }
 
