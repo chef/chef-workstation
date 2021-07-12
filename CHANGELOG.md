@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.7.528 -->
-## [21.7.528](https://github.com/chef/chef-workstation/tree/21.7.528) (2021-07-12)
+<!-- latest_release 21.7.529 -->
+## [21.7.529](https://github.com/chef/chef-workstation/tree/21.7.529) (2021-07-12)
 
 #### Merged Pull Requests
-- Update docker-api [#2144](https://github.com/chef/chef-workstation/pull/2144) ([tas50](https://github.com/tas50))
+-  Update deprecated schema in the chocolatey package  [#2142](https://github.com/chef/chef-workstation/pull/2142) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.7.524 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+-  Update deprecated schema in the chocolatey package  [#2142](https://github.com/chef/chef-workstation/pull/2142) ([tas50](https://github.com/tas50)) <!-- 21.7.529 -->
 - Update docker-api [#2144](https://github.com/chef/chef-workstation/pull/2144) ([tas50](https://github.com/tas50)) <!-- 21.7.528 -->
 - Fix typos in the habitat plans [#2143](https://github.com/chef/chef-workstation/pull/2143) ([tas50](https://github.com/tas50)) <!-- 21.7.527 -->
 - Bump Chef Workstation App to 0.2.27 [#2139](https://github.com/chef/chef-workstation/pull/2139) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.526 -->
