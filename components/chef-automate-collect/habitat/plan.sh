@@ -1,6 +1,6 @@
 pkg_name=chef-automate-collect
 pkg_origin=chef
-pkg_description="Chef Policy Rollout Cliennt CLI"
+pkg_description="Chef Policy Rollout Client CLI"
 pkg_maintainer="Chef Software Inc. <support@chef.io>"
 pkg_bin_dirs=(bin)
 pkg_deps=(core/glibc)
