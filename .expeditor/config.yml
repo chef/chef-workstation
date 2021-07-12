@@ -235,3 +235,8 @@ subscriptions:
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:wmi-lite
+    actions:
+       - bash:.expeditor/update_dep.sh
+  - workload: ruby_gem_published:docker-api
+    actions:
+       - bash:.expeditor/update_dep.sh
