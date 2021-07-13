@@ -35,4 +35,5 @@ const (
 	CliGem             = "chef-cli"
 	HabProduct         = "Chef Habitat"
 	HabSoftwareName    = "habitat"
+	DistributorName    = "Chef Software Inc."
 )

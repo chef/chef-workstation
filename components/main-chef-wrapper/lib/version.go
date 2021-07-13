@@ -37,7 +37,9 @@ func Version(){
 	if omnibusInstall() == true {
 		showVersionViaVersionManifest()
 	} else {
-		fmt.Fprintln(os.Stderr, "ERROR:", "Can not find omnibus installation directory for", dist.WorkstationProduct)
+		fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
+
+
 	}
 }
 
@@ -117,7 +119,7 @@ func omnibusInstall() bool {
 func omnibusRoot()string  {
 	omnibusroot, err := filepath.Abs(path.Join(ExpectedOmnibusRoot()))
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "ERROR:", "Can not find omnibus installation directory for", dist.WorkstationProduct)
+		fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
 	}
 	return omnibusroot
 }
@@ -128,8 +130,8 @@ func ExpectedOmnibusRoot()string {
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err)
 	}
-	rootPath := filepath.Dir(exReal)
-	// below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v
+	rootPath := path.Join(filepath.Dir(exReal), "..")
+	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v
 	//groot := os.Getenv("GEM_ROOT")
 	//rootPath, err := filepath.Abs(path.Join(groot,"..","..", "..", "..", ".."))
 	//if err != nil {
