@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.7.531 -->
-## [21.7.531](https://github.com/chef/chef-workstation/tree/21.7.531) (2021-07-12)
+<!-- latest_release 21.7.532 -->
+## [21.7.532](https://github.com/chef/chef-workstation/tree/21.7.532) (2021-07-13)
 
 #### Merged Pull Requests
-- updated ruby to 3.0.2 [#2146](https://github.com/chef/chef-workstation/pull/2146) ([nikhil2611](https://github.com/nikhil2611))
+- Update all deps to the latest [#2147](https://github.com/chef/chef-workstation/pull/2147) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.7.524 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update all deps to the latest [#2147](https://github.com/chef/chef-workstation/pull/2147) ([tas50](https://github.com/tas50)) <!-- 21.7.532 -->
 - updated ruby to 3.0.2 [#2146](https://github.com/chef/chef-workstation/pull/2146) ([nikhil2611](https://github.com/nikhil2611)) <!-- 21.7.531 -->
 - Bump Chef Workstation App to 0.2.28 [#2145](https://github.com/chef/chef-workstation/pull/2145) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.530 -->
 -  Update deprecated schema in the chocolatey package  [#2142](https://github.com/chef/chef-workstation/pull/2142) ([tas50](https://github.com/tas50)) <!-- 21.7.529 -->
