@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.7.533 -->
-## [21.7.533](https://github.com/chef/chef-workstation/tree/21.7.533) (2021-07-13)
+<!-- latest_release 21.7.534 -->
+## [21.7.534](https://github.com/chef/chef-workstation/tree/21.7.534) (2021-07-14)
 
 #### Merged Pull Requests
-- Update chef-cli to 5.3.1 [#2148](https://github.com/chef/chef-workstation/pull/2148) ([tas50](https://github.com/tas50))
+- Bump omnibus from `5c1b453` to `5803fdc` in /omnibus [#2150](https://github.com/chef/chef-workstation/pull/2150) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.7.524 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus from `5c1b453` to `5803fdc` in /omnibus [#2150](https://github.com/chef/chef-workstation/pull/2150) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.7.534 -->
 - Update chef-cli to 5.3.1 [#2148](https://github.com/chef/chef-workstation/pull/2148) ([tas50](https://github.com/tas50)) <!-- 21.7.533 -->
 - Update all deps to the latest [#2147](https://github.com/chef/chef-workstation/pull/2147) ([tas50](https://github.com/tas50)) <!-- 21.7.532 -->
 - updated ruby to 3.0.2 [#2146](https://github.com/chef/chef-workstation/pull/2146) ([nikhil2611](https://github.com/nikhil2611)) <!-- 21.7.531 -->
