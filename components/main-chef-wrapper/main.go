@@ -18,11 +18,11 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"os/exec"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
 	"github.com/mitchellh/go-homedir"
+	"os"
+	"os/exec"
 )
 
 func main() {
@@ -185,7 +185,6 @@ func doStartupTasks() error {
 	createDotChef()
 	return nil
 }
-
 
 // Attempts to create the ~/.chef directory.
 // Does not report an error if this fails, because it is non-fatal:

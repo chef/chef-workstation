@@ -17,7 +17,7 @@
 package lib
 
 import (
-"fmt"
+	"fmt"
 )
 
 // Dig extracts the nested value specified by the keys from v
