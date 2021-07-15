@@ -1,4 +1,3 @@
-
 //
 // Copyright (c) Chef Software, Inc.
 // Copyright (c) 2020 Muneyuki Noguchi
@@ -16,10 +15,11 @@
 // limitations under the License.
 
 package lib
+
 import (
-"encoding/json"
-"testing"
-"github.com/stretchr/testify/assert"
+	"encoding/json"
+	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestInputKey(t *testing.T) {

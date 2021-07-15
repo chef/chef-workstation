@@ -15,16 +15,14 @@
 package lib
 
 import (
+	"encoding/json"
 	"fmt"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
+	"io/ioutil"
 	"os"
 	"path"
-	"io/ioutil"
 	"path/filepath"
-	"encoding/json"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 )
-
-
 
 var gemManifestMap map[string]interface{}
 var manifestMap map[string]interface{}
@@ -33,7 +31,7 @@ func init() {
 	gemManifestMap = gemManifestHash()
 	manifestMap = manifestHash()
 }
-func Version() error{
+func Version() error {
 	if omnibusInstall() == true {
 		showVersionViaVersionManifest()
 	} else {
@@ -43,22 +41,22 @@ func Version() error{
 	return nil
 }
 
-func showVersionViaVersionManifest()  {
-	fmt.Printf("%v version: %v", dist.WorkstationProduct, componentVersion("build_version")  )
+func showVersionViaVersionManifest() {
+	fmt.Printf("%v version: %v", dist.WorkstationProduct, componentVersion("build_version"))
 	productMap := map[string]string{
 		dist.ClientProduct: dist.CLIWrapperExec,
 		dist.InspecProduct: dist.InspecCli,
-		dist.CliProduct: dist.CliGem,
-		dist.HabProduct: dist.HabSoftwareName,
-		"Test Kitchen": "test-kitchen",
-		"Cookstyle": "cookstyle",
+		dist.CliProduct:    dist.CliGem,
+		dist.HabProduct:    dist.HabSoftwareName,
+		"Test Kitchen":     "test-kitchen",
+		"Cookstyle":        "cookstyle",
 	}
 	for prodName, component := range productMap {
-		fmt.Printf("\n%v version: %v", prodName, componentVersion(component)  )
+		fmt.Printf("\n%v version: %v", prodName, componentVersion(component))
 	}
 	fmt.Printf("\n")
 }
-func componentVersion(component string) string  {
+func componentVersion(component string) string {
 	v, ok := gemManifestMap[component]
 	if ok {
 		stringifyVal := v.([]interface{})[0]
@@ -69,13 +67,13 @@ func componentVersion(component string) string  {
 		success, _ := Dig(manifestMap, "software", component, "locked_version")
 		if success == nil {
 			return "unknown"
-		}else {
+		} else {
 			return success.(string)
 		}
 	}
 }
 func gemManifestHash() map[string]interface{} {
-	filepath := path.Join(omnibusRoot(),"gem-version-manifest.json")
+	filepath := path.Join(omnibusRoot(), "gem-version-manifest.json")
 	jsonFile, err := os.Open(filepath)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
@@ -87,8 +85,8 @@ func gemManifestHash() map[string]interface{} {
 	defer jsonFile.Close()
 	return gemManifestHash
 }
-func manifestHash() map[string]interface{}  {
-	filepath := path.Join(omnibusRoot(),"version-manifest.json")
+func manifestHash() map[string]interface{} {
+	filepath := path.Join(omnibusRoot(), "version-manifest.json")
 	jsonFile, err := os.Open(filepath)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
@@ -107,7 +105,7 @@ func omnibusInstall() bool {
 	//# or out of a gem - so not as an 'omnibus install'
 	ExpectedOmnibusRoot := ExpectedOmnibusRoot()
 	if _, err := os.Stat(ExpectedOmnibusRoot); err == nil {
-		if _, err = os.Stat(path.Join(ExpectedOmnibusRoot,"version-manifest.json")); err == nil {
+		if _, err = os.Stat(path.Join(ExpectedOmnibusRoot, "version-manifest.json")); err == nil {
 			return true
 		} else {
 			return false
@@ -117,8 +115,7 @@ func omnibusInstall() bool {
 	}
 }
 
-
-func omnibusRoot()string  {
+func omnibusRoot() string {
 	omnibusroot, err := filepath.Abs(path.Join(ExpectedOmnibusRoot()))
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
@@ -127,7 +124,7 @@ func omnibusRoot()string  {
 	return omnibusroot
 }
 
-func ExpectedOmnibusRoot()string {
+func ExpectedOmnibusRoot() string {
 	ex, _ := os.Executable()
 	exReal, err := filepath.EvalSymlinks(ex)
 	if err != nil {
@@ -143,4 +140,3 @@ func ExpectedOmnibusRoot()string {
 	//}
 	return rootPath
 }
-
