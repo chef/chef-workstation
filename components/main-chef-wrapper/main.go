@@ -62,7 +62,11 @@ func main() {
 		os.Exit(0)
 
 	case "version", "-v", "--version":
-		lib.Version()
+		err := lib.Version()
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+			os.Exit(4)
+		}
 		os.Exit(0)
 
 	case "none":

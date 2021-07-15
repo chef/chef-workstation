@@ -33,14 +33,14 @@ func init() {
 	gemManifestMap = gemManifestHash()
 	manifestMap = manifestHash()
 }
-func Version(){
+func Version() error{
 	if omnibusInstall() == true {
 		showVersionViaVersionManifest()
 	} else {
 		fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
 
-
 	}
+	return nil
 }
 
 func showVersionViaVersionManifest()  {
@@ -78,7 +78,8 @@ func gemManifestHash() map[string]interface{} {
 	filepath := path.Join(omnibusRoot(),"gem-version-manifest.json")
 	jsonFile, err := os.Open(filepath)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+		os.Exit(4)
 	}
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 	var gemManifestHash map[string]interface{}
@@ -90,7 +91,8 @@ func manifestHash() map[string]interface{}  {
 	filepath := path.Join(omnibusRoot(),"version-manifest.json")
 	jsonFile, err := os.Open(filepath)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+		os.Exit(4)
 	}
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 	var manifestHash map[string]interface{}
@@ -120,6 +122,7 @@ func omnibusRoot()string  {
 	omnibusroot, err := filepath.Abs(path.Join(ExpectedOmnibusRoot()))
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
+		os.Exit(4)
 	}
 	return omnibusroot
 }
@@ -129,6 +132,7 @@ func ExpectedOmnibusRoot()string {
 	exReal, err := filepath.EvalSymlinks(ex)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err)
+		os.Exit(4)
 	}
 	rootPath := path.Join(filepath.Dir(exReal), "..")
 	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v
