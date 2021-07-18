@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.7.535 -->
-## [21.7.535](https://github.com/chef/chef-workstation/tree/21.7.535) (2021-07-14)
+<!-- latest_release 21.7.536 -->
+## [21.7.536](https://github.com/chef/chef-workstation/tree/21.7.536) (2021-07-18)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `e9feb35` to `b9473ec` in /omnibus [#2151](https://github.com/chef/chef-workstation/pull/2151) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump omnibus from `5803fdc` to `6d109b6` in /omnibus [#2155](https://github.com/chef/chef-workstation/pull/2155) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.7.524 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus from `5803fdc` to `6d109b6` in /omnibus [#2155](https://github.com/chef/chef-workstation/pull/2155) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.7.536 -->
 - Bump omnibus-software from `e9feb35` to `b9473ec` in /omnibus [#2151](https://github.com/chef/chef-workstation/pull/2151) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.7.535 -->
 - Bump omnibus from `5c1b453` to `5803fdc` in /omnibus [#2150](https://github.com/chef/chef-workstation/pull/2150) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.7.534 -->
 - Update chef-cli to 5.3.1 [#2148](https://github.com/chef/chef-workstation/pull/2148) ([tas50](https://github.com/tas50)) <!-- 21.7.533 -->
