@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"bytes"
-	"fmt"
 	"io/ioutil"
 	"testing"
 
@@ -64,56 +63,21 @@ func Test_GenerateCommand(t *testing.T) {
 func Test_GenerateCookbookCommand(t *testing.T) {
 	s := []string{"generate", "cookbook"}
 	cmd := NewGenerateCmd(s)
-	// fmt.Println("----cmd is ---", cmd)
-	// b := bytes.NewBufferString("")
-	// cmd.SetOut(b)
-	// cmd.SetArgs([]string{""})
 	out := cmd.Execute()
-	// fmt.Println("var7 = ", reflect.TypeOf(out))
-	// fmt.Println("output is--------", out)
-	// if out != nil {
-	// 	t.Fatal(out)
-	// }
-
-	// fmt.Println("-------b is--------", b)
-	// output, err := ioutil.ReadAll(b)
-	// // fmt.Println("---------err-----", err)
-	// // fmt.Println("var7 = ", reflect.TypeOf(string(out)))
-	// fmt.Println("---------out:-----", string(out))
-	// if err != nil {
-	// 	t.Fatal(err)
-	// }
 	if out.Error() != `exit status 1` {
 		t.Fatalf("expected \"%s\" got \"%s\"", `exit status 1`, out.Error())
 	}
 }
 
 func Test_GenerateCookbookNameCommand(t *testing.T) {
-	s := []string{"generate", "cookbook", "test"}
+	s := []string{"generate", "cookbook", "cookbookName"}
 	cmd := NewGenerateCmd(s)
-	// fmt.Println("----cmd is ---", cmd)
 	b := bytes.NewBufferString("")
 	cmd.SetOut(b)
 	// cmd.SetArgs([]string{""})
 	cmd.Execute()
-	// fmt.Println("var7 = ", reflect.TypeOf(out))
-	// fmt.Println("output is--------", string(err))
-	// if err == nil {
-	// 	fmt.Println("checked", err.)
-	// }
-	// if err != nil {
-	// 	t.Fatal(err)
-	// }
-
-	fmt.Println("-------b is--------", b)
-	out, err := ioutil.ReadAll(b)
-	fmt.Println("---------err-----", err)
-	// // fmt.Println("var7 = ", reflect.TypeOf(string(out)))
-	fmt.Println("---------out:-----", string(out))
+	_, err := ioutil.ReadAll(b)
 	if err != nil {
 		t.Fatal(err)
-	}
-	if string(out) != `` {
-		t.Fatalf("expected \"%s\" got \"%s\"", ``, string(out))
 	}
 }
