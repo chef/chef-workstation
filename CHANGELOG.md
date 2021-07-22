@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.7.539 -->
-## [21.7.539](https://github.com/chef/chef-workstation/tree/21.7.539) (2021-07-21)
+<!-- latest_release 21.7.540 -->
+## [21.7.540](https://github.com/chef/chef-workstation/tree/21.7.540) (2021-07-22)
 
 #### Merged Pull Requests
-- Update Chef Infra Client to 17.3 [#2160](https://github.com/chef/chef-workstation/pull/2160) ([tas50](https://github.com/tas50))
+- Bump inspec-bin to 4.38.9 [#2162](https://github.com/chef/chef-workstation/pull/2162) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.7.524 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump inspec-bin to 4.38.9 [#2162](https://github.com/chef/chef-workstation/pull/2162) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.540 -->
 - Update Chef Infra Client to 17.3 [#2160](https://github.com/chef/chef-workstation/pull/2160) ([tas50](https://github.com/tas50)) <!-- 21.7.539 -->
 - Bump ohai to 17.3.1 [#2158](https://github.com/chef/chef-workstation/pull/2158) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.538 -->
 - Bump omnibus-software from `b9473ec` to `237c0a4` in /omnibus [#2156](https://github.com/chef/chef-workstation/pull/2156) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.7.537 -->
