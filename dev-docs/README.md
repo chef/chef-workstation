@@ -20,4 +20,6 @@ This directory contains useful information to help Chef Workstation developers g
 
 - Reference Diagrams - tbd
 
-- [Product Documentation](https://docs.chef.io/workstation/) 
+- [Release Process](https://github.com/chef/chef-workstation/dev-docs/)
+
+- [Product Documentation](./Release-Process.md)
