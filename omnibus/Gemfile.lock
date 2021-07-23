@@ -1,21 +1,20 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: 94ef29b62a6d0a60480a910cddfc01d61b7205d4
-  branch: main
+  revision: c626aa2a357f482461f59aa038581bf0ec809fcb
+  branch: master
   specs:
     omnibus-software (4.0.0)
       omnibus (>= 8.0.0)
 
 GIT
   remote: https://github.com/chef/omnibus.git
-  revision: 2bf77bb5515a13bb0ce745f3d4c074ee50a6bf24
-  branch: main
+  revision: 87db446ee0b9872a8a588bedc660c351991e8bda
+  branch: master
   specs:
-    omnibus (8.2.7)
+    omnibus (8.1.10)
       aws-sdk-s3 (~> 1)
       chef-cleanroom (~> 1.0)
       chef-utils (>= 15.4)
-      contracts (>= 0.16.0, < 0.17.0)
       ffi-yajl (~> 2.2)
       license_scout (~> 1.0)
       mixlib-shellout (>= 2.0, < 4.0)
@@ -28,13 +27,13 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.8.0)
+    addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     artifactory (3.0.15)
     awesome_print (1.9.2)
-    aws-eventstream (1.2.0)
-    aws-partitions (1.546.0)
-    aws-sdk-core (3.125.1)
+    aws-eventstream (1.1.1)
+    aws-partitions (1.468.0)
+    aws-sdk-core (3.114.3)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.525.0)
       aws-sigv4 (~> 1.1)
@@ -49,7 +48,7 @@ GEM
     aws-sdk-secretsmanager (1.55.0)
       aws-sdk-core (~> 3, >= 3.125.0)
       aws-sigv4 (~> 1.1)
-    aws-sigv4 (1.4.0)
+    aws-sigv4 (1.2.3)
       aws-eventstream (~> 1, >= 1.0.2)
     bcrypt_pbkdf (1.1.0)
     bcrypt_pbkdf (1.1.0-x64-mingw32)
@@ -152,10 +151,9 @@ GEM
     chef-telemetry (1.1.1)
       chef-config
       concurrent-ruby (~> 1.0)
-    chef-utils (17.9.26)
-      concurrent-ruby
-    chef-vault (4.1.5)
-    chef-zero (15.0.11)
+    chef-utils (16.13.16)
+    chef-vault (4.1.0)
+    chef-zero (15.0.4)
       ffi-yajl (~> 2.2)
       hashie (>= 2.0, < 5.0)
       mixlib-log (>= 2.0, < 4.0)
@@ -166,14 +164,11 @@ GEM
     cleanroom (1.0.0)
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
-    contracts (0.16.1)
-    corefoundation (0.3.4)
-      ffi (>= 1.15.0)
     diff-lcs (1.3)
     ed25519 (1.2.4)
     erubi (1.10.0)
     erubis (2.7.0)
-    faraday (1.4.3)
+    faraday (1.4.2)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -205,7 +200,7 @@ GEM
     hashie (4.1.0)
     httpclient (2.8.3)
     iniparse (1.5.0)
-    inspec-core (4.52.9)
+    inspec-core (4.37.25)
       addressable (~> 2.4)
       chef-telemetry (~> 1.0, >= 1.0.8)
       faraday (>= 0.9.0, < 1.5)
@@ -232,16 +227,16 @@ GEM
     ipaddress (0.8.3)
     iso8601 (0.13.0)
     jmespath (1.4.0)
-    json (2.6.1)
-    kitchen-vagrant (1.11.0)
-      test-kitchen (>= 1.4, < 4)
+    json (2.5.1)
+    kitchen-vagrant (1.8.0)
+      test-kitchen (>= 1.4, < 3)
     libyajl2 (2.1.0)
     license-acceptance (2.1.13)
       pastel (~> 0.7)
       tomlrb (>= 1.2, < 3.0)
       tty-box (~> 0.6)
       tty-prompt (~> 0.20)
-    license_scout (1.2.13)
+    license_scout (1.2.12)
       ffi-yajl (~> 2.2)
       mixlib-shellout (>= 2.2, < 4.0)
       toml-rb (>= 1, < 3)
@@ -337,7 +332,7 @@ GEM
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
     rubyntlm (0.6.3)
-    rubyzip (2.3.2)
+    rubyzip (2.3.0)
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
@@ -353,7 +348,7 @@ GEM
     strings-ansi (0.2.0)
     structured_warnings (0.4.0)
     syslog-logger (1.6.8)
-    test-kitchen (3.2.2)
+    test-kitchen (2.12.0)
       bcrypt_pbkdf (~> 1.0)
       chef-utils (>= 16.4.35)
       ed25519 (~> 1.2)
@@ -371,7 +366,7 @@ GEM
     toml-rb (2.1.0)
       citrus (~> 3.0, > 3.0)
     tomlrb (1.3.0)
-    train-core (3.8.6)
+    train-core (3.7.2)
       addressable (~> 2.5)
       ffi (!= 1.13.0)
       json (>= 1.8, < 3.0)
