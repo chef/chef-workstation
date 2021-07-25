@@ -81,3 +81,34 @@ func Test_GenerateCookbookNameCommand(t *testing.T) {
 		t.Fatal(err)
 	}
 }
+
+func Test_GenerateRecipeCommand(t *testing.T) {
+	s := []string{"generate", "recipe"}
+	cmd := NewGenerateCmd(s)
+	out := cmd.Execute()
+	if out.Error() != `exit status 1` {
+		t.Fatalf("expected \"%s\" got \"%s\"", `exit status 1`, out.Error())
+	}
+}
+
+func Test_GenerateRecipePathCommand(t *testing.T) {
+	s := []string{"generate", "recipe", "./test12"}
+	cmd := NewGenerateCmd(s)
+	out := cmd.Execute()
+	if out.Error() != `exit status 1` {
+		t.Fatalf("expected \"%s\" got \"%s\"", `exit status 1`, out.Error())
+	}
+}
+
+func Test_GenerateRecipePathNameCommand(t *testing.T) {
+	s := []string{"generate", "recipe", "path/to/cookbook", "name"}
+	cmd := NewGenerateCmd(s)
+	b := bytes.NewBufferString("")
+	cmd.SetOut(b)
+	// cmd.SetArgs([]string{""})
+	cmd.Execute()
+	_, err := ioutil.ReadAll(b)
+	if err != nil {
+		t.Fatal(err)
+	}
+}
