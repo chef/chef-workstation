@@ -19,9 +19,12 @@ import (
 	"fmt"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 	"io/ioutil"
+	"log"
 	"os"
 	"path"
 	"path/filepath"
+	"runtime"
+	"golang.org/x/sys/windows/registry"
 )
 
 var gemManifestMap map[string]interface{}
@@ -119,24 +122,48 @@ func omnibusRoot() string {
 	omnibusroot, err := filepath.Abs(path.Join(ExpectedOmnibusRoot()))
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
-		os.Exit(4)
+		//os.Exit(4)
 	}
-	return omnibusroot
+	//return omnibusroot
+	fmt.Print(omnibusroot)
+	return "/opt/chef-workstation"
 }
 
 func ExpectedOmnibusRoot() string {
-	ex, _ := os.Executable()
-	exReal, err := filepath.EvalSymlinks(ex)
-	if err != nil {
-		fmt.Fprintln(os.Stderr, "ERROR:", err)
-		os.Exit(4)
+	var rootPath string
+	var cws_reg_key_install_dir  = "InstallDir"
+	if runtime.GOOS == "windows" {
+		//windows registry code here
+		k, err := registry.OpenKey(registry.LOCAL_MACHINE, `SOFTWARE\Chef\Chef Workstation`, registry.QUERY_VALUE)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer k.Close()
+
+		s, _, err := k.GetStringValue(cws_reg_key_install_dir)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("Windows system path  for chef is %q\n", s)
+
+		rootPath = path.Join(filepath.Dir(exReal), "..")
+	} else {
+		ex, _ := os.Executable()
+		exReal, err := filepath.EvalSymlinks(ex)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "ERROR:", err)
+			//os.Exit(4)
+		}
+		rootPath = path.Join(filepath.Dir(exReal), "..")
 	}
-	rootPath := path.Join(filepath.Dir(exReal), "..")
+	fmt.Print(rootPath)
+
 	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v
 	//groot := os.Getenv("GEM_ROOT")
 	//rootPath, err := filepath.Abs(path.Join(groot,"..","..", "..", "..", ".."))
 	//if err != nil {
 	//	fmt.Fprintln(os.Stderr, "ERROR:", err)
 	//}
-	return rootPath
+	//return rootPath
+	return "/opt/chef-workstation"
 }
