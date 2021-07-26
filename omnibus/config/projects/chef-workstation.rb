@@ -75,6 +75,7 @@ dependency "shebang-cleanup"
 if windows?
   dependency "windows-env-customization"
   dependency "powershell-scripts"
+  dependency "chef-dlls"
 end
 
 dependency "version-manifest"
