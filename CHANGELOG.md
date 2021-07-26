@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.7.542 -->
-## [21.7.542](https://github.com/chef/chef-workstation/tree/21.7.542) (2021-07-24)
+<!-- latest_release 21.7.543 -->
+## [21.7.543](https://github.com/chef/chef-workstation/tree/21.7.543) (2021-07-26)
 
 #### Merged Pull Requests
-- Bump chefstyle to 2.0.7 and cookstyle to 7.15.2 [#2166](https://github.com/chef/chef-workstation/pull/2166) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-apply to 0.7.1 [#2168](https://github.com/chef/chef-workstation/pull/2168) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.7.524 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-apply to 0.7.1 [#2168](https://github.com/chef/chef-workstation/pull/2168) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.543 -->
 - Bump chefstyle to 2.0.7 and cookstyle to 7.15.2 [#2166](https://github.com/chef/chef-workstation/pull/2166) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.542 -->
 - Bump Chef Workstation App to 0.2.29 [#2165](https://github.com/chef/chef-workstation/pull/2165) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.541 -->
 - Bump inspec-bin to 4.38.9 [#2162](https://github.com/chef/chef-workstation/pull/2162) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.540 -->
