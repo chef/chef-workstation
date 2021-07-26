@@ -18,7 +18,16 @@ func NewGemCmd(s []string) *cobra.Command {
 }
 
 func Test_GemCommand(t *testing.T) {
-	s := []string{"diff"}
+	s := []string{"gem"}
+	cmd := NewGemCmd(s)
+	out := cmd.Execute()
+	if out.Error() != `exit status 1` {
+		t.Fatalf("expected \"%s\" got \"%s\"", `exit status 1`, out.Error())
+	}
+}
+
+func Test_GemInstallCommand(t *testing.T) {
+	s := []string{"gem", "install"}
 	cmd := NewGemCmd(s)
 	out := cmd.Execute()
 	if out.Error() != `exit status 1` {

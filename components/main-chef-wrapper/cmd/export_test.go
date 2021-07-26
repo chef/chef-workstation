@@ -31,7 +31,7 @@ https://docs.chef.io/policyfile/
 }
 
 func Test_ExportCommand(t *testing.T) {
-	s := []string{"diff"}
+	s := []string{"export"}
 	cmd := NewExportCmd(s)
 	out := cmd.Execute()
 	if out.Error() != `exit status 1` {

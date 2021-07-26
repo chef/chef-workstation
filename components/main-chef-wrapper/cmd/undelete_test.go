@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"bytes"
+	"io/ioutil"
 	"testing"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
@@ -36,26 +38,26 @@ https://docs.chef.io/policyfile/
 	}
 }
 
-func Test_UndeleteCommand(t *testing.T) {
-	s := []string{"diff"}
-	cmd := NewUndeleteCmd(s)
-	out := cmd.Execute()
-	if out.Error() != `exit status 1` {
-		t.Fatalf("expected \"%s\" got \"%s\"", `exit status 1`, out.Error())
-	}
-}
-
-// func Test_InstallCookbookCommand(t *testing.T) {
-// 	s := []string{"install", "/Users/ngupta/Documents/projects/chef-workstation/chef-workstation/components/main-chef-wrapper/test100/Policyfile.rb"}
-// 	cmd := NewInstallCmd(s)
-// 	b := bytes.NewBufferString("")
-// 	cmd.SetOut(b)
-// 	cmd.Execute()
-// 	out, err := ioutil.ReadAll(b)
-// 	if err != nil {
-// 		t.Fatal(err)
-// 	}
-// 	if string(out) != `` {
-// 		t.Fatalf("expected \"%s\" got \"%s\"", ``, string(out))
+// func Test_UndeleteCommand(t *testing.T) {
+// 	s := []string{"undelete"}
+// 	cmd := NewUndeleteCmd(s)
+// 	out := cmd.Execute()
+// 	if out.Error() != `exit status 1` {
+// 		t.Fatalf("expected \"%s\" got \"%s\"", `exit status 1`, out.Error())
 // 	}
 // }
+
+func Test_UndeleteCookbookCommand(t *testing.T) {
+	s := []string{"undelete"}
+	cmd := NewUndeleteCmd(s)
+	b := bytes.NewBufferString("")
+	cmd.SetOut(b)
+	cmd.Execute()
+	out, err := ioutil.ReadAll(b)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(out) != `` {
+		t.Fatalf("expected \"%s\" got \"%s\"", ``, string(out))
+	}
+}

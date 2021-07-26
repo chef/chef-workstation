@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"bytes"
+	"io/ioutil"
 	"testing"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
@@ -40,17 +42,17 @@ func Test_UpdateCommand(t *testing.T) {
 	}
 }
 
-// func Test_InstallCookbookCommand(t *testing.T) {
-// 	s := []string{"install", "/Users/ngupta/Documents/projects/chef-workstation/chef-workstation/components/main-chef-wrapper/test100/Policyfile.rb"}
-// 	cmd := NewInstallCmd(s)
-// 	b := bytes.NewBufferString("")
-// 	cmd.SetOut(b)
-// 	cmd.Execute()
-// 	out, err := ioutil.ReadAll(b)
-// 	if err != nil {
-// 		t.Fatal(err)
-// 	}
-// 	if string(out) != `` {
-// 		t.Fatalf("expected \"%s\" got \"%s\"", ``, string(out))
-// 	}
-// }
+func Test_UpdatePolicyCommand(t *testing.T) {
+	s := []string{"update", "C:/Users/ngupta/Documents/chef-workstation/chef-workstation/components/main-chef-wrapper/test1/Policyfile.rb"}
+	cmd := NewUpdateCmd(s)
+	b := bytes.NewBufferString("")
+	cmd.SetOut(b)
+	cmd.Execute()
+	out, err := ioutil.ReadAll(b)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(out) != `` {
+		t.Fatalf("expected \"%s\" got \"%s\"", ``, string(out))
+	}
+}
