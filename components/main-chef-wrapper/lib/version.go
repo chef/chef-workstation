@@ -145,8 +145,6 @@ func ExpectedOmnibusRoot() string {
 			log.Fatal(err)
 		}
 		fmt.Printf("Windows system path  for chef is %q\n", s)
-
-		rootPath = path.Join(filepath.Dir(exReal), "..")
 	} else {
 		ex, _ := os.Executable()
 		exReal, err := filepath.EvalSymlinks(ex)
