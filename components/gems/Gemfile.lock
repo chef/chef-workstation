@@ -361,7 +361,7 @@ GEM
       mixlib-config (>= 2.2.12, < 4.0)
       mixlib-shellout (>= 2.0, < 4.0)
       tomlrb (~> 1.2)
-    chef-telemetry (1.0.29)
+    chef-telemetry (1.1.1)
       chef-config
       concurrent-ruby (~> 1.0)
     chef-utils (17.3.48)
