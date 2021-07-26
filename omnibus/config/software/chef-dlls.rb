@@ -29,6 +29,6 @@ build do
 
     chef_module_dir = "#{install_dir}/embedded/bin"
     require "fileutils"
-    FileUtils.cp_r "#{chef_gem_path}/distro/ruby_bin_folder/AMD64/.", chef_module_dir, :verbose => true
+    FileUtils.cp_r "#{chef_gem_path}/distro/ruby_bin_folder/AMD64/.", chef_module_dir, verbose: true
   end
 end
