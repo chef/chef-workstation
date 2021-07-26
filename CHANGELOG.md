@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.7.544 -->
-## [21.7.544](https://github.com/chef/chef-workstation/tree/21.7.544) (2021-07-26)
+<!-- latest_release 21.7.545 -->
+## [21.7.545](https://github.com/chef/chef-workstation/tree/21.7.545) (2021-07-26)
 
 #### Merged Pull Requests
-- Bump chef-telemetry to 1.1.1 [#2169](https://github.com/chef/chef-workstation/pull/2169) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump knife-vsphere to 5.0.0 [#2170](https://github.com/chef/chef-workstation/pull/2170) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.7.524 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump knife-vsphere to 5.0.0 [#2170](https://github.com/chef/chef-workstation/pull/2170) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.545 -->
 - Bump chef-telemetry to 1.1.1 [#2169](https://github.com/chef/chef-workstation/pull/2169) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.544 -->
 - Bump chef-apply to 0.7.1 [#2168](https://github.com/chef/chef-workstation/pull/2168) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.543 -->
 - Bump chefstyle to 2.0.7 and cookstyle to 7.15.2 [#2166](https://github.com/chef/chef-workstation/pull/2166) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.542 -->
