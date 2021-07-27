@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 21.7.546 -->
+## [21.7.546](https://github.com/chef/chef-workstation/tree/21.7.546) (2021-07-27)
+
+#### Merged Pull Requests
+- Make sure PowerShell DLLs used by Infra Client are properly installed [#2164](https://github.com/chef/chef-workstation/pull/2164) ([johnmccrae](https://github.com/johnmccrae))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=21.7.545 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Make sure PowerShell DLLs used by Infra Client are properly installed [#2164](https://github.com/chef/chef-workstation/pull/2164) ([johnmccrae](https://github.com/johnmccrae)) <!-- 21.7.546 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
