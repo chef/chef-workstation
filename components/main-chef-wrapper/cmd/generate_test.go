@@ -112,3 +112,63 @@ func Test_GenerateRecipePathNameCommand(t *testing.T) {
 		t.Fatal(err)
 	}
 }
+
+func Test_GenerateAttributeCommand(t *testing.T) {
+	s := []string{"generate", "attribute"}
+	cmd := NewGenerateCmd(s)
+	out := cmd.Execute()
+	if out.Error() != `exit status 1` {
+		t.Fatalf("expected \"%s\" got \"%s\"", `exit status 1`, out.Error())
+	}
+}
+
+func Test_GenerateTemplateCommand(t *testing.T) {
+	s := []string{"generate", "template"}
+	cmd := NewGenerateCmd(s)
+	out := cmd.Execute()
+	if out.Error() != `exit status 1` {
+		t.Fatalf("expected \"%s\" got \"%s\"", `exit status 1`, out.Error())
+	}
+}
+
+func Test_GenerateFileCommand(t *testing.T) {
+	s := []string{"generate", "file"}
+	cmd := NewGenerateCmd(s)
+	out := cmd.Execute()
+	if out.Error() != `exit status 1` {
+		t.Fatalf("expected \"%s\" got \"%s\"", `exit status 1`, out.Error())
+	}
+}
+
+func Test_GenerateHelpersCommand(t *testing.T) {
+	s := []string{"generate", "helpers"}
+	cmd := NewGenerateCmd(s)
+	out := cmd.Execute()
+	if out.Error() != `exit status 1` {
+		t.Fatalf("expected \"%s\" got \"%s\"", `exit status 1`, out.Error())
+	}
+}
+
+func Test_GenerateResourceCommand(t *testing.T) {
+	s := []string{"generate", "resource"}
+	cmd := NewGenerateCmd(s)
+	out := cmd.Execute()
+	if out.Error() != `exit status 1` {
+		t.Fatalf("expected \"%s\" got \"%s\"", `exit status 1`, out.Error())
+	}
+}
+
+func Test_GeneratePolicyCommand(t *testing.T) {
+	s := []string{"generate", "policyfile"}
+	cmd := NewEnvCmd(s)
+	b := bytes.NewBufferString("")
+	cmd.SetOut(b)
+	cmd.Execute()
+	out, err := ioutil.ReadAll(b)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(out) != `` {
+		t.Fatalf("expected \"%s\" got \"%s\"", ``, string(out))
+	}
+}
