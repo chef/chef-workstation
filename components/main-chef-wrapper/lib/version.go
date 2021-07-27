@@ -25,6 +25,7 @@ import (
 	"path/filepath"
 	"runtime"
 	"golang.org/x/sys/windows/registry"
+	"strings"
 )
 
 var gemManifestMap map[string]interface{}
@@ -144,7 +145,7 @@ func ExpectedOmnibusRoot() string {
 		if err != nil {
 			log.Fatal(err)
 		}
-		rootPath = s
+		rootPath = strings.Replace(s, "//", "/", -1)
 	} else {
 		ex, _ := os.Executable()
 		exReal, err := filepath.EvalSymlinks(ex)
