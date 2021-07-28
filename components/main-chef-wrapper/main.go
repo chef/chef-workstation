@@ -19,7 +19,8 @@ package main
 import (
 	"fmt"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
+	//"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
 	"github.com/mitchellh/go-homedir"
 	"os"
 	"os/exec"
@@ -62,7 +63,7 @@ func main() {
 		os.Exit(0)
 
 	case "version", "-v", "--version":
-		err := lib.Version()
+		err := platform_lib.Version()
 		if err != nil {
 			fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
 			os.Exit(4)
