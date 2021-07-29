@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.7.548 -->
-## [21.7.548](https://github.com/chef/chef-workstation/tree/21.7.548) (2021-07-29)
+<!-- latest_release 21.7.549 -->
+## [21.7.549](https://github.com/chef/chef-workstation/tree/21.7.549) (2021-07-29)
 
 #### Merged Pull Requests
-- Bump cookstyle to 7.15.3 and train to 3.8.1 [#2177](https://github.com/chef/chef-workstation/pull/2177) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.31 [#2175](https://github.com/chef/chef-workstation/pull/2175) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.7.545 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.31 [#2175](https://github.com/chef/chef-workstation/pull/2175) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.549 -->
 - Bump cookstyle to 7.15.3 and train to 3.8.1 [#2177](https://github.com/chef/chef-workstation/pull/2177) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.548 -->
 - Switch back to an icon url in chocolatey [#2173](https://github.com/chef/chef-workstation/pull/2173) ([tas50](https://github.com/tas50)) <!-- 21.7.547 -->
 - Make sure PowerShell DLLs used by Infra Client are properly installed [#2164](https://github.com/chef/chef-workstation/pull/2164) ([johnmccrae](https://github.com/johnmccrae)) <!-- 21.7.546 -->
