@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.7.551 -->
-## [21.7.551](https://github.com/chef/chef-workstation/tree/21.7.551) (2021-07-30)
+<!-- latest_release 21.7.552 -->
+## [21.7.552](https://github.com/chef/chef-workstation/tree/21.7.552) (2021-07-30)
 
 #### Merged Pull Requests
-- Bump cookstyle to 7.15.4 [#2179](https://github.com/chef/chef-workstation/pull/2179) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.32 [#2178](https://github.com/chef/chef-workstation/pull/2178) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.7.545 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.32 [#2178](https://github.com/chef/chef-workstation/pull/2178) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.552 -->
 - Bump cookstyle to 7.15.4 [#2179](https://github.com/chef/chef-workstation/pull/2179) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.551 -->
 - Build packages specifically on RHEL 8 [#2108](https://github.com/chef/chef-workstation/pull/2108) ([tas50](https://github.com/tas50)) <!-- 21.7.550 -->
 - Bump Chef Workstation App to 0.2.31 [#2175](https://github.com/chef/chef-workstation/pull/2175) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.549 -->
