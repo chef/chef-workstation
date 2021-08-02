@@ -539,7 +539,7 @@ GEM
       rbvmomi (>= 1.11, < 4.0)
       test-kitchen (>= 1.16, < 4)
       vsphere-automation-sdk (~> 0.4)
-    knife (17.3.48)
+    knife (17.4.18)
       bcrypt_pbkdf (~> 1.1)
       chef (>= 17)
       chef-config (>= 17)
