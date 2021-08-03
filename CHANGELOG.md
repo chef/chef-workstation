@@ -1,28 +1,26 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.555 -->
-## [21.8.555](https://github.com/chef/chef-workstation/tree/21.8.555) (2021-08-02)
-
-#### Merged Pull Requests
-- Bump chef-cli to 5.4.1 [#2182](https://github.com/chef/chef-workstation/pull/2182) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=21.7.545 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Bump chef-cli to 5.4.1 [#2182](https://github.com/chef/chef-workstation/pull/2182) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.555 -->
-- Bump knife to 17.4.18 [#2181](https://github.com/chef/chef-workstation/pull/2181) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.554 -->
-- Bump nokogiri to 1.12.0 [#2180](https://github.com/chef/chef-workstation/pull/2180) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.553 -->
-- Bump Chef Workstation App to 0.2.32 [#2178](https://github.com/chef/chef-workstation/pull/2178) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.552 -->
-- Bump cookstyle to 7.15.4 [#2179](https://github.com/chef/chef-workstation/pull/2179) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.551 -->
-- Build packages specifically on RHEL 8 [#2108](https://github.com/chef/chef-workstation/pull/2108) ([tas50](https://github.com/tas50)) <!-- 21.7.550 -->
-- Bump Chef Workstation App to 0.2.31 [#2175](https://github.com/chef/chef-workstation/pull/2175) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.549 -->
-- Bump cookstyle to 7.15.3 and train to 3.8.1 [#2177](https://github.com/chef/chef-workstation/pull/2177) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.7.548 -->
-- Switch back to an icon url in chocolatey [#2173](https://github.com/chef/chef-workstation/pull/2173) ([tas50](https://github.com/tas50)) <!-- 21.7.547 -->
-- Make sure PowerShell DLLs used by Infra Client are properly installed [#2164](https://github.com/chef/chef-workstation/pull/2164) ([johnmccrae](https://github.com/johnmccrae)) <!-- 21.7.546 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [21.8.555](https://github.com/chef/chef-workstation/tree/21.8.555) (2021-08-03)
+
+#### Merged Pull Requests
+- Make sure PowerShell DLLs used by Infra Client are properly installed [#2164](https://github.com/chef/chef-workstation/pull/2164) ([johnmccrae](https://github.com/johnmccrae))
+- Switch back to an icon url in chocolatey [#2173](https://github.com/chef/chef-workstation/pull/2173) ([tas50](https://github.com/tas50))
+- Bump cookstyle to 7.15.3 and train to 3.8.1 [#2177](https://github.com/chef/chef-workstation/pull/2177) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.31 [#2175](https://github.com/chef/chef-workstation/pull/2175) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Build packages specifically on RHEL 8 [#2108](https://github.com/chef/chef-workstation/pull/2108) ([tas50](https://github.com/tas50))
+- Bump cookstyle to 7.15.4 [#2179](https://github.com/chef/chef-workstation/pull/2179) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.32 [#2178](https://github.com/chef/chef-workstation/pull/2178) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump nokogiri to 1.12.0 [#2180](https://github.com/chef/chef-workstation/pull/2180) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump knife to 17.4.18 [#2181](https://github.com/chef/chef-workstation/pull/2181) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-cli to 5.4.1 [#2182](https://github.com/chef/chef-workstation/pull/2182) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_stable_release -->
+
 ## [21.7.545](https://github.com/chef/chef-workstation/tree/21.7.545) (2021-07-26)
 
 #### Merged Pull Requests
@@ -47,7 +45,6 @@
 - Bump chef-apply to 0.7.1 [#2168](https://github.com/chef/chef-workstation/pull/2168) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump chef-telemetry to 1.1.1 [#2169](https://github.com/chef/chef-workstation/pull/2169) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump knife-vsphere to 5.0.0 [#2170](https://github.com/chef/chef-workstation/pull/2170) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [21.7.524](https://github.com/chef/chef-workstation/tree/21.7.524) (2021-07-06)
 
