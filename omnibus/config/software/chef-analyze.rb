@@ -27,5 +27,5 @@ build do
   env = with_standard_compiler_flags(with_embedded_path)
   env["CGO_ENABLED"] = "0"
   file_extension = windows? ? ".exe" : ""
-  command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/#{name}#{file_extension}", env: env
+  go "build -o #{install_dir}/bin/#{name}#{file_extension}", env: env
 end

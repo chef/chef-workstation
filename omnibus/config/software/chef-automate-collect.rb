@@ -29,7 +29,7 @@ build do
 
   if windows?
     # Windows systems requires an extention (EXE)
-    command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/chef-automate-collect.exe", env: env
+    go "build -o #{install_dir}/bin/chef-automate-collect.exe", env: env
 
     block "Generate a 'chef-automate-collect' binary that calls the 'chef-automate-collect.exe' executable" do
       File.open("#{install_dir}/bin/chef-automate-collect", "w") do |f|
@@ -38,6 +38,6 @@ build do
     end
   else
     # Unix systems has no extention
-    command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/chef-automate-collect", env: env
+    go "build -o #{install_dir}/bin/chef-automate-collect", env: env
   end
 end
