@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.558 -->
-## [21.8.558](https://github.com/chef/chef-workstation/tree/21.8.558) (2021-08-04)
+<!-- latest_release 21.8.559 -->
+## [21.8.559](https://github.com/chef/chef-workstation/tree/21.8.559) (2021-08-04)
 
 #### Merged Pull Requests
-- Bump omnibus from `9ffcd89` to `62bf487` in /omnibus [#2188](https://github.com/chef/chef-workstation/pull/2188) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump omnibus-software from `c172afb` to `a4fab5f` in /omnibus [#2189](https://github.com/chef/chef-workstation/pull/2189) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `c172afb` to `a4fab5f` in /omnibus [#2189](https://github.com/chef/chef-workstation/pull/2189) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.559 -->
 - Bump omnibus from `9ffcd89` to `62bf487` in /omnibus [#2188](https://github.com/chef/chef-workstation/pull/2188) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.558 -->
 - Bump nokogiri to 1.12.2 [#2190](https://github.com/chef/chef-workstation/pull/2190) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.557 -->
 - Bump nokogiri to 1.12.1 [#2187](https://github.com/chef/chef-workstation/pull/2187) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.556 -->
