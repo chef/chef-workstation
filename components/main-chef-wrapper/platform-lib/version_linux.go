@@ -19,13 +19,10 @@ import (
 	"fmt"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
-	"golang.org/x/sys/windows/registry"
 	"io/ioutil"
-	"log"
 	"os"
 	"path"
 	"path/filepath"
-	"strings"
 )
 
 var gemManifestMap map[string]interface{}
@@ -131,19 +128,16 @@ func omnibusRoot() string {
 }
 
 func ExpectedOmnibusRoot() string {
-	var rootPath string
-	var cwsRegKeyInstallDir = "InstallDir"
-	//windows registry code here
-	k, err := registry.OpenKey(registry.LOCAL_MACHINE, `SOFTWARE\Chef\Chef Workstation`, registry.QUERY_VALUE)
+	ex, _ := os.Executable()
+	exReal, err := filepath.EvalSymlinks(ex)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Fprintln(os.Stderr, "ERROR:", err)
+		os.Exit(4)
 	}
-	defer k.Close()
-
-	s, _, err := k.GetStringValue(cwsRegKeyInstallDir)
-	if err != nil {
-		log.Fatal(err)
-	}
-	rootPath = strings.Replace(s, "//", "/", -1)
+	rootPath := path.Join(filepath.Dir(exReal), "..")
+	//groot := os.Getenv("GEM_ROOT")
+	//rootPath, err := filepath.Abs(path.Join(groot,"..","..", "..", "..", ".."))
 	return rootPath
+	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
+	//return "/opt/chef-workstation"
 }
