@@ -38,15 +38,6 @@ https://docs.chef.io/policyfile/
 	}
 }
 
-// func Test_UndeleteCommand(t *testing.T) {
-// 	s := []string{"undelete"}
-// 	cmd := NewUndeleteCmd(s)
-// 	out := cmd.Execute()
-// 	if out.Error() != `exit status 1` {
-// 		t.Fatalf("expected \"%s\" got \"%s\"", `exit status 1`, out.Error())
-// 	}
-// }
-
 func Test_UndeleteCookbookCommand(t *testing.T) {
 	s := []string{"undelete"}
 	cmd := NewUndeleteCmd(s)

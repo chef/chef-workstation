@@ -2,16 +2,15 @@ package cmd
 
 import (
 	"bytes"
-	"fmt"
 	"io/ioutil"
-	"reflect"
+	"log"
 	"testing"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 	"github.com/spf13/cobra"
 )
 
-func NewEnvCmd(s []string) *cobra.Command {
+func NewShellInitCookbookCmd(s []string) *cobra.Command {
 	return &cobra.Command{
 		Use:   "env",
 		Short: "Prints environment variables used by %s",
@@ -21,18 +20,23 @@ func NewEnvCmd(s []string) *cobra.Command {
 	}
 }
 
-func Test_EnvCommand(t *testing.T) {
-	s := []string{"env"}
-	cmd := NewEnvCmd(s)
+func Test_ShellInitCommand(t *testing.T) {
+	s := []string{"shell-init"}
+	cmd := NewShellInitCookbookCmd(s)
+	err := cmd.Execute()
+	if err != nil {
+		log.Printf("Command finished with error: %v", err)
+	}
+}
+
+func Test_ShellInitNamePathCommand(t *testing.T) {
+	s := []string{"shell-init", "zsh"}
+	cmd := NewShellInitCookbookCmd(s)
 	b := bytes.NewBufferString("")
 	cmd.SetOut(b)
 	cmd.Execute()
 	// fmt.Println("x is ...", x)
 	out, err := ioutil.ReadAll(b)
-	fmt.Println("out is ...", string(out))
-	// fmt.Println("error is ...", err)
-	// fmt.Println(reflect.TypeOf(err))
-	fmt.Println(reflect.TypeOf(string(out)))
 	if err != nil {
 		t.Fatal(err)
 	}
