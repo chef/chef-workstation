@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.560 -->
-## [21.8.560](https://github.com/chef/chef-workstation/tree/21.8.560) (2021-08-04)
+<!-- latest_release 21.8.561 -->
+## [21.8.561](https://github.com/chef/chef-workstation/tree/21.8.561) (2021-08-06)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.37 [#2191](https://github.com/chef/chef-workstation/pull/2191) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 7.16.1 [#2192](https://github.com/chef/chef-workstation/pull/2192) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump cookstyle to 7.16.1 [#2192](https://github.com/chef/chef-workstation/pull/2192) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.561 -->
 - Bump Chef Workstation App to 0.2.37 [#2191](https://github.com/chef/chef-workstation/pull/2191) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.560 -->
 - Bump omnibus-software from `c172afb` to `a4fab5f` in /omnibus [#2189](https://github.com/chef/chef-workstation/pull/2189) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.559 -->
 - Bump omnibus from `9ffcd89` to `62bf487` in /omnibus [#2188](https://github.com/chef/chef-workstation/pull/2188) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.558 -->
