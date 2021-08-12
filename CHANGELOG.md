@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.564 -->
-## [21.8.564](https://github.com/chef/chef-workstation/tree/21.8.564) (2021-08-12)
+<!-- latest_release 21.8.565 -->
+## [21.8.565](https://github.com/chef/chef-workstation/tree/21.8.565) (2021-08-12)
 
 #### Merged Pull Requests
-- Fix Chef Workstation App installation [#2196](https://github.com/chef/chef-workstation/pull/2196) ([tduffield](https://github.com/tduffield))
+- Bump omnibus from `62bf487` to `999a4e0` in /omnibus [#2195](https://github.com/chef/chef-workstation/pull/2195) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus from `62bf487` to `999a4e0` in /omnibus [#2195](https://github.com/chef/chef-workstation/pull/2195) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.565 -->
 - Fix Chef Workstation App installation [#2196](https://github.com/chef/chef-workstation/pull/2196) ([tduffield](https://github.com/tduffield)) <!-- 21.8.564 -->
 - change to use go dsl [#2197](https://github.com/chef/chef-workstation/pull/2197) ([mimaslanka](https://github.com/mimaslanka)) <!-- 21.8.563 -->
 - Bump nokogiri to 1.12.3 [#2193](https://github.com/chef/chef-workstation/pull/2193) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.562 -->
