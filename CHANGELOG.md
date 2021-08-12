@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.562 -->
-## [21.8.562](https://github.com/chef/chef-workstation/tree/21.8.562) (2021-08-10)
+<!-- latest_release 21.8.563 -->
+## [21.8.563](https://github.com/chef/chef-workstation/tree/21.8.563) (2021-08-12)
 
 #### Merged Pull Requests
-- Bump nokogiri to 1.12.3 [#2193](https://github.com/chef/chef-workstation/pull/2193) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- change to use go dsl [#2197](https://github.com/chef/chef-workstation/pull/2197) ([mimaslanka](https://github.com/mimaslanka))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- change to use go dsl [#2197](https://github.com/chef/chef-workstation/pull/2197) ([mimaslanka](https://github.com/mimaslanka)) <!-- 21.8.563 -->
 - Bump nokogiri to 1.12.3 [#2193](https://github.com/chef/chef-workstation/pull/2193) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.562 -->
 - Bump cookstyle to 7.16.1 [#2192](https://github.com/chef/chef-workstation/pull/2192) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.561 -->
 - Bump Chef Workstation App to 0.2.37 [#2191](https://github.com/chef/chef-workstation/pull/2191) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.560 -->
