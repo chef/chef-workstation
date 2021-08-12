@@ -1,15 +1,21 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.556 -->
-## [21.8.556](https://github.com/chef/chef-workstation/tree/21.8.556) (2021-08-03)
+<!-- latest_release 21.8.562 -->
+## [21.8.562](https://github.com/chef/chef-workstation/tree/21.8.562) (2021-08-10)
 
 #### Merged Pull Requests
-- Bump nokogiri to 1.12.1 [#2187](https://github.com/chef/chef-workstation/pull/2187) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump nokogiri to 1.12.3 [#2193](https://github.com/chef/chef-workstation/pull/2193) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump nokogiri to 1.12.3 [#2193](https://github.com/chef/chef-workstation/pull/2193) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.562 -->
+- Bump cookstyle to 7.16.1 [#2192](https://github.com/chef/chef-workstation/pull/2192) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.561 -->
+- Bump Chef Workstation App to 0.2.37 [#2191](https://github.com/chef/chef-workstation/pull/2191) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.560 -->
+- Bump omnibus-software from `c172afb` to `a4fab5f` in /omnibus [#2189](https://github.com/chef/chef-workstation/pull/2189) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.559 -->
+- Bump omnibus from `9ffcd89` to `62bf487` in /omnibus [#2188](https://github.com/chef/chef-workstation/pull/2188) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.558 -->
+- Bump nokogiri to 1.12.2 [#2190](https://github.com/chef/chef-workstation/pull/2190) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.557 -->
 - Bump nokogiri to 1.12.1 [#2187](https://github.com/chef/chef-workstation/pull/2187) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.556 -->
 <!-- release_rollup -->
 
