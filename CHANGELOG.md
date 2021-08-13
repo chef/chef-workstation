@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.568 -->
-## [21.8.568](https://github.com/chef/chef-workstation/tree/21.8.568) (2021-08-12)
+<!-- latest_release 21.8.569 -->
+## [21.8.569](https://github.com/chef/chef-workstation/tree/21.8.569) (2021-08-13)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.40 [#2201](https://github.com/chef/chef-workstation/pull/2201) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus from `999a4e0` to `e3573e7` in /omnibus [#2202](https://github.com/chef/chef-workstation/pull/2202) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus from `999a4e0` to `e3573e7` in /omnibus [#2202](https://github.com/chef/chef-workstation/pull/2202) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.569 -->
 - Bump Chef Workstation App to 0.2.40 [#2201](https://github.com/chef/chef-workstation/pull/2201) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.568 -->
 - Bump cookstyle to 7.17.0 [#2199](https://github.com/chef/chef-workstation/pull/2199) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.567 -->
 - Bump nokogiri to 1.12.3 [#2194](https://github.com/chef/chef-workstation/pull/2194) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.566 -->
