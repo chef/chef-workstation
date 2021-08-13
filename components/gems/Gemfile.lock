@@ -97,7 +97,7 @@ GEM
     aws-sdk-eks (1.60.0)
       aws-sdk-core (~> 3, >= 3.119.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-elasticache (1.59.0)
+    aws-sdk-elasticache (1.60.0)
       aws-sdk-core (~> 3, >= 3.119.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-elasticbeanstalk (1.44.0)
@@ -647,7 +647,7 @@ GEM
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
-    mixlib-install (3.12.11)
+    mixlib-install (3.12.15)
       mixlib-shellout
       mixlib-versioning
       thor
