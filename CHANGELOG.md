@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.571 -->
-## [21.8.571](https://github.com/chef/chef-workstation/tree/21.8.571) (2021-08-13)
+<!-- latest_release 21.8.572 -->
+## [21.8.572](https://github.com/chef/chef-workstation/tree/21.8.572) (2021-08-14)
 
 #### Merged Pull Requests
-- Bump mixlib-install to 3.12.15 [#2205](https://github.com/chef/chef-workstation/pull/2205) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump mixlib-install to 3.12.16 [#2206](https://github.com/chef/chef-workstation/pull/2206) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump mixlib-install to 3.12.16 [#2206](https://github.com/chef/chef-workstation/pull/2206) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.572 -->
 - Bump mixlib-install to 3.12.15 [#2205](https://github.com/chef/chef-workstation/pull/2205) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.571 -->
 - Bump kitchen-hyperv to 0.7.0 [#2204](https://github.com/chef/chef-workstation/pull/2204) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.570 -->
 - Bump omnibus from `999a4e0` to `e3573e7` in /omnibus [#2202](https://github.com/chef/chef-workstation/pull/2202) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.569 -->
