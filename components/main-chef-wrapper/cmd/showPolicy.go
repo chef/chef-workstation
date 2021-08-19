@@ -33,17 +33,17 @@ var (
 
 	showPolicyCmd = &cobra.Command{
 		Use:   "show-policy [ POLICY_NAME [ POLICY_GROUP ] ]",
-		Short: "Show Policyfile objects on the %s",
+		Short: "Show policyfile objects on the %s",
 		Long: `
-Display the revisions of Policyfiles on the %s.
+Display the revisions of policyfiles on the %s.
 By default, only active policy revisions are shown. Use the '--orphans'
 option to show policy revisions that are not assigned to any policy group.
 
 When both POLICY_NAME and POLICY_GROUP are given, the command shows the content
-of the active Policyfile lock for the given POLICY_GROUP. See also the 'diff'
+of the active policyfile lock for the given POLICY_GROUP. See also the 'diff'
 command.
 
-See the Policyfile documentation for more information:
+See the policyfile documentation for more information:
 
 https://docs.chef.io/policyfile/
 `,
@@ -59,7 +59,7 @@ func init() {
 	showPolicyCmd.PersistentFlags().BoolVarP(&orphans, "orphans", "o", false, "Show policy revisions that are unassigned")
 	// TODO - there are better tools for paging. Do we want to one-off support it here/in chef-cli?
 	//        also in use for `diff`
-	showPolicyCmd.PersistentFlags().BoolVar(&showPolicyPager, "[no-]pager", true, "Enable/disable paged Policyfile lock output (default: enabled)")
+	showPolicyCmd.PersistentFlags().BoolVar(&showPolicyPager, "[no-]pager", true, "Enable/disable paged policyfile lock output (default: enabled)")
 	showPolicyCmd.Short = fmt.Sprintf(showPolicyCmd.Short, dist.ServerProduct)
 	showPolicyCmd.Long = fmt.Sprintf(showPolicyCmd.Long, dist.ServerProduct)
 	rootCmd.AddCommand(showPolicyCmd)

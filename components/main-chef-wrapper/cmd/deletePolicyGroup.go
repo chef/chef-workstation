@@ -39,6 +39,7 @@ See our detailed README for more information:
 
 https://docs.chef.io/policyfile/
 `,
+	Args:               cobra.ExactArgs(1),
 	DisableFlagParsing: true,
 
 	RunE: func(cmd *cobra.Command, args []string) error {

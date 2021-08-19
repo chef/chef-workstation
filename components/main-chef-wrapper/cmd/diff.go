@@ -32,9 +32,9 @@ var (
 	pager     bool
 
 	diffCmd = &cobra.Command{
-		Use:                   "diff [Policyfile] [--head | --git GIT_REF | POLICY_GROUP | POLICY_GROUP...POLICY_GROUP]",
+		Use:                   "diff [POLICYFILE] [--head | --git GIT_REF | POLICY_GROUP | POLICY_GROUP...POLICY_GROUP]",
 		DisableFlagsInUseLine: true, // [options] is not helpful when appended to 'use' in this context
-		Short:                 "Generate an itemized diff of two Policyfile lock documents",
+		Short:                 "Generate an itemized diff of two policyfile lock documents",
 		Long: `
 Display an itemized diff comparing two revisions of a Policyfile lock.
 
