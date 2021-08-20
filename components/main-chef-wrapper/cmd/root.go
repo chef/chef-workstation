@@ -47,23 +47,21 @@ import (
 // The latter is more clear to the operator, so we prefer it.
 
 type rootConfig struct {
-	debug bool
+	configFile        string
+	licenseAcceptance string
+	debug             bool
 }
 
 var (
 	options rootConfig
 
 	rootCmd = &cobra.Command{
-		Use: "chef",
-		Short: `
-The Chef command line tool for managing your infrastructure from your workstation.
-Docs: https://docs.chef.io/workstation/
-Patents: https://www.chef.io/patents
-		`,
+		Use:   "chef",
+		Short: "chef",
 		// Stop framework from showing default errors. This prevents duplicate errors or
 		// unncessary info from showing on passthrough commands; and
 		// allows us control over error rendering for internal commands.
-		SilenceErrors: false,
+		SilenceErrors: true,
 
 		// Don't spam the user with usage message when any error occurs -
 		// this just makes it harder to see the actual message, obscuring it by dumping
@@ -76,7 +74,6 @@ Patents: https://www.chef.io/patents
 func Execute() {
 	var ee *exec.ExitError
 	if err := rootCmd.Execute(); err != nil {
-		// fmt.Println(err.Error())
 		if errors.As(err, &ee) {
 			os.Exit(ee.ExitCode())
 		}
@@ -96,6 +93,11 @@ func init() {
 	// These flags are common to all child commands.  Some of them do not need config or debug,
 	// so we can look at pushing this down; but it seems to make sense since it's present for more
 	// commands than it isn't.
+	rootCmd.PersistentFlags().StringVarP(&options.configFile, "config", "c", "", "Read configuration from `CONFIG_FILE_PATH`")
+	rootCmd.PersistentFlags().StringVar(&options.licenseAcceptance, "chef-license", "",
+		"Accept product license, where `ACCEPTANCE` is one of 'accept', 'accept-no-persist', or 'accept-silent'")
+	rootCmd.PersistentFlags().BoolVarP(&options.debug, "debug", "d", false,
+		"Enable debug output when available")
 	rootCmd.PersistentFlags().BoolVarP(&options.debug, "version", "v", false,
 		fmt.Sprintf("Show %s version information", dist.WorkstationProduct))
 }

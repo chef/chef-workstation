@@ -28,7 +28,7 @@ import (
 )
 
 var pushCmd = &cobra.Command{
-	Use:   "push POLICY_GROUP [ Policyfile ]",
+	Use:   "push POLICY_GROUP [ POLICYFILE ]",
 	Short: "Push a local Policyfile lock to a policy group on the %s",
 	Long: `
 Upload an existing Policyfile.lock.json to a %s, along
@@ -36,7 +36,7 @@ with all the cookbooks contained in the Policy lock. The Policy lock is applied
 to a specific POLICY_GROUP, which is a set of nodes that share the same
 run_list and cookbooks.
 
-See the Policyfile documentation for more information:
+See the policyfile documentation for more information:
 
 https://docs.chef.io/policyfile/
 `,

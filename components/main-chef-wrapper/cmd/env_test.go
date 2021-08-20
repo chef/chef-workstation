@@ -2,9 +2,7 @@ package cmd
 
 import (
 	"bytes"
-	"fmt"
 	"io/ioutil"
-	"reflect"
 	"testing"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
@@ -29,10 +27,6 @@ func Test_EnvCommand(t *testing.T) {
 	cmd.Execute()
 	// fmt.Println("x is ...", x)
 	out, err := ioutil.ReadAll(b)
-	fmt.Println("out is ...", string(out))
-	// fmt.Println("error is ...", err)
-	// fmt.Println(reflect.TypeOf(err))
-	fmt.Println(reflect.TypeOf(string(out)))
 	if err != nil {
 		t.Fatal(err)
 	}

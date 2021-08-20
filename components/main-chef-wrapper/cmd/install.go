@@ -27,7 +27,7 @@ import (
 
 var installCmd = &cobra.Command{
 	Use:   "install [ POLICYFILE_PATH ]",
-	Short: "Install cookbooks from a Policyfile and generate a locked cookbook set",
+	Short: "Install cookbooks from a policyfile and generate a locked cookbook set",
 	Long: `
 
 Evaluate POLICYFILE_PATH to find a compatible set of cookbooks for the
@@ -38,7 +38,7 @@ cookbooks on another machine.
 You can also push the lockfile to a "policy group" on a %s and
 apply that exact set of cookbooks to nodes in your infrastructure.
 
-See the Policyfile documentation for more information:
+See the policyfile documentation for more information:
 
 https://docs.chef.io/policyfile/
 `,

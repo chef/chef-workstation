@@ -29,7 +29,7 @@ import (
 var (
 	force     bool
 	exportCmd = &cobra.Command{
-		Use:   "export [ Policyfile ] DESTINATION_DIRECTORY",
+		Use:   "export [ POLICYFILE ] DESTINATION_DIRECTORY",
 		Short: "Export a policy lock as a %s code repository",
 		Long: `
 Create a %s Zero-compatible repository containing the
@@ -40,7 +40,7 @@ the policy to any machine with:
 
   $ %s -z
 
-See the Policyfile documentation for more information:
+See the policyfile documentation for more information:
 
 https://docs.chef.io/policyfile/
 `,
