@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.583 -->
-## [21.8.583](https://github.com/chef/chef-workstation/tree/21.8.583) (2021-08-23)
+<!-- latest_release 21.8.584 -->
+## [21.8.584](https://github.com/chef/chef-workstation/tree/21.8.584) (2021-08-23)
 
 #### Merged Pull Requests
-- Update Chef Infra Client to 17.4.25 [#2222](https://github.com/chef/chef-workstation/pull/2222) ([tas50](https://github.com/tas50))
+- Bump chefspec to 9.3.1 [#2223](https://github.com/chef/chef-workstation/pull/2223) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chefspec to 9.3.1 [#2223](https://github.com/chef/chef-workstation/pull/2223) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.584 -->
 - Update Chef Infra Client to 17.4.25 [#2222](https://github.com/chef/chef-workstation/pull/2222) ([tas50](https://github.com/tas50)) <!-- 21.8.583 -->
 - Bump Chef Workstation App to 0.2.44 [#2221](https://github.com/chef/chef-workstation/pull/2221) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.582 -->
 - Bump cookstyle to 7.20.0 [#2219](https://github.com/chef/chef-workstation/pull/2219) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.581 -->
