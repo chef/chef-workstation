@@ -18,11 +18,12 @@ package main
 
 import (
 	"fmt"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
+	//"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
+	"github.com/mitchellh/go-homedir"
 	"os"
 	"os/exec"
-
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
-	"github.com/mitchellh/go-homedir"
 )
 
 func main() {
@@ -59,6 +60,14 @@ func main() {
 
 	case "help", "-h", "--help":
 		usage()
+		os.Exit(0)
+
+	case "version", "-v", "--version":
+		err := platform_lib.Version()
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+			os.Exit(4)
+		}
 		os.Exit(0)
 
 	case "none":
