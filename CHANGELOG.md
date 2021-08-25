@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.585 -->
-## [21.8.585](https://github.com/chef/chef-workstation/tree/21.8.585) (2021-08-24)
+<!-- latest_release 21.8.586 -->
+## [21.8.586](https://github.com/chef/chef-workstation/tree/21.8.586) (2021-08-25)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.45 [#2224](https://github.com/chef/chef-workstation/pull/2224) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- move chef -v to golang [#2062](https://github.com/chef/chef-workstation/pull/2062) ([i5pranay93](https://github.com/i5pranay93))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- move chef -v to golang [#2062](https://github.com/chef/chef-workstation/pull/2062) ([i5pranay93](https://github.com/i5pranay93)) <!-- 21.8.586 -->
 - Bump Chef Workstation App to 0.2.45 [#2224](https://github.com/chef/chef-workstation/pull/2224) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.585 -->
 - Bump chefspec to 9.3.1 [#2223](https://github.com/chef/chef-workstation/pull/2223) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.584 -->
 - Update Chef Infra Client to 17.4.25 [#2222](https://github.com/chef/chef-workstation/pull/2222) ([tas50](https://github.com/tas50)) <!-- 21.8.583 -->
