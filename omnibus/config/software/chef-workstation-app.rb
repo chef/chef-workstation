@@ -21,9 +21,9 @@ skip_transitive_dependency_licensing
 license_file "LICENSE"
 
 # These three lines are updated automatically by Expeditor
-default_version "0.2.40"
-source sha1: "b9a74a9001a5e4f70906cebb3526bffa9eb953f8" if windows?
-source sha1: "c4eb210b4abb00a6bb673c1e35645c7e068e76c4" if linux?
+default_version "0.2.45"
+source sha1: "377c2f9409a57f7db3577d0476a3c541e6e2ed54" if windows?
+source sha1: "4261e9a501386313031ceafd8fa49aef013b8866" if linux?
 
 platform_name = if macos?
                   "darwin"

@@ -1,15 +1,31 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.569 -->
-## [21.8.569](https://github.com/chef/chef-workstation/tree/21.8.569) (2021-08-13)
+<!-- latest_release 21.8.585 -->
+## [21.8.585](https://github.com/chef/chef-workstation/tree/21.8.585) (2021-08-24)
 
 #### Merged Pull Requests
-- Bump omnibus from `999a4e0` to `e3573e7` in /omnibus [#2202](https://github.com/chef/chef-workstation/pull/2202) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.45 [#2224](https://github.com/chef/chef-workstation/pull/2224) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.45 [#2224](https://github.com/chef/chef-workstation/pull/2224) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.585 -->
+- Bump chefspec to 9.3.1 [#2223](https://github.com/chef/chef-workstation/pull/2223) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.584 -->
+- Update Chef Infra Client to 17.4.25 [#2222](https://github.com/chef/chef-workstation/pull/2222) ([tas50](https://github.com/tas50)) <!-- 21.8.583 -->
+- Bump Chef Workstation App to 0.2.44 [#2221](https://github.com/chef/chef-workstation/pull/2221) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.582 -->
+- Bump cookstyle to 7.20.0 [#2219](https://github.com/chef/chef-workstation/pull/2219) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.581 -->
+- Bump Chef Workstation App to 0.2.43 [#2218](https://github.com/chef/chef-workstation/pull/2218) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.580 -->
+- Bump chef-apply to 0.8.1 [#2217](https://github.com/chef/chef-workstation/pull/2217) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.579 -->
+- Bump cookstyle to 7.19.0 [#2216](https://github.com/chef/chef-workstation/pull/2216) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.578 -->
+- Bump inspec-bin to 4.41.2 [#2213](https://github.com/chef/chef-workstation/pull/2213) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.577 -->
+- Bump Chef Workstation App to 0.2.42 [#2212](https://github.com/chef/chef-workstation/pull/2212) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.576 -->
+- Bump kitchen-vcenter to 2.10.2 [#2211](https://github.com/chef/chef-workstation/pull/2211) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.575 -->
+- Bump chef-analyze CLI to 0.1.115 [#2210](https://github.com/chef/chef-workstation/pull/2210) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.574 -->
+- Bump cookstyle to 7.18.0 [#2207](https://github.com/chef/chef-workstation/pull/2207) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.573 -->
+- Bump mixlib-install to 3.12.16 [#2206](https://github.com/chef/chef-workstation/pull/2206) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.572 -->
+- Bump mixlib-install to 3.12.15 [#2205](https://github.com/chef/chef-workstation/pull/2205) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.571 -->
+- Bump kitchen-hyperv to 0.7.0 [#2204](https://github.com/chef/chef-workstation/pull/2204) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.570 -->
 - Bump omnibus from `999a4e0` to `e3573e7` in /omnibus [#2202](https://github.com/chef/chef-workstation/pull/2202) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.569 -->
 - Bump Chef Workstation App to 0.2.40 [#2201](https://github.com/chef/chef-workstation/pull/2201) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.568 -->
 - Bump cookstyle to 7.17.0 [#2199](https://github.com/chef/chef-workstation/pull/2199) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.567 -->
