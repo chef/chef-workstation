@@ -24,6 +24,8 @@ chef-repo and the Chef Infra Server. knife helps users to manage:
 - The installation of Chef Infra Client onto nodes
 - Searching of indexed data on the Chef Infra Server
 
+
+
 <table>
 <colgroup>
 <col style="width: 25%" />
