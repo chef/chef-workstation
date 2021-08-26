@@ -1,8 +1,9 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release unreleased -->
-## Unreleased
+<!-- latest_release 21.8.592 -->
+## [21.8.592](https://github.com/chef/chef-workstation/tree/21.8.592) (2021-08-26)
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.117 [#2237](https://github.com/chef/chef-workstation/pull/2237) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump kitchen-vagrant from 1.9.0 to 1.10.0 in /omnibus [#2233](https://github.com/chef/chef-workstation/pull/2233) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
@@ -10,6 +11,7 @@
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.117 [#2237](https://github.com/chef/chef-workstation/pull/2237) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.592 -->
 - Bump kitchen-vagrant from 1.9.0 to 1.10.0 in /omnibus [#2233](https://github.com/chef/chef-workstation/pull/2233) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.591 -->
 - Bump omnibus from `e3573e7` to `7ce6173` in /omnibus [#2235](https://github.com/chef/chef-workstation/pull/2235) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.591 -->
 - Updated master branch references [#2232](https://github.com/chef/chef-workstation/pull/2232) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.8.590 -->
