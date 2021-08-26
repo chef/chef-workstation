@@ -1,11 +1,11 @@
 # Chef Workstation
 
 
-**Umbrella Project**: [Chef Workstation](https://github.com/chef/chef-oss-practices/blob/master/projects/chef-workstation.md)
+**Umbrella Project**: [Chef Workstation](https://github.com/chef/chef-oss-practices/blob/main/projects/chef-workstation.md)
 
-* **[Project State](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** Active
-* **Issues [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** 14 days
-* **Pull Request [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** 14 days
+* **[Project State](https://github.com/chef/chef-oss-practices/blob/main/repo-management/repo-states.md):** Active
+* **Issues [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/main/repo-management/repo-states.md):** 14 days
+* **Pull Request [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/main/repo-management/repo-states.md):** 14 days
 
 Chef Workstation installs everything you need to get started using Chef products on Windows, Mac and Linux. It includes:
 
@@ -44,7 +44,7 @@ Chef Workstation installs everything you need to get started using Chef products
 
 ## Building Chef-Workstation Packages
 
-We use Omnibus to describe our packaging. Please review [chef-workstation/omnibus/README.MD](https://github.com/chef/chef-workstation/tree/master/omnibus) for further details.
+We use Omnibus to describe our packaging. Please review [chef-workstation/omnibus/README.MD](https://github.com/chef/chef-workstation/tree/main/omnibus) for further details.
 
 ## Copyright and License
 
