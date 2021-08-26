@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.587 -->
-## [21.8.587](https://github.com/chef/chef-workstation/tree/21.8.587) (2021-08-25)
+<!-- latest_release 21.8.588 -->
+## [21.8.588](https://github.com/chef/chef-workstation/tree/21.8.588) (2021-08-26)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.47 [#2225](https://github.com/chef/chef-workstation/pull/2225) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 7.21.0 [#2228](https://github.com/chef/chef-workstation/pull/2228) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump cookstyle to 7.21.0 [#2228](https://github.com/chef/chef-workstation/pull/2228) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.588 -->
 - Bump Chef Workstation App to 0.2.47 [#2225](https://github.com/chef/chef-workstation/pull/2225) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.587 -->
 - move chef -v to golang [#2062](https://github.com/chef/chef-workstation/pull/2062) ([i5pranay93](https://github.com/i5pranay93)) <!-- 21.8.586 -->
 - Bump Chef Workstation App to 0.2.45 [#2224](https://github.com/chef/chef-workstation/pull/2224) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.585 -->
