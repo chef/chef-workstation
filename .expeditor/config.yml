@@ -72,16 +72,16 @@ subscriptions:
       # publish to third party package managers that have a dependency
       # on this artifact's availability
       - trigger_pipeline:third-party-packages
-  - workload: habitat-sh/habitat:master_completed:project_promoted:habitat-sh/habitat:master:current:*
+  - workload: habitat-sh/habitat:main_completed:project_promoted:habitat-sh/habitat:main:current:*
     actions:
       - bash:.expeditor/update_habitat.sh
-  - workload: buildkite_build_passed:chef/chef-workstation-app:master:release:*
+  - workload: buildkite_build_passed:chef/chef-workstation-app:main:release:*
     actions:
       - bash:.expeditor/update_chef-workstation-app_to_latest.sh
-  - workload: chef/delivery-cli:master_completed:pull_request_merged:chef/delivery-cli:master:*
+  - workload: chef/delivery-cli:main_completed:pull_request_merged:chef/delivery-cli:main:*
     actions:
       - bash:.expeditor/update_delivery-cli_to_latest.sh
-  - workload: chef/chef-analyze:master_completed:pull_request_merged:chef/chef-analyze:master:*
+  - workload: chef/chef-analyze:main_completed:pull_request_merged:chef/chef-analyze:main:*
     actions:
       - bash:.expeditor/update_chef-analyze_to_latest.sh
   - workload: artifact_published:stable:chef:16*

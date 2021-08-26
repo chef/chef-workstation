@@ -16,7 +16,7 @@
 #
 
 name "chef-analyze"
-default_version "master"
+default_version "main"
 license "Apache-2.0"
 license_file "LICENSE"
 source git: "https://github.com/chef/chef-analyze.git"

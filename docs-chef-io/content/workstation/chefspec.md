@@ -168,7 +168,7 @@ require 'chefspec'
 ## Examples
 
 The ChefSpec repo on github has [an impressive collection of
-examples](https://github.com/sethvargo/chefspec/tree/master/examples).
+examples](https://github.com/sethvargo/chefspec/tree/main/examples).
 For all of the core Chef Infra Client resources, for guards, attributes,
 multiple actions, and so on. Take a look at those examples and use them
 as a starting point for building your own unit tests. Some of them are
