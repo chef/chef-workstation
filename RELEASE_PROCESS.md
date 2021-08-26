@@ -14,7 +14,7 @@ Chef Workstation is released every two weeks. Monday at sprint kickoff the goal 
 
 ## Build Pipeline
 
-The build pipeline should always be kept in a 'green' state. Each PR merged to master should pass its [verify](https://buildkite.com/chef/chef-chef-workstation-master-verify) tests. After a PR is merged, ensure the [build](https://buildkite.com/chef/chef-chef-workstation-master-omnibus-release) pipeline is successful and promotes the build to the `current` channel.
+The build pipeline should always be kept in a 'green' state. Each PR merged to main should pass its [verify](https://buildkite.com/chef/chef-chef-workstation-main-verify) tests. After a PR is merged, ensure the [build](https://buildkite.com/chef/chef-chef-workstation-main-omnibus-release) pipeline is successful and promotes the build to the `current` channel.
 
 ## Merge Pending PRs
 
@@ -37,7 +37,7 @@ Finally, run a `bundle update` on the `omnibus` and `components/gems` folders to
 
 Release notes should be written in the [wiki](https://github.com/chef/chef-workstation/wiki/Pending-Release-Notes). The template is a guide but it is often useful to look at existing release notes in [discourse](https://discourse.chef.io/search?expanded=true&q=Chef%20Workstation%20%23chef-release%20order%3Alatest) for examples of the format and what should be included.
 
-To see changes that have occured since the last release, run `git difftool -d 20.10.168` and supply the last released version. This can also be done in the browser by accessing https://github.com/chef/chef-workstation/compare/20.10.168...master and providing the last released version. This is helpful for seeing PRs that have updated code in the Chef Workstation repo. Changes to `omnibus_overrides.rb` should be looked for first.
+To see changes that have occured since the last release, run `git difftool -d 21.8.555` and supply the last released version. This can also be done in the browser by accessing https://github.com/chef/chef-workstation/compare/21.8.555...main and providing the last released version. This is helpful for seeing PRs that have updated code in the Chef Workstation repo. Changes to `omnibus_overrides.rb` should be looked for first.
 
 The bulk of the release note content comes from the `components/gems/Gemfile.lock` file. This shows all the dependencies that have updated. Generally, patch level dependency updates are not included in the release notes. Any minor/major level updates to Chef maintained gems should be included in the release notes, as well as updates to security related gems (IE, OpenSSL).
 
@@ -55,7 +55,7 @@ In slack, run the `/expeditor promote chef-workstation 20.10.168` and supply the
 
 Sometimes the Omnitruck cache takes a long time to refresh. If you run `curl 'https://omnitruck.chef.io/stable/chef-workstation/metadata?p=mac_os_x&pv=10.15&m=x86_64&v=latest'` and it does not return the version you just promoted, the omnitruck cache has not been updated. Run this periodically (it can sometimes take a few hours) and retry the failed portion of the promote process after the correct version is returned. Retries can be performed on the Expeditor messages in `#chef-ws-notify`.
 
-The released package is also uploaded to Homebrew and Chocolatey via a triggered [third party packages](https://buildkite.com/chef/chef-chef-workstation-master-third-party-packages) pipeline. This often fails if the Omnitruck cache is slow to update. Continue retrying the Chocolatey pipeline after Omnitruck has refreshed and it should eventually succeed.
+The released package is also uploaded to Homebrew and Chocolatey via a triggered [third party packages](https://buildkite.com/chef/chef-chef-workstation-main-third-party-packages) pipeline. This often fails if the Omnitruck cache is slow to update. Continue retrying the Chocolatey pipeline after Omnitruck has refreshed and it should eventually succeed.
 
 As of the writing of this document, the Homebrew job is broken. To manually create the Homebrew PR take the following steps:
 

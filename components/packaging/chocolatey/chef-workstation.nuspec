@@ -10,7 +10,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <bugTrackerUrl>https://github.com/chef/chef-workstation/issues</bugTrackerUrl>
     <docsUrl>https://docs.chef.io/workstation/</docsUrl>
-    <iconUrl>https://raw.githubusercontent.com/chef/chocolatey-packages/master/chef.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/chef/chocolatey-packages/main/chef.png</iconUrl>
     <license type="Apache-2.0">MIT</license>
     <mailingListUrl>https://discourse.chef.io/</mailingListUrl>
     <projectSourceUrl>https://github.com/chef/chef-workstation</projectSourceUrl>

@@ -47,10 +47,10 @@ sed -i -r "s/^default_version \".*/default_version \"$version\"/" $sw_def_file
 branch="expeditor/hab-${version}"
 git checkout -b "$branch"
 git add $sw_def_file
-git commit --message "Bump habitat to $version." --message "This pull request was triggered automatically via Expeditor when habitat v. $version was merged to master." --message "This change falls under the obvious fix policy so no Developer Certificate of Origin (DCO) sign-off is required."
+git commit --message "Bump habitat to $version." --message "This pull request was triggered automatically via Expeditor when habitat v. $version was merged to main." --message "This change falls under the obvious fix policy so no Developer Certificate of Origin (DCO) sign-off is required."
 open_pull_request
 
-# Get back to master and cleanup the leftovers - any changed files left over at the end of this script will get committed to master.
+# Get back to main and cleanup the leftovers - any changed files left over at the end of this script will get committed to main.
 git checkout -
 git branch -D "$branch"
 

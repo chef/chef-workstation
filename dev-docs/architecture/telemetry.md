@@ -42,7 +42,7 @@ The inbound request must have a valid security token as described in 'Security'.
 ### Outbound Requests
 
 The outbound telemetry payload is a JSON object that complies with
-the [es-telemetry-pipeline event schema](https://github.com/chef/es-telemetry-pipeline/blob/master/schema/event.schema.json).
+the [es-telemetry-pipeline event schema](https://github.com/chef/es-telemetry-pipeline/blob/main/schema/event.schema.json).
 
 Most of those fields are self-explanatory, but some things are worth calling out:
 
