@@ -37,6 +37,6 @@ git commit --message "Bump Chef Workstation App to $version" --message "This pul
 
 open_pull_request
 
-# Get back to master and cleanup the leftovers - any changed files left over at the end of this script will get committed to master.
+# Get back to main and cleanup the leftovers - any changed files left over at the end of this script will get committed to main.
 git checkout -
 git branch -D "$branch"
