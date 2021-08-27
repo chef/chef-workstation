@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.594 -->
-## [21.8.594](https://github.com/chef/chef-workstation/tree/21.8.594) (2021-08-27)
+<!-- latest_release 21.8.595 -->
+## [21.8.595](https://github.com/chef/chef-workstation/tree/21.8.595) (2021-08-27)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `2ffd4e4` to `98d9831` in /omnibus [#2240](https://github.com/chef/chef-workstation/pull/2240) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump kitchen-azurerm to 1.8.0 [#2242](https://github.com/chef/chef-workstation/pull/2242) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-azurerm to 1.8.0 [#2242](https://github.com/chef/chef-workstation/pull/2242) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.595 -->
 - Bump omnibus-software from `2ffd4e4` to `98d9831` in /omnibus [#2240](https://github.com/chef/chef-workstation/pull/2240) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.594 -->
 - Bump cookstyle to 7.22.3 [#2239](https://github.com/chef/chef-workstation/pull/2239) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.593 -->
 - Bump chef-analyze CLI to 0.1.117 [#2237](https://github.com/chef/chef-workstation/pull/2237) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.592 -->
