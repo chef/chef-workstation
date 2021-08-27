@@ -132,7 +132,7 @@ If you do not have a version control system and CI/CD pipeline in place, then pl
 
 You can also ask questions in the Chef community channels:
 
- * Chef Community Slack at http://community-slack.chef.io/.
+ * Chef Community Slack at https://community-slack.chef.io/.
  * Chef Mailing List https://discourse.chef.io/
 
 ## Upgrade Lab
