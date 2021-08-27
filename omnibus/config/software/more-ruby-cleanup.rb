@@ -85,8 +85,9 @@ build do
     }
 
     Dir.glob("#{target_dir}/*/{#{files.join(",")}}").each do |f|
-      # don't delete these files if there's a non-empty bin dir in the same dir
+      # don't delete these files if there's a non-empty bin dir/exe in the same dir
       next if Dir.exist?(File.join(File.dirname(f), "bin")) && !Dir.empty?(File.join(File.dirname(f), "bin"))
+      next if Dir.exist?(File.join(File.dirname(f), "exe")) && !Dir.empty?(File.join(File.dirname(f), "exe"))
 
       puts "Deleting #{f}"
       FileUtils.rm_rf(f)

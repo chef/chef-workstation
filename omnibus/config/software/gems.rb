@@ -73,6 +73,7 @@ build do
   # install the whole bundle first
   bundle "install --jobs 10 --without #{excluded_groups.join(" ")}", env: env
 
+  appbundle "chefspec", lockdir: project_dir, gem: "rspec-core", without: %w{development}, env: env
   appbundle "knife", lockdir: project_dir, gem: "knife", without: %w{development}, env: env
   appbundle "foodcritic", lockdir: project_dir, gem: "chef_deprecations", without: %w{development test}, env: env
   appbundle "test-kitchen", lockdir: project_dir, gem: "test-kitchen", without: %w{changelog debug docs development integration}, env: env
