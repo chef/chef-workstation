@@ -503,7 +503,7 @@ GEM
     json (2.5.1)
     jwt (2.2.3)
     kartograph (0.2.8)
-    kitchen-azurerm (1.7.0)
+    kitchen-azurerm (1.8.0)
       azure_mgmt_network (~> 0.18, >= 0.18.2)
       azure_mgmt_resources (~> 0.17, >= 0.17.2)
       inifile (~> 3.0, >= 3.0.0)
