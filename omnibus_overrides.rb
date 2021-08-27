@@ -1,10 +1,10 @@
 # DO NOT MODIFY
 # The delivery-cli and chef-analyze versions are pinned by Expeditor.
-# Whenever chef-analyze, workstation-app and delivery cli are merged to master then
+# Whenever chef-analyze, workstation-app and delivery cli are merged to main then
 # Expeditor takes that version, runs a script to replace it here and pushes a new
 # commit / build through.
 
-override "chef-analyze", version: "0.1.115"
+override "chef-analyze", version: "0.1.117"
 override "delivery-cli", version: "0.0.55"
 # /DO NOT MODIFY
 

@@ -1,15 +1,25 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.585 -->
-## [21.8.585](https://github.com/chef/chef-workstation/tree/21.8.585) (2021-08-24)
+<!-- latest_release 21.8.594 -->
+## [21.8.594](https://github.com/chef/chef-workstation/tree/21.8.594) (2021-08-27)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.45 [#2224](https://github.com/chef/chef-workstation/pull/2224) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `2ffd4e4` to `98d9831` in /omnibus [#2240](https://github.com/chef/chef-workstation/pull/2240) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `2ffd4e4` to `98d9831` in /omnibus [#2240](https://github.com/chef/chef-workstation/pull/2240) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.594 -->
+- Bump cookstyle to 7.22.3 [#2239](https://github.com/chef/chef-workstation/pull/2239) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.593 -->
+- Bump chef-analyze CLI to 0.1.117 [#2237](https://github.com/chef/chef-workstation/pull/2237) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.592 -->
+- Bump kitchen-vagrant from 1.9.0 to 1.10.0 in /omnibus [#2233](https://github.com/chef/chef-workstation/pull/2233) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.591 -->
+- Bump omnibus from `e3573e7` to `7ce6173` in /omnibus [#2235](https://github.com/chef/chef-workstation/pull/2235) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.591 -->
+- Updated master branch references [#2232](https://github.com/chef/chef-workstation/pull/2232) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.8.590 -->
+- Bump kitchen-vagrant to 1.10.0 [#2229](https://github.com/chef/chef-workstation/pull/2229) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.589 -->
+- Bump cookstyle to 7.21.0 [#2228](https://github.com/chef/chef-workstation/pull/2228) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.588 -->
+- Bump Chef Workstation App to 0.2.47 [#2225](https://github.com/chef/chef-workstation/pull/2225) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.587 -->
+- move chef -v to golang [#2062](https://github.com/chef/chef-workstation/pull/2062) ([i5pranay93](https://github.com/i5pranay93)) <!-- 21.8.586 -->
 - Bump Chef Workstation App to 0.2.45 [#2224](https://github.com/chef/chef-workstation/pull/2224) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.585 -->
 - Bump chefspec to 9.3.1 [#2223](https://github.com/chef/chef-workstation/pull/2223) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.584 -->
 - Update Chef Infra Client to 17.4.25 [#2222](https://github.com/chef/chef-workstation/pull/2222) ([tas50](https://github.com/tas50)) <!-- 21.8.583 -->
