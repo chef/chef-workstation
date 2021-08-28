@@ -75,7 +75,7 @@ if [ "$moved" = "1" ]; then
   echo ""
 fi
 
-binaries="chef-run berks chef chef-cli chef-analyze chef-apply chef-shell chef-solo chef-vault cookstyle delivery foodcritic inspec kitchen knife ohai chef-client hab chef-zero mixlib-install fauxhai"
+binaries="chef-run berks chef chef-cli chef-analyze chef-apply chef-shell chef-solo chef-vault chefspec cookstyle delivery foodcritic inspec kitchen knife ohai chef-client hab chef-zero mixlib-install fauxhai"
 for binary in $binaries; do
   ln -sf "$INSTALLER_DIR/bin/$binary" $PREFIX/bin || error_exit "Cannot link $binary to $PREFIX/bin"
 done
