@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.596 -->
-## [21.8.596](https://github.com/chef/chef-workstation/tree/21.8.596) (2021-08-28)
+<!-- latest_release 21.8.597 -->
+## [21.8.597](https://github.com/chef/chef-workstation/tree/21.8.597) (2021-08-28)
 
 #### Merged Pull Requests
-- Bump chef to 17.4.38 [#2244](https://github.com/chef/chef-workstation/pull/2244) ([tas50](https://github.com/tas50))
+- Bump ohai to 17.5.2 [#2245](https://github.com/chef/chef-workstation/pull/2245) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump ohai to 17.5.2 [#2245](https://github.com/chef/chef-workstation/pull/2245) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.597 -->
 - Bump chef to 17.4.38 [#2244](https://github.com/chef/chef-workstation/pull/2244) ([tas50](https://github.com/tas50)) <!-- 21.8.596 -->
 - Bump kitchen-azurerm to 1.8.0 [#2242](https://github.com/chef/chef-workstation/pull/2242) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.595 -->
 - Bump omnibus-software from `2ffd4e4` to `98d9831` in /omnibus [#2240](https://github.com/chef/chef-workstation/pull/2240) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.594 -->
