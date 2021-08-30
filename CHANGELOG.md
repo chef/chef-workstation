@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.597 -->
-## [21.8.597](https://github.com/chef/chef-workstation/tree/21.8.597) (2021-08-28)
+<!-- latest_release 21.8.598 -->
+## [21.8.598](https://github.com/chef/chef-workstation/tree/21.8.598) (2021-08-30)
 
 #### Merged Pull Requests
-- Bump ohai to 17.5.2 [#2245](https://github.com/chef/chef-workstation/pull/2245) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump nokogiri to 1.12.4 [#2247](https://github.com/chef/chef-workstation/pull/2247) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump nokogiri to 1.12.4 [#2247](https://github.com/chef/chef-workstation/pull/2247) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.598 -->
 - Bump ohai to 17.5.2 [#2245](https://github.com/chef/chef-workstation/pull/2245) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.597 -->
 - Bump chef to 17.4.38 [#2244](https://github.com/chef/chef-workstation/pull/2244) ([tas50](https://github.com/tas50)) <!-- 21.8.596 -->
 - Bump kitchen-azurerm to 1.8.0 [#2242](https://github.com/chef/chef-workstation/pull/2242) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.595 -->
