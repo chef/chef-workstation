@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.600 -->
-## [21.8.600](https://github.com/chef/chef-workstation/tree/21.8.600) (2021-08-30)
+<!-- latest_release 21.8.601 -->
+## [21.8.601](https://github.com/chef/chef-workstation/tree/21.8.601) (2021-08-31)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.54 [#2250](https://github.com/chef/chef-workstation/pull/2250) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Updating openssl to 1.1.1l [#2251](https://github.com/chef/chef-workstation/pull/2251) ([i5pranay93](https://github.com/i5pranay93))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Updating openssl to 1.1.1l [#2251](https://github.com/chef/chef-workstation/pull/2251) ([i5pranay93](https://github.com/i5pranay93)) <!-- 21.8.601 -->
 - Bump Chef Workstation App to 0.2.54 [#2250](https://github.com/chef/chef-workstation/pull/2250) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.600 -->
 - Bump omnibus-software from `98d9831` to `e87ce07` in /omnibus [#2248](https://github.com/chef/chef-workstation/pull/2248) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.599 -->
 - Bump nokogiri to 1.12.4 [#2247](https://github.com/chef/chef-workstation/pull/2247) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.598 -->
