@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.8.602 -->
-## [21.8.602](https://github.com/chef/chef-workstation/tree/21.8.602) (2021-08-31)
+<!-- latest_release 21.8.603 -->
+## [21.8.603](https://github.com/chef/chef-workstation/tree/21.8.603) (2021-08-31)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.55 [#2252](https://github.com/chef/chef-workstation/pull/2252) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `e87ce07` to `b774203` in /omnibus [#2253](https://github.com/chef/chef-workstation/pull/2253) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `e87ce07` to `b774203` in /omnibus [#2253](https://github.com/chef/chef-workstation/pull/2253) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.8.603 -->
 - Bump Chef Workstation App to 0.2.55 [#2252](https://github.com/chef/chef-workstation/pull/2252) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.602 -->
 - Updating openssl to 1.1.1l [#2251](https://github.com/chef/chef-workstation/pull/2251) ([i5pranay93](https://github.com/i5pranay93)) <!-- 21.8.601 -->
 - Bump Chef Workstation App to 0.2.54 [#2250](https://github.com/chef/chef-workstation/pull/2250) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.8.600 -->
