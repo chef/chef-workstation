@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.9.608 -->
-## [21.9.608](https://github.com/chef/chef-workstation/tree/21.9.608) (2021-09-02)
+<!-- latest_release 21.9.609 -->
+## [21.9.609](https://github.com/chef/chef-workstation/tree/21.9.609) (2021-09-02)
 
 #### Merged Pull Requests
-- Bump train-aws to 0.2.17 [#2258](https://github.com/chef/chef-workstation/pull/2258) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update OpenSSL to address issue #2260 [#2261](https://github.com/chef/chef-workstation/pull/2261) ([vkarve-chef](https://github.com/vkarve-chef))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update OpenSSL to address issue #2260 [#2261](https://github.com/chef/chef-workstation/pull/2261) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.9.609 -->
 - Bump train-aws to 0.2.17 [#2258](https://github.com/chef/chef-workstation/pull/2258) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.608 -->
 - Bump knife to 17.4.46 [#2257](https://github.com/chef/chef-workstation/pull/2257) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.607 -->
 - Bump chef-cli to 5.4.2 [#2256](https://github.com/chef/chef-workstation/pull/2256) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.606 -->
