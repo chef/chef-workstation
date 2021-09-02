@@ -588,7 +588,7 @@ GEM
       rbvmomi (>= 1.11, < 4.0)
       test-kitchen (>= 1.16, < 4)
       vsphere-automation-sdk (~> 0.4)
-    knife (17.4.46)
+    knife (17.4.47)
       bcrypt_pbkdf (~> 1.1)
       chef (>= 17)
       chef-config (>= 17)
@@ -611,7 +611,6 @@ GEM
       tty-prompt (~> 0.21)
       tty-screen (~> 0.6)
       tty-table (~> 0.11)
-      x25519 (>= 1.0.9)
     knife-azure (4.0.0)
       azure_mgmt_compute (~> 0.18, >= 0.18.3)
       azure_mgmt_network (~> 0.18, >= 0.18.2)
@@ -1087,7 +1086,6 @@ GEM
       winrm (~> 2.0)
     wisper (2.0.1)
     wmi-lite (1.0.5)
-    x25519 (1.0.9)
     zeitwerk (2.4.2)
 
 PLATFORMS
