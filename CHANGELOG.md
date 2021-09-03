@@ -1,15 +1,20 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.9.607 -->
-## [21.9.607](https://github.com/chef/chef-workstation/tree/21.9.607) (2021-09-02)
+<!-- latest_release 21.9.612 -->
+## [21.9.612](https://github.com/chef/chef-workstation/tree/21.9.612) (2021-09-03)
 
 #### Merged Pull Requests
-- Bump knife to 17.4.46 [#2257](https://github.com/chef/chef-workstation/pull/2257) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump train-aws to 0.2.18 [#2264](https://github.com/chef/chef-workstation/pull/2264) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump train-aws to 0.2.18 [#2264](https://github.com/chef/chef-workstation/pull/2264) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.612 -->
+- Bump knife to 17.4.47 [#2263](https://github.com/chef/chef-workstation/pull/2263) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.611 -->
+- Bump cookstyle to 7.24.1 [#2262](https://github.com/chef/chef-workstation/pull/2262) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.610 -->
+- Update OpenSSL to address issue #2260 [#2261](https://github.com/chef/chef-workstation/pull/2261) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.9.609 -->
+- Bump train-aws to 0.2.17 [#2258](https://github.com/chef/chef-workstation/pull/2258) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.608 -->
 - Bump knife to 17.4.46 [#2257](https://github.com/chef/chef-workstation/pull/2257) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.607 -->
 - Bump chef-cli to 5.4.2 [#2256](https://github.com/chef/chef-workstation/pull/2256) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.606 -->
 - Bump cookstyle to 7.23.0 [#2255](https://github.com/chef/chef-workstation/pull/2255) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.605 -->
