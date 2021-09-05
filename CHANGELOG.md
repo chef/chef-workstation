@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.9.612 -->
-## [21.9.612](https://github.com/chef/chef-workstation/tree/21.9.612) (2021-09-03)
+<!-- latest_release 21.9.613 -->
+## [21.9.613](https://github.com/chef/chef-workstation/tree/21.9.613) (2021-09-03)
 
 #### Merged Pull Requests
-- Bump train-aws to 0.2.18 [#2264](https://github.com/chef/chef-workstation/pull/2264) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Clear wiki before cloning from Github. [#2265](https://github.com/chef/chef-workstation/pull/2265) ([vkarve-chef](https://github.com/vkarve-chef))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Clear wiki before cloning from Github. [#2265](https://github.com/chef/chef-workstation/pull/2265) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.9.613 -->
 - Bump train-aws to 0.2.18 [#2264](https://github.com/chef/chef-workstation/pull/2264) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.612 -->
 - Bump knife to 17.4.47 [#2263](https://github.com/chef/chef-workstation/pull/2263) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.611 -->
 - Bump cookstyle to 7.24.1 [#2262](https://github.com/chef/chef-workstation/pull/2262) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.610 -->
