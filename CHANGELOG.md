@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.9.614 -->
-## [21.9.614](https://github.com/chef/chef-workstation/tree/21.9.614) (2021-09-06)
+<!-- latest_release 21.9.615 -->
+## [21.9.615](https://github.com/chef/chef-workstation/tree/21.9.615) (2021-09-07)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `b774203` to `13ad157` in /omnibus [#2267](https://github.com/chef/chef-workstation/pull/2267) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.57 [#2268](https://github.com/chef/chef-workstation/pull/2268) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.57 [#2268](https://github.com/chef/chef-workstation/pull/2268) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.615 -->
 - Bump omnibus-software from `b774203` to `13ad157` in /omnibus [#2267](https://github.com/chef/chef-workstation/pull/2267) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.9.614 -->
 - Clear wiki before cloning from Github. [#2265](https://github.com/chef/chef-workstation/pull/2265) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.9.613 -->
 - Bump train-aws to 0.2.18 [#2264](https://github.com/chef/chef-workstation/pull/2264) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.612 -->
