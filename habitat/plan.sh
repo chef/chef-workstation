@@ -78,7 +78,8 @@ do_build() {
   ( cd "${SRC_PATH}/components/gems" || exit_with "unable to enter components/gems directory" 1
     bundle config --local build.nokogiri "$NOKOGIRI_CONFIG"
     bundle config --local silence_root_warning 1
-    bundle install --without dep_selector --no-deployment --jobs 10 --retry 5 --path "$pkg_prefix"
+    bundle config set --local without dep_selector
+    bundle install --no-deployment --jobs 10 --retry 5 --path "$pkg_prefix"
   )
 
   build_line "Building top-level 'chef' CMD wrapper"
