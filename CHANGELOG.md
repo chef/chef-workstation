@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.9.618 -->
-## [21.9.618](https://github.com/chef/chef-workstation/tree/21.9.618) (2021-09-08)
+<!-- latest_release 21.9.619 -->
+## [21.9.619](https://github.com/chef/chef-workstation/tree/21.9.619) (2021-09-09)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.59 [#2276](https://github.com/chef/chef-workstation/pull/2276) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Replace deprecated --without flag with bundle config [#2203](https://github.com/chef/chef-workstation/pull/2203) ([skeshari12](https://github.com/skeshari12))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Replace deprecated --without flag with bundle config [#2203](https://github.com/chef/chef-workstation/pull/2203) ([skeshari12](https://github.com/skeshari12)) <!-- 21.9.619 -->
 - Bump Chef Workstation App to 0.2.59 [#2276](https://github.com/chef/chef-workstation/pull/2276) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.618 -->
 - Bump chef-zero to 15.0.9 [#2272](https://github.com/chef/chef-workstation/pull/2272) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.617 -->
 - Bump chef-vault to 4.1.3 [#2270](https://github.com/chef/chef-workstation/pull/2270) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.616 -->
