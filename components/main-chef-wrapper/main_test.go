@@ -17,76 +17,107 @@
 package main
 
 import (
+	"fmt"
+	"log"
 	"os"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
+	"github.com/spf13/cobra"
 	"testing"
-
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_validateRolloutSetup(t *testing.T) {
+func Test_ValidateRolloutSetup(t *testing.T) {
 
 	os.Setenv("CHEF_AC_SERVER_URL", "http://testhost")
 	os.Setenv("CHEF_AC_SERVER_USER", "testuser")
 	os.Setenv("CHEF_AC_AUTOMATE_URL", "http://testhost2")
 	os.Setenv("CHEF_AC_AUTOMATE_TOKEN", "xyz123455677709u0")
-	got := validateRolloutSetup()
+	got := cmd.ValidateRolloutSetup()
+	fmt.Print(got)
 	assert.Equal(t, got, true)
 }
 
-func Test_validateRolloutSetup_Invalid(t *testing.T) {
+func Test_ValidateRolloutSetup_Invalid(t *testing.T) {
 
 	// No var is set
-	got := validateRolloutSetup()
+	got := cmd.ValidateRolloutSetup()
 	assert.Equal(t, got, false)
 
 	// all are set except CHEF_AC_SERVER_URL
 	os.Setenv("CHEF_AC_SERVER_USER", "testuser")
 	os.Setenv("CHEF_AC_AUTOMATE_URL", "http://testhost2")
 	os.Setenv("CHEF_AC_AUTOMATE_TOKEN", "xyz123455677709u0")
-	got = validateRolloutSetup()
+	got = cmd.ValidateRolloutSetup()
 	assert.Equal(t, got, false)
 
 	// all are set except CHEF_AC_SERVER_USER
 	os.Setenv("CHEF_AC_SERVER_URL", "http://testhost")
 	os.Unsetenv("CHEF_AC_SERVER_USER")
-	got = validateRolloutSetup()
+	got = cmd.ValidateRolloutSetup()
 	assert.Equal(t, got, false)
 
 	// all are set except CHEF_AC_AUTOMATE_URL
 	os.Setenv("CHEF_AC_SERVER_USER", "testuser")
 	os.Unsetenv("CHEF_AC_AUTOMATE_URL")
-	got = validateRolloutSetup()
+	got =cmd.ValidateRolloutSetup()
 	assert.Equal(t, got, false)
 
 	// all are set except CHEF_AC_AUTOMATE_TOKEN
 	os.Setenv("CHEF_AC_AUTOMATE_URL", "http://testhost2")
 	os.Unsetenv("CHEF_AC_AUTOMATE_TOKEN")
-	got = validateRolloutSetup()
+	got = cmd.ValidateRolloutSetup()
 	assert.Equal(t, got, false)	
 
 }
 
-func Test_getAction(t *testing.T) {
+//func Test_getAction(t *testing.T) {
+//
+//	cmd := getAction("push")
+//	assert.Equal(t, cmd, "push")
+//	cmd = getAction("report")
+//	assert.Equal(t, cmd, "report")
+//	cmd = getAction("capture")
+//	assert.Equal(t, cmd, "capture")
+//
+//	os.Setenv("CHEF_AC_ROLLOUT_ENABLED", "true")
+//	cmd = getAction("push")
+//	assert.Equal(t, cmd, "none")
+//
+//	os.Setenv("CHEF_AC_SERVER_URL", "http://testhost")
+//	cmd = getAction("push")
+//	assert.Equal(t, cmd, "none")
+//
+//	os.Setenv("CHEF_AC_SERVER_USER", "testuser")
+//	os.Setenv("CHEF_AC_AUTOMATE_URL", "http://testhost2")
+//	os.Setenv("CHEF_AC_AUTOMATE_TOKEN", "xyz123455677709u0")
+//	cmd = getAction("push")
+//	assert.Equal(t, cmd, "policy-rollout")
+//
+//}
 
-	cmd := getAction("push")
-	assert.Equal(t, cmd, "push")
-	cmd = getAction("report")
-	assert.Equal(t, cmd, "report")
-	cmd = getAction("capture")
-	assert.Equal(t, cmd, "capture")
-
-	os.Setenv("CHEF_AC_ROLLOUT_ENABLED", "true")
-	cmd = getAction("push")
-	assert.Equal(t, cmd, "none")
-
-	os.Setenv("CHEF_AC_SERVER_URL", "http://testhost")
-	cmd = getAction("push")
-	assert.Equal(t, cmd, "none")
-
-	os.Setenv("CHEF_AC_SERVER_USER", "testuser")
-	os.Setenv("CHEF_AC_AUTOMATE_URL", "http://testhost2")
-	os.Setenv("CHEF_AC_AUTOMATE_TOKEN", "xyz123455677709u0")
-	cmd = getAction("push")
-	assert.Equal(t, cmd, "policy-rollout")
-
+var rootCmd = &cobra.Command{
+	Use:   "integration Test",
+	Short: "Testing cobra library integration",
+	Long: `Integrating cobra library for chef workstation
+              for performance boostup`,
+	Run: func(cmd *cobra.Command, args []string) {
+		// Do Stuff Here
+	},
 }
+
+func TestStartupTask(t *testing.T) {
+	err := doStartupTasks()
+	if err != nil {
+		log.Printf("Command finished with error: %v", err)
+	}
+}
+
+func TestMainFunction(t *testing.T) {
+	if err := rootCmd.Execute(); err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
+	//main()
+	// main has no return type, so it is going to return nothing for testing
+}
+

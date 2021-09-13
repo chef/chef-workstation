@@ -1,6 +1,6 @@
 // +build integration
 
-package main
+package integration
 
 import (
 	"fmt"
@@ -10,7 +10,7 @@ import (
 )
 
 func TestStartupTask(t *testing.T) {
-	cmd, err := createDotChef()
+	cmd, err := CreateDotChef()
 	fmt.Print("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<",cmd)
 	if err != nil {
 		log.Printf("Command finished with error: %v", err)
