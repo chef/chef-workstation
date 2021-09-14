@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.9.620 -->
-## [21.9.620](https://github.com/chef/chef-workstation/tree/21.9.620) (2021-09-14)
+<!-- latest_release 21.9.621 -->
+## [21.9.621](https://github.com/chef/chef-workstation/tree/21.9.621) (2021-09-14)
 
 #### Merged Pull Requests
-- Bump chef-vault to 4.1.4 [#2282](https://github.com/chef/chef-workstation/pull/2282) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `13ad157` to `e0d92a6` in /omnibus [#2281](https://github.com/chef/chef-workstation/pull/2281) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.8.555 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `13ad157` to `e0d92a6` in /omnibus [#2281](https://github.com/chef/chef-workstation/pull/2281) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.9.621 -->
 - Bump chef-vault to 4.1.4 [#2282](https://github.com/chef/chef-workstation/pull/2282) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.620 -->
 - Replace deprecated --without flag with bundle config [#2203](https://github.com/chef/chef-workstation/pull/2203) ([skeshari12](https://github.com/skeshari12)) <!-- 21.9.619 -->
 - Bump Chef Workstation App to 0.2.59 [#2276](https://github.com/chef/chef-workstation/pull/2276) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.618 -->
