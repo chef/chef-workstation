@@ -17,7 +17,9 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
@@ -95,14 +97,17 @@ func Test_ValidateRolloutSetup_Invalid(t *testing.T) {
 //
 //}
 
-var rootCmd = &cobra.Command{
-	Use:   "integration Test",
-	Short: "Testing cobra library integration",
-	Long: `Integrating cobra library for chef workstation
-              for performance boostup`,
-	Run: func(cmd *cobra.Command, args []string) {
-		// Do Stuff Here
-	},
+
+func NewRootCmd(in string) *cobra.Command {
+	return &cobra.Command{
+		Use:   "chef",
+		Short: "chef",
+		SilenceErrors: true,
+		RunE: func(cmd *cobra.Command, args []string) (error) {
+			fmt.Fprintf(cmd.OutOrStdout(), in)
+			return nil
+		},
+	}
 }
 
 func TestStartupTask(t *testing.T) {
@@ -112,10 +117,17 @@ func TestStartupTask(t *testing.T) {
 	}
 }
 
-func TestMainFunction(t *testing.T) {
-	if err := rootCmd.Execute(); err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
+func Test_ExecuteFunction(t *testing.T) {
+	cmd := NewRootCmd("test")
+	b := bytes.NewBufferString("")
+	cmd.SetOut(b)
+	cmd.Execute()
+	out, err := ioutil.ReadAll(b)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(out) != "test" {
+		t.Fatalf("expected \"%s\" got \"%s\"", "test", string(out))
 	}
 	//main()
 	// main has no return type, so it is going to return nothing for testing

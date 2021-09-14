@@ -3,21 +3,19 @@
 package integration
 
 import (
-	"fmt"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
-	"log"
-	"testing"
+	"github.com/spf13/cobra"
 )
 
-func TestStartupTask(t *testing.T) {
-	cmd, err := CreateDotChef()
-	fmt.Print("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<",cmd)
-	if err != nil {
-		log.Printf("Command finished with error: %v", err)
+func NewRootCmd() *cobra.Command {
+	return &cobra.Command{
+		Use:   "hugo",
+		Short: "Hugo is a very fast static site generator",
+		Long: `A Fast and Flexible Static Site Generator built with
+                love by spf13 and friends in Go.
+                Complete documentation is available at http://hugo.spf13.com`,
+		Run: func(cmd *cobra.Command, args []string) {
+			// Do Stuff Here
+		},
 	}
-}
-
-func TestMainFunction(t *testing.T) {
-	cmd.Execute()
 }
 
