@@ -105,7 +105,7 @@ This argument has the following options:
 ### Example
 
 ``` bash
-knife opc org create acme2 "The Other Acme" -a arno
+knife org create acme2 "The Other Acme" -a arno
 -----BEGIN RSA PRIVATE KEY-----
 [...]
 -----BEGIN RSA PRIVATE KEY-----

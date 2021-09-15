@@ -96,7 +96,7 @@ knife user create tbucatar "Tamira Bucatar" tbucatar@example.com -f /keys/tbucat
 ```
 
 ``` bash
-knife opc user create arno arno schmidt arno@chef.io password
+knife user create arno arno schmidt arno@chef.io password
 -----BEGIN RSA PRIVATE KEY-----
 [...]
 -----END RSA PRIVATE KEY-----
@@ -162,7 +162,7 @@ knife user edit USER_NAME
 ### Examples
 
 ``` bash
-EDITOR=ed knife opc user edit arno
+EDITOR=ed knife user edit arno
 639
 1,%p
 {
@@ -179,7 +179,8 @@ EDITOR=ed knife opc user edit arno
 wq
 643
 Saved arno.
-knife opc user show arno
+
+knife  user show arno
 display_name:  arno schmidt
 email:         arno@opscode.io
 first_name:     arno
@@ -224,7 +225,7 @@ knife user list -w
 alice: https://chef-server.fqdn/users/alice
 pivotal: https://chef-server.fqdn/users/pivotal
 
-knife opc org list -w -a
+knife org list -w -a
 acme: https://chef-server.fqdn/organizations/acme
 ```
 
@@ -252,7 +253,7 @@ knife user password USER_NAME [PASSWORD | ]
 The following examples show how to use this knife subcommand:
 
 ``` bash
-knife opc user password arno newpassword
+knife user password arno newpassword
 {"username"=>"arno", "email"=>"arno@opscode.com", "display_name"=>"arno schmidt", "first_name"=>"arno", "last_name"=>"schmidt", "middle_name"=>"", "public_key"=>"-----BEGIN PUBLIC KEY-----\n[...]\n-----END PUBLIC KEY-----\n\n", "password"=>"newpassword", "recovery_authentication_enabled"=>true}
 Authentication info updated for arno.
 ```
@@ -510,7 +511,7 @@ public_key:
 ```
 
 ``` bash
-knife opc user show alice -l
+knife user show alice -l
 display_name:  Alice Schmidt
 email:       alice@chef.io
 first_name:  Alice
