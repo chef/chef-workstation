@@ -41,7 +41,11 @@ subscriptions:
             - "Expeditor: Skip Changelog"
             - "Expeditor: Skip All"
             - "Aspect: Documentation"
+<<<<<<< HEAD
       # The git commit happens here
+=======
+    # The git commit happens here
+>>>>>>> a58b6e54 (Fixing expeditor config validation failure)
       - bash:.expeditor/push-git-tag.sh:
           only_if: bash:.expeditor/determine_version.sh
           post_commit: true
@@ -51,6 +55,10 @@ subscriptions:
             - "Expeditor: Skip All"
             - "Aspect: Documentation"
           only_if: bash:.expeditor/determine_version.sh
+<<<<<<< HEAD
+=======
+
+>>>>>>> a58b6e54 (Fixing expeditor config validation failure)
   - workload: artifact_published:unstable:chef-workstation:{{version_constraint}}
     actions:
       - trigger_pipeline:docker/build
