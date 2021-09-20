@@ -29,7 +29,7 @@ Available generators:
 	build-cookbook  Generate a build cookbook
 	 `,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return passThroughCommand(dist.WorkstationExec, "", s)
+			return PassThroughCommand(dist.WorkstationExec, "", s)
 		},
 	}
 }

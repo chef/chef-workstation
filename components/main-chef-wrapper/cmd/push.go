@@ -48,15 +48,15 @@ https://docs.chef.io/policyfile/
 			if !ValidateRolloutSetup() { // roll-out is enabled but setup not complete, we don't do anything
 				return errors.New("Policy roll-out is enabled but required variables are not set")
 			}
-			err := passThroughCommand(dist.WorkstationExec, "", allArgs)
+			err := PassThroughCommand(dist.WorkstationExec, "", allArgs)
 			if err != nil {
 				return err
 			}
 			allArgs := []string{"report-new-rollout", "-g", allArgs[1], "-l", allArgs[2],
 				"-s", os.Getenv("CHEF_AC_SERVER_URL"), "-u", os.Getenv("CHEF_AC_SERVER_USER")}
-			return passThroughCommand(dist.AutomateCollectExec, "", allArgs)
+			return PassThroughCommand(dist.AutomateCollectExec, "", allArgs)
 		}
-		return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+		return PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},
 }
 

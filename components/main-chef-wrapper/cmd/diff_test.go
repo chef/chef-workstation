@@ -45,7 +45,7 @@ to the 'production' Policy Group to the lock currently assigned to the
 'staging' Policy Group.
 	 `,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return passThroughCommand(dist.WorkstationExec, "", s)
+			return PassThroughCommand(dist.WorkstationExec, "", s)
 		},
 	}
 }

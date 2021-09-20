@@ -14,7 +14,7 @@ func NewEnvCmd(s []string) *cobra.Command {
 		Use:   "env",
 		Short: "Prints environment variables used by %s",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return passThroughCommand(dist.WorkstationExec, "", s)
+			return PassThroughCommand(dist.WorkstationExec, "", s)
 		},
 	}
 }

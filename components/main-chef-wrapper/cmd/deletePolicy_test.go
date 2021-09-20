@@ -20,7 +20,7 @@ Delete all revisions of the policy POLICY_NAME on the configured
 undo this operation via the '%s undelete' command.
 `,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return passThroughCommand(dist.WorkstationExec, "", s)
+			return PassThroughCommand(dist.WorkstationExec, "", s)
 		},
 	}
 }

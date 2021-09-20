@@ -13,7 +13,7 @@ func NewExecCmd(s []string) *cobra.Command {
 		Use:   "exec COMMAND",
 		Short: "Runs COMMAND in the context of %s",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return passThroughCommand(dist.WorkstationExec, "", s)
+			return PassThroughCommand(dist.WorkstationExec, "", s)
 		},
 	}
 }

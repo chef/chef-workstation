@@ -24,7 +24,7 @@ See our detailed README for more information:
 https://docs.chef.io/policyfile/
 `,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return passThroughCommand(dist.WorkstationExec, "", s)
+			return PassThroughCommand(dist.WorkstationExec, "", s)
 		},
 	}
 }

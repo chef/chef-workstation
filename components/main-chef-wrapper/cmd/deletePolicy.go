@@ -39,7 +39,7 @@ undo this operation via the '%s undelete' command.
 	Args:               cobra.ExactArgs(1),
 
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+		return PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},
 }
 

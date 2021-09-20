@@ -82,6 +82,10 @@ func Execute() {
 }
 
 func init() {
+	FlagInit()
+}
+
+func FlagInit() error {
 	// Here you will define your flags and configuration settings.
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
@@ -103,7 +107,7 @@ func init() {
 }
 
 // TODO -
-func passThroughCommand(targetPath string, cmdName string, args []string) error {
+func PassThroughCommand(targetPath string, cmdName string, args []string) error {
 
 	var allArgs []string
 	if cmdName != "" {
