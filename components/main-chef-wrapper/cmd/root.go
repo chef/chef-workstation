@@ -104,6 +104,8 @@ func FlagInit() error {
 		"Enable debug output when available")
 	rootCmd.PersistentFlags().BoolVarP(&options.debug, "version", "v", false,
 		fmt.Sprintf("Show %s version information", dist.WorkstationProduct))
+
+	return nil
 }
 
 // TODO -
