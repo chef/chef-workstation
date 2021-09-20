@@ -45,7 +45,7 @@ upgrade compatibility errors and node cookbook usage.
 
 The result is written to file.`,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return passThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
+			return PassThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
 		},
 	}
 
@@ -55,7 +55,7 @@ The result is written to file.`,
 		Long: `Generates a nodes-oriented report containing basic information about the node,
 any applied policies, and the cookbooks used during the most recent chef-client run`,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return passThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
+			return PassThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
 		},
 	}
 	uploadCmd = &cobra.Command{
@@ -64,7 +64,7 @@ any applied policies, and the cookbooks used during the most recent chef-client 
 		Args:   cobra.ExactArgs(2),
 		Hidden: true,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return passThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
+			return PassThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
 		},
 	}
 	sessionCmd = &cobra.Command{
@@ -73,7 +73,7 @@ any applied policies, and the cookbooks used during the most recent chef-client 
 		Short:  fmt.Sprintf("Creates new access credentials to upload files to %s. Expires in MINUTES.", dist.CompanyName),
 		Args:   cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+			return PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 		},
 	}
 )

@@ -37,7 +37,7 @@ Captures a node's state as a local chef-repo, which can then be used to
 converge locally.
 `,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return passThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
+			return PassThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
 		},
 	}
 )

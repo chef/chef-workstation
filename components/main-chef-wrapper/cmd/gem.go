@@ -30,7 +30,7 @@ var gemCmd = &cobra.Command{
 	Use:   "gem [ARGS]",
 	Short: "Runs the 'gem' command in the context of %s's Ruby",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+		return PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},
 }
 

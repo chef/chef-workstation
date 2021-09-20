@@ -42,7 +42,7 @@ https://docs.chef.io/policyfile/
 `,
 
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+		return PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},
 }
 
