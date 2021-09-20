@@ -16,32 +16,6 @@ github:
 changelog:
   rollup_header: Changes not yet released to stable
 
-# https://expeditor.chef.io/docs/getting-started/subscriptions/#merge-actions
-# The `merge_actions` key is a shortcut for the
-# `pull_request_merged:<GITHUB_REPO>:<RELEASE_BRANCH>:*` subscription.
-#
-merge_actions:
-  - bash:.expeditor/determine_version.sh:
-      ignore_labels:
-        - "Expeditor: Skip Version Bump"
-        - "Expeditor: Skip All"
-        - "Aspect: Documentation"
-  - built_in:update_changelog:
-      ignore_labels:
-        - "Expeditor: Skip Changelog"
-        - "Expeditor: Skip All"
-        - "Aspect: Documentation"
-  # The git commit happens here
-  - bash:.expeditor/push-git-tag.sh:
-      only_if: bash:.expeditor/determine_version.sh
-      post_commit: true
-  - trigger_pipeline:omnibus/release:
-      ignore_labels:
-        - "Expeditor: Skip Omnibus"
-        - "Expeditor: Skip All"
-        - "Aspect: Documentation"
-      only_if: bash:.expeditor/determine_version.sh
-
 pipelines:
   - verify:
       description: Pull Request validation tests
@@ -55,6 +29,28 @@ pipelines:
       description: post-release publishing of Workstation packages to third party distribution platforms
 
 subscriptions:
+  - workload: pull_request_merged:{{github_repo}}:{{release_branch}}:*
+    actions:
+      - bash:.expeditor/determine_version.sh:
+          ignore_labels:
+            - "Expeditor: Skip Version Bump"
+            - "Expeditor: Skip All"
+            - "Aspect: Documentation"
+      - built_in:update_changelog:
+          ignore_labels:
+            - "Expeditor: Skip Changelog"
+            - "Expeditor: Skip All"
+            - "Aspect: Documentation"
+      # The git commit happens here
+      - bash:.expeditor/push-git-tag.sh:
+          only_if: bash:.expeditor/determine_version.sh
+          post_commit: true
+      - trigger_pipeline:omnibus/release:
+          ignore_labels:
+            - "Expeditor: Skip Omnibus"
+            - "Expeditor: Skip All"
+            - "Aspect: Documentation"
+          only_if: bash:.expeditor/determine_version.sh
   - workload: artifact_published:unstable:chef-workstation:{{version_constraint}}
     actions:
       - trigger_pipeline:docker/build
