@@ -53,5 +53,5 @@ func init() {
 	)
 	addInfraFlagsToCommand(captureCmd)
 
-	rootCmd.AddCommand(captureCmd)
+	RootCmd.AddCommand(captureCmd)
 }

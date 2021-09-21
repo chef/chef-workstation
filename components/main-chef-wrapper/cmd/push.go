@@ -62,7 +62,7 @@ https://docs.chef.io/policyfile/
 func init() {
 	pushCmd.Short = fmt.Sprintf(pushCmd.Short, dist.ServerProduct)
 	pushCmd.Long = fmt.Sprintf(pushCmd.Long, dist.ServerProduct)
-	rootCmd.AddCommand(pushCmd)
+	RootCmd.AddCommand(pushCmd)
 }
 
 func isRollOutEnabled() bool {

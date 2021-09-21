@@ -37,5 +37,5 @@ var envCmd = &cobra.Command{
 
 func init() {
 	envCmd.Short = fmt.Sprintf(envCmd.Short, dist.WorkstationProduct)
-	rootCmd.AddCommand(envCmd)
+	RootCmd.AddCommand(envCmd)
 }

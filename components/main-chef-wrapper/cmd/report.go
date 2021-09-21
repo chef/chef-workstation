@@ -120,5 +120,5 @@ func init() {
 	reportCmd.AddCommand(reportNodesCmd)
 	reportCmd.AddCommand(uploadCmd)
 	reportCmd.AddCommand(sessionCmd)
-	rootCmd.AddCommand(reportCmd)
+	RootCmd.AddCommand(reportCmd)
 }

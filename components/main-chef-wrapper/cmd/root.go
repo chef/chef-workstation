@@ -55,7 +55,7 @@ type rootConfig struct {
 var (
 	options rootConfig
 
-	rootCmd = &cobra.Command{
+	RootCmd = &cobra.Command{
 		Use:   "chef",
 		Short: "chef",
 		// Stop framework from showing default errors. This prevents duplicate errors or
@@ -73,7 +73,7 @@ var (
 
 func Execute() {
 	var ee *exec.ExitError
-	if err := rootCmd.Execute(); err != nil {
+	if err := RootCmd.Execute(); err != nil {
 		if errors.As(err, &ee) {
 			os.Exit(ee.ExitCode())
 		}
@@ -97,12 +97,12 @@ func FlagInit() error {
 	// These flags are common to all child commands.  Some of them do not need config or debug,
 	// so we can look at pushing this down; but it seems to make sense since it's present for more
 	// commands than it isn't.
-	rootCmd.PersistentFlags().StringVarP(&options.configFile, "config", "c", "", "Read configuration from `CONFIG_FILE_PATH`")
-	rootCmd.PersistentFlags().StringVar(&options.licenseAcceptance, "chef-license", "",
+	RootCmd.PersistentFlags().StringVarP(&options.configFile, "config", "c", "", "Read configuration from `CONFIG_FILE_PATH`")
+	RootCmd.PersistentFlags().StringVar(&options.licenseAcceptance, "chef-license", "",
 		"Accept product license, where `ACCEPTANCE` is one of 'accept', 'accept-no-persist', or 'accept-silent'")
-	rootCmd.PersistentFlags().BoolVarP(&options.debug, "debug", "d", false,
+	RootCmd.PersistentFlags().BoolVarP(&options.debug, "debug", "d", false,
 		"Enable debug output when available")
-	rootCmd.PersistentFlags().BoolVarP(&options.debug, "version", "v", false,
+	RootCmd.PersistentFlags().BoolVarP(&options.debug, "version", "v", false,
 		fmt.Sprintf("Show %s version information", dist.WorkstationProduct))
 
 	return nil

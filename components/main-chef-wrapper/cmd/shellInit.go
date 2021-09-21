@@ -70,5 +70,5 @@ func init() {
 		dist.CLIWrapperExec)
 
 	// TODO - not adding '--omnibus-dir' flag which was documented for testing only.
-	rootCmd.AddCommand(shellInitCmd)
+	RootCmd.AddCommand(shellInitCmd)
 }

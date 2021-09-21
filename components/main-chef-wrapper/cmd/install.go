@@ -49,5 +49,5 @@ https://docs.chef.io/policyfile/
 
 func init() {
 	installCmd.Long = fmt.Sprintf(installCmd.Long, dist.ServerProduct)
-	rootCmd.AddCommand(installCmd)
+	RootCmd.AddCommand(installCmd)
 }

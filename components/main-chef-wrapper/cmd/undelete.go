@@ -65,5 +65,5 @@ func init() {
 
 	undeleteCmd.PersistentFlags().BoolVarP(&list, "last", "l", false, "Undo the most recent delete operation")
 	undeleteCmd.PersistentFlags().StringVarP(&id, "id", "i", "", "Undo the delete operation referenced by the given `ID`")
-	rootCmd.AddCommand(undeleteCmd)
+	RootCmd.AddCommand(undeleteCmd)
 }

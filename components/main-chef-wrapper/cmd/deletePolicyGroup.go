@@ -48,5 +48,5 @@ https://docs.chef.io/policyfile/
 func init() {
 	deletePolicyGroupCmd.Short = fmt.Sprintf(deletePolicyGroupCmd.Short, dist.ServerProduct)
 	deletePolicyGroupCmd.Long = fmt.Sprintf(deletePolicyGroupCmd.Long, dist.ServerProduct, dist.CLIWrapperExec)
-	rootCmd.AddCommand(deletePolicyGroupCmd)
+	RootCmd.AddCommand(deletePolicyGroupCmd)
 }
