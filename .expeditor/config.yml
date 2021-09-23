@@ -239,4 +239,3 @@ subscriptions:
   - workload: ruby_gem_published:docker-api
     actions:
        - bash:.expeditor/update_dep.sh
-
