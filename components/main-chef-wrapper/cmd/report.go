@@ -80,7 +80,7 @@ any applied policies, and the cookbooks used during the most recent chef-client 
 
 func init() {
 	// Add shared infra/chef-server related flags
-	addInfraFlagsToCommand(reportCmd)
+	AddInfraFlagsToCommand(reportCmd)
 
 	// common report flags
 	reportCmd.PersistentFlags().StringVarP(

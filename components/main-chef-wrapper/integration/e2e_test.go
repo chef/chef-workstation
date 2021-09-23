@@ -4,24 +4,29 @@ package integration
 
 import (
 	//"bytes"
-	"fmt"
+	//"fmt"
 	"github.com/spf13/cobra"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
 	"log"
+	"os"
+
 	//"strings"
 	"testing"
 	"github.com/stretchr/testify/assert"
 )
 
 
-func RootCmd(in string) *cobra.Command {
+func testCobraCommand(useCmd string, shortCmd string, longCmd string, args []string,  productName string) *cobra.Command {
 	return &cobra.Command{
-		Use:   "chef",
-		Short: "integration test chef",
-		SilenceErrors: true,
-		RunE: func(cmd *cobra.Command, args []string) (error) {
-			fmt.Fprintf(cmd.OutOrStdout(), in)
-			return nil
+		Use:   "capture NODE-NAME",
+		Short: "Capture a node's state into a local chef-repo",
+		Args:  cobra.ExactArgs(1),
+		Long: `
+						Captures a node's state as a local chef-repo, which can then be used to
+						converge locally.
+						`,
+		RunE: func(cm *cobra.Command, args []string) error {
+			return cmd.PassThroughCommand(productName, "", os.Args[1:])
 		},
 	}
 }
@@ -71,6 +76,62 @@ func Test_passThroughCommand(t *testing.T){
 		})
 	}
 }
+
+func Test_captureCommand(t *testing.T){
+	rootCmd := cmd.RootCmd
+	var downloadDataBags bool
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-analyze",
+			Use:   "capture NODE-NAME",
+			Short: "Capture a node's state into a local chef-repo",
+			Args:   []string{"capture", "--help"},
+			Long: `
+						Captures a node's state as a local chef-repo, which can then be used to
+						converge locally.
+						`,
+
+		},
+		{   productName: "chef-analyze",
+			Use:   "capture NODE-NAME",
+			Short: "Capture a node's state into a local chef-repo",
+			Args:   []string{"capture"},
+			Long: `
+						Captures a node's state as a local chef-repo, which can then be used to
+						converge locally.
+						`,
+
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			captureCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			captureCmd.PersistentFlags().BoolVarP(
+				&downloadDataBags,
+				"with-data-bags",
+				"D", false,
+				"download all data bags as part of node capture",
+			)
+			cmd.AddInfraFlagsToCommand(captureCmd)
+
+			rootCmd.AddCommand(captureCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+
+}
+
+
 //reference for all the cmd command test
 //func TestSingleCommand(t *testing.T) {
 //	var rootCmdArgs []string
