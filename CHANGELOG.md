@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.9.623 -->
-## [21.9.623](https://github.com/chef/chef-workstation/tree/21.9.623) (2021-09-22)
+<!-- latest_release 21.9.624 -->
+## [21.9.624](https://github.com/chef/chef-workstation/tree/21.9.624) (2021-09-23)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.65 [#2293](https://github.com/chef/chef-workstation/pull/2293) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Fix main-chef-wrapper Go cross platform build that is part of verify pipeline [#2288](https://github.com/chef/chef-workstation/pull/2288) ([vkarve-chef](https://github.com/vkarve-chef))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.9.613 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Fix main-chef-wrapper Go cross platform build that is part of verify pipeline [#2288](https://github.com/chef/chef-workstation/pull/2288) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.9.624 -->
 - Bump Chef Workstation App to 0.2.65 [#2293](https://github.com/chef/chef-workstation/pull/2293) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.623 -->
 - Fix Expeditor &amp; Build [#2291](https://github.com/chef/chef-workstation/pull/2291) ([tduffield](https://github.com/tduffield)) <!-- 21.9.622 -->
 - Bump omnibus-software from `13ad157` to `e0d92a6` in /omnibus [#2281](https://github.com/chef/chef-workstation/pull/2281) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.9.621 -->
