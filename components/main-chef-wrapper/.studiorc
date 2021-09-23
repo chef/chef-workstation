@@ -20,8 +20,7 @@ function build_cross_platform() {
   go mod vendor
   ( cd /src || exit 1
     gox -output="../../bin/chef_{{.OS}}_{{.Arch}}" \
-        -os="darwin linux windows" \
-        -arch="amd64"
+        -osarch="darwin/amd64 linux/amd64 windows/amd64"
   )
 }
 
