@@ -17,6 +17,7 @@ export PATH="$GOBIN:$PATH"
 function build_cross_platform() {
   install_if_missing core/go go
   install_if_missing core/gox gox
+  go mod vendor
   ( cd /src || exit 1
     gox -output="../../bin/chef_{{.OS}}_{{.Arch}}" \
         -osarch="darwin/amd64 linux/amd64 windows/amd64"
