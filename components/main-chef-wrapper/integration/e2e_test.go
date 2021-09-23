@@ -10,6 +10,7 @@ import (
 	"log"
 	//"strings"
 	"testing"
+	"github.com/stretchr/testify/assert"
 )
 
 
@@ -36,9 +37,10 @@ func RootCmd(in string) *cobra.Command {
 
 func Test_ExecuteFunction(t *testing.T) {
 	rootCmd := cmd.RootCmd
-	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err)
-	}
+	assert.Nil(t, rootCmd.Execute())
+	//if err := rootCmd.Execute(); err != nil {
+	//	fmt.Println(err)
+	//}
 }
 
 func Test_passThroughCommand(t *testing.T){
@@ -60,6 +62,7 @@ func Test_passThroughCommand(t *testing.T){
 		t.Run("", func(t *testing.T) {
 			err := cmd.PassThroughCommand(test.productName, "", test.Args)
 			//can use assert aswell
+			//assert.NotNil(t, cmd.PassThroughCommand(test.productName, "", test.Args))
 			if err != nil {
 				log.Printf("Command finished with error: %v", err)
 			} else {
