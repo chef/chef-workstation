@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.9.624 -->
-## [21.9.624](https://github.com/chef/chef-workstation/tree/21.9.624) (2021-09-23)
+<!-- latest_release 21.9.625 -->
+## [21.9.625](https://github.com/chef/chef-workstation/tree/21.9.625) (2021-09-24)
 
 #### Merged Pull Requests
-- Fix main-chef-wrapper Go cross platform build that is part of verify pipeline [#2288](https://github.com/chef/chef-workstation/pull/2288) ([vkarve-chef](https://github.com/vkarve-chef))
+- Bump chef / knife to 17.5.22 [#2295](https://github.com/chef/chef-workstation/pull/2295) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.9.613 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef / knife to 17.5.22 [#2295](https://github.com/chef/chef-workstation/pull/2295) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.625 -->
 - Fix main-chef-wrapper Go cross platform build that is part of verify pipeline [#2288](https://github.com/chef/chef-workstation/pull/2288) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.9.624 -->
 - Bump Chef Workstation App to 0.2.65 [#2293](https://github.com/chef/chef-workstation/pull/2293) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.623 -->
 - Fix Expeditor &amp; Build [#2291](https://github.com/chef/chef-workstation/pull/2291) ([tduffield](https://github.com/tduffield)) <!-- 21.9.622 -->
