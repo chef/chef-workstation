@@ -152,7 +152,7 @@ end
 ```
 
 Take a look at all of the code for this plugin on GitHub:
-<https://github.com/chef/knife-windows/blob/master/lib/chef/knife/winrm.rb>.
+<https://github.com/chef/knife-windows/blob/main/lib/chef/knife/winrm.rb>.
 
 ### Namespace
 
