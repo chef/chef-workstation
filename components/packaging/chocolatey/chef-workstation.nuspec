@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>chef-workstation</id>
     <title>Chef Workstation</title>
     <tags>chefdk chef-dk chef workstation chef-client client development chef-workstation</tags>
+    <summary>Chef Workstation gives you everything you need to get started with Chef. Ad-hoc remote execution, scans and configuration tasks, cookbook creation tools, as well as robust dependency and testing software all in one easy-to-install package.</summary>
     <description>Chef Workstation gives you everything you need to get started with Chef. Ad-hoc remote execution, scans and configuration tasks, cookbook creation tools, as well as robust dependency and testing software all in one easy-to-install package.</description>
     <authors>Chef Software, Inc.</authors>
-    <copyright>2018-2021 Chef Software, Inc.</copyright>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <owners>Chef Software, Inc.</owners>
+    <copyright>Chef Software, Inc.</copyright>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <bugTrackerUrl>https://github.com/chef/chef-workstation/issues</bugTrackerUrl>
     <docsUrl>https://docs.chef.io/workstation/</docsUrl>
-    <iconUrl>https://raw.githubusercontent.com/chef/chocolatey-packages/main/chef.png</iconUrl>
-    <license type="Apache-2.0">MIT</license>
+    <iconUrl>https://raw.githubusercontent.com/chef/chocolatey-packages/main/chef/chef.png</iconUrl>
+    <licenseUrl>https://www.chef.io/end-user-license-agreement/</licenseUrl>
     <mailingListUrl>https://discourse.chef.io/</mailingListUrl>
-    <projectSourceUrl>https://github.com/chef/chef-workstation</projectSourceUrl>
     <packageSourceUrl>https://github.com/chef/chef-workstation</packageSourceUrl>
+    <projectSourceUrl>https://github.com/chef/chef-workstation</projectSourceUrl>
     <projectUrl>https://github.com/chef/chef-workstation/</projectUrl>
-    <releaseNotes>https://packages.chef.io/release-notes/chef-workstation/$version$.md</releaseNotes>
+    <releaseNotes>https://docs.chef.io/release_notes_workstation/?v=$version$</releaseNotes>
     <version>$version$</version>
   </metadata>
   <files>
