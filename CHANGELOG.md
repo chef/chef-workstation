@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.9.627 -->
-## [21.9.627](https://github.com/chef/chef-workstation/tree/21.9.627) (2021-09-28)
+<!-- latest_release 21.9.628 -->
+## [21.9.628](https://github.com/chef/chef-workstation/tree/21.9.628) (2021-09-28)
 
 #### Merged Pull Requests
-- Bump omnibus from `7ce6173` to `cd9cf3f` in /omnibus [#2302](https://github.com/chef/chef-workstation/pull/2302) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump kitchen-vcenter to 2.11.0 [#2305](https://github.com/chef/chef-workstation/pull/2305) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.9.613 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-vcenter to 2.11.0 [#2305](https://github.com/chef/chef-workstation/pull/2305) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.628 -->
 - Bump omnibus from `7ce6173` to `cd9cf3f` in /omnibus [#2302](https://github.com/chef/chef-workstation/pull/2302) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.9.627 -->
 - Bump omnibus-software from `e0d92a6` to `d880e20` in /omnibus [#2290](https://github.com/chef/chef-workstation/pull/2290) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.9.626 -->
 - Bump chef / knife to 17.5.22 [#2295](https://github.com/chef/chef-workstation/pull/2295) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.625 -->
