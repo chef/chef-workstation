@@ -140,20 +140,6 @@ func Test_cleanpoliyCookbookCommand(t *testing.T){
 		{   productName: "chef-cli",
 			Use:   "clean-policy-cookbooks",
 			Short: "Delete unused Policyfile cookbooks on the %s",
-			Args:   []string{"capture", "--help"},
-			Long:  `Delete unused Policyfile cookbooks.  Cookbooks are considered unused
-			when they are not referenced by any Policyfile revision on the %s.
-			This command will be most helpful when you first run "chef clean-policy-revisions"
-			in order to remove unreferenced Policy revisions.
-			
-			See the Policyfile documentation for more information:
-			
-			https://docs.chef.io/policyfile/
-			`,
-		},
-		{   productName: "chef-cli",
-			Use:   "clean-policy-cookbooks",
-			Short: "Delete unused Policyfile cookbooks on the %s",
 			Args:   []string{"chef", "clean-policy-cookbooks", "-v"},
 			Long:  `Delete unused Policyfile cookbooks.  Cookbooks are considered unused
 			when they are not referenced by any Policyfile revision on the %s.
@@ -211,6 +197,71 @@ func Test_cleanpoliyCookbookCommand(t *testing.T){
 		t.Run("", func(t *testing.T) {
 			cleanPolicyCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
 			rootCmd.AddCommand(cleanPolicyCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+
+}
+
+
+func Test_cleanpoliyRevisionCommand(t *testing.T){
+	rootCmd := cmd.RootCmd
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-cli",
+			Use:   "clean-policy-revisions",
+			Short: "Delete unused policy revisions on the %s",
+			Args:   []string{"chef", "clean-policy-cookbooks"},
+			Long: `
+'clean-policy-revisions' deletes orphaned Policyfile revisions from the
+%s. Orphaned Policyfile revisions are not associated to any group, and
+are therefore not in active use by any nodes.
+
+To list orphaned Policyfile revisions before deletying them,
+use '%s show-policy --orphans'.
+`,
+		},
+		{   productName: "chef-cli",
+			Use:   "clean-policy-revisions",
+			Short: "Delete unused policy revisions on the %s",
+			Args:   []string{"chef", "clean-policy-cookbooks", "-h"},
+			Long: `
+'clean-policy-revisions' deletes orphaned Policyfile revisions from the
+%s. Orphaned Policyfile revisions are not associated to any group, and
+are therefore not in active use by any nodes.
+
+To list orphaned Policyfile revisions before deletying them,
+use '%s show-policy --orphans'.
+`,
+		},
+		{   productName: "chef-cli",
+			Use:   "clean-policy-revisions",
+			Short: "Delete unused policy revisions on the %s",
+			Args:   []string{"chef", "clean-policy-cookbooks", "-v"},
+			Long: `
+'clean-policy-revisions' deletes orphaned Policyfile revisions from the
+%s. Orphaned Policyfile revisions are not associated to any group, and
+are therefore not in active use by any nodes.
+
+To list orphaned Policyfile revisions before deletying them,
+use '%s show-policy --orphans'.
+`,
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			cleanPolicyRevisionsCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			rootCmd.AddCommand(cleanPolicyRevisionsCmd)
 			err := rootCmd.Execute()
 			if err != nil {
 				log.Printf("Command finished with error: %v", err)
