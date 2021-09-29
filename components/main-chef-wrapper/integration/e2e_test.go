@@ -8,7 +8,6 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
 	"log"
-	"os"
 
 	//"strings"
 	"testing"
@@ -16,17 +15,14 @@ import (
 )
 
 
-func testCobraCommand(useCmd string, shortCmd string, longCmd string, args []string,  productName string) *cobra.Command {
+func testCobraCommand(useCmd string, shortCmd string, longCmd string, arg []string,  productName string) *cobra.Command {
 	return &cobra.Command{
-		Use:   "capture NODE-NAME",
-		Short: "Capture a node's state into a local chef-repo",
-		Args:  cobra.ExactArgs(1),
-		Long: `
-						Captures a node's state as a local chef-repo, which can then be used to
-						converge locally.
-						`,
+		Use:   useCmd,
+		Short: shortCmd,
+		Args:   cobra.ExactArgs(1),
+		Long: longCmd,
 		RunE: func(cm *cobra.Command, args []string) error {
-			return cmd.PassThroughCommand(productName, "", os.Args[1:])
+			return cmd.PassThroughCommand(productName, "", arg[1:])
 		},
 	}
 }
@@ -101,7 +97,7 @@ func Test_captureCommand(t *testing.T){
 		{   productName: "chef-analyze",
 			Use:   "capture NODE-NAME",
 			Short: "Capture a node's state into a local chef-repo",
-			Args:   []string{"capture"},
+			Args:   []string{"capture", "node-abc", "-c"},
 			Long: `
 						Captures a node's state as a local chef-repo, which can then be used to
 						converge locally.
@@ -118,8 +114,103 @@ func Test_captureCommand(t *testing.T){
 				"download all data bags as part of node capture",
 			)
 			cmd.AddInfraFlagsToCommand(captureCmd)
-
 			rootCmd.AddCommand(captureCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+
+}
+
+
+func Test_cleanpoliyCookbookCommand(t *testing.T){
+	rootCmd := cmd.RootCmd
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-cli",
+			Use:   "clean-policy-cookbooks",
+			Short: "Delete unused Policyfile cookbooks on the %s",
+			Args:   []string{"capture", "--help"},
+			Long:  `Delete unused Policyfile cookbooks.  Cookbooks are considered unused
+			when they are not referenced by any Policyfile revision on the %s.
+			This command will be most helpful when you first run "chef clean-policy-revisions"
+			in order to remove unreferenced Policy revisions.
+			
+			See the Policyfile documentation for more information:
+			
+			https://docs.chef.io/policyfile/
+			`,
+		},
+		{   productName: "chef-cli",
+			Use:   "clean-policy-cookbooks",
+			Short: "Delete unused Policyfile cookbooks on the %s",
+			Args:   []string{"chef", "clean-policy-cookbooks", "-v"},
+			Long:  `Delete unused Policyfile cookbooks.  Cookbooks are considered unused
+			when they are not referenced by any Policyfile revision on the %s.
+			This command will be most helpful when you first run "chef clean-policy-revisions"
+			in order to remove unreferenced Policy revisions.
+			
+			See the Policyfile documentation for more information:
+			
+			https://docs.chef.io/policyfile/
+			`,
+		},
+		{   productName: "chef-cli",
+			Use:   "clean-policy-cookbooks",
+			Short: "Delete unused Policyfile cookbooks on the %s",
+			Args:   []string{"chef", "clean-policy-cookbooks", "-h"},
+			Long:  `Delete unused Policyfile cookbooks.  Cookbooks are considered unused
+			when they are not referenced by any Policyfile revision on the %s.
+			This command will be most helpful when you first run "chef clean-policy-revisions"
+			in order to remove unreferenced Policy revisions.
+			
+			See the Policyfile documentation for more information:
+			
+			https://docs.chef.io/policyfile/
+			`,
+		},
+		{   productName: "chef-cli",
+			Use:   "clean-policy-cookbooks",
+			Short: "Delete unused Policyfile cookbooks on the %s",
+			Args:   []string{"chef", "clean-policy-cookbooks", "-D"},
+			Long:  `Delete unused Policyfile cookbooks.  Cookbooks are considered unused
+			when they are not referenced by any Policyfile revision on the %s.
+			This command will be most helpful when you first run "chef clean-policy-revisions"
+			in order to remove unreferenced Policy revisions.
+			
+			See the Policyfile documentation for more information:
+			
+			https://docs.chef.io/policyfile/
+			`,
+		},
+		{   productName: "chef-cli",
+			Use:   "clean-policy-cookbooks",
+			Short: "Delete unused Policyfile cookbooks on the %s",
+			Args:   []string{"chef", "clean-policy-cookbooks"},
+			Long:  `Delete unused Policyfile cookbooks.  Cookbooks are considered unused
+			when they are not referenced by any Policyfile revision on the %s.
+			This command will be most helpful when you first run "chef clean-policy-revisions"
+			in order to remove unreferenced Policy revisions.
+			
+			See the Policyfile documentation for more information:
+			
+			https://docs.chef.io/policyfile/
+			`,
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			cleanPolicyCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			rootCmd.AddCommand(cleanPolicyCmd)
 			err := rootCmd.Execute()
 			if err != nil {
 				log.Printf("Command finished with error: %v", err)
