@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.9.629 -->
-## [21.9.629](https://github.com/chef/chef-workstation/tree/21.9.629) (2021-09-30)
+<!-- latest_release 21.9.630 -->
+## [21.9.630](https://github.com/chef/chef-workstation/tree/21.9.630) (2021-09-30)
 
 #### Merged Pull Requests
-- Bump chefstyle to 2.1.0 and cookstyle to 7.25.6 [#2307](https://github.com/chef/chef-workstation/pull/2307) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump inspec-bin to 4.46.13 [#2308](https://github.com/chef/chef-workstation/pull/2308) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.9.613 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump inspec-bin to 4.46.13 [#2308](https://github.com/chef/chef-workstation/pull/2308) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.630 -->
 - Bump chefstyle to 2.1.0 and cookstyle to 7.25.6 [#2307](https://github.com/chef/chef-workstation/pull/2307) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.629 -->
 - Bump kitchen-vcenter to 2.11.0 [#2305](https://github.com/chef/chef-workstation/pull/2305) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.628 -->
 - Bump omnibus from `7ce6173` to `cd9cf3f` in /omnibus [#2302](https://github.com/chef/chef-workstation/pull/2302) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.9.627 -->
