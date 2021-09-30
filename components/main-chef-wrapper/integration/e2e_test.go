@@ -273,6 +273,212 @@ use '%s show-policy --orphans'.
 
 }
 
+func Test_deletePolicyCommand(t *testing.T){
+	rootCmd := cmd.RootCmd
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-cli",
+			Use:   "delete-policy POLICY_NAME",
+			Short: "Delete all revisions of POLICY_NAME policy on the %s",
+			Args:   []string{"chef", "delete-policy", "-h"},
+			Long: `
+				Delete all revisions of the policy POLICY_NAME on the configured
+				%s. All policy revisions will be backed up locally, allowing you to
+				undo this operation via the '%s undelete' command.
+`,
+		},
+		{   productName: "chef-cli",
+			Use:   "delete-policy POLICY_NAME",
+			Short: "Delete all revisions of POLICY_NAME policy on the %s",
+			Args:   []string{"chef", "delete-policy", "-v"},
+			Long: `
+				Delete all revisions of the policy POLICY_NAME on the configured
+				%s. All policy revisions will be backed up locally, allowing you to
+				undo this operation via the '%s undelete' command.
+				`,
+		},
+		{   productName: "chef-cli",
+			Use:   "delete-policy POLICY_NAME",
+			Short: "Delete all revisions of POLICY_NAME policy on the %s",
+			Args:   []string{"chef", "delete-policy", "-D"},
+			Long: `
+				Delete all revisions of the policy POLICY_NAME on the configured
+				%s. All policy revisions will be backed up locally, allowing you to
+				undo this operation via the '%s undelete' command.
+				`,
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			deletePolicyCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			rootCmd.AddCommand(deletePolicyCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+
+}
+
+func Test_deletePolicyGroupCommand(t *testing.T){
+	rootCmd := cmd.RootCmd
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-cli",
+			Use:   "delete-policy-group POLICY_GROUP",
+			Short: "Delete a policy group on %s",
+			Args:   []string{"chef", "delete-policy", "-h"},
+			Long: `Delete the policy group POLICY_GROUP on the configured %s.
+			Policy Revisions associated with the policy group are not deleted. The
+			state of the policy group will be backed up locally, allowing you to
+			undo this operation via the '%s undelete' command.
+			
+			See our detailed README for more information:
+			
+			https://docs.chef.io/policyfile/
+`,
+		},
+		{   productName: "chef-cli",
+			Use:   "delete-policy-group POLICY_GROUP",
+			Short: "Delete a policy group on %s",
+			Args:   []string{"chef", "delete-policy", "-v"},
+			Long: `Delete the policy group POLICY_GROUP on the configured %s.
+				Policy Revisions associated with the policy group are not deleted. The
+				state of the policy group will be backed up locally, allowing you to
+				undo this operation via the '%s undelete' command.
+				
+				See our detailed README for more information:
+				
+				https://docs.chef.io/policyfile/
+				`,
+		},
+		{   productName: "chef-cli",
+			Use:   "delete-policy-group POLICY_GROUP",
+			Short: "Delete a policy group on %s",
+			Args:   []string{"chef", "delete-policy", "-D"},
+			Long: `Delete the policy group POLICY_GROUP on the configured %s.
+				Policy Revisions associated with the policy group are not deleted. The
+				state of the policy group will be backed up locally, allowing you to
+				undo this operation via the '%s undelete' command.
+				
+				See our detailed README for more information:
+				
+				https://docs.chef.io/policyfile/
+				`,
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			deletePolicyGroupCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			rootCmd.AddCommand(deletePolicyGroupCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+
+}
+
+
+func Test_describeCookbookCmd(t *testing.T){
+	rootCmd := cmd.RootCmd
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-cli",
+			Use:   "describe-cookbook COOKBOOK_PATH",
+			Args:   []string{"chef", "describe-cookbook", "-h"},
+			Short: "Prints cookbook checksum information for the cookbook at COOKBOOK_PATH",
+		},
+		{   productName: "chef-cli",
+			Use:   "describe-cookbook COOKBOOK_PATH",
+			Args:   []string{"chef", "describe-cookbook", "-v"},
+			Short: "Prints cookbook checksum information for the cookbook at COOKBOOK_PATH",
+		},
+		{   productName: "chef-cli",
+			Use:   "describe-cookbook COOKBOOK_PATH",
+			Args:   []string{"chef", "describe-cookbook", "integration/Cookbook_Name/"},
+			Short: "Prints cookbook checksum information for the cookbook at COOKBOOK_PATH",
+
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			describeCookbookCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			rootCmd.AddCommand(describeCookbookCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+
+}
+
+func Test_diffCmd(t *testing.T){
+	// need to make sure policyfile.loc.json file is in place.
+	rootCmd := cmd.RootCmd
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-cli",
+			Use:                   "diff [POLICYFILE] [--head | --git GIT_REF | POLICY_GROUP | POLICY_GROUP...POLICY_GROUP]",
+			Args:    []string{"chef", "chef", "diff", "-h"},
+			Short:                 "Generate an itemized diff of two Policyfile lock documents",
+		},
+		{   productName: "chef-cli",
+			Use:                   "diff [POLICYFILE] [--head | --git GIT_REF | POLICY_GROUP | POLICY_GROUP...POLICY_GROUP]",
+			Args:   []string{"chef",  "diff", "--git", "HEAD"},
+			Short:                 "Generate an itemized diff of two Policyfile lock documents",
+		},
+		{   productName: "chef-cli",
+			Use:                   "diff [POLICYFILE] [--head | --git GIT_REF | POLICY_GROUP | POLICY_GROUP...POLICY_GROUP]",
+			Args:   []string{"chef", "diff", "--git", "master"},
+			Short:                 "Generate an itemized diff of two Policyfile lock documents",
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			describeCookbookCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			rootCmd.AddCommand(describeCookbookCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+
+}
+
+
 
 //reference for all the cmd command test
 //func TestSingleCommand(t *testing.T) {
