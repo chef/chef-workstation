@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.9.632 -->
-## [21.9.632](https://github.com/chef/chef-workstation/tree/21.9.632) (2021-09-30)
+<!-- latest_release 21.9.633 -->
+## [21.9.633](https://github.com/chef/chef-workstation/tree/21.9.633) (2021-09-30)
 
 #### Merged Pull Requests
-- Bump train-aws to 0.2.20 [#2310](https://github.com/chef/chef-workstation/pull/2310) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Add more platforms [#2309](https://github.com/chef/chef-workstation/pull/2309) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.9.613 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Add more platforms [#2309](https://github.com/chef/chef-workstation/pull/2309) ([tas50](https://github.com/tas50)) <!-- 21.9.633 -->
 - Bump train-aws to 0.2.20 [#2310](https://github.com/chef/chef-workstation/pull/2310) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.632 -->
 - Bump omnibus from `cd9cf3f` to `37897ad` in /omnibus [#2306](https://github.com/chef/chef-workstation/pull/2306) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.9.631 -->
 - Bump inspec-bin to 4.46.13 [#2308](https://github.com/chef/chef-workstation/pull/2308) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.630 -->
