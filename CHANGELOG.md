@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.10.635 -->
-## [21.10.635](https://github.com/chef/chef-workstation/tree/21.10.635) (2021-10-01)
+<!-- latest_release 21.10.636 -->
+## [21.10.636](https://github.com/chef/chef-workstation/tree/21.10.636) (2021-10-01)
 
 #### Merged Pull Requests
-- Update the chocolatey definition to match their current generator [#2304](https://github.com/chef/chef-workstation/pull/2304) ([tas50](https://github.com/tas50))
+- Bump omnibus-software from `d880e20` to `0966668` in /omnibus [#2314](https://github.com/chef/chef-workstation/pull/2314) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.9.613 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `d880e20` to `0966668` in /omnibus [#2314](https://github.com/chef/chef-workstation/pull/2314) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.10.636 -->
 - Update the chocolatey definition to match their current generator [#2304](https://github.com/chef/chef-workstation/pull/2304) ([tas50](https://github.com/tas50)) <!-- 21.10.635 -->
 - Bump ohai to 17.6.0 [#2312](https://github.com/chef/chef-workstation/pull/2312) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.634 -->
 - Add more platforms [#2309](https://github.com/chef/chef-workstation/pull/2309) ([tas50](https://github.com/tas50)) <!-- 21.9.633 -->
