@@ -645,37 +645,37 @@ func Test_generateCmd(t *testing.T){
 		{   productName: "chef-cli",
 			Use:   "generate GENERATOR",
 			Short: "Generate a new repository, cookbook, or other component",
-			Args:   []string{"generate", "--help"},
+			Args:   []string{"chef", "generate", "--help"},
 		},
 		{   productName: "chef-cli",
 			Use:   "generate GENERATOR",
 			Short: "Generate a new repository, cookbook, or other component",
-			Args:   []string{"generate", "cookbook", "cookbook_name"},
+			Args:   []string{"chef", "generate", "cookbook", "cookbook_name"},
 		},
 		{   productName: "chef-cli",
 			Use:   "generate GENERATOR",
 			Short: "Generate a new repository, cookbook, or other component",
-			Args:   []string{"generate", "recipe", "cookbook_name", "recipe_name"},
+			Args:   []string{"chef", "generate", "recipe", "cookbook_name", "recipe_name"},
 		},
 		{   productName: "chef-cli",
 			Use:   "generate GENERATOR",
 			Short: "Generate a new repository, cookbook, or other component",
-			Args:   []string{"generate", "attribute", "cookbook_name", "attribute_name"},
+			Args:   []string{"chef", "generate", "attribute", "cookbook_name", "attribute_name"},
 		},
 		{   productName: "chef-cli",
 			Use:   "generate GENERATOR",
 			Short: "Generate a new repository, cookbook, or other component",
-			Args:   []string{"generate", "template", "cookbook_name", "template_name"},
+			Args:   []string{"chef", "generate", "template", "cookbook_name", "template_name"},
 		},
 		{   productName: "chef-cli",
 			Use:   "generate GENERATOR",
 			Short: "Generate a new repository, cookbook, or other component",
-			Args:   []string{"generate", "helpers", "cookbook_name", "helper_name"},
+			Args:   []string{"chef", "generate", "helpers", "cookbook_name", "helper_name"},
 		},
 		{   productName: "chef-cli",
 			Use:   "generate GENERATOR",
 			Short: "Generate a new repository, cookbook, or other component",
-			Args:   []string{"generate", "helpers", "policyfile", "policy_name"},
+			Args:   []string{"chef", "generate", "helpers", "policyfile", "policy_name"},
 		},
 	}{
 		t.Run("", func(t *testing.T) {
@@ -691,6 +691,95 @@ func Test_generateCmd(t *testing.T){
 	}
 }
 
+
+func Test_installCmd(t *testing.T){
+	rootCmd := cmd.RootCmd
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-cli",
+			Use:   "install [ POLICYFILE_PATH ]",
+			Short: "Install cookbooks from a Policyfile and generate a locked cookbook set",
+			Args:   []string{"chef", "install", "--help"},
+		},
+		{   productName: "chef-cli",
+			Use:   "install [ POLICYFILE_PATH ]",
+			Short: "Install cookbooks from a Policyfile and generate a locked cookbook set",
+			Args:   []string{"chef", "install"},
+		},
+		{   productName: "chef-cli",
+			Use:   "install [ POLICYFILE_PATH ]",
+			Short: "Install cookbooks from a Policyfile and generate a locked cookbook set",
+			Args:   []string{"chef", "install", "Policyfile.rb"},
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			installCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			exportCmd.AddCommand(installCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+}
+
+func Test_pushCmd(t *testing.T){
+	rootCmd := cmd.RootCmd
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-cli",
+			Use:   "install [ POLICYFILE_PATH ]",
+			Short: "Install cookbooks from a Policyfile and generate a locked cookbook set",
+			Args:   []string{"chef", "install", "--help"},
+		},
+		{   productName: "chef-cli",
+			Use:   "install [ POLICYFILE_PATH ]",
+			Short: "Install cookbooks from a Policyfile and generate a locked cookbook set",
+			Args:   []string{"chef", "install"},
+		},
+		{   productName: "chef-cli",
+			Use:   "install [ POLICYFILE_PATH ]",
+			Short: "Install cookbooks from a Policyfile and generate a locked cookbook set",
+			Args:   []string{"chef", "install", "Policyfile.rb"},
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			installCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			exportCmd.AddCommand(installCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+}
+
+
+{
+Args: []string{"install", "--help"},
+},
+{
+Args: []string{"install"},
+},
+{
+Args: []string{"install", "Policyfile.rb"},
+},
 
 //reference for all the cmd command test
 //func TestSingleCommand(t *testing.T) {
