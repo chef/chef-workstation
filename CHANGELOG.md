@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.9.634 -->
-## [21.9.634](https://github.com/chef/chef-workstation/tree/21.9.634) (2021-09-30)
+<!-- latest_release 21.10.635 -->
+## [21.10.635](https://github.com/chef/chef-workstation/tree/21.10.635) (2021-10-01)
 
 #### Merged Pull Requests
-- Bump ohai to 17.6.0 [#2312](https://github.com/chef/chef-workstation/pull/2312) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update the chocolatey definition to match their current generator [#2304](https://github.com/chef/chef-workstation/pull/2304) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.9.613 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update the chocolatey definition to match their current generator [#2304](https://github.com/chef/chef-workstation/pull/2304) ([tas50](https://github.com/tas50)) <!-- 21.10.635 -->
 - Bump ohai to 17.6.0 [#2312](https://github.com/chef/chef-workstation/pull/2312) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.634 -->
 - Add more platforms [#2309](https://github.com/chef/chef-workstation/pull/2309) ([tas50](https://github.com/tas50)) <!-- 21.9.633 -->
 - Bump train-aws to 0.2.20 [#2310](https://github.com/chef/chef-workstation/pull/2310) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.632 -->
