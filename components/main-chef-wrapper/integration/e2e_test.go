@@ -478,6 +478,218 @@ func Test_diffCmd(t *testing.T){
 
 }
 
+func Test_envCmd(t *testing.T){
+	rootCmd := cmd.RootCmd
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-cli",
+			Use:   "env",
+			Short: "Prints environment variables used by %s",
+			Args:    []string{"chef", "env"},
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			envCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			rootCmd.AddCommand(envCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+
+}
+
+func Test_execCmd(t *testing.T){
+	rootCmd := cmd.RootCmd
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-cli",
+			Use:   "exec SYSTEM_COMMAND (options)",
+			Short: "Runs COMMAND in the context of %s",
+			Args:    []string{"chef", "exec", "-h"},
+		},
+		{   productName: "chef-cli",
+			Use:   "exec SYSTEM_COMMAND (options)",
+			Short: "Runs COMMAND in the context of %s",
+			Args:    []string{"chef", "exec", "-v"},
+		},
+		{   productName: "chef-cli",
+			Use:   "exec SYSTEM_COMMAND (options)",
+			Short: "Runs COMMAND in the context of %s",
+			Args:    []string{"chef", "exec", "Random command"},
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			execCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			rootCmd.AddCommand(execCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+
+}
+
+
+func Test_exportCmd(t *testing.T){
+	rootCmd := cmd.RootCmd
+	var force bool
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-cli",
+			Use:   "export [ POLICY_FILE ] DESTINATION_DIRECTORY",
+			Short: "Export a policy lock as a %s code repository",
+			Args:    []string{"chef", "export", "POLICY_FILE", "DESTINATION_DIRECTORY"},
+		},
+		{   productName: "chef-cli",
+			Use:   "exec SYSTEM_COMMAND (options)",
+			Short: "Runs COMMAND in the context of %s",
+			Args:   []string{"export", "POLICY_FILE", "DESTINATION_DIRECTORY", "--force"},
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			exportCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			exportCmd.AddCommand(exportCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+	exportCmd.PersistentFlags().BoolVarP(&force, "force", "f", false, "If the DESTINATION_DIRECTORY is not empty, remove its contents before exporting into it")
+	exportCmd.PersistentFlags().BoolVarP(&force, "archive", "a", false, "Export as a tarball archive rather than a directory")
+}
+
+
+func Test_gemCmd(t *testing.T){
+	rootCmd := cmd.RootCmd
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-cli",
+			Use:   "gem [ARGS]",
+			Short: "Runs the 'gem' command in the context of %s's Ruby",
+			Args:    []string{"gem", "--help"},
+		},
+		{   productName: "chef-cli",
+			Use:   "gem [ARGS]",
+			Short: "Runs the 'gem' command in the context of %s's Ruby",
+			Args:   []string{"gem", "install"},
+		},
+		{   productName: "chef-cli",
+			Use:   "gem [ARGS]",
+			Short: "Runs the 'gem' command in the context of %s's Ruby",
+			Args:   []string{"gem", "install", "rake"},
+		},
+		{   productName: "chef-cli",
+			Use:   "gem [ARGS]",
+			Short: "Runs the 'gem' command in the context of %s's Ruby",
+			Args:   []string{"gem", "list"},
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			gemCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			exportCmd.AddCommand(gemCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+}
+
+
+func Test_generateCmd(t *testing.T){
+	rootCmd := cmd.RootCmd
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-cli",
+			Use:   "generate GENERATOR",
+			Short: "Generate a new repository, cookbook, or other component",
+			Args:   []string{"generate", "--help"},
+		},
+		{   productName: "chef-cli",
+			Use:   "generate GENERATOR",
+			Short: "Generate a new repository, cookbook, or other component",
+			Args:   []string{"generate", "cookbook", "cookbook_name"},
+		},
+		{   productName: "chef-cli",
+			Use:   "generate GENERATOR",
+			Short: "Generate a new repository, cookbook, or other component",
+			Args:   []string{"generate", "recipe", "cookbook_name", "recipe_name"},
+		},
+		{   productName: "chef-cli",
+			Use:   "generate GENERATOR",
+			Short: "Generate a new repository, cookbook, or other component",
+			Args:   []string{"generate", "attribute", "cookbook_name", "attribute_name"},
+		},
+		{   productName: "chef-cli",
+			Use:   "generate GENERATOR",
+			Short: "Generate a new repository, cookbook, or other component",
+			Args:   []string{"generate", "template", "cookbook_name", "template_name"},
+		},
+		{   productName: "chef-cli",
+			Use:   "generate GENERATOR",
+			Short: "Generate a new repository, cookbook, or other component",
+			Args:   []string{"generate", "helpers", "cookbook_name", "helper_name"},
+		},
+		{   productName: "chef-cli",
+			Use:   "generate GENERATOR",
+			Short: "Generate a new repository, cookbook, or other component",
+			Args:   []string{"generate", "helpers", "policyfile", "policy_name"},
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			generateCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			exportCmd.AddCommand(generateCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+}
 
 
 //reference for all the cmd command test
