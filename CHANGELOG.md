@@ -1,15 +1,23 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.9.626 -->
-## [21.9.626](https://github.com/chef/chef-workstation/tree/21.9.626) (2021-09-24)
+<!-- latest_release 21.9.634 -->
+## [21.9.634](https://github.com/chef/chef-workstation/tree/21.9.634) (2021-09-30)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `e0d92a6` to `d880e20` in /omnibus [#2290](https://github.com/chef/chef-workstation/pull/2290) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump ohai to 17.6.0 [#2312](https://github.com/chef/chef-workstation/pull/2312) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.9.613 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump ohai to 17.6.0 [#2312](https://github.com/chef/chef-workstation/pull/2312) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.634 -->
+- Add more platforms [#2309](https://github.com/chef/chef-workstation/pull/2309) ([tas50](https://github.com/tas50)) <!-- 21.9.633 -->
+- Bump train-aws to 0.2.20 [#2310](https://github.com/chef/chef-workstation/pull/2310) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.632 -->
+- Bump omnibus from `cd9cf3f` to `37897ad` in /omnibus [#2306](https://github.com/chef/chef-workstation/pull/2306) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.9.631 -->
+- Bump inspec-bin to 4.46.13 [#2308](https://github.com/chef/chef-workstation/pull/2308) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.630 -->
+- Bump chefstyle to 2.1.0 and cookstyle to 7.25.6 [#2307](https://github.com/chef/chef-workstation/pull/2307) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.629 -->
+- Bump kitchen-vcenter to 2.11.0 [#2305](https://github.com/chef/chef-workstation/pull/2305) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.628 -->
+- Bump omnibus from `7ce6173` to `cd9cf3f` in /omnibus [#2302](https://github.com/chef/chef-workstation/pull/2302) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.9.627 -->
 - Bump omnibus-software from `e0d92a6` to `d880e20` in /omnibus [#2290](https://github.com/chef/chef-workstation/pull/2290) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.9.626 -->
 - Bump chef / knife to 17.5.22 [#2295](https://github.com/chef/chef-workstation/pull/2295) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.9.625 -->
 - Fix main-chef-wrapper Go cross platform build that is part of verify pipeline [#2288](https://github.com/chef/chef-workstation/pull/2288) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.9.624 -->
