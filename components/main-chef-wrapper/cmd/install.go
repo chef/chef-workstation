@@ -38,13 +38,13 @@ cookbooks on another machine.
 You can also push the lockfile to a "policy group" on a %s and
 apply that exact set of cookbooks to nodes in your infrastructure.
 
-See the policyfile documentation for more information:
+See the Policyfile documentation for more information:
 
 https://docs.chef.io/policyfile/
 `,
 	DisableFlagParsing: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+		return Runner.passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},
 }
 

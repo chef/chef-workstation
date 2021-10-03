@@ -47,12 +47,12 @@ CAVEATS:
 * The delete commands do not store access control data, so you may have to
 manually reapply any ACL customizations you have made.
 
-See the policyfile documentation for more information:
+See the Policyfile documentation for more information:
 
 https://docs.chef.io/policyfile/
 `,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+			return Runner.passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 		},
 	}
 )

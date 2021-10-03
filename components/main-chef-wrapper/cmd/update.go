@@ -42,13 +42,13 @@ Individual dependent cookbooks (and their dependencies) may be updated by
 passing their names after the POLICYFILE. The POLICYFILE parameter is mandatory
 if you want to update individual cookbooks.
 
-See the policyfile documentation for more information:
+See the Policyfile documentation for more information:
 
 https://docs.chef.io/policyfile/
 `,
 		DisableFlagParsing: true,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+			return Runner.passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 		},
 	}
 )

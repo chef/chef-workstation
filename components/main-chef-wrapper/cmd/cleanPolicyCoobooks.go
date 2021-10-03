@@ -34,12 +34,12 @@ when they are not referenced by any Policyfile revision on the %s.
 This command will be most helpful when you first run "chef clean-policy-revisions"
 in order to remove unreferenced Policy revisions.
 
-See the policyfile documentation for more information:
+See the Policyfile documentation for more information:
 
 https://docs.chef.io/policyfile/
 `,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+		return Runner.passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},
 }
 

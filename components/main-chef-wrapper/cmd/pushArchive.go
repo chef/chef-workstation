@@ -36,14 +36,14 @@ Policy archives can be created with '%s export -a'. The policy will be
 applied to the given POLICY_GROUP, which is a set of nodes that share the
 same run_list and cookbooks.
 
-See the policyfile documentation for more information:
+See the Policyfile documentation for more information:
 
 https://docs.chef.io/policyfile/
 `,
 	DisableFlagParsing: true,
 
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+		return Runner.passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},
 }
 

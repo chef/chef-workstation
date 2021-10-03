@@ -15,7 +15,7 @@ func NewShellInitCookbookCmd(s []string) *cobra.Command {
 		Use:   "env",
 		Short: "Prints environment variables used by %s",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return passThroughCommand(dist.WorkstationExec, "", s)
+			return Runner.passThroughCommand(dist.WorkstationExec, "", s)
 		},
 	}
 }
@@ -35,7 +35,6 @@ func Test_ShellInitNamePathCommand(t *testing.T) {
 	b := bytes.NewBufferString("")
 	cmd.SetOut(b)
 	cmd.Execute()
-	// fmt.Println("x is ...", x)
 	out, err := ioutil.ReadAll(b)
 	if err != nil {
 		t.Fatal(err)

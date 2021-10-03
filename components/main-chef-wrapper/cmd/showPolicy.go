@@ -43,14 +43,14 @@ When both POLICY_NAME and POLICY_GROUP are given, the command shows the content
 of the active policyfile lock for the given POLICY_GROUP. See also the 'diff'
 command.
 
-See the policyfile documentation for more information:
+See the Policyfile documentation for more information:
 
 https://docs.chef.io/policyfile/
 `,
 		DisableFlagParsing: true,
 
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+			return Runner.passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 		},
 	}
 )

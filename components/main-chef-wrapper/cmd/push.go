@@ -36,7 +36,7 @@ with all the cookbooks contained in the Policy lock. The Policy lock is applied
 to a specific POLICY_GROUP, which is a set of nodes that share the same
 run_list and cookbooks.
 
-See the policyfile documentation for more information:
+See the Policyfile documentation for more information:
 
 https://docs.chef.io/policyfile/
 `,
@@ -48,15 +48,15 @@ https://docs.chef.io/policyfile/
 			if !validateRolloutSetup() { // roll-out is enabled but setup not complete, we don't do anything
 				return errors.New("Policy roll-out is enabled but required variables are not set")
 			}
-			err := passThroughCommand(dist.WorkstationExec, "", allArgs)
+			err := Runner.passThroughCommand(dist.WorkstationExec, "", allArgs)
 			if err != nil {
 				return err
 			}
 			allArgs := []string{"report-new-rollout", "-g", allArgs[1], "-l", allArgs[2],
 				"-s", os.Getenv("CHEF_AC_SERVER_URL"), "-u", os.Getenv("CHEF_AC_SERVER_USER")}
-			return passThroughCommand(dist.AutomateCollectExec, "", allArgs)
+			return Runner.passThroughCommand(dist.AutomateCollectExec, "", allArgs)
 		}
-		return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+		return Runner.passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},
 }
 
