@@ -6,7 +6,7 @@ aliases = ["/plugin_knife_custom.html"]
 product = ["workstation"]
 
 [menu]
-  [menu.infra]
+  [menu.workstation]
     title = "Writing Custom Plugins"
     identifier = "chef_workstation/extension_apis/knife_plugins/plugin_knife_custom.md Writing Custom Plugins"
     parent = "chef_workstation/extension_apis/knife_plugins"

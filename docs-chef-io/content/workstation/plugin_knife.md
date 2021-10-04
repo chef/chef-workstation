@@ -6,7 +6,7 @@ aliases = ["/plugin_knife.html"]
 product = ["workstation"]
 
 [menu]
-  [menu.infra]
+  [menu.workstation]
     title = "Cloud Plugins"
     identifier = "chef_workstation/extension_apis/knife_plugins/plugin_knife.md Cloud Plugins"
     parent = "chef_workstation/extension_apis/knife_plugins"
