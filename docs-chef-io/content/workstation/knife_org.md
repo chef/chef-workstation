@@ -14,7 +14,7 @@ aliases = ["/knife_org.html", "/knife_org/"]
 +++
 
 The `knife org` subcommand is used to manage organizations and users in
-Chef Server 12.
+Chef Server.
 
 {{< note >}}
 
@@ -63,7 +63,7 @@ If your `chef_server_url` configuration ends with
 
 {{< note >}}
 
-On Chef Server 12, the majority of the commands provided by this plugin
+On Chef Server, the majority of the commands provided by this plugin
 can be accessed via `chef-server-ctl` wrapper commands. [See
 chef-server-ctl for details](/ctl_chef_server/).
 
