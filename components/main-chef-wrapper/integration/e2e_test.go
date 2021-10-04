@@ -573,7 +573,7 @@ func Test_exportCmd(t *testing.T){
 	}{
 		t.Run("", func(t *testing.T) {
 			exportCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
-			exportCmd.AddCommand(exportCmd)
+			rootCmd.AddCommand(exportCmd)
 			err := rootCmd.Execute()
 			if err != nil {
 				log.Printf("Command finished with error: %v", err)
@@ -620,7 +620,7 @@ func Test_gemCmd(t *testing.T){
 	}{
 		t.Run("", func(t *testing.T) {
 			gemCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
-			exportCmd.AddCommand(gemCmd)
+			rootCmd.AddCommand(gemCmd)
 			err := rootCmd.Execute()
 			if err != nil {
 				log.Printf("Command finished with error: %v", err)
@@ -680,7 +680,7 @@ func Test_generateCmd(t *testing.T){
 	}{
 		t.Run("", func(t *testing.T) {
 			generateCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
-			exportCmd.AddCommand(generateCmd)
+			rootCmd.AddCommand(generateCmd)
 			err := rootCmd.Execute()
 			if err != nil {
 				log.Printf("Command finished with error: %v", err)
@@ -720,7 +720,7 @@ func Test_installCmd(t *testing.T){
 	}{
 		t.Run("", func(t *testing.T) {
 			installCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
-			exportCmd.AddCommand(installCmd)
+			rootCmd.AddCommand(installCmd)
 			err := rootCmd.Execute()
 			if err != nil {
 				log.Printf("Command finished with error: %v", err)
@@ -742,24 +742,52 @@ func Test_pushCmd(t *testing.T){
 
 	}{
 		{   productName: "chef-cli",
-			Use:   "install [ POLICYFILE_PATH ]",
-			Short: "Install cookbooks from a Policyfile and generate a locked cookbook set",
-			Args:   []string{"chef", "install", "--help"},
+			Use:   "push POLICY_GROUP [ POLICY_FILE ]",
+			Short: "Push a local policyfile lock to a policy group on the %s",
+			Args:   []string{"chef", "push"},
 		},
 		{   productName: "chef-cli",
-			Use:   "install [ POLICYFILE_PATH ]",
-			Short: "Install cookbooks from a Policyfile and generate a locked cookbook set",
-			Args:   []string{"chef", "install"},
+			Use:   "push POLICY_GROUP [ POLICY_FILE ]",
+			Short: "Push a local policyfile lock to a policy group on the %s",
+			Args:   []string{"chef", "push", "--help"},
 		},
 		{   productName: "chef-cli",
-			Use:   "install [ POLICYFILE_PATH ]",
-			Short: "Install cookbooks from a Policyfile and generate a locked cookbook set",
-			Args:   []string{"chef", "install", "Policyfile.rb"},
+			Use:   "push POLICY_GROUP [ POLICY_FILE ]",
+			Short: "Push a local policyfile lock to a policy group on the %s",
+			Args:   []string{"chef", "push", "POLICY_GROUP", "POLICY_FILE"},
 		},
 	}{
 		t.Run("", func(t *testing.T) {
-			installCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
-			exportCmd.AddCommand(installCmd)
+			pushCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			rootCmd.AddCommand(pushCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+}
+func Test_shellInitCmd(t *testing.T){
+	rootCmd := cmd.RootCmd
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-cli",
+			Use:   "shell-init ",
+			Short: "Set shell context to the %s environment",
+			Args:   []string{"chef", "shell-init", "powershell"},
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			shellInitCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			rootCmd.AddCommand(shellInitCmd)
 			err := rootCmd.Execute()
 			if err != nil {
 				log.Printf("Command finished with error: %v", err)
@@ -771,107 +799,78 @@ func Test_pushCmd(t *testing.T){
 }
 
 
-{
-Args: []string{"install", "--help"},
-},
-{
-Args: []string{"install"},
-},
-{
-Args: []string{"install", "Policyfile.rb"},
-},
+func Test_undeleteCmd(t *testing.T){
+	rootCmd := cmd.RootCmd
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
 
-//reference for all the cmd command test
-//func TestSingleCommand(t *testing.T) {
-//	var rootCmdArgs []string
-//	rootCmd := &Command{
-//		Use:  "root",
-//		Args: ExactArgs(2),
-//		Run:  func(_ *Command, args []string) { rootCmdArgs = args },
-//	}
-//	aCmd := &Command{Use: "a", Args: NoArgs, Run: emptyRun}
-//	bCmd := &Command{Use: "b", Args: NoArgs, Run: emptyRun}
-//	rootCmd.AddCommand(aCmd, bCmd)
-//
-//	output, err := executeCommand(rootCmd, "one", "two")
-//	if output != "" {
-//		t.Errorf("Unexpected output: %v", output)
-//	}
-//	if err != nil {
-//		t.Errorf("Unexpected error: %v", err)
-//	}
-//
-//	got := strings.Join(rootCmdArgs, " ")
-//	if got != onetwo {
-//		t.Errorf("rootCmdArgs expected: %q, got: %q", onetwo, got)
-//	}
-//}
-//
-//
-//func executeCommand(root *Command, args ...string) (output string, err error) {
-//	_, output, err = executeCommandC(root, args...)
-//	return output, err
-//}
-//
-//func executeCommandC(root *Command, args ...string) (c *Command, output string, err error) {
-//	buf := new(bytes.Buffer)
-//	root.SetOut(buf)
-//	root.SetErr(buf)
-//	root.SetArgs(args)
-//
-//	c, err = root.ExecuteC()
-//
-//	return c, buf.String(), err
-//}
-//
-//
-//func TestChildCommand(t *testing.T) {
-//	var child1CmdArgs []string
-//	rootCmd := &Command{Use: "root", Args: cobra.NoArgs, Run: cobra.emptyRun}
-//	child1Cmd := &Command{
-//		Use:  "child1",
-//		Args: ExactArgs(2),
-//		Run:  func(_ *Command, args []string) { child1CmdArgs = args },
-//	}
-//	child2Cmd := &Command{Use: "child2", Args: cobra.NoArgs, Run: cobra.emptyRun}
-//	rootCmd.AddCommand(child1Cmd, child2Cmd)
-//
-//	output, err := executeCommand(rootCmd, "child1", "one", "two")
-//	if output != "" {
-//		t.Errorf("Unexpected output: %v", output)
-//	}
-//	if err != nil {
-//		t.Errorf("Unexpected error: %v", err)
-//	}
-//
-//	got := strings.Join(child1CmdArgs, " ")
-//	if got != onetwo {
-//		t.Errorf("child1CmdArgs expected: %q, got: %q", onetwo, got)
-//	}
-//}
-//
-//func TestCallCommandWithoutSubcommands(t *testing.T) {
-//	rootCmd := &Command{Use: "root", Args: NoArgs, Run: emptyRun}
-//	_, err := executeCommand(rootCmd)
-//	if err != nil {
-//		t.Errorf("Calling command without subcommands should not have error: %v", err)
-//	}
-//}
-//
-//
-//func TestRootExecuteUnknownCommand(t *testing.T) {
-//	rootCmd := &Command{Use: "root", Run: emptyRun}
-//	rootCmd.AddCommand(&Command{Use: "child", Run: emptyRun})
-//
-//	output, _ := executeCommand(rootCmd, "unknown")
-//
-//	expected := "Error: unknown command \"unknown\" for \"root\"\nRun 'root --help' for usage.\n"
-//
-//	if output != expected {
-//		t.Errorf("Expected:\n %q\nGot:\n %q\n", expected, output)
-//	}
-//}
+	}{
+		{   productName: "chef-cli",
+			Use:   "undelete",
+			Short: "Undo a delete command",
+			Args:   []string{"chef", "undelete", "--help"},
+		},
+		{   productName: "chef-cli",
+			Use:   "undelete",
+			Short: "Undo a delete command",
+			Args:   []string{"chef", "undelete"},
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			undeleteCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			rootCmd.AddCommand(undeleteCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+}
+
+func Test_updateCmd(t *testing.T){
+	rootCmd := cmd.RootCmd
+	for _, test := range []struct {
+		productName string
+		Use string
+		Short string
+		Long string
+		Args        []string
+
+	}{
+		{   productName: "chef-cli",
+			Use:   "undelete",
+			Short: "Undo a delete command",
+			Args:   []string{"chef", "update", "--help"},
+		},
+		{   productName: "chef-cli",
+			Use:   "undelete",
+			Short: "Undo a delete command",
+			Args:   []string{"chef", "update"},
+		},
+		{   productName: "chef-cli",
+			Use:   "undelete",
+			Short: "Undo a delete command",
+			Args:   []string{"chef", "update", "Policyfile.rb"},
+		},
+	}{
+		t.Run("", func(t *testing.T) {
+			updateCmd := testCobraCommand( test.Use, test.Short, test.Long, test.Args,  test.productName)
+			rootCmd.AddCommand(updateCmd)
+			err := rootCmd.Execute()
+			if err != nil {
+				log.Printf("Command finished with error: %v", err)
+			} else {
+				log.Printf("Command executed successfully  : %v", err)
+			}
+		})
+	}
+}
 
 
-
-
+// https://github.com/spf13/cobra/blob/master/command_test.go
