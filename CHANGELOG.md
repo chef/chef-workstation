@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.10.640 -->
-## [21.10.640](https://github.com/chef/chef-workstation/tree/21.10.640) (2021-10-02)
+<!-- latest_release 21.10.641 -->
+## [21.10.641](https://github.com/chef/chef-workstation/tree/21.10.641) (2021-10-04)
 
 #### Merged Pull Requests
-- Update libarchive to 3.5.2 and openssl to 1.0.2zb [#2319](https://github.com/chef/chef-workstation/pull/2319) ([tas50](https://github.com/tas50))
+- Bump test-kitchen from 3.0.0 to 3.1.0 in /omnibus [#2320](https://github.com/chef/chef-workstation/pull/2320) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.9.613 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump test-kitchen from 3.0.0 to 3.1.0 in /omnibus [#2320](https://github.com/chef/chef-workstation/pull/2320) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.10.641 -->
 - Update libarchive to 3.5.2 and openssl to 1.0.2zb [#2319](https://github.com/chef/chef-workstation/pull/2319) ([tas50](https://github.com/tas50)) <!-- 21.10.640 -->
 - Bump test-kitchen to 3.1.0 and chef to 17.6.18 [#2317](https://github.com/chef/chef-workstation/pull/2317) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.639 -->
 - Bump kitchen-digitalocean to 0.14.0 and chef to 17.6.15 [#2316](https://github.com/chef/chef-workstation/pull/2316) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.638 -->
