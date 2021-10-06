@@ -100,7 +100,12 @@ dependency "more-ruby-cleanup"
 
 dependency "go"
 dependency "main-chef-wrapper"
-dependency "chef-automate-collect"
+
+# We are commenting this code on a purpose.
+# We have to stop building chef-automate-collect in chef workstation temporarily.
+# Please refer the issue: https://github.com/chef/chef-workstation/issues/2286
+# dependency "chef-automate-collect"
+
 dependency "chef-analyze"
 # removes the go language installed at embedded/go
 dependency "go-uninstall"
