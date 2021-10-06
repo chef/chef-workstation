@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.10.643 -->
-## [21.10.643](https://github.com/chef/chef-workstation/tree/21.10.643) (2021-10-04)
+<!-- latest_release 21.10.644 -->
+## [21.10.644](https://github.com/chef/chef-workstation/tree/21.10.644) (2021-10-06)
 
 #### Merged Pull Requests
-- switch chef-workstation wiki to master branch in publish-release-notes [#2321](https://github.com/chef/chef-workstation/pull/2321) ([IanMadd](https://github.com/IanMadd))
+- Manually updating commits [#2327](https://github.com/chef/chef-workstation/pull/2327) ([vkarve-chef](https://github.com/vkarve-chef))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.10.640 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Manually updating commits [#2327](https://github.com/chef/chef-workstation/pull/2327) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.10.644 -->
 - switch chef-workstation wiki to master branch in publish-release-notes [#2321](https://github.com/chef/chef-workstation/pull/2321) ([IanMadd](https://github.com/IanMadd)) <!-- 21.10.643 -->
 - Fix menu in section in workstation pages [#2322](https://github.com/chef/chef-workstation/pull/2322) ([IanMadd](https://github.com/IanMadd)) <!-- 21.10.642 -->
 - Bump test-kitchen from 3.0.0 to 3.1.0 in /omnibus [#2320](https://github.com/chef/chef-workstation/pull/2320) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.10.641 -->
