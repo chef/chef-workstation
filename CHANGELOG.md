@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.10.644 -->
-## [21.10.644](https://github.com/chef/chef-workstation/tree/21.10.644) (2021-10-06)
+<!-- latest_release 21.10.645 -->
+## [21.10.645](https://github.com/chef/chef-workstation/tree/21.10.645) (2021-10-06)
 
 #### Merged Pull Requests
-- Manually updating commits [#2327](https://github.com/chef/chef-workstation/pull/2327) ([vkarve-chef](https://github.com/vkarve-chef))
+- Bump omnibus-software from `24f508c` to `a2a70e2` in /omnibus [#2328](https://github.com/chef/chef-workstation/pull/2328) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.10.640 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `24f508c` to `a2a70e2` in /omnibus [#2328](https://github.com/chef/chef-workstation/pull/2328) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.10.645 -->
 - Manually updating commits [#2327](https://github.com/chef/chef-workstation/pull/2327) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.10.644 -->
 - switch chef-workstation wiki to master branch in publish-release-notes [#2321](https://github.com/chef/chef-workstation/pull/2321) ([IanMadd](https://github.com/IanMadd)) <!-- 21.10.643 -->
 - Fix menu in section in workstation pages [#2322](https://github.com/chef/chef-workstation/pull/2322) ([IanMadd](https://github.com/IanMadd)) <!-- 21.10.642 -->
