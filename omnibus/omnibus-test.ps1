@@ -24,9 +24,13 @@ Write-Output " * hab help"
 hab help
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
-Write-Output " * chef-automate-collect -h"
-chef exec chef-automate-collect -h
-If ($lastexitcode -ne 0) { Exit $lastexitcode }
+# We are commenting this code on a purpose.
+# We have to stop building chef-automate-collect in chef workstation temporarily.
+# Please refer the issue: https://github.com/chef/chef-workstation/issues/2286
+
+# Write-Output " * chef-automate-collect -h"
+# chef exec chef-automate-collect -h
+# If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
 Write-Output "--- Run the verification suite"
 C:/opscode/chef-workstation/embedded/bin/ruby.exe omnibus/verification/run.rb
