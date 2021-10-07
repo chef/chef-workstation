@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.10.646 -->
-## [21.10.646](https://github.com/chef/chef-workstation/tree/21.10.646) (2021-10-06)
+<!-- latest_release 21.10.647 -->
+## [21.10.647](https://github.com/chef/chef-workstation/tree/21.10.647) (2021-10-07)
 
 #### Merged Pull Requests
-- Stop building chef-automate-collect in chef workstation. [#2326](https://github.com/chef/chef-workstation/pull/2326) ([ashwin-msys](https://github.com/ashwin-msys))
+- Potential fix for git push failure [#2330](https://github.com/chef/chef-workstation/pull/2330) ([vkarve-chef](https://github.com/vkarve-chef))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.10.640 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Potential fix for git push failure [#2330](https://github.com/chef/chef-workstation/pull/2330) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.10.647 -->
 - Stop building chef-automate-collect in chef workstation. [#2326](https://github.com/chef/chef-workstation/pull/2326) ([ashwin-msys](https://github.com/ashwin-msys)) <!-- 21.10.646 -->
 - Bump omnibus-software from `24f508c` to `a2a70e2` in /omnibus [#2328](https://github.com/chef/chef-workstation/pull/2328) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.10.645 -->
 - Manually updating commits [#2327](https://github.com/chef/chef-workstation/pull/2327) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.10.644 -->
