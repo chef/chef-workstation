@@ -21,7 +21,7 @@ git fetch --all
 # Reset the chef/homebrew-cask fork to the upstream so we are always
 # making a PR off their master
 git reset --hard upstream/master
-git push origin master
+git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" origin master
 
 git checkout master
 git checkout -b "$BRANCH"
