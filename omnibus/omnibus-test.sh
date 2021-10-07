@@ -22,8 +22,12 @@ chef report help
 echo "--- Ensure that 'hab' cli is available"
 hab help
 
-echo "--- Ensure that 'chef-automate-collect' cli is available"
-chef exec chef-automate-collect -h
+# We are commenting this code on a purpose.
+# We have to stop building chef-automate-collect in chef workstation temporarily.
+# Please refer the issue: https://github.com/chef/chef-workstation/issues/2286
+ 
+# echo "--- Ensure that 'chef-automate-collect' cli is available"
+# chef exec chef-automate-collect -h
 
 # Verify that the chef-workstation-app was installed (MacOS only)
 if is_darwin; then
