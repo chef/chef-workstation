@@ -109,13 +109,6 @@ func NewRootCmd(in string) *cobra.Command {
 	}
 }
 
-func TestStartupTask(t *testing.T) {
-	err := doStartupTasks()
-	if err != nil {
-		log.Printf("Command finished with error: %v", err)
-	}
-}
-
 func Test_ExecuteFunction(t *testing.T) {
 	cmd := NewRootCmd("test")
 	b := bytes.NewBufferString("")
