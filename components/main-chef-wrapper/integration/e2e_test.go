@@ -22,7 +22,7 @@ func testCobraCommand(useCmd string, shortCmd string, longCmd string, arg []stri
 		Args:   cobra.ExactArgs(1),
 		Long: longCmd,
 		RunE: func(cm *cobra.Command, args []string) error {
-			return cmd.PassThroughCommand(productName, "", arg[1:])
+			return cmd.Runner.passThroughCommand(productName, "", arg[1:])
 		},
 	}
 }
@@ -61,9 +61,9 @@ func Test_passThroughCommand(t *testing.T){
 		},
 	} {
 		t.Run("", func(t *testing.T) {
-			err := cmd.PassThroughCommand(test.productName, "", test.Args)
+			err := Runner.passThroughCommand(test.productName, "", test.Args)
 			//can use assert aswell
-			//assert.NotNil(t, cmd.PassThroughCommand(test.productName, "", test.Args))
+			//assert.NotNil(t, cmd.Runner.passThroughCommand(test.productName, "", test.Args))
 			if err != nil {
 				log.Printf("Command finished with error: %v", err)
 			} else {
@@ -582,8 +582,8 @@ func Test_exportCmd(t *testing.T){
 			}
 		})
 	}
-	exportCmd.PersistentFlags().BoolVarP(&force, "force", "f", false, "If the DESTINATION_DIRECTORY is not empty, remove its contents before exporting into it")
-	exportCmd.PersistentFlags().BoolVarP(&force, "archive", "a", false, "Export as a tarball archive rather than a directory")
+	//exportCmd.PersistentFlags().BoolVarP(&force, "force", "f", false, "If the DESTINATION_DIRECTORY is not empty, remove its contents before exporting into it")
+	//exportCmd.PersistentFlags().BoolVarP(&force, "archive", "a", false, "Export as a tarball archive rather than a directory")
 }
 
 
