@@ -35,7 +35,6 @@ func Test_ValidateRolloutSetup(t *testing.T) {
 	os.Setenv("CHEF_AC_AUTOMATE_URL", "http://testhost2")
 	os.Setenv("CHEF_AC_AUTOMATE_TOKEN", "xyz123455677709u0")
 	got := cmd.ValidateRolloutSetup()
-	fmt.Print(got)
 	assert.Equal(t, got, true)
 }
 
