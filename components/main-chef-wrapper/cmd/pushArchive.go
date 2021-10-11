@@ -43,7 +43,7 @@ https://docs.chef.io/policyfile/
 	DisableFlagParsing: true,
 
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+		return Runner.passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},
 }
 

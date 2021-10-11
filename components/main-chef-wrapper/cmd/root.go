@@ -46,6 +46,14 @@ import (
 //
 // The latter is more clear to the operator, so we prefer it.
 
+type PassthroughRunner interface {
+	passThroughCommand(targetPath string, cmdName string, args []string) error
+}
+
+type DefaultCommandRunner struct{}
+
+var Runner DefaultCommandRunner
+
 type rootConfig struct {
 	configFile        string
 	licenseAcceptance string
@@ -103,7 +111,27 @@ func init() {
 }
 
 // TODO -
-func passThroughCommand(targetPath string, cmdName string, args []string) error {
+// func passThroughCommand(targetPath string, cmdName string, args []string) error {
+
+// 	var allArgs []string
+// 	if cmdName != "" {
+// 		allArgs = append([]string{cmdName}, args...)
+// 	} else {
+// 		allArgs = args
+// 	}
+
+// 	//
+// 	cmd := exec.Command(targetPath, allArgs...)
+// 	cmd.Env = os.Environ()
+// 	cmd.Stdout = os.Stdout
+// 	cmd.Stderr = os.Stderr
+// 	cmd.Stdin = os.Stdin
+
+// 	return cmd.Run()
+
+// }
+
+func (r DefaultCommandRunner) passThroughCommand(targetPath string, cmdName string, args []string) error {
 
 	var allArgs []string
 	if cmdName != "" {

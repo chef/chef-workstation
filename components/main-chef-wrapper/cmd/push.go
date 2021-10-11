@@ -29,7 +29,7 @@ import (
 
 var pushCmd = &cobra.Command{
 	Use:   "push POLICY_GROUP [ POLICYFILE ]",
-	Short: "Push a local policyfile lock to a policy group on the %s",
+	Short: "Push a local Policyfile lock to a policy group on the %s",
 	Long: `
 Upload an existing Policyfile.lock.json to a %s, along
 with all the cookbooks contained in the Policy lock. The Policy lock is applied
@@ -48,15 +48,15 @@ https://docs.chef.io/policyfile/
 			if !validateRolloutSetup() { // roll-out is enabled but setup not complete, we don't do anything
 				return errors.New("Policy roll-out is enabled but required variables are not set")
 			}
-			err := passThroughCommand(dist.WorkstationExec, "", allArgs)
+			err := Runner.passThroughCommand(dist.WorkstationExec, "", allArgs)
 			if err != nil {
 				return err
 			}
 			allArgs := []string{"report-new-rollout", "-g", allArgs[1], "-l", allArgs[2],
 				"-s", os.Getenv("CHEF_AC_SERVER_URL"), "-u", os.Getenv("CHEF_AC_SERVER_USER")}
-			return passThroughCommand(dist.AutomateCollectExec, "", allArgs)
+			return Runner.passThroughCommand(dist.AutomateCollectExec, "", allArgs)
 		}
-		return passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+		return Runner.passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},
 }
 
