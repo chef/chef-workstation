@@ -48,5 +48,5 @@ func init() {
 		dist.ServerProduct)
 	cleanPolicyCoobooksCmd.Long = fmt.Sprintf(cleanPolicyCoobooksCmd.Long,
 		dist.ServerProduct)
-	rootCmd.AddCommand(cleanPolicyCoobooksCmd)
+	RootCmd.AddCommand(cleanPolicyCoobooksCmd)
 }

@@ -94,5 +94,5 @@ func init() {
 	diffCmd.PersistentFlags().BoolVar(&head, "head", false, "Compare local lock against last git commit")
 	// TODO - there are better tools for paging. Do we want to one-off support it here/in chef-cli?
 	diffCmd.PersistentFlags().BoolVar(&pager, "[no-]pager", false, "Enable/disable paged diff output (default: disabled)")
-	rootCmd.AddCommand(diffCmd)
+	RootCmd.AddCommand(diffCmd)
 }

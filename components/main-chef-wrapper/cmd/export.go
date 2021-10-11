@@ -60,5 +60,5 @@ func init() {
 	exportCmd.PersistentFlags().BoolVarP(&force, "force", "f", false, "If the DESTINATION_DIRECTORY is not empty, remove its contents before exporting into it")
 	exportCmd.PersistentFlags().BoolVarP(&force, "archive", "a", false, "Export as a tarball archive rather than a directory")
 
-	rootCmd.AddCommand(exportCmd)
+	RootCmd.AddCommand(exportCmd)
 }

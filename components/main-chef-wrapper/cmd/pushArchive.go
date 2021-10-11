@@ -52,6 +52,6 @@ func init() {
 	pushArchiveCmd.Long = fmt.Sprintf(pushArchiveCmd.Long,
 		dist.ServerProduct,
 		dist.CLIWrapperExec)
-	rootCmd.AddCommand(pushArchiveCmd)
+	RootCmd.AddCommand(pushArchiveCmd)
 
 }

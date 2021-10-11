@@ -45,7 +45,7 @@ https://docs.chef.io/policyfile/
 	RunE: func(cmd *cobra.Command, args []string) error {
 		allArgs := os.Args[1:]
 		if isRollOutEnabled() {
-			if !validateRolloutSetup() { // roll-out is enabled but setup not complete, we don't do anything
+			if !ValidateRolloutSetup() { // roll-out is enabled but setup not complete, we don't do anything
 				return errors.New("Policy roll-out is enabled but required variables are not set")
 			}
 			err := Runner.passThroughCommand(dist.WorkstationExec, "", allArgs)
@@ -63,7 +63,7 @@ https://docs.chef.io/policyfile/
 func init() {
 	pushCmd.Short = fmt.Sprintf(pushCmd.Short, dist.ServerProduct)
 	pushCmd.Long = fmt.Sprintf(pushCmd.Long, dist.ServerProduct)
-	rootCmd.AddCommand(pushCmd)
+	RootCmd.AddCommand(pushCmd)
 }
 
 func isRollOutEnabled() bool {
@@ -74,8 +74,7 @@ func isRollOutEnabled() bool {
 	return false
 }
 
-func validateRolloutSetup() bool {
-
+func ValidateRolloutSetup() bool {
 	if os.Getenv("CHEF_AC_SERVER_URL") == "" {
 		fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_SERVER_URL environment variable must be set for rollout reporting")
 		return false

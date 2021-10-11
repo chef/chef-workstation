@@ -47,5 +47,5 @@ func init() {
 	cleanPolicyRevisionsCmd.Long = fmt.Sprintf(cleanPolicyRevisionsCmd.Long,
 		dist.ServerProduct, dist.CLIWrapperExec)
 
-	rootCmd.AddCommand(cleanPolicyRevisionsCmd)
+	RootCmd.AddCommand(cleanPolicyRevisionsCmd)
 }

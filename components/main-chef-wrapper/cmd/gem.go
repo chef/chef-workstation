@@ -37,5 +37,5 @@ var gemCmd = &cobra.Command{
 
 func init() {
 	gemCmd.Short = fmt.Sprintf(gemCmd.Short, dist.WorkstationProduct)
-	rootCmd.AddCommand(gemCmd)
+	RootCmd.AddCommand(gemCmd)
 }

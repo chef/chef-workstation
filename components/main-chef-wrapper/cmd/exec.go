@@ -36,5 +36,5 @@ var execCmd = &cobra.Command{
 
 func init() {
 	execCmd.Short = fmt.Sprintf(execCmd.Short, dist.WorkstationProduct)
-	rootCmd.AddCommand(execCmd)
+	RootCmd.AddCommand(execCmd)
 }

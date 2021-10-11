@@ -54,6 +54,6 @@ func init() {
 	// TODO - this should not be ClientProduct, it should be something like ProductGroup (Chef Infra)
 	//         We need to check other usages for correctness.
 	generateCmd.Long = fmt.Sprintf(generateCmd.Long, dist.ClientProduct, dist.WorkstationProduct)
-	rootCmd.AddCommand(generateCmd)
+	RootCmd.AddCommand(generateCmd)
 
 }

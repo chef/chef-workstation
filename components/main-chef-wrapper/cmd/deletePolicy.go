@@ -47,5 +47,5 @@ func init() {
 	deletePolicyCmd.Short = fmt.Sprintf(deletePolicyCmd.Short, dist.ServerProduct)
 	deletePolicyCmd.Long = fmt.Sprintf(deletePolicyCmd.Long, dist.ServerProduct, dist.CLIWrapperExec)
 
-	rootCmd.AddCommand(deletePolicyCmd)
+	RootCmd.AddCommand(deletePolicyCmd)
 }

@@ -52,7 +52,7 @@ func init() {
 		"D", false,
 		"download all data bags as part of node capture",
 	)
-	addInfraFlagsToCommand(captureCmd)
+	AddInfraFlagsToCommand(captureCmd)
 
-	rootCmd.AddCommand(captureCmd)
+	RootCmd.AddCommand(captureCmd)
 }

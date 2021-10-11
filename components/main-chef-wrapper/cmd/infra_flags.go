@@ -40,7 +40,7 @@ var infraFlags struct {
 }
 
 // Adds common chef-infra flags to the given command
-func addInfraFlagsToCommand(cmd *cobra.Command) {
+func AddInfraFlagsToCommand(cmd *cobra.Command) {
 
 	// global report commands infraFlags
 	cmd.PersistentFlags().StringVarP(

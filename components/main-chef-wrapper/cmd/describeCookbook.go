@@ -35,5 +35,5 @@ var describeCookbookCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.AddCommand(describeCookbookCmd)
+	RootCmd.AddCommand(describeCookbookCmd)
 }

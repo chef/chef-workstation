@@ -62,5 +62,5 @@ func init() {
 	showPolicyCmd.PersistentFlags().BoolVar(&showPolicyPager, "[no-]pager", true, "Enable/disable paged policyfile lock output (default: enabled)")
 	showPolicyCmd.Short = fmt.Sprintf(showPolicyCmd.Short, dist.ServerProduct)
 	showPolicyCmd.Long = fmt.Sprintf(showPolicyCmd.Long, dist.ServerProduct)
-	rootCmd.AddCommand(showPolicyCmd)
+	RootCmd.AddCommand(showPolicyCmd)
 }

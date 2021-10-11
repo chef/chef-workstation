@@ -13,3 +13,4 @@ Gemfile.lock
 # Habitat
 results/
 bin/
+.idea/

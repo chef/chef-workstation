@@ -58,5 +58,5 @@ func init() {
 	// TODO - this is the first place we mention attributes. We should be discussing this as part of the default functionality
 	// of the command in the long form help
 	undeleteCmd.PersistentFlags().BoolVarP(&attributes, "attributes", "a", false, "Only update attributes (not cookbooks)")
-	rootCmd.AddCommand(updateCmd)
+	RootCmd.AddCommand(updateCmd)
 }
