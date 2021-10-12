@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.10.649 -->
-## [21.10.649](https://github.com/chef/chef-workstation/tree/21.10.649) (2021-10-07)
+<!-- latest_release 21.10.650 -->
+## [21.10.650](https://github.com/chef/chef-workstation/tree/21.10.650) (2021-10-12)
 
 #### Merged Pull Requests
-- Bump all misc deps in gemfile.lock and omnibus [#2332](https://github.com/chef/chef-workstation/pull/2332) ([tas50](https://github.com/tas50))
+- Bump habitat to 1.6.400. [#2334](https://github.com/chef/chef-workstation/pull/2334) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.10.640 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump habitat to 1.6.400. [#2334](https://github.com/chef/chef-workstation/pull/2334) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.650 -->
 - Bump all misc deps in gemfile.lock and omnibus [#2332](https://github.com/chef/chef-workstation/pull/2332) ([tas50](https://github.com/tas50)) <!-- 21.10.649 -->
 - Bump Chef Workstation App to 0.2.66 [#2331](https://github.com/chef/chef-workstation/pull/2331) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.648 -->
 - Potential fix for git push failure [#2330](https://github.com/chef/chef-workstation/pull/2330) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.10.647 -->
