@@ -57,7 +57,7 @@ This argument has the following options:
 
 `-k`, `--prevent-keygen`
 
-:API V1 (Chef Infra Server 12.1+) only. Prevent server from generating a default key pair for you. Cannot be passed with --user-key.
+:Prevent Chef Infra Server from generating a default key pair for you. Cannot be passed with --user-key.
 
 `-o ORGNAME` `--orgname ORGNAME`
 
