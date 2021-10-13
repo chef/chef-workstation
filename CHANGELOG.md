@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.10.651 -->
-## [21.10.651](https://github.com/chef/chef-workstation/tree/21.10.651) (2021-10-12)
+<!-- latest_release 21.10.652 -->
+## [21.10.652](https://github.com/chef/chef-workstation/tree/21.10.652) (2021-10-13)
 
 #### Merged Pull Requests
-- Bump omnibus from `37897ad` to `90306c9` in /omnibus [#2335](https://github.com/chef/chef-workstation/pull/2335) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.71 [#2336](https://github.com/chef/chef-workstation/pull/2336) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.10.640 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.71 [#2336](https://github.com/chef/chef-workstation/pull/2336) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.652 -->
 - Bump omnibus from `37897ad` to `90306c9` in /omnibus [#2335](https://github.com/chef/chef-workstation/pull/2335) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.10.651 -->
 - Bump habitat to 1.6.400. [#2334](https://github.com/chef/chef-workstation/pull/2334) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.650 -->
 - Bump all misc deps in gemfile.lock and omnibus [#2332](https://github.com/chef/chef-workstation/pull/2332) ([tas50](https://github.com/tas50)) <!-- 21.10.649 -->
