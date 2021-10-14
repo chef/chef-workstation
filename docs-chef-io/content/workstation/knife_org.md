@@ -13,74 +13,48 @@ aliases = ["/knife_org.html", "/knife_org/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
 
-The `knife org` subcommand is used to manage organizations and users in
-Chef Infra Server.
+The `knife org` subcommand is used to manage organizations and users in Chef Infra Server.
 
-{{< note >}}
+{{< danger >}}
 
-Administrator permissions are required to add, remove, or edit users. To
-manage organizations, or change a user's assignment to an organization,
-the pivotal key is required. Rather than using the knife-org commands
-below, which are an implementation detail, use the equivalent 
-"user-" and "org-" subcommands directly on the Chef Infra Server. 
-Those wrappered subcommands already have the needed permissions applied and access 
-to sensitive commands will then be centralized. [See chef-server-ctl for
-details](/ctl_chef_server/).
+The recommended best practice is to use the Chef Infra Server `user-` and `org-` commands to manage organizations and users instead of this subcomand. The Chef Infra Server command line tool already has the permissions that you need to manage organizations and users. Using Chef Infra Server commands centralizes the access and application of sensitive commands, which is important for system security and security audits. See the [chef-server-ctl](/ctl_chef_server/) documentation for more information.
 
-{{< /note >}}
+{{< /danger >}}
 
-{{< note >}}
+## Required Permissions
 
-Review the list of [common options](/workstation/knife_options/) available to
-this (and all) knife subcommands and plugins.
+* Administrator permissions are required to add, remove, or edit users.
+* The pivotal key is required to manage organizations, or change a user's assignment to an organization.
 
-{{< /note >}}
+The knife [common options](/workstation/knife_options/) are available to this (and all) knife subcommands and plugins.
 
-config.rb Configuration [knife_org-knife-rb-configuration]
-=======================
+## config.rb Configuration [knife_org-knife-rb-configuration]
 
-Unlike other knife subcommands the subcommands in the knife-org plugin
-make API calls against the root of your Chef Infra Server installation's
-API endpoint.
+Unlike other knife subcommands the subcommands in the `knife-org` plugin make API calls to the root of your Chef Infra Server API endpoints.
 
-Typically the `chef_server_url` for your Chef Infra Server installation
-may look like this:
+The `chef_server_url` for your Chef Infra Server installation typically looks like this:
 
 ``` ruby
 chef_server_url 'https://chef.yourdomain.com/organizations/ORG_NAME'
 ```
 
-To configure knife-opc, set the `chef_server_root` option to the root of
-your Chef Infra Server installation:
+To configure knife-opc, set the `chef_server_root` option to the root of your Chef Infra Server installation:
 
 ``` ruby
 chef_server_root 'https://chef.yourdomain.com/'
 ```
 
-If your `chef_server_url` configuration ends with
-`/organizations/ORG_NAME` (as shown above), this setting will default to
-`https://chef.yourdomain.com/`.
+If your `chef_server_url` configuration ends with `/organizations/ORG_NAME` (as shown above), this setting defaults to `https://chef.yourdomain.com/`.
 
 {{< note >}}
 
-On Chef Infra Server, the majority of the commands provided by this plugin
-can be accessed via `chef-server-ctl` wrapper commands. [See
-chef-server-ctl for details](/ctl_chef_server/).
+User subcommands or options are added under `knife user`. See the [knife user](/workstation/knife_user/) documentation for more information.
 
 {{< /note >}}
 
-{{< note >}}
+## org create
 
-User subcommands or option are added under knife user. See knife user for
-details](/workstation/knife_user/).
-
-{{< /note >}}
-
-org create 
-==============
-
-Creates a new Chef Infra Server organization. The private key for the
-organization's validator client is returned.
+Creates a new Chef Infra Server organization. The private key for the organization's validator client is returned.
 
 ### Syntax
 
@@ -111,8 +85,7 @@ knife org create acme2 "The Other Acme" -a arno
 -----BEGIN RSA PRIVATE KEY-----
 ```
 
-org list
-============
+## org list
 
 Show a list of all organizations in your Chef Infra Server installation.
 
@@ -143,11 +116,9 @@ knife org list -w -a
 acme: https://chef-server.fqdn/organizations/acme
 ```
 
-org show 
-==========
+## org show
 
-Shows the details of an organization in your Chef Infra Server
-installation.
+Shows the details of an organization in your Chef Infra Server installation.
 
 ### Syntax
 
@@ -166,8 +137,7 @@ guid:      cc9f9d0d4f6e7e35272e327e22e7affc
 name:      acme
 ```
 
-org edit
-==============
+## org edit
 
 Edits the given Chef Infra Server organization.
 
@@ -181,12 +151,13 @@ knife org edit ORG_NAME
 
 ### Example
 
+```ruby
 knife org edit Acme -e nano
 {"name"=>"Acme", "full_name"=>"Acme Z", "guid"=>"dea05074c4566f81d9d3228f4ad9bcd3"}
 Saved Acme.
+```
 
-org delete
-==============
+## org delete
 
 Deletes the given Chef Infra Server organization.
 
@@ -229,19 +200,15 @@ This argument has the following options:
 
 : Add user to admin group.
 
-
 ### Example
 
 ``` bash
 knife org user add acme2 alice
 ```
 
-org user remove
-===================
+## org user remove
 
-Removes a user from an organization. Requires that the named
-organization and user both exist, and that the user is currently
-associated with the organization.
+Removes a user from an organization. Requires that the named organization and user both exist, and that the user is currently associated with the organization.
 
 ### Syntax
 
