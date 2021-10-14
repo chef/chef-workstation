@@ -28,7 +28,7 @@ The recommended best practice is to use the Chef Infra Server `user-` and `org-`
 
 The knife [common options](/workstation/knife_options/) are available to this (and all) knife subcommands and plugins.
 
-## config.rb Configuration [knife_org-knife-rb-configuration]
+## config.rb Setup
 
 Unlike other knife subcommands the subcommands in the `knife-org` plugin make API calls to the root of your Chef Infra Server API endpoints.
 
