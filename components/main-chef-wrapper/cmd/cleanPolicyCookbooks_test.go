@@ -19,7 +19,7 @@ func TestCleanPolicyCookbookCommand(t *testing.T) {
 		},
 	} {
 		t.Run("", func(t *testing.T) {
-			err := Runner.passThroughCommand(dist.WorkstationExec, "", test.Args)
+			err := Runner.PassThroughCommand(dist.WorkstationExec, "", test.Args)
 			if err != nil {
 				log.Printf("Command finished with error: %v", err)
 			} else {

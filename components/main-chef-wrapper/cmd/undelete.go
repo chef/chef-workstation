@@ -52,7 +52,7 @@ See the policyfile documentation for more information:
 https://docs.chef.io/policyfile/
 `,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return Runner.passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+			return Runner.PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 		},
 	}
 )

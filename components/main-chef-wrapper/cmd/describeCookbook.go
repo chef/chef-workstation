@@ -30,7 +30,7 @@ var describeCookbookCmd = &cobra.Command{
 	Short:              "Prints cookbook checksum information for the cookbook at COOKBOOK_PATH",
 	DisableFlagParsing: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return Runner.passThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+		return Runner.PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},
 }
 

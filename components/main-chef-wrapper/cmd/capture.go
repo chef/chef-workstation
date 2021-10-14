@@ -38,7 +38,7 @@ converge locally.
 `,
 		DisableFlagParsing: true,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return Runner.passThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
+			return Runner.PassThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
 		},
 	}
 )
