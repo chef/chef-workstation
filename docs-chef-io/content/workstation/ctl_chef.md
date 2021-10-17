@@ -843,7 +843,7 @@ information on upgrading Chef Infra Client.
 
 ## chef report nodes
 
-Use the `chef report nodes` subcommand to generate a nodes-oriented report for your chef environment. This report provides details about nodes, applied policies and the cookooks used during the most recent chef-client run.
+Use the `chef report nodes` subcommand to generate a nodes-oriented report for your chef environment. This report provides details about nodes, applied policies and the cookbooks used during the most recent chef-client run.
 
 ### Syntax
 
@@ -859,7 +859,7 @@ This subcommand has the following options:
 
 `-a`, `--anonymize`
 
-: Replace cookbook and node names with hash values to protect the sensitive information.
+: Replace cookbook and node names with hash values to protect sensitive information.
 
 `-c`, `--credentials string`
 

@@ -299,7 +299,7 @@ This argument has the following options:
 
 `--thumbprint THUMBPRINT`
 
-: The thumprint of the ssl certificate
+: The thumbprint of the ssl certificate
 
 `-u`, `--user USER`
 
