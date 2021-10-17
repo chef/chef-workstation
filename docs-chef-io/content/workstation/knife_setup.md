@@ -38,7 +38,7 @@ Knife profiles make switching knife between Chef Infra Servers or between organi
 
 Set up knife profiles by adding them to the `.chef/credentials` file in your home directory on your workstation. The `credentials` file is TOML formatted. Each profile is listed as a separate 'table' name of your choice, and is followed by `key = value` pairs. The keys correspond to any setting permitted in the [config.rb](/workstation/config_rb/) file.
 
-File paths, such as `client_key` or `validator_key`, are relative to `~/.chef` unless you provide absolute path. Identifiy clients with `client_name` (preferred) or `node_name`.
+File paths, such as `client_key` or `validator_key`, are relative to `~/.chef` unless you provide absolute path. Identify clients with `client_name` (preferred) or `node_name`.
 
 Store credentials for use with target mode (`chef-client --target switch.example.org`) as a separate profile in the credentials file. Use the DNS name of the target as the profile name and surrounded by single
 quotes when the name contains a period. For example:

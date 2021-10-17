@@ -201,7 +201,7 @@ This configuration file has the following settings:
 : Sets the default value of `log_location` in the client.rb file of the node being bootstrapped. Possible values are `/path/to/log_location`, `STDOUT`, `STDERR`, `:win_evt` and `:syslog`. For example:
 
   ``` ruby
-  config_log_location "/path/to/log_location"   # Please make sure thatthe path exists
+  config_log_location "/path/to/log_location"   # Please make sure that the path exists
   ```
 
 ### Proxy Settings

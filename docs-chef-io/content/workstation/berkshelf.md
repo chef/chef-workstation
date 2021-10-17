@@ -347,7 +347,7 @@ This command has the following options:
 
 `-f JSON_FILE_PATH`, `--envfile PATH`
 
-: The path to an environment file (in JSON format) to which Berksfileversion locks are applied.
+: The path to an environment file (in JSON format) to which Berksfile version locks are applied.
 
 `--ssl-verify`
 

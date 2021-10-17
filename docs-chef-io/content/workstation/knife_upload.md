@@ -93,7 +93,7 @@ or from anywhere in the chef-repo, enter:
 knife upload /
 ```
 
-to upload all cookbooks and data bags, plus all roles and enviroments
+to upload all cookbooks and data bags, plus all roles and environments
 that are stored as JSON data. (Roles and environments stored as Ruby
 data will not be uploaded.)
 
@@ -125,7 +125,7 @@ or from anywhere in the chef-repo, enter:
 knife upload /environments
 ```
 
-to upload all enviroments that are stored as JSON data. (Environments
+to upload all environments that are stored as JSON data. (Environments
 stored as Ruby data will not be uploaded.)
 
 **Upload a single environment**

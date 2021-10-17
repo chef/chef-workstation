@@ -40,7 +40,7 @@ There are three methods for getting cookbooks onto the server:
 
 ### Method: Chef Infra Server
 
-This includes any case where a node's runlist is managed in absense of policy group/file.
+This includes any case where a node's runlist is managed in absence of policy group/file.
 
  - run list is expanded and merged in client:
    - starts from run list saved to node;  OR override run-list from the CLI
