@@ -1,36 +1,10 @@
 #!/bin/bash
 set -ueo pipefail
 
-channel="${CHANNEL:-unstable}"
-product="${PRODUCT:-chef-workstation}"
-version="${VERSION:-latest}"
-
 is_darwin()
 {
   uname -a | grep "^Darwin" 2>&1 >/dev/null
 }
-
-echo "--- Installing $channel $product $version"
-package_file="$(/opt/omnibus-toolchain/bin/install-omnibus-product -c "$channel" -P "$product" -v "$version" | tail -n 1)"
-
-echo "--- Verifying omnibus package is signed"
-/opt/omnibus-toolchain/bin/check-omnibus-package-signed "$package_file"
-
-sudo rm -f "$package_file"
-
-echo "--- Verifying ownership of package files"
-
-export INSTALL_DIR=/opt/chef-workstation
-NONROOT_FILES="$(find "$INSTALL_DIR" ! -user 0 -print)"
-if [[ "$NONROOT_FILES" == "" ]]; then
-  echo "Packages files are owned by root.  Continuing verification."
-else
-  echo "Exiting with an error because the following files are not owned by root:"
-  echo "$NONROOT_FILES"
-  exit 1
-fi
-
-echo "--- Running verification for $channel $product $version"
 
 # Ensure user variables are set in git config
 git config --global user.email "you@example.com"
@@ -48,8 +22,12 @@ chef report help
 echo "--- Ensure that 'hab' cli is available"
 hab help
 
-echo "--- Ensure that 'chef-automate-collect' cli is available"
-chef exec chef-automate-collect -h
+# We are commenting this code on a purpose.
+# We have to stop building chef-automate-collect in chef workstation temporarily.
+# Please refer the issue: https://github.com/chef/chef-workstation/issues/2286
+ 
+# echo "--- Ensure that 'chef-automate-collect' cli is available"
+# chef exec chef-automate-collect -h
 
 # Verify that the chef-workstation-app was installed (MacOS only)
 if is_darwin; then

@@ -2,6 +2,8 @@
 title = "knife cookbook"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_cookbook.html", "/knife_cookbook/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_cookbook.html", "/knife_cookbook/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_cookbook.md knife cookbook"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_cookbook.md)
 
 {{% cookbooks_summary %}}
 

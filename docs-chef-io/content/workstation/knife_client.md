@@ -2,6 +2,8 @@
 title = "knife client"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_client.html", "/knife_client/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_client.html", "/knife_client/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_client.md knife client"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_client.md)
 
 {{% knife_client_summary %}}
 

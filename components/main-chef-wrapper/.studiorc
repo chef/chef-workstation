@@ -8,9 +8,16 @@ source "$(hab pkg path chef/studio-common)/bin/studio-common"
 # switch all go commands to use the vendor/ directory
 export GOFLAGS="-mod=vendor"
 
+# Specify where to put 'go installed' binaries
+export GOBIN=/src/bin
+
+# Make 'go installed' binaries available in the PATH
+export PATH="$GOBIN:$PATH"
+
 function build_cross_platform() {
   install_if_missing core/go go
   install_if_missing core/gox gox
+  go mod vendor
   ( cd /src || exit 1
     gox -output="../../bin/chef_{{.OS}}_{{.Arch}}" \
         -os="darwin linux windows" \

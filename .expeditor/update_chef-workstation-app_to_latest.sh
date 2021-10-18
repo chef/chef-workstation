@@ -12,11 +12,22 @@
 
 set -evx
 
-version=$(get_github_file $EXPEDITOR_REPO master VERSION)
+ARTIFACTORY_TOKEN=$(vault kv get -field token account/static/artifactory/buildkite)
+
+export JFROG_CLI_LOG_LEVEL="ERROR"
+export JFROG_CLI_OFFER_CONFIG=false
+
+default_version=$(get_github_file chef/chef-workstation-app ${EXPEDITOR_BUILD_BRANCH:-main} VERSION)
+version="${VERSION:-$default_version}"
 branch="expeditor/chef_workstation_app_${version}"
 git checkout -b "$branch"
 
-sed -i -r "s/override \"chef-workstation-app\",\s+version: \"v[^\"]+\"/override \"chef-workstation-app\", version: \"v${version}\"/" omnibus_overrides.rb
+linux_checksum=$(jfrog rt s --apikey "$ARTIFACTORY_TOKEN" --url=https://artifactory.chef.co/artifactory "files-unstable-local/chef-workstation-app/${version}/chef-workstation-app-${version}-linux.zip" | jq -r '.[] | .sha1')
+windows_checksum=$(jfrog rt s --apikey "$ARTIFACTORY_TOKEN" --url=https://artifactory.chef.co/artifactory "files-unstable-local/chef-workstation-app/${version}/chef-workstation-app-${version}-win32.zip" | jq -r '.[] | .sha1')
+
+sed -i -r "s/^default_version \".+\"/default_version \"${version}\"/" omnibus/config/software/chef-workstation-app.rb
+sed -i -r "s/^source sha1\: \".+\" if linux\?$/source sha1: \"$linux_checksum\" if linux?/" omnibus/config/software/chef-workstation-app.rb
+sed -i -r "s/^source sha1\: \".+\" if windows\?$/source sha1: \"$windows_checksum\" if windows?/" omnibus/config/software/chef-workstation-app.rb
 
 git add .
 
@@ -26,6 +37,6 @@ git commit --message "Bump Chef Workstation App to $version" --message "This pul
 
 open_pull_request
 
-# Get back to master and cleanup the leftovers - any changed files left over at the end of this script will get committed to master.
+# Get back to main and cleanup the leftovers - any changed files left over at the end of this script will get committed to main.
 git checkout -
 git branch -D "$branch"

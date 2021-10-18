@@ -2,6 +2,8 @@
 title = "knife ssh"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_ssh.html", "/knife_ssh/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_ssh.html", "/knife_ssh/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_ssh.md knife ssh"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_ssh.md)
 
 {{% knife_ssh_summary %}}
 

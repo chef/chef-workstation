@@ -2,17 +2,20 @@
 title = "About Chef Workstation"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/about_workstation.html", "/about_chefdk.html", "/chef_dk.html", "/about_workstation/"]
+
+[cascade]
+  product = ["workstation"]
 
 [menu]
   [menu.workstation]
-    title = "About Chef Workstation"
+    title = "Overview"
     identifier = "chef_workstation/about_workstation.md About Chef Workstation"
     parent = "chef_workstation"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/_index.md)
 
 {{% chef_workstation %}}
 
@@ -39,17 +42,14 @@ the actual configuration.
 
 Chef Infra defines a common workflow for cookbook development:
 
-1. Create a skeleton cookbook by running <span class="title-ref">chef generate cookbook MY_COOKBOOK_NAME</span>. This will generate a cookbook with a single recipe and testing configuration with ChefSpec and Delivery Local Mode.
-2. Write cookbook recipes or resources and debug those recipes as they are being written using Cookstyle and Test Kitchen. This is typically an iterative process, where cookbooks are tested as they are developed, bugs are fixed quickly, and then cookbooks are tested again. A text editor---Visual Studio Code, Atom, vim, or any other preferred text editor---is used to author the files in the cookbook.
-3. Perform acceptance tests. These tests are not done in a development environment, but rather are done against using an environment that matches the production environment as closely as possible.
-4. When the cookbooks pass all the acceptance tests and have been verified to work in the desired manner, deploy the cookbooks to the production environment.
+1. Create a skeleton cookbook by running `chef generate cookbook MY_COOKBOOK_NAME`. This generates a cookbook with a single recipe and testing configuration for Test Kitchen with Chef InSpec.
+1. Write cookbook recipes or resources and lint and debug them with Cookstyle and Test Kitchen. Making your own cookbooks is an iterative process where you develop, test, find and fix bugs, and then develop and test some more. A text editor---Visual Studio Code, Atom, vim, or any other preferred text editor---is the only tool that you need to author your cookbooks.
+1. Test in acceptance. Test your work in an environment that matches your production environment as closely as possible.
+1. Deploy your cookbooks to the production environment, but only after they pass all the acceptance tests and are verified to work in the desired manner.
 
 ## Tools
 
-Chef Workstation packages all the tools necessary to be successful with
-Chef Infra and InSpec. These tools are combined into native packages for
-common operating systems and include all the dependencies you need to
-get started.
+Chef Workstation packages all the tools necessary to be successful with Chef Infra and InSpec. These tools are combined into packages for common operating systems and include all the dependencies you need to get started.
 
 The most important tools included in Chef Workstation are:
 
@@ -67,35 +67,27 @@ The most important tools included in Chef Workstation are:
 <tbody>
 <tr class="odd">
 <td>Chef CLI</td>
-<td>A workflow tool for Chef.</td>
+<td>A workflow tool for Chef Infra.</td>
 </tr>
 <tr class="even">
+<td>knife</td>
+<td>A tool for managing systems on the Chef Infra Server.</td>
+</tr>
+<tr class="odd">
 <td>Chef Infra Client</td>
 <td>The Chef Infra agent.</td>
 </tr>
-<tr class="odd">
-<td>ChefSpec</td>
-<td>A unit testing framework that tests resources locally.</td>
-</tr>
 <tr class="even">
+<td>Chef InSpec</td>
+<td>A compliance as code tool that can also be used for testing Chef Infra cookbooks.</td>
+</tr>
+<tr class="odd">
 <td>Cookstyle</td>
 <td>A linting tool that helps you write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Test Kitchen</td>
-<td>An integration testing framework tool that tests cookbooks across platforms.</td>
-</tr>
-<tr class="even">
-<td>kitchen-dokken</td>
-<td>A Test Kitchen plugin that provides a driver, transport, and provisioner for rapid cookbook testing and container development using Docker and Chef.</td>
-</tr>
-<tr class="odd">
-<td>kitchen-vagrant</td>
-<td>A Test Kitchen plugin for local cookbook testing using Vagrant with VirtualBox, Parallels, VMware, and Hyper-V hypervisors</td>
-</tr>
-<tr class="even">
-<td>kitchen-ec2, kitchen-google, kitchen-azurerm, kitchen-vcenter</td>
-<td>Test Kitchen drivers for cookbook testing on common cloud providers</td>
+<td>An integration testing framework tool that tests cookbooks across platforms and various cloud provider / hypervisors.</td>
 </tr>
 </tbody>
 </table>

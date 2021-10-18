@@ -2,6 +2,8 @@
 title = "knife supermarket"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_supermarket.html", "/plugin_knife_supermarket.html", "/knife_supermarket/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_supermarket.html", "/plugin_knife_supermarket.html", "/knife_
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_supermarket.md knife supermarket"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_supermarket.md)
 
 The `knife supermarket` subcommand is used to interact with cookbooks
 that are located in on the public Supermarket as well as private Chef

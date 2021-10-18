@@ -26,18 +26,13 @@ provisioner:
 # prior built artifacts in pkg/ which is shared across VMs
 platforms:
   - name: centos-7
-  - name: centos-8
   - name: debian-9
-  - name: debian-10
-  - name: ubuntu-16.04
   - name: ubuntu-18.04
-  # By adding an `i386` to the name the Omnibus cookbook's `load-omnibus-toolchain.bat`
-  # will load the 32-bit version of the MinGW toolchain.
-  - name: windows-2012r2-standard-i386
+  - name: windows-2012r2-standard
     provisioner:
       attributes:
         omnibus:
-          build_user_group:    Administrators
+          build_user_group: Administrators
     driver:
       box: tas50/windows_2012r2
       synced_folders:

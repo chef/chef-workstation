@@ -2,6 +2,8 @@
 title = "About Berkshelf"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/berkshelf.html", "/berkshelf/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/berkshelf.html", "/berkshelf/"]
     parent = "chef_workstation/chef_workstation_tools"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/berkshelf.md)
 
 Berkshelf is a dependency manager for Chef cookbooks. With it, you can
 easily depend on community cookbooks and have them safely included in

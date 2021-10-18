@@ -2,6 +2,8 @@
 title = "Setting up Knife"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_setup.html", "/knife_setup/"]
 
 [menu]
@@ -12,27 +14,11 @@ aliases = ["/knife_setup.html", "/knife_setup/"]
     weight = 20
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_setup.md)
-
 knife is a command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. The knife command line tool must be configured to communicate with the Chef Infra Server as well as any other infrastructure within your organization.
 
-The first time you set up Chef Infra, you need to manually create the directory for important Chef Infra files, such as `config.rb`.
+To configure knife to communicate with Chef Infra Server for the first time run `knife configure` to create a Chef Infra credentials file at `~/.chef/credentials`.
 
-We recommend setting up knife to use profiles. Knife profiles let you use knife with more than one Chef Infra Server and with more than one organization on a Chef Infra Server.
-
-To use knife profiles, the first time you set up your workstation enter:
-
-```bash
-mkdir ~/.chef
-touch ~/.chef/credentials
-```
-
-```powershell
-New-Item -Path "c:\" -Name ".chef" -ItemType "directory"
-New-Item -ItemType "file" -Path "c:\.chef\credentials"
-```
-
-Previous Chef Infra setups recommended setting up knife with a `config.rb` file. Configuring knife with `config.rb` is still valid, but only for working on one Chef Infra Server with one Chef Infra Server organization.
+Previous Chef Infra setups recommended setting up knife with a `config.rb` file. Configuring knife with `config.rb` is still valid, but only for working with a single Chef Infra Server with a single Chef Infra Server organization.
 
 ```bash
 mkdir ~/.chef
@@ -61,7 +47,7 @@ quotes when the name contains a period. For example:
 ``` none
 # Example .chef/credentials file
 [default]
-node_name = "barney"
+client_name = "barney"
 client_key = "barney_rubble.pem"
 chef_server_url = "https://api.chef.io/organizations/bedrock"
 
@@ -84,7 +70,7 @@ validator_key = "test-validator.pem"
 chef_server_url = "https://api.chef-server.dev/organizations/test"
 
 ['web.preprod']
-node_name = "brubble"
+client_name = "brubble"
 client_key = "preprod-brubble.pem"
 chef_server_url = "https://preprod.chef-server.dev/organizations/preprod"
 

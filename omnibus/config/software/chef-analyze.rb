@@ -1,5 +1,6 @@
 #
-# Copyright 2019 Chef Software, Inc.
+# Copyright:: Copyright Chef Software, Inc.
+# License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,7 +16,7 @@
 #
 
 name "chef-analyze"
-default_version "master"
+default_version "main"
 license "Apache-2.0"
 license_file "LICENSE"
 source git: "https://github.com/chef/chef-analyze.git"
@@ -26,5 +27,5 @@ build do
   env = with_standard_compiler_flags(with_embedded_path)
   env["CGO_ENABLED"] = "0"
   file_extension = windows? ? ".exe" : ""
-  command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/#{name}#{file_extension}", env: env
+  go "build -o #{install_dir}/bin/#{name}#{file_extension}", env: env
 end

@@ -15,7 +15,7 @@ The build pipeline generally looks like the following:
 1. Notifications from Expeditor will be posted in Chef's internal slack to #chef-ws-notify (also configured in `.expeditor/config.yml`). Any failures will need to be addressed.
 1. Builds are automatically placed in the `unstable` channel when first built and automatically promoted by Buildkite to the `current` channel when they pass their test phase in the pipeline.
 1. To promote to the `stable` channel (also called 'releasing') we use Expeditor.
-1.1. `/expeditor promote chef/chef-workstation:master 1.0.2` would promote a 1.0.2 build from current to stable.
+1.1. `/expeditor promote chef/chef-workstation:main 1.0.2` would promote a 1.0.2 build from current to stable.
 1. Packages are available via...
 1.1. mixlib-install, omnitruck, downloads.chef.io, Habitat Depot, Docker Hub
 1. Come to `#releng-support` if any of these things cause issues
@@ -102,7 +102,7 @@ For a complete list of all commands and platforms, run `kitchen list` or `kitche
 ## License
 
 ```text
-Copyright 2012-2019, Chef Software, Inc.
+Copyright Chef Software, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

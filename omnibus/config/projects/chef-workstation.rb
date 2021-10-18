@@ -1,5 +1,6 @@
 #
-# Copyright 2018 Chef Software, Inc.
+# Copyright:: Copyright Chef Software, Inc.
+# License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,12 +18,12 @@
 name          "chef-workstation"
 friendly_name "Chef Workstation"
 maintainer    "Chef Software, Inc. <maintainers@chef.io>"
-homepage      "https://chef.sh"
+homepage      "https://community.chef.io/tools/chef-workstation/"
 
 license "Chef EULA"
 license_file "CHEF-EULA.md"
 
-conflict "chefdk"
+replace "chefdk"
 
 # Defaults to C:/chef-workstation on Windows
 # and /opt/chef-workstation on all other platforms
@@ -74,6 +75,7 @@ dependency "shebang-cleanup"
 if windows?
   dependency "windows-env-customization"
   dependency "powershell-scripts"
+  dependency "chef-dlls"
 end
 
 dependency "version-manifest"
@@ -89,7 +91,6 @@ if windows?
   dependency "ruby-windows-system-libraries"
 end
 
-dependency "nodejs-binary"
 dependency "chef-workstation-app"
 dependency "uninstall-scripts"
 dependency "ruby-cleanup"
@@ -99,7 +100,12 @@ dependency "more-ruby-cleanup"
 
 dependency "go"
 dependency "main-chef-wrapper"
-dependency "chef-automate-collect"
+
+# We are commenting this code on a purpose.
+# We have to stop building chef-automate-collect in chef workstation temporarily.
+# Please refer the issue: https://github.com/chef/chef-workstation/issues/2286
+# dependency "chef-automate-collect"
+
 dependency "chef-analyze"
 # removes the go language installed at embedded/go
 dependency "go-uninstall"

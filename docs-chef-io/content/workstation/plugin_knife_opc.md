@@ -2,6 +2,8 @@
 title = "knife opc"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/plugin_knife_opc.html", "/plugin_knife_opc/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/plugin_knife_opc.html", "/plugin_knife_opc/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/plugin_knife_opc.md)
-
 The `knife opc` subcommand is used to manage organizations and users in
 Chef Server 12.
 
@@ -20,9 +20,11 @@ Chef Server 12.
 
 Administrator permissions are required to add, remove, or edit users. To
 manage organizations, or change a user's assignment to an organization,
-the pivotal key is required. To grant a user administrator permissions,
-use `chef-server-ctl grant-server-admin-permissions USER_NAME` on the
-Chef Infra Server. [See chef-server-ctl for
+the pivotal key is required. Rather than using the knife-opc plugin
+commands below, which are an implementation detail, use the equivalent 
+"user-" and "org-" subcommands directly on the Chef Infra Server. 
+Those wrappered subcommands already have the needed permissions applied and access 
+to sensitive commands will then be centralized. [See chef-server-ctl for
 details](/ctl_chef_server/).
 
 {{< /note >}}

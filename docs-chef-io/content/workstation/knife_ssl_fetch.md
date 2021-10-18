@@ -2,6 +2,8 @@
 title = "knife ssl_fetch"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_ssl_fetch.html", "/knife_ssl_fetch/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_ssl_fetch.html", "/knife_ssl_fetch/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_ssl_fetch.md knife ssl_fetch"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_ssl_fetch.md)
 
 {{% knife_ssl_fetch_summary %}}
 

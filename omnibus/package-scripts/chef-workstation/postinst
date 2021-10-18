@@ -75,7 +75,7 @@ if [ "$moved" = "1" ]; then
   echo ""
 fi
 
-binaries="chef-run berks chef chef-cli chef-analyze chef-apply chef-shell chef-solo chef-vault cookstyle delivery foodcritic inspec kitchen knife ohai chef-client hab"
+binaries="chef-run berks chef chef-cli chef-analyze chef-apply chef-shell chef-solo chef-vault cookstyle delivery foodcritic inspec kitchen knife ohai chef-client hab chef-zero mixlib-install fauxhai"
 for binary in $binaries; do
   ln -sf "$INSTALLER_DIR/bin/$binary" $PREFIX/bin || error_exit "Cannot link $binary to $PREFIX/bin"
 done
@@ -102,29 +102,32 @@ if is_darwin; then
   sudo rm -rf "/Applications/Chef Workstation App.app"
   sudo mv "Chef Workstation App.app" /Applications/
   mv "/Applications/Chef Workstation App.app/Contents/Resources/assets/scripts/$app_launcher" $INSTALLER_DIR/bin || error_exit "Cannot move $app_launcher to $INSTALLER_DIR/bin"
-  rm -f chef-workstation-app-mac.zip
+  rm -rf "$INSTALLER_DIR/components"
   popd
 
   ln -sf $INSTALLER_DIR/bin/uninstall_chef_workstation $PREFIX/bin || error_exit "Cannot link uninstall_chef_workstation to $PREFIX/bin"
 
-  # Restart the app if it was running.
-  echo "Restarting Chef Workstation App..."
+  echo "Setting Chef Workstation App to run at boot..."
   su "$USER" $INSTALLER_DIR/bin/$app_launcher load
+
+  echo "Launching Chef Workstation App..."
+  osascript -e 'open app "Chef Workstation App"' > /dev/null 2>&1;
 else # linux - postinst does not run for windows.
   cwa_app_path="$INSTALLER_DIR/components/chef-workstation-app/chef-workstation-app"
   ldd "$cwa_app_path" | grep "not found" >/dev/null 2>&1
   # 0 rc means grep found 'not found' text - and we have missing deps.
   if [ $? -eq 0 ]; then
     echo ""
-    echo "To run the Chef Workstation App, some additional dependencies must be installed."
-    echo "Using your platforms package manager to install the 'electron' package is "
+    echo "Chef Workstation ships with a toolbar application, the Chef Workstation App."
+    echo "To run this application some additional dependencies must be installed."
+    echo "Using your platform's package manager to install the 'electron' package is "
     echo "the easiest way to meet the dependency requirements."
     echo ""
     echo "You can then launch the App by running 'chef-workstation-app'."
     echo "The App will then be available in the system tray."
   else
     echo ""
-    echo "The Chef Workstation App is available for you to try."
+    echo "The Chef Workstation App is available."
     echo ""
     echo "Launch the App by running 'chef-workstation-app'."
     echo "The App will then be available in the system tray."
@@ -134,6 +137,6 @@ fi
 
 echo ""
 echo "Thank you for installing Chef Workstation!"
-echo "You can find some tips on getting started at https://docs.chef.io/workstation/"
+echo "You can find some tips on getting started at https://docs.chef.io/workstation/getting_started/"
 echo ""
 exit 0

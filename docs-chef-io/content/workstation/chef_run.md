@@ -2,6 +2,8 @@
 title = "chef-run (executable)"
 draft = false
 
+gh_repo = "chef-workstation"
+
 [menu]
   [menu.workstation]
     title = "chef-run (executable)"
@@ -9,8 +11,6 @@ draft = false
     parent = "chef_workstation/chef_workstation_tools"
     weight = 31
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/chef_run.md)
 
 chef-run is a tool to execute ad-hoc tasks on one or more target nodes
 using Chef Infra Client. To start with, familiarize yourself with `chef-run`'s

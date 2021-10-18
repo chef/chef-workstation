@@ -78,7 +78,8 @@ do_build() {
   ( cd "${SRC_PATH}/components/gems" || exit_with "unable to enter components/gems directory" 1
     bundle config --local build.nokogiri "$NOKOGIRI_CONFIG"
     bundle config --local silence_root_warning 1
-    bundle install --without dep_selector --no-deployment --jobs 10 --retry 5 --path "$pkg_prefix"
+    bundle config set --local without dep_selector
+    bundle install --no-deployment --jobs 10 --retry 5 --path "$pkg_prefix"
   )
 
   build_line "Building top-level 'chef' CMD wrapper"
@@ -112,7 +113,7 @@ do_install() {
     wrap_ruby_bin "chef-resource-inspector"
     wrap_ruby_bin "chef-shell"
 
-    appbundle "chef" "docgen,chefstyle,omnibus_package"
+    appbundle "knife" "development"
     wrap_ruby_bin "knife"
 
     appbundle "inspec-bin" "changelog,debug,docs,development"
@@ -130,7 +131,7 @@ do_install() {
     appbundle "berkshelf" "changelog,debug,docs,development"
     wrap_ruby_bin "berks"
 
-    appbundle cookstyle "changelog"
+    appbundle cookstyle "changelog,docs,profiling,rubocop_gems,development,debug"
     wrap_ruby_bin "cookstyle"
 
     appbundle "chef-vault" "changelog"
@@ -138,6 +139,15 @@ do_install() {
 
     appbundle chef-apply "changelog,docs,debug" # really, chef-run
     wrap_ruby_bin "chef-run"
+
+    appbundle mixlib-install "test,chefstyle,debug"
+    wrap_ruby_bin "mixlib-install"
+
+    appbundle fauxhai
+    wrap_ruby_bin "fauxhai"
+
+    appbundle chef-zero "pedant,development,debug"
+    wrap_ruby_bin "chef-zero"
   )
 
   if [ "$(readlink /usr/bin/env)" = "$(pkg_interpreter_for core/coreutils bin/env)" ]; then

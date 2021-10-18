@@ -1,5 +1,6 @@
 #
-# Copyright 2012-2020 Chef Software, Inc.
+# Copyright:: Copyright (c) Chef Software Inc.
+# License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -40,14 +41,10 @@ build do
     env["MACOSX_DEPLOYMENT_TARGET"] = "#{ver.canonical_segments[0]}.#{ver.canonical_segments[1]}"
   end
 
-  # We specifically don't want to install the rb-fsevent deps into the Workstation
-  # bundle because it causes dependency conflicts. But we probably need to
-  # bundle install so we ensure we have rake available to run the replace_exe task.
-  # After running that we build and install the gem manually while excluding
-  # dependencies (so we don't bring in conflicts).
-  bundle "config set --local path vendor", env: env
-  bundle "install", env: env
-  bundle "exec rake replace_exe", env: env, cwd: "#{project_dir}/ext"
+  # This needs to use our rake (>= 13.0 for ruby-3.0) and rspec rather than bundle install/exec
+  # against the Gemfile in the project.  If the author updates their dev pin to rake >= 13.0 then
+  # we could revert to the prior code in here which bundle installed their bundle separately.
+  rake "replace_exe", env: env, cwd: "#{project_dir}/ext"
   gem "build rb-fsevent.gemspec", env: env
   gem "install rb-fsevent-*.gem --no-document --ignore-dependencies", env: env
 end

@@ -2,6 +2,8 @@
 title = "knife xargs"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_xargs.html", "/knife_xargs/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_xargs.html", "/knife_xargs/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_xargs.md knife xargs"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_xargs.md)
 
 {{% knife_xargs_summary %}}
 

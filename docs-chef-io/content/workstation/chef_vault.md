@@ -2,6 +2,8 @@
 title = "Chef Vault"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/chef_vault.html", "/chef_vault/"]
 
 [menu]
@@ -12,8 +14,6 @@ aliases = ["/chef_vault.html", "/chef_vault/"]
     weight = 50
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/chef_vault.md)
-
 `chef-vault` is a Ruby Gem that is included in Chef Workstation and Chef
 Infra Client. Chef Vault lets you encrypt a data bag item using asymmetric keys.
 When you provide Chef Vault with a list of public keys from your nodes, only the
@@ -23,17 +23,7 @@ Chef Vault is included in Chef Workstation and Chef Infra Client by way of the
 
 {{< note >}}
 
-Chef Vault does not currently support alternate keying mechanisms like
-GPG and Amazon KMS.
-
-{{< /note >}}
-
-- For more information about using the chef-vault cookbook, its helper methods and resources, see <https://github.com/chef-cookbooks/chef-vault>
-
-The chef-vault cookbook is maintained by Chef Software. Use it along
-with Chef Vault itself. This cookbook adds the `chef_vault_item`
-helper method to the Chef Infra Language and the `chef_vault_secret` resource.
-Use them both in recipes to work with data bag secrets.
+Chef Vault does not currently support alternate keying mechanisms like GPG and Amazon KMS.
 
 {{< warning >}}
 
@@ -55,10 +45,6 @@ Neither PUB key nor PRIV key:: nested asn1 error
 ```
 
 {{< /warning >}}
-
-## Installation
-
-The Chef Workstation ships with the latest release of the `chef-vault` gem.
 
 ### Configuring config.rb for Chef Vault
 

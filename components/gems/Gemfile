@@ -21,13 +21,11 @@ group(:omnibus_package, :development, :test) do
   # Require a minimum version that is packaged in the Ruby install, so we do
   # not install old unecessary versions. When we bump Ruby we need to look
   # at these pins and adjust them.
-  gem "minitest", "= 5.13.0"
+  gem "minitest", "= 5.14.2"
 
   gem "rake", "= 13.0.1" # prevent double rake as of 12.2020
-  gem "pry"
-  gem "yard"
   gem "guard"
-  gem "cookstyle", "~> 7.1"
+  gem "cookstyle", ">= 7.8"
   gem "ffi-libarchive"
 end
 
@@ -42,7 +40,10 @@ end
 # We equality pin the chef gem itself to assert which version we're shipping.
 group(:omnibus_package) do
   # add small binaries that warn against the use of legacy apps. For now this is foodcritic/stove
-  gem "chef_deprecations", ">= 0.1.1"
+  gem "chef_deprecations", ">= 0.1.2"
+
+  # avoid failures running 0.0.7.7 on windows
+  gem "unf_ext", "=0.0.7.6"
 
   gem "appbundler"
 
@@ -50,47 +51,46 @@ group(:omnibus_package) do
   # gems to Rubygems now, so letting this float on latest should always give us the latest
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
-  gem "chef", "= 16.10.8"
-  gem "chef-bin", "= 16.10.8"
-  gem "ohai", ">= 16.7"
-  gem "cheffish", ">= 16.0"
+  gem "chef", ">= 17.0"
+  gem "chef-bin", ">= 17.0"
+  gem "ohai", ">= 17.0"
+  gem "cheffish", ">= 17.0"
 
   # chefspec
-  gem "chefspec", ">= 9.2.0", "< 10.0"
-  gem "fauxhai-ng", "~> 8"
+  gem "chefspec", ">= 9.3"
+  gem "fauxhai-ng", ">= 8.7.1"
 
   # inspec
-  gem "inspec-bin", "~> 4.23" # the actual inspec CLI binary
-  gem "inspec", "~> 4.23"
+  gem "inspec-bin", "~> 4.23"
 
   # test-kitchen and plugins
-  gem "test-kitchen", ">= 2.7"
-  gem "kitchen-azurerm", ">= 1.3"
-  gem "kitchen-ec2", ">= 3.7"
-  gem "kitchen-digitalocean", ">= 0.11"
-  gem "kitchen-dokken", ">= 2.11"
+  gem "test-kitchen", ">= 3.0"
+  gem "kitchen-azurerm", ">= 1.7"
+  gem "kitchen-ec2", ">= 3.10"
+  gem "kitchen-digitalocean", ">= 0.13"
+  gem "kitchen-dokken", ">= 2.14"
   gem "docker-api", ">= 2.0" # make sure we get the Ruby 2.7 compatible release
-  gem "kitchen-google", ">= 2.0.0"
-  gem "kitchen-hyperv", ">= 0.5.1"
-  gem "kitchen-inspec", ">= 2.2"
+  gem "kitchen-google", ">= 2.2"
+  gem "kitchen-hyperv", ">= 0.6"
+  gem "kitchen-inspec", ">= 2.5"
   gem "kitchen-openstack", ">= 5.0"
-  gem "kitchen-vagrant", ">= 1.8"
+  gem "kitchen-vagrant", ">= 1.9"
   gem "kitchen-vcenter", ">= 2.8"
 
-  # knife plugins
+  # knife & plugins
+  gem "knife"
   gem "knife-azure", ">= 3.0.0"
   gem "knife-ec2", ">= 1.0.28"
   gem "knife-google", ">= 4.2.7"
   gem "knife-tidy", ">= 2.0.9"
   gem "knife-windows", ">= 3.0.11"
-  gem "knife-opc", ">= 0.4.1"
   gem "knife-vcenter", ">= 3.0.1"
   gem "knife-vsphere", ">= 4.1.1"
 
   # ed25519 ssh key support done here as it's a native gem we can't put in train
   gem "ed25519"
   gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
-  gem "chef-cli", ">= 3.0.4"
+  gem "chef-cli", ">= 5.3.1"
   gem "chef-apply", ">= 0.4.16"
 
   # chef-telemetry previously pulled in an unecessary library (http)
@@ -101,9 +101,10 @@ group(:omnibus_package) do
   gem "net-ssh", ">= 4.2.0"
   gem "listen"
   gem "mixlib-install"
-  # When we update to Nokogiri 1.11 we will need to manually compile it
-  # see https://github.com/chef/chef-workstation/commit/1bd21d83af130ccb4bcfd3e5bcf621d2a5231608
-  gem "nokogiri", ">= 1.10.10", "< 1.11"
+  gem "nokogiri", ">= 1.11.7"
+  # Locked because pry-byebug is broken with 13+
+  # some work is ongoing? https://github.com/deivid-rodriguez/pry-byebug/issues/343
+  gem "pry", "= 0.13.0"
   gem "pry-byebug"
   gem "pry-remote"
   # pry-stack_explorer 0.4.9.3 emits warnings under 2.7 under inspec shell
@@ -117,7 +118,8 @@ end
 
 # Everything except Windows
 group(:ruby_shadow) do
-  gem "ruby-shadow", platform: :ruby
+  # if ruby-shadow does a release that supports ruby-3.0 this can be removed
+  gem "ruby-shadow", git: "https://github.com/chef/ruby-shadow", branch: "lcg/ruby-3.0", platforms: :ruby
 end
 
 gem "chefstyle", group: :test
@@ -132,4 +134,5 @@ platforms :mswin, :mingw do
   gem "win32-mutex"
   gem "win32-process", ">= 0.9.0" # resolves Ruby 2.7 warnings
   gem "win32-service", ">= 2.1.5" # 2.1.5 resolves ffi warnings
+  gem "win32-security" # remove this once https://github.com/eitoball/net-ping/pull/32 is merged
 end

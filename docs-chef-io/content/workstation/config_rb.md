@@ -2,6 +2,8 @@
 title = "config.rb"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/config_rb.html", "/config_rb_knife.html", "/config_rb/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/config_rb.html", "/config_rb_knife.html", "/config_rb/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/config_rb.md)
 
 {{< warning >}}
 
@@ -48,6 +48,10 @@ This configuration file has the following settings:
   ``` ruby
   chef_server_url 'https://localhost/organizations/ORG_NAME'
   ```
+
+  {{< note >}}
+  If changes need to be made to any global end points like user or user keys, use [`knife exec`]({{< relref "workstation/knife_exec" >}}) with the `--server-url` flag to set `chef_server_url` to `https://localhost/`.
+  {{< /note >}}
 
 `chef_zero.enabled`
 : Enable chef-zero. This setting requires `local_mode` to be set to `true`. Default value: `false`. For example:

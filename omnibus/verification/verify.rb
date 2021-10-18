@@ -401,6 +401,13 @@ module ChefWorkstation
         end
       end
 
+      add_component "curl" do |c|
+        c.base_dir = "embedded/bin"
+        c.smoke_test do
+          sh!("curl --version")
+        end
+      end
+
       attr_reader :verification_threads
       attr_reader :verification_results
       attr_reader :verification_status

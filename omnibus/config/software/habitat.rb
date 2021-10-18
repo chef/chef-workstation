@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright (c) 2020 Chef Software Inc.
+# Copyright:: Copyright Chef Software, Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,10 +21,10 @@ skip_transitive_dependency_licensing true
 
 # DO NOT MODIFY: default_version and checksums are populated by
 #                workstation/.expeditor/update_habitat.sh
-default_version "1.6.181"
-linux_sha = "efa91792f9d116dd63c481b3d3ee88e65e0cb49f0654578fc93166f614590809"
-darwin_sha = "268c149431842a58cdbdcf3e7354f90dec38cd548568520b8a602e48d8d4cbb8"
-windows_sha = "097da90435458a2ac2739e12c63bfba55bb4c7ba163b2ae65ab93968e9ced8c3"
+default_version "1.6.400"
+linux_sha = "edd846c5a77cef2de16a7a9240dcc190a6a7959bb2ebbbb86d853734b4ca7990"
+darwin_sha = "84c0808d7e22cd67b3be3abe027faeeaf1df23e3211cae88e75fa03042d0ac6d"
+windows_sha = "33a2573ab6367aad420aba401060d4d6518a4fec0f168085892c2764eba56359"
 # END DO NOT MODIFY
 
 if windows?

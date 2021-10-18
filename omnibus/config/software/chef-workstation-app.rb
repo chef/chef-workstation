@@ -1,5 +1,6 @@
 #
-# Copyright 2018 Chef Software, Inc.
+# Copyright:: Copyright Chef Software, Inc.
+# License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,62 +20,37 @@ license "Apache-2.0"
 skip_transitive_dependency_licensing
 license_file "LICENSE"
 
-source git: "https://github.com/chef/chef-workstation-app"
+# These three lines are updated automatically by Expeditor
+default_version "0.2.73"
+source sha1: "" if windows?
+source sha1: "" if linux?
 
-# DO NOT MODIFY
-# The Chef Workstation App version is pinned by Expeditor. Whenever Chef Workstation
-# App is merged then Expeditor takes the latest tag, runs a script to replace it here
-# and pushes a new commit / build through.
-default_version "v0.1.5"
-# /DO NOT MODIFY
+platform_name = if macos?
+                  "darwin"
+                elsif windows?
+                  "win32"
+                else
+                  "linux"
+                end
 
-# These electron dependencies are pulled in/created
-# by this build. They may have dependencies that aren't met
-# on the install target - in which case the tray application
-# will not be runnable.  That does not affect the rest of
-# the chef-workstation installation, so we will whitelist the
-# dependencies to allow it to continue in any case.
-if linux?
-  whitelist_file(%r{components/chef-workstation-app/libffmpeg\.so})
-  whitelist_file(%r{components/chef-workstation-app/libGLESv2\.so})
-  whitelist_file(%r{components/chef-workstation-app/chef-workstation-app})
-end
+source_url = "https://packages.chef.io/files/unstable/chef-workstation-app/#{version}/chef-workstation-app-#{version}-#{platform_name}.zip"
+app_install_path = "#{install_dir}/components/chef-workstation-app"
 
-build do
-  block "do_build" do
-    env = with_standard_compiler_flags(with_embedded_path)
-    app_version = JSON.parse(File.read(File.join(project_dir, "package.json")))["version"]
-    node_tools_dir = ENV["omnibus_nodejs_dir"]
-    node_bin_path = windows? ? node_tools_dir : File.join(node_tools_dir, "bin")
-    separator = File::PATH_SEPARATOR || ":"
-    env["PATH"] = "#{env["PATH"]}#{separator}#{node_bin_path}"
-
-    platform_name, artifact_name = if mac_os_x?
-                                     ["mac", "Chef Workstation App-#{app_version}-mac.zip"]
-                                   elsif linux?
-                                     %w{linux linux-unpacked}
-                                   elsif windows?
-                                     %w{win win-unpacked}
-                                   end
-
-    dist_dir = File.join(project_dir, "dist")
-    artifact_path = File.join(dist_dir, artifact_name)
-    app_install_path = "#{install_dir}/components/chef-workstation-app"
+# The macOS zip file is weird. We can't really expand it because it expands directly into the .app.
+# To get around this we download it as a zip and unzip it as part of postinst.
+if macos?
+  build do
     mkdir app_install_path
+    command "curl -Lsf -o #{app_install_path}/chef-workstation-app-mac.zip #{source_url}"
+  end
+else
+  source url: source_url
 
-    # Ensure no leftover artifacts from a previous build -
-    # electron-builder will recreate it:
-    delete dist_dir
-
-    npm_bin = File.join(node_bin_path, "npm")
-    command "#{npm_bin} install --unsafe-perm=true --allow-root", env: env
-    command "#{npm_bin} run-script build-#{platform_name}", env: env
-
-    if mac?
-      target = File.join(app_install_path, "chef-workstation-app-#{platform_name}.zip")
-      copy artifact_path, target
-    else
-      sync artifact_path, app_install_path
-    end
+  build do
+    mkdir app_install_path
+    copy relative_path, app_install_path
   end
 end
+
+
+

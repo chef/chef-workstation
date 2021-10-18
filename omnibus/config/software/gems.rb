@@ -1,4 +1,5 @@
-# Copyright:: Copyright (c) 2019-2020 Chef Software Inc.
+#
+# Copyright:: Copyright (c) Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -40,11 +41,19 @@ dependency "google-protobuf"
 
 # This is a transative dep but we need to build from source so binaries are built on current sdk.
 # Only matters on mac.
-# @todo Contact gem mainter about getting new release.
-dependency "rb-fsevent-gem" if mac_os_x?
+# @todo https://github.com/guard/rb-fsevent/issues/83
+dependency "rb-fsevent-gem" if macos?
 
 build do
-  env = with_standard_compiler_flags(with_embedded_path)
+  env = if !windows?
+          with_standard_compiler_flags(with_embedded_path)
+        else
+          # On windows we use all the compiler flags from the ruby we just built and use
+          # the built-in devkit rather than using omnibus-toolchain.  This both works much
+          # better at this moment in time, and ensures that we can install gems with the
+          # ruby that we just built.
+          { "Path" => "#{install_dir}\\embedded\\bin;#{ENV["PATH"]}" }
+        end
 
   #######################################################
   # !!!              IMPORTANT REMINDER             !!! #
@@ -64,17 +73,20 @@ build do
   # install the whole bundle first
   bundle "install --jobs 10 --without #{excluded_groups.join(" ")}", env: env
 
-  appbundle "chef", lockdir: project_dir, gem: "chef", without: %w{docgen chefstyle omnibus_package}, env: env
-
+  appbundle "knife", lockdir: project_dir, gem: "knife", without: %w{development}, env: env
   appbundle "foodcritic", lockdir: project_dir, gem: "chef_deprecations", without: %w{development test}, env: env
   appbundle "test-kitchen", lockdir: project_dir, gem: "test-kitchen", without: %w{changelog debug docs development integration}, env: env
   appbundle "inspec", lockdir: project_dir, gem: "inspec-bin", without: %w{deploy tools maintenance integration}, env: env
-  appbundle "chef-run", lockdir: project_dir, gem: "chef-apply", without: %w{changelog docs debug}, env: env
-  appbundle "chef-cli", lockdir: project_dir, gem: "chef-cli", without: %w{changelog docs debug}, env: env
+  appbundle "chef-run", lockdir: project_dir, gem: "chef-apply", without: %w{development docs debug}, env: env
+  appbundle "chef-cli", lockdir: project_dir, gem: "chef-cli", without: %w{development profile test}, env: env
   appbundle "berkshelf", lockdir: project_dir, gem: "berkshelf", without: %w{changelog build docs debug development}, env: env
+  appbundle "mixlib-install", lockdir: project_dir, gem: "mixlib-install", without: %w{test chefstyle debug}, env: env
+  appbundle "chef-zero", lockdir: project_dir, gem: "chef-zero", without: %w{pedant development debug}, env: env
+  appbundle "cookstyle", lockdir: project_dir, gem: "cookstyle", without: %w{docs profiling rubocop_gems development debug}, env: env
+  appbundle "fauxhai", lockdir: project_dir, gem: "fauxhai-ng", env: env
 
   # Note - 'chef-apply' gem provides 'chef-run', not 'chef-apply' which ships with chef-bin...
-  %w{chef-bin chef-apply chef-vault ohai cookstyle}.each do |gem|
+  %w{chef-bin chef-apply chef-vault ohai}.each do |gem|
     appbundle gem, lockdir: project_dir, gem: gem, without: %w{changelog}, env: env
   end
 

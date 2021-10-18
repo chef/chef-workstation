@@ -1,5 +1,6 @@
 #
-# Copyright 2019 Chef Software, Inc.
+# Copyright:: Copyright Chef Software, Inc.
+# License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -30,7 +31,7 @@ build do
 
   if windows?
     # Windows systems requires an extention (EXE)
-    command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/chef.exe", env: env
+    go "build -o #{install_dir}/bin/chef.exe", env: env
 
     block "Generate a 'chef' binary that calls the 'chef.exe' executable" do
       File.open("#{install_dir}/bin/chef", "w") do |f|
@@ -39,6 +40,6 @@ build do
     end
   else
     # Unix systems has no extention
-    command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/chef", env: env
+    go "build -o #{install_dir}/bin/chef", env: env
   end
 end

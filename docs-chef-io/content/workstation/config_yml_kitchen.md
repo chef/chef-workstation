@@ -2,6 +2,8 @@
 title = "kitchen.yml"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/config_yml_kitchen.html", "/config_yml_kitchen/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/config_yml_kitchen.html", "/config_yml_kitchen/"]
     parent = "chef_workstation/chef_workstation_tools/test_kitchen"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/config_yml_kitchen.md)
 
 Use [Test Kitchen](https://kitchen.ci/) to automatically test cookbook
 data across any combination of platforms and test suites:
@@ -76,7 +76,7 @@ Chef-specific settings:
 </tr>
 <tr class="even">
 <td><code>chef_omnibus_url</code></td>
-<td>The URL for an <code>install.sh</code> script that will install Chef Infra Client on the machine under test. Default value: <code>https://www.chef.io/chef/install.sh</code>. <strong>This will be deprecated in a future version.</strong></td>
+<td>The URL for an <code>install.sh</code> script that will install Chef Infra Client on the machine under test. Default value: <code>https://omnitruck.chef.io/install.sh</code>. <strong>This will be deprecated in a future version.</strong></td>
 </tr>
 <tr class="odd">
 <td><code>chef_solo_path</code></td>
@@ -275,6 +275,12 @@ kitchen.yml file when the provisioner is chef-zero or chef-solo.
 <tr class="odd">
 <td><code>architecture</code></td>
 <td>Override platform architecture.</td>
+<td>&lt;auto detected&gt;</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>always_update_cookbooks</code></td>
+<td>Updates the policyfile.lock.json when changes are made to the cookbook. Supports <code>true</code> or <code>false</code> </td>
 <td>&lt;auto detected&gt;</td>
 <td></td>
 </tr>
@@ -546,8 +552,8 @@ provisioner:
 platforms:
   - name: centos-8
   - name: fedora-latest
-  - name: ubuntu-1604
   - name: ubuntu-1804
+  - name: ubuntu-2004
 
 suites:
 
@@ -603,8 +609,8 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: ubuntu-16.04
   - name: ubuntu-18.04
+  - name: ubuntu-20.04
   - name: centos-7
   - name: centos-8
 
@@ -669,7 +675,7 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: ubuntu-16.04
+  - name: ubuntu-18.04
     attributes:
       chef-server:
         api_fqdn: backend.chef-server.com

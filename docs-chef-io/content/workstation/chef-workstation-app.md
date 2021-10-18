@@ -2,6 +2,8 @@
 title = "Chef Workstation App"
 draft = false
 
+gh_repo = "chef-workstation"
+
 [menu]
   [menu.workstation]
     title = "Chef Workstation App"
@@ -9,8 +11,6 @@ draft = false
     parent = "chef_workstation/chef_workstation_tools"
     weight = 61
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/chef-workstation-app.md)
 
 # About Chef Workstation App
 

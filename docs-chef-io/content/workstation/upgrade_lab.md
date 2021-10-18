@@ -1,6 +1,8 @@
 +++
 title = "Upgrade Lab: Chef Infra Client 12 to latest"
 draft = false
+
+gh_repo = "chef-workstation"
 aliases = ["/workstation/upgrade_labs/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/workstation/upgrade_labs/"]
     parent = "chef_workstation/chef_workstation_tools"
     weight = 150
 +++
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/upgrade_lab.md)
-
 Chef Software's Upgrade Lab provides an isolated cookbook development environment and in-line support to help you upgrade your system, so you can stop using legacy Chef Infra and start using modern Chef Infra.
 
 The Upgrade Lab provides a report of your existing nodes and cookbooks, so you will know the scope of the work and you can identify a good place to start. Upgrade Lab works by capturing any node from the production environment and recreating it locally by generating a repository for that node, which provides you with a sandbox to work through upgrading and testing your cookbooks at a safe distance from your production environment.
@@ -23,7 +23,7 @@ This guide covers the straightforward pattern of upgrading from Chef Infra Clien
 Unless otherwise indicated, you will run all commands in your local development environment.
 
 {{< note >}}
-This guide illustrates the basic case of upgrading a single node in isolation, including migrating the node from one Chef Infra Server to a new Chef Infra Server. More complex situations, such as those involving pooled nodes using Chef Infra Server search for peer discovery, are not covered here. Please contact [Chef Software customer support](https://www.chef.io/support/) for more complex cases.
+This guide illustrates the basic case of upgrading a single node in isolation, including migrating the node from one Chef Infra Server to a new Chef Infra Server. More complex situations, such as those involving pooled nodes using Chef Infra Server search for peer discovery, are not covered here. Please contact your Customer Success team for more complex cases.
 {{< /note >}}
 
 ## Chef Upgrade Lab Requirements
@@ -132,7 +132,7 @@ If you do not have a version control system and CI/CD pipeline in place, then pl
 
 You can also ask questions in the Chef community channels:
 
- * Chef Community Slack at http://community-slack.chef.io/.
+ * Chef Community Slack at https://community-slack.chef.io/.
  * Chef Mailing List https://discourse.chef.io/
 
 ## Upgrade Lab
@@ -353,7 +353,7 @@ Reconciling cookbooks with untracked changes is a difficult and time-consuming p
 If you find yourself using many cookbooks--or complex cookbooks--downloaded from the Chef Infra Server, it will be worth the effort in the long run to try to track down their version-controlled sources.
 
 Tracking and testing changes in a CI/CD pipeline is an important part of managing your Chef infrastructure, but are beyond the scope of this guide.
-See [Learn Chef Rally](https://learn.chef.io/) for tutorials and contact [Chef Software customer support](https://www.chef.io/support/) when you are ready to modernize your system.
+See [Learn Chef Rally](https://learn.chef.io/) for tutorials and contact your Customer Success team when you are ready to modernize your system.
 
 ```bash
 ------------------------ WARNING ---------------------------

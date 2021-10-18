@@ -5,11 +5,12 @@ import (
 
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 )
 
 func newRootCmd() *cobra.Command {
 	r := &cobra.Command{
-		Use:   "chef-automate-collect",
+		Use:   dist.AutomateCollectExec,
 		Short: "Collect data for Chef Automate",
 	}
 	r.AddCommand(newGenConfigCommand())

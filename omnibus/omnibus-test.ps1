@@ -1,23 +1,6 @@
 # Stop script execution when a non-terminating error occurs
 $ErrorActionPreference = "Stop"
 
-$channel = "$Env:CHANNEL"
-If ([string]::IsNullOrEmpty($channel)) { $channel = "unstable" }
-
-$product = "$Env:PRODUCT"
-If ([string]::IsNullOrEmpty($product)) { $product = "chef-workstation" }
-
-$version = "$Env:VERSION"
-If ([string]::IsNullOrEmpty($version)) { $version = "latest" }
-
-Write-Output "--- Installing $channel $product $version"
-$package_file = $(C:\opscode\omnibus-toolchain\bin\install-omnibus-product.ps1 -Product "$product" -Channel "$channel" -Version "$version" | Select-Object -Last 1)
-
-Write-Output "--- Verifying omnibus package is signed"
-C:\opscode\omnibus-toolchain\bin\check-omnibus-package-signed.ps1 "$package_file"
-
-Write-Output "--- Running verification for $channel $product $version"
-
 # reload Env:PATH to ensure it gets any changes that the install made (e.g. C:\opscode\chef-workstation\bin\ )
 $Env:PATH = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
 
@@ -41,9 +24,13 @@ Write-Output " * hab help"
 hab help
 If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
-Write-Output " * chef-automate-collect -h"
-chef exec chef-automate-collect -h
-If ($lastexitcode -ne 0) { Exit $lastexitcode }
+# We are commenting this code on a purpose.
+# We have to stop building chef-automate-collect in chef workstation temporarily.
+# Please refer the issue: https://github.com/chef/chef-workstation/issues/2286
+
+# Write-Output " * chef-automate-collect -h"
+# chef exec chef-automate-collect -h
+# If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
 Write-Output "--- Run the verification suite"
 C:/opscode/chef-workstation/embedded/bin/ruby.exe omnibus/verification/run.rb

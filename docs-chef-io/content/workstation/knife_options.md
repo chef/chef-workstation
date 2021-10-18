@@ -2,6 +2,8 @@
 title = "Knife Common Options"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_options.html", "/knife_options/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/knife_options.html", "/knife_options/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_options.md)
 
 The following options can be run with all knife subcommands and
 plug-ins:

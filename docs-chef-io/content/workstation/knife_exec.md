@@ -2,6 +2,8 @@
 title = "knife exec"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_exec.html", "/knife_exec/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_exec.html", "/knife_exec/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_exec.md knife exec"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_exec.md)
 
 {{% knife_exec_summary %}}
 
@@ -197,6 +197,14 @@ To list all of the available search indexes, enter:
 
 ``` bash
 knife exec -E 'puts api.get("search").keys'
+```
+
+**Operations on Users and User Keys**
+
+To change any global end points like user or user keys, use the `--server-url` flag:
+
+``` bash
+knife exec -E 'api.delete("/users/myuser/keys/user33")' --server-url https://
 ```
 
 **Query for multiple attributes**

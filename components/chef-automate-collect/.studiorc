@@ -40,7 +40,7 @@ document "update_deps" <<DOC
 
   Example 2: Update a single dependency
   -------------------------------------
-  update_deps github.com/chef/go-libs@master
+  update_deps github.com/chef/go-libs@main
 DOC
 function update_deps() {
   install_if_missing core/go go

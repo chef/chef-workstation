@@ -2,17 +2,17 @@
 title = "Cookstyle"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/cookstyle.html", "/rubocop.html", "/cookstyle/"]
 
 [menu]
   [menu.workstation]
-    title = "Cookstyle"
-    identifier = "chef_workstation/chef_workstation_tools/cookstyle.md Cookstyle"
-    parent = "chef_workstation/chef_workstation_tools"
-    weight = 90
+    title = "About Cookstyle"
+    identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cookstyle"
+    parent = "chef_workstation/chef_workstation_tools/cookstyle"
+    weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/cookstyle.md)
 
 Cookstyle is a code linting tool that helps you write better Chef Infra
 cookbooks by detecting and automatically correcting style, syntax, and

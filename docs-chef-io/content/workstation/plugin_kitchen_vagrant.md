@@ -2,6 +2,8 @@
 title = "kitchen-vagrant"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/plugin_kitchen_vagrant.html", "/plugin_kitchen_vagrant/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/plugin_kitchen_vagrant.html", "/plugin_kitchen_vagrant/"]
     parent = "chef_workstation/chef_workstation_tools/test_kitchen"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/plugin_kitchen_vagrant.md)
 
 {{% test_kitchen_driver_vagrant %}}
 
