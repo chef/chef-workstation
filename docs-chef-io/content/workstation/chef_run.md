@@ -64,7 +64,7 @@ password as shown in the example, or via the `--user` and `--password` flags.
 
 HTTPS connections are supported by providing the `--ssl` flag.
 
-`chef-run` over WinRM does not support certifcate-based authentication to
+`chef-run` over WinRM does not support certificate-based authentication to
 target hosts.
 
 ## Specifying resource properties and actions

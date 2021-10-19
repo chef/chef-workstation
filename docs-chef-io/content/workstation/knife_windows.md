@@ -248,7 +248,7 @@ This argument has the following options:
 
 `-C NUM`, `--concurrency NUM`
 
-: Changed in knife-windows 1.9.0. The number of allowed concurreconnections. Defaults to 1.
+: Changed in knife-windows 1.9.0. The number of allowed concurrent connections. Defaults to 1.
 
 `-f CA_TRUST_FILE`, `--ca-trust-file CA_TRUST_FILE`
 
