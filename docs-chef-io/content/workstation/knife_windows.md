@@ -154,7 +154,11 @@ This argument has the following options:
 
 `-o PATH`, `--output-file PATH`
 
-: The location in which the `winrmcert.b64`, `winrmcert.pem`, and `winrmcert.pfx` files are generated. For example: `--output-file /home/.winrm/server_cert` will create `server_cert.b64`, `server_cert.pem`, and `server_cert.pfx` in the `server_cert` directory. Default location: `current_directory/winrmcert`.
+: Specifies the location in which to generate the `.pfx`, `.b64`, and `.pem` files. For example: `--output-file /home/.winrm/server_cert` will create `server_cert.b64`, `server_cert.pem`, and `server_cert.pfx` in the `server_cert` directory. If you omit this option, then the files are generated with `c:\chef\cache\chef-<hostname>` as the filename for each certificate type. Default location: `c:\chef\cache\chef-<hostname>`.
+
+`--store_in_certstore`
+
+: Instructs knife to store the password for your certificates in the Windows Registry for later retrieval. Type: Boolean. Example: `--store_in_certstore true`. Default: false.
 
 ## cert install
 
@@ -248,7 +252,7 @@ This argument has the following options:
 
 `-C NUM`, `--concurrency NUM`
 
-: Changed in knife-windows 1.9.0. The number of allowed concurreconnections. Defaults to 1.
+: Changed in knife-windows 1.9.0. The number of allowed concurrent connections. Defaults to 1.
 
 `-f CA_TRUST_FILE`, `--ca-trust-file CA_TRUST_FILE`
 
