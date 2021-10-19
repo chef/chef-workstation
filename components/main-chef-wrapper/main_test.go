@@ -18,9 +18,8 @@ package main
 
 import (
 	"bytes"
-	"fmt"
+	"fmt"	
 	"io/ioutil"
-	"log"
 	"os"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
 	"github.com/spf13/cobra"

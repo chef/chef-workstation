@@ -62,7 +62,7 @@ function integration_tests() {
 
   log_line "Running integration tests (/src/integration)"
   ( cd /src/integration || return 1
-    go test -v || return 1
+   go test -tags=integration ./integration -v -count=1 || return 1
   )
 }
 
