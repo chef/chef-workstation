@@ -19,63 +19,52 @@ aliases = ["/knife_windows.html", "/knife_windows/"]
 
 {{< note >}}
 
-Review the list of [common options](/workstation/knife_options/) available to
-this (and all) knife subcommands and plugins.
+Review the list of [common options](/workstation/knife_options/) available to this (and all) knife subcommands and plugins.
 
 {{< /note >}}
 
 ### Requirements
 
-This subcommand requires WinRM to be installed, and then configured
-correctly, including ensuring the correct ports are open. For more
-information, see:
-<https://docs.microsoft.com/en-us/windows/desktop/WinRM/installation-and-configuration-for-windows-remote-management>
-and/or
-<https://support.microsoft.com/en-us/help/968930/windows-management-framework-core-package-windows-powershell-2-0-and-w>.
-Use the quick configuration option in WinRM to allow outside connections
-and the entire network path from knife (and the workstation). Run the
-following on the Windows target:
+This subcommand requires WinRM to be installed, and then configured correctly, including ensuring the correct ports are open. For more information, see the Microsoft documentation:
+
+* [Installation and configuration for Windows Remote Management](https://docs.microsoft.com/en-us/windows/desktop/WinRM/installation-and-configuration-for-windows-remote-management)
+* [Windows Management Framework (WMF) 5.x Release Notes](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/wmf/whats-new/release-notes?view=powershell-7.1).
+
+Use the quick configuration option in WinRM to allow outside connections and the entire network path from knife (and the workstation). Run the following on the Windows target:
 
 ``` bash
 C:\> winrm quickconfig -q
 ```
 
-Often commands can take longer than the default `MaxTimeoutms` WinRM
-configuration setting. Increase this value to `1800000` (30 minutes).
+#### Timeouts
+
+The `MaxTimeoutms` default is `60000` (1 minute). To avoid timeouts, increase this value to `1800000` (30 minutes).
 
 To update this setting, run the following command on the Windows target:
 
-``` bash
+```powershell
 C:\> winrm set winrm/config '@{MaxTimeoutms="1800000"}'
 ```
 
-Ensure that the Windows Firewall is configured to allow WinRM
-connections between the workstation and the Chef Infra Server. For
-example:
+#### Windows Firewall
 
-``` bash
+Configure the Windows Firewall to allow WinRM connections between the Chef Workstation and the Chef Infra Server. For example:
+
+```powershell
 C:\> netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-In)" profile=public protocol=tcp localport=5985 remoteip=localsubnet new remoteip=any
 ```
 
-### Negotiate, NTLM
+### Windows Negotiate protocol and NTLM
 
-When knife is executed from a Microsoft Windows system, it is no longer
-necessary to make additional configuration of the WinRM listener on the
-target node to enable successful authentication from the workstation. It
-is sufficient to have a WinRM listener on the remote node configured to
-use the default configuration for `winrm quickconfig`. This is because
-`knife windows` supports the Microsoft Windows negotiate protocol,
-including NTLM authentication, which matches the authentication
-requirements for the default configuration of the WinRM listener.
+`knife windows` supports the Microsoft Windows negotiate protocol, including NTLM authentication. It  matches the authentication requirements for the default configuration of the WinRM listener. To execute  knife from a Microsoft Windows system, ave a WinRM listener on the remote node configured to use the default configuration for `winrm quickconfig`.
 
-{{< note >}}
+PowerShell Remoting and WinRM listen on the following ports:
 
-To use Negotiate or NTLM to authenticate as the user specified by the
-`--winrm-user` option, include the user's Microsoft Windows domain,
-using the format `domain\user`, where the backslash (`\`) separates the
+* HTTP: 5985
+* HTTPS: 5986
+
+To use Negotiate or NTLM to authenticate as the user specified by the `--winrm-user` option, include the user's Microsoft Windows domain, using the format `domain\user`, where the backslash (`\`) separates the
 domain from the user.
-
-{{< /note >}}
 
 For example:
 
@@ -91,38 +80,29 @@ knife winrm db1.cloudapp.net 'dir' -x '.\localadmin' -P 'password'
 
 ### Domain Authentication
 
-The `knife windows` plugin supports Microsoft Windows domain
-authentication. This requires:
+The `knife windows` plugin supports Microsoft Windows domain authentication. This requires:
 
-- An SSL certificate on the target node
-- The certificate details can be viewed and its [thumbprint hex values copied](https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)
+* An SSL certificate on the target node
+* The certificate details can be viewed and its [thumbprint hex values copied](https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)
 
-To create the listener over HTTPS, run the following command on the
-Windows target:
+To create the listener over HTTPS, run the following command on the Windows target:
 
 ``` bash
 C:\> winrm create winrm/config/Listener?Address=IP:<ip_address>+Transport=HTTPS @{Hostname="<fqdn>";CertificateThumbprint="<hexidecimal_thumbprint_value>"}
 ```
 
-where the `CertificateThumbprint` is the thumbprint hex value copied
-from the certificate details. (The hex value may require that spaces be
-removed before passing them to the node using the `knife windows`
-plugin.) WinRM 2.0 uses port `5985` for HTTP and port `5986` for HTTPS
-traffic, by default.
+where the `CertificateThumbprint` is the thumbprint hex value copied from the certificate details. (The hex value may require that spaces be removed before passing them to the node using the `knife windows` plugin.) WinRM 2.0 uses port `5985` for HTTP and port `5986` for HTTPS traffic, by default.
 
-To validate communication with the Windows system using domain
-authentication run:
+To validate communication with the Windows system using domain authentication run:
 
 ``` bash
 knife winrm 'node1.domain.com' 'dir' -m -x domain\\administrator -P 'super_secret_password' -p 5986
 ```
 
+<!-- markdownlint-disable MD024-->
 ## cert generate
 
-Use the `cert generate` argument to generate certificates for use with
-WinRM SSL listeners. This argument also generates a related public key
-file (in .pem format) to validate communication between listeners that
-are configured to use the generated certificate.
+Use the `cert generate` argument to generate certificates for use with WinRM SSL listeners. This argument also generates a related public key file (in .pem format) to validate communication between listeners that are configured to use the generated certificate.
 
 ### Syntax
 
@@ -162,10 +142,7 @@ This argument has the following options:
 
 ## cert install
 
-Use the `cert install` argument to install a certificate (such as one
-generated by the `cert generate` argument) into the Microsoft Windows
-certificate store so that it may be used as the SSL certificate by a
-WinRM listener.
+Use the `cert install` argument to install a certificate (such as one generated by the `cert generate` argument) into the Microsoft Windows certificate store so that it may be used as the SSL certificate by a WinRM listener.
 
 ### Syntax
 
@@ -185,8 +162,7 @@ This argument has the following options:
 
 ## listener create
 
-Use the `listener create` argument to create a WinRM listener on the
-Microsoft Windows platform.
+Use the `listener create` argument to create a WinRM listener on the Microsoft Windows platform.
 
 {{< note >}}
 
@@ -228,9 +204,7 @@ This argument has the following options:
 
 ## winrm
 
-Use the `winrm` argument to create a connection to one or more remote
-machines. As each connection is created, a password must be provided.
-This argument uses the same syntax as the `search` subcommand.
+Use the `winrm` argument to create a connection to one or more remote machines. As each connection is created, a password must be provided. This argument uses the same syntax as the `search` subcommand.
 
 {{% knife_windows_winrm_ports %}}
 
@@ -322,9 +296,11 @@ This argument has the following options:
 
 : The WinRM user name.
 
+<!-- markdownlint-enable MD024-->
+
 ## Examples
 
-**Find Uptime for Web Servers**
+### Find Uptime for Web Servers
 
 To find the uptime of all web servers, enter:
 
@@ -332,11 +308,11 @@ To find the uptime of all web servers, enter:
 knife winrm "role:web" "net stats srv" -x Administrator -P password
 ```
 
-**Force a Chef Infra Client run**
+### Force a Chef Infra Client run
 
 To force a Chef Infra Client run:
 
-``` bash
+```powershell
 knife winrm 'ec2-50-xx-xx-124.amazonaws.com' 'chef-client -c c:/chef/client.rb' -m -x admin -P 'password'
 ec2-50-xx-xx-124.amazonaws.com [date] INFO: Starting Chef Run (Version 0.9.12)
 ec2-50-xx-xx-124.amazonaws.com [date] WARN: Node ip-0A502FFB has an empty run list.
@@ -346,16 +322,13 @@ ec2-50-xx-xx-124.amazonaws.com [date] INFO: Running report handlers
 ec2-50-xx-xx-124.amazonaws.com [date] INFO: Report handlers complete
 ```
 
-Where in the examples above, `[date]` represents the date and time the
-long entry was created. For example:
+Where in the examples above, `[date]` represents the date and time the long entry was created. For example:
+
 `[Fri, 04 Mar 2011 22:00:53 +0000]`.
 
-**Generate an SSL certificate, and then create a listener**
+### Generate an SSL certificate, and then create a listener
 
-Use the `listener create`, `cert generate`, and `cert install` arguments
-to create a new listener and assign it a newly-generated SSL
-certificate. First, make sure that WinRM is enabled on the machine. Do
-so by running the following command on the Windows node:
+Use the `listener create`, `cert generate`, and `cert install` arguments to create a new listener and assign it a newly-generated SSL certificate. First, make sure that WinRM is enabled on the machine. Do so by running the following command on the Windows node:
 
 ``` bash
 C:\> winrm quickconfig
@@ -367,8 +340,7 @@ Create the SSL certificate
 knife windows cert generate --domain myorg.org --output-file $env:userprofile/winrmcerts/winrm-ssl
 ```
 
-This command may be run on any machine and will output three file types:
-`.b64`, `.pem`, and `.pfx`.
+This command may be run on any machine and will output three file types: `.b64`, `.pem`, and `.pfx`.
 
 Next, create the SSL listener:
 
@@ -376,12 +348,6 @@ Next, create the SSL listener:
 knife windows listener create --hostname *.myorg.org --cert-install $env:userprofile/winrmcerts/winrm-ssl.pfx
 ```
 
-This will use the same `.pfx` file that was output by the
-`cert generate` argument. If the command is run on a different machine
-from that which generated the certificates, the required certificate
-files must first be transferred securely to the system on which the
-listener will be created. (Use the `cert install` argument to install a
-certificate on a machine.)
+This will use the same `.pfx` file that was output by the `cert generate` argument. If the command is run on a different machine from that which generated the certificates, the required certificate files must first be transferred securely to the system on which the listener will be created. (Use the `cert install` argument to install a certificate on a machine.)
 
-The SSL listener is created and should be listening on TCP port `5986`,
-which is the default WinRM SSL port.
+The SSL listener is created and should be listening on TCP port `5986`, which is the default WinRM SSL port.
