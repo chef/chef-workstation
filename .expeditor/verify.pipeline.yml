@@ -26,7 +26,7 @@ steps:
 - label: ":linux: :darwin: :windows: top-level chef cmd"
   commands:
     - cd components/main-chef-wrapper
-    - hab studio run "source .studiorc && build_cross_platform && integration_tests"
+    - hab studio run "source .studiorc && build_cross_platform && integration_tests && unit_tests"
   timeout_in_minutes: 10
   retry:
     automatic:
