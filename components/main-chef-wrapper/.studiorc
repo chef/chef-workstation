@@ -60,8 +60,8 @@ function integration_tests() {
   log_line "Building cross-platform binaries"
   build_cross_platform || return 1
 
-  log_line "Running integration tests (/src/integration)"
-  ( cd /src/integration || return 1
+  log_line "Running integration tests (/integration)"
+  ( cd /integration || return 1
    go test -tags=integration ./integration -v -count=1 || return 1
   )
 }
