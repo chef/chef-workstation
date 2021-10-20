@@ -50,8 +50,8 @@ function unit_tests() {
     go test cmd/capture_test.go cmd/gem_test.go cmd/cleanPolicyCookbooks_test.go cmd/cleanPolicyRevisions_test.go  \
     cmd/deletePolicyGroup_test.go  cmd/deletePolicy_test.go  cmd/describeCookbook_test.go  cmd/diff_test.go  cmd/env_test.go cmd/exec_test.go \
     cmd/export_test.go  cmd/gem_test.go  cmd/generate_test.go  cmd/install_test.go  cmd/push_test.go cmd/report_test.go \
-    cmd/show-policy_test.go  cmd/undelete_test.go  cmd/update_test.go
-      || return 1
+    cmd/show-policy_test.go  cmd/undelete_test.go  cmd/update_test.go \
+    || return 1
   )
 }
 
