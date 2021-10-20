@@ -47,7 +47,7 @@ function unit_tests() {
     mkdir -p coverage/
     GO_PACKAGES=$(go list ./... | grep -v integration)
     go test \
-    go test capture_test.go \
+    go test cmd/capture_test.go \
     || return 1
   )
 }
