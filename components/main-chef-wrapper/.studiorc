@@ -61,7 +61,7 @@ function integration_tests() {
   build_cross_platform || return 1
 
   log_line "Running integration tests (/integration)"
-  ( cd /integration || return 1
+  ( cd /src || return 1
    go test -tags=integration ./integration -v -count=1 || return 1
   )
 }
