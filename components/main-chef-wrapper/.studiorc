@@ -38,7 +38,7 @@ document "unit_tests" <<DOC
   Run unit tests (go-based)
 DOC
 function unit_tests() {
-  install_if_missing core/go
+  install_if_missing core/go go
   install_if_missing core/gcc gcc
 
   log_line "Running unit tests"
