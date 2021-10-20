@@ -18,7 +18,7 @@ package main
 
 import (
 	"bytes"
-	"fmt"	
+	"fmt"
 	"io/ioutil"
 	"os"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
