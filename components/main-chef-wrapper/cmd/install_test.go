@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
 )
 
 func TestInstallCommand(t *testing.T) {
@@ -22,7 +23,7 @@ func TestInstallCommand(t *testing.T) {
 		},
 	} {
 		t.Run("", func(t *testing.T) {
-			err := Runner.PassThroughCommand(dist.WorkstationExec, "", test.Args)
+			err := cmd.Runner.PassThroughCommand(dist.WorkstationExec, "", test.Args)
 			if err != nil {
 				log.Printf("Command finished with error: %v", err)
 			} else {
