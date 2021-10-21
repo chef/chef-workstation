@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.10.656 -->
-## [21.10.656](https://github.com/chef/chef-workstation/tree/21.10.656) (2021-10-20)
+<!-- latest_release 21.10.657 -->
+## [21.10.657](https://github.com/chef/chef-workstation/tree/21.10.657) (2021-10-21)
 
 #### Merged Pull Requests
-- Bump omnibus and omnibus-software [#2344](https://github.com/chef/chef-workstation/pull/2344) ([jeremiahsnapp](https://github.com/jeremiahsnapp))
+- Bump ohai to 17.7.5 [#2348](https://github.com/chef/chef-workstation/pull/2348) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.10.640 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump ohai to 17.7.5 [#2348](https://github.com/chef/chef-workstation/pull/2348) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.657 -->
 - Bump omnibus and omnibus-software [#2344](https://github.com/chef/chef-workstation/pull/2344) ([jeremiahsnapp](https://github.com/jeremiahsnapp)) <!-- 21.10.656 -->
 - Bump train-aws to 0.2.22 [#2341](https://github.com/chef/chef-workstation/pull/2341) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.655 -->
 - Add shasum to fix the build failure [#2340](https://github.com/chef/chef-workstation/pull/2340) ([skeshari12](https://github.com/skeshari12)) <!-- 21.10.654 -->
