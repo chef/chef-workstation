@@ -41,13 +41,17 @@ function unit_tests() {
   install_if_missing core/go go
   install_if_missing core/gcc gcc
 
-  log_line "Running unit tests"
+  log_line "Running unit tests of main.go"
   # Avoid running integration tests inside unit tests
   ( cd /src || return 1
     mkdir -p coverage/
     GO_PACKAGES=$(go list ./... | grep -v integration)
     go test \
     || return 1
+  )
+  log_line "Running unit tests (/cmd)"
+  ( cd /src || return 1
+   go test -tags=unit ./cmd -v -count=1 || return 1
   )
 }
 

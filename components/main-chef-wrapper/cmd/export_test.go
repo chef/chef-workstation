@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
+	//"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
 )
 
 func TestExportCommand(t *testing.T) {
@@ -23,7 +23,7 @@ func TestExportCommand(t *testing.T) {
 		},
 	} {
 		t.Run("", func(t *testing.T) {
-			err := cmd.Runner.PassThroughCommand(dist.WorkstationExec, "", test.Args)
+			err := Runner.PassThroughCommand(dist.WorkstationExec, "", test.Args)
 			if err != nil {
 				log.Printf("Command finished with error: %v", err)
 			} else {
