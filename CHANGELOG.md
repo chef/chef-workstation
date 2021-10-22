@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.10.658 -->
-## [21.10.658](https://github.com/chef/chef-workstation/tree/21.10.658) (2021-10-22)
+<!-- latest_release 21.10.659 -->
+## [21.10.659](https://github.com/chef/chef-workstation/tree/21.10.659) (2021-10-22)
 
 #### Merged Pull Requests
-- Bump knife to 17.7.16 [#2349](https://github.com/chef/chef-workstation/pull/2349) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-dokken to 2.15.0 [#2350](https://github.com/chef/chef-workstation/pull/2350) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.10.640 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-dokken to 2.15.0 [#2350](https://github.com/chef/chef-workstation/pull/2350) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.659 -->
 - Bump knife to 17.7.16 [#2349](https://github.com/chef/chef-workstation/pull/2349) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.658 -->
 - Bump ohai to 17.7.5 [#2348](https://github.com/chef/chef-workstation/pull/2348) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.657 -->
 - Bump omnibus and omnibus-software [#2344](https://github.com/chef/chef-workstation/pull/2344) ([jeremiahsnapp](https://github.com/jeremiahsnapp)) <!-- 21.10.656 -->
