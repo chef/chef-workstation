@@ -15,11 +15,11 @@ aliases = ["/knife_org.html", "/knife_org/"]
 
 The `knife org` subcommand is used to manage organizations and users in Chef Infra Server.
 
-{{< danger >}}
+{{< note >}}
 
-The recommended best practice is to use the Chef Infra Server `user-` and `org-` commands to manage organizations and users instead of this subcomand. The Chef Infra Server command line tool already has the permissions that you need to manage organizations and users. Using Chef Infra Server commands centralizes the access and application of sensitive commands, which is important for system security and security audits. See the [chef-server-ctl](/ctl_chef_server/) documentation for more information.
+The recommended best practice is to use the Chef Infra Server `user-` and `org-` commands to manage organizations and users instead of this subcommand. The Chef Infra Server command line tool already has the permissions that you need to manage organizations and users. Using Chef Infra Server commands centralizes the access and application of sensitive commands, which is important for system security and security audits. See the [chef-server-ctl](/ctl_chef_server/) documentation for more information.
 
-{{< /danger >}}
+{{< /note >}}
 
 ## Required Permissions
 
