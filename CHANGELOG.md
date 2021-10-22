@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.10.661 -->
-## [21.10.661](https://github.com/chef/chef-workstation/tree/21.10.661) (2021-10-22)
+<!-- latest_release 21.10.662 -->
+## [21.10.662](https://github.com/chef/chef-workstation/tree/21.10.662) (2021-10-22)
 
 #### Merged Pull Requests
-- Update omnibus version. [#2351](https://github.com/chef/chef-workstation/pull/2351) ([vkarve-chef](https://github.com/vkarve-chef))
+- Bump cookstyle to 7.25.8 [#2353](https://github.com/chef/chef-workstation/pull/2353) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.10.640 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump cookstyle to 7.25.8 [#2353](https://github.com/chef/chef-workstation/pull/2353) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.662 -->
 - Update omnibus version. [#2351](https://github.com/chef/chef-workstation/pull/2351) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.10.661 -->
 - Bump Chef Workstation App to 0.2.78 [#2346](https://github.com/chef/chef-workstation/pull/2346) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.660 -->
 - Bump kitchen-dokken to 2.15.0 [#2350](https://github.com/chef/chef-workstation/pull/2350) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.659 -->
