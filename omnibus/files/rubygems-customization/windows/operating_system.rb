@@ -59,7 +59,7 @@ end
 
 # :DK-BEG: override 'gem install' to enable RubyInstaller DevKit usage
 Gem.pre_install do |gem_installer|
-  win_install_dir = 'C:\\opscode\\chef-workstation'
+  win_install_dir = "C:\\opscode\\chef-workstation"
   unless gem_installer.spec.extensions.empty?
     unless ENV["PATH"].include?("#{win_install_dir}\\embedded\\mingw\\bin")
       Gem.ui.say "Temporarily enhancing PATH to include DevKit..." if Gem.configuration.verbose
