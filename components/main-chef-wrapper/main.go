@@ -22,7 +22,7 @@ import (
 	homedir "github.com/mitchellh/go-homedir"
 )
 
-func 	doStartupTasks() error {
+func doStartupTasks() error {
 	createDotChef()
 	return nil
 }
@@ -40,6 +40,6 @@ func createDotChef() {
 }
 
 func main() {
-	//doStartupTasks()
+	doStartupTasks()
 	cmd.Execute()
 }
