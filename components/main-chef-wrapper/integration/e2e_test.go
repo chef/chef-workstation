@@ -64,5 +64,3 @@ func Test_passThroughCommand(t *testing.T){
 		})
 	}
 }
-
-// https://github.com/spf13/cobra/blob/master/command_test.go
