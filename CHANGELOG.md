@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.10.667 -->
-## [21.10.667](https://github.com/chef/chef-workstation/tree/21.10.667) (2021-10-27)
+<!-- latest_release 21.10.668 -->
+## [21.10.668](https://github.com/chef/chef-workstation/tree/21.10.668) (2021-10-27)
 
 #### Merged Pull Requests
-- Replace ssh with https, overcome public key related error [#2355](https://github.com/chef/chef-workstation/pull/2355) ([vkarve-chef](https://github.com/vkarve-chef))
+- Bump test-kitchen from 3.1.0 to 3.1.1 in /omnibus [#2360](https://github.com/chef/chef-workstation/pull/2360) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.10.640 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump test-kitchen from 3.1.0 to 3.1.1 in /omnibus [#2360](https://github.com/chef/chef-workstation/pull/2360) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.10.668 -->
 - Replace ssh with https, overcome public key related error [#2355](https://github.com/chef/chef-workstation/pull/2355) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.10.667 -->
 - Bump test-kitchen to 3.1.1 [#2358](https://github.com/chef/chef-workstation/pull/2358) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.666 -->
 - Bump Chef Workstation App to 0.2.79 [#2356](https://github.com/chef/chef-workstation/pull/2356) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.665 -->
