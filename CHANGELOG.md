@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.10.666 -->
-## [21.10.666](https://github.com/chef/chef-workstation/tree/21.10.666) (2021-10-27)
+<!-- latest_release 21.10.667 -->
+## [21.10.667](https://github.com/chef/chef-workstation/tree/21.10.667) (2021-10-27)
 
 #### Merged Pull Requests
-- Bump test-kitchen to 3.1.1 [#2358](https://github.com/chef/chef-workstation/pull/2358) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Replace ssh with https, overcome public key related error [#2355](https://github.com/chef/chef-workstation/pull/2355) ([vkarve-chef](https://github.com/vkarve-chef))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.10.640 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Replace ssh with https, overcome public key related error [#2355](https://github.com/chef/chef-workstation/pull/2355) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.10.667 -->
 - Bump test-kitchen to 3.1.1 [#2358](https://github.com/chef/chef-workstation/pull/2358) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.666 -->
 - Bump Chef Workstation App to 0.2.79 [#2356](https://github.com/chef/chef-workstation/pull/2356) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.665 -->
 - Update Chef to 17.7.22 [#2357](https://github.com/chef/chef-workstation/pull/2357) ([tas50](https://github.com/tas50)) <!-- 21.10.664 -->
