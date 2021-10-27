@@ -9,13 +9,13 @@ URL="https://omnitruck.chef.io/stable/$EXPEDITOR_PRODUCT_KEY/metadata?p=mac_os_x
 SHA=""
 
 echo "--- Getting $FORK_OWNER/$REPO_NAME repository and updating latest from upstream $UPSTREAM_OWNER/$REPO_NAME"
-git clone git@github.com:/$FORK_OWNER/$REPO_NAME
+git clone https://github.com/$FORK_OWNER/$REPO_NAME
 cd $REPO_NAME
 
 git config user.email "expeditor@chef.io"
 git config user.name "Chef Expeditor"
 
-git remote add upstream "git@github.com:/$UPSTREAM_OWNER/$REPO_NAME"
+git remote add upstream https://github.com/$UPSTREAM_OWNER/$REPO_NAME
 git fetch --all
 
 # Reset the chef/homebrew-cask fork to the upstream so we are always
