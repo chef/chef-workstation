@@ -28,8 +28,9 @@ import (
 )
 
 var versionCmd = &cobra.Command{
-	Use:   "version",
-	Short: "Prints version variables used by %s",
+	Use:     "version",
+	Aliases: []string{"v"},
+	Short:   "Prints version variables used by %s",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		check_version()
 		return nil
