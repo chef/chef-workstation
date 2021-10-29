@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.10.673 -->
-## [21.10.673](https://github.com/chef/chef-workstation/tree/21.10.673) (2021-10-28)
+<!-- latest_release 21.10.674 -->
+## [21.10.674](https://github.com/chef/chef-workstation/tree/21.10.674) (2021-10-29)
 
 #### Merged Pull Requests
-- Bump ohai to 17.7.8 [#2367](https://github.com/chef/chef-workstation/pull/2367) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump habitat to 1.6.416. [#2368](https://github.com/chef/chef-workstation/pull/2368) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.10.640 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump habitat to 1.6.416. [#2368](https://github.com/chef/chef-workstation/pull/2368) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.674 -->
 - Bump ohai to 17.7.8 [#2367](https://github.com/chef/chef-workstation/pull/2367) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.673 -->
 - Bump kitchen-ec2 to 3.10.1 [#2364](https://github.com/chef/chef-workstation/pull/2364) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.672 -->
 - Bump inspec-bin to 4.49.0 [#2363](https://github.com/chef/chef-workstation/pull/2363) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.671 -->
