@@ -27,8 +27,9 @@ import (
 )
 
 var envCmd = &cobra.Command{
-	Use:   "env",
-	Short: "Prints environment variables used by %s",
+	Use:                "env",
+	Short:              "Prints environment variables used by %s",
+	DisableFlagParsing: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		return Runner.PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},

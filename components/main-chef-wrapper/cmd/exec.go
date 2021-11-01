@@ -27,8 +27,9 @@ import (
 )
 
 var execCmd = &cobra.Command{
-	Use:   "exec COMMAND",
-	Short: "Runs COMMAND in the context of %s",
+	Use:                "exec COMMAND",
+	Short:              "Runs COMMAND in the context of %s",
+	DisableFlagParsing: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		return Runner.PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},

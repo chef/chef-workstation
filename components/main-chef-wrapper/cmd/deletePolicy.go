@@ -36,8 +36,6 @@ Delete all revisions of the policy POLICY_NAME on the configured
 undo this operation via the '%s undelete' command.
 `,
 	DisableFlagParsing: true,
-	Args:               cobra.ExactArgs(1),
-
 	RunE: func(cmd *cobra.Command, args []string) error {
 		return Runner.PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 	},

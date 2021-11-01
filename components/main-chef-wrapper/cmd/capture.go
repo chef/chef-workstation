@@ -31,7 +31,6 @@ var (
 	captureCmd       = &cobra.Command{
 		Use:   "capture NODE-NAME",
 		Short: "Capture a node's state into a local chef-repo",
-		Args:  cobra.ExactArgs(1),
 		Long: `
 Captures a node's state as a local chef-repo, which can then be used to
 converge locally.

@@ -51,6 +51,7 @@ See the policyfile documentation for more information:
 
 https://docs.chef.io/policyfile/
 `,
+		DisableFlagParsing: true,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return Runner.PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 		},

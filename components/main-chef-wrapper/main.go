@@ -40,6 +40,13 @@ func createDotChef() {
 }
 
 func main() {
+	if len(os.Args) > 1 {
+
+		if os.Args[1] == "version" || os.Args[1] == "-v" || os.Args[1] == "--version" {
+			os.Args[1] = "version"
+		}
+	}
+
 	doStartupTasks()
 	cmd.Execute()
 }
