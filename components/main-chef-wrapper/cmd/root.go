@@ -66,6 +66,9 @@ var (
 	RootCmd = &cobra.Command{
 		Use:   "chef",
 		Short: "chef",
+		Long: `The Chef command line tool for managing your infrastructure from your workstation.
+Docs: https://docs.chef.io/workstation/
+Patents: https://www.chef.io/patents`,
 		// Stop framework from showing default errors. This prevents duplicate errors or
 		// unncessary info from showing on passthrough commands; and
 		// allows us control over error rendering for internal commands.
@@ -116,42 +119,21 @@ func FlagInit() error {
 	return nil
 }
 
-// TODO -
-// func passThroughCommand(targetPath string, cmdName string, args []string) error {
-
-// 	var allArgs []string
-// 	if cmdName != "" {
-// 		allArgs = append([]string{cmdName}, args...)
-// 	} else {
-// 		allArgs = args
-// 	}
-
-// 	//
-// 	cmd := exec.Command(targetPath, allArgs...)
-// 	cmd.Env = os.Environ()
-// 	cmd.Stdout = os.Stdout
-// 	cmd.Stderr = os.Stderr
-// 	cmd.Stdin = os.Stdin
-
-// 	return cmd.Run()
-
-// }
-
-	func (r DefaultCommandRunner) PassThroughCommand(targetPath string, cmdName string, args []string) error {
-		var allArgs []string
-		if cmdName != "" {
-			allArgs = append([]string{cmdName}, args...)
-		} else {
-			allArgs = args
-		}
-
-		//
-		cmd := exec.Command(targetPath, allArgs...)
-		cmd.Env = os.Environ()
-		cmd.Stdout = os.Stdout
-		cmd.Stderr = os.Stderr
-		cmd.Stdin = os.Stdin
-
-		return cmd.Run()
-
+func (r DefaultCommandRunner) PassThroughCommand(targetPath string, cmdName string, args []string) error {
+	var allArgs []string
+	if cmdName != "" {
+		allArgs = append([]string{cmdName}, args...)
+	} else {
+		allArgs = args
 	}
+
+	//
+	cmd := exec.Command(targetPath, allArgs...)
+	cmd.Env = os.Environ()
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	cmd.Stdin = os.Stdin
+
+	return cmd.Run()
+
+}
