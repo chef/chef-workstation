@@ -120,30 +120,38 @@ func omnibusInstall() bool {
 }
 
 func omnibusRoot() string {
-	omnibusroot, err := filepath.Abs(path.Join(ExpectedOmnibusRoot()))
-	if err != nil {
-		fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
-		os.Exit(4)
+	if strings.Contains(os.Args[0], "/_test/") || strings.HasSuffix(os.Args[0], ".test") {
+		return "C:\\opscode\\chef-workstation\\"
+	} else {
+		omnibusroot, err := filepath.Abs(path.Join(ExpectedOmnibusRoot()))
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
+			os.Exit(4)
+		}
+		return omnibusroot
+		//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
+		//return "C:\opscode\chef-workstation\"
 	}
-	return omnibusroot
-	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
-	//return "/opt/chef-workstation"
 }
 
 func ExpectedOmnibusRoot() string {
-	var rootPath string
-	var cwsRegKeyInstallDir = "InstallDir"
-	//windows registry code here
-	k, err := registry.OpenKey(registry.LOCAL_MACHINE, `SOFTWARE\Chef\Chef Workstation`, registry.QUERY_VALUE)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer k.Close()
+	if strings.Contains(os.Args[0], "/_test/") || strings.HasSuffix(os.Args[0], ".test") {
+		return "C:\\opscode\\chef-workstation\\"
+	} else {
+		var rootPath string
+		var cwsRegKeyInstallDir = "InstallDir"
+		//windows registry code here
+		k, err := registry.OpenKey(registry.LOCAL_MACHINE, `SOFTWARE\Chef\Chef Workstation`, registry.QUERY_VALUE)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer k.Close()
 
-	s, _, err := k.GetStringValue(cwsRegKeyInstallDir)
-	if err != nil {
-		log.Fatal(err)
+		s, _, err := k.GetStringValue(cwsRegKeyInstallDir)
+		if err != nil {
+			log.Fatal(err)
+		}
+		rootPath = strings.Replace(s, "//", "/", -1)
+		return rootPath
 	}
-	rootPath = strings.Replace(s, "//", "/", -1)
-	return rootPath
 }
