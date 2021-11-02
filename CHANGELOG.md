@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.11.677 -->
-## [21.11.677](https://github.com/chef/chef-workstation/tree/21.11.677) (2021-11-01)
+<!-- latest_release 21.11.678 -->
+## [21.11.678](https://github.com/chef/chef-workstation/tree/21.11.678) (2021-11-02)
 
 #### Merged Pull Requests
-- Bump fauxhai-ng to 9.0.1 [#2371](https://github.com/chef/chef-workstation/pull/2371) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump fauxhai-ng to 9.1.0 [#2372](https://github.com/chef/chef-workstation/pull/2372) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.10.640 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump fauxhai-ng to 9.1.0 [#2372](https://github.com/chef/chef-workstation/pull/2372) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.11.678 -->
 - Bump fauxhai-ng to 9.0.1 [#2371](https://github.com/chef/chef-workstation/pull/2371) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.11.677 -->
 - Bump habitat to 1.6.420. [#2370](https://github.com/chef/chef-workstation/pull/2370) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.11.676 -->
 - Bump knife to 17.7.29 [#2369](https://github.com/chef/chef-workstation/pull/2369) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.675 -->
