@@ -32,12 +32,12 @@ var versionCmd = &cobra.Command{
 	Hidden:             true,
 	DisableFlagParsing: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		check_version()
+		CheckVersion()
 		return nil
 	},
 }
 
-func check_version() {
+func CheckVersion() {
 	err := platform_lib.Version()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
