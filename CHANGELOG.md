@@ -1,57 +1,55 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.11.679 -->
-## [21.11.679](https://github.com/chef/chef-workstation/tree/21.11.679) (2021-11-03)
-
-#### Merged Pull Requests
-- Bump kitchen-ec2 to 3.11.0 [#2373](https://github.com/chef/chef-workstation/pull/2373) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=21.10.640 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Bump kitchen-ec2 to 3.11.0 [#2373](https://github.com/chef/chef-workstation/pull/2373) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.11.679 -->
-- Bump fauxhai-ng to 9.1.0 [#2372](https://github.com/chef/chef-workstation/pull/2372) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.11.678 -->
-- Bump fauxhai-ng to 9.0.1 [#2371](https://github.com/chef/chef-workstation/pull/2371) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.11.677 -->
-- Bump habitat to 1.6.420. [#2370](https://github.com/chef/chef-workstation/pull/2370) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.11.676 -->
-- Bump knife to 17.7.29 [#2369](https://github.com/chef/chef-workstation/pull/2369) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.675 -->
-- Bump habitat to 1.6.416. [#2368](https://github.com/chef/chef-workstation/pull/2368) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.674 -->
-- Bump ohai to 17.7.8 [#2367](https://github.com/chef/chef-workstation/pull/2367) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.673 -->
-- Bump kitchen-ec2 to 3.10.1 [#2364](https://github.com/chef/chef-workstation/pull/2364) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.672 -->
-- Bump inspec-bin to 4.49.0 [#2363](https://github.com/chef/chef-workstation/pull/2363) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.671 -->
-- Bump cookstyle to 7.25.9 [#2362](https://github.com/chef/chef-workstation/pull/2362) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.670 -->
-- Bump Chef Workstation App to 0.2.80 [#2359](https://github.com/chef/chef-workstation/pull/2359) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.669 -->
-- Bump test-kitchen from 3.1.0 to 3.1.1 in /omnibus [#2360](https://github.com/chef/chef-workstation/pull/2360) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.10.668 -->
-- Replace ssh with https, overcome public key related error [#2355](https://github.com/chef/chef-workstation/pull/2355) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.10.667 -->
-- Bump test-kitchen to 3.1.1 [#2358](https://github.com/chef/chef-workstation/pull/2358) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.666 -->
-- Bump Chef Workstation App to 0.2.79 [#2356](https://github.com/chef/chef-workstation/pull/2356) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.665 -->
-- Update Chef to 17.7.22 [#2357](https://github.com/chef/chef-workstation/pull/2357) ([tas50](https://github.com/tas50)) <!-- 21.10.664 -->
-- Bump kitchen-dokken to 2.16.0 [#2354](https://github.com/chef/chef-workstation/pull/2354) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.663 -->
-- Bump cookstyle to 7.25.8 [#2353](https://github.com/chef/chef-workstation/pull/2353) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.662 -->
-- Update omnibus version. [#2351](https://github.com/chef/chef-workstation/pull/2351) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.10.661 -->
-- Bump Chef Workstation App to 0.2.78 [#2346](https://github.com/chef/chef-workstation/pull/2346) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.660 -->
-- Bump kitchen-dokken to 2.15.0 [#2350](https://github.com/chef/chef-workstation/pull/2350) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.659 -->
-- Bump knife to 17.7.16 [#2349](https://github.com/chef/chef-workstation/pull/2349) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.658 -->
-- Bump ohai to 17.7.5 [#2348](https://github.com/chef/chef-workstation/pull/2348) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.657 -->
-- Bump omnibus and omnibus-software [#2344](https://github.com/chef/chef-workstation/pull/2344) ([jeremiahsnapp](https://github.com/jeremiahsnapp)) <!-- 21.10.656 -->
-- Bump train-aws to 0.2.22 [#2341](https://github.com/chef/chef-workstation/pull/2341) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.655 -->
-- Add shasum to fix the build failure [#2340](https://github.com/chef/chef-workstation/pull/2340) ([skeshari12](https://github.com/skeshari12)) <!-- 21.10.654 -->
-- Bump Chef Workstation App to 0.2.73 [#2337](https://github.com/chef/chef-workstation/pull/2337) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.653 -->
-- Bump Chef Workstation App to 0.2.71 [#2336](https://github.com/chef/chef-workstation/pull/2336) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.652 -->
-- Bump omnibus from `37897ad` to `90306c9` in /omnibus [#2335](https://github.com/chef/chef-workstation/pull/2335) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.10.651 -->
-- Bump habitat to 1.6.400. [#2334](https://github.com/chef/chef-workstation/pull/2334) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.650 -->
-- Bump all misc deps in gemfile.lock and omnibus [#2332](https://github.com/chef/chef-workstation/pull/2332) ([tas50](https://github.com/tas50)) <!-- 21.10.649 -->
-- Bump Chef Workstation App to 0.2.66 [#2331](https://github.com/chef/chef-workstation/pull/2331) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.10.648 -->
-- Potential fix for git push failure [#2330](https://github.com/chef/chef-workstation/pull/2330) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.10.647 -->
-- Stop building chef-automate-collect in chef workstation. [#2326](https://github.com/chef/chef-workstation/pull/2326) ([ashwin-msys](https://github.com/ashwin-msys)) <!-- 21.10.646 -->
-- Bump omnibus-software from `24f508c` to `a2a70e2` in /omnibus [#2328](https://github.com/chef/chef-workstation/pull/2328) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.10.645 -->
-- Manually updating commits [#2327](https://github.com/chef/chef-workstation/pull/2327) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.10.644 -->
-- switch chef-workstation wiki to master branch in publish-release-notes [#2321](https://github.com/chef/chef-workstation/pull/2321) ([IanMadd](https://github.com/IanMadd)) <!-- 21.10.643 -->
-- Fix menu in section in workstation pages [#2322](https://github.com/chef/chef-workstation/pull/2322) ([IanMadd](https://github.com/IanMadd)) <!-- 21.10.642 -->
-- Bump test-kitchen from 3.0.0 to 3.1.0 in /omnibus [#2320](https://github.com/chef/chef-workstation/pull/2320) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.10.641 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [21.11.679](https://github.com/chef/chef-workstation/tree/21.11.679) (2021-11-03)
+
+#### Merged Pull Requests
+- Bump test-kitchen from 3.0.0 to 3.1.0 in /omnibus [#2320](https://github.com/chef/chef-workstation/pull/2320) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Fix menu in section in workstation pages [#2322](https://github.com/chef/chef-workstation/pull/2322) ([IanMadd](https://github.com/IanMadd))
+- switch chef-workstation wiki to master branch in publish-release-notes [#2321](https://github.com/chef/chef-workstation/pull/2321) ([IanMadd](https://github.com/IanMadd))
+- Manually updating commits [#2327](https://github.com/chef/chef-workstation/pull/2327) ([vkarve-chef](https://github.com/vkarve-chef))
+- Bump omnibus-software from `24f508c` to `a2a70e2` in /omnibus [#2328](https://github.com/chef/chef-workstation/pull/2328) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Stop building chef-automate-collect in chef workstation. [#2326](https://github.com/chef/chef-workstation/pull/2326) ([ashwin-msys](https://github.com/ashwin-msys))
+- Potential fix for git push failure [#2330](https://github.com/chef/chef-workstation/pull/2330) ([vkarve-chef](https://github.com/vkarve-chef))
+- Bump Chef Workstation App to 0.2.66 [#2331](https://github.com/chef/chef-workstation/pull/2331) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump all misc deps in gemfile.lock and omnibus [#2332](https://github.com/chef/chef-workstation/pull/2332) ([tas50](https://github.com/tas50))
+- Bump habitat to 1.6.400. [#2334](https://github.com/chef/chef-workstation/pull/2334) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus from `37897ad` to `90306c9` in /omnibus [#2335](https://github.com/chef/chef-workstation/pull/2335) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.71 [#2336](https://github.com/chef/chef-workstation/pull/2336) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.73 [#2337](https://github.com/chef/chef-workstation/pull/2337) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Add shasum to fix the build failure [#2340](https://github.com/chef/chef-workstation/pull/2340) ([skeshari12](https://github.com/skeshari12))
+- Bump train-aws to 0.2.22 [#2341](https://github.com/chef/chef-workstation/pull/2341) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus and omnibus-software [#2344](https://github.com/chef/chef-workstation/pull/2344) ([jeremiahsnapp](https://github.com/jeremiahsnapp))
+- Bump ohai to 17.7.5 [#2348](https://github.com/chef/chef-workstation/pull/2348) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump knife to 17.7.16 [#2349](https://github.com/chef/chef-workstation/pull/2349) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-dokken to 2.15.0 [#2350](https://github.com/chef/chef-workstation/pull/2350) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.78 [#2346](https://github.com/chef/chef-workstation/pull/2346) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update omnibus version. [#2351](https://github.com/chef/chef-workstation/pull/2351) ([vkarve-chef](https://github.com/vkarve-chef))
+- Bump cookstyle to 7.25.8 [#2353](https://github.com/chef/chef-workstation/pull/2353) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-dokken to 2.16.0 [#2354](https://github.com/chef/chef-workstation/pull/2354) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update Chef to 17.7.22 [#2357](https://github.com/chef/chef-workstation/pull/2357) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.2.79 [#2356](https://github.com/chef/chef-workstation/pull/2356) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump test-kitchen to 3.1.1 [#2358](https://github.com/chef/chef-workstation/pull/2358) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Replace ssh with https, overcome public key related error [#2355](https://github.com/chef/chef-workstation/pull/2355) ([vkarve-chef](https://github.com/vkarve-chef))
+- Bump test-kitchen from 3.1.0 to 3.1.1 in /omnibus [#2360](https://github.com/chef/chef-workstation/pull/2360) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.80 [#2359](https://github.com/chef/chef-workstation/pull/2359) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 7.25.9 [#2362](https://github.com/chef/chef-workstation/pull/2362) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump inspec-bin to 4.49.0 [#2363](https://github.com/chef/chef-workstation/pull/2363) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-ec2 to 3.10.1 [#2364](https://github.com/chef/chef-workstation/pull/2364) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump ohai to 17.7.8 [#2367](https://github.com/chef/chef-workstation/pull/2367) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump habitat to 1.6.416. [#2368](https://github.com/chef/chef-workstation/pull/2368) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump knife to 17.7.29 [#2369](https://github.com/chef/chef-workstation/pull/2369) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump habitat to 1.6.420. [#2370](https://github.com/chef/chef-workstation/pull/2370) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump fauxhai-ng to 9.0.1 [#2371](https://github.com/chef/chef-workstation/pull/2371) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump fauxhai-ng to 9.1.0 [#2372](https://github.com/chef/chef-workstation/pull/2372) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-ec2 to 3.11.0 [#2373](https://github.com/chef/chef-workstation/pull/2373) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_stable_release -->
+
 ## [21.10.640](https://github.com/chef/chef-workstation/tree/21.10.640) (2021-10-02)
 
 #### Merged Pull Requests
@@ -82,7 +80,6 @@
 - Bump chef-vault to 4.1.3 [#2270](https://github.com/chef/chef-workstation/pull/2270) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump Chef Workstation App to 0.2.57 [#2268](https://github.com/chef/chef-workstation/pull/2268) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump omnibus-software from `b774203` to `13ad157` in /omnibus [#2267](https://github.com/chef/chef-workstation/pull/2267) ([dependabot[bot]](https://github.com/dependabot[bot]))
-<!-- latest_stable_release -->
 
 ## [21.9.613](https://github.com/chef/chef-workstation/tree/21.9.613) (2021-09-03)
 
