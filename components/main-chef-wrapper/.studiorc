@@ -56,20 +56,20 @@ function unit_tests() {
 }
 
 
-# run integraiton tests
-document "integration_tests" <<DOC
-  Run integration tests (go-based)
-DOC
-function integration_tests() {
-  install_if_missing core/go go
-  install_if_missing core/gcc gcc
+# # run integraiton tests
+# document "integration_tests" <<DOC
+#   Run integration tests (go-based)
+# DOC
+# function integration_tests() {
+#   install_if_missing core/go go
+#   install_if_missing core/gcc gcc
 
-  log_line "Building cross-platform binaries"
-  build_cross_platform || return 1
+#   log_line "Building cross-platform binaries"
+#   build_cross_platform || return 1
 
-  log_line "Running integration tests (/integration)"
-  ( cd /src || return 1
-   go test -tags=integration ./integration -v -count=1 || return 1
-  )
-}
+#   log_line "Running integration tests (/integration)"
+#   ( cd /src || return 1
+#    go test -tags=integration ./integration -v -count=1 || return 1
+#   )
+# }
 
