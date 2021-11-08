@@ -57,6 +57,9 @@ function unit_tests() {
 
 
 # run integraiton tests
+document "integration_tests" <<DOC
+  Run integration tests (go-based)
+DOC
 function integration_tests() {
   install_if_missing core/go go
   install_if_missing core/gcc gcc
