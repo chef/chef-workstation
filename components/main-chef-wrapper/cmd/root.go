@@ -69,6 +69,9 @@ var (
 		Long: `The Chef command line tool for managing your infrastructure from your workstation.
 Docs: https://docs.chef.io/workstation/
 Patents: https://www.chef.io/patents`,
+		DisableFlagParsing: true,
+		TraverseChildren:   true,
+
 		// Stop framework from showing default errors. This prevents duplicate errors or
 		// unncessary info from showing on passthrough commands; and
 		// allows us control over error rendering for internal commands.
