@@ -24,7 +24,6 @@ import (
 	"os"
 	"path"
 	"path/filepath"
-	"strings"
 )
 
 var gemManifestMap map[string]interface{}
@@ -119,35 +118,27 @@ func omnibusInstall() bool {
 }
 
 func omnibusRoot() string {
-	if strings.Contains(os.Args[0], "/_test/") || strings.HasSuffix(os.Args[0], ".test") {
-		return "/opt/chef-workstation"
-	} else {
-		omnibusroot, err := filepath.Abs(path.Join(ExpectedOmnibusRoot()))
-		if err != nil {
-			fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
-			os.Exit(4)
-		}
-		return omnibusroot
-		//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
-		//return "/opt/chef-workstation"
+	omnibusroot, err := filepath.Abs(path.Join(ExpectedOmnibusRoot()))
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
+		os.Exit(4)
 	}
+	return omnibusroot
+	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
+	//return "/opt/chef-workstation"
 }
 
 func ExpectedOmnibusRoot() string {
-	if strings.Contains(os.Args[0], "/_test/") || strings.HasSuffix(os.Args[0], ".test") {
-		return "/opt/chef-workstation"
-	} else {
-		ex, _ := os.Executable()
-		exReal, err := filepath.EvalSymlinks(ex)
-		if err != nil {
-			fmt.Fprintln(os.Stderr, "ERROR:", err)
-			os.Exit(4)
-		}
-		rootPath := path.Join(filepath.Dir(exReal), "..")
-		//groot := os.Getenv("GEM_ROOT")
-		//rootPath, err := filepath.Abs(path.Join(groot,"..","..", "..", "..", ".."))
-		return rootPath
-		//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
-		//return "/opt/chef-workstation"
+	ex, _ := os.Executable()
+	exReal, err := filepath.EvalSymlinks(ex)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR:", err)
+		os.Exit(4)
 	}
+	rootPath := path.Join(filepath.Dir(exReal), "..")
+	//groot := os.Getenv("GEM_ROOT")
+	//rootPath, err := filepath.Abs(path.Join(groot,"..","..", "..", "..", ".."))
+	return rootPath
+	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
+	//return "/opt/chef-workstation"
 }

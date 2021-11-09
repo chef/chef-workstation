@@ -13,6 +13,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+// command to run unit --  go test -tags=unit ./cmd -v  -count=1 --cover
+// command to run integration --  go test -tags=integration ./integration -v  -count=1 --cover
+
 package main
 
 import (

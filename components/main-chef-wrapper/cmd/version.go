@@ -1,4 +1,6 @@
-//
+// +build !integration
+// +build !unit
+
 // Copyright 2020 Chef Software, Inc.
 //
 // Author: Marc A. Paradise <marc.paradise@gmail.com>
@@ -14,7 +16,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-//
 
 package cmd
 
