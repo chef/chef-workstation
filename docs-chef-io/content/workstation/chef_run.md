@@ -149,7 +149,7 @@ chef-run host1 my_cookbook --cookbook-repo-paths '/path/1,/path/b'
 
 ## Configuring Cookbook Dependencies and Sources
 
-When converging a target node `chef-run` creates a policyfile bundle that
+When converging a target node `chef-run` creates a Policyfile bundle that
 includes the cookbook specified. If the cookbook you specified has its own
 [`Policyfile.rb`](/config_rb_policyfile/) that will be
 respected.
