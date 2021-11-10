@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.11.680 -->
-## [21.11.680](https://github.com/chef/chef-workstation/tree/21.11.680) (2021-11-08)
+<!-- latest_release 21.11.681 -->
+## [21.11.681](https://github.com/chef/chef-workstation/tree/21.11.681) (2021-11-10)
 
 #### Merged Pull Requests
-- Bump win32-service to 2.3.2 [#2377](https://github.com/chef/chef-workstation/pull/2377) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `0f8338a` to `485b535` in /omnibus [#2376](https://github.com/chef/chef-workstation/pull/2376) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.11.679 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `0f8338a` to `485b535` in /omnibus [#2376](https://github.com/chef/chef-workstation/pull/2376) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.11.681 -->
 - Bump win32-service to 2.3.2 [#2377](https://github.com/chef/chef-workstation/pull/2377) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.11.680 -->
 <!-- release_rollup -->
 
