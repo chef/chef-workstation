@@ -47,13 +47,37 @@ This argument has the following options:
 
 : Save a private key to the specified file name.
 
-`-p PASSWORD`, `--password PASSWORD`
+`--password PASSWORD`
 
 : The user password.
 
 `--user-key FILENAME`
 
 : The path to a file that contains the public key. If this option is not specified, the Chef Infra Server will generate a public/private key pair.
+
+`-k`, `--prevent-keygen`
+
+:Prevent Chef Infra Server from generating a default key pair for you. Cannot be passed with --user-key.
+
+`-o ORGNAME` `--orgname ORGNAME`
+
+:Associate new user to an organization matching ORGNAME
+
+`--first-name FIRST_NAME`
+
+:First name for the user
+
+`--last-name LAST_NAME`
+
+:Last name for the user
+
+`--email EMAIL`
+
+:Email for the user
+
+`--prompt-for-password`, `-p`
+
+:Prompt for user password
 
 {{< note >}}
 
@@ -71,6 +95,13 @@ The following examples show how to use this knife subcommand:
 knife user create tbucatar "Tamira Bucatar" tbucatar@example.com -f /keys/tbucatar
 ```
 
+``` bash
+knife user create arno arno schmidt arno@chef.io password
+-----BEGIN RSA PRIVATE KEY-----
+[...]
+-----END RSA PRIVATE KEY-----
+```
+
 ## delete
 
 Use the `delete` argument to delete a registered user.
@@ -85,7 +116,14 @@ knife user delete USER_NAME
 
 ### Options
 
-This command does not have any specific options.
+`--no-disassociate-user`, `-d`
+
+:Don't disassociate the user first
+
+`"--remove-from-admin-groups`, `-R`
+
+:If the user is a member of any org admin groups, attempt to remove from those groups. Ignored if --no-disassociate-user is set.
+
 
 ### Examples
 
@@ -113,11 +151,113 @@ knife user edit USER_NAME
 
 ### Options
 
-This command does not have any specific options.
+`--input FILENAME`, `-i FILENAME`
+
+:Name of file to use for PUT or POST
+
+`--filename FILENAME`, `-f FILENAME`
+
+:Write private key to FILENAME rather than STDOUT
 
 ### Examples
 
-None.
+``` bash
+EDITOR=ed knife user edit arno
+639
+1,%p
+{
+  "username": "arno",
+  "email": "arno@chef.io",
+  "display_name": "arno schmidt",
+  "first_name": "arno",
+  "last_name": "schmidt",
+  "middle_name": "",
+  "public_key": "-----BEGIN PUBLIC KEY-----\n[...]\n-----END PUBLIC KEY-----\n\n"
+}
+/email/s/chef.io/opscode.com/p
+"email": "arno@opscode.com",
+wq
+643
+Saved arno.
+
+knife  user show arno
+display_name:  arno schmidt
+email:         arno@opscode.io
+first_name:     arno
+last_name:     schmidt
+middle_name:
+public_key: -----BEGIN PUBLIC KEY-----
+[...]
+-----END PUBLIC KEY-----
+
+
+username:   arno
+```
+
+## list
+
+Use the `list` argument to show list of all registered users.
+
+### Syntax
+
+This argument has the following syntax:
+
+``` bash
+knife user list
+```
+
+### Options
+
+`-w`, `--with-uri`,
+
+:Show corresponding URIs.
+
+### Examples
+
+The following examples show how to use this knife subcommand:
+
+``` bash
+knife user list
+alice
+pivotal
+
+knife user list -w
+alice: https://chef-server.fqdn/users/alice
+pivotal: https://chef-server.fqdn/users/pivotal
+
+knife org list -w -a
+acme: https://chef-server.fqdn/organizations/acme
+```
+
+## password
+
+Command for managing password and authentication for a user.
+
+### Syntax
+
+This argument has the following syntax:
+
+``` bash
+knife user password USER_NAME [PASSWORD | ]
+```
+
+### Options
+
+`--enable_external_auth`,
+
+:Enable external authentication for this user (such as LDAP).
+
+
+### Examples
+
+The following examples show how to use this knife subcommand:
+
+``` bash
+knife user password arno newpassword
+{"username"=>"arno", "email"=>"arno@opscode.com", "display_name"=>"arno schmidt", "first_name"=>"arno", "last_name"=>"schmidt", "middle_name"=>"", "public_key"=>"-----BEGIN PUBLIC KEY-----\n[...]\n-----END PUBLIC KEY-----\n\n", "password"=>"newpassword", "recovery_authentication_enabled"=>true}
+Authentication info updated for arno.
+```
+
 
 ## key create
 
@@ -345,9 +485,9 @@ knife user show USER_NAME (options)
 
 This argument has the following options:
 
-`-a ATTR`, `--attribute ATTR`
+`--with-orgs`, `-l`
 
-: The attribute (or attributes) to show.
+: Show the organizations of which the user is a member.
 
 ### Examples
 
@@ -368,6 +508,22 @@ chef_type: user
 json_class:  Chef::User
 name:        Tamira Bucatar
 public_key:
+```
+
+``` bash
+knife user show alice -l
+display_name:  Alice Schmidt
+email:       alice@chef.io
+first_name:  Alice
+last_name:   Schmidt
+middle_name:
+organizations: acme
+public_key:  -----BEGIN PUBLIC KEY-----
+[...]
+-----END PUBLIC KEY-----
+
+
+username:   alice
 ```
 
 **Show user data as JSON**
