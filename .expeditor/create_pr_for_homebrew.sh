@@ -61,8 +61,8 @@ git diff
 
 echo "--- Verifying Cask"
 
-brew cask style --fix ./Casks/chef-workstation.rb
-brew cask audit --download ./Casks/chef-workstation.rb
+brew style --cask --fix ./Casks/chef-workstation.rb
+brew audit --cask ./Casks/chef-workstation.rb
 
 echo "-- Committing change"
 
