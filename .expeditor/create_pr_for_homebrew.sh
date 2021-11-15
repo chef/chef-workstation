@@ -21,7 +21,7 @@ git fetch --all
 # Reset the chef/homebrew-cask fork to the upstream so we are always
 # making a PR off their master
 git reset --hard upstream/master
-git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" origin main
+git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" main
 
 git checkout main
 git checkout -b "$BRANCH"
@@ -61,8 +61,8 @@ git diff
 
 echo "--- Verifying Cask"
 
-brew cask style --fix ./Casks/chef-workstation.rb
-brew cask audit --download ./Casks/chef-workstation.rb
+brew style --cask --fix ./Casks/chef-workstation.rb
+brew audit --cask ./Casks/chef-workstation.rb
 
 echo "-- Committing change"
 

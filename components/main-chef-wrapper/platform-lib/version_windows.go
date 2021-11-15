@@ -127,7 +127,7 @@ func omnibusRoot() string {
 	}
 	return omnibusroot
 	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
-	//return "/opt/chef-workstation"
+	//return "C:\opscode\chef-workstation\"
 }
 
 func ExpectedOmnibusRoot() string {
