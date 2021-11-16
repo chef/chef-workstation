@@ -31,8 +31,19 @@ var envCmd = &cobra.Command{
 	Short:              "Prints environment variables used by %s",
 	DisableFlagParsing: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return Runner.PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+		ReturnEnvironment()
+		return nil
 	},
+}
+
+
+func ReturnEnvironment() {
+	err := platform_lib.Environment()
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+		os.Exit(4)
+	}
+	os.Exit(0)
 }
 
 func init() {
