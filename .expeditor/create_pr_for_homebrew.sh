@@ -21,7 +21,7 @@ git fetch --all
 # Reset the chef/homebrew-cask fork to the upstream so we are always
 # making a PR off their master
 git reset --hard upstream/master
-git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" origin main
+git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" main
 
 git checkout main
 git checkout -b "$BRANCH"
@@ -61,8 +61,8 @@ git diff
 
 echo "--- Verifying Cask"
 
-brew cask style --fix ./Casks/chef-workstation.rb
-brew cask audit --download ./Casks/chef-workstation.rb
+brew style --cask --fix ./Casks/chef-workstation.rb
+brew audit --cask ./Casks/chef-workstation.rb
 
 echo "-- Committing change"
 
@@ -87,18 +87,22 @@ $BODY
 EOB
 )
 
-git add ./Casks/chef-workstation.rb
-git status
-git commit --message "$COMMIT_BODY"
+if [[ $(git diff) ]]; then
+  git add ./Casks/chef-workstation.rb
+  git status
+  git commit --message "$COMMIT_BODY"
 
-echo "--- Opening PR"
+  echo "--- Opening PR"
 
-git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" "$BRANCH" --force;
-result=$(curl --silent --header "Authorization: token $CHEF_CI_GITHUB_AUTH_TOKEN" \
-  --data-binary "{\"title\":\"$TITLE\",\"head\":\"chef:$BRANCH\",\"base\":\"master\",\"maintainer_can_modify\":false,\"body\":\"$PR_BODY\"}" \
-  -XPOST "https://api.github.com/repos/${UPSTREAM_OWNER}/${REPO_NAME}/pulls" \
-  --write-out "Response:%{http_code}")
+  git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" "$BRANCH" --force;
+  result=$(curl --silent --header "Authorization: token $CHEF_CI_GITHUB_AUTH_TOKEN" \
+    --data-binary "{\"title\":\"$TITLE\",\"head\":\"chef:$BRANCH\",\"base\":\"master\",\"maintainer_can_modify\":false,\"body\":\"$PR_BODY\"}" \
+    -XPOST "https://api.github.com/repos/${UPSTREAM_OWNER}/${REPO_NAME}/pulls" \
+    --write-out "Response:%{http_code}")
 
-# Fail the run if 201 (created) response not received.
-echo "$result" | grep "Response:201"
+  # Fail the run if 201 (created) response not received.
+  echo "$result" | grep "Response:201"
 
+else
+  echo "No changes needed to the cask"
+fi
