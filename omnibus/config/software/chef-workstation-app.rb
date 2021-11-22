@@ -48,7 +48,7 @@ else
 
   build do
     mkdir app_install_path
-    copy relative_path, app_install_path
+    copy project_dir, app_install_path
   end
 end
 
