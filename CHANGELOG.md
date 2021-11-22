@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.11.689 -->
-## [21.11.689](https://github.com/chef/chef-workstation/tree/21.11.689) (2021-11-17)
+<!-- latest_release 21.11.690 -->
+## [21.11.690](https://github.com/chef/chef-workstation/tree/21.11.690) (2021-11-22)
 
 #### Merged Pull Requests
-- Bump test-kitchen to 3.2.0 [#2399](https://github.com/chef/chef-workstation/pull/2399) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Fix Chef Workstation App not being properly bundled [#2402](https://github.com/chef/chef-workstation/pull/2402) ([mimaslanka](https://github.com/mimaslanka))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.11.679 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Fix Chef Workstation App not being properly bundled [#2402](https://github.com/chef/chef-workstation/pull/2402) ([mimaslanka](https://github.com/mimaslanka)) <!-- 21.11.690 -->
 - Bump test-kitchen to 3.2.0 [#2399](https://github.com/chef/chef-workstation/pull/2399) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.11.689 -->
 - Bump cookstyle to 7.25.10 [#2394](https://github.com/chef/chef-workstation/pull/2394) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.11.688 -->
 - Bump chef-analyze CLI to 0.1.119 [#2392](https://github.com/chef/chef-workstation/pull/2392) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.11.687 -->
