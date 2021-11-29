@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.11.695 -->
-## [21.11.695](https://github.com/chef/chef-workstation/tree/21.11.695) (2021-11-29)
+<!-- latest_release 21.11.696 -->
+## [21.11.696](https://github.com/chef/chef-workstation/tree/21.11.696) (2021-11-29)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `7501e20` to `461fc3e` in /omnibus [#2409](https://github.com/chef/chef-workstation/pull/2409) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump test-kitchen to 3.2.1 [#2412](https://github.com/chef/chef-workstation/pull/2412) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.11.679 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump test-kitchen to 3.2.1 [#2412](https://github.com/chef/chef-workstation/pull/2412) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.11.696 -->
 - Bump omnibus-software from `7501e20` to `461fc3e` in /omnibus [#2409](https://github.com/chef/chef-workstation/pull/2409) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.11.695 -->
 - Bump train-aws to 0.2.24 [#2407](https://github.com/chef/chef-workstation/pull/2407) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.11.694 -->
 - Bump kitchen-vagrant from 1.10.0 to 1.11.0 in /omnibus [#2405](https://github.com/chef/chef-workstation/pull/2405) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.11.693 -->
