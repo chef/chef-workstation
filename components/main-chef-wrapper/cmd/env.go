@@ -23,6 +23,7 @@ import (
 	"os"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
 	"github.com/spf13/cobra"
 )
 
@@ -31,14 +32,19 @@ var envCmd = &cobra.Command{
 	Short:              "Prints environment variables used by %s",
 	DisableFlagParsing: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		ReturnEnvironment()
+		if len(args) >= 1 {
+			cmd.Help()
+			os.Exit(0)
+		}else {
+			ReturnEnvironment()
+		}
 		return nil
 	},
 }
 
 
 func ReturnEnvironment() {
-	err := platform_lib.Environment()
+	err := platform_lib.RunEnvironment()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
 		os.Exit(4)
