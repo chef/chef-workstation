@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.12.698 -->
-## [21.12.698](https://github.com/chef/chef-workstation/tree/21.12.698) (2021-12-01)
+<!-- latest_release 21.12.699 -->
+## [21.12.699](https://github.com/chef/chef-workstation/tree/21.12.699) (2021-12-01)
 
 #### Merged Pull Requests
-- Stop producing macOS 10.14 packages [#2381](https://github.com/chef/chef-workstation/pull/2381) ([tas50](https://github.com/tas50))
+- Bump test-kitchen to 3.2.2 [#2416](https://github.com/chef/chef-workstation/pull/2416) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.11.679 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump test-kitchen to 3.2.2 [#2416](https://github.com/chef/chef-workstation/pull/2416) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.699 -->
 - Stop producing macOS 10.14 packages [#2381](https://github.com/chef/chef-workstation/pull/2381) ([tas50](https://github.com/tas50)) <!-- 21.12.698 -->
 - Bump test-kitchen from 3.2.0 to 3.2.1 in /omnibus [#2413](https://github.com/chef/chef-workstation/pull/2413) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.11.697 -->
 - Bump test-kitchen to 3.2.1 [#2412](https://github.com/chef/chef-workstation/pull/2412) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.11.696 -->
