@@ -38,7 +38,7 @@ Supported Host Operating Systems:
 </tr>
 <tr class="odd">
 <td>Apple macOS</td>
-<td>10.14, 10.15, 11, 12</td>
+<td>10.15, 11, 12</td>
 </tr>
 <tr class="even">
 <td>Microsoft Windows</td>
