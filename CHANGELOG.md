@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.12.702 -->
-## [21.12.702](https://github.com/chef/chef-workstation/tree/21.12.702) (2021-12-02)
+<!-- latest_release 21.12.703 -->
+## [21.12.703](https://github.com/chef/chef-workstation/tree/21.12.703) (2021-12-02)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `461fc3e` to `8560231` in /omnibus [#2415](https://github.com/chef/chef-workstation/pull/2415) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Update Ruby to 3.0.3 [#2419](https://github.com/chef/chef-workstation/pull/2419) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.11.679 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update Ruby to 3.0.3 [#2419](https://github.com/chef/chef-workstation/pull/2419) ([tas50](https://github.com/tas50)) <!-- 21.12.703 -->
 - Bump omnibus-software from `461fc3e` to `8560231` in /omnibus [#2415](https://github.com/chef/chef-workstation/pull/2415) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.12.702 -->
 - Bump Chef Infra Client to 17.8.25 [#2418](https://github.com/chef/chef-workstation/pull/2418) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.701 -->
 - Bump kitchen-dokken to 2.17.0 [#2417](https://github.com/chef/chef-workstation/pull/2417) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.700 -->
