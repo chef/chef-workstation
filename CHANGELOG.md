@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.12.704 -->
-## [21.12.704](https://github.com/chef/chef-workstation/tree/21.12.704) (2021-12-02)
+<!-- latest_release 21.12.705 -->
+## [21.12.705](https://github.com/chef/chef-workstation/tree/21.12.705) (2021-12-03)
 
 #### Merged Pull Requests
-- Bump test-kitchen from 3.2.1 to 3.2.2 in /omnibus [#2420](https://github.com/chef/chef-workstation/pull/2420) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.87 [#2421](https://github.com/chef/chef-workstation/pull/2421) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.11.679 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.87 [#2421](https://github.com/chef/chef-workstation/pull/2421) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.705 -->
 - Bump test-kitchen from 3.2.1 to 3.2.2 in /omnibus [#2420](https://github.com/chef/chef-workstation/pull/2420) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.12.704 -->
 - Update Ruby to 3.0.3 [#2419](https://github.com/chef/chef-workstation/pull/2419) ([tas50](https://github.com/tas50)) <!-- 21.12.703 -->
 - Bump omnibus-software from `461fc3e` to `8560231` in /omnibus [#2415](https://github.com/chef/chef-workstation/pull/2415) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.12.702 -->
