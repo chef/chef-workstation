@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.12.706 -->
-## [21.12.706](https://github.com/chef/chef-workstation/tree/21.12.706) (2021-12-03)
+<!-- latest_release 21.12.707 -->
+## [21.12.707](https://github.com/chef/chef-workstation/tree/21.12.707) (2021-12-03)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.93 [#2429](https://github.com/chef/chef-workstation/pull/2429) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump train to 3.8.5 [#2427](https://github.com/chef/chef-workstation/pull/2427) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.11.679 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump train to 3.8.5 [#2427](https://github.com/chef/chef-workstation/pull/2427) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.707 -->
 - Bump Chef Workstation App to 0.2.93 [#2429](https://github.com/chef/chef-workstation/pull/2429) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.706 -->
 - Bump Chef Workstation App to 0.2.87 [#2421](https://github.com/chef/chef-workstation/pull/2421) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.705 -->
 - Bump test-kitchen from 3.2.1 to 3.2.2 in /omnibus [#2420](https://github.com/chef/chef-workstation/pull/2420) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.12.704 -->
