@@ -47,6 +47,12 @@ type GemEnvironmentInfo struct{
 }
 
 func RunEnvironment() error {
+	// call all the environment info here.
+	envObj := WorkstationEnvInfo()
+	
+	fmt.Println(envObj)
+
+	// make yml dump like ruby --   ui.msg YAML.dump(info)
 	return nil
 }
 
@@ -97,15 +103,33 @@ func WsEnvironmentInfo() GemEnvironmentInfo {
 		}
 		gempath :=  os.Getenv("GEM_PATH")
 		if gempath != ""{
-			gempathmap := strings.Split(str, ":")
+			gempathmap := strings.Split(gempath, ":")
 			envInfo.GemPath = gempathmap
 		}
 	}
 	return envInfo
 }
 
-func PathInfo()  {
-	
+func PathInfo()  []string {
+	var pathInfo []string
+	if  omnibusInstall() == true {
+		pathInfo := lib.OmnibusPath()
+		return pathInfo
+	} else {
+		pathInfoStr :=  os.Getenv("PATH")
+		if pathInfoStr != ""{
+			pathInfo := strings.Split(pathInfoStr, ":")
+			return pathInfo
+		}
+	}
+	return pathInfo
+}
+
+func WorkstationEnvInfo() EnvInfo {
+	InfObj := EnvInfo{ChefWorkstation: WorkstationInfo()}
+	InfObj.Ruby = WorkstationRubyInfo()
+	InfObj.Path = PathInfo()
+	return InfObj
 }
 
 

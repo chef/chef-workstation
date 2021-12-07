@@ -45,7 +45,7 @@ func OmnibusGemRoot() string {
 }
 
 func OmnibusGemHome() string {
-	return "/Users/prsingh/.chefdk/gem/ruby/3.0.0" // TODO - get this dynmically using golang
+	return "/Users/prsingh/.chefdk/gem/ruby/3.0.0" // TODO - get this dynamically using golang
 }
 
 func OmnibusGemPath() []string {
