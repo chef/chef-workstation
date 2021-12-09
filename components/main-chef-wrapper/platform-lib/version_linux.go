@@ -34,7 +34,7 @@ func init() {
 	manifestMap = manifestHash()
 }
 func Version() error {
-	if omnibusInstall() == true {
+	if OmnibusInstall() == true {
 		showVersionViaVersionManifest()
 	} else {
 		fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
@@ -101,7 +101,7 @@ func manifestHash() map[string]interface{} {
 	return manifestHash
 }
 
-func omnibusInstall() bool {
+func OmnibusInstall() bool {
 	//# We also check if the location we're running from (omnibus_root is relative to currently-running ruby)
 	//# includes the version manifest that omnibus packages ship with. If it doesn't, then we're running locally
 	//# or out of a gem - so not as an 'omnibus install'
