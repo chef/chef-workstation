@@ -12,39 +12,39 @@ import (
 )
 
 type EnvInfo struct {
-	ChefWorkstation ChefWorkstationInfo
-	Ruby RubyInfo
-	Path []string
+	ChefWorkstation ChefWorkstationInfo `yaml:"Chef Workstation"`
+	Ruby RubyInfo `yaml:"Ruby"`
+	Path []string  `yaml:"Path"`
 }
 
 
 type ChefWorkstationInfo struct {
-	version string
-	Home string
-	InstallDirectory string
-	PolicyfileConfig PolicyFileConfigInfo
+	Version string `yaml:"Version"`
+	Home string  `yaml:"Home"`
+	InstallDirectory string  `yaml:"Install Directory"`
+	PolicyfileConfig PolicyFileConfigInfo `yaml:"Policyfile Config"`
 }
 type RubyInfo struct{
-	Executable string
-	version string
-	RubyGems GemInfo
+	Executable string `yaml:"Executable"`
+	Version string `yaml:"Version"`
+	RubyGems GemInfo `yaml:"RubyGems"`
 }
 
 type GemInfo struct{
-	RubyGemsVersion string
-	RubyGemsPlatforms []string
-	GemEnvironment GemEnvironmentInfo
+	RubyGemsVersion string `yaml:"RubyGems Version"`
+	RubyGemsPlatforms []string `yaml:"RubyGems Platforms"`
+	GemEnvironment GemEnvironmentInfo `yaml:"Gem Environment"`
 }
 
 type PolicyFileConfigInfo struct {
-	CachePath string
-	StoragePath string
+	CachePath string `yaml:"Cache Path"`
+	StoragePath string `yaml:"Storage Path"`
 }
 
 type GemEnvironmentInfo struct{
-	GemRoot string
-	GemHome string
-	GemPath []string
+	GemRoot string `yaml:"Gem Root"`
+	GemHome string `yaml:"Gem Home"`
+	GemPath []string `yaml:"Gem Path"`
 }
 
 func RunEnvironment() error {
@@ -54,7 +54,7 @@ func RunEnvironment() error {
 	if err != nil {
 		log.Fatalf("error: %v", err)
 	}
-	fmt.Printf("--- t dump:\n%s\n\n", string(ymldump))
+	fmt.Printf("----:\n%s\n\n", string(ymldump))
 
 	//fmt.Println(envObj)
 
@@ -63,15 +63,14 @@ func RunEnvironment() error {
 }
 
 func WorkstationInfo() ChefWorkstationInfo {
-	fmt.Print("workstation info\n")
 	if OmnibusInstall() == true {
-		info := ChefWorkstationInfo{version: lib.ChefCliVersion}
+		info := ChefWorkstationInfo{Version: lib.ChefCliVersion}
 		info.Home = lib.PackageHome()
 		info.InstallDirectory = omnibusRoot() // can be shifted to cli_helper.rb
 		info.PolicyfileConfig =  PolicyFileConfigInfo{CachePath: CachePath(), StoragePath: StoragePath() }
 		return info
 	} else {
-		info := ChefWorkstationInfo{version: "Not running from within Workstation"}
+		info := ChefWorkstationInfo{Version: "Not running from within Workstation"}
 		return info
 	}
 }
@@ -85,9 +84,8 @@ func StoragePath() string  {
 }
 
 func WorkstationRubyInfo() RubyInfo {
-	fmt.Print("ruby info")
 	rubyinfo := RubyInfo{Executable: "/opt/chef-workstation/embedded/bin/ruby"} // Gem.ruby got us this in ruby TODO- need to see how to convert this
-	rubyinfo.version = "3.0.2" // Todo- RUBY_VERSION has this value in ruby, need to see ho we cn convert this one.
+	rubyinfo.Version = "3.0.2" // Todo- RUBY_VERSION has this value in ruby, need to see ho we cn convert this one.
 	rubyinfo.RubyGems = GemInfo{RubyGemsVersion: "3.2.22", RubyGemsPlatforms: []string{"ruby", "x86_64-darwin-18" }, GemEnvironment: WsEnvironmentInfo() }
 	return rubyinfo
 }
