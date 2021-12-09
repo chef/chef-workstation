@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.12.709 -->
-## [21.12.709](https://github.com/chef/chef-workstation/tree/21.12.709) (2021-12-09)
+<!-- latest_release 21.12.710 -->
+## [21.12.710](https://github.com/chef/chef-workstation/tree/21.12.710) (2021-12-09)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.120 [#2432](https://github.com/chef/chef-workstation/pull/2432) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.94 [#2433](https://github.com/chef/chef-workstation/pull/2433) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.11.679 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.94 [#2433](https://github.com/chef/chef-workstation/pull/2433) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.710 -->
 - Bump chef-analyze CLI to 0.1.120 [#2432](https://github.com/chef/chef-workstation/pull/2432) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.709 -->
 - Bump pedump from 0.6.2 to 0.6.3 in /omnibus [#2431](https://github.com/chef/chef-workstation/pull/2431) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.12.708 -->
 - Bump train to 3.8.5 [#2427](https://github.com/chef/chef-workstation/pull/2427) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.707 -->
