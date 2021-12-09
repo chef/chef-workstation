@@ -2,7 +2,6 @@ package platform_lib
 
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
 	"gopkg.in/yaml.v2"
@@ -64,8 +63,8 @@ func RunEnvironment() error {
 }
 
 func WorkstationInfo() ChefWorkstationInfo {
-	fmt.Print("workstation info")
-	if omnibusInstall() == true {
+	fmt.Print("workstation info\n")
+	if OmnibusInstall() == true {
 		info := ChefWorkstationInfo{version: lib.ChefCliVersion}
 		info.Home = lib.PackageHome()
 		info.InstallDirectory = omnibusRoot() // can be shifted to cli_helper.rb
@@ -94,12 +93,13 @@ func WorkstationRubyInfo() RubyInfo {
 }
 
 func WsEnvironmentInfo() GemEnvironmentInfo {
-	envInfo := GemEnvironmentInfo{}
-	if  omnibusInstall() == true {
+	if OmnibusInstall() == true {
 		envInfo := GemEnvironmentInfo{GemRoot: lib.OmnibusGemRoot()}
 		envInfo.GemHome = lib.OmnibusGemHome()
 		envInfo.GemPath = lib.OmnibusGemPath()
+		return envInfo
 	} else {
+		envInfo := GemEnvironmentInfo{}
 		gemroot :=  os.Getenv("GEM_ROOT")
 		if gemroot != ""{
 			envInfo.GemRoot = gemroot
@@ -113,13 +113,14 @@ func WsEnvironmentInfo() GemEnvironmentInfo {
 			gempathmap := strings.Split(gempath, ":")
 			envInfo.GemPath = gempathmap
 		}
+		return envInfo
 	}
-	return envInfo
+
 }
 
 func PathInfo()  []string {
 	var pathInfo []string
-	if  omnibusInstall() == true {
+	if  OmnibusInstall() == true {
 		pathInfo := lib.OmnibusPath()
 		return pathInfo
 	} else {
