@@ -2,8 +2,11 @@ package platform_lib
 
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
+	"gopkg.in/yaml.v2"
+	"log"
 	"os"
 	"path/filepath"
 	"strings"
@@ -48,8 +51,13 @@ type GemEnvironmentInfo struct{
 func RunEnvironment() error {
 	// call all the environment info here.
 	envObj := WorkstationEnvInfo()
+	ymldump, err := yaml.Marshal(envObj)
+	if err != nil {
+		log.Fatalf("error: %v", err)
+	}
+	fmt.Printf("--- t dump:\n%s\n\n", string(ymldump))
 
-	fmt.Println(envObj)
+	//fmt.Println(envObj)
 
 	// make yml dump like ruby --   ui.msg YAML.dump(info)
 	return nil
@@ -148,3 +156,10 @@ func WorkstationEnvInfo() EnvInfo {
 //end
 //end
 //end
+
+//b, err := json.Marshal(envObj)
+//if err != nil {
+//fmt.Println(err)
+//return nil
+//}
+//fmt.Println(string(b))
