@@ -1,11 +1,10 @@
 package lib
 
 import (
-	"fmt"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 	"log"
 	"os"
 	"path/filepath"
-	"runtime"
 	"strings"
 )
 
