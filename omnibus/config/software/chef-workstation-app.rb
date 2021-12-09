@@ -59,7 +59,7 @@ else
 
   build do
     mkdir app_install_path
-    copy project_dir, app_install_path
+    copy "#{project_dir}/*", app_install_path
   end
 end
 
