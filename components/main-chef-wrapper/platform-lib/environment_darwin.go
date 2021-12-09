@@ -3,7 +3,6 @@ package platform_lib
 
 import (
 	"fmt"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
 	"os"
 	"path/filepath"
@@ -49,7 +48,7 @@ type GemEnvironmentInfo struct{
 func RunEnvironment() error {
 	// call all the environment info here.
 	envObj := WorkstationEnvInfo()
-	
+
 	fmt.Println(envObj)
 
 	// make yml dump like ruby --   ui.msg YAML.dump(info)
@@ -59,13 +58,13 @@ func RunEnvironment() error {
 func WorkstationInfo() ChefWorkstationInfo {
 	fmt.Print("workstation info")
 	if omnibusInstall() == true {
-		info := ChefWorkstationInfo{Version: dist.ChefCliVersion}
+		info := ChefWorkstationInfo{version: lib.ChefCliVersion}
 		info.Home = lib.PackageHome()
 		info.InstallDirectory = omnibusRoot() // can be shifted to cli_helper.rb
 		info.PolicyfileConfig =  PolicyFileConfigInfo{CachePath: CachePath(), StoragePath: StoragePath() }
 		return info
 	} else {
-		info := ChefWorkstationInfo{Version: "Not running from within Workstation"}
+		info := ChefWorkstationInfo{version: "Not running from within Workstation"}
 		return info
 	}
 }
@@ -87,12 +86,12 @@ func WorkstationRubyInfo() RubyInfo {
 }
 
 func WsEnvironmentInfo() GemEnvironmentInfo {
+	envInfo := GemEnvironmentInfo{}
 	if  omnibusInstall() == true {
 		envInfo := GemEnvironmentInfo{GemRoot: lib.OmnibusGemRoot()}
-		envInfo.GemHome = lib.OmibusGemHome()
-		envInfo.GemPath = lib.OmibusGemPath()
+		envInfo.GemHome = lib.OmnibusGemHome()
+		envInfo.GemPath = lib.OmnibusGemPath()
 	} else {
-		envInfo := GemEnvironmentInfo{}
 		gemroot :=  os.Getenv("GEM_ROOT")
 		if gemroot != ""{
 			envInfo.GemRoot = gemroot
