@@ -64,6 +64,7 @@ func createRubyEnv(){
 		fmt.Print("file exists======== ruby script not needed")
 	} else {
 		fmt.Print("file  does not exists============ call ruby script to make ruby-env.json file\n")
+	//	 call ruby script #{install_dir}/embedded/bin/bundle/ exec ruby ruby_env_script.rb
 	}
 }
 
