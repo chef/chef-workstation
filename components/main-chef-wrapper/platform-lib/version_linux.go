@@ -142,3 +142,29 @@ func ExpectedOmnibusRoot() string {
 	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
 	//return "/opt/chef-workstation"
 }
+
+//func MatchVersions() bool{
+//	// check version from env.json file and workstation version
+//	WorkstationVersion := componentVersion("build_version")
+//	filepath := path.Join(omnibusRoot(), "ruby-env.json")
+//	jsonFile, err := os.Open(filepath)
+//	if err != nil {
+//		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+//		os.Exit(4)
+//	}
+//
+//	data, err := ioutil.ReadAll(jsonFile)
+//	if err != nil {
+//		log.Fatal(err)
+//	}
+//
+//	envDoc := make(map[string]interface{})
+//	if err := json.Unmarshal(data, &doc); err != nil {
+//		log.Fatal(err)
+//	}
+//	if envDoc["build_version"] == WorkstationVersion{
+//		return true
+//	} else {
+//		return false
+//	}
+//}

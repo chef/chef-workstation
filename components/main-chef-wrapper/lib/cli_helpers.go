@@ -1,13 +1,35 @@
 package lib
 
 import (
+	"encoding/json"
+	"fmt"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
+	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
+	"io/ioutil"
 	"log"
 	"os"
+	"path"
 	"path/filepath"
 	"strings"
 )
 
+func init() {
+	rubyenvMap = UnmarshallRubyEnv()
+}
+
+func UnmarshallRubyEnv() map[string]interface{}{
+	filepath := path.Join(platform_lib.OmnibusRoot(), "ruby-env.json")
+	jsonFile, err := os.Open(filepath)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+		os.Exit(4)
+	}
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+	var manifestHash map[string]interface{}
+	json.Unmarshal([]byte(byteValue), &manifestHash)
+	defer jsonFile.Close()
+	return manifestHash
+}
 
 func PackageHome() string{
 	var packageHomeSet =  os.Getenv("CHEF_WORKSTATION_HOME")
@@ -17,6 +39,7 @@ func PackageHome() string{
 	}else{
 		packageHome =  DefaultPackageName()
 	}
+
 	return packageHome
 }
 
@@ -41,6 +64,22 @@ func DefaultPackageName() string{
 
 func OmnibusGemRoot() string {
 	return "/opt/chef-workstation/embedded/lib/ruby/gems/3.0.0" // TODO - get this dynmically using golang
+}
+
+func RubyExecutable() string {
+	return "/opt/chef-workstation/embedded/bin/ruby"
+}
+
+func RubyVersion() string {
+	return  "3.0.2"
+}
+
+func RubyGemsVersion() string {
+	return "3.2.22"
+}
+
+func RubyGemsPlatforms() []string {
+	return []string{"ruby", "x86_64-darwin-18" }
 }
 
 func OmnibusGemHome() string {
