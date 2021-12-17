@@ -85,6 +85,9 @@ build do
     config_hash["HAVE_LIBCHARSET_H"] = "YesPlease"
     config_hash["HAVE_STRINGS_H"] = "YesPlease"
     config_hash["USE_ST_TIMESPEC"] = "YesPlease"
+    env["CFLAGS"] = "-O3 -D_FORTIFY_SOURCE=2 -fstack-protector"
+    env["CPPFLAGS"] = "-O3 -D_FORTIFY_SOURCE=2 -fstack-protector"
+    env["CXXFLAGS"] = "-O3 -D_FORTIFY_SOURCE=2 -fstack-protector"
   end
 
   erb source: "config.mak.erb",
