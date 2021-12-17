@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.12.719 -->
-## [21.12.719](https://github.com/chef/chef-workstation/tree/21.12.719) (2021-12-17)
+<!-- latest_release 21.12.720 -->
+## [21.12.720](https://github.com/chef/chef-workstation/tree/21.12.720) (2021-12-17)
 
 #### Merged Pull Requests
-- Bump train to 3.8.6 [#2449](https://github.com/chef/chef-workstation/pull/2449) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump ohai to 17.9.0 and knife to 17.9.9 [#2452](https://github.com/chef/chef-workstation/pull/2452) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.11.679 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump ohai to 17.9.0 and knife to 17.9.9 [#2452](https://github.com/chef/chef-workstation/pull/2452) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.720 -->
 - Bump train to 3.8.6 [#2449](https://github.com/chef/chef-workstation/pull/2449) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.719 -->
 - Bump Chef Workstation App to 0.2.95 [#2448](https://github.com/chef/chef-workstation/pull/2448) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.718 -->
 - Discard workstation directory in compiler flags when building git [#2446](https://github.com/chef/chef-workstation/pull/2446) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.12.717 -->
