@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.12.716 -->
-## [21.12.716](https://github.com/chef/chef-workstation/tree/21.12.716) (2021-12-17)
+<!-- latest_release 21.12.717 -->
+## [21.12.717](https://github.com/chef/chef-workstation/tree/21.12.717) (2021-12-17)
 
 #### Merged Pull Requests
-- Update omnibus/Gemfile.lock [#2447](https://github.com/chef/chef-workstation/pull/2447) ([jeremiahsnapp](https://github.com/jeremiahsnapp))
+- Discard workstation directory in compiler flags when building git [#2446](https://github.com/chef/chef-workstation/pull/2446) ([vkarve-chef](https://github.com/vkarve-chef))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.11.679 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Discard workstation directory in compiler flags when building git [#2446](https://github.com/chef/chef-workstation/pull/2446) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 21.12.717 -->
 - Update omnibus/Gemfile.lock [#2447](https://github.com/chef/chef-workstation/pull/2447) ([jeremiahsnapp](https://github.com/jeremiahsnapp)) <!-- 21.12.716 -->
 - Bump chef-vault to 4.1.5 [#2445](https://github.com/chef/chef-workstation/pull/2445) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.715 -->
 - Bump omnibus-software from `8560231` to `d2525ab` in /omnibus [#2441](https://github.com/chef/chef-workstation/pull/2441) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.12.714 -->
