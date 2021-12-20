@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.12.721 -->
-## [21.12.721](https://github.com/chef/chef-workstation/tree/21.12.721) (2021-12-20)
+<!-- latest_release 21.12.722 -->
+## [21.12.722](https://github.com/chef/chef-workstation/tree/21.12.722) (2021-12-20)
 
 #### Merged Pull Requests
-- Update homebrew package promotion [#2453](https://github.com/chef/chef-workstation/pull/2453) ([tas50](https://github.com/tas50))
+- Bump inspec-bin to 4.52.9 [#2454](https://github.com/chef/chef-workstation/pull/2454) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.12.720 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump inspec-bin to 4.52.9 [#2454](https://github.com/chef/chef-workstation/pull/2454) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.722 -->
 - Update homebrew package promotion [#2453](https://github.com/chef/chef-workstation/pull/2453) ([tas50](https://github.com/tas50)) <!-- 21.12.721 -->
 <!-- release_rollup -->
 
