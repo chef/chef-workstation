@@ -16,10 +16,10 @@
 #         end
 #     end
 
-require "json"
-j = JSON.pretty_generate(all_paths)
-
-manifest_file = "#{install_dir}/ruby-env.json"
-File.open(manifest_file, "w") do |f|
-  f.write(j)
-end
+# require "json"
+# j = JSON.pretty_generate(all_paths)
+#
+# manifest_file = "#{install_dir}/ruby-env.json"
+# File.open(manifest_file, "w") do |f|
+#   f.write(j)
+# end

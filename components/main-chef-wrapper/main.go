@@ -60,7 +60,7 @@ func createRubyEnv(){
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
-	if result == true {
+	if result == true && platform_lib.MatchVersions() == true{
 		fmt.Print("file exists======== ruby script not needed")
 	} else {
 		fmt.Print("file  does not exists============ call ruby script to make ruby-env.json file\n")
