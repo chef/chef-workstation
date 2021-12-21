@@ -147,3 +147,23 @@ func ExpectedOmnibusRoot() string {
 	rootPath = strings.Replace(s, "//", "/", -1)
 	return rootPath
 }
+
+func MatchVersions() bool{
+	// check version from env.json file and workstation version
+	WorkstationVersion := componentVersion("build_version")
+	filepath := path.Join(omnibusRoot(), "ruby-env.json")
+	jsonFile, err := os.Open(filepath)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+		os.Exit(4)
+	}
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+	var envHash map[string]interface{}
+	json.Unmarshal([]byte(byteValue), &envHash)
+	defer jsonFile.Close()
+	if envHash.build_version == WorkstationVersion{
+		return true
+	} else {
+		return false
+	}
+}
