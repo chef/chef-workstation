@@ -24,23 +24,29 @@ skip_transitive_dependency_licensing true
 default_version "1.6.420"
 linux_sha = "2718ac16e8872bf058d47004b1242574f26a49886a9b52e8cbbad3023cd6e314"
 darwin_sha = "1dd86170bbbc3a93ea7a88cb32f2b0e9f1ce30dffc9ef316f25103a7c497a5de"
+darwin_m1_sha = "5ce236f449f2d4bc1134a7946171069ad69a61e761124614dab52de65618ff8f"
 windows_sha = "865f7dc2c079ca8e8d0fbcd8998451ee4e0fa905c10e053809d39d5195039b81"
 # END DO NOT MODIFY
 
 if windows?
-  suffix = "windows.zip"
+  suffix = "x86_64-windows.zip"
   sha256 = windows_sha
 elsif linux?
-  suffix = "linux.tar.gz"
+  suffix = "x86_64-linux.tar.gz"
   sha256 = linux_sha
-elsif mac?
-  suffix = "darwin.zip"
-  sha256 = darwin_sha
+elsif mac? 
+  if /arm64/ =~ RUBY_PLATFORM
+    suffix = "aarch64-darwin.zip"
+    sha256 = darwin_m1_sha
+  else
+    suffix = "x86_64-darwin.zip"
+    sha256 = darwin_sha
+  end
 else
   raise "habitat dep is only available for windows, linux, and mac"
 end
 
-source url: "https://packages.chef.io/files/stable/habitat/#{version}/hab-x86_64-#{suffix}",
+source url: "https://packages.chef.io/files/stable/habitat/#{version}/hab-#{suffix}",
   sha256: sha256
 
 build do
