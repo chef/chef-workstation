@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.12.723 -->
-## [21.12.723](https://github.com/chef/chef-workstation/tree/21.12.723) (2021-12-21)
+<!-- latest_release 21.12.724 -->
+## [21.12.724](https://github.com/chef/chef-workstation/tree/21.12.724) (2021-12-21)
 
 #### Merged Pull Requests
-- Bump kitchen-ec2 to 3.12.0 [#2455](https://github.com/chef/chef-workstation/pull/2455) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.121 [#2457](https://github.com/chef/chef-workstation/pull/2457) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.12.720 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.121 [#2457](https://github.com/chef/chef-workstation/pull/2457) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.724 -->
 - Bump kitchen-ec2 to 3.12.0 [#2455](https://github.com/chef/chef-workstation/pull/2455) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.723 -->
 - Bump inspec-bin to 4.52.9 [#2454](https://github.com/chef/chef-workstation/pull/2454) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.722 -->
 - Update homebrew package promotion [#2453](https://github.com/chef/chef-workstation/pull/2453) ([tas50](https://github.com/tas50)) <!-- 21.12.721 -->
