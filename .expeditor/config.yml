@@ -20,7 +20,9 @@ pipelines:
   - verify:
       description: Pull Request validation tests
   - docker/build
-  - omnibus/release
+  - omnibus/release:
+      env:
+        - IGNORE_CACHE: true # caching causes constant build failures
   - omnibus/adhoc:
       definition: .expeditor/release.omnibus.yml
       env:
