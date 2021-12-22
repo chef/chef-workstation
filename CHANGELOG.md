@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.12.726 -->
-## [21.12.726](https://github.com/chef/chef-workstation/tree/21.12.726) (2021-12-22)
+<!-- latest_release 21.12.727 -->
+## [21.12.727](https://github.com/chef/chef-workstation/tree/21.12.727) (2021-12-22)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `4f952d4` to `4707275` in /omnibus [#2461](https://github.com/chef/chef-workstation/pull/2461) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Disable omnibus build caching in buildkite [#2460](https://github.com/chef/chef-workstation/pull/2460) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.12.720 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Disable omnibus build caching in buildkite [#2460](https://github.com/chef/chef-workstation/pull/2460) ([tas50](https://github.com/tas50)) <!-- 21.12.727 -->
 - Bump omnibus-software from `4f952d4` to `4707275` in /omnibus [#2461](https://github.com/chef/chef-workstation/pull/2461) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.12.726 -->
 - Bump omnibus-software from `d2525ab` to `4f952d4` in /omnibus [#2459](https://github.com/chef/chef-workstation/pull/2459) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.12.725 -->
 - Bump chef-analyze CLI to 0.1.121 [#2457](https://github.com/chef/chef-workstation/pull/2457) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.724 -->
