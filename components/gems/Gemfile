@@ -31,7 +31,7 @@ end
 
 group(:dep_selector) do
   gem "dep_selector"
-  gem "dep-selector-libgecode"
+  gem "dep-selector-libgecode", "~> 1.0"
 end
 
 # We tend to track latest stable release without pinning.
