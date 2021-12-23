@@ -157,11 +157,17 @@ func MatchVersions() bool{
 		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
 		os.Exit(4)
 	}
-	byteValue, _ := ioutil.ReadAll(jsonFile)
-	var envHash map[string]interface{}
-	json.Unmarshal([]byte(byteValue), &envHash)
-	defer jsonFile.Close()
-	if envHash.build_version == WorkstationVersion{
+
+	data, err := ioutil.ReadAll(jsonFile)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	envDoc := make(map[string]interface{})
+	if err := json.Unmarshal(data, &doc); err != nil {
+		log.Fatal(err)
+	}
+	if envDoc["build_version"] == WorkstationVersion{
 		return true
 	} else {
 		return false

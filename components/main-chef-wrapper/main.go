@@ -54,7 +54,7 @@ func createRubyEnv(){
 //		log.Fatalf(err.Error())
 //	}
 //	todo ==> incase home directory is needed we can add it to string
-	installationPath :=  platform_lib.ExpectedOmnibusRoot() + "/ruby-env.json"
+	installationPath :=  "~/.chef-workstation/ruby-env.json"
 	fmt.Printf(installationPath)
 	result, err := exists(installationPath)
 	if err != nil {
