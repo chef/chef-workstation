@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.12.728 -->
-## [21.12.728](https://github.com/chef/chef-workstation/tree/21.12.728) (2021-12-22)
+<!-- latest_release 21.12.729 -->
+## [21.12.729](https://github.com/chef/chef-workstation/tree/21.12.729) (2021-12-23)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.98 [#2462](https://github.com/chef/chef-workstation/pull/2462) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update Chef Infra Client to 17.9.18 [#2463](https://github.com/chef/chef-workstation/pull/2463) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.12.720 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update Chef Infra Client to 17.9.18 [#2463](https://github.com/chef/chef-workstation/pull/2463) ([tas50](https://github.com/tas50)) <!-- 21.12.729 -->
 - Bump Chef Workstation App to 0.2.98 [#2462](https://github.com/chef/chef-workstation/pull/2462) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.728 -->
 - Disable omnibus build caching in buildkite [#2460](https://github.com/chef/chef-workstation/pull/2460) ([tas50](https://github.com/tas50)) <!-- 21.12.727 -->
 - Bump omnibus-software from `4f952d4` to `4707275` in /omnibus [#2461](https://github.com/chef/chef-workstation/pull/2461) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 21.12.726 -->
