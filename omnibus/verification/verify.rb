@@ -272,7 +272,6 @@ module ChefWorkstation
             sh!("#{usr_bin_path("chef")} -v")
             sh!("#{usr_bin_path("chef-client")} -v")
             sh!("#{usr_bin_path("chef-solo")} -v")
-            sh!("#{usr_bin_path("delivery")} -V") unless Chef::Platform.windows?
 
             # In `knife`, `knife -v` follows a different code path that skips
             # command/plugin loading; `knife -h` loads commands and plugins, but
@@ -349,18 +348,6 @@ module ChefWorkstation
               INSPEC_TEST
             end
             sh("#{bin("inspec")} exec .", cwd: cwd)
-          end
-        end
-      end
-
-      add_component "delivery-cli" do |c|
-        # We'll want to come back and revisit getting unit tests added -
-        # currently running the tests depends on cargo , which is not included
-        # in our package.
-        c.base_dir = "bin"
-        c.smoke_test do
-          tmpdir do |cwd|
-            sh!("delivery setup --user=shipit --server=delivery.shipit.io --ent=chef --org=squirrels", cwd: cwd)
           end
         end
       end
