@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.12.731 -->
-## [21.12.731](https://github.com/chef/chef-workstation/tree/21.12.731) (2021-12-29)
+<!-- latest_release 21.12.732 -->
+## [21.12.732](https://github.com/chef/chef-workstation/tree/21.12.732) (2021-12-30)
 
 #### Merged Pull Requests
-- Bump hugo to 0.91.2 [#2465](https://github.com/chef/chef-workstation/pull/2465) ([IanMadd](https://github.com/IanMadd))
+- Bump Chef Workstation App to 0.2.100 [#2467](https://github.com/chef/chef-workstation/pull/2467) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.12.720 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.100 [#2467](https://github.com/chef/chef-workstation/pull/2467) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.732 -->
 - Bump hugo to 0.91.2 [#2465](https://github.com/chef/chef-workstation/pull/2465) ([IanMadd](https://github.com/IanMadd)) <!-- 21.12.731 -->
 - Bump Chef Workstation App to 0.2.99 [#2464](https://github.com/chef/chef-workstation/pull/2464) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.730 -->
 - Update Chef Infra Client to 17.9.18 [#2463](https://github.com/chef/chef-workstation/pull/2463) ([tas50](https://github.com/tas50)) <!-- 21.12.729 -->
