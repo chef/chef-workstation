@@ -50,7 +50,7 @@ The Chef Upgrade Lab makes some basic assumptions about your existing system:
 ### Software Requirements
 
 - Review the [platform and system requirements](/workstation/install_workstation/) for Chef Workstation
-- Install or upgrade to the Chef Workstation [latest version](https://downloads.chef.io/chef-workstation)
+- Install or upgrade to the Chef Workstation [latest version](https://www.chef.io/downloads/tools/workstation)
 
 Chef does not prescribe any specific editor. However, the [Chef Infra extension](https://marketplace.visualstudio.com/items?itemName=chef-software.Chef) for [Visual Studio Code](https://code.visualstudio.com/) features several code generators and helpful features, such as running Cookstyle each time you save a recipe.
 
