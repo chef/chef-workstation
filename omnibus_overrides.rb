@@ -4,7 +4,7 @@
 # Expeditor takes that version, runs a script to replace it here and pushes a new
 # commit / build through.
 
-override "chef-analyze", version: "0.1.121"
+override "chef-analyze", version: "0.1.122"
 override "delivery-cli", version: "0.0.55"
 # /DO NOT MODIFY
 
