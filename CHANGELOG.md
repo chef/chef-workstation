@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 21.12.733 -->
-## [21.12.733](https://github.com/chef/chef-workstation/tree/21.12.733) (2021-12-30)
+<!-- latest_release 22.1.734 -->
+## [22.1.734](https://github.com/chef/chef-workstation/tree/22.1.734) (2022-01-03)
 
 #### Merged Pull Requests
-- Minor gem updates [#2468](https://github.com/chef/chef-workstation/pull/2468) ([tas50](https://github.com/tas50))
+- Bump Chef Workstation App to 0.2.102 [#2471](https://github.com/chef/chef-workstation/pull/2471) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.12.720 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.102 [#2471](https://github.com/chef/chef-workstation/pull/2471) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.734 -->
 - Minor gem updates [#2468](https://github.com/chef/chef-workstation/pull/2468) ([tas50](https://github.com/tas50)) <!-- 21.12.733 -->
 - Bump Chef Workstation App to 0.2.100 [#2467](https://github.com/chef/chef-workstation/pull/2467) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 21.12.732 -->
 - Bump hugo to 0.91.2 [#2465](https://github.com/chef/chef-workstation/pull/2465) ([IanMadd](https://github.com/IanMadd)) <!-- 21.12.731 -->
