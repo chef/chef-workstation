@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.739 -->
-## [22.1.739](https://github.com/chef/chef-workstation/tree/22.1.739) (2022-01-05)
+<!-- latest_release 22.1.740 -->
+## [22.1.740](https://github.com/chef/chef-workstation/tree/22.1.740) (2022-01-05)
 
 #### Merged Pull Requests
-- Bump chef to 17.9.26 and cookstyle to 7.26.1 [#2476](https://github.com/chef/chef-workstation/pull/2476) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update deps to the latest [#2478](https://github.com/chef/chef-workstation/pull/2478) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.12.720 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update deps to the latest [#2478](https://github.com/chef/chef-workstation/pull/2478) ([tas50](https://github.com/tas50)) <!-- 22.1.740 -->
 - Bump chef to 17.9.26 and cookstyle to 7.26.1 [#2476](https://github.com/chef/chef-workstation/pull/2476) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.739 -->
 - Bump chef-analyze CLI to 0.1.124 [#2475](https://github.com/chef/chef-workstation/pull/2475) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.738 -->
 - Bump omnibus-software from `4707275` to `b6dd27a` in /omnibus [#2473](https://github.com/chef/chef-workstation/pull/2473) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.737 -->
