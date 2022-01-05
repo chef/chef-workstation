@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.740 -->
-## [22.1.740](https://github.com/chef/chef-workstation/tree/22.1.740) (2022-01-05)
+<!-- latest_release 22.1.741 -->
+## [22.1.741](https://github.com/chef/chef-workstation/tree/22.1.741) (2022-01-05)
 
 #### Merged Pull Requests
-- Update deps to the latest [#2478](https://github.com/chef/chef-workstation/pull/2478) ([tas50](https://github.com/tas50))
+- Setup dependabot for go deps [#2479](https://github.com/chef/chef-workstation/pull/2479) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.12.720 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Setup dependabot for go deps [#2479](https://github.com/chef/chef-workstation/pull/2479) ([tas50](https://github.com/tas50)) <!-- 22.1.741 -->
 - Update deps to the latest [#2478](https://github.com/chef/chef-workstation/pull/2478) ([tas50](https://github.com/tas50)) <!-- 22.1.740 -->
 - Bump chef to 17.9.26 and cookstyle to 7.26.1 [#2476](https://github.com/chef/chef-workstation/pull/2476) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.739 -->
 - Bump chef-analyze CLI to 0.1.124 [#2475](https://github.com/chef/chef-workstation/pull/2475) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.738 -->
