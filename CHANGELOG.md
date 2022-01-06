@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.743 -->
-## [22.1.743](https://github.com/chef/chef-workstation/tree/22.1.743) (2022-01-05)
+<!-- latest_release 22.1.744 -->
+## [22.1.744](https://github.com/chef/chef-workstation/tree/22.1.744) (2022-01-06)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.104 [#2484](https://github.com/chef/chef-workstation/pull/2484) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-cli to 5.5.0 [#2486](https://github.com/chef/chef-workstation/pull/2486) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.12.720 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-cli to 5.5.0 [#2486](https://github.com/chef/chef-workstation/pull/2486) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.744 -->
 - Bump Chef Workstation App to 0.2.104 [#2484](https://github.com/chef/chef-workstation/pull/2484) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.743 -->
 - Bump Chef Workstation App to 0.2.103 [#2480](https://github.com/chef/chef-workstation/pull/2480) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.742 -->
 - Setup dependabot for go deps [#2479](https://github.com/chef/chef-workstation/pull/2479) ([tas50](https://github.com/tas50)) <!-- 22.1.741 -->
