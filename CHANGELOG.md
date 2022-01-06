@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.744 -->
-## [22.1.744](https://github.com/chef/chef-workstation/tree/22.1.744) (2022-01-06)
+<!-- latest_release 22.1.745 -->
+## [22.1.745](https://github.com/chef/chef-workstation/tree/22.1.745) (2022-01-06)
 
 #### Merged Pull Requests
-- Bump chef-cli to 5.5.0 [#2486](https://github.com/chef/chef-workstation/pull/2486) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump nokogiri to 1.13.0 [#2487](https://github.com/chef/chef-workstation/pull/2487) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.12.720 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump nokogiri to 1.13.0 [#2487](https://github.com/chef/chef-workstation/pull/2487) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.745 -->
 - Bump chef-cli to 5.5.0 [#2486](https://github.com/chef/chef-workstation/pull/2486) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.744 -->
 - Bump Chef Workstation App to 0.2.104 [#2484](https://github.com/chef/chef-workstation/pull/2484) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.743 -->
 - Bump Chef Workstation App to 0.2.103 [#2480](https://github.com/chef/chef-workstation/pull/2480) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.742 -->
