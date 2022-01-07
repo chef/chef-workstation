@@ -34,7 +34,7 @@ if windows?
 elsif linux?
   suffix = "x86_64-linux.tar.gz"
   sha256 = linux_sha
-elsif mac? 
+elsif mac?
   if arm?
     suffix = "aarch64-darwin.zip"
     sha256 = darwin_m1_sha
