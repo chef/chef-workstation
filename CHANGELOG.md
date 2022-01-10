@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.746 -->
-## [22.1.746](https://github.com/chef/chef-workstation/tree/22.1.746) (2022-01-07)
+<!-- latest_release 22.1.747 -->
+## [22.1.747](https://github.com/chef/chef-workstation/tree/22.1.747) (2022-01-10)
 
 #### Merged Pull Requests
-- Remove the Delivery CLI from Workstation [#2469](https://github.com/chef/chef-workstation/pull/2469) ([tas50](https://github.com/tas50))
+- Bump omnibus-software from `b6dd27a` to `94ef29b` in /omnibus [#2488](https://github.com/chef/chef-workstation/pull/2488) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=21.12.720 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `b6dd27a` to `94ef29b` in /omnibus [#2488](https://github.com/chef/chef-workstation/pull/2488) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.747 -->
 - Remove the Delivery CLI from Workstation [#2469](https://github.com/chef/chef-workstation/pull/2469) ([tas50](https://github.com/tas50)) <!-- 22.1.746 -->
 - Bump nokogiri to 1.13.0 [#2487](https://github.com/chef/chef-workstation/pull/2487) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.745 -->
 - Bump chef-cli to 5.5.0 [#2486](https://github.com/chef/chef-workstation/pull/2486) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.744 -->
