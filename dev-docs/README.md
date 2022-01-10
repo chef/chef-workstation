@@ -2,23 +2,22 @@
 
 This directory contains useful information to help Chef Workstation developers get familiar with the Workstation bundling. It includes how-to's and design documentation for the packaged tools.
 
-- High-level architecture - tbd add link to child page here
+- High-level [architecture](architecture/chef-infra.wsd)
 
-- Bundling - tbd add links & child pages
+- Tools packaged in Chef Workstation 
 
-  - Chef Infra Client
+  - [Chef Infra Client](https://github.com/chef/chef/blob/main/docs/dev/README.md)
 
-  - Chef CLI
+  - [Chef CLI](https://github.com/chef/chef-cli/blob/main/dev-doc/README.md)
 
-  - Chef Inspec
+  - [Chef Inspec](https://github.com/inspec/inspec/blob/main/dev-docs/compliance.md)
 
-  - Chef Habitat
+  - [Chef Habitat](https://github.com/habitat-sh/habitat/blob/main/dev-docs/dev/README.md)
 
-  - Test Kitchen
+  - [Test Kitchen](https://kitchen.ci/docs/getting-started/introduction/)
 
-  - Cookstyle
+  - [Cookstyle](https://github.com/chef/cookstyle/blob/main/DEVELOPER_GUIDE.md)
 
-- Reference Diagrams - tbd
 
 - [Release Process](https://github.com/chef/chef-workstation/dev-docs/)
 

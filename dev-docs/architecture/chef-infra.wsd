@@ -1,0 +1,14 @@
+@startuml
+[Workstation] as CWS
+[Chef Client Node] as CN
+[Chef Server] as CS
+[Supermarket] as SM
+[Automate HA] as AHA
+
+CWS ..> SM: Reuse and share cookbooks
+CWS ..> CS: Update cookbooks, roles, users
+CWS ..> CN: Ad hoc configuration updates
+CS  ..> CN: IaS driven configuration updates
+CS  <..> SM: User Authentication
+CS <..> AHA: Configuration updates
+@enduml
