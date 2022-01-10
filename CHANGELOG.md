@@ -317,7 +317,6 @@
 - Bump chef-analyze CLI to 0.1.109 [#2081](https://github.com/chef/chef-workstation/pull/2081) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump omnibus-software from `bdb61f0` to `68f693d` in /omnibus [#2083](https://github.com/chef/chef-workstation/pull/2083) ([dependabot[bot]](https://github.com/dependabot[bot]))
 - Bump omnibus-software from `68f693d` to `c626aa2` in /omnibus [#2084](https://github.com/chef/chef-workstation/pull/2084) ([dependabot[bot]](https://github.com/dependabot[bot]))
-<!-- latest_stable_release -->
 
 ## [21.6.479](https://github.com/chef/chef-workstation/tree/21.6.479) (2021-06-09)
 
