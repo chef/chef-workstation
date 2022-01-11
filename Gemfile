@@ -6,4 +6,7 @@ group :development do
   # enable tests for the verification behavior in omnibus/verification
   gem "chef-cli"
   gem "rspec"
+
+  gem "simplecov", require: false
 end
+
