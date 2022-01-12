@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.748 -->
-## [22.1.748](https://github.com/chef/chef-workstation/tree/22.1.748) (2022-01-12)
+<!-- latest_release 22.1.749 -->
+## [22.1.749](https://github.com/chef/chef-workstation/tree/22.1.749) (2022-01-12)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.105 [#2493](https://github.com/chef/chef-workstation/pull/2493) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.106 [#2496](https://github.com/chef/chef-workstation/pull/2496) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.745 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.106 [#2496](https://github.com/chef/chef-workstation/pull/2496) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.749 -->
 - Bump Chef Workstation App to 0.2.105 [#2493](https://github.com/chef/chef-workstation/pull/2493) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.748 -->
 - Remove the Delivery CLI from Workstation [#2469](https://github.com/chef/chef-workstation/pull/2469) ([tas50](https://github.com/tas50)) <!-- 22.1.746 -->
 - Bump omnibus-software from `b6dd27a` to `94ef29b` in /omnibus [#2488](https://github.com/chef/chef-workstation/pull/2488) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.747 -->
