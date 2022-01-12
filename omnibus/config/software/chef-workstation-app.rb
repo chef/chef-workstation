@@ -22,8 +22,8 @@ license_file "LICENSE"
 
 # These three lines are updated automatically by Expeditor
 default_version "0.2.104"
-source sha1: "31a3ff5b8c3b9197cc8c78dc51a8b2bb69beb6c5" if windows?
-source sha1: "6b5218a7b35a5b028ed3a7a13b7f1cbf02fc4086" if linux?
+source sha1: "6bc709d6da8e15a291db3ce1d1d8f1ef7345ba2e" if windows?
+source sha1: "494917b1c6b56d610b453656a64a0cfcfc4351e3" if linux?
 
 platform_name = if macos?
                   "darwin"
