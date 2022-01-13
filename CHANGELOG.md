@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.750 -->
-## [22.1.750](https://github.com/chef/chef-workstation/tree/22.1.750) (2022-01-13)
+<!-- latest_release 22.1.751 -->
+## [22.1.751](https://github.com/chef/chef-workstation/tree/22.1.751) (2022-01-13)
 
 #### Merged Pull Requests
-- Worked on including habitat package in M1 bundling. [#2456](https://github.com/chef/chef-workstation/pull/2456) ([ashwin-msys](https://github.com/ashwin-msys))
+- Bump nokogiri to 1.13.1 [#2499](https://github.com/chef/chef-workstation/pull/2499) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.745 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump nokogiri to 1.13.1 [#2499](https://github.com/chef/chef-workstation/pull/2499) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.751 -->
 - Worked on including habitat package in M1 bundling. [#2456](https://github.com/chef/chef-workstation/pull/2456) ([ashwin-msys](https://github.com/ashwin-msys)) <!-- 22.1.750 -->
 - Bump Chef Workstation App to 0.2.106 [#2496](https://github.com/chef/chef-workstation/pull/2496) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.749 -->
 - Bump Chef Workstation App to 0.2.105 [#2493](https://github.com/chef/chef-workstation/pull/2493) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.748 -->
