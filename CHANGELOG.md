@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.752 -->
-## [22.1.752](https://github.com/chef/chef-workstation/tree/22.1.752) (2022-01-13)
+<!-- latest_release 22.1.753 -->
+## [22.1.753](https://github.com/chef/chef-workstation/tree/22.1.753) (2022-01-14)
 
 #### Merged Pull Requests
-- Bump cookstyle to 7.27.0 [#2502](https://github.com/chef/chef-workstation/pull/2502) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 7.28.2 [#2503](https://github.com/chef/chef-workstation/pull/2503) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.745 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump cookstyle to 7.28.2 [#2503](https://github.com/chef/chef-workstation/pull/2503) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.753 -->
 - Bump cookstyle to 7.27.0 [#2502](https://github.com/chef/chef-workstation/pull/2502) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.752 -->
 - Bump nokogiri to 1.13.1 [#2499](https://github.com/chef/chef-workstation/pull/2499) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.751 -->
 - Worked on including habitat package in M1 bundling. [#2456](https://github.com/chef/chef-workstation/pull/2456) ([ashwin-msys](https://github.com/ashwin-msys)) <!-- 22.1.750 -->
