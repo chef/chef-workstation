@@ -19,6 +19,6 @@ This directory contains useful information to help Chef Workstation developers g
   - [Cookstyle](https://github.com/chef/cookstyle/blob/main/DEVELOPER_GUIDE.md)
 
 
-- [Release Process](https://github.com/chef/chef-workstation/dev-docs/)
+- [Release Process](https://github.com/chef/chef-workstation/blob/main/dev-docs/Release-Process.md)
 
-- [Product Documentation](./Release-Process.md)
+- [Product Documentation](https://docs.chef.io/workstation/)
