@@ -26,11 +26,15 @@ source sha1: "" if windows?
 source sha1: "" if linux?
 
 platform_name = if macos?
-                  "darwin"
+                  if arm?
+                    "darwin-arm64"
+                  else
+                    "darwin-x64"
+                  end
                 elsif windows?
-                  "win32"
+                  "win32-x64"
                 else
-                  "linux"
+                  "linux-x64"
                 end
 
 source_url = "https://packages.chef.io/files/unstable/chef-workstation-app/#{version}/chef-workstation-app-#{version}-#{platform_name}.zip"

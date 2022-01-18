@@ -22,8 +22,8 @@ version="${VERSION:-$default_version}"
 branch="expeditor/chef_workstation_app_${version}"
 git checkout -b "$branch"
 
-linux_checksum=$(jfrog rt s --apikey "$ARTIFACTORY_TOKEN" --url=https://artifactory.chef.co/artifactory "files-unstable-local/chef-workstation-app/${version}/chef-workstation-app-${version}-linux.zip" | jq -r '.[] | .sha1')
-windows_checksum=$(jfrog rt s --apikey "$ARTIFACTORY_TOKEN" --url=https://artifactory.chef.co/artifactory "files-unstable-local/chef-workstation-app/${version}/chef-workstation-app-${version}-win32.zip" | jq -r '.[] | .sha1')
+linux_checksum=$(jfrog rt s --apikey "$ARTIFACTORY_TOKEN" --url=https://artifactory.chef.co/artifactory "files-unstable-local/chef-workstation-app/${version}/chef-workstation-app-${version}-linux-x64.zip" | jq -r '.[] | .sha1')
+windows_checksum=$(jfrog rt s --apikey "$ARTIFACTORY_TOKEN" --url=https://artifactory.chef.co/artifactory "files-unstable-local/chef-workstation-app/${version}/chef-workstation-app-${version}-win32-x64.zip" | jq -r '.[] | .sha1')
 
 sed -i -r "s/^default_version \".+\"/default_version \"${version}\"/" omnibus/config/software/chef-workstation-app.rb
 sed -i -r "s/^source sha1\: \".+\" if linux\?$/source sha1: \"$linux_checksum\" if linux?/" omnibus/config/software/chef-workstation-app.rb
