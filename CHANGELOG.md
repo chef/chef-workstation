@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.761 -->
-## [22.1.761](https://github.com/chef/chef-workstation/tree/22.1.761) (2022-01-18)
+<!-- latest_release 22.1.762 -->
+## [22.1.762](https://github.com/chef/chef-workstation/tree/22.1.762) (2022-01-18)
 
 #### Merged Pull Requests
-- Bump chefstyle to 2.2.1 and cookstyle to 7.30.3 [#2517](https://github.com/chef/chef-workstation/pull/2517) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 7.30.3 [#2518](https://github.com/chef/chef-workstation/pull/2518) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.745 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump cookstyle to 7.30.3 [#2518](https://github.com/chef/chef-workstation/pull/2518) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.762 -->
 - Bump chefstyle to 2.2.1 and cookstyle to 7.30.3 [#2517](https://github.com/chef/chef-workstation/pull/2517) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.761 -->
 - Bump chef-cli to 5.5.4 [#2516](https://github.com/chef/chef-workstation/pull/2516) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.760 -->
 - Added the sha1  for window and linux [#2515](https://github.com/chef/chef-workstation/pull/2515) ([nikhil2611](https://github.com/nikhil2611)) <!-- 22.1.759 -->
