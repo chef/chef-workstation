@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.758 -->
-## [22.1.758](https://github.com/chef/chef-workstation/tree/22.1.758) (2022-01-18)
+<!-- latest_release 22.1.759 -->
+## [22.1.759](https://github.com/chef/chef-workstation/tree/22.1.759) (2022-01-18)
 
 #### Merged Pull Requests
-- Added the arch extension for the ws-app [#2513](https://github.com/chef/chef-workstation/pull/2513) ([nikhil2611](https://github.com/nikhil2611))
+- Added the sha1  for window and linux [#2515](https://github.com/chef/chef-workstation/pull/2515) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.745 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Added the sha1  for window and linux [#2515](https://github.com/chef/chef-workstation/pull/2515) ([nikhil2611](https://github.com/nikhil2611)) <!-- 22.1.759 -->
 - Added the arch extension for the ws-app [#2513](https://github.com/chef/chef-workstation/pull/2513) ([nikhil2611](https://github.com/nikhil2611)) <!-- 22.1.758 -->
 - Bump Chef Workstation App to 0.2.110 [#2514](https://github.com/chef/chef-workstation/pull/2514) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.757 -->
 - Bump omnibus-software from `94ef29b` to `16e5ae5` in /omnibus [#2511](https://github.com/chef/chef-workstation/pull/2511) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.756 -->
