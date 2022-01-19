@@ -8,21 +8,21 @@ expeditor:
         automatic:
           limit: 1
 steps:
-- label: chefstyle-tests-ruby-2.7
+- label: chefstyle-tests-ruby-3.0
   command:
     - .expeditor/run_linux_tests.sh rake style
   expeditor:
     executor:
       docker:
-        image: ruby:2.7-buster
+        image: ruby:3.0-buster
 # This tests that our verify.rb script (and dependencies) can successfully test components included in CW
-- label: component-test-tests-ruby-2.7
+- label: component-test-tests-ruby-3.0
   command:
     - .expeditor/run_linux_tests.sh rspec omnibus/verification
   expeditor:
     executor:
       docker:
-        image: ruby:2.7-buster
+        image: ruby:3.0-buster
 - label: ":linux: :darwin: :windows: top-level chef cmd"
   commands:
     - cd components/main-chef-wrapper
