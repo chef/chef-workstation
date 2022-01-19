@@ -28,10 +28,7 @@ this (and all) knife subcommands and plugins.
 
 This subcommand requires WinRM to be installed, and then configured
 correctly, including ensuring the correct ports are open. For more
-information, see:
-<https://docs.microsoft.com/en-us/windows/desktop/WinRM/installation-and-configuration-for-windows-remote-management>
-and/or
-<https://support.microsoft.com/en-us/help/968930/windows-management-framework-core-package-windows-powershell-2-0-and-w>.
+information, see Microsoft's documentation on [Windows Remote Management](https://docs.microsoft.com/en-us/windows/desktop/WinRM/installation-and-configuration-for-windows-remote-management).
 Use the quick configuration option in WinRM to allow outside connections
 and the entire network path from knife (and the workstation). Run the
 following on the Windows target:

@@ -24,11 +24,6 @@ chef-repo and the Chef Infra Server. knife helps users to manage:
 - The installation of Chef Infra Client onto nodes
 - Searching of indexed data on the Chef Infra Server
 
-The Knife Quick Reference provides an all-in-one quick reference of
-knife commands. You can view the
-[overview](https://github.com/chef/quick-reference/blob/main/qr_knife_web.png)
-or download the [source files](https://github.com/chef/quick-reference).
-
 <table>
 <colgroup>
 <col style="width: 25%" />
