@@ -704,7 +704,7 @@ handling user interactions:
 </tr>
 <tr>
 <td><code>ui.highline</code></td>
-<td>Use to provide direct access to the <a href="http://highline.rubyforge.org/doc/">Highline object</a> used by many <code>ui</code> methods.</td>
+<td>Use to provide direct access to the <a href="https://www.rubydoc.info/gems/highline/HighLine">Highline object</a> used by many <code>ui</code> methods.</td>
 </tr>
 <tr>
 <td><code>ui.info</code></td>

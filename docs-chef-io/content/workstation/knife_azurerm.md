@@ -83,7 +83,7 @@ This argument has the following options:
 
 `-a`, `--azure-storage-account NAME`
 
-: Required for advanced server-create option. A name for the storage account that is unique within Windows Azure. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. This name is the DNS prefix name and can be used to access blobs, queues, and tables in the storage account. For example: <http://ServiceName.blob.core.windows.net/mycontainer/>
+: Required for advanced server-create option. A name for the storage account that is unique within Windows Azure. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. This name is the DNS prefix name and can be used to access blobs, queues, and tables in the storage account. For example: `http://ServiceName.blob.core.windows.net/mycontainer/`
 
 `--azure-availability-set NAME`
 
