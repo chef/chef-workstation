@@ -38,6 +38,9 @@ build do
         f.write("@ECHO OFF\n\"%~dpn0.exe\" %*")
       end
     end
+  elsif macos? && arm?
+    # apple silicon
+    GOOS=darwin GOARCH=arm64  go "build -o #{install_dir}/bin/chef", env: env
   else
     # Unix systems has no extention
     go "build -o #{install_dir}/bin/chef", env: env
