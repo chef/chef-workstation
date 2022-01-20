@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.770 -->
-## [22.1.770](https://github.com/chef/chef-workstation/tree/22.1.770) (2022-01-20)
+<!-- latest_release 22.1.771 -->
+## [22.1.771](https://github.com/chef/chef-workstation/tree/22.1.771) (2022-01-20)
 
 #### Merged Pull Requests
-- Test on Ruby 3 + fix ruby path in dockerfile [#2528](https://github.com/chef/chef-workstation/pull/2528) ([tas50](https://github.com/tas50))
+- Bump chef-apply to 0.9.0 [#2533](https://github.com/chef/chef-workstation/pull/2533) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.745 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-apply to 0.9.0 [#2533](https://github.com/chef/chef-workstation/pull/2533) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.771 -->
 - Test on Ruby 3 + fix ruby path in dockerfile [#2528](https://github.com/chef/chef-workstation/pull/2528) ([tas50](https://github.com/tas50)) <!-- 22.1.770 -->
 - Bump github.com/chef/go-libs from 0.4.0 to 0.4.1 in /components/main-chef-wrapper [#2483](https://github.com/chef/chef-workstation/pull/2483) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.769 -->
 - Bump github.com/spf13/cobra from 1.0.0 to 1.3.0 in /components/main-chef-wrapper [#2481](https://github.com/chef/chef-workstation/pull/2481) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.768 -->
