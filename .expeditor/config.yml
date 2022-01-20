@@ -166,6 +166,9 @@ subscriptions:
   - workload: ruby_gem_published:kitchen-vcenter-*
     actions:
        - bash:.expeditor/update_dep.sh
+  - workload: ruby_gem_published:kitchen-vra-*
+    actions:
+       - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:knife-*
     actions:
        - bash:.expeditor/update_dep.sh
