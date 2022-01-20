@@ -1,5 +1,5 @@
 +++
-title = "Knife winrm"
+title = "knife winrm"
 draft = false
 
 gh_repo = "chef-workstation"

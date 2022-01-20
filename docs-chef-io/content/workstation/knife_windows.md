@@ -1,5 +1,5 @@
 +++
-title = "Knife Windows"
+title = "knife windows"
 draft = false
 
 gh_repo = "chef-workstation"
@@ -12,8 +12,6 @@ aliases = ["/knife_windows.html", "/knife_windows/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_windows.md knife windows"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-## Knife Windows Overview
 
 {{% knife_windows_summary %}}
 
