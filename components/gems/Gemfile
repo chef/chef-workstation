@@ -69,7 +69,7 @@ group(:omnibus_package) do
   gem "kitchen-ec2", ">= 3.10"
   gem "kitchen-digitalocean", ">= 0.13"
   gem "kitchen-dokken", ">= 2.14"
-  gem "docker-api", ">= 2.0" # make sure we get the Ruby 2.7 compatible release
+  gem "docker-api", ">= 2.0" # make sure we get the Ruby 2.7+ compatible release
   gem "kitchen-google", ">= 2.2"
   gem "kitchen-hyperv", ">= 0.6"
   gem "kitchen-inspec", ">= 2.5"
@@ -108,7 +108,6 @@ group(:omnibus_package) do
   gem "pry", "= 0.13.0"
   gem "pry-byebug"
   gem "pry-remote"
-  # pry-stack_explorer 0.4.9.3 emits warnings under 2.7 under inspec shell
   gem "pry-stack_explorer", ">= 0.5.1"
   gem "rb-readline"
   gem "winrm-fs"
@@ -133,7 +132,7 @@ platforms :mswin, :mingw do
   gem "win32-dir"
   gem "win32-event"
   gem "win32-mutex"
-  gem "win32-process", ">= 0.9.0" # resolves Ruby 2.7 warnings
+  gem "win32-process", ">= 0.9.0" # resolves Ruby 2.7+ warnings
   gem "win32-service", ">= 2.1.5" # 2.1.5 resolves ffi warnings
   gem "win32-security" # remove this once https://github.com/eitoball/net-ping/pull/32 is merged
 end
