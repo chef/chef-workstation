@@ -36,7 +36,7 @@ this (and all) knife subcommands and plugins.
 
 {{< /note >}}
 
-config.rb Configuration [plugin_knife_opc-knife-rb-configuration]
+config.rb Configuration
 =======================
 
 Unlike other knife subcommands the subcommands in the knife-opc plugin
