@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.765 -->
-## [22.1.765](https://github.com/chef/chef-workstation/tree/22.1.765) (2022-01-19)
+<!-- latest_release 22.1.766 -->
+## [22.1.766](https://github.com/chef/chef-workstation/tree/22.1.766) (2022-01-20)
 
 #### Merged Pull Requests
-- Bump omnibus from `2bf77bb` to `7c5db7e` in /omnibus [#2525](https://github.com/chef/chef-workstation/pull/2525) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Add kitchen-vra to Workstation [#2527](https://github.com/chef/chef-workstation/pull/2527) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.745 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Add kitchen-vra to Workstation [#2527](https://github.com/chef/chef-workstation/pull/2527) ([tas50](https://github.com/tas50)) <!-- 22.1.766 -->
 - Bump omnibus from `2bf77bb` to `7c5db7e` in /omnibus [#2525](https://github.com/chef/chef-workstation/pull/2525) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.765 -->
 - Bump omnibus-software from `16e5ae5` to `dd555fa` in /omnibus [#2524](https://github.com/chef/chef-workstation/pull/2524) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.764 -->
 - Added support for chef main wrapper for m1 [#2523](https://github.com/chef/chef-workstation/pull/2523) ([sanghinitin](https://github.com/sanghinitin)) <!-- 22.1.763 -->
