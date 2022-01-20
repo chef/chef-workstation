@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.766 -->
-## [22.1.766](https://github.com/chef/chef-workstation/tree/22.1.766) (2022-01-20)
+<!-- latest_release 22.1.767 -->
+## [22.1.767](https://github.com/chef/chef-workstation/tree/22.1.767) (2022-01-20)
 
 #### Merged Pull Requests
-- Add kitchen-vra to Workstation [#2527](https://github.com/chef/chef-workstation/pull/2527) ([tas50](https://github.com/tas50))
+- Bump chef-cli to 5.5.5 [#2532](https://github.com/chef/chef-workstation/pull/2532) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.745 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-cli to 5.5.5 [#2532](https://github.com/chef/chef-workstation/pull/2532) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.767 -->
 - Add kitchen-vra to Workstation [#2527](https://github.com/chef/chef-workstation/pull/2527) ([tas50](https://github.com/tas50)) <!-- 22.1.766 -->
 - Bump omnibus from `2bf77bb` to `7c5db7e` in /omnibus [#2525](https://github.com/chef/chef-workstation/pull/2525) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.765 -->
 - Bump omnibus-software from `16e5ae5` to `dd555fa` in /omnibus [#2524](https://github.com/chef/chef-workstation/pull/2524) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.764 -->
