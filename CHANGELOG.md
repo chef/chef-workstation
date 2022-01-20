@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.768 -->
-## [22.1.768](https://github.com/chef/chef-workstation/tree/22.1.768) (2022-01-20)
+<!-- latest_release 22.1.769 -->
+## [22.1.769](https://github.com/chef/chef-workstation/tree/22.1.769) (2022-01-20)
 
 #### Merged Pull Requests
-- Bump github.com/spf13/cobra from 1.0.0 to 1.3.0 in /components/main-chef-wrapper [#2481](https://github.com/chef/chef-workstation/pull/2481) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump github.com/chef/go-libs from 0.4.0 to 0.4.1 in /components/main-chef-wrapper [#2483](https://github.com/chef/chef-workstation/pull/2483) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.745 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump github.com/chef/go-libs from 0.4.0 to 0.4.1 in /components/main-chef-wrapper [#2483](https://github.com/chef/chef-workstation/pull/2483) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.769 -->
 - Bump github.com/spf13/cobra from 1.0.0 to 1.3.0 in /components/main-chef-wrapper [#2481](https://github.com/chef/chef-workstation/pull/2481) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.768 -->
 - Bump chef-cli to 5.5.5 [#2532](https://github.com/chef/chef-workstation/pull/2532) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.767 -->
 - Add kitchen-vra to Workstation [#2527](https://github.com/chef/chef-workstation/pull/2527) ([tas50](https://github.com/tas50)) <!-- 22.1.766 -->
