@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.772 -->
-## [22.1.772](https://github.com/chef/chef-workstation/tree/22.1.772) (2022-01-20)
+<!-- latest_release 22.1.773 -->
+## [22.1.773](https://github.com/chef/chef-workstation/tree/22.1.773) (2022-01-24)
 
 #### Merged Pull Requests
-- Bump omnibus from `7c5db7e` to `9c83f73` in /omnibus [#2535](https://github.com/chef/chef-workstation/pull/2535) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Update builds to remove delivery logic / use the chef_deprecations binary [#2536](https://github.com/chef/chef-workstation/pull/2536) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.745 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update builds to remove delivery logic / use the chef_deprecations binary [#2536](https://github.com/chef/chef-workstation/pull/2536) ([tas50](https://github.com/tas50)) <!-- 22.1.773 -->
 - Bump omnibus from `7c5db7e` to `9c83f73` in /omnibus [#2535](https://github.com/chef/chef-workstation/pull/2535) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.772 -->
 - Bump chef-apply to 0.9.0 [#2533](https://github.com/chef/chef-workstation/pull/2533) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.771 -->
 - Test on Ruby 3 + fix ruby path in dockerfile [#2528](https://github.com/chef/chef-workstation/pull/2528) ([tas50](https://github.com/tas50)) <!-- 22.1.770 -->
