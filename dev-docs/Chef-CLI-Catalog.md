@@ -13,7 +13,6 @@ that our users use (almost) every day are:
 * knife
 * berks (Berkshelf)
 * cookstyle
-* delivery
 * chef-client
 * chef-run/chef-apply
 * chef-shell
