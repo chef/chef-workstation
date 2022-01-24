@@ -23,7 +23,6 @@ require "chef-cli/dist"
 require "chef-cli/command/base"
 require "chef-cli/exceptions"
 require "chef-cli/helpers"
-
 require_relative "component_test"
 
 module ChefWorkstation
@@ -187,9 +186,6 @@ module ChefWorkstation
           bundle_install_mutex.synchronize { sh("#{embedded_bin("bundle")} install") }
           sh("#{embedded_bin("bundle")} exec #{embedded_bin("rspec")}")
         end
-        c.smoke_test do
-          run_in_tmpdir("#{bin("chef")} generate cookbook example")
-        end
       end
 
       add_component "chef-apply" do |c|
@@ -232,17 +228,6 @@ module ChefWorkstation
         end
       end
 
-      add_component "generated-cookbooks-pass-chefspec" do |c|
-
-        c.gem_base_dir = "chef-cli"
-        c.smoke_test do
-          tmpdir do |cwd|
-            sh("#{bin("chef")} generate cookbook example", cwd: cwd)
-            cb_cwd = File.join(cwd, "example")
-            sh(embedded_bin("rspec"), cwd: cb_cwd)
-          end
-        end
-      end
       add_component "fauxhai-ng" do |c|
         c.gem_base_dir = "fauxhai-ng"
         c.smoke_test { sh("#{embedded_bin("gem")} list fauxhai-ng") }
@@ -414,7 +399,6 @@ module ChefWorkstation
         invoke_tests
         wait_for_tests
         report_results
-
         verification_status
       end
 
