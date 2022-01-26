@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.773 -->
-## [22.1.773](https://github.com/chef/chef-workstation/tree/22.1.773) (2022-01-24)
+<!-- latest_release 22.1.774 -->
+## [22.1.774](https://github.com/chef/chef-workstation/tree/22.1.774) (2022-01-26)
 
 #### Merged Pull Requests
-- Update builds to remove delivery logic / use the chef_deprecations binary [#2536](https://github.com/chef/chef-workstation/pull/2536) ([tas50](https://github.com/tas50))
+- Bump chef-cli to 5.5.6 [#2548](https://github.com/chef/chef-workstation/pull/2548) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.745 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-cli to 5.5.6 [#2548](https://github.com/chef/chef-workstation/pull/2548) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.774 -->
 - Update builds to remove delivery logic / use the chef_deprecations binary [#2536](https://github.com/chef/chef-workstation/pull/2536) ([tas50](https://github.com/tas50)) <!-- 22.1.773 -->
 - Bump omnibus from `7c5db7e` to `9c83f73` in /omnibus [#2535](https://github.com/chef/chef-workstation/pull/2535) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.772 -->
 - Bump chef-apply to 0.9.0 [#2533](https://github.com/chef/chef-workstation/pull/2533) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.771 -->
