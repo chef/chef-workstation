@@ -7,10 +7,11 @@ gh_repo = "chef-workstation"
 [menu]
   [menu.workstation]
     title = "knife winrm"
-    identifier = "chef_workstation/chef_workstation_tools/knife/knife_winrm.md knife rinrm"
+    identifier = "chef_workstation/chef_workstation_tools/knife/knife_winrm.md knife winrm"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
 
+<!-- markdownlint-disable-file MD036 -->
 ## Knife winrm Overview
 
 Use the `knife winrm` subcommand to invoke commands over WinRM (in parallel) on a subset of nodes within an organization, based on the results of a search query made to the Chef Infra Server.
@@ -24,6 +25,7 @@ Review the list of [common options](/workstation/knife_options/) available to th
 ### Requirements
 
 This subcommand requires WinRM to be installed, and then configured correctly, including ensuring the correct ports are open. For more information, see Microsoft's documentation on [Windows Remote Management](https://docs.microsoft.com/en-us/windows/desktop/WinRM/installation-and-configuration-for-windows-remote-management).
+
 Use the quick configuration option in WinRM to allow outside connections and the entire network path from knife (and the workstation). Run the following on the Windows target:
 
 ```powershell
@@ -47,11 +49,11 @@ C:\> netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-I
 
 ### Negotiate, NTLM
 
-When knife is executed from a Microsoft Windows system, it is no longer necessary to make additional configuration of the WinRM listener on the target node to enable successful authentication from the workstation. It is sufficient to have a WinRM listener on the remote node configured to use the default configuration for `winrm quickconfig`. This is because `knife winrm` supports the Microsoft Windows negotiate protocol, including NTLM authentication, which matches the authentication requirements for the default configuration of the WinRM listener.
+When knife is executed from a Windows system, it is no longer necessary to make additional configuration of the WinRM listener on the target node to enable successful authentication from the workstation. It is sufficient to have a WinRM listener on the remote node configured to use the default configuration for `winrm quickconfig`. This is because `knife winrm` supports the Windows negotiate protocol, including NTLM authentication, which matches the authentication requirements for the default configuration of the WinRM listener.
 
 {{< note >}}
 
-To use Negotiate or NTLM to authenticate as the user specified by the `--winrm-user` option, include the user's Microsoft Windows domain, using the format `domain\user`, where the backslash (`\`) separates the domain from the user.
+To use Negotiate or NTLM to authenticate as the user specified by the `--winrm-user` option, include the user's Windows domain, using the format `domain\user`, where the backslash (`\`) separates the domain from the user.
 
 {{< /note >}}
 
@@ -69,7 +71,7 @@ knife winrm db1.cloudapp.net 'dir' -x '.\localadmin' -P 'password'
 
 ### Domain Authentication
 
-The `knife winrm` subcommand supports Microsoft Windows domain authentication. This requires:
+The `knife winrm` subcommand supports Windows domain authentication. This requires:
 
 - An SSL certificate on the target node
 - The certificate details can be viewed and its [thumbprint hex values copied](https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)
