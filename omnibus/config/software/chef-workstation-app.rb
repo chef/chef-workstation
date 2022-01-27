@@ -21,16 +21,20 @@ skip_transitive_dependency_licensing
 license_file "LICENSE"
 
 # These three lines are updated automatically by Expeditor
-default_version "0.2.104"
-source sha1: "31a3ff5b8c3b9197cc8c78dc51a8b2bb69beb6c5" if windows?
-source sha1: "6b5218a7b35a5b028ed3a7a13b7f1cbf02fc4086" if linux?
+default_version "0.2.110"
+source sha1: "6b128fe9c4f0b275320424a891299e038ebb904c" if windows?
+source sha1: "d3d17fd5e04f91b0800e8fd6ebf49decadf1737b" if linux?
 
 platform_name = if macos?
-                  "darwin"
+                  if arm?
+                    "darwin-arm64"
+                  else
+                    "darwin-x64"
+                  end
                 elsif windows?
-                  "win32"
+                  "win32-x64"
                 else
-                  "linux"
+                  "linux-x64"
                 end
 
 source_url = "https://packages.chef.io/files/unstable/chef-workstation-app/#{version}/chef-workstation-app-#{version}-#{platform_name}.zip"

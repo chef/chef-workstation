@@ -389,10 +389,6 @@ This subcommand has the following options:
 
 : Specify the copyright holder for copyright notices in generated files. Default value: `The Authors`
 
-`-d`, `--delivery`
-
-: Generate a delivery config file and build cookbook inside the new cookbook. Default value: disabled. This option is disabled. It has no effect and exists only for compatibility with past releases
-
 `-m EMAIL`, `--email EMAIL`
 
 : Specify the email address of the author. Default value: `you@example.com`.

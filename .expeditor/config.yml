@@ -79,9 +79,6 @@ subscriptions:
   - workload: buildkite_build_passed:chef/chef-workstation-app:main:release:*
     actions:
       - bash:.expeditor/update_chef-workstation-app_to_latest.sh
-  - workload: chef/delivery-cli:main_completed:pull_request_merged:chef/delivery-cli:main:*
-    actions:
-      - bash:.expeditor/update_delivery-cli_to_latest.sh
   - workload: chef/chef-analyze:main_completed:pull_request_merged:chef/chef-analyze:main:*
     actions:
       - bash:.expeditor/update_chef-analyze_to_latest.sh
@@ -164,6 +161,9 @@ subscriptions:
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:kitchen-vcenter-*
+    actions:
+       - bash:.expeditor/update_dep.sh
+  - workload: ruby_gem_published:kitchen-vra-*
     actions:
        - bash:.expeditor/update_dep.sh
   - workload: ruby_gem_published:knife-*

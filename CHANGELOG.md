@@ -1,15 +1,42 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.747 -->
-## [22.1.747](https://github.com/chef/chef-workstation/tree/22.1.747) (2022-01-10)
+<!-- latest_release 22.1.774 -->
+## [22.1.774](https://github.com/chef/chef-workstation/tree/22.1.774) (2022-01-26)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `b6dd27a` to `94ef29b` in /omnibus [#2488](https://github.com/chef/chef-workstation/pull/2488) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump chef-cli to 5.5.6 [#2548](https://github.com/chef/chef-workstation/pull/2548) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.745 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-cli to 5.5.6 [#2548](https://github.com/chef/chef-workstation/pull/2548) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.774 -->
+- Update builds to remove delivery logic / use the chef_deprecations binary [#2536](https://github.com/chef/chef-workstation/pull/2536) ([tas50](https://github.com/tas50)) <!-- 22.1.773 -->
+- Bump omnibus from `7c5db7e` to `9c83f73` in /omnibus [#2535](https://github.com/chef/chef-workstation/pull/2535) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.772 -->
+- Bump chef-apply to 0.9.0 [#2533](https://github.com/chef/chef-workstation/pull/2533) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.771 -->
+- Test on Ruby 3 + fix ruby path in dockerfile [#2528](https://github.com/chef/chef-workstation/pull/2528) ([tas50](https://github.com/tas50)) <!-- 22.1.770 -->
+- Bump github.com/chef/go-libs from 0.4.0 to 0.4.1 in /components/main-chef-wrapper [#2483](https://github.com/chef/chef-workstation/pull/2483) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.769 -->
+- Bump github.com/spf13/cobra from 1.0.0 to 1.3.0 in /components/main-chef-wrapper [#2481](https://github.com/chef/chef-workstation/pull/2481) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.768 -->
+- Bump chef-cli to 5.5.5 [#2532](https://github.com/chef/chef-workstation/pull/2532) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.767 -->
+- Add kitchen-vra to Workstation [#2527](https://github.com/chef/chef-workstation/pull/2527) ([tas50](https://github.com/tas50)) <!-- 22.1.766 -->
+- Bump omnibus from `2bf77bb` to `7c5db7e` in /omnibus [#2525](https://github.com/chef/chef-workstation/pull/2525) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.765 -->
+- Bump omnibus-software from `16e5ae5` to `dd555fa` in /omnibus [#2524](https://github.com/chef/chef-workstation/pull/2524) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.764 -->
+- Added support for chef main wrapper for m1 [#2523](https://github.com/chef/chef-workstation/pull/2523) ([sanghinitin](https://github.com/sanghinitin)) <!-- 22.1.763 -->
+- Bump cookstyle to 7.30.3 [#2518](https://github.com/chef/chef-workstation/pull/2518) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.762 -->
+- Bump chefstyle to 2.2.1 and cookstyle to 7.30.3 [#2517](https://github.com/chef/chef-workstation/pull/2517) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.761 -->
+- Bump chef-cli to 5.5.4 [#2516](https://github.com/chef/chef-workstation/pull/2516) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.760 -->
+- Added the sha1  for window and linux [#2515](https://github.com/chef/chef-workstation/pull/2515) ([nikhil2611](https://github.com/nikhil2611)) <!-- 22.1.759 -->
+- Added the arch extension for the ws-app [#2513](https://github.com/chef/chef-workstation/pull/2513) ([nikhil2611](https://github.com/nikhil2611)) <!-- 22.1.758 -->
+- Bump Chef Workstation App to 0.2.110 [#2514](https://github.com/chef/chef-workstation/pull/2514) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.757 -->
+- Bump omnibus-software from `94ef29b` to `16e5ae5` in /omnibus [#2511](https://github.com/chef/chef-workstation/pull/2511) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.756 -->
+- Bump cookstyle to 7.30.1 [#2510](https://github.com/chef/chef-workstation/pull/2510) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.755 -->
+- Bump Chef Workstation App to 0.2.107 [#2506](https://github.com/chef/chef-workstation/pull/2506) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.754 -->
+- Bump cookstyle to 7.28.2 [#2503](https://github.com/chef/chef-workstation/pull/2503) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.753 -->
+- Bump cookstyle to 7.27.0 [#2502](https://github.com/chef/chef-workstation/pull/2502) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.752 -->
+- Bump nokogiri to 1.13.1 [#2499](https://github.com/chef/chef-workstation/pull/2499) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.751 -->
+- Worked on including habitat package in M1 bundling. [#2456](https://github.com/chef/chef-workstation/pull/2456) ([ashwin-msys](https://github.com/ashwin-msys)) <!-- 22.1.750 -->
+- Bump Chef Workstation App to 0.2.106 [#2496](https://github.com/chef/chef-workstation/pull/2496) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.749 -->
+- Bump Chef Workstation App to 0.2.105 [#2493](https://github.com/chef/chef-workstation/pull/2493) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.748 -->
 - Remove the Delivery CLI from Workstation [#2469](https://github.com/chef/chef-workstation/pull/2469) ([tas50](https://github.com/tas50)) <!-- 22.1.746 -->
 - Bump omnibus-software from `b6dd27a` to `94ef29b` in /omnibus [#2488](https://github.com/chef/chef-workstation/pull/2488) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.1.747 -->
 <!-- release_rollup -->
