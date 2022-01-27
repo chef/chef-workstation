@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.1.776 -->
-## [22.1.776](https://github.com/chef/chef-workstation/tree/22.1.776) (2022-01-27)
+<!-- latest_release 22.1.777 -->
+## [22.1.777](https://github.com/chef/chef-workstation/tree/22.1.777) (2022-01-27)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.112 [#2545](https://github.com/chef/chef-workstation/pull/2545) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookstyle to 7.31.1 and fauxhai to 9.3.0 [#2554](https://github.com/chef/chef-workstation/pull/2554) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.745 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump cookstyle to 7.31.1 and fauxhai to 9.3.0 [#2554](https://github.com/chef/chef-workstation/pull/2554) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.777 -->
 - Bump Chef Workstation App to 0.2.112 [#2545](https://github.com/chef/chef-workstation/pull/2545) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.776 -->
 - To integrate test coverage % report in PR creation or merge [#2489](https://github.com/chef/chef-workstation/pull/2489) ([snehaldwivedi](https://github.com/snehaldwivedi)) <!-- 22.1.775 -->
 - Bump chef-cli to 5.5.6 [#2548](https://github.com/chef/chef-workstation/pull/2548) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.1.774 -->
