@@ -97,7 +97,7 @@ This configuration file has the following settings:
   ```
 
 `data_bag_encrypt_version`
-: The minimum required version of data bag encryption. Possible values: `1` or `2`. When all of the machines in an organization are running Chef Client 11.6 (or higher), it is recommended that this value be set to `2`. For example:
+: The minimum required version of data bag encryption. Possible values: `1` or `2`. When all of the machines in an organization are running Chef Infra Client 11.6 (or higher), it is recommended that this value be set to `2`. For example:
 
   ``` ruby
   data_bag_encrypt_version 2
@@ -111,6 +111,7 @@ This configuration file has the following settings:
   - Red Hat Enterprise Linux
   - Oracle Enterprise Linux
   - CentOS
+  - Ubuntu (with Ubuntu Advantage subscription)
   - Windows
 
 `local_mode`
