@@ -21,7 +21,6 @@ import (
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
 	"io/ioutil"
-	"log"
 	"os"
 	"path"
 	"path/filepath"
@@ -144,28 +143,28 @@ func ExpectedOmnibusRoot() string {
 	//return "/opt/chef-workstation"
 }
 
-func MatchVersions() bool{
-	// check version from env.json file and workstation version
-	WorkstationVersion := componentVersion("build_version")
-	filepath := path.Join(omnibusRoot(), "ruby-env.json")
-	jsonFile, err := os.Open(filepath)
-	if err != nil {
-		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
-		os.Exit(4)
-	}
-
-	data, err := ioutil.ReadAll(jsonFile)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	envDoc := make(map[string]interface{})
-	if err := json.Unmarshal(data, &envDoc); err != nil {
-		log.Fatal(err)
-	}
-	if envDoc["build_version"] == WorkstationVersion{
-		return true
-	} else {
-		return false
-	}
-}
+//func MatchVersions() bool{
+//	// check version from env.json file and workstation version
+//	WorkstationVersion := componentVersion("build_version")
+//	filepath := path.Join(omnibusRoot(), "ruby-env.json")
+//	jsonFile, err := os.Open(filepath)
+//	if err != nil {
+//		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+//		os.Exit(4)
+//	}
+//
+//	data, err := ioutil.ReadAll(jsonFile)
+//	if err != nil {
+//		log.Fatal(err)
+//	}
+//
+//	envDoc := make(map[string]interface{})
+//	if err := json.Unmarshal(data, &envDoc); err != nil {
+//		log.Fatal(err)
+//	}
+//	if envDoc["build_version"] == WorkstationVersion{
+//		return true
+//	} else {
+//		return false
+//	}
+//}
