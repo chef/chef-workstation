@@ -3,6 +3,7 @@ package platform_lib
 import (
 	"fmt"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
+	"gopkg.in/yaml.v2"
 	"log"
 	"os"
 	"path/filepath"

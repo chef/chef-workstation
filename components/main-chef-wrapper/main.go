@@ -19,13 +19,11 @@ limitations under the License.
 package main
 
 import (
-	"fmt"
-	"log"
 	"os"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
 	homedir "github.com/mitchellh/go-homedir"
-	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
+	//platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
 
 )
 
