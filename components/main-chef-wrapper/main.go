@@ -30,7 +30,7 @@ import (
 )
 
 func doStartupTasks() error {
-	createRubyEnv()
+	//createRubyEnv()
 	createDotChef()
 	return nil
 }
@@ -47,26 +47,26 @@ func createDotChef() {
 	os.Mkdir(path, 0700)
 }
 
-func createRubyEnv(){
-//	get installation path
-//	homepath, err := homedir.Dir()
+//func createRubyEnv(){
+////	get installation path
+////	homepath, err := homedir.Dir()
+////	if err != nil {
+////		log.Fatalf(err.Error())
+////	}
+////	todo ==> incase home directory is needed we can add it to string
+//	installationPath :=  "~/.chef-workstation/ruby-env.json"
+//	fmt.Printf(installationPath)
+//	result, err := exists(installationPath)
 //	if err != nil {
 //		log.Fatalf(err.Error())
 //	}
-//	todo ==> incase home directory is needed we can add it to string
-	installationPath :=  "~/.chef-workstation/ruby-env.json"
-	fmt.Printf(installationPath)
-	result, err := exists(installationPath)
-	if err != nil {
-		log.Fatalf(err.Error())
-	}
-	if result == true && platform_lib.MatchVersions() == true{
-		fmt.Print("file exists======== ruby script not needed")
-	} else {
-		fmt.Print("file  does not exists============ call ruby script to make ruby-env.json file\n")
-	//	 call ruby script #{install_dir}/embedded/bin/bundle/ exec ruby ruby_env_script.rb
-	}
-}
+//	if result == true && platform_lib.MatchVersions() == true{
+//		fmt.Print("file exists======== ruby script not needed")
+//	} else {
+//		fmt.Print("file  does not exists============ call ruby script to make ruby-env.json file\n")
+//	//	 call ruby script #{install_dir}/embedded/bin/bundle/ exec ruby ruby_env_script.rb
+//	}
+//}
 
 func exists(path string) (bool, error) {
 	_, err := os.Stat(path)
