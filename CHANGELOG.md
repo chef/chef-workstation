@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 22.2.779 -->
+## [22.2.779](https://github.com/chef/chef-workstation/tree/22.2.779) (2022-02-01)
+
+#### Merged Pull Requests
+- Use new dist constants for Client and InSpec [#2555](https://github.com/chef/chef-workstation/pull/2555) ([ramereth](https://github.com/ramereth))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=22.1.778 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Use new dist constants for Client and InSpec [#2555](https://github.com/chef/chef-workstation/pull/2555) ([ramereth](https://github.com/ramereth)) <!-- 22.2.779 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
