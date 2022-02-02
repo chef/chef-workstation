@@ -143,6 +143,20 @@ func ExpectedOmnibusRoot() string {
 	//return "/opt/chef-workstation"
 }
 
+func UnmarshallRubyEnv() map[string]interface{}{
+	filepath := path.Join( omnibusRoot(), "ruby-env.json")
+	jsonFile, err := os.Open(filepath)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+		os.Exit(4)
+	}
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+	var rubyenvHash map[string]interface{}
+	json.Unmarshal([]byte(byteValue), &rubyenvHash)
+	defer jsonFile.Close()
+	return rubyenvHash
+}
+
 //func MatchVersions() bool{
 //	// check version from env.json file and workstation version
 //	WorkstationVersion := componentVersion("build_version")

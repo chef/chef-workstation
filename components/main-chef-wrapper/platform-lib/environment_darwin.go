@@ -65,7 +65,7 @@ func RunEnvironment() error {
 func WorkstationInfo() ChefWorkstationInfo {
 	if OmnibusInstall() == true {
 		info := ChefWorkstationInfo{Version: lib.ChefCliVersion} // todo make sure we take right version from --cli-repo( lib/chef-cli/helpers.rb )
-		info.Home = lib.PackageHome()
+		info.Home = PackageHome()
 		info.InstallDirectory = omnibusRoot() // todo --can be shifted to cli_helper.rb
 		info.PolicyfileConfig =  PolicyFileConfigInfo{CachePath: CachePath(), StoragePath: StoragePath() }
 		return info
@@ -76,25 +76,25 @@ func WorkstationInfo() ChefWorkstationInfo {
 }
 
 func CachePath() string  {
-	return filepath.Join(lib.DefaultPackageName(), "cache")
+	return filepath.Join(DefaultPackageName(), "cache")
 }
 
 func StoragePath() string  {
-	return filepath.Join(lib.DefaultPackageName(), "cookbooks")
+	return filepath.Join(DefaultPackageName(), "cookbooks")
 }
 
 func WorkstationRubyInfo() RubyInfo {
-	rubyinfo := RubyInfo{Executable: lib.RubyExecutable() } // Gem.ruby got us this in ruby TODO- need to see how to convert this
-	rubyinfo.Version = lib.RubyVersion()// Todo- RUBY_VERSION has this value in ruby, need to see ho we cn convert this one.
-	rubyinfo.RubyGems = GemInfo{RubyGemsVersion: lib.RubyGemsVersion(), RubyGemsPlatforms: lib.RubyGemsPlatforms(), GemEnvironment: WsEnvironmentInfo() }
+	rubyinfo := RubyInfo{Executable: RubyExecutable() } // Gem.ruby got us this in ruby TODO- need to see how to convert this
+	rubyinfo.Version = RubyVersion()// Todo- RUBY_VERSION has this value in ruby, need to see ho we cn convert this one.
+	rubyinfo.RubyGems = GemInfo{RubyGemsVersion: RubyGemsVersion(), RubyGemsPlatforms: RubyGemsPlatforms(), GemEnvironment: WsEnvironmentInfo() }
 	return rubyinfo
 }
 
 func WsEnvironmentInfo() GemEnvironmentInfo {
 	if OmnibusInstall() == true {
-		envInfo := GemEnvironmentInfo{GemRoot: lib.OmnibusGemRoot()}
-		envInfo.GemHome = lib.OmnibusGemHome()
-		envInfo.GemPath = lib.OmnibusGemPath()
+		envInfo := GemEnvironmentInfo{GemRoot: OmnibusGemRoot()}
+		envInfo.GemHome = OmnibusGemHome()
+		envInfo.GemPath = OmnibusGemPath()
 		return envInfo
 	} else {
 		envInfo := GemEnvironmentInfo{}
@@ -119,7 +119,7 @@ func WsEnvironmentInfo() GemEnvironmentInfo {
 func PathInfo()  []string {
 	var pathInfo []string
 	if  OmnibusInstall() == true {
-		pathInfo := lib.OmnibusPath()
+		pathInfo := OmnibusPath()
 		return pathInfo
 	} else {
 		pathInfoStr :=  os.Getenv("PATH")
