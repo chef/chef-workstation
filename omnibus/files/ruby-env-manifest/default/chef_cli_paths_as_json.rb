@@ -69,7 +69,7 @@ info = {}
 # info["Ruby"] = ruby_info
 info["omnibus path"] = omnibus_env
 info["omnibus root"] = omnibus_root
-info["ruby info"] = RUBY_VERSION
+info["ruby info"] = ruby_info
 
 # def workstation_info
 #   info = {}
