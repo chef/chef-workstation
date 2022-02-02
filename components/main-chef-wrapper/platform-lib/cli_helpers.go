@@ -1,50 +1,33 @@
-package lib
+package platform_lib
 
 import (
-	"encoding/json"
 	"fmt"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
-	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
-	"io/ioutil"
 	"log"
 	"os"
-	"path"
 	"path/filepath"
 	"strings"
+
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 )
+
+var rubyenvMap map[string]interface{}
 
 func init() {
 	rubyenvMap = UnmarshallRubyEnv()
 }
 
-func UnmarshallRubyEnv() map[string]interface{}{
-	filepath := path.Join(platform_lib.OmnibusRoot(), "ruby-env.json")
-	jsonFile, err := os.Open(filepath)
-	if err != nil {
-		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
-		os.Exit(4)
-	}
-	byteValue, _ := ioutil.ReadAll(jsonFile)
-	var manifestHash map[string]interface{}
-	json.Unmarshal([]byte(byteValue), &manifestHash)
-	defer jsonFile.Close()
-	return manifestHash
-}
-
-func PackageHome() string{
-	var packageHomeSet =  os.Getenv("CHEF_WORKSTATION_HOME")
+func PackageHome() string {
+	var packageHomeSet = os.Getenv("CHEF_WORKSTATION_HOME")
 	var packageHome string
 	if len(packageHomeSet) != 0 {
-		packageHome =  packageHomeSet
-	}else{
-		packageHome =  DefaultPackageName()
-	}
-
+		packageHome = packageHomeSet
+	} else {
+		packageHome = DefaultPackageName()
+	}¡
 	return packageHome
 }
 
-
-func DefaultPackageName() string{
+func DefaultPackageName() string {
 	// this logic can be used if other logic doesn't work.
 	//if runtime.GOOS == "windows" {
 	//home := os.Getenv("HOMEDRIVE") + os.Getenv("HOMEPATH")
@@ -57,7 +40,7 @@ func DefaultPackageName() string{
 	//return os.Getenv("HOME")
 	home, err := os.UserHomeDir()
 	if err != nil {
-		log.Fatal( err )
+		log.Fatal(err)
 	}
 	return filepath.Join(home, dist.WorkstationDir)
 }
@@ -71,7 +54,7 @@ func RubyExecutable() string {
 }
 
 func RubyVersion() string {
-	return  "3.0.2"
+	return "3.0.2"
 }
 
 func RubyGemsVersion() string {
@@ -79,7 +62,7 @@ func RubyGemsVersion() string {
 }
 
 func RubyGemsPlatforms() []string {
-	return []string{"ruby", "x86_64-darwin-18" }
+	return []string{"ruby", "x86_64-darwin-18"}
 }
 
 func OmnibusGemHome() string {
@@ -91,7 +74,6 @@ func OmnibusGemPath() []string {
 	split := strings.Split(str, ":")
 	return split
 }
-
 
 func OmnibusPath() []string {
 	str := "/opt/chef-workstation/bin:/Users/prsingh/.chefdk/gem/ruby/3.0.0/bin:/opt/chef-workstation/embedded/bin:/Users/prsingh/.rbenv/bin:/Users/prsingh/go/bin:/Users/prsingh/.nvm/versions/node/v15.3.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/opt/chef-workstation/gitbin" // TODO - get this dynmically using golang
