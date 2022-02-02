@@ -44,11 +44,32 @@ def omnibus_env
   }
 end
 
+# def gem_environment
+#         h = {}
+#         h["GEM ROOT"] = omnibus_env["GEM_ROOT"]
+#         h["GEM HOME"] = omnibus_env["GEM_HOME"]
+#         h["GEM PATHS"] = omnibus_env["GEM_PATH"].split(File::PATH_SEPARATOR)
+#         h
+# end
+
+def ruby_info
+  {}.tap do |ruby|
+    ruby["Executable"] = Gem.ruby
+    ruby["Version"] = RUBY_VERSION
+    ruby["RubyGems"] = {}.tap do |rubygems|
+      rubygems["RubyGems Version"] = Gem::VERSION
+      rubygems["RubyGems Platforms"] = Gem.platforms.map(&:to_s)
+      #             rubygems["Gem Environment"] = gem_environment
+    end
+  end
+end
+
 info = {}
 # info["Chef Workstation"] = workstation_info
 # info["Ruby"] = ruby_info
 info["omnibus path"] = omnibus_env
 info["omnibus root"] = omnibus_root
+info["ruby info"] = RUBY_VERSION
 
 # def workstation_info
 #   info = {}
