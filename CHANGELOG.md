@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.2.781 -->
-## [22.2.781](https://github.com/chef/chef-workstation/tree/22.2.781) (2022-02-02)
+<!-- latest_release 22.2.782 -->
+## [22.2.782](https://github.com/chef/chef-workstation/tree/22.2.782) (2022-02-02)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.116 [#2564](https://github.com/chef/chef-workstation/pull/2564) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-cli to 5.6.0 [#2566](https://github.com/chef/chef-workstation/pull/2566) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.778 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-cli to 5.6.0 [#2566](https://github.com/chef/chef-workstation/pull/2566) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.782 -->
 - Bump Chef Workstation App to 0.2.116 [#2564](https://github.com/chef/chef-workstation/pull/2564) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.781 -->
 - Bump train to 3.8.7, chef to 17.9.42, and vmware-vra to 3.1.0 [#2562](https://github.com/chef/chef-workstation/pull/2562) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.780 -->
 - Use new dist constants for Client and InSpec [#2555](https://github.com/chef/chef-workstation/pull/2555) ([ramereth](https://github.com/ramereth)) <!-- 22.2.779 -->
