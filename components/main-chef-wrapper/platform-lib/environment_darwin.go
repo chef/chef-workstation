@@ -64,9 +64,9 @@ func RunEnvironment() error {
 
 func WorkstationInfo() ChefWorkstationInfo {
 	if OmnibusInstall() == true {
-		info := ChefWorkstationInfo{Version: lib.ChefCliVersion}
+		info := ChefWorkstationInfo{Version: lib.ChefCliVersion} // todo make sure we take right version from --cli-repo( lib/chef-cli/helpers.rb )
 		info.Home = lib.PackageHome()
-		info.InstallDirectory = omnibusRoot() // can be shifted to cli_helper.rb
+		info.InstallDirectory = omnibusRoot() // todo --can be shifted to cli_helper.rb
 		info.PolicyfileConfig =  PolicyFileConfigInfo{CachePath: CachePath(), StoragePath: StoragePath() }
 		return info
 	} else {
@@ -84,9 +84,9 @@ func StoragePath() string  {
 }
 
 func WorkstationRubyInfo() RubyInfo {
-	rubyinfo := RubyInfo{Executable: "/opt/chef-workstation/embedded/bin/ruby"} // Gem.ruby got us this in ruby TODO- need to see how to convert this
-	rubyinfo.Version = "3.0.2" // Todo- RUBY_VERSION has this value in ruby, need to see ho we cn convert this one.
-	rubyinfo.RubyGems = GemInfo{RubyGemsVersion: "3.2.22", RubyGemsPlatforms: []string{"ruby", "x86_64-darwin-18" }, GemEnvironment: WsEnvironmentInfo() }
+	rubyinfo := RubyInfo{Executable: lib.RubyExecutable() } // Gem.ruby got us this in ruby TODO- need to see how to convert this
+	rubyinfo.Version = lib.RubyVersion()// Todo- RUBY_VERSION has this value in ruby, need to see ho we cn convert this one.
+	rubyinfo.RubyGems = GemInfo{RubyGemsVersion: lib.RubyGemsVersion(), RubyGemsPlatforms: lib.RubyGemsPlatforms(), GemEnvironment: WsEnvironmentInfo() }
 	return rubyinfo
 }
 

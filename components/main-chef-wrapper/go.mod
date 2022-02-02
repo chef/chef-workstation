@@ -8,4 +8,5 @@ require (
 	github.com/spf13/cobra v1.3.0
 	github.com/stretchr/testify v1.7.0
 	golang.org/x/sys v0.0.0-20211205182925-97ca703d548d
+	gopkg.in/yaml.v2 v2.4.0
 )
