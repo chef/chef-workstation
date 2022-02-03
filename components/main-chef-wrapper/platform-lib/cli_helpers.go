@@ -23,7 +23,11 @@ func PackageHome() string {
 		packageHome = packageHomeSet
 	} else {
 		packageHome = DefaultPackageName()
-	}¡
+	}
+	fmt.Print(rubyenvMap)
+	fmt.Print("\n")
+	fmt.Print("<<<<<<<<\n")
+	fmt.Print(rubyenvMap["ruby info"].(map[string]interface{})["RubyGems"].(map[string]interface{})["RubyGems Platforms"])
 	return packageHome
 }
 
@@ -46,7 +50,8 @@ func DefaultPackageName() string {
 }
 
 func OmnibusGemRoot() string {
-	return "/opt/chef-workstation/embedded/lib/ruby/gems/3.0.0" // TODO - get this dynmically using golang
+	gemRoot := rubyenvMap["omnibus path"].(map[string]interface{})["GEM_ROOT"]
+	return gemRoot.(string)
 }
 
 func RubyExecutable() string {
@@ -62,21 +67,23 @@ func RubyGemsVersion() string {
 }
 
 func RubyGemsPlatforms() []string {
+	// ptfrm := rubyenvMap["ruby info"].(map[string]interface{})["RubyGems"].(map[string]interface{})["RubyGems Platforms"]
 	return []string{"ruby", "x86_64-darwin-18"}
 }
 
 func OmnibusGemHome() string {
-	return "/Users/prsingh/.chefdk/gem/ruby/3.0.0" // TODO - get this dynamically using golang
+	str := rubyenvMap["omnibus path"].(map[string]interface{})["GEM_HOME"].(string)
+	return str
 }
 
 func OmnibusGemPath() []string {
-	str := "/Users/prsingh/.chefdk/gem/ruby/3.0.0:/opt/chef-workstation/embedded/lib/ruby/gems/3.0.0" // TODO - get this dynmically using golang
+	str := rubyenvMap["omnibus path"].(map[string]interface{})["GEM_PATH"].(string)
 	split := strings.Split(str, ":")
 	return split
 }
 
 func OmnibusPath() []string {
-	str := "/opt/chef-workstation/bin:/Users/prsingh/.chefdk/gem/ruby/3.0.0/bin:/opt/chef-workstation/embedded/bin:/Users/prsingh/.rbenv/bin:/Users/prsingh/go/bin:/Users/prsingh/.nvm/versions/node/v15.3.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/opt/chef-workstation/gitbin" // TODO - get this dynmically using golang
+	str := rubyenvMap["omnibus path"].(map[string]interface{})["PATH"].(string)
 	split := strings.Split(str, ":")
 	return split
 
