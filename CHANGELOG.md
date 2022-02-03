@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.2.782 -->
-## [22.2.782](https://github.com/chef/chef-workstation/tree/22.2.782) (2022-02-02)
+<!-- latest_release 22.2.783 -->
+## [22.2.783](https://github.com/chef/chef-workstation/tree/22.2.783) (2022-02-03)
 
 #### Merged Pull Requests
-- Bump chef-cli to 5.6.0 [#2566](https://github.com/chef/chef-workstation/pull/2566) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Add GEM_HOME to environment variables to allow external gem installation [#2569](https://github.com/chef/chef-workstation/pull/2569) ([vkarve-chef](https://github.com/vkarve-chef))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.778 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Add GEM_HOME to environment variables to allow external gem installation [#2569](https://github.com/chef/chef-workstation/pull/2569) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 22.2.783 -->
 - Bump chef-cli to 5.6.0 [#2566](https://github.com/chef/chef-workstation/pull/2566) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.782 -->
 - Bump Chef Workstation App to 0.2.116 [#2564](https://github.com/chef/chef-workstation/pull/2564) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.781 -->
 - Bump train to 3.8.7, chef to 17.9.42, and vmware-vra to 3.1.0 [#2562](https://github.com/chef/chef-workstation/pull/2562) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.780 -->
