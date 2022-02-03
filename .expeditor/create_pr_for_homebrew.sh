@@ -5,8 +5,10 @@ FORK_OWNER="chef"
 UPSTREAM_OWNER="Homebrew"
 REPO_NAME="homebrew-cask"
 BRANCH="${EXPEDITOR_PRODUCT_KEY}-${EXPEDITOR_VERSION}"
-URL="https://omnitruck.chef.io/stable/$EXPEDITOR_PRODUCT_KEY/metadata?p=mac_os_x&pv=10.15&m=x86_64&v=$EXPEDITOR_VERSION"
-SHA=""
+URL_INTEL="https://omnitruck.chef.io/stable/$EXPEDITOR_PRODUCT_KEY/metadata?p=mac_os_x&pv=10.15&m=x86_64&v=$EXPEDITOR_VERSION"
+SHA_INTEL=""
+URL_ARM="https://omnitruck.chef.io/stable/$EXPEDITOR_PRODUCT_KEY/metadata?p=mac_os_x&pv=11&m=arm64&v=$EXPEDITOR_VERSION"
+SHA_ARM=""
 
 echo "--- Getting $FORK_OWNER/$REPO_NAME repository and updating latest from upstream $UPSTREAM_OWNER/$REPO_NAME"
 git clone https://github.com/$FORK_OWNER/$REPO_NAME
@@ -27,33 +29,41 @@ git checkout main
 git checkout -b "$BRANCH"
 
 function get_sha() {
+  URL="$1"
   curl -Ss "$URL" | sed -n 's/sha256\s*\(\S*\)/\1/p' | awk '{$1=$1;print}'
 }
 
-delay=20 # seconds
-tries=60 # retry for up to 20 minutes
+function get_sha_with_retry() {
+  delay=20 # seconds
+  tries=60 # retry for up to 20 minutes
 
-echo "--- Fetching package information for $EXPEDITOR_PRODUCT_KEY @ $EXPEDITOR_VERSION - $tries attempts remain"
-for (( i=1; i<=tries; i+=1 )); do
-  SHA=$(get_sha)
-  if [ -z "$SHA" ]; then
-    if [ "$i" -eq "$tries" ]; then
-      echo "Omnitruck did not return a SHA256 value for the $EXPEDITOR_PRODUCT_KEY $EXPEDITOR_VERSION!"
-      echo "Tried $tries times to fetch from $URL"
-      exit 1
+  echo "--- Fetching package information for $EXPEDITOR_PRODUCT_KEY @ $EXPEDITOR_VERSION - $tries attempts remain"
+  for (( i=1; i<=tries; i+=1 )); do
+    SHA=$(get_sha "$1")
+    eval "$2='$SHA'"
+    if [ -z "$SHA" ]; then
+      if [ "$i" -eq "$tries" ]; then
+        echo "Omnitruck did not return a SHA256 value for the $EXPEDITOR_PRODUCT_KEY $EXPEDITOR_VERSION!"
+        echo "Tried $tries times to fetch from $1"
+        exit 1
+      else
+        sleep $delay
+      fi
     else
-      sleep $delay
+      echo "Found Omnitruck artifact for $EXPEDITOR_PRODUCT_KEY $EXPEDITOR_VERSION"
+      break
     fi
-  else
-    echo "Found Omnitruck artifact for $EXPEDITOR_PRODUCT_KEY $EXPEDITOR_VERSION"
-    break
-  fi
-done
+  done
+}
 
-echo "Updating Casks/chef-workstation.rb version: $EXPEDITOR_VERSION sha: $SHA"
+get_sha_with_retry $URL_INTEL SHA_INTEL
+get_sha_with_retry $URL_ARM SHA_ARM
 
-sed -i '' "s/version '.*'/version '$EXPEDITOR_VERSION'/g" Casks/chef-workstation.rb
-sed -i '' "s/sha256 '.*'/sha256 '$SHA'/g" Casks/chef-workstation.rb
+echo "Updating Casks/chef-workstation.rb version: $EXPEDITOR_VERSION sha_intel: $SHA_INTEL sha_arm: $SHA_ARM"
+
+sed -i '' -r "s/version \"([0-9]|.)+\"/version \"$EXPEDITOR_VERSION\"/g" Casks/chef-workstation.rb
+sed -i '' -r "s/sha256_intel = \"([0-9]|[a-z])+\"/sha256_intel = \"$SHA_INTEL\"/g" Casks/chef-workstation.rb
+sed -i '' -r "s/sha256_arm = \"([0-9]|[a-z])+\"/sha256_arm = \"$SHA_ARM\"/g" Casks/chef-workstation.rb
 
 echo "--- Debug: git diff of patched files follows"
 
