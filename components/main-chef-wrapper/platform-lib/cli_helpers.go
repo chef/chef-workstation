@@ -1,7 +1,6 @@
 package platform_lib
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -24,10 +23,6 @@ func PackageHome() string {
 	} else {
 		packageHome = DefaultPackageName()
 	}
-	fmt.Print(rubyenvMap)
-	fmt.Print("\n")
-	fmt.Print("<<<<<<<<\n")
-	fmt.Print(rubyenvMap["ruby info"].(map[string]interface{})["RubyGems"].(map[string]interface{})["RubyGems Platforms"])
 	return packageHome
 }
 
@@ -55,20 +50,21 @@ func OmnibusGemRoot() string {
 }
 
 func RubyExecutable() string {
-	return "/opt/chef-workstation/embedded/bin/ruby"
+	return rubyenvMap["ruby info"].(map[string]interface{})["Executable"].(string)
 }
 
 func RubyVersion() string {
-	return "3.0.2"
+	return rubyenvMap["ruby info"].(map[string]interface{})["Version"].(string)
 }
 
 func RubyGemsVersion() string {
-	return "3.2.22"
+	gemversion := rubyenvMap["ruby info"].(map[string]interface{})["RubyGems"].(map[string]interface{})["RubyGems Version"].(string)
+	return gemversion
 }
 
-func RubyGemsPlatforms() []string {
-	// ptfrm := rubyenvMap["ruby info"].(map[string]interface{})["RubyGems"].(map[string]interface{})["RubyGems Platforms"]
-	return []string{"ruby", "x86_64-darwin-18"}
+func RubyGemsPlatforms() []interface{} {
+	ptfrm := rubyenvMap["ruby info"].(map[string]interface{})["RubyGems"].(map[string]interface{})["RubyGems Platforms"].([]interface{})
+	return ptfrm
 }
 
 func OmnibusGemHome() string {
