@@ -135,8 +135,11 @@ else # linux - postinst does not run for windows.
   ln -sf $cwa_app_path $PREFIX/bin
 fi
 
-echo "running ruby script to dump  $INSTALL_DIR/install-metadata.json"
+
 echo "touch ruby-script.rb"
+
+$INSTALLER_DIR/embedded/bin/bundle exec ruby $INSTALLER_DIR/bin/ruby-env-script.rb $INSTALLER_DIR/ruby-env.json
+
 # where do i store this script and how to i add code to this script
 
 

@@ -63,6 +63,7 @@ end
 dependency "gems"
 
 dependency "gem-version-manifest"
+dependency "ruby-env-manifest"
 dependency "gem-permissions"
 dependency "rubygems-customization"
 dependency "shebang-cleanup"
@@ -88,6 +89,7 @@ end
 
 dependency "chef-workstation-app"
 dependency "uninstall-scripts"
+dependency "ruby-env-script"
 dependency "ruby-cleanup"
 
 # further gem cleanup other projects might not yet want to use

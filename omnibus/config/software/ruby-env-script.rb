@@ -13,18 +13,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-# The ruby-env.rb contains all the omnibus env paths ex- gem_root, gem_home,
-# and gem_path and other paths(used in cli), which can be used from go env for chef env
+#
 
 name "ruby-env-script"
+
+source path: "#{project.files_path}/ruby-env-script"
 
 skip_transitive_dependency_licensing true
 license :project_license
 
-source path: "#{project.files_path}/#{name}"
-
 build do
-  # run above script from go file
-  copy "#{project_dir}/default/ruby_env.rb #{install_dir}/embedded/bin/bundle/ruby_env_script.rb"
+    copy "#{project_dir}/ruby-env-script.rb", "#{install_dir}/bin/ruby-env-script.rb", { preserve: true }
 end
