@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.2.784 -->
-## [22.2.784](https://github.com/chef/chef-workstation/tree/22.2.784) (2022-02-07)
+<!-- latest_release 22.2.785 -->
+## [22.2.785](https://github.com/chef/chef-workstation/tree/22.2.785) (2022-02-07)
 
 #### Merged Pull Requests
-- Bump kitchen-azurerm to 1.9.0 [#2571](https://github.com/chef/chef-workstation/pull/2571) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-vra to 3.1.0 [#2572](https://github.com/chef/chef-workstation/pull/2572) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.778 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-vra to 3.1.0 [#2572](https://github.com/chef/chef-workstation/pull/2572) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.785 -->
 - Bump kitchen-azurerm to 1.9.0 [#2571](https://github.com/chef/chef-workstation/pull/2571) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.784 -->
 - Add GEM_HOME to environment variables to allow external gem installation [#2569](https://github.com/chef/chef-workstation/pull/2569) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 22.2.783 -->
 - Bump chef-cli to 5.6.0 [#2566](https://github.com/chef/chef-workstation/pull/2566) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.782 -->
