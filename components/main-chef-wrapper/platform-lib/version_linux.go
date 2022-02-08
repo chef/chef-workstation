@@ -18,12 +18,13 @@ package platform_lib
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
 	"io/ioutil"
 	"os"
 	"path"
 	"path/filepath"
+
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
 )
 
 var gemManifestMap map[string]interface{}
@@ -34,7 +35,7 @@ func init() {
 	manifestMap = manifestHash()
 }
 func Version() error {
-	if OmnibusInstall() == true {
+	if OmnibusInstall() {
 		showVersionViaVersionManifest()
 	} else {
 		fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
@@ -143,17 +144,17 @@ func ExpectedOmnibusRoot() string {
 	//return "/opt/chef-workstation"
 }
 
-func UnmarshallRubyEnv() map[string]interface{}{
-	filepath := path.Join( omnibusRoot(), "ruby-env.json")
+func UnmarshallRubyEnv() map[string]interface{} {
+	filepath := path.Join(omnibusRoot(), "ruby-env.json")
 	jsonFile, err := os.Open(filepath)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
 		os.Exit(4)
 	}
 	byteValue, _ := ioutil.ReadAll(jsonFile)
+	defer jsonFile.Close()
 	var rubyenvHash map[string]interface{}
 	json.Unmarshal([]byte(byteValue), &rubyenvHash)
-	defer jsonFile.Close()
 	return rubyenvHash
 }
 

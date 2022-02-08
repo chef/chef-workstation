@@ -45,20 +45,43 @@ func DefaultPackageName() string {
 }
 
 func OmnibusGemRoot() string {
-	gemRoot := rubyenvMap["omnibus path"].(map[string]interface{})["GEM_ROOT"]
-	return gemRoot.(string)
+	gemRoot := ""
+	data, ok := rubyenvMap["omnibus path"].(map[string]interface{})
+	if ok {
+		gemRoot = data["GEM_ROOT"].(string)
+	}
+	return gemRoot
 }
 
 func RubyExecutable() string {
-	return rubyenvMap["ruby info"].(map[string]interface{})["Executable"].(string)
+	rubyExe := ""
+	data, ok := rubyenvMap["ruby info"].(map[string]interface{})
+	if ok {
+		rubyExe = data["Executable"].(string)
+	}
+	return rubyExe
 }
 
 func RubyVersion() string {
-	return rubyenvMap["ruby info"].(map[string]interface{})["Version"].(string)
+	rubyVersion := ""
+	data, ok := rubyenvMap["ruby info"].(map[string]interface{})
+	if ok {
+		rubyVersion = data["Version"].(string)
+	}
+	return rubyVersion
 }
 
 func RubyGemsVersion() string {
-	gemversion := rubyenvMap["ruby info"].(map[string]interface{})["RubyGems"].(map[string]interface{})["RubyGems Version"].(string)
+	gemversion := ""
+	data, ok := rubyenvMap["ruby info"].(map[string]interface{})
+	if ok {
+		ndata, ok := data["RubyGems"].(map[string]interface{})
+		{
+			if ok {
+				gemversion = ndata["RubyGems Version"].(string)
+			}
+		}
+	}
 	return gemversion
 }
 
@@ -68,14 +91,22 @@ func RubyGemsPlatforms() []interface{} {
 }
 
 func OmnibusGemHome() string {
-	str := rubyenvMap["omnibus path"].(map[string]interface{})["GEM_HOME"].(string)
+	str := ""
+	data, ok := rubyenvMap["omnibus path"].(map[string]interface{})
+	if ok {
+		str = data["GEM_HOME"].(string)
+	}
 	return str
 }
 
 func OmnibusGemPath() []string {
-	str := rubyenvMap["omnibus path"].(map[string]interface{})["GEM_PATH"].(string)
-	split := strings.Split(str, ":")
-	return split
+	gemPath := []string{""}
+	data, ok := rubyenvMap["omnibus path"].(map[string]interface{})
+	if ok {
+		str := data["GEM_PATH"].(string)
+		gemPath = strings.Split(str, ":")
+	}
+	return gemPath
 }
 
 func OmnibusPath() []string {

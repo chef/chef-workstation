@@ -54,15 +54,11 @@ func RunEnvironment() error {
 		log.Fatalf("error: %v", err)
 	}
 	fmt.Printf("----:\n%s\n\n", string(ymldump))
-
-	//fmt.Println(envObj)
-
-	// make yml dump like ruby --   ui.msg YAML.dump(info)
 	return nil
 }
 
 func WorkstationInfo() ChefWorkstationInfo {
-	if OmnibusInstall() == true {
+	if OmnibusInstall() {
 		info := ChefWorkstationInfo{Version: lib.ChefCliVersion} // todo make sure we take right version from --cli-repo( lib/chef-cli/helpers.rb )
 		info.Home = PackageHome()
 		info.InstallDirectory = omnibusRoot() // todo --can be shifted to cli_helper.rb
