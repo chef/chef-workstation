@@ -39,6 +39,11 @@ dependency "libarchive"
 # for train
 dependency "google-protobuf"
 
+# This is a transative dep but we need to build from source so binaries are built on current sdk.
+# Only matters on mac.
+# @todo https://github.com/guard/rb-fsevent/issues/83
+dependency "rb-fsevent-gem" if macos?
+
 build do
   env = if !windows?
           with_standard_compiler_flags(with_embedded_path)
