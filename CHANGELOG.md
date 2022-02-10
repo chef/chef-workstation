@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.2.786 -->
-## [22.2.786](https://github.com/chef/chef-workstation/tree/22.2.786) (2022-02-08)
+<!-- latest_release 22.2.787 -->
+## [22.2.787](https://github.com/chef/chef-workstation/tree/22.2.787) (2022-02-10)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.117 [#2574](https://github.com/chef/chef-workstation/pull/2574) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Fixes notarize error [#2580](https://github.com/chef/chef-workstation/pull/2580) ([vkarve-chef](https://github.com/vkarve-chef))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.778 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Fixes notarize error [#2580](https://github.com/chef/chef-workstation/pull/2580) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 22.2.787 -->
 - Bump Chef Workstation App to 0.2.117 [#2574](https://github.com/chef/chef-workstation/pull/2574) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.786 -->
 - Bump kitchen-vra to 3.1.0 [#2572](https://github.com/chef/chef-workstation/pull/2572) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.785 -->
 - Bump kitchen-azurerm to 1.9.0 [#2571](https://github.com/chef/chef-workstation/pull/2571) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.784 -->
