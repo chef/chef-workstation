@@ -88,7 +88,7 @@ func gemManifestHash() map[string]interface{} {
 	return gemManifestHash
 }
 func manifestHash() map[string]interface{} {
-	filepath := path.Join(omnibusRoot(), "version-manifest.json")
+	filepath := path.Join(omnibusRoot(), "ruby-env.json")
 	jsonFile, err := os.Open(filepath)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
