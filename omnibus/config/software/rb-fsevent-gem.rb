@@ -19,7 +19,7 @@
 # only supports SDK version >= 10.9, so we must rebuild and install.
 
 name "rb-fsevent-gem"
-default_version "e46390c4a12d26288e44c42539594e90a7c6fc46"
+default_version "master"
 
 source git: "https://github.com/thibaudgg/rb-fsevent.git"
 
