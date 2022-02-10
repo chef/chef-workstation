@@ -79,7 +79,7 @@ info["ruby info"] = RUBY_VERSION
 #   info["Policyfile Config"] = policyfile_config
 #   info
 # end
-
+puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> script starts<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 require "json"
 j = JSON.pretty_generate(info)
 

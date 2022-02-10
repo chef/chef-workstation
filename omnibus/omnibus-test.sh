@@ -14,6 +14,8 @@ export CHEF_LICENSE="accept-no-persist"
 export HAB_LICENSE="accept-no-persist"
 
 echo "--- Ensure the 'chef' cli works (chef env)"
+echo $(pwd)
+echo $(ls)
 chef env
 
 echo "--- Ensure the 'chef report' subcommand cli works (chef report help)"
