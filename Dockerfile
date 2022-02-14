@@ -2,9 +2,10 @@ FROM ubuntu:18.04
 LABEL maintainer="Chef Software, Inc. <docker@chef.io>"
 
 ARG CHANNEL=stable
-ARG VERSION=21.11.679
+ARG VERSION=22.1.778
 ENV DEBIAN_FRONTEND=noninteractive \
-    PATH=/opt/chef-workstation/bin:/opt/chef-workstation/embedded/bin:/root/.chefdk/gem/ruby/2.7.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    GEM_HOME=/root/.chefdk/gem/ruby/3.0.0 \
+    PATH=/opt/chef-workstation/bin:/opt/chef-workstation/embedded/bin:/root/.chefdk/gem/ruby/3.0.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # Run the entire container with the default locale to be en_US.UTF-8
 RUN apt-get update && \

@@ -15,7 +15,8 @@
   "UserConfDir":        ".chef",
   "WorkstationDir":     ".chef-workstation",
   "WorkstationExec":    "chef-cli",
+  "CLIWrapperExec":     "chef",
   "DocsWebsite":        "https://docs.chef.io",
-  "WSWebsite":          "https://community.chef.io/tools/chef-workstation/",
+  "WSWebsite":          "https://chef.sh",
   "MainWebsite":        "https://chef.io"
 }

@@ -38,7 +38,7 @@ Supported Host Operating Systems:
 </tr>
 <tr class="odd">
 <td>Apple macOS</td>
-<td>10.14, 10.15, 11, 12</td>
+<td>10.15, 11, 12</td>
 </tr>
 <tr class="even">
 <td>Microsoft Windows</td>
@@ -82,7 +82,7 @@ applications that may be running on the target machine.
 
 ### macOS Install
 
-1. Visit the [Chef Workstation downloads page](https://downloads.chef.io/tools/workstation#mac_os_x) and select the appropriate package for your macOS version. Select on the **Download** button.
+1. Visit the [Chef Workstation downloads page](https://www.chef.io/downloads/tools/workstation?os=mac_os_x) and select the appropriate package for your macOS version. Select on the **Download** button.
 1. Follow the steps to accept the license and install Chef Workstation.
 
 Alternately, install Chef Workstation using the [Homebrew](https://brew.sh/) package manager:
@@ -91,7 +91,7 @@ Alternately, install Chef Workstation using the [Homebrew](https://brew.sh/) pac
 
 ### Windows Install
 
-1. Visit the [Chef Workstation downloads page](https://downloads.chef.io/tools/workstation#windows) and select the appropriate package for your Windows version. Click on the **Download** button.
+1. Visit the [Chef Workstation downloads page](https://www.chef.io/downloads/tools/workstation?os=windows) and select the appropriate package for your Windows version. Click on the **Download** button.
 1. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the `C:\opscode\chef-workstation\` directory.
 1. **Optional:** Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell instead of `cmd.exe`.
 
@@ -119,7 +119,7 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
 
 ### Linux
 
-1. Visit the [Chef Workstation downloads page](https://downloads.chef.io/products/workstation) and download the appropriate package for your distribution:
+1. Visit the [Chef Workstation downloads page](https://www.chef.io/downloads/tools/workstation) and download the appropriate package for your distribution:
 
     - Red Hat Enterprise Linux
 

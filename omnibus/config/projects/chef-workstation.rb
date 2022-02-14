@@ -57,11 +57,6 @@ else
   dependency "git-custom-bindir"
 end
 
-# For the Delivery build nodes
-dependency "delivery-cli"
-# This is a build-time dependency, so we won't leave it behind:
-dependency "rust-uninstall"
-
 # This internal component (source in components/gems)
 # builds all gems that we ship with Workstation.
 # No gems get shipped that are not declared in components/gems/Gemfile

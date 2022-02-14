@@ -25,7 +25,7 @@
 
 name "git-custom-bindir"
 
-default_version "2.33.0"
+default_version "2.34.1"
 
 license "LGPL-2.1"
 license_file "LGPL-2.1"
@@ -40,9 +40,7 @@ dependency "expat"
 
 relative_path "git-#{version}"
 
-# version_list: url=https://www.kernel.org/pub/software/scm/git/ filter=*.tar.gz
-
-version("2.33.0") { source sha256: "02d909d0bba560d3a1008bd00dd577621ffb57401b09175fab2bf6da0e9704ae" }
+version("2.34.1") { source sha256: "fc4eb5ecb9299db91cdd156c06cdeb41833f53adc5631ddf8c0cb13eaa2911c1" }
 
 source url: "https://www.kernel.org/pub/software/scm/git/git-#{version}.tar.gz"
 
@@ -65,16 +63,30 @@ build do
     NO_TCLTK: "YesPlease",
   }
 
-  # Linux things!
-  config_hash["HAVE_PATHS_H"] = "YesPlease"
-  config_hash["NO_R_TO_GCC_LINKER"] = "YesPlease"
-
-  # ensure that header files in git's source code are found first before looking in other directories
-  # this solves an issue that occurs when libarchive has been built and installed and its archive.h header
-  # file in #{install_dir}/embedded/include is accidentally picked up when compiling git
-  env["CFLAGS"] = "-I. #{env["CFLAGS"]}"
-  env["CPPFLAGS"] = "-I. #{env["CPPFLAGS"]}"
-  env["CXXFLAGS"] = "-I. #{env["CXXFLAGS"]}"
+  if freebsd?
+    config_hash["CHARSET_LIB"] = "-lcharset"
+    config_hash["FREAD_READS_DIRECTORIES"] = "UnfortunatelyYes"
+    config_hash["HAVE_BSD_SYSCTL"] = "YesPlease"
+    config_hash["HAVE_CLOCK_GETTIME"] = "YesPlease"
+    config_hash["HAVE_CLOCK_MONOTONIC"] = "YesPlease"
+    config_hash["HAVE_GETDELIM"] = "YesPlease"
+    config_hash["HAVE_STRINGS_H"] = "YesPlease"
+    config_hash["PTHREAD_LIBS"] = "-pthread"
+    config_hash["USE_ST_TIMESPEC"] = "YesPlease"
+  elsif macos?
+    config_hash["CHARSET_LIB"] = "-lcharset"
+    config_hash["FREAD_READS_DIRECTORIES"] = "UnfortunatelyYes"
+    config_hash["HAVE_BSD_SYSCTL"] = "YesPlease"
+    config_hash["HAVE_CLOCK_GETTIME"] = "YesPlease"
+    config_hash["HAVE_CLOCK_MONOTONIC"] = "YesPlease"
+    config_hash["HAVE_GETDELIM"] = "YesPlease"
+    config_hash["HAVE_LIBCHARSET_H"] = "YesPlease"
+    config_hash["HAVE_STRINGS_H"] = "YesPlease"
+    config_hash["USE_ST_TIMESPEC"] = "YesPlease"
+    env["CFLAGS"] = "-O3 -D_FORTIFY_SOURCE=2 -fstack-protector"
+    env["CPPFLAGS"] = "-O3 -D_FORTIFY_SOURCE=2 -fstack-protector"
+    env["CXXFLAGS"] = "-O3 -D_FORTIFY_SOURCE=2 -fstack-protector"
+  end
 
   erb source: "config.mak.erb",
       dest: "#{project_dir}/config.mak",

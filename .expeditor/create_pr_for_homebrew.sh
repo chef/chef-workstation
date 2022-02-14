@@ -5,7 +5,7 @@ FORK_OWNER="chef"
 UPSTREAM_OWNER="Homebrew"
 REPO_NAME="homebrew-cask"
 BRANCH="${EXPEDITOR_PRODUCT_KEY}-${EXPEDITOR_VERSION}"
-URL="https://omnitruck.chef.io/stable/$EXPEDITOR_PRODUCT_KEY/metadata?p=mac_os_x&pv=10.14&m=x86_64&v=$EXPEDITOR_VERSION"
+URL="https://omnitruck.chef.io/stable/$EXPEDITOR_PRODUCT_KEY/metadata?p=mac_os_x&pv=10.15&m=x86_64&v=$EXPEDITOR_VERSION"
 SHA=""
 
 echo "--- Getting $FORK_OWNER/$REPO_NAME repository and updating latest from upstream $UPSTREAM_OWNER/$REPO_NAME"
@@ -87,18 +87,22 @@ $BODY
 EOB
 )
 
-git add ./Casks/chef-workstation.rb
-git status
-git commit --message "$COMMIT_BODY"
+if [[ $(git diff) ]]; then
+  git add ./Casks/chef-workstation.rb
+  git status
+  git commit --message "$COMMIT_BODY"
 
-echo "--- Opening PR"
+  echo "--- Opening PR"
 
-git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" "$BRANCH" --force;
-result=$(curl --silent --header "Authorization: token $CHEF_CI_GITHUB_AUTH_TOKEN" \
-  --data-binary "{\"title\":\"$TITLE\",\"head\":\"chef:$BRANCH\",\"base\":\"master\",\"maintainer_can_modify\":false,\"body\":\"$PR_BODY\"}" \
-  -XPOST "https://api.github.com/repos/${UPSTREAM_OWNER}/${REPO_NAME}/pulls" \
-  --write-out "Response:%{http_code}")
+  git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" "$BRANCH" --force;
+  result=$(curl --silent --header "Authorization: token $CHEF_CI_GITHUB_AUTH_TOKEN" \
+    --data-binary "{\"title\":\"$TITLE\",\"head\":\"chef:$BRANCH\",\"base\":\"master\",\"maintainer_can_modify\":false,\"body\":\"$PR_BODY\"}" \
+    -XPOST "https://api.github.com/repos/${UPSTREAM_OWNER}/${REPO_NAME}/pulls" \
+    --write-out "Response:%{http_code}")
 
-# Fail the run if 201 (created) response not received.
-echo "$result" | grep "Response:201"
+  # Fail the run if 201 (created) response not received.
+  echo "$result" | grep "Response:201"
 
+else
+  echo "No changes needed to the cask"
+fi

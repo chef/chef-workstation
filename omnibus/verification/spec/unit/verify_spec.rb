@@ -51,7 +51,6 @@ describe ChefWorkstation::Command::Verify do
       "openssl",
       "inspec",
       "git",
-      "delivery-cli",
       "curl",
     ]
   end

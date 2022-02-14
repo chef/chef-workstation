@@ -21,20 +21,35 @@ skip_transitive_dependency_licensing
 license_file "LICENSE"
 
 # These three lines are updated automatically by Expeditor
-default_version "0.2.80"
-source sha1: "6a1ed7a9ad1fc528c345eb8480d785e1ba141344" if windows?
-source sha1: "fb2948f89c19630fd4f71208d8570ee74317dc41" if linux?
+default_version "0.2.121"
+source sha1: "10c313d3fba74cf90e893a75bd29f4a25b6753ec" if windows?
+source sha1: "64018fcea21f3bc9929401a64483e11386eae6e5" if linux?
 
 platform_name = if macos?
-                  "darwin"
+                  if arm?
+                    "darwin-arm64"
+                  else
+                    "darwin-x64"
+                  end
                 elsif windows?
-                  "win32"
+                  "win32-x64"
                 else
-                  "linux"
+                  "linux-x64"
                 end
 
 source_url = "https://packages.chef.io/files/unstable/chef-workstation-app/#{version}/chef-workstation-app-#{version}-#{platform_name}.zip"
 app_install_path = "#{install_dir}/components/chef-workstation-app"
+
+# These electron dependencies are pulled in/created
+# by this build. They may have dependencies that aren't met
+# on the install target - in which case the tray application
+# will not be runnable.  That does not affect the rest of
+# the chef-workstation installation, so we will whitelist the
+# dependencies to allow it to continue in any case.
+if linux?
+  whitelist_file(%r{components/chef-workstation-app/libGLESv2\.so})
+  whitelist_file(%r{components/chef-workstation-app/chef-workstation-app})
+end
 
 # The macOS zip file is weird. We can't really expand it because it expands directly into the .app.
 # To get around this we download it as a zip and unzip it as part of postinst.
@@ -48,7 +63,7 @@ else
 
   build do
     mkdir app_install_path
-    copy relative_path, app_install_path
+    copy "#{project_dir}/*", app_install_path
   end
 end
 

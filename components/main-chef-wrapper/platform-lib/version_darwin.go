@@ -46,8 +46,8 @@ func Version() error {
 func showVersionViaVersionManifest() {
 	fmt.Printf("%v version: %v", dist.WorkstationProduct, componentVersion("build_version"))
 	productMap := map[string]string{
-		dist.ClientProduct: dist.CLIWrapperExec,
-		dist.InspecProduct: dist.InspecCli,
+		dist.ClientProduct: dist.ClientGem,
+		dist.InspecProduct: dist.InspecGem,
 		dist.CliProduct:    dist.CliGem,
 		dist.HabProduct:    dist.HabSoftwareName,
 		"Test Kitchen":     "test-kitchen",
