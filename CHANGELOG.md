@@ -1,15 +1,17 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.2.794 -->
-## [22.2.794](https://github.com/chef/chef-workstation/tree/22.2.794) (2022-02-16)
+<!-- latest_release 22.2.796 -->
+## [22.2.796](https://github.com/chef/chef-workstation/tree/22.2.796) (2022-02-17)
 
 #### Merged Pull Requests
-- Bump chef to 17.9.46 and chef-cli to 5.6.1 [#2593](https://github.com/chef/chef-workstation/pull/2593) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Pin openssl to 1.1.1m [#2592](https://github.com/chef/chef-workstation/pull/2592) ([jayashrig158](https://github.com/jayashrig158))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.778 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Pin openssl to 1.1.1m [#2592](https://github.com/chef/chef-workstation/pull/2592) ([jayashrig158](https://github.com/jayashrig158)) <!-- 22.2.796 -->
+- Bump omnibus-software from `dd555fa` to `d602268` in /omnibus [#2591](https://github.com/chef/chef-workstation/pull/2591) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.2.795 -->
 - Bump chef to 17.9.46 and chef-cli to 5.6.1 [#2593](https://github.com/chef/chef-workstation/pull/2593) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.794 -->
 - Fix Chef report cookbook with -p flag [#2589](https://github.com/chef/chef-workstation/pull/2589) ([i5pranay93](https://github.com/i5pranay93)) <!-- 22.2.793 -->
 - Bump chef-analyze CLI to 0.1.126 [#2584](https://github.com/chef/chef-workstation/pull/2584) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.792 -->
