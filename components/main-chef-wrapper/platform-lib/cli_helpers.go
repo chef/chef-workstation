@@ -13,6 +13,7 @@ var rubyenvMap map[string]interface{}
 
 func init() {
 	rubyenvMap = UnmarshallRubyEnv()
+
 }
 
 func PackageHome() string {

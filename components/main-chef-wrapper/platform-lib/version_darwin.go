@@ -18,13 +18,12 @@ package platform_lib
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"os"
-	"path"
-	"path/filepath"
-
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
+	"io/ioutil"
+	"log"
+	"os"
+	"path"
 )
 
 var gemManifestMap map[string]interface{}
@@ -119,33 +118,34 @@ func OmnibusInstall() bool {
 }
 
 func omnibusRoot() string {
-	omnibusroot, err := filepath.Abs(path.Join(ExpectedOmnibusRoot()))
-	if err != nil {
-		fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
-		os.Exit(4)
-	}
-	return omnibusroot
-	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
-	// return "/opt/chef-workstation"
+	//omnibusroot, err := filepath.Abs(path.Join(ExpectedOmnibusRoot()))
+	//if err != nil {
+	//	fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
+	//	os.Exit(4)
+	//}
+	//return omnibusroot
+	////below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
+	return "/opt/chef-workstation"
 }
 
 func ExpectedOmnibusRoot() string {
-	ex, _ := os.Executable()
-	exReal, err := filepath.EvalSymlinks(ex)
-	if err != nil {
-		fmt.Fprintln(os.Stderr, "ERROR:", err)
-		os.Exit(4)
-	}
-	rootPath := path.Join(filepath.Dir(exReal), "..")
-	//groot := os.Getenv("GEM_ROOT")
-	//rootPath, err := filepath.Abs(path.Join(groot,"..","..", "..", "..", ".."))
-	return rootPath
-	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
-	// return "/opt/chef-workstation"
+	//ex, _ := os.Executable()
+	//exReal, err := filepath.EvalSymlinks(ex)
+	//if err != nil {
+	//	fmt.Fprintln(os.Stderr, "ERROR:", err)
+	//	os.Exit(4)
+	//}
+	//rootPath := path.Join(filepath.Dir(exReal), "..")
+	////groot := os.Getenv("GEM_ROOT")
+	////rootPath, err := filepath.Abs(path.Join(groot,"..","..", "..", "..", ".."))
+	//return rootPath
+	////below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
+	return "/opt/chef-workstation"
 }
 
 func UnmarshallRubyEnv() map[string]interface{} {
-	filepath := path.Join(omnibusRoot(), "ruby-env.json")
+	home, err := os.UserHomeDir()
+	filepath := path.Join(home, ".chef-workstation/ruby-env.json")
 	jsonFile, err := os.Open(filepath)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
@@ -158,28 +158,29 @@ func UnmarshallRubyEnv() map[string]interface{} {
 	return rubyenvHash
 }
 
-//func MatchVersions() bool{
-//	// check version from env.json file and workstation version
-//	WorkstationVersion := componentVersion("build_version")
-//	filepath := path.Join(omnibusRoot(), "ruby-env.json")
-//	jsonFile, err := os.Open(filepath)
-//	if err != nil {
-//		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
-//		os.Exit(4)
-//	}
-//
-//	data, err := ioutil.ReadAll(jsonFile)
-//	if err != nil {
-//		log.Fatal(err)
-//	}
-//
-//	envDoc := make(map[string]interface{})
-//	if err := json.Unmarshal(data, &envDoc); err != nil {
-//		log.Fatal(err)
-//	}
-//	if envDoc["build_version"] == WorkstationVersion{
-//		return true
-//	} else {
-//		return false
-//	}
-//}
+func MatchVersions() bool {
+	// check version from env.json file and workstation version
+	home, err := os.UserHomeDir()
+	WorkstationVersion := componentVersion("build_version")
+	filepath := path.Join(home, ".chef-workstation/ruby-env.json")
+	jsonFile, err := os.Open(filepath)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+		os.Exit(4)
+	}
+
+	data, err := ioutil.ReadAll(jsonFile)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	envDoc := make(map[string]interface{})
+	if err := json.Unmarshal(data, &envDoc); err != nil {
+		log.Fatal(err)
+	}
+	if envDoc["build_version"] == WorkstationVersion {
+		return true
+	} else {
+		return false
+	}
+}
