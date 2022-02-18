@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.2.798 -->
-## [22.2.798](https://github.com/chef/chef-workstation/tree/22.2.798) (2022-02-18)
+<!-- latest_release 22.2.799 -->
+## [22.2.799](https://github.com/chef/chef-workstation/tree/22.2.799) (2022-02-18)
 
 #### Merged Pull Requests
-- Bump cookstyle to 7.31.7 [#2595](https://github.com/chef/chef-workstation/pull/2595) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-inspec to 2.5.2 [#2598](https://github.com/chef/chef-workstation/pull/2598) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.778 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-inspec to 2.5.2 [#2598](https://github.com/chef/chef-workstation/pull/2598) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.799 -->
 - Bump cookstyle to 7.31.7 [#2595](https://github.com/chef/chef-workstation/pull/2595) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.798 -->
 - Bump Chef Workstation App to 0.2.123 [#2587](https://github.com/chef/chef-workstation/pull/2587) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.797 -->
 - Pin openssl to 1.1.1m [#2592](https://github.com/chef/chef-workstation/pull/2592) ([jayashrig158](https://github.com/jayashrig158)) <!-- 22.2.796 -->
