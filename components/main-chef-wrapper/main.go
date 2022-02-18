@@ -23,8 +23,9 @@ import (
 	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
 	"log"
 	"os"
+	"os/exec"
 	"path"
-	"path/filepath"
+	"runtime"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
 	homedir "github.com/mitchellh/go-homedir"
@@ -49,12 +50,12 @@ func createDotChef() {
 }
 
 func createRubyEnv() {
-	//	get installation path
-	//	homepath, err := homedir.Dir()
-	//	if err != nil {
-	//		log.Fatalf(err.Error())
-	//	}
-	//	todo ==> incase home directory is needed we can add it to string
+	InstallerDir := ""
+	if runtime.GOOS == "windows" {
+		InstallerDir = `"C:\opscode\chef-workstation"`
+	} else {
+		InstallerDir = `"C:\opscode\chef-workstation"`
+	}
 	home, err := os.UserHomeDir()
 	installationPath := path.Join(home, ".chef-workstation/ruby-env.json")
 	result, err := exists(installationPath)
@@ -65,16 +66,25 @@ func createRubyEnv() {
 		fmt.Print("file exists======== ruby script not needed")
 	} else {
 		fmt.Print("file  does not exists============ call ruby script to make ruby-env.json file\n")
-		//	 call ruby script #{install_dir}/embedded/bin/bundle/ exec ruby ruby_env_script.rb
+		arg0 := InstallerDir + "/embedded/bin/bundle exec ruby"
+		arg1 := InstallerDir + "/bin/ruby-env-script.rb"
+		arg2 := InstallerDir + "/ruby-env.json"
+		//$INSTALLER_DIR/embedded/bin/bundle exec ruby $INSTALLER_DIR/bin/ruby-env-script.rb $INSTALLER_DIR/ruby-env.json
+
+		cmd := exec.Command(arg0, arg1, arg2)
+		stdout, err := cmd.Output()
+
+		if err != nil {
+			fmt.Println(err.Error())
+			return
+		}
+		// Print the output
+		fmt.Println(string(stdout))
 	}
 }
 
 func exists(path string) (bool, error) {
-	abspath, err := filepath.Abs(path)
-	if err != nil {
-		return false, err
-	}
-	_, err = os.Stat(abspath)
+	_, err := os.Stat(path)
 	if err == nil {
 		return true, nil
 	}

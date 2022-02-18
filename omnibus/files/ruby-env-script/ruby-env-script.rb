@@ -44,13 +44,6 @@ def omnibus_env
   }
 end
 
-# def gem_environment
-#         h = {}
-#         h["GEM ROOT"] = omnibus_env["GEM_ROOT"]
-#         h["GEM HOME"] = omnibus_env["GEM_HOME"]
-#         h["GEM PATHS"] = omnibus_env["GEM_PATH"].split(File::PATH_SEPARATOR)
-#         h
-# end
 
 def ruby_info
   {}.tap do |ruby|
@@ -65,24 +58,14 @@ def ruby_info
 end
 
 info = {}
-# info["Chef Workstation"] = workstation_info
-# info["Ruby"] = ruby_info
 info["omnibus path"] = omnibus_env
 info["omnibus root"] = omnibus_root
 info["ruby info"] = ruby_info
 
-# def workstation_info
-#   info = {}
-#   info["Version"] = ChefCLI::VERSION
-#   info["Home"] = package_home
-#   info["Install Directory"] = omnibus_root
-#   info["Policyfile Config"] = policyfile_config
-#   info
-# end
-
 require "json"
 j = JSON.pretty_generate(info)
 
+puts "Running ruby script to write environment path in ~/.chef-workstation"
 environment_file = ARGV[0]
 File.open(environment_file, "w") do |f|
   f.write(j)
