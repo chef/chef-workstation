@@ -14,7 +14,7 @@ aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html",
     weight = 30
 +++
 
-This guide walks your through the four parts to set up Chef Workstation on your computer.
+This guide walks you through the four parts to set up Chef Workstation on your computer.
 
 * [Configure Ruby Environment]({{< relref "#configure-ruby-environment" >}})
 * [Set up your chef-repo]({{< relref "#setup-your-chef-repo" >}}) for storing your cookbooks
