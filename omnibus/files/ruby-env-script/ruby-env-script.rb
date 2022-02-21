@@ -66,7 +66,7 @@ def manifest_hash
 end
 
 def chef_ws_build_version
-    manifest_field["build_version"]
+    manifest_hash["build_version"]
 end
 
 require "json"
