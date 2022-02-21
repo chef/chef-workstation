@@ -57,12 +57,26 @@ def ruby_info
   end
 end
 
+def read_version_manifest_json
+    File.read(File.join(omnibus_root, "version-manifest.json"))
+end
+
+def manifest_hash
+  JSON.parse(read_version_manifest_json)
+end
+
+def chef_ws_build_version
+    manifest_field["build_version"]
+end
+
+require "json"
+
 info = {}
 info["omnibus path"] = omnibus_env
 info["omnibus root"] = omnibus_root
 info["ruby info"] = ruby_info
+info["build_version"] = chef_ws_build_version
 
-require "json"
 j = JSON.pretty_generate(info)
 
 puts "Running ruby script to write environment path in ~/.chef-workstation"

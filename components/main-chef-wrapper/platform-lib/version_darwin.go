@@ -149,7 +149,7 @@ func UnmarshallRubyEnv() map[string]interface{} {
 	jsonFile, err := os.Open(filepath)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
-		os.Exit(4)
+		return nil
 	}
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 	defer jsonFile.Close()
@@ -166,7 +166,7 @@ func MatchVersions() bool {
 	jsonFile, err := os.Open(filepath)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
-		os.Exit(4)
+		return false
 	}
 
 	data, err := ioutil.ReadAll(jsonFile)
