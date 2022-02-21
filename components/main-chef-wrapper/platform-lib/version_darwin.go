@@ -18,12 +18,13 @@ package platform_lib
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
 	"io/ioutil"
 	"os"
 	"path"
 	"path/filepath"
+
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
 )
 
 var gemManifestMap map[string]interface{}
@@ -58,7 +59,7 @@ func showVersionViaVersionManifest() {
 	}
 	fmt.Printf("\n")
 }
-func componentVersion(component string) string {
+func ComponentVersion(component string) string {
 	v, ok := gemManifestMap[component]
 	if ok {
 		stringifyVal := v.([]interface{})[0]
