@@ -63,7 +63,6 @@ end
 dependency "gems"
 
 dependency "gem-version-manifest"
-dependency "ruby-env-manifest"
 dependency "gem-permissions"
 dependency "rubygems-customization"
 dependency "shebang-cleanup"

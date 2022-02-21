@@ -23,5 +23,5 @@ skip_transitive_dependency_licensing true
 license :project_license
 
 build do
-    copy "#{project_dir}/ruby-env-script.rb", "#{install_dir}/bin/ruby-env-script.rb", { preserve: true }
+  copy "#{project_dir}/ruby-env-script.rb", "#{install_dir}/bin/ruby-env-script.rb", { preserve: true }
 end

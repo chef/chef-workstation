@@ -2,13 +2,11 @@ package platform_lib
 
 import (
 	"fmt"
+	"gopkg.in/yaml.v3"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
-
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
-	"gopkg.in/yaml.v2"
 )
 
 type EnvInfo struct {
@@ -54,16 +52,12 @@ func RunEnvironment() error {
 		log.Fatalf("error: %v", err)
 	}
 	fmt.Printf("----:\n%s\n\n", string(ymldump))
-
-	//fmt.Println(envObj)
-
-	// make yml dump like ruby --   ui.msg YAML.dump(info)
 	return nil
 }
 
 func WorkstationInfo() ChefWorkstationInfo {
 	if OmnibusInstall() == true {
-		info := ChefWorkstationInfo{Version: lib.ChefCliVersion} // todo make sure we take right version from --cli-repo( lib/chef-cli/helpers.rb )
+		info := ChefWorkstationInfo{Version: CliVersion()}
 		info.Home = PackageHome()
 		info.InstallDirectory = omnibusRoot() // todo --can be shifted to cli_helper.rb
 		info.PolicyfileConfig = PolicyFileConfigInfo{CachePath: CachePath(), StoragePath: StoragePath()}
@@ -83,8 +77,8 @@ func StoragePath() string {
 }
 
 func WorkstationRubyInfo() RubyInfo {
-	rubyinfo := RubyInfo{Executable: RubyExecutable()} // Gem.ruby got us this in ruby TODO- need to see how to convert this
-	rubyinfo.Version = RubyVersion()                   // Todo- RUBY_VERSION has this value in ruby, need to see ho we cn convert this one.
+	rubyinfo := RubyInfo{Executable: RubyExecutable()}
+	rubyinfo.Version = RubyVersion()
 	rubyinfo.RubyGems = GemInfo{RubyGemsVersion: RubyGemsVersion(), RubyGemsPlatforms: RubyGemsPlatforms(), GemEnvironment: WsEnvironmentInfo()}
 	return rubyinfo
 }
@@ -136,27 +130,3 @@ func WorkstationEnvInfo() EnvInfo {
 	InfObj.Path = PathInfo()
 	return InfObj
 }
-
-//
-//
-//
-//func PackageHome() string {
-//	return "ddd"
-//}
-//def package_home
-//@package_home ||= begin
-//package_home_set = !([nil, ""].include? ENV["CHEF_WORKSTATION_HOME"])
-//if package_home_set
-//ENV["CHEF_WORKSTATION_HOME"]
-//else
-//default_package_home
-//end
-//end
-//end
-
-//b, err := json.Marshal(envObj)
-//if err != nil {
-//fmt.Println(err)
-//return nil
-//}
-//fmt.Println(string(b))

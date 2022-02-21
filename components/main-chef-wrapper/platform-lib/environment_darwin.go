@@ -2,13 +2,11 @@ package platform_lib
 
 import (
 	"fmt"
+	"gopkg.in/yaml.v3"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
-
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
-	"gopkg.in/yaml.v2"
 )
 
 type EnvInfo struct {
@@ -59,7 +57,7 @@ func RunEnvironment() error {
 
 func WorkstationInfo() ChefWorkstationInfo {
 	if OmnibusInstall() {
-		info := ChefWorkstationInfo{Version: lib.ChefCliVersion} // todo make sure we take right version from --cli-repo( lib/chef-cli/helpers.rb )
+		info := ChefWorkstationInfo{Version: CliVersion()} // todo make sure we take right version from --cli-repo( lib/chef-cli/helpers.rb )
 		info.Home = PackageHome()
 		info.InstallDirectory = omnibusRoot() // todo --can be shifted to cli_helper.rb
 		info.PolicyfileConfig = PolicyFileConfigInfo{CachePath: CachePath(), StoragePath: StoragePath()}
@@ -132,27 +130,3 @@ func WorkstationEnvInfo() EnvInfo {
 	InfObj.Path = PathInfo()
 	return InfObj
 }
-
-//
-//
-//
-//func PackageHome() string {
-//	return "ddd"
-//}
-//def package_home
-//@package_home ||= begin
-//package_home_set = !([nil, ""].include? ENV["CHEF_WORKSTATION_HOME"])
-//if package_home_set
-//ENV["CHEF_WORKSTATION_HOME"]
-//else
-//default_package_home
-//end
-//end
-//end
-
-//b, err := json.Marshal(envObj)
-//if err != nil {
-//fmt.Println(err)
-//return nil
-//}
-//fmt.Println(string(b))

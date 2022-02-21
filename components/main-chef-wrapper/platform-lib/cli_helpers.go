@@ -11,9 +11,8 @@ import (
 
 var rubyenvMap map[string]interface{}
 
-func init() {
+func InitializeRubyMap() {
 	rubyenvMap = UnmarshallRubyEnv()
-
 }
 
 func PackageHome() string {
@@ -28,16 +27,6 @@ func PackageHome() string {
 }
 
 func DefaultPackageName() string {
-	// this logic can be used if other logic doesn't work.
-	//if runtime.GOOS == "windows" {
-	//home := os.Getenv("HOMEDRIVE") + os.Getenv("HOMEPATH")
-	//if home == "" {
-	//home = os.Getenv("USERPROFILE")
-	//home = os.Getenv("LOCALAPPDATA")
-	//}
-	//return home
-	//}
-	//return os.Getenv("HOME")
 	home, err := os.UserHomeDir()
 	if err != nil {
 		log.Fatal(err)
@@ -47,6 +36,9 @@ func DefaultPackageName() string {
 
 func OmnibusGemRoot() string {
 	gemRoot := ""
+	if rubyenvMap == nil {
+		return gemRoot
+	}
 	data, ok := rubyenvMap["omnibus path"].(map[string]interface{})
 	if ok {
 		gemRoot = data["GEM_ROOT"].(string)
@@ -56,6 +48,9 @@ func OmnibusGemRoot() string {
 
 func RubyExecutable() string {
 	rubyExe := ""
+	if rubyenvMap == nil {
+		return rubyExe
+	}
 	data, ok := rubyenvMap["ruby info"].(map[string]interface{})
 	if ok {
 		rubyExe = data["Executable"].(string)
@@ -65,6 +60,9 @@ func RubyExecutable() string {
 
 func RubyVersion() string {
 	rubyVersion := ""
+	if rubyenvMap == nil {
+		return rubyVersion
+	}
 	data, ok := rubyenvMap["ruby info"].(map[string]interface{})
 	if ok {
 		rubyVersion = data["Version"].(string)
@@ -72,8 +70,23 @@ func RubyVersion() string {
 	return rubyVersion
 }
 
+func CliVersion() string {
+	cliVersion := ""
+	if rubyenvMap == nil {
+		return cliVersion
+	}
+	data, ok := rubyenvMap["chef-cli"]
+	if ok {
+		cliVersion = data.(string)
+	}
+	return cliVersion
+}
+
 func RubyGemsVersion() string {
 	gemversion := ""
+	if rubyenvMap == nil {
+		return gemversion
+	}
 	data, ok := rubyenvMap["ruby info"].(map[string]interface{})
 	if ok {
 		ndata, ok := data["RubyGems"].(map[string]interface{})
@@ -87,12 +100,18 @@ func RubyGemsVersion() string {
 }
 
 func RubyGemsPlatforms() []interface{} {
+	if rubyenvMap == nil {
+		return nil
+	}
 	ptfrm := rubyenvMap["ruby info"].(map[string]interface{})["RubyGems"].(map[string]interface{})["RubyGems Platforms"].([]interface{})
 	return ptfrm
 }
 
 func OmnibusGemHome() string {
 	str := ""
+	if rubyenvMap == nil {
+		return str
+	}
 	data, ok := rubyenvMap["omnibus path"].(map[string]interface{})
 	if ok {
 		str = data["GEM_HOME"].(string)
@@ -102,6 +121,9 @@ func OmnibusGemHome() string {
 
 func OmnibusGemPath() []string {
 	gemPath := []string{""}
+	if rubyenvMap == nil {
+		return gemPath
+	}
 	data, ok := rubyenvMap["omnibus path"].(map[string]interface{})
 	if ok {
 		str := data["GEM_PATH"].(string)
@@ -111,6 +133,9 @@ func OmnibusGemPath() []string {
 }
 
 func OmnibusPath() []string {
+	if rubyenvMap == nil {
+		return []string{""}
+	}
 	str := rubyenvMap["omnibus path"].(map[string]interface{})["PATH"].(string)
 	split := strings.Split(str, ":")
 	return split
