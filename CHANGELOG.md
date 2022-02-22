@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.2.800 -->
-## [22.2.800](https://github.com/chef/chef-workstation/tree/22.2.800) (2022-02-18)
+<!-- latest_release 22.2.801 -->
+## [22.2.801](https://github.com/chef/chef-workstation/tree/22.2.801) (2022-02-21)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.127 [#2601](https://github.com/chef/chef-workstation/pull/2601) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump nokogiri to 1.13.2 and chef to 17.9.52 [#2603](https://github.com/chef/chef-workstation/pull/2603) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.1.778 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump nokogiri to 1.13.2 and chef to 17.9.52 [#2603](https://github.com/chef/chef-workstation/pull/2603) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.801 -->
 - Bump chef-analyze CLI to 0.1.127 [#2601](https://github.com/chef/chef-workstation/pull/2601) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.800 -->
 - Bump kitchen-inspec to 2.5.2 [#2598](https://github.com/chef/chef-workstation/pull/2598) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.799 -->
 - Bump cookstyle to 7.31.7 [#2595](https://github.com/chef/chef-workstation/pull/2595) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.798 -->
