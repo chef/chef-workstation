@@ -39,7 +39,6 @@ var (
 	reportCookbooksCmd = &cobra.Command{
 		Use:   "cookbooks",
 		Short: "Generates a cookbook-oriented report",
-		Args:  cobra.NoArgs,
 		Long: `Generates a cookbook-oriented report containing details about the
 upgrade compatibility errors and node cookbook usage.
 

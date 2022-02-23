@@ -14,8 +14,7 @@ aliases = ["/plugin_knife_opc.html", "/plugin_knife_opc/"]
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
 
-The `knife opc` subcommand is used to manage organizations and users in
-Chef Server 12.
+The `knife opc` subcommand is used to manage organizations and users in Chef Server 12.
 
 {{< note >}}
 
@@ -25,40 +24,31 @@ Administrator permissions are required to add, remove, or edit users. To manage 
 
 {{< note >}}
 
-Review the list of [common options](/workstation/knife_options/) available to
-this (and all) knife subcommands and plugins.
+Review the list of [common options](/workstation/knife_options/) available to this (and all) knife subcommands and plugins.
 
 {{< /note >}}
 
 ## config.rb Configuration [plugin_knife_opc-knife-rb-configuration]
 
-Unlike other knife subcommands the subcommands in the knife-opc plugin
-make API calls against the root of your Chef Infra Server installation's
-API endpoint.
+Unlike other knife subcommands the subcommands in the knife-opc plugin make API calls against the root of your Chef Infra Server installation's API endpoint.
 
-Typically the `chef_server_url` for your Chef Infra Server installation
-may look like this:
+Typically the `chef_server_url` for your Chef Infra Server installation may look like this:
 
 ``` ruby
 chef_server_url 'https://chef.yourdomain.com/organizations/ORG_NAME'
 ```
 
-To configure knife-opc, set the `chef_server_root` option to the root of
-your Chef Infra Server installation:
+To configure knife-opc, set the `chef_server_root` option to the root of your Chef Infra Server installation:
 
 ``` ruby
 chef_server_root 'https://chef.yourdomain.com/'
 ```
 
-If your `chef_server_url` configuration ends with
-`/organizations/ORG_NAME` (as shown above), this setting will default to
-`https://chef.yourdomain.com/`.
+If your `chef_server_url` configuration ends with `/organizations/ORG_NAME` (as shown above), this setting will default to `https://chef.yourdomain.com/`.
 
 {{< note >}}
 
-On Chef Server 12, the majority of the commands provided by this plugin
-can be accessed via `chef-server-ctl` wrapper commands. [See
-chef-server-ctl for details](/ctl_chef_server/).
+On Chef Server 12, the majority of the commands provided by this plugin can be accessed via `chef-server-ctl` wrapper commands. [See chef-server-ctl for details](/ctl_chef_server/).
 
 {{< /note >}}
 
@@ -133,8 +123,7 @@ username:   alice
 
 ## opc user create [plugin_knife_opc-opc-user-create]
 
-Creates a new user in your Chef Infra Server installation. The user's
-private key will be returned in response.
+Creates a new user in your Chef Infra Server installation. The user's private key will be returned in response.
 
 ### Syntax
 
@@ -183,8 +172,7 @@ This argument has the following options:
 
 `-R`, `--remove-from-admin-groups`
 
-: If the user is a member of any org admin groups, attempt to remove
-    from those groups. Ignored if `--no-disassociate-user` is set.
+: If the user is a member of any org admin groups, attempt to remove from those groups. Ignored if `--no-disassociate-user` is set.
 
 ### Example
 
@@ -197,8 +185,7 @@ Deleting user arno.
 
 ## opc user edit
 
-Will open `$EDITOR` to edit a user. When finished editing, knife will
-update the given Chef Infra Server user.
+Will open `$EDITOR` to edit a user. When finished editing, knife will update the given Chef Infra Server user.
 
 ### Syntax
 
@@ -254,9 +241,7 @@ This argument has the following syntax:
 knife opc user password USER_NAME [PASSWORD | --enable_external_auth]
 ```
 
-The last argument should either be a string to use as password or
-`--enable_external_auth` instead of a password to enable external
-authentication for this user.
+The last argument should either be a string to use as password or `--enable_external_auth` instead of a password to enable external authentication for this user.
 
 ### Example
 
@@ -299,8 +284,7 @@ acme: https://chef-server.fqdn/organizations/acme
 
 ## opc org show [plugin_knife_opc-opc-org-show]
 
-Shows the details of an organization in your Chef Infra Server
-installation.
+Shows the details of an organization in your Chef Infra Server installation.
 
 ### Syntax
 
@@ -321,8 +305,7 @@ name:      acme
 
 ## opc org create [plugin_knife_opc-opc-org-create]
 
-Creates a new Chef Infra Server organization. The private key for the
-organization's validator client is returned.
+Creates a new Chef Infra Server organization. The private key for the organization's validator client is returned.
 
 ### Syntax
 
@@ -377,8 +360,7 @@ name:      acme2
 
 ## opc org user add
 
-Adds a user to an organization. Requires that the named organization and
-user both exist.
+Adds a user to an organization. Requires that the named organization and user both exist.
 
 ### Syntax
 
@@ -396,9 +378,7 @@ knife opc org user add acme2 alice
 
 ## opc org user remove
 
-Removes a user from an organization. Requires that the named
-organization and user both exist, and that the user is currently
-associated with the organization.
+Removes a user from an organization. Requires that the named organization and user both exist, and that the user is currently associated with the organization.
 
 ### Syntax
 
