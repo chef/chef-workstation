@@ -13,6 +13,7 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
     parent = "chef_workstation"
     weight = 20
 +++
+<!-- markdownlint-disable-file MD033 -->
 
 {{% chef_workstation %}}
 

@@ -12,6 +12,7 @@ aliases = ["/knife_azurerm.html", "/knife_azurerm/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_azurerm.md knife azurerm"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
+<!-- markdownlint-disable-file MD033 MD036 -->
 
 ## Knife Azure Overview
 

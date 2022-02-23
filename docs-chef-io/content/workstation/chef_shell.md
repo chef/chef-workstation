@@ -13,6 +13,7 @@ aliases = ["/chef_shell.html", "/chef_shell/"]
     parent = "chef_workstation/chef_workstation_tools"
     weight = 40
 +++
+<!-- markdownlint-disable-file MD024 -->
 
 {{% chef_shell_summary %}}
 

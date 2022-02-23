@@ -12,6 +12,7 @@ aliases = ["/knife_data_bag.html", "/knife_data_bag/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_data_bag.md knife data bag"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
+<!-- markdownlint-disable-file MD024 MD036 -->
 
 {{% data_bag %}}
 

@@ -12,6 +12,7 @@ product = ["workstation"]
     parent = "chef_workstation/extension_apis/knife_plugins"
     weight = 20
 +++
+<!-- markdownlint-disable-file MD033 MD037-->
 
 {{% plugin_knife_summary %}}
 
@@ -492,9 +493,9 @@ knife[:setting_name]
 This approach can be useful when a particular setting is used a lot. The
 order of precedence for a knife option is:
 
-1.  A value passed via the command line
-2.  A value saved in the config.rb file
-3.  A default value
+1. A value passed via the command line
+2. A value saved in the config.rb file
+3. A default value
 
 The following example shows how the `knife bootstrap` subcommand checks
 for a value in the config.rb file by using the `:proc` attribute:

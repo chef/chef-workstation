@@ -13,6 +13,7 @@ aliases = ["/ctl_kitchen.html", "/ctl_kitchen/"]
     parent = "chef_workstation/chef_workstation_tools/test_kitchen"
     weight = 20
 +++
+<!-- markdownlint-disable-file MD024 MD036 MD046-->
 
 {{% ctl_kitchen_summary %}}
 

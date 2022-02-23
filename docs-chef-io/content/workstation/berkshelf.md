@@ -14,6 +14,8 @@ aliases = ["/berkshelf.html", "/berkshelf/"]
     weight = 10
 +++
 
+<!-- markdownlint-disable-file MD024 -->
+
 Berkshelf is a dependency manager for Chef cookbooks. With it, you can
 easily depend on community cookbooks and have them safely included in
 your workflow. You can also ensure that your CI systems reproducibly
@@ -199,7 +201,7 @@ a case by case basis. Often this is used to get a development cookbook
 from Git, or to use another cookbook in a monolithic cookbook
 repository.
 
-**Path Location**
+##### Path Location
 
 The path location enables Berkshelf to use a cookbook located on the
 same system. It does not cache the target cookbook, ensuring that the
@@ -210,7 +212,7 @@ a `metadata.rb`.
 cookbook "library-cookbook", "~> 0.1.1", path: "../library-cookbook"
 ```
 
-**Git Location**
+##### Git Location
 
 The git location enables Berkshelf to use acquire a cookbook from a git
 repository.
@@ -240,7 +242,7 @@ path to the desired cookbook using the `rel` option:
 cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/cookbook-repo.git", rel: "library-cookbook"
 ```
 
-**GitHub Location**
+##### GitHub Location
 
 If a cookbook is in GitHub, you can use the `github:` shorthand to refer
 to it:

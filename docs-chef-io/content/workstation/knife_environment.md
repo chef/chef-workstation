@@ -12,6 +12,7 @@ aliases = ["/knife_environment.html", "/knife_environment/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_environment.md knife environment"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
+<!-- markdownlint-disable-file MD024 MD036 -->
 
 {{% environment %}}
 
@@ -67,8 +68,6 @@ to return something similar to:
 apache  2.3.1
 windows 4.1.2
 ```
-
-
 
 **Compare cookbook versions for multiple environments**
 

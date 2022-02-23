@@ -12,21 +12,17 @@ gh_repo = "chef-workstation"
     weight = 31
 +++
 
-chef-run is a tool to execute ad-hoc tasks on one or more target nodes
-using Chef Infra Client. To start with, familiarize yourself with `chef-run`'s
-arguments and flags by running `chef-run -h`.
+chef-run is a tool to execute ad-hoc tasks on one or more target nodes using Chef Infra Client. To start with, familiarize yourself with `chef-run`'s arguments and flags by running `chef-run -h`.
 
 ## Apply a Resource to a Single Node over SSH
 
-In its simplest form, `chef-run` targets a single machine and execute a single
-resource on that machine:
+In its simplest form, `chef-run` targets a single machine and execute a single resource on that machine:
 
 ```bash
 chef-run ssh://my_user@host1:2222 directory /tmp/foo --identity-file ~/.ssh/id_rsa
 ```
 
-SSH is the default protocol. When using SSH, `chef-run` attempts to read defaults
-from your `~/.ssh/config` file. Given the following SSH configuration:
+SSH is the default protocol. When using SSH, `chef-run` attempts to read defaults from your `~/.ssh/config` file. Given the following SSH configuration:
 
 ```text
 Host host1
@@ -41,9 +37,7 @@ You could specify the `chef-run` command as:
 chef-run host1 directory /tmp/foo
 ```
 
-To use password authentication instead of an identity file, specify the
-password as part of the connection information or by using the command line
-flag:
+To use password authentication instead of an identity file, specify the password as part of the connection information or by using the command line flag:
 
 ```bash
 chef-run my_user:a_password@host1:2222 directory /tmp/foo
@@ -52,32 +46,28 @@ chef-run my_user@host1:2222 directory /tmp/foo --password a_password
 
 ## Applying a Resource to a Single Node over WinRM
 
-To target WinRM you must specify the `winrm` protocol as part of the connection
-information:
+To target WinRM you must specify the `winrm` protocol as part of the connection information:
 
-```
+```ruby
 chef-run 'winrm://my_user:my_p4ssword!@host' directory /tmp/foo
 ```
 
-WinRM connections only support password authentication. Provide username and
-password as shown in the example, or via the `--user` and `--password` flags.
+WinRM connections only support password authentication. Provide username and password as shown in the example, or via the `--user` and `--password` flags.
 
 HTTPS connections are supported by providing the `--ssl` flag.
 
-`chef-run` over WinRM does not support certificate-based authentication to
-target hosts.
+`chef-run` over WinRM does not support certificate-based authentication to target hosts.
 
 ## Specifying resource properties and actions
 
-You can specify all the Chef Infra [resources](/resources/) in the command line.
-Enter the `chef-run` command first, followed by the resource type in the second
-place, and the resource name in the third place. For example:
+You can specify all the Chef Infra [resources](/resources/) in the command line. Enter the `chef-run` command first, followed by the resource type in the second place, and the resource name in the third place. For example:
 
 ```bash
 chef-run host1 group awesome_group
 ```
 
 This command specifies the `group` resource with a name of `awesome_group`.
+
 To specify properties and actions, use a `key=value` syntax:
 
 ```bash
@@ -86,9 +76,7 @@ chef-run host1 user super_person gid=1001 'password=complex=p@ssword!!'
 chef-run host1 user super_person action=remove
 ```
 
-See the documentation for each resource to see available properties available to
-customize. As shown in the previous example, you can quote the `key=value` pair
-if the value contains a character that would be interpreted by the shell.
+See the documentation for each resource to see available properties available to customize. As shown in the previous example, you can quote the `key=value` pair if the value contains a character that would be interpreted by the shell.
 
 ## Running a Recipe
 
@@ -106,11 +94,9 @@ chef-run host1 /cookbooks/my_cookbook/recipes/default.rb
 chef-run host1 /cookbooks/my_cookbook
 ```
 
-If you specify the path to the cookbook `chef-run` will execute the default
-recipe from the cookbook on the target node.
+If you specify the path to the cookbook `chef-run` will execute the default recipe from the cookbook on the target node.
 
-`chef-run` also supports looking up your cookbook in a local cookbook
-repository. Assuming you have your cookbook repository at `/cookbooks`, run:
+`chef-run` also supports looking up your cookbook in a local cookbook repository. Assuming you have your cookbook repository at `/cookbooks`, run:
 
 ```bash
 cd /cookbooks
@@ -137,11 +123,9 @@ and for `~/.chef/config.rb`:
 cookbook_path ['/path/1', '/path/b']
 ```
 
-If you run `chef-run host1 my_cookbook` and the current directory does not have
-a cookbook named `my_cookbook`, then `chef-run` searches the configured paths, with those configured in `~/.chef-workstation/config.toml` taking priority over those in `~/.chef/config.rb`.
+If you run `chef-run host1 my_cookbook` and the current directory does not have a cookbook named `my_cookbook`, then `chef-run` searches the configured paths, with those configured in `~/.chef-workstation/config.toml` taking priority over those in `~/.chef/config.rb`.
 
-To specify the search paths as command line arguments instead of using a
-configuration file, use:
+To specify the search paths as command line arguments instead of using a configuration file, use:
 
 ```bash
 chef-run host1 my_cookbook --cookbook-repo-paths '/path/1,/path/b'
@@ -149,10 +133,7 @@ chef-run host1 my_cookbook --cookbook-repo-paths '/path/1,/path/b'
 
 ## Configuring Cookbook Dependencies and Sources
 
-When converging a target node `chef-run` creates a Policyfile bundle that
-includes the cookbook specified. If the cookbook you specified has its own
-[`Policyfile.rb`](/config_rb_policyfile/) that will be
-respected.
+When converging a target node `chef-run` creates a Policyfile bundle that includes the cookbook specified. If the cookbook you specified has its own [`Policyfile.rb`](/config_rb_policyfile/) that will be respected.
 
 In your `metadata.rb` file:
 
@@ -181,25 +162,15 @@ log "lets include some stuff"
 include_recipe "pretty_simple::second"
 ```
 
-Running `chef-run host1 really_complicated::first` collects all the
-`really_complicated` cookbook dependencies (`pretty_simple`) first, in
-preparation for converging the target node. When running on that node the
-`first` recipe finds its local dependency on the `pretty_simple` cookbook and
-then runs its `second` recipe.
+Running `chef-run host1 really_complicated::first` collects all the `really_complicated` cookbook dependencies (`pretty_simple`) first, in preparation for converging the target node. When running on that node the `first` recipe finds its local dependency on the `pretty_simple` cookbook and then runs its `second` recipe.
 
-You can specify different cookbook sources in `Policyfile.rb`, including a
-private supermarket. See the [Policyfile
-documentation](/config_rb_policyfile/) for examples.
+You can specify different cookbook sources in `Policyfile.rb`, including a private supermarket. See the [Policyfile documentation](/config_rb_policyfile/) for examples.
 
 ## Connecting to Automate 2
 
-You can configure remote nodes managed with `chef-run` to send run
-information to Automate. First, [generate an auth token](/automate/api_tokens/#creating-api-tokens).
+You can configure remote nodes managed with `chef-run` to send run information to Automate. First, [generate an auth token](/automate/api_tokens/#creating-api-tokens).
 
-Next, add the token to [config.toml]({{< ref "config.md#data_collector" >}}),
-specifying the appropriate [url](/automate/data_collection/) and
-[token](/automate/api_tokens/#creating-api-tokens)
-for the automate server:
+Next, add the token to [config.toml]({{< ref "config.md#data_collector" >}}), specifying the appropriate [url](/automate/data_collection/) and [token](/automate/api_tokens/#creating-api-tokens) for the automate server:
 
 ```toml
 [data_collector]
@@ -207,5 +178,4 @@ url="https://127.0.0.1/data-collector/v0/"
 token="abc123="
 ```
 
-Target nodes need network access to port 443 of the Automate instance for
-sending `chef-client` run information.
+Target nodes need network access to port 443 of the Automate instance for sending `chef-client` run information.

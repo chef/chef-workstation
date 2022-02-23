@@ -14,7 +14,7 @@ gh_repo = "chef-workstation"
 
 ## Chef Workstation Logs
 
-Chef Workstation logs are stored in ` ~/.chef-workstation/logs`.
+Chef Workstation logs are stored in `~/.chef-workstation/logs`.
 
 ## Uninstall instructions
 
@@ -24,7 +24,7 @@ Follow the steps provided under [Uninstalling]({{< ref "install_workstation.md#u
 
 ### CHEFINT001
 
-```
+```txt
 CHEFINT001
 
 An remote error has occurred:
@@ -48,18 +48,19 @@ Information about each option is below.
 
 Use `--password` to provide the password required to authenticate to the host:
 
-```
+```bash
 chef-run --password $PASSWORD myhost.example.com --password
 ```
 
 Alternatively, explicitly provide an identity file using '--identity-file':
 
-```
+```bash
 chef-run --identity-file /path/to/your/ssh/key
 ```
 
 #### resolve by adding key(s) to ssh-agent
-```
+
+```bash
 ## ensure ssh-agent is running. This may report it is already started:
 $ ssh-agent
 
@@ -72,7 +73,7 @@ Identity added: /home/timmy/.ssh/id_rsa (/home/timmy/.ssh/id_rsa)
 
 Add an entry for this host to your .ssh/config:
 
-```
+```txt
 host example.com
   IdentityFile /path/to/valid/key
 ```

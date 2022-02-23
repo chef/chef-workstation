@@ -11,14 +11,9 @@ gh_repo = "chef-workstation"
     parent = "chef_workstation"
     weight = 40
 +++
+<!-- markdownlint-disable-file MD024 -->
 
-
-# Configuration
-
-Chef Workstation App and `chef-run` configuration is managed in `config.toml`.
-Chef Workstation will create `config.toml` the first time you use `chef-run`,
-if one does not already exist. To configure other tools, see their
-respective pages found in the toolbar under Chef Workstation Tools.
+Chef Workstation App and `chef-run` configuration is managed in `config.toml`. Chef Workstation will create `config.toml` the first time you use `chef-run`, if one does not already exist. To configure other tools, see their respective pages found in the toolbar under Chef Workstation Tools.
 
 ## Default location
 
@@ -46,6 +41,7 @@ Configure telemetry behaviors for Chef Workstation components.
 enable = true
 dev = false
 ```
+
 #### enable
 
 Description

@@ -12,6 +12,7 @@ aliases = ["/knife_client.html", "/knife_client/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_client.md knife client"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
+<!-- markdownlint-disable-file MD024 MD033 MD036 MD046-->
 
 {{% knife_client_summary %}}
 

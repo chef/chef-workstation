@@ -12,6 +12,7 @@ aliases = ["/knife_bootstrap.html", "/knife_bootstrap/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_bootstrap.md knife bootstrap"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
+<!-- markdownlint-disable-file MD036 MD046-->
 
 {{% chef_client_bootstrap_node %}}
 
@@ -465,6 +466,7 @@ knife bootstrap -o winrm 123.456.7.8 -U username -P 'PASSWORD' --node-name NODE_
 ```
 
 **Bootstrap Windows node with shorthand syntax**
+
 ```bash
 knife bootstrap winrm://username:PASSWORD@123.456.7.8 --run-list 'recipe[cookbook]' -E ENV_NAME
 ```

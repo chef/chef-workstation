@@ -12,6 +12,7 @@ aliases = ["/knife_supermarket.html", "/plugin_knife_supermarket.html", "/knife_
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_supermarket.md knife supermarket"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
+<!-- markdownlint-disable-file MD024 MD036 -->
 
 The `knife supermarket` subcommand is used to interact with cookbooks
 that are located in on the public Supermarket as well as private Chef
