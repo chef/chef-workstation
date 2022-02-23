@@ -12,6 +12,7 @@ aliases = ["/knife_ssl_check.html", "/knife_ssl_check/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_ssl_check.md knife ssl_check"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
+<!-- markdownlint-disable-file MD036 -->
 
 {{% knife_ssl_check_summary %}}
 

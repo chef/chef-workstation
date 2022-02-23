@@ -17,6 +17,8 @@ aliases = ["/about_workstation.html", "/about_chefdk.html", "/chef_dk.html", "/a
     weight = 10
 +++
 
+<!-- markdownlint-disable-file MD033 -->
+
 {{% chef_workstation %}}
 
 Chef Workstation replaces ChefDK, combining all the existing features

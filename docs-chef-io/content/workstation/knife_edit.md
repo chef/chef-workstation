@@ -59,6 +59,6 @@ This subcommand has the following options:
 
 The following examples show how to use this knife subcommand:
 
-**Remove a user from /groups/admins.json**
+### Remove a user from /groups/admins.json
 
 {{% knife_edit_admin_users %}}

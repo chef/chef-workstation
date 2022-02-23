@@ -9,9 +9,7 @@ aliases = ["/foodcritic.html", "/foodcritic/"]
 
 {{< warning >}}
 
-Foodcritic is deprecated and should no longer be used for cookbook
-linting. Use [Cookstyle](/workstation/cookstyle/) instead which offers additional
-rules, violation autocorrection, Ruby linting, and a robust
+Foodcritic is deprecated and should no longer be used for cookbook linting. Use [Cookstyle](/workstation/cookstyle/) instead which offers additional rules, violation autocorrection, Ruby linting, and a robust
 configuration system.
 
 {{< /warning >}}
@@ -194,7 +192,7 @@ This command has the following options:
 
 : Exclude path(s) from being linted. PATH is relative to the cookbook, not an absolute PATH. Default `test/**/*,spec/**/*,features/**/*`.
 
-## For more information ...
+## More Information
 
 For more information about Foodcritic:
 

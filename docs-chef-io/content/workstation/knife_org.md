@@ -12,6 +12,7 @@ aliases = ["/knife_org.html", "/knife_org/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_org.md knife org"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
+<!-- markdownlint-disable-file MD024 MD036 -->
 
 The `knife org` subcommand is used to manage organizations and users in Chef Infra Server.
 

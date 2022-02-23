@@ -12,10 +12,7 @@ gh_repo = "chef-workstation"
     weight = 61
 +++
 
-# About Chef Workstation App
-
-The Chef Workstation App (CWA) is an early-release desktop application that
-provides additional services for Chef Workstation:
+The Chef Workstation App (CWA) is an early-release desktop application that provides additional services for Chef Workstation:
 
 * Update checking and notifications
 * Chef Workstation version information
@@ -43,8 +40,7 @@ Start `Chef Workstation App` from your Applications folder.
 
 ## Disabling Automatic Update Checks
 
-To disable CWA's automatic update checking, add or modify the `enable` setting
-under `updates` in [config.toml]({{< ref "config.md#updates" >}}):
+To disable CWA's automatic update checking, add or modify the `enable` setting under `updates` in [config.toml]({{< ref "config.md#updates" >}}):
 
 ```toml
 [updates]
@@ -53,12 +49,9 @@ enable=false
 
 ## Setting Update Channel
 
-To set the channel used for update checking, bring up the CWA tray app
-menu (Windows/Linux) or the application menu (Mac) and select "About Chef
-Workstation".
+To set the channel used for update checking, bring up the CWA tray app menu (Windows/Linux) or the application menu (Mac) and select "About Chef Workstation".
 
-Select the "Channel" button and choose your preferred channel. This will
-trigger an immediate update check.
+Select the "Channel" button and choose your preferred channel. This will trigger an immediate update check.
 
 ```toml
 [updates]

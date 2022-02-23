@@ -12,8 +12,7 @@ aliases = ["/plugin_knife_opc.html", "/plugin_knife_opc/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/plugin_knife_opc.md knife opc"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-<!-- markdownlint-disable-file MD024 -->
+<!-- markdownlint-disable-file MD024 MD036 -->
 
 The `knife opc` subcommand is used to manage organizations and users in Chef Server 12.
 
@@ -29,7 +28,7 @@ Review the list of [common options](/workstation/knife_options/) available to th
 
 {{< /note >}}
 
-## config.rb Configuration
+## config.rb Configuration [plugin_knife_opc-knife-rb-configuration]
 
 Unlike other knife subcommands the subcommands in the knife-opc plugin make API calls against the root of your Chef Infra Server installation's API endpoint.
 
@@ -196,7 +195,7 @@ This argument has the following syntax:
 knife opc user edit USER_NAME
 ```
 
-### Example [plugin_knife_opc-opc-user-password]
+#### Example [plugin_knife_opc-opc-user-password]
 
 ``` bash
 EDITOR=ed knife opc user edit arno

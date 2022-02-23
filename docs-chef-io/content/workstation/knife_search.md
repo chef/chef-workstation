@@ -12,6 +12,7 @@ aliases = ["/knife_search.html", "/knife_search/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_search.md knife search"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
+<!-- markdownlint-disable-file MD024 MD036 -->
 
 {{% search %}}
 

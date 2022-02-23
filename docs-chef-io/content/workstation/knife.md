@@ -14,6 +14,8 @@ aliases = ["/knife.html", "/knife_using.html", "/knife/"]
     weight = 10
 +++
 
+<!-- markdownlint-disable-file MD033 -->
+
 knife is a command-line tool that provides an interface between a local
 chef-repo and the Chef Infra Server. knife helps users to manage:
 

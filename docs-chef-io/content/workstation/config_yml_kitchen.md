@@ -13,6 +13,7 @@ aliases = ["/config_yml_kitchen.html", "/config_yml_kitchen/"]
     parent = "chef_workstation/chef_workstation_tools/test_kitchen"
     weight = 30
 +++
+<!-- markdownlint-disable-file MD033 -->
 
 Use [Test Kitchen](https://kitchen.ci/) to automatically test cookbook
 data across any combination of platforms and test suites:

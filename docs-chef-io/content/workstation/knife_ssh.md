@@ -12,6 +12,7 @@ aliases = ["/knife_ssh.html", "/knife_ssh/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_ssh.md knife ssh"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
+<!-- markdownlint-disable-file MD036 -->
 
 {{% knife_ssh_summary %}}
 

@@ -16,10 +16,10 @@ aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html",
 
 This guide walks you through the four parts to set up Chef Workstation on your computer.
 
-* [Configure Ruby Environment]({{< relref "#configure-ruby-environment" >}})
-* [Set up your chef-repo]({{< relref "#setup-your-chef-repo" >}}) for storing your cookbooks
-* [Setup Chef Credentials]({{< relref "#setup-chef-credentials" >}})
-* [Verify Client-to-Server Communication]({{< relref "#Verify Client-to-Server Communication" >}})
+- [Configure Ruby Environment]({{< relref "#configure-ruby-environment" >}})
+- [Set up your chef-repo]({{< relref "#setup-your-chef-repo" >}}) for storing your cookbooks
+- [Setup Chef Credentials]({{< relref "#setup-chef-credentials" >}})
+- [Verify Client-to-Server Communication]({{< relref "#Verify Client-to-Server Communication" >}})
 
 ## Prerequisites
 

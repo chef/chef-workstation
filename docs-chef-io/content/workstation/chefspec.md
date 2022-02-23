@@ -14,12 +14,11 @@ aliases = ["/chefspec.html", "/chefspec/"]
     weight = 60
 +++
 
+<!-- markdownlint-disable-file MD036 -->
+
 {{% chefspec_summary %}}
 
-ChefSpec is a framework that tests resources and recipes as part of a
-simulated Chef Infra Client run. ChefSpec tests execute very quickly.
-When used as part of the cookbook authoring workflow, ChefSpec tests are
-often the first indicator of problems that may exist within a cookbook.
+ChefSpec is a framework that tests resources and recipes as part of a simulated Chef Infra Client run. ChefSpec tests execute very quickly. When used as part of the cookbook authoring workflow, ChefSpec tests are often the first indicator of problems that may exist within a cookbook.
 
 ## Run ChefSpec
 
@@ -31,20 +30,13 @@ chef exec rspec
 
 ## Unit Tests
 
-RSpec is a behavior-driven development (BDD) framework that uses a
-natural language domain-specific language (DSL) to quickly describe
-scenarios in which systems are being tested. RSpec allows a scenario to
-be set up, and then executed. The results are compared to a set of
-defined expectations.
+RSpec is a behavior-driven development (BDD) framework that uses a natural language domain-specific language (DSL) to quickly describe scenarios in which systems are being tested. RSpec allows a scenario to be set up, and then executed. The results are compared to a set of defined expectations.
 
 ChefSpec is built on the RSpec DSL.
 
 ### Syntax
 
-The syntax of RSpec-based tests should follow the natural language
-descriptions of RSpec itself. The tests themselves should create an
-English-like sentence: "The sum of one plus one equals two, and not
-three." For example:
+The syntax of RSpec-based tests should follow the natural language descriptions of RSpec itself. The tests themselves should create an English-like sentence: "The sum of one plus one equals two, and not three." For example:
 
 ``` ruby
 describe '1 plus 1' do
@@ -69,10 +61,7 @@ where:
 
 #### context
 
-RSpec-based tests may contain `context` blocks. Use `context` blocks
-within `describe` blocks to define "tests within tests". Each `context`
-block is tested individually. All `context` blocks within a `describe`
-block must be true for the test to pass. For example:
+RSpec-based tests may contain `context` blocks. Use `context` blocks within `describe` blocks to define "tests within tests". Each `context` block is tested individually. All `context` blocks within a `describe` block must be true for the test to pass. For example:
 
 ``` ruby
 describe 'math' do
@@ -90,11 +79,7 @@ describe 'math' do
 end
 ```
 
-where each `context` block describes a different testing scenario: "The
-sum of one plus one to equal two, and also the sum of two plus two to
-equal four." A `context` block is useful to handle platform-specific
-scenarios. For example, "When on platform A, test for foo; when on
-platform B, test for bar." For example:
+where each `context` block describes a different testing scenario: "The sum of one plus one to equal two, and also the sum of two plus two to equal four." A `context` block is useful to handle platform-specific scenarios. For example, "When on platform A, test for foo; when on platform B, test for bar." For example:
 
 ``` ruby
 describe 'cookbook_name::recipe_name' do
@@ -125,9 +110,7 @@ end
 
 #### let
 
-RSpec-based tests may contain `let` statements within a `context` block.
-Use `let` statements to create a symbol, assign it a value, and then use
-it elsewhere in the `context` block. For example:
+RSpec-based tests may contain `let` statements within a `context` block.Use `let` statements to create a symbol, assign it a value, and then use it elsewhere in the `context` block. For example:
 
 ``` ruby
 describe 'Math' do
@@ -158,8 +141,7 @@ where:
 
 ### Require ChefSpec
 
-A ChefSpec unit test must contain the following statement at the top of
-the test file:
+A ChefSpec unit test must contain the following statement at the top of the test file:
 
 ``` ruby
 require 'chefspec'
@@ -167,12 +149,7 @@ require 'chefspec'
 
 ## Examples
 
-The ChefSpec repo on github has [an impressive collection of
-examples](https://github.com/sethvargo/chefspec/tree/main/examples).
-For all of the core Chef Infra Client resources, for guards, attributes,
-multiple actions, and so on. Take a look at those examples and use them
-as a starting point for building your own unit tests. Some of them are
-included below, for reference here.
+The ChefSpec repo on github has [an impressive collection of examples](https://github.com/sethvargo/chefspec/tree/main/examples). For all of the core Chef Infra Client resources, for guards, attributes, multiple actions, and so on. Take a look at those examples and use them as a starting point for building your own unit tests. Some of them are included below, for reference here.
 
 ### file Resource
 
@@ -527,7 +504,7 @@ describe 'multiple_actions::sequential' do
 end
 ```
 
-## For more information ...
+## More Information
 
 For more information about ChefSpec:
 

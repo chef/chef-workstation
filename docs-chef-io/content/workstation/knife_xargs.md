@@ -12,6 +12,7 @@ aliases = ["/knife_xargs.html", "/knife_xargs/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_xargs.md knife xargs"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
+<!-- markdownlint-disable-file MD036 -->
 
 {{% knife_xargs_summary %}}
 

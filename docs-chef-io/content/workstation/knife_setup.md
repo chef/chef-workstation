@@ -13,6 +13,7 @@ aliases = ["/knife_setup.html", "/knife_setup/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 20
 +++
+<!-- markdownlint-disable-file MD036 -->
 
 knife is a command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. The knife command line tool must be configured to communicate with the Chef Infra Server as well as any other infrastructure within your organization.
 
@@ -98,7 +99,7 @@ List your profiles with the `knife config list-profiles` command.
 
 For example:
 
-```
+```bash
 knife config list-profiles
 ```
 
@@ -150,7 +151,7 @@ In a script for Microsoft Windows, use: `%USERPROFILE%\chef-repo\.chef`.
 
 ### config.rb Configuration Within a Chef Repository
 
-Use <span class="title-ref">knife configure</span> command to generate your initial `config.rb` file in your home directory.
+Use `knife configure` command to generate your initial `config.rb` file in your home directory.
 See [knife configure](/workstation/knife_configure/) for details.
 
 ## Setting Your Text Editor
@@ -223,4 +224,5 @@ knife[:editor] = '"C:\Program Files (x86)\vim\vim74\gvim.exe"'
 ```
 
 ### Using Quotes
+
  The text editor command cannot include spaces that are not properly wrapped in quotes. The command can be entered with double quotes (" ") or single quotes (' '), but this should be done consistently as shown in the examples above.

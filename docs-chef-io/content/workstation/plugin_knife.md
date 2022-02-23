@@ -12,6 +12,7 @@ product = ["workstation"]
     parent = "chef_workstation/extension_apis/knife_plugins"
     weight = 10
 +++
+<!-- markdownlint-disable-file MD033 -->
 
 {{% plugin_knife_summary %}}
 

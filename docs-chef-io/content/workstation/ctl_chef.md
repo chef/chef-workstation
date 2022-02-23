@@ -13,6 +13,7 @@ aliases = ["/ctl_chef.html", "/ctl_chef/"]
     parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
     weight = 10
 +++
+<!-- markdownlint-disable-file MD024 MD036-->
 
 The chef executable is a command-line tool that does the following:
 
@@ -460,16 +461,17 @@ Recipe: code_generator::cookbook
 
 and which creates a directory structure similar to:
 
+```txt
     /chefdocs
       /.git
       .gitignore
       kitchen.yml
-      Berksfile
       chefignore
       metadata.rb
       README.md
       /recipes
         default.rb
+```
 
 **Create a cookbook using a custom skeleton cookbook**
 
@@ -751,7 +753,6 @@ This subcommand has the following options:
 
 : Maximum number of parallel workers at once (default 50).
 
-
 ### Examples
 
 **Generate a report**
@@ -844,7 +845,6 @@ This subcommand has the following options:
 
 : Chef Infra Server URL.
 
-
 ### Examples
 
 **Generate a report**
@@ -873,10 +873,10 @@ Analyzing nodes...
 Nodes report saved to .chef-workstation/reports/nodes-20200722130502.txt
 
 ```
+
 More details of this summary report can be viewed in the text file, the location for which is given at the end of the summary.
 
 [Upgrade Lab](/workstation/upgrade_lab) provides further details on how this command can be used in Chef Infra Client upgrade process.
-
 
 ## chef shell-init
 
