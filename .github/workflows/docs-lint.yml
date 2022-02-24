@@ -49,7 +49,7 @@ jobs:
         id: download-markdownlint-config
         with:
           file-url: 'https://github.com/chef/chef-web-docs/blob/main/.markdownlint.yaml'
-          file-name: 'markdwonlint.yaml'
+          file-name: 'markdownlint.yaml'
       - uses: DavidAnson/markdownlint-cli2-action@v5
         with: 
           globs: |
