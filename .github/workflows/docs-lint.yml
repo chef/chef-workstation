@@ -13,14 +13,18 @@ jobs:
   markdownlint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
-      - uses: carlosperate/download-file-action@v1
-        id: download-markdownlint
+      - name: Get mdl config
+        uses: carlosperate/download-file-action@v1
+        id: download-mdl-config
         with:
           file-url: 'https://github.com/chef/chef-web-docs/blob/main/.markdownlint.yaml'
           file-name: '.markdownlint.yaml'
+      - name: Check the file location
+        run: echo "The file was downloaded to ${{ steps.download-file.outputs.file-path }}
       - uses: DavidAnson/markdownlint-cli2-action@v5
         with: 
           globs: |
