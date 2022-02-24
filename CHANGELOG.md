@@ -1,20 +1,21 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.2.804 -->
-## [22.2.804](https://github.com/chef/chef-workstation/tree/22.2.804) (2022-02-23)
-
-#### Merged Pull Requests
-- Fixes to pass Markdown linting [#2610](https://github.com/chef/chef-workstation/pull/2610) ([kagarmoe](https://github.com/kagarmoe))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=22.2.802 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Fixes to pass Markdown linting [#2610](https://github.com/chef/chef-workstation/pull/2610) ([kagarmoe](https://github.com/kagarmoe)) <!-- 22.2.804 -->
-- Bump omnibus-software from `ab23925` to `ca1f034` in /omnibus [#2602](https://github.com/chef/chef-workstation/pull/2602) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.2.803 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [22.2.807](https://github.com/chef/chef-workstation/tree/22.2.807) (2022-02-24)
+
+#### Merged Pull Requests
+- Bump omnibus-software from `ab23925` to `ca1f034` in /omnibus [#2602](https://github.com/chef/chef-workstation/pull/2602) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Fixes to pass Markdown linting [#2610](https://github.com/chef/chef-workstation/pull/2610) ([kagarmoe](https://github.com/kagarmoe))
+- Bump chefspec to 9.3.3 [#2606](https://github.com/chef/chef-workstation/pull/2606) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `ca1f034` to `d5ff796` in /omnibus [#2608](https://github.com/chef/chef-workstation/pull/2608) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump cookstyle to 7.32.0 [#2613](https://github.com/chef/chef-workstation/pull/2613) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_stable_release -->
+
 ## [22.2.802](https://github.com/chef/chef-workstation/tree/22.2.802) (2022-02-22)
 
 #### Merged Pull Requests
@@ -42,7 +43,6 @@
 - Bump chef-analyze CLI to 0.1.127 [#2601](https://github.com/chef/chef-workstation/pull/2601) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump nokogiri to 1.13.2 and chef to 17.9.52 [#2603](https://github.com/chef/chef-workstation/pull/2603) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump chefspec to 9.3.2 [#2604](https://github.com/chef/chef-workstation/pull/2604) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [22.1.778](https://github.com/chef/chef-workstation/tree/22.1.778) (2022-02-01)
 
