@@ -16,11 +16,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
-      - uses: carlosperate/download-file-action@v1.1.1
-        id: download-markdownlint-config
-        with:
-          file-url: 'https://github.com/chef/chef-web-docs/blob/main/.markdownlint.json'
-          file-name: '.markdownlint.json'
       - uses: DavidAnson/markdownlint-cli2-action@v5
         with: 
           globs: |
