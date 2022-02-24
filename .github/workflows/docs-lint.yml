@@ -29,5 +29,5 @@ jobs:
         with: 
           globs: |
             docs-chef-io/content/**/*.md
-            !_vendor/
+              !_vendor/
  
