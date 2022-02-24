@@ -45,7 +45,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
-      - uses: DavidAnson/markdownlint-cli2-action@v4
+      - uses: carlosperate/download-file-action@v1.0.3
+        id: download-markdownlint-config
+        with:
+          file-url: 'https://github.com/chef/chef-web-docs/blob/main/.markdownlint.yaml'
+          file-name: 'markdwonlint.yaml'
+      - uses: DavidAnson/markdownlint-cli2-action@v5
         with: 
           globs: |
             docs-chef-io/content/**/*.md
