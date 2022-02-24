@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.2.804 -->
-## [22.2.804](https://github.com/chef/chef-workstation/tree/22.2.804) (2022-02-23)
+<!-- latest_release 22.2.805 -->
+## [22.2.805](https://github.com/chef/chef-workstation/tree/22.2.805) (2022-02-24)
 
 #### Merged Pull Requests
-- Fixes to pass Markdown linting [#2610](https://github.com/chef/chef-workstation/pull/2610) ([kagarmoe](https://github.com/kagarmoe))
+- Bump chefspec to 9.3.3 [#2606](https://github.com/chef/chef-workstation/pull/2606) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.2.802 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chefspec to 9.3.3 [#2606](https://github.com/chef/chef-workstation/pull/2606) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.805 -->
 - Fixes to pass Markdown linting [#2610](https://github.com/chef/chef-workstation/pull/2610) ([kagarmoe](https://github.com/kagarmoe)) <!-- 22.2.804 -->
 - Bump omnibus-software from `ab23925` to `ca1f034` in /omnibus [#2602](https://github.com/chef/chef-workstation/pull/2602) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.2.803 -->
 <!-- release_rollup -->
