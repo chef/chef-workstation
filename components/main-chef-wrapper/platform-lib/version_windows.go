@@ -46,7 +46,7 @@ func Version() error {
 }
 
 func showVersionViaVersionManifest() {
-	fmt.Printf("%v version: %v", dist.WorkstationProduct, componentVersion("build_version"))
+	fmt.Printf("%v version: %v", dist.WorkstationProduct, ComponentVersion("build_version"))
 	productMap := map[string]string{
 		dist.ClientProduct: dist.ClientGem,
 		dist.InspecProduct: dist.InspecGem,
@@ -56,11 +56,11 @@ func showVersionViaVersionManifest() {
 		"Cookstyle":        "cookstyle",
 	}
 	for prodName, component := range productMap {
-		fmt.Printf("\n%v version: %v", prodName, componentVersion(component))
+		fmt.Printf("\n%v version: %v", prodName, ComponentVersion(component))
 	}
 	fmt.Printf("\n")
 }
-func componentVersion(component string) string {
+func ComponentVersion(component string) string {
 	v, ok := gemManifestMap[component]
 	if ok {
 		stringifyVal := v.([]interface{})[0]

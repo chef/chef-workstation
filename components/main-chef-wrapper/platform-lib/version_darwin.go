@@ -45,7 +45,7 @@ func Version() error {
 }
 
 func showVersionViaVersionManifest() {
-	fmt.Printf("%v version: %v", dist.WorkstationProduct, componentVersion("build_version"))
+	fmt.Printf("%v version: %v", dist.WorkstationProduct, ComponentVersion("build_version"))
 	productMap := map[string]string{
 		dist.ClientProduct: dist.ClientGem,
 		dist.InspecProduct: dist.InspecGem,
@@ -55,7 +55,7 @@ func showVersionViaVersionManifest() {
 		"Cookstyle":        "cookstyle",
 	}
 	for prodName, component := range productMap {
-		fmt.Printf("\n%v version: %v", prodName, componentVersion(component))
+		fmt.Printf("\n%v version: %v", prodName, ComponentVersion(component))
 	}
 	fmt.Printf("\n")
 }
@@ -126,7 +126,7 @@ func omnibusRoot() string {
 	}
 	return omnibusroot
 	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
-	//return "/opt/chef-workstation"
+	// return "/opt/chef-workstation"
 }
 
 func ExpectedOmnibusRoot() string {
@@ -141,5 +141,5 @@ func ExpectedOmnibusRoot() string {
 	//rootPath, err := filepath.Abs(path.Join(groot,"..","..", "..", "..", ".."))
 	return rootPath
 	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
-	//return "/opt/chef-workstation"
+	// return "/opt/chef-workstation"
 }

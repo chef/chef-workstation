@@ -22,6 +22,7 @@ import (
 	"os"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/telemetry"
 	homedir "github.com/mitchellh/go-homedir"
 )
 
@@ -52,4 +53,7 @@ func main() {
 
 	doStartupTasks()
 	cmd.Execute()
+	t := telemetry.NewTelemetry()
+	// fmt.Println("t is -----------------", t)
+	t.Setup()
 }

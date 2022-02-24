@@ -1,34 +1,22 @@
 package telemetry
 
 import (
-	"fmt"
 	"runtime"
 
 	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
+	"github.com/chef/go-libs/telemetry"
 )
 
-type Telemetry struct {
-	payload_dir                  string
-	session_file                 string
-	installation_identifier_file string
-	enabled                      bool
-	dev_mode                     bool
-	host_os                      string
-	arch                         string
-	version                      string
-}
+func NewTelemetry() (t telemetry.Telemetry) {
 
-func (t Telemetry) setup_telemetry() {
-
-	t.host_os = runtime.GOOS
-	t.arch = runtime.GOARCH
-	t.version = platform_lib.ComponentVersion("build_version")
-	t.payload_dir = "test"
-	t.installation_identifier_file = "test3"
-	t.enabled = true
-	t.dev_mode = false
-	fmt.Println("-------details-----")
-	fmt.Println(t)
-	// tel.Setup()
+	t.Host_os = runtime.GOOS
+	t.Arch = runtime.GOARCH
+	t.Version = platform_lib.ComponentVersion("build_version")
+	t.Payload_dir = telemetryPath()
+	t.Session_file = telemetrySessionFile()
+	t.Installation_identifier_file = telemetryInstallationIdentifierFile()
+	t.Enabled = true
+	t.Dev_mode = false
+	return t
 
 }
