@@ -19,8 +19,8 @@ jobs:
       uses: carlosperate/download-file-action@v1
       id: download-mdl-config
       with:
-        file-url: 'https://github.com/chef/chef-web-docs/blob/main/.markdownlint.yaml'
-        file-name: '.markdownlint.yaml'
+        file-url: "https://github.com/chef/chef-web-docs/blob/main/.markdownlint.yaml"
+        file-name: ".markdownlint.yaml"
     - name: Markdownlint
       uses: DavidAnson/markdownlint-cli2-action@v5
       with: 
