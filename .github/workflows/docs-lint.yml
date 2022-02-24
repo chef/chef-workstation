@@ -1,11 +1,9 @@
 name: docs-lint
-
 on:
   pull_request:
   push:
     branches:
       - main
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -13,20 +11,19 @@ jobs:
   markdownlint:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-        with:
-          token: "${{ secrets.GITHUB_TOKEN }}"
-      - name: Get mdl config
-        uses: carlosperate/download-file-action@v1
-        id: download-mdl-config
-        with:
-          file-url: 'https://github.com/chef/chef-web-docs/blob/main/.markdownlint.yaml'
-          file-name: '.markdownlint.yaml'
-      - name: Check the file location
-        run: echo "The file was downloaded to ${{ steps.download-file.outputs.file-path }}"
-      - uses: DavidAnson/markdownlint-cli2-action@v5
-        with: 
-          globs: |
-            docs-chef-io/content/workstation/*.md
+    - name: checkout
+      uses: actions/checkout@v2
+      with:
+        token: "${{ secrets.GITHUB_TOKEN }}"
+    - name: Get mdl config
+      uses: carlosperate/download-file-action@v1
+      id: download-mdl-config
+      with:
+        file-url: 'https://github.com/chef/chef-web-docs/blob/main/.markdownlint.yaml'
+        file-name: '.markdownlint.yaml'
+    - uses: DavidAnson/markdownlint-cli2-action@v5
+      with: 
+      globs: |
+        docs-chef-io/content/**/*.md
+        !_vendor
  
