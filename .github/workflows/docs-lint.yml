@@ -24,7 +24,5 @@ jobs:
     - name: Markdownlint
       uses: DavidAnson/markdownlint-cli2-action@v5
       with: 
-        globs: |
-          docs-chef-io/content/**/*.md
-          !_vendor
+        globs: "docs-chef-io/content/workstation/*.md"
  
