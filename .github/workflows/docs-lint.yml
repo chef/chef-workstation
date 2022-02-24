@@ -21,9 +21,10 @@ jobs:
       with:
         file-url: 'https://github.com/chef/chef-web-docs/blob/main/.markdownlint.yaml'
         file-name: '.markdownlint.yaml'
-    - uses: DavidAnson/markdownlint-cli2-action@v5
+    - name: Markdownlint
+      uses: DavidAnson/markdownlint-cli2-action@v5
       with: 
-      globs: |
-        docs-chef-io/content/**/*.md
-        !_vendor
+        globs: |
+          docs-chef-io/content/**/*.md
+          !_vendor
  
