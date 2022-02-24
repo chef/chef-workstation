@@ -19,8 +19,8 @@ jobs:
       - uses: carlosperate/download-file-action@v1
         id: download-markdownlint
         with:
-          file-url: 'https://github.com/chef/chef-web-docs/blob/main/.markdownlint.json'
-          file-name: '.markdownlint.json'
+          file-url: 'https://github.com/chef/chef-web-docs/blob/main/.markdownlint.yaml'
+          file-name: '.markdownlint.yaml'
       - uses: DavidAnson/markdownlint-cli2-action@v5
         with: 
           globs: |
