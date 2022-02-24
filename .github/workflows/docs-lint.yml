@@ -50,7 +50,7 @@ jobs:
         with:
           file-url: 'https://github.com/chef/chef-web-docs/blob/main/.markdownlint.json'
           file-name: '.markdownlint.json'
-      - uses: DavidAnson/markdownlint-cli2-action@v5
+      - uses: DavidAnson/markdownlint-cli2-action@v4
         with: 
           globs: |
             docs-chef-io/content/**/*.md
