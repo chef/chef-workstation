@@ -2,6 +2,8 @@ name: docs-lint
 on:
   pull_request:
   push:
+    branches:
+      - main
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -13,8 +15,6 @@ jobs:
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
       - uses: actions/setup-node@v2
-      - run: npm install yaml
-      - run: node --require yaml
       - run: npm install markdownlint-rule-titlecase
       - uses: carlosperate/download-file-action@v1
         with:
