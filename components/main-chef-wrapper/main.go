@@ -32,8 +32,8 @@ import (
 )
 
 func doStartupTasks() error {
-	createRubyEnv()
 	createDotChef()
+	createRubyEnv()
 	return nil
 }
 
@@ -57,26 +57,38 @@ func createRubyEnv() {
 		InstallerDir = "/opt/chef-workstation"
 	}
 	home, err := os.UserHomeDir()
-	installationPath := path.Join(home, ".chef-workstation/ruby-env.json")
+	installationPath := path.Join(home, ".chef/ruby-env.json")
 	result, err := exists(installationPath)
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
-	if result != true && platform_lib.MatchVersions() != true {
-		arg0 := fmt.Sprintf("%s/embedded/bin/bundle", InstallerDir)
-		arg1 := fmt.Sprintf("%s/bin/ruby-env-script.rb", InstallerDir)
-		argList := []string{"exec", "ruby", arg1, installationPath}
-		cmd := exec.Command(arg0, argList...)
-		stdout, err := cmd.Output()
-
-		if err != nil {
-			fmt.Println(err.Error())
+	if result != true {
+		if createEnvJson(InstallerDir, installationPath) {
 			return
 		}
-		// Print the output
-		fmt.Println(string(stdout))
+	}
+	if result == true && platform_lib.MatchVersions() != true {
+		if createEnvJson(InstallerDir, installationPath) {
+			return
+		}
 	}
 	platform_lib.InitializeRubyMap()
+}
+
+func createEnvJson(InstallerDir string, installationPath string) bool {
+	arg0 := fmt.Sprintf("%s/embedded/bin/bundle", InstallerDir)
+	arg1 := fmt.Sprintf("%s/bin/ruby-env-script.rb", InstallerDir)
+	argList := []string{"exec", "ruby", arg1, installationPath}
+	cmd := exec.Command(arg0, argList...)
+	stdout, err := cmd.Output()
+
+	if err != nil {
+		fmt.Println(err.Error())
+		return true
+	}
+	// Print the output
+	fmt.Println(string(stdout))
+	return false
 }
 
 func exists(path string) (bool, error) {
