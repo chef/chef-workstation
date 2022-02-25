@@ -13,7 +13,6 @@ jobs:
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
       - uses: actions/setup-node@v2
-      - run: npm install --no-package-lock
       - run: npm install yaml
       - run: node --require yaml
       - run: npm install markdownlint-rule-titlecase
