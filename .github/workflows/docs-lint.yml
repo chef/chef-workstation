@@ -16,6 +16,7 @@ jobs:
           token: "${{ secrets.GITHUB_TOKEN }}"
       - uses: actions/setup-node@v2
       - run: npm install markdownlint-rule-titlecase
+      - run: node --trace-warnings
       - uses: carlosperate/download-file-action@v1
         with:
           file-url: "https://github.com/chef/chef-web-docs/blob/main/.markdownlint.yaml"
