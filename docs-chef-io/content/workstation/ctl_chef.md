@@ -684,6 +684,54 @@ This subcommand has the following options:
 
 None.
 
+## chef generate profile
+
+{{% ctl_chef_generate_profile %}}
+
+### Syntax
+
+{{% ctl_chef_generate_profile_syntax %}}
+
+### Options
+
+{{% ctl_chef_generate_profile_options %}}
+
+### Examples
+
+None.
+
+## chef generate input
+
+{{% ctl_chef_generate_input %}}
+
+### Syntax
+
+{{% ctl_chef_generate_input_syntax %}}
+
+### Options
+
+{{% ctl_chef_generate_input_options %}}
+
+### Examples
+
+None.
+
+## chef generate waiver
+
+{{% ctl_chef_generate_waiver %}}
+
+### Syntax
+
+{{% ctl_chef_generate_waiver_syntax %}}
+
+### Options
+
+{{% ctl_chef_generate_waiver_options %}}
+
+### Examples
+
+None.
+
 ## chef report cookbooks
 
 Use the `chef report cookbooks` subcommand to generate a cookbook-oriented report for your Chef Infra environment.
