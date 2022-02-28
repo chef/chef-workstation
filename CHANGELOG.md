@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 22.2.808 -->
+## [22.2.808](https://github.com/chef/chef-workstation/tree/22.2.808) (2022-02-28)
+
+#### Merged Pull Requests
+- Bump train-winrm to 0.2.13 [#2617](https://github.com/chef/chef-workstation/pull/2617) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=22.2.807 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Bump train-winrm to 0.2.13 [#2617](https://github.com/chef/chef-workstation/pull/2617) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.808 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
