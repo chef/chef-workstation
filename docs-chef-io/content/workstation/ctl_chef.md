@@ -688,15 +688,15 @@ None.
 
 {{% ctl_chef_generate_profile %}}
 
-#### Syntax
+### Syntax
 
 {{% ctl_chef_generate_profile_syntax %}}
 
-#### Options
+### Options
 
 {{% ctl_chef_generate_profile_options %}}
 
-#### Examples
+### Examples
 
 None.
 
@@ -704,15 +704,15 @@ None.
 
 {{% ctl_chef_generate_input %}}
 
-#### Syntax
+### Syntax
 
 {{% ctl_chef_generate_input_syntax %}}
 
-#### Options
+### Options
 
 {{% ctl_chef_generate_input_options %}}
 
-#### Examples
+### Examples
 
 None.
 
@@ -720,15 +720,15 @@ None.
 
 {{% ctl_chef_generate_waiver %}}
 
-#### Syntax
+### Syntax
 
 {{% ctl_chef_generate_waiver_syntax %}}
 
-#### Options
+### Options
 
 {{% ctl_chef_generate_waiver_options %}}
 
-#### Examples
+### Examples
 
 None.
 
