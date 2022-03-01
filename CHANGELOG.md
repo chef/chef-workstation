@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.2.809 -->
-## [22.2.809](https://github.com/chef/chef-workstation/tree/22.2.809) (2022-02-28)
+<!-- latest_release 22.3.810 -->
+## [22.3.810](https://github.com/chef/chef-workstation/tree/22.3.810) (2022-03-01)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `d5ff796` to `aa90acf` in /omnibus [#2618](https://github.com/chef/chef-workstation/pull/2618) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump kitchen-vcenter to 2.11.8 [#2623](https://github.com/chef/chef-workstation/pull/2623) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.2.807 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-vcenter to 2.11.8 [#2623](https://github.com/chef/chef-workstation/pull/2623) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.810 -->
 - Bump omnibus-software from `d5ff796` to `aa90acf` in /omnibus [#2618](https://github.com/chef/chef-workstation/pull/2618) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.2.809 -->
 - Bump train-winrm to 0.2.13 [#2617](https://github.com/chef/chef-workstation/pull/2617) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.2.808 -->
 <!-- release_rollup -->
