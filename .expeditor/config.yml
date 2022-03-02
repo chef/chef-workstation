@@ -243,6 +243,6 @@ subscriptions:
        - bash:.expeditor/update_dep.sh
   - workload: pull_request_merged:chef/chef-web-docs:main:*
     actions:
-       - bash:.expeditor/update_docs_lints.sh:
-         only_if_modified:
-         - .markdownlint.yaml
+    - bash:.expeditor/update_docs_lints.sh:
+        only_if_modified:
+          - .markdownlint.yaml
