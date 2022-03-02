@@ -1,7 +1,6 @@
 set -eou pipefail
 
-branch="expeditor/update_docs_lints_${EXPEDITOR_REPO}_${EXPEDITOR_DATE}"
-repo=${EXPEDITOR_REPO##*/}
+branch="expeditor/update_docs_lints"
 git checkout -b "$branch"
 
 # Wait
@@ -15,7 +14,7 @@ git add .
 # audit of our codebase that no DCO sign-off is needed for this sort of PR since
 #it contains no intellectual property
 
-dco_safe_git_commit "Updating ${repo} docs lints to ${EXPEDITOR_DATE}."
+dco_safe_git_commit "Update $EXPEDITOR_REPO docs lints."
 
 open_pull_request
 
