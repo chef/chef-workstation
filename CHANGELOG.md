@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.3.812 -->
-## [22.3.812](https://github.com/chef/chef-workstation/tree/22.3.812) (2022-03-02)
+<!-- latest_release 22.3.813 -->
+## [22.3.813](https://github.com/chef/chef-workstation/tree/22.3.813) (2022-03-03)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.126 [#2622](https://github.com/chef/chef-workstation/pull/2622) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-azurerm to 1.10.0 [#2624](https://github.com/chef/chef-workstation/pull/2624) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.2.807 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-azurerm to 1.10.0 [#2624](https://github.com/chef/chef-workstation/pull/2624) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.813 -->
 - Bump Chef Workstation App to 0.2.126 [#2622](https://github.com/chef/chef-workstation/pull/2622) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.812 -->
 - Bump chef-analyze CLI to 0.1.129 [#2621](https://github.com/chef/chef-workstation/pull/2621) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.811 -->
 - Bump kitchen-vcenter to 2.11.8 [#2623](https://github.com/chef/chef-workstation/pull/2623) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.810 -->
