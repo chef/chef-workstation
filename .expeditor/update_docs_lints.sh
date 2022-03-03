@@ -3,18 +3,23 @@ set -eou pipefail
 branch="expeditor/update_docs_lints"
 git checkout -b "$branch"
 
-# Wait
-sleep 60
+# Wait 5 minutes
+sleep 300
 
-# submit pull request to chef/releng-services
-get_github_file ${EXPEDITOR_REPO} main .markdownlint.yaml
+# get the file from chef-web-docs
+
+get_github_file chef/chef-web-docs main .markdownlint.yaml > .markdownlint.yaml
+
+# add changes
 git add .
 
 # give a friendly message for the commit and make sure it's noted for any future
 # audit of our codebase that no DCO sign-off is needed for this sort of PR since
-#it contains no intellectual property
+# it contains no intellectual property
 
 dco_safe_git_commit "Update $EXPEDITOR_REPO docs lints."
+
+# open pull request
 
 open_pull_request
 
