@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.3.814 -->
-## [22.3.814](https://github.com/chef/chef-workstation/tree/22.3.814) (2022-03-03)
+<!-- latest_release 22.3.815 -->
+## [22.3.815](https://github.com/chef/chef-workstation/tree/22.3.815) (2022-03-03)
 
 #### Merged Pull Requests
-- Use Expeditor to get docs lint configs [#2626](https://github.com/chef/chef-workstation/pull/2626) ([kagarmoe](https://github.com/kagarmoe))
+- mdl config script fix [#2628](https://github.com/chef/chef-workstation/pull/2628) ([kagarmoe](https://github.com/kagarmoe))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.2.807 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- mdl config script fix [#2628](https://github.com/chef/chef-workstation/pull/2628) ([kagarmoe](https://github.com/kagarmoe)) <!-- 22.3.815 -->
 - Use Expeditor to get docs lint configs [#2626](https://github.com/chef/chef-workstation/pull/2626) ([kagarmoe](https://github.com/kagarmoe)) <!-- 22.3.814 -->
 - Bump kitchen-azurerm to 1.10.0 [#2624](https://github.com/chef/chef-workstation/pull/2624) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.813 -->
 - Bump Chef Workstation App to 0.2.126 [#2622](https://github.com/chef/chef-workstation/pull/2622) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.812 -->
