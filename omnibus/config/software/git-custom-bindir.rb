@@ -26,7 +26,7 @@
 name "git-custom-bindir"
 skip_transitive_dependency_licensing true
 
-default_version "2.34.1"
+default_version "2.35.1"
 
 license "LGPL-2.1"
 license_file "LGPL-2.1"
@@ -40,7 +40,7 @@ dependency "expat"
 
 relative_path "git-#{version}"
 
-version("2.34.1") { source sha256: "fc4eb5ecb9299db91cdd156c06cdeb41833f53adc5631ddf8c0cb13eaa2911c1" }
+version("2.35.1") { source sha256: "9845a37dd01f9faaa7d8aa2078399d3aea91b43819a5efea6e2877b0af09bd43" }
 
 source url: "https://www.kernel.org/pub/software/scm/git/git-#{version}.tar.gz"
 
@@ -65,17 +65,7 @@ build do
     HAVE_PATHS_H: "YesPlease",
   }
 
-  if freebsd?
-    config_hash["CHARSET_LIB"] = "-lcharset"
-    config_hash["FREAD_READS_DIRECTORIES"] = "UnfortunatelyYes"
-    config_hash["HAVE_BSD_SYSCTL"] = "YesPlease"
-    config_hash["HAVE_CLOCK_GETTIME"] = "YesPlease"
-    config_hash["HAVE_CLOCK_MONOTONIC"] = "YesPlease"
-    config_hash["HAVE_GETDELIM"] = "YesPlease"
-    config_hash["HAVE_STRINGS_H"] = "YesPlease"
-    config_hash["PTHREAD_LIBS"] = "-pthread"
-    config_hash["USE_ST_TIMESPEC"] = "YesPlease"
-  elsif macos?
+  if macos?
     config_hash["CHARSET_LIB"] = "-lcharset"
     config_hash["FREAD_READS_DIRECTORIES"] = "UnfortunatelyYes"
     config_hash["HAVE_BSD_SYSCTL"] = "YesPlease"
