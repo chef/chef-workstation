@@ -7,7 +7,7 @@ git checkout -b "$branch"
 sleep 60
 
 # submit pull request to chef/releng-services
-
+get_github_file ${EXPEDITOR_REPO} main .markdownlint.yaml
 git add .
 
 # give a friendly message for the commit and make sure it's noted for any future
