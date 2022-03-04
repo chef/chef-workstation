@@ -16,11 +16,11 @@ aliases = ["/berkshelf.html", "/berkshelf/"]
 
 <!-- markdownlint-disable-file MD024 -->
 
-{{< warn >}}
+{{< warning >}}
 [Policyfiles](/policyfile/) are the preferred pattern for creating immutable collections of cookbooks, cookbook dependencies, and attributes. Berkshelf is no longer under active development. Please replace Berkshelf with Policyfiles
 
 This document is no longer maintained.
-{{< /warn >}}
+{{< /warning >}}
 
 Berkshelf is a dependency manager for Chef cookbooks. With it, you can
  depend on community cookbooks and include them in
