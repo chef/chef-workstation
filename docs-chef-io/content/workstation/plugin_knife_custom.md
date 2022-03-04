@@ -152,7 +152,7 @@ class Chef
 end
 ```
 
-Take a look at all of the code for this plugin on GitHub:
+Take a look at the code for this plugin on GitHub:
 <https://github.com/chef/knife-windows/blob/main/lib/chef/knife/winrm.rb>.
 
 ### Namespace
@@ -182,10 +182,7 @@ class SubclassName < Chef::Knife
 ```
 
 where `SubclassName` is the class name used by this plugin. The
-capitalization of this name is important. For example, `OMG` would have
-a knife command of `knife o m g`, whereas `Omg` would have a knife
-command of `knife omg`. Use the capitalization pattern to define the
-word grouping that best makes sense for the plugin.
+capitalization of this name is important. For example, `SubclassName` would have a knife command of `knife subclass name`, but `Subclassname` would have a knife command of `knife subclassname` Use the capitalization pattern to define the word grouping that best makes sense for the plugin.
 
 A plugin can override an existing knife subcommand by using the same
 class name as the existing subcommand. For example, to override the
@@ -386,11 +383,11 @@ def run
 end
 ```
 
-For a knife plugin with the `--omg` option, run `knife example --omg` to
+For a knife plugin with the `--subclassname` option, run `knife example --subclassname` to
 return something like:
 
 ```bash
-OMG HELLO WORLD!!!1!!11
+HELLO WORLD!!!1!!11
 ```
 
 or just `knife example` to return:
@@ -778,7 +775,7 @@ knife hello world
 
 ## Exceptions
 
-In most cases, the exception handling available within knife is enough
+The exception handling available in knife is usually enough
 to ensure that exception handling for a plugin is consistent with how
 knife ordinarily behaves. That said, exceptions can also be handled
 within a knife plugin in the same way they are handled in any Ruby

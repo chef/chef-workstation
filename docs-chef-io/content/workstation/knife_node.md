@@ -113,7 +113,7 @@ When finished, save it.
 ## delete
 
 Use the `delete` argument to delete a node from the Chef Infra Server.
-If using Chef Client 12.17 or later, you can delete multiple nodes using
+If using Chef Infra Client 12.17 or later, you can delete multiple nodes using
 this subcommand.
 
 {{< note >}}
@@ -256,7 +256,7 @@ knife node from file "PATH_TO_JSON_FILE"
 
 ## list
 
-Use the `list` argument to view all of the nodes that exist on a Chef
+Use the `list` argument to view the nodes that exist on a Chef
 Infra Server.
 
 ### Syntax
@@ -501,7 +501,7 @@ Platform:
 
 **Show basic information about nodes**
 
-To show basic information about a node, truncated and nicely formatted:
+To show basic information about a node, that is truncated and formatted:
 
 ``` bash
 knife node show NODE_NAME
@@ -509,7 +509,7 @@ knife node show NODE_NAME
 
 **Show all data about nodes, truncated**
 
-To show all information about a node, nicely formatted:
+To show all information about a node, formatted:
 
 ``` bash
 knife node show -l NODE_NAME

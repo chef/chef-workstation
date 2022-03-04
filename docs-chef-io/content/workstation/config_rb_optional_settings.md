@@ -20,7 +20,7 @@ In addition to the default settings in a knife`config.rb` file, there are other 
 2. A value contained in the `config.rb`file
 3. The default value
 
-A value passed via the command line will override a value in the `config.rb`file; a value in a`config.rb`file will override a defaultvalue.
+A value passed via the command line will override a value in the `config.rb`file; a value in a`config.rb`file will override a default value.
 
 {{< warning >}}
 
@@ -28,7 +28,7 @@ Many optional settings should not be added to the `config.rb` file. The reasons 
 
 {{< /warning >}}
 
-The following list describes all of the optional settings that can be added to the configuration file:
+The following list describes  the optional settings that can be added to the configuration file:
 
 `knife[:admin]`
 
@@ -250,7 +250,7 @@ The following list describes all of the optional settings that can be added to t
 
 `knife[:initial]`
 
-: Create a API client, typically an administrator client on a freshly-installed Chef Infra Server.
+: Create a API client, typically an administrator client on a newly installed Chef Infra Server.
 
 `knife[:input]`
 
@@ -342,7 +342,7 @@ The following list describes all of the optional settings that can be added to t
 
 `knife[:purge]`
 
-: Entirely remove a cookbook (or cookbook version) from the Chef Infra Server. Use this action carefully because only one copy of any single file is stored on the Chef Infra Server. Consequently, purging a cookbook disables any other cookbook that references one or more files from the cookbook that has been purged.
+: Entirely remove a cookbook (or cookbook version) from the Chef Infra Server. Use this action with care, because only one copy of any single file is stored on the Chef Infra Server. Consequently, purging a cookbook disables any other cookbook that references one or more files from the cookbook that has been purged.
 
 `knife[:query]`
 
