@@ -61,24 +61,14 @@ build do
     NO_PERL: "YesPlease",
     NO_PYTHON: "YesPlease",
     NO_TCLTK: "YesPlease",
-    NO_R_TO_GCC_LINKER: "YesPlease",
     HAVE_PATHS_H: "YesPlease",
+    NO_R_TO_GCC_LINKER: "YesPlease",
   }
 
-  if macos?
-    config_hash["CHARSET_LIB"] = "-lcharset"
-    config_hash["FREAD_READS_DIRECTORIES"] = "UnfortunatelyYes"
-    config_hash["HAVE_BSD_SYSCTL"] = "YesPlease"
-    config_hash["HAVE_CLOCK_GETTIME"] = "YesPlease"
-    config_hash["HAVE_CLOCK_MONOTONIC"] = "YesPlease"
-    config_hash["HAVE_GETDELIM"] = "YesPlease"
-    config_hash["HAVE_LIBCHARSET_H"] = "YesPlease"
-    config_hash["HAVE_STRINGS_H"] = "YesPlease"
-    config_hash["USE_ST_TIMESPEC"] = "YesPlease"
-    env["CFLAGS"] = "-O3 -D_FORTIFY_SOURCE=2 -fstack-protector"
-    env["CPPFLAGS"] = "-O3 -D_FORTIFY_SOURCE=2 -fstack-protector"
-    env["CXXFLAGS"] = "-O3 -D_FORTIFY_SOURCE=2 -fstack-protector"
-  end
+  env["CFLAGS"] = "-I. #{env["CFLAGS"]}"
+  env["CPPFLAGS"] = "-I. #{env["CPPFLAGS"]}"
+  env["CXXFLAGS"] = "-I. #{env["CXXFLAGS"]}"
+  env["CFLAGS"] = "-std=c99 #{env["CFLAGS"]}"
 
   erb source: "config.mak.erb",
       dest: "#{project_dir}/config.mak",
