@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.3.820 -->
-## [22.3.820](https://github.com/chef/chef-workstation/tree/22.3.820) (2022-03-07)
+<!-- latest_release 22.3.821 -->
+## [22.3.821](https://github.com/chef/chef-workstation/tree/22.3.821) (2022-03-07)
 
 #### Merged Pull Requests
-- Update the Ruby windows platforms for the components [#2635](https://github.com/chef/chef-workstation/pull/2635) ([ashiqueps](https://github.com/ashiqueps))
+- Bump omnibus-software from `aa90acf` to `5947560` in /omnibus [#2636](https://github.com/chef/chef-workstation/pull/2636) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.2.807 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `aa90acf` to `5947560` in /omnibus [#2636](https://github.com/chef/chef-workstation/pull/2636) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.3.821 -->
 - Update the Ruby windows platforms for the components [#2635](https://github.com/chef/chef-workstation/pull/2635) ([ashiqueps](https://github.com/ashiqueps)) <!-- 22.3.820 -->
 - Bump cookstyle to 7.32.1 [#2633](https://github.com/chef/chef-workstation/pull/2633) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.819 -->
 - Bump kitchen-vcenter to 2.11.9 [#2627](https://github.com/chef/chef-workstation/pull/2627) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.818 -->
