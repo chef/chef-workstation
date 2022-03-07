@@ -19,7 +19,7 @@
 # only supports SDK version >= 10.9, so we must rebuild and install.
 
 name "rb-fsevent-gem"
-default_version "master"
+default_version "0.11.1" # IMPORTANT: must be in sync with components/gems/Gemfile.lock
 
 source git: "https://github.com/thibaudgg/rb-fsevent.git"
 
