@@ -9,6 +9,8 @@ sleep 300
 # get the file from chef-web-docs
 
 get_github_file chef/chef-web-docs main .markdownlint.yaml > .markdownlint.yaml
+get_github_file chef/chef-web-docs main .vale.ini > .vale.ini
+get_github_file chef/chef-web-docs main cspell.json > cspell.json
 
 # add changes
 git add .
