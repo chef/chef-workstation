@@ -56,7 +56,7 @@ func RunEnvironment() error {
 }
 
 func WorkstationInfo() ChefWorkstationInfo {
-	if OmnibusInstall() == true {
+	if OmnibusInstall() && DefaultChefRuby() {
 		info := ChefWorkstationInfo{Version: CliVersion()}
 		info.Home = PackageHome()
 		info.InstallDirectory = omnibusRoot() // todo --can be shifted to cli_helper.rb

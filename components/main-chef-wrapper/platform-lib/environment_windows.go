@@ -56,7 +56,7 @@ func RunEnvironment() error {
 }
 
 func WorkstationInfo() ChefWorkstationInfo {
-	if OmnibusInstall() == true {
+	if OmnibusInstall() {
 		info := ChefWorkstationInfo{Version: CliVersion()}
 		info.Home = PackageHome()
 		info.InstallDirectory = omnibusRoot()
@@ -101,7 +101,7 @@ func WsEnvironmentInfo() GemEnvironmentInfo {
 		}
 		gempath := os.Getenv("GEM_PATH")
 		if gempath != "" {
-			gempathmap := strings.Split(gempath, ":")
+			gempathmap := strings.Split(gempath, ";")
 			envInfo.GemPath = gempathmap
 		}
 		return envInfo
@@ -117,7 +117,7 @@ func PathInfo() []string {
 	} else {
 		pathInfoStr := os.Getenv("PATH")
 		if pathInfoStr != "" {
-			pathInfo := strings.Split(pathInfoStr, ":")
+			pathInfo := strings.Split(pathInfoStr, ";")
 			return pathInfo
 		}
 	}

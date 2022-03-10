@@ -33,7 +33,11 @@ import (
 
 func doStartupTasks() error {
 	createDotChef()
-	createRubyEnv()
+	if runtime.GOOS == "windows" {
+		createRubyEnvWindows()
+	} else {
+		createRubyEnvUnix()
+	}
 	return nil
 }
 
@@ -49,39 +53,98 @@ func createDotChef() {
 	os.Mkdir(path, 0700)
 }
 
-func createRubyEnv() {
-	InstallerDir := ""
-	if runtime.GOOS == "windows" {
-		InstallerDir = `C:\opscode\chef-workstation`
-	} else {
-		InstallerDir = "/opt/chef-workstation"
-	}
+func createRubyEnvUnix() {
+	InstallerDir := "/opt/chef-workstation"
 	home, err := os.UserHomeDir()
 	installationPath := path.Join(home, ".chef/ruby-env.json")
 	result, err := exists(installationPath)
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
-	if result != true {
-		if createEnvJson(InstallerDir, installationPath) {
-			return
+	if platform_lib.OmnibusInstall() {
+		if result != true {
+			if createEnvJsonUnix(InstallerDir, installationPath) {
+				return
+			}
+		}
+		if result == true && platform_lib.MatchVersions() != true {
+			if createEnvJsonUnix(InstallerDir, installationPath) {
+				return
+			}
+		}
+	} else {
+		if result != true {
+			if createEnvJsonUnix(InstallerDir, installationPath) {
+				return
+			}
+		}
+		if result && platform_lib.MatchVersions() {
+			if createEnvJsonUnix(InstallerDir, installationPath) {
+				return
+			}
 		}
 	}
-	if result == true && platform_lib.MatchVersions() != true {
-		if createEnvJson(InstallerDir, installationPath) {
-			return
+
+	platform_lib.InitializeRubyMap()
+}
+
+func createRubyEnvWindows() {
+	InstallerDir := `C:\opscode\chef-workstation`
+	home, err := os.UserHomeDir()
+	installationPath := path.Join(home, `.chef\ruby-env.json`)
+	result, err := exists(installationPath)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	if platform_lib.OmnibusInstall() {
+		if result != true {
+			if createEnvJsonWindows(InstallerDir, installationPath) {
+				return
+			}
+		}
+		if result == true && platform_lib.MatchVersions() != true {
+			if createEnvJsonWindows(InstallerDir, installationPath) {
+				return
+			}
+		}
+	} else {
+		if result != true {
+			if createEnvJsonWindows(InstallerDir, installationPath) {
+				return
+			}
+		}
+		if result && platform_lib.MatchVersions() {
+			if createEnvJsonWindows(InstallerDir, installationPath) {
+				return
+			}
 		}
 	}
 	platform_lib.InitializeRubyMap()
 }
 
-func createEnvJson(InstallerDir string, installationPath string) bool {
-	arg0 := fmt.Sprintf("%s/embedded/bin/bundle", InstallerDir)
+func createEnvJsonUnix(InstallerDir string, installationPath string) bool {
+	arg0 := fmt.Sprintf("%s/embedded/bin/ruby", InstallerDir)
 	arg1 := fmt.Sprintf("%s/bin/ruby-env-script.rb", InstallerDir)
-	argList := []string{"exec", "ruby", arg1, installationPath}
+	argList := []string{arg1, installationPath}
 	cmd := exec.Command(arg0, argList...)
 	stdout, err := cmd.Output()
 
+	if err != nil {
+		fmt.Println(err.Error())
+		return true
+	}
+	// Print the output
+	fmt.Println(string(stdout))
+	return false
+}
+
+func createEnvJsonWindows(InstallerDir string, installationPath string) bool {
+	arg0 := fmt.Sprintf(`%s\embedded\bin\ruby`, InstallerDir)
+	arg1 := fmt.Sprintf(`%s\bin\ruby-env-script.rb`, InstallerDir)
+	argList := []string{arg1, installationPath}
+	cmd := exec.Command(arg0, argList...)
+	stdout, err := cmd.Output()
+	
 	if err != nil {
 		fmt.Println(err.Error())
 		return true

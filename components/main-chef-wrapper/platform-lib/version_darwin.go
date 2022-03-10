@@ -23,8 +23,10 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"os/exec"
 	"path"
 	"path/filepath"
+	"strings"
 )
 
 var gemManifestMap map[string]interface{}
@@ -113,6 +115,21 @@ func OmnibusInstall() bool {
 		} else {
 			return false
 		}
+	} else {
+		return false
+	}
+}
+
+func DefaultChefRuby() bool {
+	out, err := exec.Command("which", "ruby").Output()
+	if err != nil {
+		return false
+	}
+	stringOut := string(out)
+	Sanatizepath := strings.Replace(stringOut, "\n", "", -1)
+	absPath, _ := filepath.Abs(Sanatizepath)
+	if absPath == "/opt/chef-workstation/embedded/bin/ruby" {
+		return true
 	} else {
 		return false
 	}
