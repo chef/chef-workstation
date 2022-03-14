@@ -1,15 +1,18 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.3.821 -->
-## [22.3.821](https://github.com/chef/chef-workstation/tree/22.3.821) (2022-03-07)
+<!-- latest_release 22.3.824 -->
+## [22.3.824](https://github.com/chef/chef-workstation/tree/22.3.824) (2022-03-11)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `aa90acf` to `5947560` in /omnibus [#2636](https://github.com/chef/chef-workstation/pull/2636) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump train to 3.8.9 [#2641](https://github.com/chef/chef-workstation/pull/2641) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.2.807 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump train to 3.8.9 [#2641](https://github.com/chef/chef-workstation/pull/2641) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.824 -->
+- Bump Chef Workstation App to 0.2.127 [#2639](https://github.com/chef/chef-workstation/pull/2639) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.823 -->
+- Bump chef-analyze CLI to 0.1.130 [#2638](https://github.com/chef/chef-workstation/pull/2638) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.822 -->
 - Bump omnibus-software from `aa90acf` to `5947560` in /omnibus [#2636](https://github.com/chef/chef-workstation/pull/2636) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.3.821 -->
 - Update the Ruby windows platforms for the components [#2635](https://github.com/chef/chef-workstation/pull/2635) ([ashiqueps](https://github.com/ashiqueps)) <!-- 22.3.820 -->
 - Bump cookstyle to 7.32.1 [#2633](https://github.com/chef/chef-workstation/pull/2633) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.819 -->
