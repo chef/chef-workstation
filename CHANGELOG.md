@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.3.826 -->
-## [22.3.826](https://github.com/chef/chef-workstation/tree/22.3.826) (2022-03-14)
+<!-- latest_release 22.3.827 -->
+## [22.3.827](https://github.com/chef/chef-workstation/tree/22.3.827) (2022-03-14)
 
 #### Merged Pull Requests
-- Bump github.com/spf13/cobra from 1.3.0 to 1.4.0 in /components/main-chef-wrapper [#2645](https://github.com/chef/chef-workstation/pull/2645) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump chef-analyze CLI to 0.1.133 [#2647](https://github.com/chef/chef-workstation/pull/2647) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.2.807 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.133 [#2647](https://github.com/chef/chef-workstation/pull/2647) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.827 -->
 - Bump github.com/spf13/cobra from 1.3.0 to 1.4.0 in /components/main-chef-wrapper [#2645](https://github.com/chef/chef-workstation/pull/2645) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.3.826 -->
 - Bump chef-analyze CLI to 0.1.132 [#2646](https://github.com/chef/chef-workstation/pull/2646) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.825 -->
 - Bump train to 3.8.9 [#2641](https://github.com/chef/chef-workstation/pull/2641) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.824 -->
