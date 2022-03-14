@@ -8,7 +8,7 @@ github.com/inconshreveable/mousetrap
 github.com/mitchellh/go-homedir
 # github.com/pmezard/go-difflib v1.0.0
 github.com/pmezard/go-difflib/difflib
-# github.com/spf13/cobra v1.3.0
+# github.com/spf13/cobra v1.4.0
 github.com/spf13/cobra
 # github.com/spf13/pflag v1.0.5
 github.com/spf13/pflag
