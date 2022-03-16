@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.3.829 -->
-## [22.3.829](https://github.com/chef/chef-workstation/tree/22.3.829) (2022-03-16)
+<!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- Edits to improve linting [#2631](https://github.com/chef/chef-workstation/pull/2631) ([kagarmoe](https://github.com/kagarmoe))
+- Update internal artifactory URL [#2656](https://github.com/chef/chef-workstation/pull/2656) ([vkarve-chef](https://github.com/vkarve-chef))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.2.807 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update internal artifactory URL [#2656](https://github.com/chef/chef-workstation/pull/2656) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 22.3.829 -->
 - Edits to improve linting [#2631](https://github.com/chef/chef-workstation/pull/2631) ([kagarmoe](https://github.com/kagarmoe)) <!-- 22.3.829 -->
 - Get docs lint config files, for precommit use [#2640](https://github.com/chef/chef-workstation/pull/2640) ([kagarmoe](https://github.com/kagarmoe)) <!-- 22.3.828 -->
 - Bump chef-analyze CLI to 0.1.133 [#2647](https://github.com/chef/chef-workstation/pull/2647) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.827 -->
