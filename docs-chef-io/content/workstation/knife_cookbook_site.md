@@ -309,7 +309,7 @@ The following examples show how to use this knife subcommand:
 
 **Search for cookbooks**
 
-To search for all of the cookbooks that can be used with Apache, enter:
+To search for the cookbooks that can be used with Apache, enter:
 
 ``` bash
 knife cookbook site search 'apache*'

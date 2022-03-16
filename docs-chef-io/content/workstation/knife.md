@@ -60,7 +60,7 @@ chef-repo and the Chef Infra Server. knife helps users to manage:
 ## Knife Subcommands
 
 knife includes a collection of built in subcommands that work together
-to provide all of the functionality required to take specific actions
+to provide the functionality required to take specific actions
 against any object in an organization, including cookbooks, nodes,
 roles, data bags, environments, and users.
 

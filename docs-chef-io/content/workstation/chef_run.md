@@ -166,9 +166,9 @@ Running `chef-run host1 really_complicated::first` collects all the `really_comp
 
 You can specify different cookbook sources in `Policyfile.rb`, including a private supermarket. See the [Policyfile documentation](/config_rb_policyfile/) for examples.
 
-## Connecting to Automate 2
+## Connecting to Chef Automate 2
 
-You can configure remote nodes managed with `chef-run` to send run information to Automate. First, [generate an auth token](/automate/api_tokens/#creating-api-tokens).
+You can configure remote nodes managed with `chef-run` to send run information to Chef Automate. First, [generate an auth token](/automate/api_tokens/#creating-api-tokens).
 
 Next, add the token to [config.toml]({{< ref "config.md#data_collector" >}}), specifying the appropriate [url](/automate/data_collection/) and [token](/automate/api_tokens/#creating-api-tokens) for the automate server:
 
@@ -178,4 +178,4 @@ url="https://127.0.0.1/data-collector/v0/"
 token="abc123="
 ```
 
-Target nodes need network access to port 443 of the Automate instance for sending `chef-client` run information.
+Target nodes need network access to port 443 of the Chef Automate instance for sending `chef-client` run information.

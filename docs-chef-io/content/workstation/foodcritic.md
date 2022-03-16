@@ -25,7 +25,7 @@ Use Foodcritic to check cookbooks for common problems:
 
 Foodcritic looks for lint-like behavior and reports it!
 
-Foodcritic is a static linting tool that analyzes all of the Ruby code
+Foodcritic is a static linting tool that analyzes the Ruby code
 that is authored in a cookbook against a number of rules, and then
 returns a list of violations. Because Foodcritic is a static linting
 tool, using it is fast. The code in a cookbook is read, broken down, and
@@ -49,7 +49,7 @@ Server).
 ## Run Foodcritic
 
 Foodcritic is run from the command line, typically against a single
-cookbook and all of the Ruby files contained within it:
+cookbook and the Ruby files contained within it:
 
 ``` bash
 foodcritic /path/to/cookbook

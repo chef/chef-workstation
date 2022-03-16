@@ -82,7 +82,7 @@ This command has the following options:
 
 `-S CHEF_SERVER_URL`, `--server CHEF_SERVER_URL`
 
-: The URL for the Chef Infra Server.
+: The URL of the Chef Infra Server.
 
 `-v`, `--version`
 

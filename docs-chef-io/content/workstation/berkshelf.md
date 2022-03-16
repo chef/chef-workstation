@@ -16,8 +16,14 @@ aliases = ["/berkshelf.html", "/berkshelf/"]
 
 <!-- markdownlint-disable-file MD024 -->
 
+{{< warning >}}
+[Policyfiles](/policyfile/) are the preferred pattern for creating immutable collections of cookbooks, cookbook dependencies, and attributes. Berkshelf is no longer under active development. Please replace Berkshelf with Policyfiles
+
+This document is no longer maintained.
+{{< /warning >}}
+
 Berkshelf is a dependency manager for Chef cookbooks. With it, you can
-easily depend on community cookbooks and have them safely included in
+ depend on community cookbooks and include them in
 your workflow. You can also ensure that your CI systems reproducibly
 select the same cookbook versions, and can upload and bundle cookbook
 dependencies without needing a locally maintained copy. Berkshelf is
@@ -25,11 +31,7 @@ included in Chef Workstation.
 
 {{< note >}}
 
-For new users, we strongly recommend using
-[Policyfiles](/policyfile/) rather than Berkshelf. Policyfiles
-provide more predictability, since dependencies are only resolved once,
-and a much improved way of promoting cookbooks from dev to testing, and
-then to production.
+[Policyfiles](/policyfile/) are the recommended pattern for including and resolving cookbooks. Policyfiles provide more predictability, since dependencies are only resolved once, and a much improved way of promoting cookbooks from dev to testing, and then to production.
 
 {{< /note >}}
 
@@ -91,7 +93,7 @@ a cookbook. It is used in conjunction with the `berks` command.
 ### Syntax
 
 A Berksfile is a Ruby file, in which sources, dependencies, and options
-may be specified. Berksfiles are modeled closely on Bundler's Gemfile.
+may be specified. Berksfiles are modeled on Bundler's Gemfile.
 The syntax is as follows:
 
 ``` ruby
@@ -289,9 +291,7 @@ By default, the solver selection depends on your environment. When the
 `gecode` solver is used. Otherwise, the `ruby` solver is utilized by
 default.
 
-The `gecode` solver matches the engine used by the Chef Infra Server, so
-will more closely reflect the behavior of the Chef Infra Server in
-selecting cookbooks:
+The `gecode` solver matches the engine used by the Chef Infra Server, so it reflects the behavior of the Chef Infra Server in selecting cookbooks:
 
 ``` ruby
 solver :gecode
@@ -642,7 +642,7 @@ This command has the following options:
 
 `--no-freeze`
 
-: A frozen cookbook requires changes to that cookbook to be submitted as a new version of that cookbook. Use this option to prevent this cookbook from being frozen. Default value: `false` (i.e. "frozen").
+: A frozen cookbook requires changes to that cookbook to be submitted as a new version of that cookbook. Use this option to prevent this cookbook from being frozen. Default value: `false` (that is, "frozen").
 
 `--ssl-verify`
 
@@ -675,7 +675,7 @@ This command has the following options:
 
 `--delete`
 
-: Use to clean the directory in which vendored cookbooks will be placed prior to executing this command.
+: Use to clean the directory in which vendored cookbooks will be placed before executing this command.
 
 `-e [GROUP, GROUP, ...]`, `--except [GROUP, GROUP, ...]`
 

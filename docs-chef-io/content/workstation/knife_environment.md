@@ -273,7 +273,7 @@ knife environment from file "path to JSON file"
 
 ## list
 
-Use the `list` argument to list all of the environments that are
+Use the `list` argument to list the environments that are
 currently available on the Chef Infra Server.
 
 ### Syntax

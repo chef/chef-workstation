@@ -58,8 +58,6 @@ This subcommand has the following options:
 
 : The SSH identity file used to connect to the SSH gateway.
 
-   *New in Chef Client 13.0.*
-
 `-i IDENTITY_FILE`, `--ssh-identity-file IDENTIFY_FILE`
 
 : The SSH identity file used for authentication. Key-based authentication is recommended.
@@ -128,7 +126,7 @@ The following examples show how to use this knife subcommand:
 
 **Find server uptime**
 
-To find the uptime of all of web servers running Ubuntu on the Amazon
+To find the uptime of web servers running Ubuntu on the Amazon
 EC2 platform, enter:
 
 ``` bash
@@ -153,7 +151,7 @@ knife ssh 'name:*' 'sudo chef-client'
 
 **Force a Chef Infra Client run**
 
-To force a Chef Infra Client run on all of the web servers running
+To force a Chef Infra Client run on the web servers running
 Ubuntu on the Amazon EC2 platform, enter:
 
 ``` bash

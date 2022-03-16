@@ -84,7 +84,7 @@ Type `Y` to confirm a deletion.
 
 ## list
 
-Use the `list` argument to list all of the tags that have been applied
+Use the `list` argument to list the tags that have been applied
 to a node.
 
 ### Syntax

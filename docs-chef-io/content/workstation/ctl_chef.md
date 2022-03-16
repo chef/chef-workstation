@@ -170,7 +170,7 @@ RubyGems and is used by Chef to install RubyGems into Chef Workstation
 development environment. All knife plugins, drivers for Kitchen, and
 other Ruby applications that are not packaged within Chef Workstation
 will be installed to the `.Chef Workstation` path in the home directory:
-`~/.Chef Workstation/gem/ruby/ver.si.on/bin` (where `ver.si.on` is the
+`~/.Chef Workstation/gem/ruby/version#/bin` (where `version#` is the
 version of Ruby that is packaged within Chef Workstation).
 
 ### Syntax
@@ -213,7 +213,7 @@ cookstyle (5.20.0)
 
 **List all local gems**
 
-To list all of the installed gems on your development environment, use
+To list the installed gems on your development environment, use
 the `list` command without any arguments:
 
 ``` bash
@@ -223,7 +223,7 @@ chef gem list
 **Search for local gems**
 
 The `list` command can also be used to search for locally installed
-gems. For example, to list all of the gems with `knife` in their title:
+gems. For example, to list the gems with `knife` in their title:
 
 ``` bash
 chef gem list knife
@@ -325,7 +325,7 @@ This subcommand has the following options:
 
 `-g GENERATOR_COOKBOOK_PATH`, `--generator-cookbook GENERATOR_COOKBOOK_PATH`
 
-: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
+: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and more. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
 
 `-h`, `--help`
 
@@ -380,7 +380,7 @@ This subcommand has the following options:
 
 `-g GENERATOR_COOKBOOK_PATH`, `--generator-cookbook GENERATOR_COOKBOOK_PATH`
 
-: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
+: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and more. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
 
 `-b`, `--berks`
 
@@ -541,7 +541,7 @@ This subcommand has the following options:
 
 `-g GENERATOR_COOKBOOK_PATH`, `--generator-cookbook GENERATOR_COOKBOOK_PATH`
 
-: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
+: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and more. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
 
 `-h`, `--help`
 
@@ -584,7 +584,7 @@ This subcommand has the following options:
 
 `-g GENERATOR_COOKBOOK_PATH`, `--generator-cookbook GENERATOR_COOKBOOK_PATH`
 
-: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
+: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and more. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
 
 `-h`, `--help`
 
@@ -617,7 +617,7 @@ This subcommand has the following options:
 
 `-g GENERATOR_COOKBOOK_PATH`, `--generator-cookbook GENERATOR_COOKBOOK_PATH`
 
-: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
+: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and more. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
 
 `-h`, `--help`
 
@@ -666,7 +666,7 @@ This subcommand has the following options:
 
 `-g GENERATOR_COOKBOOK_PATH`, `--generator-cookbook GENERATOR_COOKBOOK_PATH`
 
-: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
+: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and more. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
 
 `-h`, `--help`
 
@@ -839,7 +839,7 @@ information on upgrading Chef Infra Client.
 
 ## chef report nodes
 
-Use the `chef report nodes` subcommand to generate a nodes-oriented report for your chef environment. This report provides details about nodes, applied policies and the cookbooks used during the most recent chef-client run.
+Use the `chef report nodes` subcommand to generate a nodes-oriented report for your chef environment. This report provides details about nodes, applied policies and the cookbooks used during the most recent Chef Infra Client run.
 
 ### Syntax
 
