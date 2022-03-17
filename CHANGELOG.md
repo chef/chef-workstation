@@ -1,16 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.3.830 -->
-## [22.3.830](https://github.com/chef/chef-workstation/tree/22.3.830) (2022-03-17)
+<!-- latest_release 22.3.831 -->
+## [22.3.831](https://github.com/chef/chef-workstation/tree/22.3.831) (2022-03-17)
 
 #### Merged Pull Requests
-- Remove extra periods from knife_client.md [#2657](https://github.com/chef/chef-workstation/pull/2657) ([IanMadd](https://github.com/IanMadd))
-- Update internal artifactory URL [#2656](https://github.com/chef/chef-workstation/pull/2656) ([vkarve-chef](https://github.com/vkarve-chef))
+- Added the sha1 and the latest ws-app version [#2658](https://github.com/chef/chef-workstation/pull/2658) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.2.807 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Added the sha1 and the latest ws-app version [#2658](https://github.com/chef/chef-workstation/pull/2658) ([nikhil2611](https://github.com/nikhil2611)) <!-- 22.3.831 -->
 - Remove extra periods from knife_client.md [#2657](https://github.com/chef/chef-workstation/pull/2657) ([IanMadd](https://github.com/IanMadd)) <!-- 22.3.830 -->
 - Update internal artifactory URL [#2656](https://github.com/chef/chef-workstation/pull/2656) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 22.3.829 -->
 - Edits to improve linting [#2631](https://github.com/chef/chef-workstation/pull/2631) ([kagarmoe](https://github.com/kagarmoe)) <!-- 22.3.829 -->
