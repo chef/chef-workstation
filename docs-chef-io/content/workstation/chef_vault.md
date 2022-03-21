@@ -32,7 +32,7 @@ Neither PUB key nor PRIV key:: nested asn1 error
 
 {{< /warning >}}
 
-### Configuring config.rb for Chef Vault
+## Configuring config.rb for Chef Vault
 
 To set 'client' as the default mode, add the following line to the config.rb file.
 

@@ -18,7 +18,7 @@ aliases = ["/chefspec.html", "/chefspec/"]
 
 {{% chefspec_summary %}}
 
-ChefSpec is a framework that tests resources and recipes as part of a simulated Chef Infra Client run. ChefSpec tests execute very quickly. When used as part of the cookbook authoring workflow, ChefSpec tests are often the first indicator of problems that may exist within a cookbook.
+ChefSpec is a framework that tests resources and recipes as part of a simulated Chef Infra Client run. ChefSpec tests execute quickly. When used as part of the cookbook authoring workflow, ChefSpec tests are often the first indicator of problems that may exist within a cookbook.
 
 ## Run ChefSpec
 
@@ -30,7 +30,7 @@ chef exec rspec
 
 ## Unit Tests
 
-RSpec is a behavior-driven development (BDD) framework that uses a natural language domain-specific language (DSL) to quickly describe scenarios in which systems are being tested. RSpec allows a scenario to be set up, and then executed. The results are compared to a set of defined expectations.
+RSpec is a behavior-driven development (BDD) framework that uses a natural language domain-specific language (DSL) to describe scenarios in which systems are being tested. RSpec allows a scenario to be set up, and then executed. The results are compared to a set of defined expectations.
 
 ChefSpec is built on the RSpec DSL.
 
@@ -110,7 +110,7 @@ end
 
 #### let
 
-RSpec-based tests may contain `let` statements within a `context` block.Use `let` statements to create a symbol, assign it a value, and then use it elsewhere in the `context` block. For example:
+RSpec-based tests may contain `let` statements within a `context` block. Use `let` statements to create a symbol, assign it a value, and then use it elsewhere in the `context` block. For example:
 
 ``` ruby
 describe 'Math' do
@@ -149,7 +149,7 @@ require 'chefspec'
 
 ## Examples
 
-The ChefSpec repo on github has [an impressive collection of examples](https://github.com/sethvargo/chefspec/tree/main/examples). For all of the core Chef Infra Client resources, for guards, attributes, multiple actions, and so on. Take a look at those examples and use them as a starting point for building your own unit tests. Some of them are included below, for reference here.
+The ChefSpec repo on github has [an impressive collection of examples](https://github.com/sethvargo/chefspec/tree/main/examples) of the core Chef Infra Client resources such as guards, attributes, multiple actions. Take a look at those examples and use them as a starting point for building your own unit tests. Some of them are included below, for reference here.
 
 ### file Resource
 
