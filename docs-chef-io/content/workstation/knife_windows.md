@@ -14,7 +14,6 @@ aliases = ["/knife_windows.html", "/knife_windows/"]
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
 
-
 {{% knife_windows_summary %}}
 
 {{< note >}}
@@ -23,7 +22,7 @@ Review the list of [common options](/workstation/knife_options/) available to th
 
 {{< /note >}}
 
-### Requirements
+## Requirements
 
 This subcommand requires WinRM to be installed, and then configured correctly, including ensuring the correct ports are open. For more information, see Microsoft's documentation on [Windows Remote Management](https://docs.microsoft.com/en-us/windows/desktop/WinRM/installation-and-configuration-for-windows-remote-management). Use the quick configuration option in WinRM to allow outside connections and the entire network path from knife (and the workstation). Run the following on the Windows target:
 
@@ -47,11 +46,11 @@ C:\> netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-I
 
 ### Negotiate, NTLM
 
-When knife is executed from a Microsoft Windows system, it is no longer necessary to make additional configuration of the WinRM listener on the target node to enable successful authentication from the workstation. It is sufficient to have a WinRM listener on the remote node configured to use the default configuration for `winrm quickconfig`. This is because `knife windows` supports the Microsoft Windows negotiate protocol, including NTLM authentication, which matches the authentication requirements for the default configuration of the WinRM listener.
+When knife is executed from a Windows system, it is no longer necessary to make additional configuration of the WinRM listener on the target node to enable successful authentication from the workstation. It is sufficient to have a WinRM listener on the remote node configured to use the default configuration for `winrm quickconfig`. This is because `knife windows` supports the Windows negotiate protocol, including NTLM authentication, which matches the authentication requirements for the default configuration of the WinRM listener.
 
 {{< note >}}
 
-To use Negotiate or NTLM to authenticate as the user specified by the `--winrm-user` option, include the user's Microsoft Windows domain, using the format `domain\user`, where the backslash (`\`) separates the domain from the user.
+To use Negotiate or NTLM to authenticate as the user specified by the `--winrm-user` option, include the user's Windows domain, using the format `domain\user`, where the backslash (`\`) separates the domain from the user.
 
 {{< /note >}}
 
@@ -69,7 +68,7 @@ knife winrm db1.cloudapp.net 'dir' -x '.\localadmin' -P 'password'
 
 ### Domain Authentication
 
-The `knife windows` plugin supports Microsoft Windows domain
+The `knife windows` plugin supports Windows domain
 authentication. This requires:
 
 - An SSL certificate on the target node
@@ -315,7 +314,7 @@ long entry was created. For example:
 
 ### Generate an SSL certificate, and then create a listener
 
-Use the `listener create`, `cert generate`, and `cert install` arguments to create a new listener and assign it a newly-generated SSL certificate. First, make sure that WinRM is enabled on the machine. Do so by running the following command on the Windows node:
+Use the `listener create`, `cert generate`, and `cert install` arguments to create a new listener and assign it a newly generated SSL certificate. First, make sure that WinRM is enabled on the machine. Do so by running the following command on the Windows node:
 
 ``` bash
 C:\> winrm quickconfig

@@ -13,7 +13,7 @@ aliases = ["/config_rb.html", "/config_rb_knife.html", "/config_rb/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 40
 +++
-<!-- markdownlint-disable-file MD007 -->
+<!-- markdownlint-disable-file MD007 MD006-->
 
 {{< warning >}}
 
@@ -27,12 +27,12 @@ A `config.rb` file:
 
 - Is loaded every time the knife executable is run
 - Is not created by default
-- Is located by default at `~/.chef/config.rb` (macOS and Linux platforms) or `c:\Users\username\.chef\config.rb` (Microsoft Windows platform), use the `--config` option from the command line to change this location
+- Is located by default at `~/.chef/config.rb` (macOS and Linux platforms) or `c:\Users\username\.chef\config.rb` (Windows platform), use the `--config` option from the command line to change this location
 - Will override the default configuration when a `config.rb` file exists at the default path or the path specified by the `--config` option
 
 {{< note >}}
 
-When running Microsoft Windows, the `config.rb` file is located at `%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<username>\.chef`).
+When running Windows, the `config.rb` file is located at `%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<username>\.chef`).
 
 {{< /note >}}
 
@@ -44,7 +44,7 @@ This configuration file has the following settings:
 : The path to a template file to be used during a bootstrap operation.
 
 `chef_server_url`
-: The URL for the Chef Infra Server. For example:
+: The URL of the Chef Infra Server. For example:
 
   ``` ruby
   chef_server_url 'https://localhost/organizations/ORG_NAME'
@@ -79,10 +79,10 @@ This configuration file has the following settings:
   ```
 
 `cookbook_copyright`
-: The name of the copyright holder. This option places a copyright notice that contains the name of the copyright holder in each of the pre-created files. If this option is not specified, a copyright name of "COMPANY_NAME" is used instead; it can easily be modified later.
+: The name of the copyright holder. This option places a copyright notice that contains the name of the copyright holder in each of the pre-created files. If this option is not specified, a copyright name of "COMPANY_NAME" is used instead; it can  be modified later.
 
 `cookbook_email`
-: The email address for the individual who maintains the cookbook. This option places an email address in each of the pre-created files. If not specified, an email name of "YOUR_EMAIL" is used instead; this can easily be modified later.
+: The email address for the individual who maintains the cookbook. This option places an email address in each of the pre-created files. If not specified, an email name of "YOUR_EMAIL" is used instead; this can  be modified later.
 
 `cookbook_license`
 : The type of license under which a cookbook is distributed: `apachev2`, `gplv2`, `gplv3`, `mit`, or `none` (default). This option places the appropriate license notice in the pre-created files: `Apache v2.0` (for `apachev2`), `GPL v2` (for `gplv2`), `GPL v3` (for `gplv3`), `MIT` (for `mit`), or `license 'Proprietary - All Rights Reserved` (for `none`). Be aware of the licenses for files inside of a cookbook and be sure to follow any restrictions they describe.
@@ -98,7 +98,7 @@ This configuration file has the following settings:
   ```
 
 `data_bag_encrypt_version`
-: The minimum required version of data bag encryption. Possible values: `1` or `2`. When all of the machines in an organization are running Chef Infra Client 11.6 (or higher), it is recommended that this value be set to `2`. For example:
+: The minimum required version of data bag encryption. Possible values: `1` or `2`. When  the machines in an organization are running Chef Infra Client 11.6 (or higher), it is recommended that this value be set to `2`. For example:
 
   ``` ruby
   data_bag_encrypt_version 2
@@ -267,7 +267,7 @@ Also note that:
 
 - Custom plugins can be configured to use the same settings as the core knife subcommands
 - Many of these settings are used by more than one subcommand and/or plugin
-- Some of the settings are included only because knife checks for a value in the `config.rb` file
+- Some settings are included only because knife checks for a value in the `config.rb` file
 
 To add settings to the `config.rb` file, use the following syntax:
 
@@ -286,7 +286,7 @@ knife[:bootstrap_proxy] = ''
 
 ### Frequently Used
 
-Some of the optional `config.rb` settings are used often, such as the template file used in a bootstrap operation. The frequency of use of any option varies from organization to organization, so even though the following settings are often added to a `config.rb` file, they may not be the right settings to add for every organization:
+Some optional `config.rb` settings are used often, such as the template file used in a bootstrap operation. The frequency of use of any option varies from organization to organization, so even though the following settings are often added to a `config.rb` file, they may not be the right settings to add for every organization:
 
 `knife[:bootstrap_proxy]`
 : The proxy server for the node that is the target of a bootstrap operation.

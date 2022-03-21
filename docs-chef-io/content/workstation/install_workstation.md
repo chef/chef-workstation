@@ -42,7 +42,7 @@ Supported Host Operating Systems:
 <td>10.15, 11, 12</td>
 </tr>
 <tr class="even">
-<td>Microsoft Windows</td>
+<td>Windows</td>
 <td>10, 11, Server 2012, Server 2012 R2, Server 2016, Server 2019, Server 2022</td>
 </tr>
 <tr class="odd">
@@ -94,7 +94,7 @@ Alternately, install Chef Workstation using the [Homebrew](https://brew.sh/) pac
 
 1. Visit the [Chef Workstation downloads page](https://www.chef.io/downloads/tools/workstation?os=windows) and select the appropriate package for your Windows version. Click on the **Download** button.
 1. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the `C:\opscode\chef-workstation\` directory.
-1. **Optional:** Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell instead of `cmd.exe`.
+1. **Optional:** Set the default shell. On Windows it is strongly recommended to use Windows PowerShell instead of `cmd.exe`.
 
 Alternately, install Chef Workstation using the [Chocolatey](https://chocolatey.org/) package manager:
 

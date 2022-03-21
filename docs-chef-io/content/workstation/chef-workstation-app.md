@@ -12,7 +12,7 @@ gh_repo = "chef-workstation"
     weight = 61
 +++
 
-The Chef Workstation App (CWA) is an early-release desktop application that provides additional services for Chef Workstation:
+The Chef Workstation App (CWA) is an early release desktop application that provides additional services for Chef Workstation:
 
 * Update checking and notifications
 * Chef Workstation version information

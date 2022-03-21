@@ -30,7 +30,7 @@ This subcommand has the following options:
 
 `URL_or_URI`
 
-: The URL or URI for the location at which the SSL certificate is located. Default value: the URL for the Chef Infra Server, as defined in the config.rb file.
+: The URL or URI for the location at which the SSL certificate is located. Default value: the URL of the Chef Infra Server, as defined in the config.rb file.
 
 ## Examples
 

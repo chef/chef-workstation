@@ -194,7 +194,7 @@ knife exec -E 'nodes.all {|n| puts "#{n.name} has #{n.memory.total} free memory"
 
 **List available search indexes**
 
-To list all of the available search indexes, enter:
+To list the available search indexes, enter:
 
 ``` bash
 knife exec -E 'puts api.get("search").keys'
@@ -245,7 +245,7 @@ Your attributes: ipaddress fqdn
 
 **Find shadow cookbooks**
 
-To find all of the locations in which cookbooks exist that may shadow
+To find the locations in which cookbooks exist that may shadow
 each other, create a file called `shadow-check.rb` that contains the
 following Ruby code:
 

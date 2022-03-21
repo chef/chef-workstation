@@ -73,11 +73,11 @@ Chef-specific settings:
 </tr>
 <tr class="odd">
 <td><code>chef_omnibus_root</code></td>
-<td>Default value: <code>/etc/opt</code> for UNIX and Linux, <code>$env:systemdrive\\opscode\\chef</code> on Microsoft Windows.</td>
+<td>Default value: <code>/etc/opt</code> for UNIX and Linux, <code>$env:systemdrive\\opscode\\chef</code> on Windows.</td>
 </tr>
 <tr class="even">
 <td><code>chef_omnibus_url</code></td>
-<td>The URL for an <code>install.sh</code> script that will install Chef Infra Client on the machine under test. Default value: <code>https://omnitruck.chef.io/install.sh</code>. <strong>This will be deprecated in a future version.</strong></td>
+<td>The URL of an <code>install.sh</code> script that will install Chef Infra Client on the machine under test. Default value: <code>https://omnitruck.chef.io/install.sh</code>. <strong>This will be deprecated in a future version.</strong></td>
 </tr>
 <tr class="odd">
 <td><code>chef_solo_path</code></td>
@@ -143,11 +143,11 @@ Chef-specific settings:
 </tr>
 <tr class="even">
 <td><code>no_proxy</code></td>
-<td>The comma-separated exception list of host patterns to exclude from proxying.</td>
+<td>The comma-separated exception list of host patterns to exclude from using in proxy connections.</td>
 </tr>
 <tr class="odd">
 <td><code>install_msi_url</code></td>
-<td>An alternate URL for a Windows MSI package that will install Chef Infra Client on the machine under test. <strong>This will be deprecated in a future version.</strong> Use the <code>download_url</code> setting instead.</td>
+<td>An alternate URL of a Windows MSI package that will install Chef Infra Client on the machine under test. <strong>This will be deprecated in a future version.</strong> Use the <code>download_url</code> setting instead.</td>
 </tr>
 <tr class="even">
 <td><code>json_attributes</code></td>
@@ -227,7 +227,7 @@ kitchen.yml file when the provisioner is chef-zero or chef-solo.
 <tbody>
 <tr class="odd">
 <td><code>product_name</code></td>
-<td><code>chef</code> or <code>chef-workstation</code>. This setting must be specified in order to use the new settings. Using this setting overrides Test Kitchen's default behavior based on the <code>require_chef_omnibus</code> setting.</td>
+<td><code>chef</code> or <code>chef-workstation</code>. This setting must be specified to use the new settings. Using this setting overrides Test Kitchen's default behavior based on the <code>require_chef_omnibus</code> setting.</td>
 <td></td>
 <td><code>chef_omnibus_install_options</code></td>
 </tr>
@@ -395,7 +395,7 @@ kitchen.yml file when the transport is WinRM:
 <tbody>
 <tr class="odd">
 <td><code>elevated</code></td>
-<td>When <code>true</code>, all commands are executed via a scheduled task. This may eliminate access denied errors related to double hop authentication, interacting with windows updates and installing some MSIs such as sql server and .net runtimes. Defaults to <code>false</code>.</td>
+<td>When <code>true</code>, all commands are executed via a scheduled task. This may eliminate access denied errors related to double hop authentication, interacting with Windows updates and installing some MSIs such as sql server and .net runtimes. Defaults to <code>false</code>.</td>
 </tr>
 <tr class="even">
 <td><code>elevated_password</code></td>
@@ -458,7 +458,7 @@ where:
 
 - `require_chef_omnibus` is used to ensure that the Chef installer will be used to install Chef Infra Client to all platform instances; `require_chef_omnibus` may also be set to `latest`, which means the newest version of Chef Infra Client for that platform will be used for cookbook testing
 - `chef_omnibus_url` is used to specify the URL from which Chef Infra Client is downloaded
-- All of the `attributes` for the `config` test suite contain specific client.rb settings for use with this test suite
+- the `attributes` for the `config` test suite contain specific client.rb settings for use with this test suite
 
 ## Driver Settings
 
@@ -519,9 +519,9 @@ provisioner:
   require_chef_omnibus: 0.9
 ```
 
-### Microsoft Windows Platform
+### Windows Platform
 
-The following example shows platform settings for the Microsoft Windows
+The following example shows platform settings for the Windows
 platform:
 
 ``` yaml
@@ -666,7 +666,7 @@ The following kitchen.yml file sets up a simple tiered configuration of
 the Chef Infra Server, including two front-end servers, a single
 back-end server, and two add-ons (Chef Push Jobs and Chef management
 console). The `platforms` block uses an `attributes` section to define
-Chef server-specific attributes that are used by all three test suites:
+Chef Infra Server attributes that are used by all three test suites:
 
 ``` yaml
 driver:

@@ -55,8 +55,8 @@ generate an RSA key pair for the named API client. The public key will
 be stored on the Chef Infra Server and the private key will be displayed
 on `STDOUT` or written to a named file.
 
-. For Chef Infra Client, the private key should be copied to the system as `/etc/chef/client.pem`.
-. For knife, the private key is typically copied to `~/.chef/client_name.pem` and referenced in the config.rb configuration file.
+For Chef Infra Client, the private key should be copied to the system as `/etc/chef/client.pem`.
+For knife, the private key is typically copied to `~/.chef/client_name.pem` and referenced in the config.rb configuration file.
 
 ### Syntax
 

@@ -21,8 +21,8 @@ logic mistakes in your code.
 Cookstyle is powered by the RuboCop linting engine. RuboCop ships with
 over three-hundred rules, or cops, designed to detect common Ruby coding
 mistakes and enforce a common coding style. We've customized Cookstyle
-with a subset of those cops that we believe are perfectly tailored for
-cookbook development. We also ship Chef-specific cops that catch common
+with a subset of those cops tailored for cookbook development.
+We also ship Chef-specific cops that catch common
 cookbook coding mistakes, cleanup portions of code that are no longer
 necessary, and detect deprecations that prevent cookbooks from running
 on the latest releases of Chef Infra Client.
@@ -36,7 +36,7 @@ Cookstyle increases code quality by:
 - Detecting deprecated code that creates errors after upgrading to a newer Chef Infra Client release.
 - Detecting common Chef Infra mistakes that cause code to fail or behave incorrectly.
 
-## Cookstyle vs. Rubocop
+## Cookstyle vs Rubocop
 
 Cookstyle is more stable than Rubocop and is customized for Chef
 Cookbook code. This means that linting Cookbooks with Cookstyle will be
@@ -54,8 +54,8 @@ help you to write more reliable and future-proof cookbooks.
 
 ### New cops
 
-New cops are continuously added to Rubocop. New cops can make existing
-codebases fail CI tests and force authors to constantly update their
+New cops are continuously added to Rubocop. New cops can make an existing
+codebase fail CI tests and force authors to constantly update their
 code.
 
 With Cookstyle, we update the RuboCop engine for bug and performance
@@ -69,7 +69,7 @@ being forced to update your infrastructure code.
 ## Run Cookstyle
 
 Cookstyle is run from the command line, typically against a single
-cookbook and all of the Ruby files contained within it:
+cookbook and the Ruby files contained within it:
 
 ``` bash
 cookstyle /path/to/cookbook
