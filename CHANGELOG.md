@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.3.834 -->
-## [22.3.834](https://github.com/chef/chef-workstation/tree/22.3.834) (2022-03-22)
+<!-- latest_release 22.3.835 -->
+## [22.3.835](https://github.com/chef/chef-workstation/tree/22.3.835) (2022-03-22)
 
 #### Merged Pull Requests
-- Go chef cli integration [#2661](https://github.com/chef/chef-workstation/pull/2661) ([sanghinitin](https://github.com/sanghinitin))
+- Bump chef-analyze CLI to 0.1.135 [#2662](https://github.com/chef/chef-workstation/pull/2662) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.2.807 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.135 [#2662](https://github.com/chef/chef-workstation/pull/2662) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.835 -->
 - Go chef cli integration [#2661](https://github.com/chef/chef-workstation/pull/2661) ([sanghinitin](https://github.com/sanghinitin)) <!-- 22.3.834 -->
 - Bump chef-analyze CLI to 0.1.134 [#2652](https://github.com/chef/chef-workstation/pull/2652) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.833 -->
 - Bump kitchen-vcenter to 2.11.12 [#2659](https://github.com/chef/chef-workstation/pull/2659) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.832 -->
