@@ -53,7 +53,7 @@ func main() {
 
 	doStartupTasks()
 	cmd.Execute()
-	t := telemetry.NewTelemetry()
-	// fmt.Println("t is -----------------", t)
-	t.Setup()
+
+	telemetry.StartupTelemetry()
+
 }

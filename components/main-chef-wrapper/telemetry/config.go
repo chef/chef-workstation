@@ -27,3 +27,7 @@ func telemetrySessionFile() string {
 func telemetryInstallationIdentifierFile() string {
 	return path.Join(WS_BASE_PATH, "installation_id")
 }
+
+func defaultLocation() string {
+	return path.Join(WS_BASE_PATH, "config.toml")
+}
