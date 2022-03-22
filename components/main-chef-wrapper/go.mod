@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/chef/go-chef-cli v0.0.1
-	github.com/chef/go-libs v0.4.1
+	github.com/chef/go-libs v0.4.2-0.20220221201613-78f79e000afb
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/spf13/cobra v1.4.0
 	github.com/stretchr/testify v1.7.0
