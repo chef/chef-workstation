@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: 2551807dcebf47a1eae517cd1c9d17e84a25ac8a
+  revision: 258c62e688b82c520314f58c1f04828c55a2658d
   branch: main
   specs:
     omnibus-software (4.0.0)
@@ -165,7 +165,7 @@ GEM
     citrus (3.0.2)
     cleanroom (1.0.0)
     coderay (1.1.3)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.1.10)
     contracts (0.16.1)
     corefoundation (0.3.13)
       ffi (>= 1.15.0)
