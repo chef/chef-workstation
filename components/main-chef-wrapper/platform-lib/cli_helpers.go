@@ -32,7 +32,11 @@ func DefaultPackageName() string {
 	if err != nil {
 		log.Fatal(err)
 	}
-	return filepath.Join(home, dist.WorkstationDir)
+	if runtime.GOOS == "windows" {
+		return filepath.Join(os.Getenv("LOCALAPPDATA"), dist.WsDirWindows)
+	} else {
+		return filepath.Join(home, dist.WorkstationDir)
+	}
 }
 
 func OmnibusGemRoot() string {
