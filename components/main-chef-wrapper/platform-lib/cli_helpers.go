@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
@@ -128,6 +129,9 @@ func OmnibusGemPath() []string {
 	if ok {
 		str := data["GEM_PATH"].(string)
 		gemPath = strings.Split(str, ":")
+		if runtime.GOOS == "windows" {
+			gemPath = strings.Split(str, ";")
+		}
 	}
 	return gemPath
 }
@@ -138,6 +142,9 @@ func OmnibusPath() []string {
 	}
 	str := rubyenvMap["omnibus path"].(map[string]interface{})["PATH"].(string)
 	split := strings.Split(str, ":")
+	if runtime.GOOS == "windows" {
+		split = strings.Split(str, ";")
+	}
 	return split
 
 }
