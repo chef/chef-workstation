@@ -3,7 +3,6 @@
 # changes are merged to main Expeditor takes that version, runs a script to
 # replace it here and pushes a new commit / build through.
 
-
 override "chef-analyze", version: "0.1.138"
 # /DO NOT MODIFY
 
