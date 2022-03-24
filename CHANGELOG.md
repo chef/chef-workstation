@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.3.836 -->
-## [22.3.836](https://github.com/chef/chef-workstation/tree/22.3.836) (2022-03-22)
+<!-- latest_release 22.3.837 -->
+## [22.3.837](https://github.com/chef/chef-workstation/tree/22.3.837) (2022-03-24)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.131 [#2663](https://github.com/chef/chef-workstation/pull/2663) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump inspec-bin to 4.56.19 [#2665](https://github.com/chef/chef-workstation/pull/2665) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.2.807 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump inspec-bin to 4.56.19 [#2665](https://github.com/chef/chef-workstation/pull/2665) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.837 -->
 - Bump Chef Workstation App to 0.2.131 [#2663](https://github.com/chef/chef-workstation/pull/2663) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.836 -->
 - Bump chef-analyze CLI to 0.1.135 [#2662](https://github.com/chef/chef-workstation/pull/2662) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.835 -->
 - Go chef cli integration [#2661](https://github.com/chef/chef-workstation/pull/2661) ([sanghinitin](https://github.com/sanghinitin)) <!-- 22.3.834 -->
