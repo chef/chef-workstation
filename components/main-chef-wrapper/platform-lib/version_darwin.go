@@ -21,6 +21,7 @@ import (
 	"io/ioutil"
 	"os"
 	"path"
+	"path/filepath"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
@@ -129,16 +130,16 @@ func omnibusRoot() string {
 }
 
 func ExpectedOmnibusRoot() string {
-	// ex, _ := os.Executable()
-	// exReal, err := filepath.EvalSymlinks(ex)
-	// if err != nil {
-	// 	fmt.Fprintln(os.Stderr, "ERROR:", err)
-	// 	os.Exit(4)
-	// }
-	// rootPath := path.Join(filepath.Dir(exReal), "..")
-	// //groot := os.Getenv("GEM_ROOT")
-	// //rootPath, err := filepath.Abs(path.Join(groot,"..","..", "..", "..", ".."))
-	// return rootPath
+	ex, _ := os.Executable()
+	exReal, err := filepath.EvalSymlinks(ex)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR:", err)
+		os.Exit(4)
+	}
+	rootPath := path.Join(filepath.Dir(exReal), "..")
+	// groot := os.Getenv("GEM_ROOT")
+	// rootPath, err := filepath.Abs(path.Join(groot,"..","..", "..", "..", ".."))
+	return rootPath
 	// below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
-	return "/opt/chef-workstation"
+	// return "/opt/chef-workstation"
 }
