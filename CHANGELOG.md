@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.3.842 -->
-## [22.3.842](https://github.com/chef/chef-workstation/tree/22.3.842) (2022-03-25)
+<!-- latest_release 22.3.843 -->
+## [22.3.843](https://github.com/chef/chef-workstation/tree/22.3.843) (2022-03-25)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.132 [#2670](https://github.com/chef/chef-workstation/pull/2670) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.133 [#2671](https://github.com/chef/chef-workstation/pull/2671) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.2.807 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.133 [#2671](https://github.com/chef/chef-workstation/pull/2671) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.843 -->
 - Bump Chef Workstation App to 0.2.132 [#2670](https://github.com/chef/chef-workstation/pull/2670) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.842 -->
 - Bump chef-analyze CLI to 0.1.138 [#2668](https://github.com/chef/chef-workstation/pull/2668) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.841 -->
 - Bump chef-analyze CLI to 0.1.137 [#2667](https://github.com/chef/chef-workstation/pull/2667) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.840 -->
