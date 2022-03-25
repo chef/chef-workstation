@@ -3,12 +3,12 @@ module github.com/chef/chef-workstation/components/main-chef-wrapper
 go 1.17
 
 require (
-	github.com/chef/go-chef-cli v0.0.1
+	github.com/chef/go-chef-cli v0.0.2
 	github.com/chef/go-libs v0.4.1
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/spf13/cobra v1.4.0
 	github.com/stretchr/testify v1.7.0
-	golang.org/x/sys v0.0.0-20211205182925-97ca703d548d
+	golang.org/x/sys v0.0.0-20220319134239-a9b59b0215f8
 )
 
 require (

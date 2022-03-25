@@ -12,18 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-//logic for windows platform
+// logic for windows platform
 package platform_lib
 
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
 	"io/ioutil"
 	"os"
 	"path"
-	"path/filepath"
+
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
 )
 
 var gemManifestMap map[string]interface{}
@@ -102,9 +102,9 @@ func manifestHash() map[string]interface{} {
 }
 
 func omnibusInstall() bool {
-	//# We also check if the location we're running from (omnibus_root is relative to currently-running ruby)
-	//# includes the version manifest that omnibus packages ship with. If it doesn't, then we're running locally
-	//# or out of a gem - so not as an 'omnibus install'
+	// # We also check if the location we're running from (omnibus_root is relative to currently-running ruby)
+	// # includes the version manifest that omnibus packages ship with. If it doesn't, then we're running locally
+	// # or out of a gem - so not as an 'omnibus install'
 	ExpectedOmnibusRoot := ExpectedOmnibusRoot()
 	if _, err := os.Stat(ExpectedOmnibusRoot); err == nil {
 		if _, err = os.Stat(path.Join(ExpectedOmnibusRoot, "version-manifest.json")); err == nil {
@@ -118,27 +118,27 @@ func omnibusInstall() bool {
 }
 
 func omnibusRoot() string {
-	omnibusroot, err := filepath.Abs(path.Join(ExpectedOmnibusRoot()))
-	if err != nil {
-		fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
-		os.Exit(4)
-	}
-	return omnibusroot
-	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
-	//return "/opt/chef-workstation"
+	// omnibusroot, err := filepath.Abs(path.Join(ExpectedOmnibusRoot()))
+	// if err != nil {
+	// 	fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
+	// 	os.Exit(4)
+	// }
+	// return omnibusroot
+	// below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
+	return "/opt/chef-workstation"
 }
 
 func ExpectedOmnibusRoot() string {
-	ex, _ := os.Executable()
-	exReal, err := filepath.EvalSymlinks(ex)
-	if err != nil {
-		fmt.Fprintln(os.Stderr, "ERROR:", err)
-		os.Exit(4)
-	}
-	rootPath := path.Join(filepath.Dir(exReal), "..")
-	//groot := os.Getenv("GEM_ROOT")
-	//rootPath, err := filepath.Abs(path.Join(groot,"..","..", "..", "..", ".."))
-	return rootPath
-	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
-	//return "/opt/chef-workstation"
+	// ex, _ := os.Executable()
+	// exReal, err := filepath.EvalSymlinks(ex)
+	// if err != nil {
+	// 	fmt.Fprintln(os.Stderr, "ERROR:", err)
+	// 	os.Exit(4)
+	// }
+	// rootPath := path.Join(filepath.Dir(exReal), "..")
+	// //groot := os.Getenv("GEM_ROOT")
+	// //rootPath, err := filepath.Abs(path.Join(groot,"..","..", "..", "..", ".."))
+	// return rootPath
+	// below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
+	return "/opt/chef-workstation"
 }
