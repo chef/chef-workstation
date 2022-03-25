@@ -123,7 +123,7 @@ func (u *UI) ConfirmWithoutExit(config Config, question string, appendInstructio
 	if config.DefaultValue {
 		return true
 	}
-	u.Msg(question)
+	fmt.Print(question)
 	if appendInstructions {
 		u.Msg(u.ConfirmationInstructions(defaultChoice))
 	}

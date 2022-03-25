@@ -49,7 +49,7 @@ func GetConfigPath(fileName string) string {
 			fmt.Printf("WARNING: No knife configuration file found at %s \n", fileName)
 			os.Exit(1)
 		}
-		if !checkChefDirExists(filepath) {
+		if !doesDirExist(filepath) {
 			fmt.Printf("WARNING: No knife configuration file found at %s \n", fileName)
 			os.Exit(1)
 		}

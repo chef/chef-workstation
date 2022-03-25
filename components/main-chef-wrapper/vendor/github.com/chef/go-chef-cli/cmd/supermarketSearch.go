@@ -31,7 +31,7 @@ var supermarketSearchCmd = &cobra.Command{
 		}
 		var config core.Config
 		config.Format = format
-		sp := supermarket.NewSearchProvider(query, superMarkerUri, args[0])
+		sp := supermarket.NewSearchProvider(query, superMarketUri, args[0])
 		sp.Search(ui, config)
 		os.Exit(1)
 	},
@@ -39,8 +39,7 @@ var supermarketSearchCmd = &cobra.Command{
 
 func init() {
 	SupermarketCmd.AddCommand(supermarketSearchCmd)
-	// supermarketSearchCmd.PersistentFlags().StringVarP(&superMarkerUri, "supermarket-site", "s", "https://supermarket.chef.io", "will be use to search cookbook")
 	supermarketSearchCmd.PersistentFlags().StringVarP(&query, "query", "q", "", "will be use to search cookbook")
-	supermarketSearchCmd.PersistentFlags().StringVarP(&format, "format", "f", "yaml", "will be use to search cookbook")
+	supermarketSearchCmd.PersistentFlags().StringVarP(&format, "format", "f", "yaml", "Use to display result in format")
 
 }

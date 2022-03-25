@@ -4,7 +4,6 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"strings"
 
 	"github.com/chef/go-chef-cli/core"
 	"github.com/chef/go-chef-cli/supermarket"
@@ -39,14 +38,13 @@ var supermarketInstallCmd = &cobra.Command{
 		}
 		installPath := ""
 		if len(cookBookPath) > 1 {
-			cookbooks := strings.Split(cookBookPath, ":")
-			installPath = cookbooks[0]
+			installPath = cookBookPath
 		} else {
 			installPath = core.GetDefaultConfigPath()
 		}
 		var config core.Config
 		config.Format = format
-		ci := supermarket.NewInstallProvider(args[1], superMarkerUri, installPath, defaultBranch, args[0], noDeps, useCurrentBranch)
+		ci := supermarket.NewInstallProvider(args[1], superMarketUri, installPath, defaultBranch, args[0], noDeps, useCurrentBranch)
 		ci.Install(ui, config)
 		if !ci.InstallDeps() {
 			m, err := chef.ReadMetaData(filepath.Join(installPath, args[1]))
@@ -64,7 +62,7 @@ var supermarketInstallCmd = &cobra.Command{
 
 func init() {
 	SupermarketCmd.AddCommand(supermarketInstallCmd)
-	// supermarketInstallCmd.PersistentFlags().StringVarP(&superMarkerUri, "supermarket-site", "m", "https://supermarket.chef.io", "will be use to search cookbook")
+	// supermarketInstallCmd.PersistentFlags().StringVarP(&superMarketUri, "supermarket-site", "m", "https://supermarket.chef.io", "will be use to search cookbook")
 	supermarketInstallCmd.PersistentFlags().StringVarP(&cookBookPath, "cookbook-path", "o", "", "A colon-separated path to look for cookbooks in.")
 	supermarketInstallCmd.PersistentFlags().StringVarP(&defaultBranch, "branch", "B", "master", "Default branch to work with.")
 	supermarketInstallCmd.PersistentFlags().BoolVarP(&noDeps, "skip-dependencies", "D", false, "Skips automatic dependency installation.")
