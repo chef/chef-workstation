@@ -30,7 +30,7 @@ import (
 var gemManifestMap map[string]interface{}
 var manifestMap map[string]interface{}
 
-func init() {
+func GlobalReadFile() {
 	gemManifestMap = gemManifestHash()
 	manifestMap = manifestHash()
 }
@@ -171,11 +171,13 @@ func MatchVersions() bool {
 	data, err := ioutil.ReadAll(jsonFile)
 	if err != nil {
 		log.Fatal(err)
+		return false
 	}
 
 	envDoc := make(map[string]interface{})
 	if err := json.Unmarshal(data, &envDoc); err != nil {
 		log.Fatal(err)
+		return false
 	}
 	if envDoc["build_version"] == WorkstationVersion {
 		return true

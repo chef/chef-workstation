@@ -35,13 +35,11 @@ var envCmd = &cobra.Command{
 		if len(args) >= 1 {
 			cmd.Help()
 			os.Exit(0)
-		}else {
-			ReturnEnvironment()
 		}
+		ReturnEnvironment()
 		return nil
 	},
 }
-
 
 func ReturnEnvironment() {
 	err := platform_lib.RunEnvironment()

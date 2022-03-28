@@ -33,6 +33,7 @@ import (
 
 func doStartupTasks() error {
 	createDotChef()
+	platform_lib.GlobalReadFile()
 	if runtime.GOOS == "windows" {
 		createRubyEnvWindows()
 	} else {
@@ -144,7 +145,7 @@ func createEnvJsonWindows(InstallerDir string, installationPath string) bool {
 	argList := []string{arg1, installationPath}
 	cmd := exec.Command(arg0, argList...)
 	stdout, err := cmd.Output()
-	
+
 	if err != nil {
 		fmt.Println(err.Error())
 		return true
