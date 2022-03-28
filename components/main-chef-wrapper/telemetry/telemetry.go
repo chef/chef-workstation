@@ -17,7 +17,6 @@ import (
 func StartupTelemetry() {
 	FirstRunTask()
 	SetupWorkstationUserDirectories()
-	// StartChefCli(true)
 	t := NewTelemetry()
 	var redacted = []int{}
 	t.TimedRunCapture(redacted)
@@ -51,18 +50,13 @@ func createDefaultConfig() {
 
 func setupTelemetry() {
 
-	b := make([]byte, 16)
-	_, err := rand.Read(b)
-	if err != nil {
-		log.Print(err)
-	}
-	uuid := fmt.Sprintf("%x-%x-%x-%x-%x",
-		b[0:4], b[4:6], b[6:8], b[8:10], b[10:])
+
+	uuid := uuidFormat()
 
 	if _, err := os.Stat(telemetryInstallationIdentifierFile()); errors.Is(err, os.ErrNotExist) {
 		_, err := os.Create(telemetryInstallationIdentifierFile())
 		if err != nil {
-			log.Println(err)
+			log.Fatal(err)
 		}
 	}
 	myData := []byte(uuid)
@@ -71,20 +65,23 @@ func setupTelemetry() {
 
 }
 
+func uuidFormat() string{
+	b := make([]byte, 16)
+	_, err := rand.Read(b)
+	if err != nil {
+		log.Print(err)
+	}
+	uuid := fmt.Sprintf("%x-%x-%x-%x-%x",
+		b[0:4], b[4:6], b[6:8], b[8:10], b[10:])
+	return uuid
+}
+
 func SetupWorkstationUserDirectories() {
 	fmt.Println("inside SetupWorkstationUserDirectories")
-	//FileUtils.mkdir_p(Config::WS_BASE_PATH)
-	//FileUtils.mkdir_p(Config.base_log_directory)
-	//FileUtils.mkdir_p(Config.telemetry_path)
 	os.MkdirAll(WS_BASE_PATH, os.ModePerm)
 	os.MkdirAll(telemetryPath(), os.ModePerm)
 
 }
-
-// func StartChefCli(enforce_license bool) {
-// 	fmt.Println("inside ")
-// 	fmt.Println(enforce_license)
-// }
 
 func NewTelemetry() (t telemetry.Telemetry) {
 
