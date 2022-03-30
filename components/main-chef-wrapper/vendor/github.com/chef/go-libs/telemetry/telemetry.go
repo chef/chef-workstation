@@ -2,7 +2,6 @@ package telemetry
 
 import (
 	"fmt"
-	"time"
 )
 
 type TelemetryInfo struct {
@@ -14,18 +13,7 @@ type TelemetryInfo struct {
 
 var Key = "CHEF_TELEMETRY_ENDPOINT"
 
-func (t TelemetryInfo) Deliver(entry struct {
-	Event      string `yaml:"event"`
-	Properties struct {
-		InstallationID string    `yaml:"installationid"`
-		RunTimestamp   time.Time `yaml:"runtimestamp"`
-		HostPlatform   string    `yaml:"hostplatform"`
-		EventData      struct {
-			Arguments []string `yaml:"arguments"`
-			Duration  float64  `yaml:"duration"`
-		} `yaml:"event_data"`
-	} `yaml:"properties"`
-}, tel Telemetry)  {
+func (t TelemetryInfo) Deliver(entry EventEntry, tel Telemetry)  {
 	if !optOut() {
 		var newEvent = Newevent(t)
 		payload := map[string]interface{}{}
@@ -35,7 +23,7 @@ func (t TelemetryInfo) Deliver(entry struct {
 			"ARCH": tel.Arch,
 			"HostOS": tel.HostOs,
 		}
-		payload["EvantData"] = eventData
+		payload["EventData"] = eventData
 		//     client.await.fire(payload)
 		fmt.Println("payload-------", payload)
 	}
@@ -51,18 +39,5 @@ func Newevent(t TelemetryInfo) (e Event) {
 }
 
 func session() string {
-	return check()
+	return sessionId()
 }
-
-// func getEnv(key, defaultValue string) string {
-// 	value := os.Getenv(key)
-// 	if len(value) == 0 {
-// 		return defaultValue
-// 	}
-// 	return value
-// }
-
-// func client(payload) {
-// 	endpoint := getEnv("CHEF_TELEMETRY_ENDPOINT", TELEMETRYENDPOINT)
-// 	fire(payload, endpoint)
-// }

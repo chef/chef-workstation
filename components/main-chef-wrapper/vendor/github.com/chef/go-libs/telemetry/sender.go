@@ -1,7 +1,6 @@
 package telemetry
 
 import (
-	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -26,6 +25,19 @@ type TelemetryPayload struct {
 			} `yaml:"event_data"`
 		} `yaml:"properties"`
 	} `yaml:"entries"`
+}
+
+type EventEntry struct {
+	Event      string `yaml:"event"`
+	Properties struct {
+		InstallationID string    `yaml:"installationid"`
+		RunTimestamp   time.Time `yaml:"runtimestamp"`
+		HostPlatform   string    `yaml:"hostplatform"`
+		EventData      struct {
+			Arguments []string `yaml:"arguments"`
+			Duration  float64  `yaml:"duration"`
+		} `yaml:"event_data"`
+	} `yaml:"properties"`
 }
 
 
@@ -59,7 +71,7 @@ func run(t Telemetry, sessionFiles []string) {
 		// If telemetry is not enabled, just clean up and return. Even though
 		// the telemetry gem will not send if disabled, log output saying that we're submitting
 		// it when it has been disabled can be alarming.
-		fmt.Println("Telemetry disabled, clearing any existing session captures without sending them.")
+		log.Printf("Telemetry disabled, clearing any existing session captures without sending them.")
 		for i := 0; i < len(sessionFiles); i++ {
 			err := os.RemoveAll(sessionFiles[i])
 			if err != nil {
@@ -71,11 +83,11 @@ func run(t Telemetry, sessionFiles []string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("Terminating, nothing more to do.")
+	log.Printf("Terminating, nothing more to do.")
 }
 
 func processSession(sessionFilePath string, t Telemetry) {
-	fmt.Println("Processing telemetry entries from")
+	log.Printf("Processing telemetry entries from")
 	content := loadAndClearSession(sessionFilePath)
 	submitSession(content, t)
 
@@ -104,24 +116,13 @@ func submitSession(content TelemetryPayload, t Telemetry) {
 	var newTelemetry = NewTelemetryInfo(content)
 	total := len(entries)
 	for index, element := range entries {
-		fmt.Println("Submitting telemetry entry #{sequence}/#{total}: #{entry} ")
+		log.Printf("Submitting telemetry entry:")
 		submitEntry(newTelemetry, element, index+1, total, t)
 	}
 
 }
 
-func submitEntry(newTelemetry TelemetryInfo, entry struct {
-	Event      string `yaml:"event"`
-	Properties struct {
-		InstallationID string    `yaml:"installationid"`
-		RunTimestamp   time.Time `yaml:"runtimestamp"`
-		HostPlatform   string    `yaml:"hostplatform"`
-		EventData      struct {
-			Arguments []string `yaml:"arguments"`
-			Duration  float64  `yaml:"duration"`
-		} `yaml:"event_data"`
-	} `yaml:"properties"`
-}, sequence, total int, tel Telemetry) {
+func submitEntry(newTelemetry TelemetryInfo, entry EventEntry, sequence, total int, tel Telemetry) {
 	newTelemetry.Deliver(entry, tel)
 }
 

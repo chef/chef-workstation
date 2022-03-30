@@ -131,22 +131,7 @@ func writeSession(session []byte, config Telemetry) {
 }
 
 func nextFilename(config Telemetry) string {
-	//def next_filename`
-	//id = 0
-	//filename = ""
-	//loop do
-	//id += 1
-	//filename = File.join(config[:payload_dir], "telemetry-payload-#{id}.yml")
-	//break unless File.exist?(filename)
-	//end
-	//filename
-	//end
-	id := 0
-	filename := ""
-	for id <= 0 {
-		id = id + 1
-		filename = filepath.Join(config.PayloadDir, fmt.Sprintf("telemetry-payload-%v.yml", id))
-
-	}
+	id := 1
+	filename := filepath.Join(config.PayloadDir, fmt.Sprintf("telemetry-payload-%v.yml", id))
 	return filename
 }

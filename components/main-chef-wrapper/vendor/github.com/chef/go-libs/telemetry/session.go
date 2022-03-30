@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-func check() string {
+func sessionId() string {
 	if liveSession() == true {
 		content, err := ioutil.ReadFile(sessionFile())
 
@@ -44,7 +44,7 @@ func id() string {
 			fmt.Println(err)
 		}
 	}
-	return check()
+	return sessionId()
 }
 
 func liveSession() bool {

@@ -20,18 +20,7 @@ var skeleton = map[string]interface{}{
 	"type":            "track",
 }
 
-func (e Event) Prepare(event struct {
-	Event      string `yaml:"event"`
-	Properties struct {
-		InstallationID string    `yaml:"installationid"`
-		RunTimestamp   time.Time `yaml:"runtimestamp"`
-		HostPlatform   string    `yaml:"hostplatform"`
-		EventData      struct {
-			Arguments []string `yaml:"arguments"`
-			Duration  float64  `yaml:"duration"`
-		} `yaml:"event_data"`
-	} `yaml:"properties"`
-}, tel Telemetry ) (map[string]interface{}) {
+func (e Event) Prepare(event EventEntry, tel Telemetry ) (map[string]interface{}) {
 	// def prepare(event)
 	//     time = timestamp
 	//     event[:properties][:timestamp] = time

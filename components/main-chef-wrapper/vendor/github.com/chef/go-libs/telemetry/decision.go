@@ -20,21 +20,13 @@ func made() bool {
 }
 
 func userOptedOut() bool {
-	file := path.Join(home(), OPT_OUT_FILE)
-	_, err := os.Stat(file)
-	if err == nil {
-		return true
-	}
-	return false
+	file := path.Join(GetDefaultDir(), OPT_OUT_FILE)
+	return fileInfo(file)
 }
 
 func userOptedIn() bool {
-	file := path.Join(home(), OPT_IN_FILE)
-	_, err := os.Stat(file)
-	if err == nil {
-		return true
-	}
-	return false
+	file := path.Join(GetDefaultDir(), OPT_IN_FILE)
+	return fileInfo(file)
 }
 
 func envOptOut() bool {
@@ -70,7 +62,15 @@ func localOptOut() bool {
 // 	}
 // }
 
-func home() string {
+func fileInfo(file string) bool {
+	_, err := os.Stat(file)
+	if err == nil {
+		return true
+	}
+	return false
+}
+
+func GetDefaultDir() string {
 	dirname, err := os.UserHomeDir()
 	if err != nil {
 		log.Print(err)
