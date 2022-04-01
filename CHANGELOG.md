@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.4.854 -->
-## [22.4.854](https://github.com/chef/chef-workstation/tree/22.4.854) (2022-04-01)
+<!-- latest_release 22.4.855 -->
+## [22.4.855](https://github.com/chef/chef-workstation/tree/22.4.855) (2022-04-01)
 
 #### Merged Pull Requests
-- Move chef env to go (cherrypick) [#2570](https://github.com/chef/chef-workstation/pull/2570) ([i5pranay93](https://github.com/i5pranay93))
+- Bump omnibus-software from `258c62e` to `bf3db86` in /omnibus [#2669](https://github.com/chef/chef-workstation/pull/2669) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.2.807 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `258c62e` to `bf3db86` in /omnibus [#2669](https://github.com/chef/chef-workstation/pull/2669) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.4.855 -->
 - Move chef env to go (cherrypick) [#2570](https://github.com/chef/chef-workstation/pull/2570) ([i5pranay93](https://github.com/i5pranay93)) <!-- 22.4.854 -->
 - Bump libxml2 and libxslt [#2683](https://github.com/chef/chef-workstation/pull/2683) ([jeremiahsnapp](https://github.com/jeremiahsnapp)) <!-- 22.4.853 -->
 - Bump mixlib-shellout to 3.2.6 [#2682](https://github.com/chef/chef-workstation/pull/2682) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.3.852 -->
