@@ -70,10 +70,6 @@ build do
   env["CXXFLAGS"] = "-I. #{env["CXXFLAGS"]}"
   env["CFLAGS"] = "-std=c99 #{env["CFLAGS"]}"
 
-  if macos? && arm?
-    env["LDFLAGS"] += " -Wl,-rpath,#{install_dir}/embedded/lib -lssl -lcurl -lz"
-  end
-
   erb source: "config.mak.erb",
       dest: "#{project_dir}/config.mak",
       mode: 0755,
