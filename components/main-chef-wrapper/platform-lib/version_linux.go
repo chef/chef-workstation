@@ -21,6 +21,7 @@ import (
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
 	"io/ioutil"
+	"log"
 	"os"
 	"path"
 	"path/filepath"
@@ -29,12 +30,12 @@ import (
 var gemManifestMap map[string]interface{}
 var manifestMap map[string]interface{}
 
-func init() {
+func GlobalReadFile() {
 	gemManifestMap = gemManifestHash()
 	manifestMap = manifestHash()
 }
 func Version() error {
-	if omnibusInstall() == true {
+	if OmnibusInstall() {
 		showVersionViaVersionManifest()
 	} else {
 		fmt.Fprintln(os.Stderr, "ERROR:", dist.WorkstationProduct, "has not been installed via the platform-specific package provided by", dist.DistributorName, "Version information is not available.")
@@ -101,7 +102,7 @@ func manifestHash() map[string]interface{} {
 	return manifestHash
 }
 
-func omnibusInstall() bool {
+func OmnibusInstall() bool {
 	//# We also check if the location we're running from (omnibus_root is relative to currently-running ruby)
 	//# includes the version manifest that omnibus packages ship with. If it doesn't, then we're running locally
 	//# or out of a gem - so not as an 'omnibus install'
@@ -136,9 +137,51 @@ func ExpectedOmnibusRoot() string {
 		os.Exit(4)
 	}
 	rootPath := path.Join(filepath.Dir(exReal), "..")
-	//groot := os.Getenv("GEM_ROOT")
-	//rootPath, err := filepath.Abs(path.Join(groot,"..","..", "..", "..", ".."))
 	return rootPath
 	//below code can be used for running and testing in local repos e.g ./main-chef-wrapper -v, comment out rest code of this method(darwin,linux)
 	//return "/opt/chef-workstation"
+}
+
+func UnmarshallRubyEnv() map[string]interface{} {
+	home, err := os.UserHomeDir()
+	filepath := path.Join(home, ".chef/ruby-env.json")
+	jsonFile, err := os.Open(filepath)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+		return nil
+	}
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+	defer jsonFile.Close()
+	var rubyenvHash map[string]interface{}
+	json.Unmarshal([]byte(byteValue), &rubyenvHash)
+	return rubyenvHash
+}
+
+func MatchVersions() bool {
+	// check version from env.json file and workstation version
+	home, err := os.UserHomeDir()
+	WorkstationVersion := componentVersion("build_version")
+	filepath := path.Join(home, ".chef/ruby-env.json")
+	jsonFile, err := os.Open(filepath)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+		return false
+	}
+
+	data, err := ioutil.ReadAll(jsonFile)
+	if err != nil {
+		log.Fatal(err)
+		return false
+	}
+
+	envDoc := make(map[string]interface{})
+	if err := json.Unmarshal(data, &envDoc); err != nil {
+		log.Fatal(err)
+		return false
+	}
+	if envDoc["build_version"] == WorkstationVersion {
+		return true
+	} else {
+		return false
+	}
 }

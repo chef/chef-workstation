@@ -35,6 +35,7 @@ const (
 	UserConfDir         = ".chef"
 	WSWebsite           = "https://community.chef.io/tools/chef-workstation/"
 	WorkstationDir      = ".chef-workstation"
+	WsDirWindows        = "chef-workstation"
 	WorkstationExec     = "chef-cli"
 	WorkstationProduct  = "Chef Workstation"
 	ZeroExec            = "chef-zero"
