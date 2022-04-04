@@ -61,7 +61,7 @@ group(:omnibus_package) do
   gem "fauxhai-ng", ">= 8.7.1"
 
   # inspec
-  gem "inspec-bin", "~> 4.23"
+  gem "inspec-bin", "~> 5.10.5"
 
   # test-kitchen and plugins
   gem "test-kitchen", ">= 3.0"
