@@ -27,9 +27,9 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "knife",
-	Short: "knife is a command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. knife helps users to manage",
-	Long: `knife is a command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. knife helps users to manage:
+	Use:   "chef",
+	Short: "chef is a command-line tool that provides an interface between a local chef-repo and the Chef Infra Server.",
+	Long: `chef is a command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. chef helps users to manage:
 			Nodes
 			Cookbooks and recipes
 			Roles, Environments, and Data Bags

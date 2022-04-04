@@ -27,7 +27,7 @@ var supermarketInstallCmd = &cobra.Command{
 		var ui core.UI
 		supermarket.ValidateArgsAndType(args, "", ui)
 		if !supermarket.ValidateArtifact(args[0]) {
-			ui.Msg("only cookbook type artifact supported as of now.")
+			ui.Msg("only cookbook  artifact type is supported as of now.")
 			os.Exit(1)
 		}
 		if len(args) >= 3 {

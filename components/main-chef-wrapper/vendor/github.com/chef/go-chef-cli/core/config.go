@@ -10,7 +10,7 @@ import (
 const configPath = ".chef"
 const configFileName = "config.rb"
 
-// Config this will contain all configuration required by chef (knife) command like chef infra server url,
+// Config this will contain all configuration required by chef  command like chef infra server url,
 // Chef zero host url and port
 // Chef Infra Server client key
 // format etc ...
@@ -32,7 +32,7 @@ func (c *Config) LoadConfig(fileName string) (string, string) {
 	configFile := filepath.Join(configFilePath, configFileName)
 	file, err := ioutil.ReadFile(configFile)
 	if err != nil {
-		fmt.Println("WARNING: No knife configuration file found. See https://docs.chef.io/config_rb/ for details.")
+		fmt.Println("WARNING: No chef configuration file found. See https://docs.chef.io/config_rb/ for details.")
 		fmt.Println("WARN: Failed to read the private key /etc/chef/client.pem: #<Errno::ENOENT: No such file or directory @ rb_sysopen - /etc/chef/client.pem>")
 		fmt.Println("\033[31m", "ERROR:", "\033[0m", "Your private key could not be loaded from /etc/chef/client.pem")
 		fmt.Println("Check your configuration file and ensure that your private key is readable")
@@ -46,11 +46,11 @@ func GetConfigPath(fileName string) string {
 	if len(fileName) > 0 {
 		filepath, err := filepath.Abs(fileName)
 		if err != nil {
-			fmt.Printf("WARNING: No knife configuration file found at %s \n", fileName)
+			fmt.Printf("WARNING: No chef configuration file found at %s \n", fileName)
 			os.Exit(1)
 		}
 		if !doesDirExist(filepath) {
-			fmt.Printf("WARNING: No knife configuration file found at %s \n", fileName)
+			fmt.Printf("WARNING: No chef configuration file found at %s \n", fileName)
 			os.Exit(1)
 		}
 		return filepath
@@ -71,7 +71,7 @@ func GetDefaultConfigPath() string {
 		return filepath.Join("/etc/chef", configPath)
 	}
 	if !checkChefDirExists(homeDir) {
-		fmt.Printf("WARNING: No knife configuration file found at %s", homeDir)
+		fmt.Printf("WARNING: No chef configuration file found at %s", homeDir)
 		os.Exit(1)
 	}
 	return filepath.Join(homeDir, configPath)

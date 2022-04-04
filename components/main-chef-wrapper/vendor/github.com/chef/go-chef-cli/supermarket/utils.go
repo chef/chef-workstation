@@ -11,7 +11,7 @@ const ArtifactProfile = "profile"
 
 func ValidateArgsAndType(args []string, artifact string, ui core.UI) {
 	if len(artifact) > 1 && len(args) < 1 {
-		ui.Msg("please provide artifact type.!")
+		ui.Msg("please provide artifact type.! i.e (cookbook or profile")
 		os.Exit(1)
 	}
 	if len(artifact) < 1 && len(args) < 2 {

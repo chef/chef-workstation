@@ -25,7 +25,7 @@ var supermarketListCmd = &cobra.Command{
 			ui.Fatal("please provide artifact type")
 		}
 		if !supermarket.ValidateArtifact(args[0]) {
-			ui.Msg("only cookbook type artifact supported as of now.")
+			ui.Msg("only cookbook  artifact type is supported as of now.")
 			os.Exit(1)
 		}
 		var config core.Config
