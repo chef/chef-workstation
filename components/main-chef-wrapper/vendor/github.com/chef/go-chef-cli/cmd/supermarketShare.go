@@ -19,7 +19,7 @@ import (
 var supermarketShareCmd = &cobra.Command{
 	Use:                "share",
 	Short:              "Use the share argument to add a cookbook to Chef Supermarket.",
-	Long:               `Use the share argument to add a cookbook to Chef Supermarket. This action will require a user account and a certificate for Chef Supermarket. By default, knife will use the user name and API key that is identified in the configuration file used during the upload; otherwise these values must be specified on the command line or in an alternate configuration file.`,
+	Long:               `Use the share argument to add a cookbook to Chef Supermarket. This action will require a user account and a certificate for Chef Supermarket. By default, chef will use the user name and API key that is identified in the configuration file used during the upload; otherwise these values must be specified on the command line or in an alternate configuration file.`,
 	DisableFlagParsing: true,
 	Run: func(cmd *cobra.Command, args []string) {
 		var ui core.UI
@@ -27,7 +27,7 @@ var supermarketShareCmd = &cobra.Command{
 			ui.Fatal("please provide artifact type")
 		}
 		if !supermarket.ValidateArtifact(args[0]) {
-			ui.Msg("only cookbook type artifact supported as of now.")
+			ui.Msg("only cookbook  artifact type is supported as of now.")
 			os.Exit(1)
 		}
 		var cmdArgs []string

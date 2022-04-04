@@ -23,7 +23,7 @@ var supermarketUnShareCmd = &cobra.Command{
 		var ui core.UI
 		supermarket.ValidateArgsAndType(args, query, ui)
 		if !supermarket.ValidateArtifact(args[0]) {
-			ui.Msg("only cookbook type artifact supported as of now.")
+			ui.Msg("only cookbook  artifact type is supported as of now.")
 			os.Exit(1)
 		}
 		var c core.Config
@@ -35,7 +35,7 @@ var supermarketUnShareCmd = &cobra.Command{
 		var cc chef.ConfigRb
 		cc, err := chef.NewClientRb(data, path)
 		if err != nil {
-			ui.Fatal("No knife configuration file found. See https://docs.chef.io/config_rb/ for details.")
+			ui.Fatal("No config.rb configuration file found. See https://docs.chef.io/config_rb/ for details.")
 		}
 		err = supermarket.UnShareCookbook(args[1], superMarketUri, cc.NodeName, cc.ClientKey)
 		if err != nil {

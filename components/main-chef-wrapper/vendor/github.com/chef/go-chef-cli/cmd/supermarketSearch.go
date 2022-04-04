@@ -18,12 +18,12 @@ var query, format string
 var supermarketSearchCmd = &cobra.Command{
 	Use:   "search",
 	Short: "Search indexes allow queries to be made for any type of data that is indexed by the Chef Infra Server, including data bags (and data bag items), environments, nodes, and roles",
-	Long:  `Search indexes allow queries to be made for any type of data that is indexed by the Chef Infra Server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the search subcommand in knife.`,
+	Long:  `Search indexes allow queries to be made for any type of data that is indexed by the Chef Infra Server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the search subcommand in chef.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		var ui core.UI
 		supermarket.ValidateArgsAndType(args, query, ui)
 		if !supermarket.ValidateArtifact(args[0]) {
-			ui.Msg("only cookbook type artifact supported as of now.")
+			ui.Msg("only cookbook  artifact type is supported as of now.")
 			os.Exit(1)
 		}
 		if len(query) < 1 {

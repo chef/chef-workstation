@@ -17,12 +17,12 @@ var (
 var supermarketDownloadCmd = &cobra.Command{
 	Use:   "download",
 	Short: "Use the download argument to download a cookbook from Chef Supermarket",
-	Long:  `A cookbook will be downloaded as a tar.gz archive and placed in the current working directory. If a cookbook (or cookbook version) has been deprecated and the --force option is not used, knife will alert the user that the cookbook is deprecated and then will provide the name of the most recent non-deprecated version of that cookbook.`,
+	Long:  `A cookbook will be downloaded as a tar.gz archive and placed in the current working directory. If a cookbook (or cookbook version) has been deprecated and the --force option is not used, chef will alert the user that the cookbook is deprecated and then will provide the name of the most recent non-deprecated version of that cookbook.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		var ui core.UI
 		supermarket.ValidateArgsAndType(args, "", ui)
 		if !supermarket.ValidateArtifact(args[0]) {
-			ui.Msg("only cookbook type artifact supported as of now.")
+			ui.Msg("only cookbook  artifact type is supported as of now.")
 			os.Exit(1)
 		}
 		specificVersion := ""
