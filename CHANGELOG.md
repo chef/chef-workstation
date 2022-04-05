@@ -1,8 +1,9 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release unreleased -->
-## Unreleased
+<!-- latest_release 22.4.861 -->
+## [22.4.861](https://github.com/chef/chef-workstation/tree/22.4.861) (2022-04-05)
 
 #### Merged Pull Requests
+- Bump mixlib-shellout to 3.2.7 [#2692](https://github.com/chef/chef-workstation/pull/2692) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump kitchen-azurerm to 1.10.2 [#2689](https://github.com/chef/chef-workstation/pull/2689) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
@@ -10,6 +11,7 @@
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump mixlib-shellout to 3.2.7 [#2692](https://github.com/chef/chef-workstation/pull/2692) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.4.861 -->
 - Bump kitchen-azurerm to 1.10.2 [#2689](https://github.com/chef/chef-workstation/pull/2689) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.4.860 -->
 - Bump github.com/chef/go-chef-cli from 0.0.2 to 0.0.3 in /components/main-chef-wrapper [#2691](https://github.com/chef/chef-workstation/pull/2691) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.4.860 -->
 - changes from `bundle update` run [#2686](https://github.com/chef/chef-workstation/pull/2686) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 22.4.859 -->
