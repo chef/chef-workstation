@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 22.4.862 -->
+## [22.4.862](https://github.com/chef/chef-workstation/tree/22.4.862) (2022-04-06)
+
+#### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.144 [#2695](https://github.com/chef/chef-workstation/pull/2695) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=22.4.861 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.144 [#2695](https://github.com/chef/chef-workstation/pull/2695) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.4.862 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
