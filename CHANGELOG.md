@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.4.871 -->
-## [22.4.871](https://github.com/chef/chef-workstation/tree/22.4.871) (2022-04-12)
+<!-- latest_release 22.4.872 -->
+## [22.4.872](https://github.com/chef/chef-workstation/tree/22.4.872) (2022-04-12)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.148 [#2706](https://github.com/chef/chef-workstation/pull/2706) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.149 [#2707](https://github.com/chef/chef-workstation/pull/2707) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.4.861 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.149 [#2707](https://github.com/chef/chef-workstation/pull/2707) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.4.872 -->
 - Bump chef-analyze CLI to 0.1.148 [#2706](https://github.com/chef/chef-workstation/pull/2706) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.4.871 -->
 - Bump nokogiri to 1.13.4 [#2705](https://github.com/chef/chef-workstation/pull/2705) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.4.870 -->
 - Bump train to 3.9.2 [#2702](https://github.com/chef/chef-workstation/pull/2702) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.4.869 -->
