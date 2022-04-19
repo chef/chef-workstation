@@ -80,7 +80,7 @@ This argument has the following options:
 
     {{< note spaces=4 >}}
 
-    This option is valid only with Chef Infra Server API, version 1.0, which was released with Chef Server 12.1. Cannot be passed with --public-key
+    This option is valid only with Chef Infra Server API version 1.0, which was released with Chef Server 12.1. It cannot be passed with the `--public-key` option.
 
     {{< /note >}}
 
