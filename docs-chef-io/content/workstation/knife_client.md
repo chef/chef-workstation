@@ -76,7 +76,7 @@ This argument has the following options:
 
 `-k`, `--prevent-keygen`
 
-: Create a client without a keypair. This key may be managed later by using the `knife client key create` subcommands.
+: Create a client without a keypair. This key may be managed later by using the `knife client key create` subcommand.
 
     {{< note spaces=4 >}}
 
