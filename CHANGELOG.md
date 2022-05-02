@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.4.903 -->
-## [22.4.903](https://github.com/chef/chef-workstation/tree/22.4.903) (2022-04-29)
+<!-- latest_release 22.5.904 -->
+## [22.5.904](https://github.com/chef/chef-workstation/tree/22.5.904) (2022-05-02)
 
 #### Merged Pull Requests
-- Bump berkshelf to 8.0.0 [#2743](https://github.com/chef/chef-workstation/pull/2743) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Added support of ruby 3.1 [#2739](https://github.com/chef/chef-workstation/pull/2739) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.4.861 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Added support of ruby 3.1 [#2739](https://github.com/chef/chef-workstation/pull/2739) ([nikhil2611](https://github.com/nikhil2611)) <!-- 22.5.904 -->
 - Bump berkshelf to 8.0.0 [#2743](https://github.com/chef/chef-workstation/pull/2743) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.4.903 -->
 - Bump chef-analyze CLI to 0.1.162 [#2742](https://github.com/chef/chef-workstation/pull/2742) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.4.902 -->
 - Bump chef-analyze CLI to 0.1.161 [#2741](https://github.com/chef/chef-workstation/pull/2741) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.4.901 -->
