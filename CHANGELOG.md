@@ -1,15 +1,17 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.5.912 -->
-## [22.5.912](https://github.com/chef/chef-workstation/tree/22.5.912) (2022-05-06)
+<!-- latest_release 22.5.914 -->
+## [22.5.914](https://github.com/chef/chef-workstation/tree/22.5.914) (2022-05-06)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `0046192` to `9499b1c` in /omnibus [#2751](https://github.com/chef/chef-workstation/pull/2751) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.153 [#2752](https://github.com/chef/chef-workstation/pull/2752) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.4.861 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.153 [#2752](https://github.com/chef/chef-workstation/pull/2752) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.914 -->
+- Bump chef-analyze CLI to 0.1.163 [#2753](https://github.com/chef/chef-workstation/pull/2753) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.913 -->
 - Bump omnibus-software from `0046192` to `9499b1c` in /omnibus [#2751](https://github.com/chef/chef-workstation/pull/2751) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.5.912 -->
 - Bump Chef Workstation App to 0.2.152 [#2747](https://github.com/chef/chef-workstation/pull/2747) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.911 -->
 - Bump nokogiri to 1.13.5 [#2750](https://github.com/chef/chef-workstation/pull/2750) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.910 -->
