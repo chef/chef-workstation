@@ -1,5 +1,5 @@
 +++
-title = "Setup Chef Workstation"
+title = "Set Up Chef Workstation"
 draft = false
 
 gh_repo = "chef-workstation"
@@ -9,7 +9,7 @@ aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html",
 [menu]
   [menu.workstation]
     title = "Setup"
-    identifier = "chef_workstation/setup.md Setup Chef Workstation"
+    identifier = "chef_workstation/setup.md Set Up Chef Workstation"
     parent = "chef_workstation"
     weight = 30
 +++
@@ -18,7 +18,7 @@ This guide walks you through the four parts to set up Chef Workstation on your c
 
 - [Configure Ruby Environment]({{< relref "#configure-ruby-environment" >}})
 - [Set up your chef-repo]({{< relref "#setup-your-chef-repo" >}}) for storing your cookbooks
-- [Setup Chef Credentials]({{< relref "#setup-chef-credentials" >}})
+- [Set up Chef Credentials]({{< relref "#setup-chef-credentials" >}})
 - [Verify Client-to-Server Communication]({{< relref "#Verify Client-to-Server Communication" >}})
 
 ## Prerequisites
@@ -73,7 +73,7 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
 
     The command should return `/opt/chef-workstation/embedded/bin/ruby`.
 
-## Setup Your Chef Repo
+## Set up Your Chef Repo
 
 If you're setting up Chef for the very first time **in your organization**, then you will need a Chef Infra repository for saving your cookbooks and other work.
 
@@ -85,13 +85,13 @@ Use the [chef generate repo]({{< relref "ctl_chef.md#chef-generate-repo" >}}) co
 chef generate repo chef-repo
 ```
 
-## Setup Chef Credentials
+## Set up Chef Credentials
 
 The first time you run the Chef Workstation app, it creates a `.chef` directory in your user directory. The `.chef` directory is where you will store your Chef Workstation configuration and your client keys.
 
 If you're setting up Chef Workstation **as a Chef Infra Server administrator**, then you will need to manage users with the [Chef Infra Server CLI](https://docs.chef.io/server/ctl_chef_server/#user-management) or the Manage UI. When you create a new user, a user-specific RSA client key will be generated, which you then need to share securely with that user.
 
-If you're setting up Chef Workstation **as a Chef user**, then you will need to setup your unique client private key that corresponds to a client on the Chef Infra Server that your server administrator creates for you. The client private key is an RSA private key in the `.pem` format.
+If you're setting up Chef Workstation **as a Chef user**, then you will need to set up your unique client private key that corresponds to a client on the Chef Infra Server that your server administrator creates for you. The client private key is an RSA private key in the `.pem` format.
 
 ### Configure Your User Credentials File
 
@@ -118,7 +118,7 @@ cookbook_path            ["#{current_dir}/../cookbooks"]
 
 Use the `chef_server_url` and `node_name` values from this file when running `knife configure`.
 
-### Setup Your Client Private Key
+### Set up Your Client Private Key
 
 All communication between Chef Workstation and the Chef Infra Server is authenticated using an RSA public/private key pair. This pair is generated on the Chef Infra Server and the private key must be copied to your local Chef Workstation installation for communication to function.
 
