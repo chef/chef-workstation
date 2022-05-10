@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.5.922 -->
-## [22.5.922](https://github.com/chef/chef-workstation/tree/22.5.922) (2022-05-10)
+<!-- latest_release 22.5.923 -->
+## [22.5.923](https://github.com/chef/chef-workstation/tree/22.5.923) (2022-05-10)
 
 #### Merged Pull Requests
-- Bump knife to 17.10.0 [#2766](https://github.com/chef/chef-workstation/pull/2766) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `8a0e391` to `80234e7` in /omnibus [#2767](https://github.com/chef/chef-workstation/pull/2767) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.4.861 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `8a0e391` to `80234e7` in /omnibus [#2767](https://github.com/chef/chef-workstation/pull/2767) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.5.923 -->
 - Bump knife to 17.10.0 [#2766](https://github.com/chef/chef-workstation/pull/2766) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.922 -->
 - Update dependencies based on `bundle update` run [#2764](https://github.com/chef/chef-workstation/pull/2764) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 22.5.921 -->
 - Bump chef-analyze CLI to 0.1.165 [#2760](https://github.com/chef/chef-workstation/pull/2760) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.920 -->
