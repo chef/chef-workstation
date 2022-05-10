@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: 8a0e391d4232ab3fc5fb7a03b15932335a0214c4
+  revision: 46f509849aa3f461a07dc70667a84fbde7393ebf
   branch: main
   specs:
     omnibus-software (4.0.0)
@@ -52,6 +52,8 @@ GEM
     aws-sigv4 (1.5.0)
       aws-eventstream (~> 1, >= 1.0.2)
     bcrypt_pbkdf (1.1.0)
+    bcrypt_pbkdf (1.1.0-x64-mingw32)
+    bcrypt_pbkdf (1.1.0-x86-mingw32)
     berkshelf (8.0.0)
       chef (>= 15.7.32)
       chef-config
