@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 22.5.924 -->
+## [22.5.924](https://github.com/chef/chef-workstation/tree/22.5.924) (2022-05-12)
+
+#### Merged Pull Requests
+- Bump omnibus-software from `80234e7` to `3a2a5f9` in /omnibus [#2768](https://github.com/chef/chef-workstation/pull/2768) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=22.5.923 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Bump omnibus-software from `80234e7` to `3a2a5f9` in /omnibus [#2768](https://github.com/chef/chef-workstation/pull/2768) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.5.924 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
