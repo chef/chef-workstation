@@ -14,15 +14,15 @@ $Env:HAB_LICENSE = "accept-no-persist"
 Write-Output "--- Verifying commands"
 Write-Output " * chef env"
 chef env
-If ($lastexitcode -ne 0) { Exit $lastexitcode }
+If ($lastexitcode -ne 0) { Throw $lastexitcode }
 
 Write-Output " * chef report"
 chef report help
-If ($lastexitcode -ne 0) { Exit $lastexitcode }
+If ($lastexitcode -ne 0) { Throw $lastexitcode }
 
 Write-Output " * hab help"
 hab help
-If ($lastexitcode -ne 0) { Exit $lastexitcode }
+If ($lastexitcode -ne 0) { Throw $lastexitcode }
 
 # We are commenting this code on a purpose.
 # We have to stop building chef-automate-collect in chef workstation temporarily.
@@ -30,8 +30,8 @@ If ($lastexitcode -ne 0) { Exit $lastexitcode }
 
 # Write-Output " * chef-automate-collect -h"
 # chef exec chef-automate-collect -h
-# If ($lastexitcode -ne 0) { Exit $lastexitcode }
+# If ($lastexitcode -ne 0) { Throw $lastexitcode }
 
 Write-Output "--- Run the verification suite"
 C:/opscode/chef-workstation/embedded/bin/ruby.exe omnibus/verification/run.rb
-If ($lastexitcode -ne 0) { Exit $lastexitcode }
+If ($lastexitcode -ne 0) { Throw $lastexitcode }
