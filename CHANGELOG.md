@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.5.936 -->
-## [22.5.936](https://github.com/chef/chef-workstation/tree/22.5.936) (2022-05-19)
+<!-- latest_release 22.5.937 -->
+## [22.5.937](https://github.com/chef/chef-workstation/tree/22.5.937) (2022-05-19)
 
 #### Merged Pull Requests
-- Bump berkshelf to 8.0.1 [#2783](https://github.com/chef/chef-workstation/pull/2783) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `1692d72` to `36f49ec` in /omnibus [#2785](https://github.com/chef/chef-workstation/pull/2785) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.5.923 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `1692d72` to `36f49ec` in /omnibus [#2785](https://github.com/chef/chef-workstation/pull/2785) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.5.937 -->
 - Bump berkshelf to 8.0.1 [#2783](https://github.com/chef/chef-workstation/pull/2783) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.936 -->
 - Bump omnibus-software from `fe68016` to `1692d72` in /omnibus [#2782](https://github.com/chef/chef-workstation/pull/2782) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.5.935 -->
 - Bump cookbook-omnifetch to 0.12.2 [#2781](https://github.com/chef/chef-workstation/pull/2781) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.934 -->
