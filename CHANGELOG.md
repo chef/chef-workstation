@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.5.939 -->
-## [22.5.939](https://github.com/chef/chef-workstation/tree/22.5.939) (2022-05-19)
+<!-- latest_release 22.5.940 -->
+## [22.5.940](https://github.com/chef/chef-workstation/tree/22.5.940) (2022-05-19)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.170 [#2786](https://github.com/chef/chef-workstation/pull/2786) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.159 [#2787](https://github.com/chef/chef-workstation/pull/2787) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.5.923 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.159 [#2787](https://github.com/chef/chef-workstation/pull/2787) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.940 -->
 - Bump chef-analyze CLI to 0.1.170 [#2786](https://github.com/chef/chef-workstation/pull/2786) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.939 -->
 - Bump berkshelf from 8.0.0 to 8.0.1 in /omnibus [#2784](https://github.com/chef/chef-workstation/pull/2784) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.5.938 -->
 - Bump omnibus-software from `1692d72` to `36f49ec` in /omnibus [#2785](https://github.com/chef/chef-workstation/pull/2785) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.5.937 -->
