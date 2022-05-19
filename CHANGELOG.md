@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.5.940 -->
-## [22.5.940](https://github.com/chef/chef-workstation/tree/22.5.940) (2022-05-19)
+<!-- latest_release 22.5.941 -->
+## [22.5.941](https://github.com/chef/chef-workstation/tree/22.5.941) (2022-05-19)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.159 [#2787](https://github.com/chef/chef-workstation/pull/2787) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- INFCT-76 - Add knife-vrealize to workstation [#2788](https://github.com/chef/chef-workstation/pull/2788) ([ashiqueps](https://github.com/ashiqueps))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.5.923 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- INFCT-76 - Add knife-vrealize to workstation [#2788](https://github.com/chef/chef-workstation/pull/2788) ([ashiqueps](https://github.com/ashiqueps)) <!-- 22.5.941 -->
 - Bump Chef Workstation App to 0.2.159 [#2787](https://github.com/chef/chef-workstation/pull/2787) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.940 -->
 - Bump chef-analyze CLI to 0.1.170 [#2786](https://github.com/chef/chef-workstation/pull/2786) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.939 -->
 - Bump berkshelf from 8.0.0 to 8.0.1 in /omnibus [#2784](https://github.com/chef/chef-workstation/pull/2784) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.5.938 -->
