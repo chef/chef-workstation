@@ -87,7 +87,6 @@ group(:omnibus_package) do
   gem "knife-windows", ">= 3.0.11"
   gem "knife-vcenter", ">= 3.0.1"
   gem "knife-vsphere", ">= 4.1.1"
-  gem "knife-vrealize", ">= 7.0.0"
 
   # ed25519 ssh key support done here as it's a native gem we can't put in train
   gem "ed25519"
