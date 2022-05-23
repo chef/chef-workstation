@@ -71,7 +71,8 @@ build do
   env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
 
   # install the whole bundle first
-  bundle "install --jobs 10 --without #{excluded_groups.join(" ")}", env: env
+  bundle "config set --local without '#{excluded_groups.join(' ')}'", env: env
+  bundle "install --jobs 10", env: env
 
   appbundle "knife", lockdir: project_dir, gem: "knife", without: %w{development}, env: env
   appbundle "foodcritic", lockdir: project_dir, gem: "chef_deprecations", without: %w{development test}, env: env
