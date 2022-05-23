@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.5.943 -->
-## [22.5.943](https://github.com/chef/chef-workstation/tree/22.5.943) (2022-05-23)
+<!-- latest_release 22.5.944 -->
+## [22.5.944](https://github.com/chef/chef-workstation/tree/22.5.944) (2022-05-23)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.171 [#2792](https://github.com/chef/chef-workstation/pull/2792) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.172 [#2793](https://github.com/chef/chef-workstation/pull/2793) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.5.923 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.172 [#2793](https://github.com/chef/chef-workstation/pull/2793) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.944 -->
 - Bump chef-analyze CLI to 0.1.171 [#2792](https://github.com/chef/chef-workstation/pull/2792) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.943 -->
 - Bump Chef Workstation App to 0.2.160 [#2790](https://github.com/chef/chef-workstation/pull/2790) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.942 -->
 - INFCT-76 - Add knife-vrealize to workstation [#2788](https://github.com/chef/chef-workstation/pull/2788) ([ashiqueps](https://github.com/ashiqueps)) <!-- 22.5.941 -->
