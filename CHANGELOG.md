@@ -1,15 +1,17 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.5.945 -->
-## [22.5.945](https://github.com/chef/chef-workstation/tree/22.5.945) (2022-05-24)
+<!-- latest_release 22.5.947 -->
+## [22.5.947](https://github.com/chef/chef-workstation/tree/22.5.947) (2022-05-25)
 
 #### Merged Pull Requests
-- Remove hugo and go version from netlify config [#2795](https://github.com/chef/chef-workstation/pull/2795) ([IanMadd](https://github.com/IanMadd))
+- Bump omnibus from `63be4f1` to `8ecfecd` in /omnibus [#2797](https://github.com/chef/chef-workstation/pull/2797) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.5.923 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus from `63be4f1` to `8ecfecd` in /omnibus [#2797](https://github.com/chef/chef-workstation/pull/2797) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.5.947 -->
+- Bump omnibus-software from `36f49ec` to `c9447a3` in /omnibus [#2796](https://github.com/chef/chef-workstation/pull/2796) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.5.946 -->
 - Remove hugo and go version from netlify config [#2795](https://github.com/chef/chef-workstation/pull/2795) ([IanMadd](https://github.com/IanMadd)) <!-- 22.5.945 -->
 - Bump chef-analyze CLI to 0.1.172 [#2793](https://github.com/chef/chef-workstation/pull/2793) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.944 -->
 - Bump chef-analyze CLI to 0.1.171 [#2792](https://github.com/chef/chef-workstation/pull/2792) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.943 -->
