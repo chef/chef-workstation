@@ -1,0 +1,3 @@
+---
+BUNDLE_JOBS: "10"
+BUNDLE_WITHOUT: "server:docgen:maintenance:pry:travis:integration:ci"
