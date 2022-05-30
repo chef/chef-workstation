@@ -21,7 +21,7 @@ group(:omnibus_package, :development, :test) do
   # Require a minimum version that is packaged in the Ruby install, so we do
   # not install old unecessary versions. When we bump Ruby we need to look
   # at these pins and adjust them.
-  gem "minitest", "= 5.14.2"
+  gem "minitest", "= 5.15.0"
 
   gem "rake", "= 13.0.1" # prevent double rake as of 12.2020
   gem "guard"
@@ -104,12 +104,6 @@ group(:omnibus_package) do
   gem "listen"
   gem "mixlib-install"
   gem "nokogiri", ">= 1.11.7"
-  # Locked because pry-byebug is broken with 13+
-  # some work is ongoing? https://github.com/deivid-rodriguez/pry-byebug/issues/343
-  gem "pry", "= 0.13.0"
-  gem "pry-byebug"
-  gem "pry-remote"
-  gem "pry-stack_explorer", ">= 0.5.1"
   gem "rb-readline"
   gem "winrm-fs"
   gem "winrm-elevated"
