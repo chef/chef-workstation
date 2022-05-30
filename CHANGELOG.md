@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.5.956 -->
-## [22.5.956](https://github.com/chef/chef-workstation/tree/22.5.956) (2022-05-30)
+<!-- latest_release 22.5.957 -->
+## [22.5.957](https://github.com/chef/chef-workstation/tree/22.5.957) (2022-05-30)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `29ebd6c` to `2a02801` in /omnibus [#2807](https://github.com/chef/chef-workstation/pull/2807) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump rack from 2.2.3 to 2.2.3.1 in /omnibus [#2808](https://github.com/chef/chef-workstation/pull/2808) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.5.923 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump rack from 2.2.3 to 2.2.3.1 in /omnibus [#2808](https://github.com/chef/chef-workstation/pull/2808) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.5.957 -->
 - Bump omnibus-software from `29ebd6c` to `2a02801` in /omnibus [#2807](https://github.com/chef/chef-workstation/pull/2807) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.5.956 -->
 - Bump omnibus from `78ad41d` to `83d8428` in /omnibus [#2806](https://github.com/chef/chef-workstation/pull/2806) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.5.955 -->
 - Bump Chef Workstation App to 0.2.163 [#2805](https://github.com/chef/chef-workstation/pull/2805) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.5.954 -->
