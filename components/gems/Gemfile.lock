@@ -189,7 +189,7 @@ GEM
     aws-sdk-redshift (1.82.0)
       aws-sdk-core (~> 3, >= 3.127.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-route53 (1.62.0)
+    aws-sdk-route53 (1.63.0)
       aws-sdk-core (~> 3, >= 3.127.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-route53domains (1.40.0)
@@ -274,7 +274,7 @@ GEM
     bcrypt_pbkdf (1.1.0)
     bcrypt_pbkdf (1.1.0-x64-mingw32)
     bcrypt_pbkdf (1.1.0-x86-mingw32)
-    berkshelf (8.0.1)
+    berkshelf (8.0.2)
       chef (>= 15.7.32)
       chef-config
       cleanroom (~> 1.0)
