@@ -16,7 +16,7 @@ import (
 
 // supermarketSearchCmd represents the supermarket search
 var supermarketUnShareCmd = &cobra.Command{
-	Use:   "unshare",
+	Use:   "unshare <artifact-type> <artifact-name>",
 	Short: "Use the unshare argument to stop the sharing of a cookbook located at Chef Supermarket.",
 	Long:  `Use the unshare argument to stop the sharing of a cookbook located at Chef Supermarket. Only the maintainer of a cookbook may perform this action.`,
 	Run: func(cmd *cobra.Command, args []string) {

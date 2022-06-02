@@ -16,7 +16,7 @@ var sortBy, withUri, user string
 
 // supermarketSearchCmd represents the supermarket search
 var supermarketListCmd = &cobra.Command{
-	Use:   "list",
+	Use:   "list <artifact-type> <artifact-name>",
 	Short: "Use the list argument to view a list of cookbooks that are currently available at Chef Supermarket.",
 	Long:  `Use the list argument to view a list of cookbooks that are currently available at Chef Supermarket.`,
 	Run: func(cmd *cobra.Command, args []string) {

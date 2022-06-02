@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"errors"
 	"path/filepath"
 )
 
@@ -80,4 +81,18 @@ func GetDefaultConfigPath() string {
 
 func checkChefDirExists(path string) bool {
 	return doesDirExist(filepath.Join(path, configPath))
+}
+
+// GetDefaultCookbookPath will return default config path from /etc/chef
+func GetDefaultCookbookPath() (string,error) {
+	ex, err := os.Getwd()
+	if err != nil {
+		ex,err = os.UserHomeDir()
+	}
+	path :=  filepath.Join(ex, "cookbooks")
+	info,err := os.Stat(path)
+	if err == nil && info.IsDir(){
+		return path,nil
+	}
+	return path,errors.New("The cookbook repo path  "+path+" does not exist or is not a directory")
 }
