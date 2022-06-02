@@ -17,7 +17,7 @@ import (
 
 // supermarketSearchCmd represents the supermarket search
 var supermarketShareCmd = &cobra.Command{
-	Use:                "share",
+	Use:                "share <artifact-type> <artifact-name>",
 	Short:              "Use the share argument to add a cookbook to Chef Supermarket.",
 	Long:               `Use the share argument to add a cookbook to Chef Supermarket. This action will require a user account and a certificate for Chef Supermarket. By default, chef will use the user name and API key that is identified in the configuration file used during the upload; otherwise these values must be specified on the command line or in an alternate configuration file.`,
 	DisableFlagParsing: true,

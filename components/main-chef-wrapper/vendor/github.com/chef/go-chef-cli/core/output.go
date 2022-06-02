@@ -65,8 +65,8 @@ func (u *UI) Output(config Config, data interface{}) {
 func (u *UI) Msg(message string) {
 	fmt.Println(message)
 }
-func colorMessage(message, color string) string {
-	tColor := termenv.ColorProfile().Color(color)
+func colorMessage(message, colorType string) string {
+	tColor := termenv.ColorProfile().Color(colorType)
 	return termenv.String(message).Foreground(tColor).Bold().String()
 }
 

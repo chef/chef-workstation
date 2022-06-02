@@ -20,7 +20,7 @@ var (
 
 // supermarketSearchCmd represents the supermarket search
 var supermarketInstallCmd = &cobra.Command{
-	Use:   "install",
+	Use:   "install <artifact-type> <artifact-name>",
 	Short: "install command will install cookbook that has been downloaded from Chef Supermarket to a local git repository",
 	Long:  `install command will install cookbook that has been downloaded from Chef Supermarket to a local git repository. This action uses the git version control system in conjunction with Chef Supermarket site to install community-contributed cookbooks to the local chef-repo.`,
 	Run: func(cmd *cobra.Command, args []string) {
@@ -40,7 +40,13 @@ var supermarketInstallCmd = &cobra.Command{
 		if len(cookBookPath) > 1 {
 			installPath = cookBookPath
 		} else {
-			installPath = core.GetDefaultConfigPath()
+			path, err := core.GetDefaultCookbookPath()
+			if err != nil {
+				ui.Fatal(err.Error())
+				os.Exit(1)
+			}
+			installPath = path
+
 		}
 		var config core.Config
 		config.Format = format

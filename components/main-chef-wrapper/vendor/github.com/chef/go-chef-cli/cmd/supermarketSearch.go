@@ -16,7 +16,7 @@ var query, format string
 
 // supermarketSearchCmd represents the supermarket search
 var supermarketSearchCmd = &cobra.Command{
-	Use:   "search",
+	Use:   "search <artifact-type> <keyword>",
 	Short: "Search indexes allow queries to be made for any type of data that is indexed by the Chef Infra Server, including data bags (and data bag items), environments, nodes, and roles",
 	Long:  `Search indexes allow queries to be made for any type of data that is indexed by the Chef Infra Server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the search subcommand in chef.`,
 	Run: func(cmd *cobra.Command, args []string) {

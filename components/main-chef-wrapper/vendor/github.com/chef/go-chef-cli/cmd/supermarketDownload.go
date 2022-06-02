@@ -15,7 +15,7 @@ var (
 
 // supermarketSearchCmd represents the supermarket search
 var supermarketDownloadCmd = &cobra.Command{
-	Use:   "download",
+	Use:   "download <artifact-type> <artifact-name>",
 	Short: "Use the download argument to download a cookbook from Chef Supermarket",
 	Long:  `A cookbook will be downloaded as a tar.gz archive and placed in the current working directory. If a cookbook (or cookbook version) has been deprecated and the --force option is not used, chef will alert the user that the cookbook is deprecated and then will provide the name of the most recent non-deprecated version of that cookbook.`,
 	Run: func(cmd *cobra.Command, args []string) {

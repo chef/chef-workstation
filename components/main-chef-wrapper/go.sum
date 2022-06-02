@@ -77,8 +77,8 @@ github.com/cespare/xxhash/v2 v2.1.1/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XL
 github.com/cespare/xxhash/v2 v2.1.2/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
 github.com/chef/go-chef v0.4.5 h1:70SMD2xOipATQqiWZyo92TXqKHE5S5DBYognNi+dzSA=
 github.com/chef/go-chef v0.4.5/go.mod h1:9Ptf9dFZDkpC3qLxpNhHMyG6TxCmMzonqPKXTh+xVm4=
-github.com/chef/go-chef-cli v0.0.3 h1:g0jOq6EOPfCCCoLwdxsHpTgxZDP9C8GwVT42+y6viQA=
-github.com/chef/go-chef-cli v0.0.3/go.mod h1:HUgMPF7lgXUrfMOI5R51J4ugQGmoM0u5aq3r8Fw4Lg8=
+github.com/chef/go-chef-cli v0.0.4 h1:9x/5TkKaK5fb5OpUX97kTsw9EROq9l4yVHv94zVs6rg=
+github.com/chef/go-chef-cli v0.0.4/go.mod h1:HUgMPF7lgXUrfMOI5R51J4ugQGmoM0u5aq3r8Fw4Lg8=
 github.com/chef/go-libs v0.4.1 h1:DhxDzH+sr5029CPYUtfnWibcFZ+VG70ld4fXBnHDRCc=
 github.com/chef/go-libs v0.4.1/go.mod h1:aGHwP5PXYdD0hVq+jodILnSqB/b04EhS/XCoqhE2PrA=
 github.com/chzyer/logex v1.1.10/go.mod h1:+Ywpsq7O8HXn0nuIou7OrIPyXbp3wmkHB+jjWRnGsAI=

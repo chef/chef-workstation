@@ -14,7 +14,7 @@ import (
 
 // supermarketSearchCmd represents the supermarket search
 var supermarketShowCmd = &cobra.Command{
-	Use:   "show",
+	Use:   "show <artifact-type> <artifact-name>",
 	Short: "Use the show argument to view information about a cookbook located at Chef Supermarket.\n\n",
 	Long:  ` Use the show argument to view information about a cookbook located at Chef Supermarket.`,
 	Run: func(cmd *cobra.Command, args []string) {
