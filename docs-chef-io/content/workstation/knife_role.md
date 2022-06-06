@@ -16,7 +16,7 @@ aliases = ["/knife_role.html", "/knife_role/"]
 
 {{% role %}}
 
-{{% knife_role_summary %}}
+{{% chef-workstation/knife_role_summary %}}
 
 {{< note >}}
 
@@ -28,7 +28,7 @@ argument.
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% chef-workstation/knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -87,7 +87,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -220,7 +220,7 @@ This command does not have any specific options.
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -292,7 +292,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

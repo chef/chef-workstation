@@ -14,7 +14,7 @@ aliases = ["/knife_recipe_list.html", "/knife_recipe_list/"]
 +++
 <!-- markdownlint-disable-file MD036 -->
 
-{{% knife_recipe_list_summary %}}
+{{% chef-workstation/knife_recipe_list_summary %}}
 
 ## Syntax
 
@@ -28,7 +28,7 @@ knife recipe list REGEX
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% chef-workstation/knife_common_see_common_options_link %}}
 
 {{< /note >}}
 

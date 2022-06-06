@@ -37,7 +37,7 @@ The following knife plug-ins are maintained by Chef:
 <tbody>
 <tr>
 <td><a href="https://github.com/chef/knife-azure">knife-azure</a></td>
-<td>{{< readFile_shortcode file="knife_azure.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/chef-workstation/knife_azure.md" >}}</td>
 </tr>
 <tr>
 <td><a href="https://github.com/chef/knife-ec2">knife-ec2</a></td>

@@ -16,7 +16,11 @@ aliases = ["/chefspec.html", "/chefspec/"]
 
 <!-- markdownlint-disable-file MD036 -->
 
-{{% chefspec_summary %}}
+Use ChefSpec to simulate the convergence of resources on a node:
+
+- Is an extension of RSpec, a behavior-driven development (BDD)
+    framework for Ruby
+- Is the fastest way to test resources and recipes
 
 ChefSpec is a framework that tests resources and recipes as part of a simulated Chef Infra Client run. ChefSpec tests execute quickly. When used as part of the cookbook authoring workflow, ChefSpec tests are often the first indicator of problems that may exist within a cookbook.
 

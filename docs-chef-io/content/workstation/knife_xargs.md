@@ -14,7 +14,7 @@ aliases = ["/knife_xargs.html", "/knife_xargs/"]
 +++
 <!-- markdownlint-disable-file MD036 -->
 
-{{% knife_xargs_summary %}}
+{{% chef-workstation/knife_xargs_summary %}}
 
 ## Syntax
 
@@ -28,7 +28,7 @@ knife xargs [PATTERN...] (options)
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% chef-workstation/knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -92,7 +92,7 @@ This subcommand has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

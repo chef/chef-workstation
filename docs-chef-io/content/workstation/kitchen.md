@@ -14,7 +14,16 @@ aliases = ["/kitchen.html", "/kitchen/"]
     weight = 10
 +++
 
-{{% test_kitchen %}}
+Use [Test Kitchen](https://kitchen.ci/) to automatically test cookbooks
+across any combination of platforms and test suites:
+
+- Test suites are defined in a kitchen.yml file. See the
+    [configuration](/workstation/config_yml_kitchen/) documentation for options
+    and syntax information.
+- Supports cookbook testing across many cloud providers and
+    virtualization technologies.
+- Uses a comprehensive set of operating system base images from Chef's
+    [Bento](https://github.com/chef/bento) project.
 
 The key concepts in Test Kitchen are:
 
@@ -26,11 +35,11 @@ The key concepts in Test Kitchen are:
 
 ## Bento
 
-{{% bento %}}
+{{% chef-workstation/bento %}}
 
 ## Drivers
 
-{{% test_kitchen_drivers %}}
+{{% chef-workstation/test_kitchen_drivers %}}
 
 ## Validation with InSpec
 
@@ -43,7 +52,7 @@ converged cookbook for easy local validation of your infrastructure.
 
 ## kitchen (executable)
 
-{{% ctl_kitchen_summary %}}
+{{% chef-workstation/ctl_kitchen_summary %}}
 
 {{< note >}}
 
@@ -54,7 +63,7 @@ For more information about the `kitchen` command line tool, see
 
 ## kitchen.yml
 
-{{% test_kitchen_yml %}}
+{{% chef-workstation/test_kitchen_yml %}}
 
 {{< note >}}
 
@@ -65,11 +74,11 @@ For more information about the kitchen.yml file, see
 
 ### Syntax
 
-{{% test_kitchen_yml_syntax %}}
+{{% chef-workstation/test_kitchen_yml_syntax %}}
 
 ### Work with Proxies
 
-{{< readFile_shortcode file="test_kitchen_yml_syntax_proxy.md" >}}
+{{% chef-workstation/test_kitchen_yml_syntax_proxy %}}
 
 ## For more information ...
 

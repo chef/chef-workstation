@@ -14,7 +14,7 @@ aliases = ["/knife_show.html", "/knife_show/"]
 +++
 <!-- markdownlint-disable-file MD036 -->
 
-{{% knife_show_summary %}}
+{{% chef-workstation/knife_show_summary %}}
 
 ## Syntax
 
@@ -28,7 +28,7 @@ knife show [PATTERN...] (options)
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% chef-workstation/knife_common_see_common_options_link %}}
 
 {{< /note >}}
 

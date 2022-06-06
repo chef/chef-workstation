@@ -16,11 +16,11 @@ aliases = ["/knife_node.html", "/knife_node/"]
 
 {{% node %}}
 
-{{% knife_node_summary %}}
+{{% chef-workstation/knife_node_summary %}}
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% chef-workstation/knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -277,7 +277,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -326,33 +326,33 @@ knife node policy set test-node 'test-group' 'test-name'
 
 {{% node_run_list %}}
 
-{{% knife_node_run_list_add %}}
+{{% chef-workstation/knife_node_run_list_add %}}
 
 {{% node_run_list_format %}}
 
 ### Syntax
 
-{{% knife_node_run_list_add_syntax %}}
+{{% chef-workstation/knife_node_run_list_add_syntax %}}
 
 {{< warning >}}
 
-{{% knife_common_windows_quotes %}}
+{{% chef-workstation/knife_common_windows_quotes %}}
 
 {{< /warning >}}
 
 {{< note >}}
 
-{{% knife_common_windows_quotes_module %}}
+{{% chef-workstation/knife_common_windows_quotes_module %}}
 
 {{< /note >}}
 
 ### Options
 
-{{% knife_node_run_list_add_options %}}
+{{% chef-workstation/knife_node_run_list_add_options %}}
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -362,31 +362,31 @@ The following examples show how to use this knife subcommand:
 
 **Add a role**
 
-{{% knife_node_run_list_add_role %}}
+{{% chef-workstation/knife_node_run_list_add_role %}}
 
 **Add roles and recipes**
 
-{{% knife_node_run_list_add_roles_and_recipes %}}
+{{% chef-workstation/knife_node_run_list_add_roles_and_recipes %}}
 
 **Add a recipe with a FQDN**
 
-{{% knife_node_run_list_add_recipe_with_fqdn %}}
+{{% chef-workstation/knife_node_run_list_add_recipe_with_fqdn %}}
 
 **Add a recipe with a cookbook**
 
-{{% knife_node_run_list_add_recipe_with_cookbook %}}
+{{% chef-workstation/knife_node_run_list_add_recipe_with_cookbook %}}
 
 **Add the default recipe**
 
-{{% knife_node_run_list_add_default_recipe %}}
+{{% chef-workstation/knife_node_run_list_add_default_recipe %}}
 
 ## run_list remove
 
-{{% knife_node_run_list_remove %}}
+{{% chef-workstation/knife_node_run_list_remove %}}
 
 ### Syntax
 
-{{% knife_node_run_list_remove_syntax %}}
+{{% chef-workstation/knife_node_run_list_remove_syntax %}}
 
 ### Options
 
@@ -394,7 +394,7 @@ This command does not have any specific options.
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -404,29 +404,29 @@ The following examples show how to use this knife subcommand:
 
 **Remove a role**
 
-{{% knife_node_run_list_remove_role %}}
+{{% chef-workstation/knife_node_run_list_remove_role %}}
 
 **Remove a run-list**
 
-{{% knife_node_run_list_remove_run_list %}}
+{{% chef-workstation/knife_node_run_list_remove_run_list %}}
 
 ## run_list set
 
-{{% knife_node_run_list_set %}}
+{{% chef-workstation/knife_node_run_list_set %}}
 
 ### Syntax
 
-{{% knife_node_run_list_set_syntax %}}
+{{% chef-workstation/knife_node_run_list_set_syntax %}}
 
 {{< warning >}}
 
-{{% knife_common_windows_quotes %}}
+{{% chef-workstation/knife_common_windows_quotes %}}
 
 {{< /warning >}}
 
 {{< note >}}
 
-{{% knife_common_windows_quotes_module %}}
+{{% chef-workstation/knife_common_windows_quotes_module %}}
 
 {{< /note >}}
 

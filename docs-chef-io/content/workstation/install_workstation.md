@@ -15,7 +15,7 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
 +++
 <!-- markdownlint-disable-file MD033 -->
 
-{{% chef_workstation %}}
+{{% chef-workstation/chef_workstation %}}
 
 ## Supported Platforms
 

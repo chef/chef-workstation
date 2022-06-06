@@ -633,15 +633,15 @@ None.
 
 ## chef generate repo
 
-{{% ctl_chef_generate_repo %}}
+{{% chef-workstation/ctl_chef_generate_repo %}}
 
 ### Syntax
 
-{{% ctl_chef_generate_repo_syntax %}}
+{{% chef-workstation/ctl_chef_generate_repo_syntax %}}
 
 ### Options
 
-{{% ctl_chef_generate_repo_options %}}
+{{% chef-workstation/ctl_chef_generate_repo_options %}}
 
 ### Examples
 
@@ -686,15 +686,27 @@ None.
 
 ## chef generate profile
 
-{{% ctl_chef_generate_profile %}}
+Use the `chef generate profile` subcommand to generate a [profile](/inspec/profiles/) for the Chef Infra Client's Compliance Phase execution.
 
 ### Syntax
 
-{{% ctl_chef_generate_profile_syntax %}}
+This subcommand has the following syntax:
+
+```bash
+chef generate profile [path/to/cookbook] NAME
+```
 
 ### Options
 
-{{% ctl_chef_generate_profile_options %}}
+This subcommand has the following options:
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-v`, `--version`
+
+:   The Chef Workstation version.
 
 ### Examples
 
@@ -702,15 +714,23 @@ None.
 
 ## chef generate input
 
-{{% ctl_chef_generate_input %}}
+Use the `chef generate input` subcommand to generate an [input](/inspec/inputs/) file for the Chef Infra Client's Compliance Phase execution.
 
 ### Syntax
 
-{{% ctl_chef_generate_input_syntax %}}
+This subcommand has the following syntax:
+
+```bash
+chef generate input [path/to/cookbook] NAME
+```
 
 ### Options
 
-{{% ctl_chef_generate_input_options %}}
+Use the `chef export` subcommand to create a chef-zero-compatible
+chef-repo that contains the cookbooks described by a
+`Policyfile.lock.json` file. After a chef-zero-compatible chef-repo is
+copied to a node, the policy can be applied locally on that machine by
+running `chef-client -z` (local mode).
 
 ### Examples
 
@@ -718,15 +738,27 @@ None.
 
 ## chef generate waiver
 
-{{% ctl_chef_generate_waiver %}}
+Use the `chef generate waiver` subcommand to generate a [waiver](/inspec/waivers/) file for the Chef Infra Client's Compliance Phase execution.
 
 ### Syntax
 
-{{% ctl_chef_generate_waiver_syntax %}}
+This subcommand has the following syntax:
+
+```bash
+chef generate waiver [path/to/cookbook] NAME
+```
 
 ### Options
 
-{{% ctl_chef_generate_waiver_options %}}
+This subcommand has the following options:
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-v`, `--version`
+
+:   The Chef Workstation version.
 
 ### Examples
 
@@ -1013,15 +1045,15 @@ if(Test-Path $PROFILE){ chef shell-init powershell | Add-Content $PROFILE } else
 
 ### chef clean-policy-cookbooks
 
-{{% ctl_chef_clean_policy_cookbooks %}}
+{{% chef-workstation/ctl_chef_clean_policy_cookbooks %}}
 
 #### Syntax
 
-{{% ctl_chef_clean_policy_cookbooks_syntax %}}
+{{% chef-workstation/ctl_chef_clean_policy_cookbooks_syntax %}}
 
 #### Options
 
-{{% ctl_chef_clean_policy_cookbooks_options %}}
+{{% chef-workstation/ctl_chef_clean_policy_cookbooks_options %}}
 
 #### Examples
 
@@ -1029,15 +1061,15 @@ None.
 
 ### chef clean-policy-revisions
 
-{{% ctl_chef_clean_policy_revisions %}}
+{{% chef-workstation/ctl_chef_clean_policy_revisions %}}
 
 #### Syntax
 
-{{% ctl_chef_clean_policy_revisions_syntax %}}
+{{% chef-workstation/ctl_chef_clean_policy_revisions_syntax %}}
 
 #### Options
 
-{{% ctl_chef_clean_policy_revisions_options %}}
+{{% chef-workstation/ctl_chef_clean_policy_revisions_options %}}
 
 #### Examples
 
@@ -1045,15 +1077,15 @@ None.
 
 ### chef delete-policy
 
-{{% ctl_chef_delete_policy %}}
+{{% chef-workstation/ctl_chef_delete_policy %}}
 
 #### Syntax
 
-{{% ctl_chef_delete_policy_syntax %}}
+{{% chef-workstation/ctl_chef_delete_policy_syntax %}}
 
 #### Options
 
-{{% ctl_chef_delete_policy_options %}}
+{{% chef-workstation/ctl_chef_delete_policy_options %}}
 
 #### Examples
 
@@ -1061,15 +1093,15 @@ None.
 
 ### chef delete-policy-group
 
-{{% ctl_chef_delete_policy_group %}}
+{{% chef-workstation/ctl_chef_delete_policy_group %}}
 
 #### Syntax
 
-{{% ctl_chef_delete_policy_group_syntax %}}
+{{% chef-workstation/ctl_chef_delete_policy_group_syntax %}}
 
 #### Options
 
-{{% ctl_chef_delete_policy_group_options %}}
+{{% chef-workstation/ctl_chef_delete_policy_group_options %}}
 
 #### Examples
 
@@ -1077,57 +1109,57 @@ None.
 
 ### chef diff
 
-{{% ctl_chef_diff %}}
+{{% chef-workstation/ctl_chef_diff %}}
 
 #### Syntax
 
-{{% ctl_chef_diff_syntax %}}
+{{% chef-workstation/ctl_chef_diff_syntax %}}
 
 #### Options
 
-{{% ctl_chef_diff_options %}}
+{{% chef-workstation/ctl_chef_diff_options %}}
 
 #### Examples
 
 **Compare current lock to latest commit on latest branch**
 
-{{% ctl_chef_diff_current_lock_latest_branch %}}
+{{% chef-workstation/ctl_chef_diff_current_lock_latest_branch %}}
 
 **Compare current lock with latest commit on master branch**
 
-{{% ctl_chef_diff_current_lock_master_branch %}}
+{{% chef-workstation/ctl_chef_diff_current_lock_master_branch %}}
 
 **Compare current lock to specified revision**
 
-{{% ctl_chef_diff_current_lock_specified_revision %}}
+{{% chef-workstation/ctl_chef_diff_current_lock_specified_revision %}}
 
 **Compare lock on master branch to lock on revision**
 
-{{% ctl_chef_diff_master_lock_revision_lock %}}
+{{% chef-workstation/ctl_chef_diff_master_lock_revision_lock %}}
 
 **Compare lock for version with latest commit on master branch**
 
-{{% ctl_chef_diff_version_lock_master_branch %}}
+{{% chef-workstation/ctl_chef_diff_version_lock_master_branch %}}
 
 **Compare current lock with latest lock for policy group**
 
-{{% ctl_chef_diff_current_lock_policy_group %}}
+{{% chef-workstation/ctl_chef_diff_current_lock_policy_group %}}
 
 **Compare locks for two policy groups**
 
-{{% ctl_chef_diff_two_policy_groups %}}
+{{% chef-workstation/ctl_chef_diff_two_policy_groups %}}
 
 ### chef export
 
-{{% ctl_chef_export %}}
+{{% chef-workstation/ctl_chef_export %}}
 
 #### Syntax
 
-{{% ctl_chef_export_syntax %}}
+{{% chef-workstation/ctl_chef_export_syntax %}}
 
 #### Options
 
-{{% ctl_chef_export_options %}}
+{{% chef-workstation/ctl_chef_export_options %}}
 
 #### Examples
 
@@ -1135,15 +1167,15 @@ None.
 
 ### chef generate policyfile
 
-{{% ctl_chef_generate_policyfile %}}
+{{% chef-workstation/ctl_chef_generate_policyfile %}}
 
 #### Syntax
 
-{{% ctl_chef_generate_policyfile_syntax %}}
+{{% chef-workstation/ctl_chef_generate_policyfile_syntax %}}
 
 #### Options
 
-{{% ctl_chef_generate_policyfile_options %}}
+{{% chef-workstation/ctl_chef_generate_policyfile_options %}}
 
 #### Examples
 
@@ -1151,15 +1183,15 @@ None.
 
 ### chef install
 
-{{% ctl_chef_install %}}
+{{% chef-workstation/ctl_chef_install %}}
 
 #### Syntax
 
-{{% ctl_chef_install_syntax %}}
+{{% chef-workstation/ctl_chef_install_syntax %}}
 
 #### Options
 
-{{% ctl_chef_install_options %}}
+{{% chef-workstation/ctl_chef_install_options %}}
 
 #### Policyfile.lock.json
 
@@ -1173,15 +1205,15 @@ None.
 
 ### chef push
 
-{{% ctl_chef_push %}}
+{{% chef-workstation/ctl_chef_push %}}
 
 #### Syntax
 
-{{% ctl_chef_push_syntax %}}
+{{% chef-workstation/ctl_chef_push_syntax %}}
 
 #### Options
 
-{{% ctl_chef_push_options %}}
+{{% chef-workstation/ctl_chef_push_options %}}
 
 #### Examples
 
@@ -1189,15 +1221,15 @@ None.
 
 ### chef push-archive
 
-{{% ctl_chef_push_archive %}}
+{{% chef-workstation/ctl_chef_push_archive %}}
 
 #### Syntax
 
-{{% ctl_chef_push_archive_syntax %}}
+{{% chef-workstation/ctl_chef_push_archive_syntax %}}
 
 #### Options
 
-{{% ctl_chef_push_archive_options %}}
+{{% chef-workstation/ctl_chef_push_archive_options %}}
 
 #### Examples
 
@@ -1205,15 +1237,15 @@ None.
 
 ### chef show-policy
 
-{{% ctl_chef_show_policy %}}
+{{% chef-workstation/ctl_chef_show_policy %}}
 
 #### Syntax
 
-{{% ctl_chef_show_policy_syntax %}}
+{{% chef-workstation/ctl_chef_show_policy_syntax %}}
 
 #### Options
 
-{{% ctl_chef_show_policy_options %}}
+{{% chef-workstation/ctl_chef_show_policy_options %}}
 
 #### Examples
 
@@ -1221,15 +1253,15 @@ None.
 
 ### chef undelete
 
-{{% ctl_chef_undelete %}}
+{{% chef-workstation/ctl_chef_undelete %}}
 
 #### Syntax
 
-{{% ctl_chef_undelete_syntax %}}
+{{% chef-workstation/ctl_chef_undelete_syntax %}}
 
 #### Options
 
-{{% ctl_chef_undelete_options %}}
+{{% chef-workstation/ctl_chef_undelete_options %}}
 
 #### Examples
 
@@ -1237,15 +1269,15 @@ None.
 
 ### chef update
 
-{{% ctl_chef_update %}}
+{{% chef-workstation/ctl_chef_update %}}
 
 #### Syntax
 
-{{% ctl_chef_update_syntax %}}
+{{% chef-workstation/ctl_chef_update_syntax %}}
 
 #### Options
 
-{{% ctl_chef_update_options %}}
+{{% chef-workstation/ctl_chef_update_options %}}
 
 #### Examples
 

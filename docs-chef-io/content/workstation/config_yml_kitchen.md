@@ -24,7 +24,7 @@ data across any combination of platforms and test suites:
 - Supports all common testing frameworks that are used by the Ruby community
 - Uses a comprehensive set of base images provided by [Bento](https://github.com/chef/bento)
 
-{{% test_kitchen_yml %}}
+{{% chef-workstation/test_kitchen_yml %}}
 
 {{< note >}}
 
@@ -36,7 +36,7 @@ about Test Kitchen.
 
 ## Syntax
 
-{{% test_kitchen_yml_syntax %}}
+{{% chef-workstation/test_kitchen_yml_syntax %}}
 
 ## Provisioner Settings
 
@@ -418,7 +418,7 @@ kitchen.yml file when the transport is WinRM:
 
 ### Work with Proxies
 
-{{< readFile_shortcode file="test_kitchen_yml_syntax_proxy.md" >}}
+{{% chef-workstation/test_kitchen_yml_syntax_proxy %}}
 
 ## Chef Infra Client Settings
 
@@ -475,19 +475,19 @@ Specific `optional_settings: values` may be specified.
 
 ### Bento
 
-{{% bento %}}
+{{% chef-workstation/bento %}}
 
 ### Drivers
 
-{{% test_kitchen_drivers %}}
+{{% chef-workstation/test_kitchen_drivers %}}
 
 ### kitchen-vagrant
 
-{{% test_kitchen_driver_vagrant %}}
+{{% chef-workstation/test_kitchen_driver_vagrant %}}
 
-{{% test_kitchen_driver_vagrant_settings %}}
+{{% chef-workstation/test_kitchen_driver_vagrant_settings %}}
 
-{{% test_kitchen_driver_vagrant_config %}}
+{{% chef-workstation/test_kitchen_driver_vagrant_config %}}
 
 ## Examples
 

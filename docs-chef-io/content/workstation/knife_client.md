@@ -14,11 +14,11 @@ aliases = ["/knife_client.html", "/knife_client/"]
 +++
 <!-- markdownlint-disable-file MD024 MD033 MD036 MD046-->
 
-{{% knife_client_summary %}}
+{{% chef-workstation/knife_client_summary %}}
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% chef-workstation/knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -94,7 +94,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -401,7 +401,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
