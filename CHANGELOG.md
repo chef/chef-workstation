@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.6.974 -->
-## [22.6.974](https://github.com/chef/chef-workstation/tree/22.6.974) (2022-06-06)
+<!-- latest_release 22.6.975 -->
+## [22.6.975](https://github.com/chef/chef-workstation/tree/22.6.975) (2022-06-06)
 
 #### Merged Pull Requests
-- Move shortcode files to workstation repo [#2830](https://github.com/chef/chef-workstation/pull/2830) ([IanMadd](https://github.com/IanMadd))
+- Restart Chef Workstation Powershell for success [#1923](https://github.com/chef/chef-workstation/pull/1923) ([sean-horn](https://github.com/sean-horn))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.5.923 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Restart Chef Workstation Powershell for success [#1923](https://github.com/chef/chef-workstation/pull/1923) ([sean-horn](https://github.com/sean-horn)) <!-- 22.6.975 -->
 - Move shortcode files to workstation repo [#2830](https://github.com/chef/chef-workstation/pull/2830) ([IanMadd](https://github.com/IanMadd)) <!-- 22.6.974 -->
 - Bump Chef Workstation App to 0.2.167 [#2828](https://github.com/chef/chef-workstation/pull/2828) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.972 -->
 - Bump Chef Workstation App to 0.2.166 [#2826](https://github.com/chef/chef-workstation/pull/2826) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.971 -->
