@@ -16,11 +16,11 @@ aliases = ["/knife_tag.html", "/knife_tag/"]
 
 {{% chef_tags %}}
 
-{{% knife_tag_summary %}}
+{{% chef-workstation/knife_tag_summary %}}
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% chef-workstation/knife_common_see_common_options_link %}}
 
 {{< /note >}}
 

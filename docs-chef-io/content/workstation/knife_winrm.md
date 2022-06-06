@@ -94,7 +94,7 @@ knife winrm 'node1.domain.com' 'dir' -m -x domain\\administrator -P 'super_secre
 
 Use the `winrm` argument to create a connection to one or more remote machines. As each connection is created, a password must be provided. This argument uses the same syntax as the `search` subcommand.
 
-{{% knife_windows_winrm_ports %}}
+{{% chef-workstation/knife_windows_winrm_ports %}}
 
 ### Syntax
 

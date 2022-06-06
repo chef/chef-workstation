@@ -31,13 +31,13 @@ supermarket](/workstation/knife_supermarket/) command.
 
 {{< warning >}}
 
-{{% notes_knife_cookbook_site_use_devkit_berkshelf %}}
+{{% chef-workstation/notes_knife_cookbook_site_use_devkit_berkshelf %}}
 
 {{< /warning >}}
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% chef-workstation/knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -93,7 +93,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -175,7 +175,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -370,7 +370,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

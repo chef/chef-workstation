@@ -14,7 +14,7 @@ aliases = ["/knife_ssh.html", "/knife_ssh/"]
 +++
 <!-- markdownlint-disable-file MD036 -->
 
-{{% knife_ssh_summary %}}
+{{% chef-workstation/knife_ssh_summary %}}
 
 ## Syntax
 
@@ -28,7 +28,7 @@ knife ssh SEARCH_QUERY SSH_COMMAND (options)
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% chef-workstation/knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -116,7 +116,7 @@ knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

@@ -14,7 +14,7 @@ aliases = ["/knife_deps.html", "/knife_deps/"]
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
 
-{{% knife_deps_summary %}}
+{{% chef-workstation/knife_deps_summary %}}
 
 ## Syntax
 
@@ -28,7 +28,7 @@ knife deps (options)
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% chef-workstation/knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -60,7 +60,7 @@ This subcommand has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

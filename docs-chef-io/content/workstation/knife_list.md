@@ -14,7 +14,7 @@ aliases = ["/knife_list.html", "/knife_list/"]
 +++
 <!-- markdownlint-disable-file MD036 -->
 
-{{% knife_list_summary %}}
+{{% chef-workstation/knife_list_summary %}}
 
 ## Syntax
 
@@ -28,7 +28,7 @@ knife list [PATTERN...] (options)
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% chef-workstation/knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -72,7 +72,7 @@ This subcommand has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

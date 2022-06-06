@@ -14,7 +14,7 @@ aliases = ["/knife_configure.html", "/knife_configure/"]
 +++
 <!-- markdownlint-disable-file MD036 -->
 
-{{% knife_configure_summary %}}
+{{% chef-workstation/knife_configure_summary %}}
 
 ## Syntax
 
@@ -34,7 +34,7 @@ knife configure client DIRECTORY
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% chef-workstation/knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -71,7 +71,7 @@ config.rb file:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% chef-workstation/knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

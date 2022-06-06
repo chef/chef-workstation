@@ -13,7 +13,7 @@ aliases = ["/knife_serve.html", "/knife_serve/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
 
-{{% knife_serve_summary %}}
+{{% chef-workstation/knife_serve_summary %}}
 
 ## Syntax
 
@@ -27,7 +27,7 @@ knife serve (options)
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% chef-workstation/knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
