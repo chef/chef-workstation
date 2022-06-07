@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.6.977 -->
-## [22.6.977](https://github.com/chef/chef-workstation/tree/22.6.977) (2022-06-07)
+<!-- latest_release 22.6.978 -->
+## [22.6.978](https://github.com/chef/chef-workstation/tree/22.6.978) (2022-06-07)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.180 [#2832](https://github.com/chef/chef-workstation/pull/2832) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.169 [#2833](https://github.com/chef/chef-workstation/pull/2833) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.6.973 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.169 [#2833](https://github.com/chef/chef-workstation/pull/2833) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.978 -->
 - Bump chef-analyze CLI to 0.1.180 [#2832](https://github.com/chef/chef-workstation/pull/2832) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.977 -->
 - Shortcode fix [#2831](https://github.com/chef/chef-workstation/pull/2831) ([IanMadd](https://github.com/IanMadd)) <!-- 22.6.976 -->
 - Move shortcode files to workstation repo [#2830](https://github.com/chef/chef-workstation/pull/2830) ([IanMadd](https://github.com/IanMadd)) <!-- 22.6.974 -->
