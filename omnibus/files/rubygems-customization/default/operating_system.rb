@@ -10,7 +10,7 @@ Gem::ConfigFile::OPERATING_SYSTEM_DEFAULTS["update"] = "--user --no-document"
 module Gem
 
   ##
-  # Override user_dir to live inside of ~/.chefdk
+  # Override user_dir to live inside of ~/.chef
 
   class << self
     # Remove method before redefining so we avoid a ruby warning
