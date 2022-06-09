@@ -2,7 +2,6 @@ package platform_lib
 
 import (
 	"fmt"
-	"gopkg.in/yaml.v3"
 	"log"
 	"os"
 	"path/filepath"
@@ -56,7 +55,7 @@ func RunEnvironment() error {
 }
 
 func WorkstationInfo() ChefWorkstationInfo {
-	if OmnibusInstall() {
+	if OmnibusInstall() { //  can use -- OmnibusInstall() && DefaultChefRuby()
 		info := ChefWorkstationInfo{Version: CliVersion()} // todo make sure we take right version from --cli-repo( lib/chef-cli/helpers.rb )
 		info.Home = PackageHome()
 		info.InstallDirectory = omnibusRoot() // todo --can be shifted to cli_helper.rb

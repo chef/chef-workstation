@@ -62,7 +62,7 @@ func createRubyEnvUnix() {
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
-	if platform_lib.OmnibusInstall() {
+	if platform_lib.OmnibusInstall() && platform_lib.DefaultChefRuby() {
 		if result != true {
 			if createEnvJsonUnix(InstallerDir, installationPath) {
 				return
