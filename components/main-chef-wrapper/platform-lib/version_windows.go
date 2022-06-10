@@ -192,3 +192,8 @@ func MatchVersions() bool {
 		return false
 	}
 }
+
+// adding method to keep things sync during copiling on different platfirm
+func MatchSwitchingRuby() bool {
+	return true
+}
