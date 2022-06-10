@@ -62,30 +62,21 @@ func createRubyEnvUnix() {
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
-	if platform_lib.OmnibusInstall() && platform_lib.DefaultChefRuby() {
-		if result != true {
-			if createEnvJsonUnix(InstallerDir, installationPath) {
-				return
-			}
-		}
-		if result == true && platform_lib.MatchVersions() != true {
-			if createEnvJsonUnix(InstallerDir, installationPath) {
-				return
-			}
-		}
-	} else {
-		if result != true {
-			if createEnvJsonUnix(InstallerDir, installationPath) {
-				return
-			}
-		}
-		if result && platform_lib.MatchVersions() {
-			if createEnvJsonUnix(InstallerDir, installationPath) {
-				return
-			}
+	if result != true {
+		if createEnvJsonUnix(InstallerDir, installationPath) {
+			return
 		}
 	}
-
+	if result == true && platform_lib.MatchVersions() != true {
+		if createEnvJsonUnix(InstallerDir, installationPath) {
+			return
+		}
+	}
+	if result == true && platform_lib.MatchSwitchingRuby() != true {
+		if createEnvJsonUnix(InstallerDir, installationPath) {
+			return
+		}
+	}
 	platform_lib.InitializeRubyMap()
 }
 
