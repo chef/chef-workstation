@@ -230,8 +230,6 @@ func MatchSwitchingRuby() bool {
 		return b
 	}
 	rubyPathInScript, _ := lib.Dig(envDoc, "ruby info", "Executable")
-	fmt.Println(rubyPathInScript)
-	fmt.Println(rubyPathInScript)
 
 	if rubyPathInScript == absPath {
 		return true
