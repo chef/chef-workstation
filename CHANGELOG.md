@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.6.983 -->
-## [22.6.983](https://github.com/chef/chef-workstation/tree/22.6.983) (2022-06-09)
+<!-- latest_release 22.6.984 -->
+## [22.6.984](https://github.com/chef/chef-workstation/tree/22.6.984) (2022-06-10)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.170 [#2838](https://github.com/chef/chef-workstation/pull/2838) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.183 [#2840](https://github.com/chef/chef-workstation/pull/2840) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.6.973 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump chef-analyze CLI to 0.1.183 [#2840](https://github.com/chef/chef-workstation/pull/2840) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.984 -->
 - Bump Chef Workstation App to 0.2.170 [#2838](https://github.com/chef/chef-workstation/pull/2838) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.983 -->
 - Bump chef-analyze CLI to 0.1.182 [#2839](https://github.com/chef/chef-workstation/pull/2839) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.982 -->
 - Bump mixlib-config to 3.0.27 [#2837](https://github.com/chef/chef-workstation/pull/2837) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.981 -->
