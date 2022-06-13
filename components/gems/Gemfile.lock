@@ -634,7 +634,7 @@ GEM
       rbvmomi (>= 1.11, < 4.0)
       test-kitchen (>= 1.16, < 4)
       vsphere-automation-sdk (~> 0.4)
-    kitchen-vra (3.1.0)
+    kitchen-vra (3.2.0)
       ffi-yajl (>= 2.2.3, < 2.5.0)
       highline
       rack (>= 1.6, < 3.0)
