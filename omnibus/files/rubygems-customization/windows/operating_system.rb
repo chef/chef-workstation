@@ -29,11 +29,11 @@ module Gem
     default_home = File.join(File.expand_path(ENV["LOCALAPPDATA"]), "chef")
 
     chef_home = if chefdk_home_set
-                    ENV["CHEF_HOME"]
-                  else
-                    old_home = File.join(Gem.user_home, ".chef")
-                    if File.exist?(old_home)
-                      Gem.ui.alert_warning <<-EOF
+                  ENV["CHEF_HOME"]
+                else
+                  old_home = File.join(Gem.user_home, ".chef")
+                  if File.exist?(old_home)
+                    Gem.ui.alert_warning <<-EOF
 
         Chef Workstation now defaults to using #{default_home} instead of #{old_home}.
         Since #{old_home} exists on your machine, Chef Workstation will continue
@@ -42,10 +42,10 @@ module Gem
         in the next major version bump of Chef Workstation.
                       EOF
                       old_home
-                    else
+                  else
                       default_home
-                    end
                   end
+                end
 
     # Prevents multiple warnings
     ENV["CHEF_HOME"] = chef_home
