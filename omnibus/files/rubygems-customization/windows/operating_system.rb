@@ -37,13 +37,13 @@ module Gem
 
         Chef Workstation now defaults to using #{default_home} instead of #{old_home}.
         Since #{old_home} exists on your machine, Chef Workstation will continue
-        to make use of it. Please set the environment variable CHEFDK_HOME (yea, sorry about that)
+        to make use of it. Please set the environment variable CHEF_HOME (yea, sorry about that)
         to #{old_home} to remove this warning. This warning will be removed
         in the next major version bump of Chef Workstation.
-                      EOF
-                      old_home
+                    EOF
+                    old_home
                   else
-                      default_home
+                    default_home
                   end
                 end
 
