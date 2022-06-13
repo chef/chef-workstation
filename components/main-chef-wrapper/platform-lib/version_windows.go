@@ -195,9 +195,13 @@ func MatchVersions() bool {
 
 // adding method to keep things sync during copiling on different platfirm
 
+func DefaultChefRuby() bool {
+	return true
+}
+
 func UpdateRubyBoolean(installationPath string, updateVal bool) bool {
 	return false
 }
-func MatchSwitchingRuby() bool {
+func IsRubyVariableChef() bool {
 	return true
 }

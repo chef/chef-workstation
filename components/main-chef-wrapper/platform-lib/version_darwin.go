@@ -221,12 +221,7 @@ func AbsoluteRubyPath() (string, bool, bool) {
 }
 
 func UpdateRubyBoolean(installationPath string, updateVal bool) bool {
-	jsonFile, err := os.Open(installationPath)
-
-	if err != nil {
-		log.Fatal(err)
-		return true
-	}
+	jsonFile, err := os.OpenFile(installationPath, os.O_RDWR|os.O_CREATE, 0644)
 
 	data, err := ioutil.ReadAll(jsonFile)
 	if err != nil {
@@ -240,8 +235,21 @@ func UpdateRubyBoolean(installationPath string, updateVal bool) bool {
 		return true
 	}
 	envDoc["chef_ruby"] = updateVal
-	jsonFile.Seek(0, 0)
-	jsonFile.Truncate(0)
+
+	err = jsonFile.Truncate(0)
+	if err != nil {
+		fmt.Println(err)
+	}
+	_, err = jsonFile.Seek(0, 0)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	data, err = json.Marshal(envDoc)
+	if err != nil {
+		return true
+	}
+	jsonFile.Write(data)
 	defer jsonFile.Close()
 	return false
 
