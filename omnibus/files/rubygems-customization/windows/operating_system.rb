@@ -26,25 +26,25 @@ module Gem
     chefdk_home_set = !([nil, ""].include? ENV["CHEF_HOME"])
     # We call expand_path here because it converts \ -> /
     # Rubygems seems to require that we not use \
-    # default_home = File.join(File.expand_path(ENV["LOCALAPPDATA"]), "chefdk")
+    default_home = File.join(File.expand_path(ENV["LOCALAPPDATA"]), "chef")
 
     chef_home = if chefdk_home_set
                     ENV["CHEF_HOME"]
                   else
-                    return old_home = File.join(Gem.user_home, ".chef")
-        #             if File.exist?(old_home)
-        #               Gem.ui.alert_warning <<-EOF
+                    old_home = File.join(Gem.user_home, ".chef")
+                    if File.exist?(old_home)
+                      Gem.ui.alert_warning <<-EOF
 
-        # Chef Workstation now defaults to using #{default_home} instead of #{old_home}.
-        # Since #{old_home} exists on your machine, Chef Workstation will continue
-        # to make use of it. Please set the environment variable CHEFDK_HOME (yea, sorry about that)
-        # to #{old_home} to remove this warning. This warning will be removed
-        # in the next major version bump of Chef Workstation.
-        #               EOF
-        #               old_home
-        #             else
-        #               default_home
-        #             end
+        Chef Workstation now defaults to using #{default_home} instead of #{old_home}.
+        Since #{old_home} exists on your machine, Chef Workstation will continue
+        to make use of it. Please set the environment variable CHEFDK_HOME (yea, sorry about that)
+        to #{old_home} to remove this warning. This warning will be removed
+        in the next major version bump of Chef Workstation.
+                      EOF
+                      old_home
+                    else
+                      default_home
+                    end
                   end
 
     # Prevents multiple warnings
