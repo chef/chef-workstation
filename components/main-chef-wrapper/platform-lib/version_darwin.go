@@ -220,18 +220,41 @@ func AbsoluteRubyPath() (string, bool, bool) {
 	return absPath, false, false
 }
 
-func MatchSwitchingRuby() bool {
+func UpdateRubyBoolean(installationPath string, updateVal bool) bool {
+	jsonFile, err := os.Open(installationPath)
+
+	if err != nil {
+		log.Fatal(err)
+		return true
+	}
+
+	data, err := ioutil.ReadAll(jsonFile)
+	if err != nil {
+		log.Fatal(err)
+		return true
+	}
+
+	envDoc := make(map[string]interface{})
+	if err := json.Unmarshal(data, &envDoc); err != nil {
+		fmt.Println(err.Error())
+		return true
+	}
+	envDoc["chef_ruby"] = updateVal
+	jsonFile.Seek(0, 0)
+	jsonFile.Truncate(0)
+	defer jsonFile.Close()
+	return false
+
+}
+
+func IsRubyVariableChef() bool {
 	_, envDoc, b, done := EnvDoc()
 	if done {
 		return b
 	}
-	absPath, b, done := AbsoluteRubyPath()
-	if done {
-		return b
-	}
-	rubyPathInScript, _ := lib.Dig(envDoc, "ruby info", "Executable")
+	IsChefRuby, _ := lib.Dig(envDoc, "chef_ruby")
 
-	if rubyPathInScript == absPath {
+	if IsChefRuby == true {
 		return true
 	} else {
 		return false

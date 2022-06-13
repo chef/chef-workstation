@@ -72,9 +72,20 @@ func createRubyEnvUnix() {
 			return
 		}
 	}
-	if result == true && platform_lib.MatchSwitchingRuby() != true {
+	if result == true && (platform_lib.IsRubyVariableChef() == true && platform_lib.DefaultChefRuby() != true) {
+		fmt.Println("switching to sytem")
 		if createEnvJsonUnix(InstallerDir, installationPath) {
-			return
+			if platform_lib.UpdateRubyBoolean(installationPath, false) {
+				return
+			}
+		}
+	}
+	if result == true && (platform_lib.IsRubyVariableChef() != true && platform_lib.DefaultChefRuby() == true) {
+		fmt.Println("switching chef ruby")
+		if createEnvJsonUnix(InstallerDir, installationPath) {
+			if platform_lib.UpdateRubyBoolean(installationPath, true) {
+				return
+			}
 		}
 	}
 	platform_lib.InitializeRubyMap()

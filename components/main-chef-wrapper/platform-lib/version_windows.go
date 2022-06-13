@@ -194,6 +194,10 @@ func MatchVersions() bool {
 }
 
 // adding method to keep things sync during copiling on different platfirm
+
+func UpdateRubyBoolean(installationPath string, updateVal bool) bool {
+	return false
+}
 func MatchSwitchingRuby() bool {
 	return true
 }

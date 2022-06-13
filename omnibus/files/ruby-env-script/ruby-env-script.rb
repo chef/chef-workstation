@@ -100,6 +100,7 @@ info["omnibus root"] = omnibus_root
 info["ruby info"] = ruby_info
 info["build_version"] = chef_ws_build_version
 info["chef-cli"] = chef_cli_version
+info["chef_ruby"] = true
 
 j = JSON.pretty_generate(info)
 
