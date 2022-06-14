@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.6.993 -->
-## [22.6.993](https://github.com/chef/chef-workstation/tree/22.6.993) (2022-06-14)
+<!-- latest_release 22.6.994 -->
+## [22.6.994](https://github.com/chef/chef-workstation/tree/22.6.994) (2022-06-14)
 
 #### Merged Pull Requests
-- I5pranay93/update env on ruby switch in local system [#2842](https://github.com/chef/chef-workstation/pull/2842) ([i5pranay93](https://github.com/i5pranay93))
+- Bump kitchen-dokken to 2.17.1 [#2852](https://github.com/chef/chef-workstation/pull/2852) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.6.973 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-dokken to 2.17.1 [#2852](https://github.com/chef/chef-workstation/pull/2852) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.994 -->
 - I5pranay93/update env on ruby switch in local system [#2842](https://github.com/chef/chef-workstation/pull/2842) ([i5pranay93](https://github.com/i5pranay93)) <!-- 22.6.993 -->
 - Stop putting gems in .chefdk [#2845](https://github.com/chef/chef-workstation/pull/2845) ([nikhil2611](https://github.com/nikhil2611)) <!-- 22.6.992 -->
 - Bump test-kitchen to 3.3.0 [#2850](https://github.com/chef/chef-workstation/pull/2850) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.991 -->
