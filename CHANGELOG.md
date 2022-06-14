@@ -1,15 +1,17 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.6.984 -->
-## [22.6.984](https://github.com/chef/chef-workstation/tree/22.6.984) (2022-06-10)
+<!-- latest_release 22.6.986 -->
+## [22.6.986](https://github.com/chef/chef-workstation/tree/22.6.986) (2022-06-13)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.183 [#2840](https://github.com/chef/chef-workstation/pull/2840) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-digitalocean to 0.14.2 [#2847](https://github.com/chef/chef-workstation/pull/2847) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.6.973 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-digitalocean to 0.14.2 [#2847](https://github.com/chef/chef-workstation/pull/2847) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.986 -->
+- Bump kitchen-google to 2.3.0 [#2844](https://github.com/chef/chef-workstation/pull/2844) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.985 -->
 - Bump chef-analyze CLI to 0.1.183 [#2840](https://github.com/chef/chef-workstation/pull/2840) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.984 -->
 - Bump Chef Workstation App to 0.2.170 [#2838](https://github.com/chef/chef-workstation/pull/2838) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.983 -->
 - Bump chef-analyze CLI to 0.1.182 [#2839](https://github.com/chef/chef-workstation/pull/2839) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.982 -->
