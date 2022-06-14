@@ -10,14 +10,14 @@ Gem::ConfigFile::OPERATING_SYSTEM_DEFAULTS["update"] = "--user --no-document"
 module Gem
 
   ##
-  # Override user_dir to live inside of ~/.chefdk
+  # Override user_dir to live inside of ~/.chef
 
   class << self
     # Remove method before redefining so we avoid a ruby warning
     remove_method :user_dir
 
     def user_dir
-      parts = [Gem.user_home, ".chefdk", "gem", ruby_engine]
+      parts = [Gem.user_home, ".chef", "gem", ruby_engine]
       parts << RbConfig::CONFIG["ruby_version"] unless RbConfig::CONFIG["ruby_version"].empty?
       File.join parts
     end
