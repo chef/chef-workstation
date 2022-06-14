@@ -198,10 +198,3 @@ func MatchVersions() bool {
 func DefaultChefRuby() bool {
 	return true
 }
-
-func UpdateRubyBoolean(installationPath string, updateVal bool) bool {
-	return false
-}
-func IsRubyVariableChef() bool {
-	return true
-}

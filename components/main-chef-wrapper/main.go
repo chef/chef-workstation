@@ -72,18 +72,6 @@ func createRubyEnvUnix() {
 			return
 		}
 	}
-	if result == true && (platform_lib.IsRubyVariableChef() == true && platform_lib.DefaultChefRuby() != true) {
-		if createEnvJsonUnix(InstallerDir, installationPath) {
-			return
-		}
-		platform_lib.UpdateRubyBoolean(installationPath, false)
-	}
-	if result == true && (platform_lib.IsRubyVariableChef() != true && platform_lib.DefaultChefRuby() == true) {
-		if createEnvJsonUnix(InstallerDir, installationPath) {
-			return
-		}
-		platform_lib.UpdateRubyBoolean(installationPath, true)
-	}
 	platform_lib.InitializeRubyMap()
 }
 
