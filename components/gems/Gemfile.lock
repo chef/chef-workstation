@@ -623,7 +623,7 @@ GEM
       hashie (>= 3.4, <= 5.0)
       inspec (>= 2.2.64, < 7.0)
       test-kitchen (>= 2.7, < 4)
-    kitchen-openstack (6.1.0)
+    kitchen-openstack (6.2.0)
       fog-openstack (~> 1.0)
       ohai
       test-kitchen (>= 1.4.1, < 4)
