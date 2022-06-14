@@ -603,7 +603,7 @@ GEM
     kitchen-digitalocean (0.14.2)
       droplet_kit (>= 3.7, < 4.0)
       test-kitchen (>= 1.17, < 4)
-    kitchen-dokken (2.17.0)
+    kitchen-dokken (2.17.1)
       docker-api (>= 1.33, < 3)
       lockfile (~> 2.1)
       test-kitchen (>= 1.15, < 4)
