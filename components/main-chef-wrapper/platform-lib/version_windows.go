@@ -192,3 +192,9 @@ func MatchVersions() bool {
 		return false
 	}
 }
+
+// adding method to keep things sync during copiling on different platfirm
+
+func DefaultChefRuby() bool {
+	return true
+}

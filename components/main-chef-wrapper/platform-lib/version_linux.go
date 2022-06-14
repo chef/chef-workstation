@@ -23,8 +23,10 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"os/exec"
 	"path"
 	"path/filepath"
+	"strings"
 )
 
 var gemManifestMap map[string]interface{}
@@ -159,29 +161,61 @@ func UnmarshallRubyEnv() map[string]interface{} {
 
 func MatchVersions() bool {
 	// check version from env.json file and workstation version
-	home, err := os.UserHomeDir()
-	WorkstationVersion := componentVersion("build_version")
-	filepath := path.Join(home, ".chef/ruby-env.json")
-	jsonFile, err := os.Open(filepath)
-	if err != nil {
-		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
-		return false
-	}
-
-	data, err := ioutil.ReadAll(jsonFile)
-	if err != nil {
-		log.Fatal(err)
-		return false
-	}
-
-	envDoc := make(map[string]interface{})
-	if err := json.Unmarshal(data, &envDoc); err != nil {
-		log.Fatal(err)
-		return false
+	WorkstationVersion, envDoc, b, done := EnvDoc()
+	if done {
+		return b
 	}
 	if envDoc["build_version"] == WorkstationVersion {
 		return true
 	} else {
 		return false
 	}
+}
+
+func EnvDoc() (string, map[string]interface{}, bool, bool) {
+	home, err := os.UserHomeDir()
+	WorkstationVersion := componentVersion("build_version")
+	filepath := path.Join(home, ".chef/ruby-env.json")
+	jsonFile, err := os.Open(filepath)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
+		return "", nil, false, true
+	}
+
+	data, err := ioutil.ReadAll(jsonFile)
+	if err != nil {
+		log.Fatal(err)
+		return "", nil, false, true
+	}
+
+	envDoc := make(map[string]interface{})
+	if err := json.Unmarshal(data, &envDoc); err != nil {
+		log.Fatal(err)
+		return "", nil, false, true
+	}
+	defer jsonFile.Close()
+	return WorkstationVersion, envDoc, false, false
+}
+
+func DefaultChefRuby() bool {
+	absPath, b, done := AbsoluteRubyPath()
+	if done {
+		return b
+	}
+	if absPath == "/opt/chef-workstation/embedded/bin/ruby" {
+		return true
+	} else {
+		return false
+	}
+}
+
+func AbsoluteRubyPath() (string, bool, bool) {
+	out, err := exec.Command("which", "ruby").Output()
+	if err != nil {
+		return "", false, true
+	}
+	stringOut := string(out)
+	Sanatizepath := strings.Replace(stringOut, "\n", "", -1)
+	absPath, _ := filepath.Abs(Sanatizepath)
+	return absPath, false, false
 }
