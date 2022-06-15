@@ -240,7 +240,7 @@ GEM
     iso8601 (0.13.0)
     jmespath (1.6.1)
     json (2.6.2)
-    kitchen-vagrant (1.11.0)
+    kitchen-vagrant (1.12.0)
       test-kitchen (>= 1.4, < 4)
     libyajl2 (2.1.0)
     license-acceptance (2.1.13)
@@ -465,8 +465,8 @@ GEM
 
 PLATFORMS
   ruby
-  x64-mingw
   x64-mingw32
+  x64-unknown
   x86-mingw32
 
 DEPENDENCIES
