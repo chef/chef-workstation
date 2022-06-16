@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.6.997 -->
-## [22.6.997](https://github.com/chef/chef-workstation/tree/22.6.997) (2022-06-16)
+<!-- latest_release 22.6.998 -->
+## [22.6.998](https://github.com/chef/chef-workstation/tree/22.6.998) (2022-06-16)
 
 #### Merged Pull Requests
-- Bump kitchen-dokken to 2.17.2 [#2860](https://github.com/chef/chef-workstation/pull/2860) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump knife-tidy to 2.1.6 [#2857](https://github.com/chef/chef-workstation/pull/2857) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.6.973 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump knife-tidy to 2.1.6 [#2857](https://github.com/chef/chef-workstation/pull/2857) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.998 -->
 - Bump kitchen-dokken to 2.17.2 [#2860](https://github.com/chef/chef-workstation/pull/2860) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.997 -->
 - Bump test-kitchen from 3.2.2 to 3.3.0 in /omnibus [#2851](https://github.com/chef/chef-workstation/pull/2851) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.6.996 -->
 - Bump kitchen-openstack to 6.2.0 [#2854](https://github.com/chef/chef-workstation/pull/2854) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.995 -->
