@@ -31,20 +31,7 @@ module Gem
     chef_home = if chefdk_home_set
                   ENV["CHEF_HOME"]
                 else
-                  old_home = File.join(Gem.user_home, ".chef")
-                  if File.exist?(old_home)
-                    Gem.ui.alert_warning <<-EOF
-
-        Chef Workstation now defaults to using #{default_home} instead of #{old_home}.
-        Since #{old_home} exists on your machine, Chef Workstation will continue
-        to make use of it. Please set the environment variable CHEF_HOME (yea, sorry about that)
-        to #{old_home} to remove this warning. This warning will be removed
-        in the next major version bump of Chef Workstation.
-                    EOF
-                    old_home
-                  else
-                    default_home
-                  end
+                  default_home
                 end
 
     # Prevents multiple warnings
