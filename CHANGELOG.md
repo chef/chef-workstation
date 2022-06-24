@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.6.1000 -->
-## [22.6.1000](https://github.com/chef/chef-workstation/tree/22.6.1000) (2022-06-21)
+<!-- latest_release 22.6.1001 -->
+## [22.6.1001](https://github.com/chef/chef-workstation/tree/22.6.1001) (2022-06-24)
 
 #### Merged Pull Requests
-- Removed the warning for windows platform [#2863](https://github.com/chef/chef-workstation/pull/2863) ([nikhil2611](https://github.com/nikhil2611))
+- Bump github.com/spf13/cobra from 1.4.0 to 1.5.0 in /components/main-chef-wrapper [#2865](https://github.com/chef/chef-workstation/pull/2865) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.6.973 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump github.com/spf13/cobra from 1.4.0 to 1.5.0 in /components/main-chef-wrapper [#2865](https://github.com/chef/chef-workstation/pull/2865) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.6.1001 -->
 - Removed the warning for windows platform [#2863](https://github.com/chef/chef-workstation/pull/2863) ([nikhil2611](https://github.com/nikhil2611)) <!-- 22.6.1000 -->
 - Bump Chef Workstation App to 0.2.173 [#2862](https://github.com/chef/chef-workstation/pull/2862) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.999 -->
 - Bump knife-tidy to 2.1.6 [#2857](https://github.com/chef/chef-workstation/pull/2857) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.998 -->
