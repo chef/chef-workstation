@@ -3,7 +3,7 @@
 # changes are merged to main Expeditor takes that version, runs a script to
 # replace it here and pushes a new commit / build through.
 
-override "chef-analyze", version: "0.1.183"
+override "chef-analyze", version: "0.1.184"
 # /DO NOT MODIFY
 
 override "libarchive", version: "3.5.2"
