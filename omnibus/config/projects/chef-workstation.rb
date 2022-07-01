@@ -81,8 +81,7 @@ dependency "stunnel" if fips_mode?
 # This *has* to be last, as it mutates the build environment and causes all
 # compilations that use ./configure et all (the msys env) to break
 if windows?
-  dependency "ruby-windows-devkit"
-  dependency "ruby-windows-devkit-bash"
+  dependency "ruby-msys2-devkit"
   dependency "ruby-windows-system-libraries"
 end
 
