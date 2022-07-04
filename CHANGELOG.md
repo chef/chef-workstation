@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.6.1003 -->
-## [22.6.1003](https://github.com/chef/chef-workstation/tree/22.6.1003) (2022-06-24)
+<!-- latest_release 22.7.1004 -->
+## [22.7.1004](https://github.com/chef/chef-workstation/tree/22.7.1004) (2022-07-01)
 
 #### Merged Pull Requests
-- Bump kitchen-vagrant from 1.11.0 to 1.12.0 in /omnibus [#2858](https://github.com/chef/chef-workstation/pull/2858) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- using msys2 devkit [#2877](https://github.com/chef/chef-workstation/pull/2877) ([mwrock](https://github.com/mwrock))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.6.973 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- using msys2 devkit [#2877](https://github.com/chef/chef-workstation/pull/2877) ([mwrock](https://github.com/mwrock)) <!-- 22.7.1004 -->
 - Bump kitchen-vagrant from 1.11.0 to 1.12.0 in /omnibus [#2858](https://github.com/chef/chef-workstation/pull/2858) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.6.1003 -->
 - Bump github.com/stretchr/testify from 1.7.2 to 1.7.5 in /components/main-chef-wrapper [#2868](https://github.com/chef/chef-workstation/pull/2868) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.6.1002 -->
 - Bump github.com/spf13/cobra from 1.4.0 to 1.5.0 in /components/main-chef-wrapper [#2865](https://github.com/chef/chef-workstation/pull/2865) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.6.1001 -->
