@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.7.1005 -->
-## [22.7.1005](https://github.com/chef/chef-workstation/tree/22.7.1005) (2022-07-04)
+<!-- latest_release 22.7.1006 -->
+## [22.7.1006](https://github.com/chef/chef-workstation/tree/22.7.1006) (2022-07-04)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `6d7d6a3` to `15c88a7` in /omnibus [#2879](https://github.com/chef/chef-workstation/pull/2879) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump test-kitchen to 3.3.1 [#2880](https://github.com/chef/chef-workstation/pull/2880) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.6.973 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump test-kitchen to 3.3.1 [#2880](https://github.com/chef/chef-workstation/pull/2880) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.7.1006 -->
 - Bump omnibus-software from `6d7d6a3` to `15c88a7` in /omnibus [#2879](https://github.com/chef/chef-workstation/pull/2879) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.7.1005 -->
 - using msys2 devkit [#2877](https://github.com/chef/chef-workstation/pull/2877) ([mwrock](https://github.com/mwrock)) <!-- 22.7.1004 -->
 - Bump kitchen-vagrant from 1.11.0 to 1.12.0 in /omnibus [#2858](https://github.com/chef/chef-workstation/pull/2858) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.6.1003 -->
