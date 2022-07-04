@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: 15c88a7fd8e4d43936cff751cae9167c648e4e10
+  revision: e0d858bcfa761c8cdf93897145591524937ea7d2
   branch: main
   specs:
     omnibus-software (4.0.0)
@@ -465,8 +465,8 @@ GEM
 
 PLATFORMS
   ruby
-  x64-mingw
   x64-mingw32
+  x64-unknown
   x86-mingw32
 
 DEPENDENCIES
