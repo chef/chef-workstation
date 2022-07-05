@@ -388,11 +388,11 @@ This subcommand has the following options:
 
 `-C COPYRIGHT`, `--copyright COPYRIGHT`
 
-: Specify the copyright holder for copyright notices in generated files. Default value: `The Authors`
+: Specify the copyright holder for copyright notices in generated files, as well as the `maintainer` in `metadata.rb`. Default value: `The Authors`
 
 `-m EMAIL`, `--email EMAIL`
 
-: Specify the email address of the author. Default value: `you@example.com`.
+: Specify the `maintainer_email` for `metadata.rb`. Default value: `you@example.com`.
 
 `-a KEY=VALUE`, `--generator-arg KEY=VALUE`
 
