@@ -69,7 +69,7 @@ For more information about the kitchen.yml file, see
 
 ### Work with Proxies
 
-{{% chef-workstation/test_kitchen_yml_syntax_proxy %}}
+{{< readfile file="layouts/shortcodes/chef-workstation/test_kitchen_yml_syntax_proxy.md" >}}
 
 ## For more information ...
 
