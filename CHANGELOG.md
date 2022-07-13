@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 22.7.1007 -->
+## [22.7.1007](https://github.com/chef/chef-workstation/tree/22.7.1007) (2022-07-13)
+
+#### Merged Pull Requests
+- Fix shortcode in kitchen doc [#2890](https://github.com/chef/chef-workstation/pull/2890) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=22.7.1006 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Fix shortcode in kitchen doc [#2890](https://github.com/chef/chef-workstation/pull/2890) ([IanMadd](https://github.com/IanMadd)) <!-- 22.7.1007 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
