@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.7.1007 -->
-## [22.7.1007](https://github.com/chef/chef-workstation/tree/22.7.1007) (2022-07-13)
+<!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- Fix shortcode in kitchen doc [#2890](https://github.com/chef/chef-workstation/pull/2890) ([IanMadd](https://github.com/IanMadd))
+- Bump kitchen-vagrant to 1.12.1 [#2893](https://github.com/chef/chef-workstation/pull/2893) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.7.1006 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-vagrant to 1.12.1 [#2893](https://github.com/chef/chef-workstation/pull/2893) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.7.1007 -->
 - Fix shortcode in kitchen doc [#2890](https://github.com/chef/chef-workstation/pull/2890) ([IanMadd](https://github.com/IanMadd)) <!-- 22.7.1007 -->
 <!-- release_rollup -->
 
