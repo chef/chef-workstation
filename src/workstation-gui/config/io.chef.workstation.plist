@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+
+    <key>Label</key>
+    <string>com.journal.today.plist</string>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StartInterval</key>
+    <integer>20</integer>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/ngupta/src/workstation-gui/stderr.log</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/ngupta/src/workstation-gui/stdout.log</string>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/ngupta/chef-ui-backend</string>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/usr/local/bin/puma</string>
+      <string>-C</string>
+      <string>/Users/ngupta/src/workstation-gui/config/puma.rb</string>
+    </array>
+
+  </dict>
+</plist>
