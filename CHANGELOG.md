@@ -1,41 +1,60 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.6.996 -->
-## [22.6.996](https://github.com/chef/chef-workstation/tree/22.6.996) (2022-06-15)
+<!-- latest_release 22.7.1009 -->
+## [22.7.1009](https://github.com/chef/chef-workstation/tree/22.7.1009) (2022-07-20)
 
 #### Merged Pull Requests
-- Bump test-kitchen from 3.2.2 to 3.3.0 in /omnibus [#2851](https://github.com/chef/chef-workstation/pull/2851) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump kitchen-dokken to 2.17.3 [#2898](https://github.com/chef/chef-workstation/pull/2898) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
-<!-- release_rollup since=22.6.973 -->
+<!-- release_rollup since=22.7.1006 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
-- Bump test-kitchen from 3.2.2 to 3.3.0 in /omnibus [#2851](https://github.com/chef/chef-workstation/pull/2851) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.6.996 -->
-- Bump kitchen-openstack to 6.2.0 [#2854](https://github.com/chef/chef-workstation/pull/2854) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.995 -->
-- Bump kitchen-dokken to 2.17.1 [#2852](https://github.com/chef/chef-workstation/pull/2852) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.994 -->
-- I5pranay93/update env on ruby switch in local system [#2842](https://github.com/chef/chef-workstation/pull/2842) ([i5pranay93](https://github.com/i5pranay93)) <!-- 22.6.993 -->
-- Stop putting gems in .chefdk [#2845](https://github.com/chef/chef-workstation/pull/2845) ([nikhil2611](https://github.com/nikhil2611)) <!-- 22.6.992 -->
-- Bump test-kitchen to 3.3.0 [#2850](https://github.com/chef/chef-workstation/pull/2850) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.991 -->
-- Bump kitchen-vra to 3.2.0 [#2846](https://github.com/chef/chef-workstation/pull/2846) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.990 -->
-- Bump kitchen-inspec to 2.6.1 [#2848](https://github.com/chef/chef-workstation/pull/2848) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.989 -->
-- Bump Chef Workstation App to 0.2.172 [#2849](https://github.com/chef/chef-workstation/pull/2849) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.988 -->
-- Bump omnibus-software from `924d9cf` to `ccc7269` in /omnibus [#2843](https://github.com/chef/chef-workstation/pull/2843) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.6.987 -->
-- Bump kitchen-digitalocean to 0.14.2 [#2847](https://github.com/chef/chef-workstation/pull/2847) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.986 -->
-- Bump kitchen-google to 2.3.0 [#2844](https://github.com/chef/chef-workstation/pull/2844) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.985 -->
-- Bump chef-analyze CLI to 0.1.183 [#2840](https://github.com/chef/chef-workstation/pull/2840) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.984 -->
-- Bump Chef Workstation App to 0.2.170 [#2838](https://github.com/chef/chef-workstation/pull/2838) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.983 -->
-- Bump chef-analyze CLI to 0.1.182 [#2839](https://github.com/chef/chef-workstation/pull/2839) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.982 -->
-- Bump mixlib-config to 3.0.27 [#2837](https://github.com/chef/chef-workstation/pull/2837) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.981 -->
-- Bump github.com/stretchr/testify from 1.7.0 to 1.7.2 in /components/main-chef-wrapper [#2835](https://github.com/chef/chef-workstation/pull/2835) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.6.980 -->
-- Bump chef-analyze CLI to 0.1.181 [#2834](https://github.com/chef/chef-workstation/pull/2834) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.979 -->
-- Bump Chef Workstation App to 0.2.169 [#2833](https://github.com/chef/chef-workstation/pull/2833) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.978 -->
-- Bump chef-analyze CLI to 0.1.180 [#2832](https://github.com/chef/chef-workstation/pull/2832) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.6.977 -->
-- Shortcode fix [#2831](https://github.com/chef/chef-workstation/pull/2831) ([IanMadd](https://github.com/IanMadd)) <!-- 22.6.976 -->
-- Move shortcode files to workstation repo [#2830](https://github.com/chef/chef-workstation/pull/2830) ([IanMadd](https://github.com/IanMadd)) <!-- 22.6.974 -->
-- Restart Chef Workstation Powershell for success [#1923](https://github.com/chef/chef-workstation/pull/1923) ([sean-horn](https://github.com/sean-horn)) <!-- 22.6.975 -->
+- Bump kitchen-dokken to 2.17.3 [#2898](https://github.com/chef/chef-workstation/pull/2898) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.7.1009 -->
+- Bump habitat to 1.6.521 [#2894](https://github.com/chef/chef-workstation/pull/2894) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 22.7.1008 -->
+- Bump kitchen-vagrant to 1.12.1 [#2893](https://github.com/chef/chef-workstation/pull/2893) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.7.1007 -->
+- Fix shortcode in kitchen doc [#2890](https://github.com/chef/chef-workstation/pull/2890) ([IanMadd](https://github.com/IanMadd)) <!-- 22.7.1007 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [22.7.1006](https://github.com/chef/chef-workstation/tree/22.7.1006) (2022-07-05)
+
+#### Merged Pull Requests
+- Restart Chef Workstation Powershell for success [#1923](https://github.com/chef/chef-workstation/pull/1923) ([sean-horn](https://github.com/sean-horn))
+- Move shortcode files to workstation repo [#2830](https://github.com/chef/chef-workstation/pull/2830) ([IanMadd](https://github.com/IanMadd))
+- Shortcode fix [#2831](https://github.com/chef/chef-workstation/pull/2831) ([IanMadd](https://github.com/IanMadd))
+- Bump chef-analyze CLI to 0.1.180 [#2832](https://github.com/chef/chef-workstation/pull/2832) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.169 [#2833](https://github.com/chef/chef-workstation/pull/2833) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.181 [#2834](https://github.com/chef/chef-workstation/pull/2834) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump github.com/stretchr/testify from 1.7.0 to 1.7.2 in /components/main-chef-wrapper [#2835](https://github.com/chef/chef-workstation/pull/2835) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump mixlib-config to 3.0.27 [#2837](https://github.com/chef/chef-workstation/pull/2837) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.182 [#2839](https://github.com/chef/chef-workstation/pull/2839) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.170 [#2838](https://github.com/chef/chef-workstation/pull/2838) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.183 [#2840](https://github.com/chef/chef-workstation/pull/2840) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-google to 2.3.0 [#2844](https://github.com/chef/chef-workstation/pull/2844) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-digitalocean to 0.14.2 [#2847](https://github.com/chef/chef-workstation/pull/2847) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `924d9cf` to `ccc7269` in /omnibus [#2843](https://github.com/chef/chef-workstation/pull/2843) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.172 [#2849](https://github.com/chef/chef-workstation/pull/2849) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-inspec to 2.6.1 [#2848](https://github.com/chef/chef-workstation/pull/2848) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-vra to 3.2.0 [#2846](https://github.com/chef/chef-workstation/pull/2846) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump test-kitchen to 3.3.0 [#2850](https://github.com/chef/chef-workstation/pull/2850) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Stop putting gems in .chefdk [#2845](https://github.com/chef/chef-workstation/pull/2845) ([nikhil2611](https://github.com/nikhil2611))
+- I5pranay93/update env on ruby switch in local system [#2842](https://github.com/chef/chef-workstation/pull/2842) ([i5pranay93](https://github.com/i5pranay93))
+- Bump kitchen-dokken to 2.17.1 [#2852](https://github.com/chef/chef-workstation/pull/2852) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-openstack to 6.2.0 [#2854](https://github.com/chef/chef-workstation/pull/2854) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump test-kitchen from 3.2.2 to 3.3.0 in /omnibus [#2851](https://github.com/chef/chef-workstation/pull/2851) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump kitchen-dokken to 2.17.2 [#2860](https://github.com/chef/chef-workstation/pull/2860) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump knife-tidy to 2.1.6 [#2857](https://github.com/chef/chef-workstation/pull/2857) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.173 [#2862](https://github.com/chef/chef-workstation/pull/2862) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Removed the warning for windows platform [#2863](https://github.com/chef/chef-workstation/pull/2863) ([nikhil2611](https://github.com/nikhil2611))
+- Bump github.com/spf13/cobra from 1.4.0 to 1.5.0 in /components/main-chef-wrapper [#2865](https://github.com/chef/chef-workstation/pull/2865) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump github.com/stretchr/testify from 1.7.2 to 1.7.5 in /components/main-chef-wrapper [#2868](https://github.com/chef/chef-workstation/pull/2868) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump kitchen-vagrant from 1.11.0 to 1.12.0 in /omnibus [#2858](https://github.com/chef/chef-workstation/pull/2858) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- using msys2 devkit [#2877](https://github.com/chef/chef-workstation/pull/2877) ([mwrock](https://github.com/mwrock))
+- Bump omnibus-software from `6d7d6a3` to `15c88a7` in /omnibus [#2879](https://github.com/chef/chef-workstation/pull/2879) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump test-kitchen to 3.3.1 [#2880](https://github.com/chef/chef-workstation/pull/2880) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_stable_release -->
+
 ## [22.6.973](https://github.com/chef/chef-workstation/tree/22.6.973) (2022-06-06)
 
 #### Merged Pull Requests
@@ -88,7 +107,6 @@
 - Bump github.com/chef/go-chef-cli from 0.0.3 to 0.0.4 in /components/main-chef-wrapper [#2825](https://github.com/chef/chef-workstation/pull/2825) ([dependabot[bot]](https://github.com/dependabot[bot]))
 - Bump Chef Workstation App to 0.2.166 [#2826](https://github.com/chef/chef-workstation/pull/2826) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump Chef Workstation App to 0.2.167 [#2828](https://github.com/chef/chef-workstation/pull/2828) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [22.5.923](https://github.com/chef/chef-workstation/tree/22.5.923) (2022-05-11)
 
