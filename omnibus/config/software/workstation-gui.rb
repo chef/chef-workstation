@@ -38,7 +38,8 @@ build do
 
   # This fails because we're installing Ruby C extensions in the wrong place!
   # bundle "exec rake assets:precompile", env: env # Note--> not needed as this is api only app
-  # todo - service folder is not present in embedded, will this create service, or do we have to put inside lib.
-  sync project_dir, "#{install_dir}/embedded/bin/workstation-gui/",
-       exclude: %w( .env)
+  gui_app_path = "#{install_dir}/embedded/service/workstation-gui/"
+
+  mkdir app_install_path
+  copy "#{project_dir}/*", gui_app_path
 end
