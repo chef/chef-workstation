@@ -40,9 +40,9 @@ build do
   # bundle "exec rake assets:precompile", env: env # Note--> not needed as this is api only app
   gui_app_path = "#{install_dir}/embedded/service/workstation-gui/"
 
-  FileUtils.mkdir_p gui_app_path
-  FileUtils.cp project_dir, gui_app_path
+  # FileUtils.mkdir_p gui_app_path
+  # FileUtils.cp project_dir, gui_app_path
 
-  # mkdir gui_app_path
-  # copy "#{project_dir}/*", gui_app_path
+  mkdir gui_app_path
+  copy "#{project_dir}/*", gui_app_path
 end
