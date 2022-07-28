@@ -21,7 +21,7 @@ ENV LANG=en_US.UTF-8 \
 RUN apt-get update && \
     apt-get install -y gcc git graphviz make rsync ssh vim-tiny wget && \
     ln -s /usr/bin/vi /usr/bin/vim && \
-    wget --content-disposition "http://packages.chef.io/files/${CHANNEL}/chef-workstation/${VERSION}/ubuntu/22.04/chef-workstation_${VERSION}-1_amd64.deb" -O /tmp/chef-workstation.deb && \
+    wget --content-disposition "http://packages.chef.io/files/${CHANNEL}/chef-workstation/${VERSION}/ubuntu/18.04/chef-workstation_${VERSION}-1_amd64.deb" -O /tmp/chef-workstation.deb && \
     dpkg -i /tmp/chef-workstation.deb && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/log/*log /var/log/apt/* /var/lib/dpkg/*-old /var/cache/debconf/*-old
