@@ -16,3 +16,201 @@ Puma starting in single mode...
 * Listening on http://0.0.0.0:3000
 Use Ctrl-C to stop
 - Gracefully stopping, waiting for requests to finish
+Puma starting in single mode...
+* Puma version: 5.6.4 (ruby 3.0.3-p157) ("Birdie's Version")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: development
+*          PID: 43238
+Rails Error: Unable to access log file. Please ensure that /opt/chef-workstation/embedded/service/workstation-gui/log/development.log exists and is writable (i.e. make it writable for user and group: chmod 0664 /opt/chef-workstation/embedded/service/workstation-gui/log/development.log). The log level has been raised to WARN and the output directed to STDERR until the problem is fixed.
+* Listening on http://0.0.0.0:3000
+bundler: failed to load command: /opt/chef-workstation/embedded/bin/puma (/opt/chef-workstation/embedded/bin/puma)
+/opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:248:in `write': Permission denied @ rb_sysopen - tmp/pids/server.pid (Errno::EACCES)
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:248:in `write_pid'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:112:in `write_state'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/single.rb:48:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:182:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/cli.rb:81:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/bin/puma:10:in `<top (required)>'
+	from /opt/chef-workstation/embedded/bin/puma:25:in `load'
+	from /opt/chef-workstation/embedded/bin/puma:25:in `<top (required)>'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:58:in `load'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:58:in `kernel_load'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:23:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:478:in `exec'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor.rb:392:in `dispatch'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:31:in `dispatch'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/base.rb:485:in `start'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:25:in `start'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/bundler-2.2.32/libexec/bundle:49:in `block in <top (required)>'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/friendly_errors.rb:103:in `with_friendly_errors'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/bundler-2.2.32/libexec/bundle:37:in `<top (required)>'
+	from /opt/chef-workstation/embedded/bin/bundle:23:in `load'
+	from /opt/chef-workstation/embedded/bin/bundle:23:in `<main>'
+Puma starting in single mode...
+* Puma version: 5.6.4 (ruby 3.0.3-p157) ("Birdie's Version")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: development
+*          PID: 43427
+Rails Error: Unable to access log file. Please ensure that /opt/chef-workstation/embedded/service/workstation-gui/log/development.log exists and is writable (i.e. make it writable for user and group: chmod 0664 /opt/chef-workstation/embedded/service/workstation-gui/log/development.log). The log level has been raised to WARN and the output directed to STDERR until the problem is fixed.
+* Listening on http://0.0.0.0:3000
+bundler: failed to load command: /opt/chef-workstation/embedded/bin/puma (/opt/chef-workstation/embedded/bin/puma)
+/opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:248:in `write': Permission denied @ rb_sysopen - tmp/pids/server.pid (Errno::EACCES)
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:248:in `write_pid'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:112:in `write_state'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/single.rb:48:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:182:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/cli.rb:81:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/bin/puma:10:in `<top (required)>'
+	from /opt/chef-workstation/embedded/bin/puma:25:in `load'
+	from /opt/chef-workstation/embedded/bin/puma:25:in `<top (required)>'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:58:in `load'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:58:in `kernel_load'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:23:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:478:in `exec'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor.rb:392:in `dispatch'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:31:in `dispatch'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/base.rb:485:in `start'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:25:in `start'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/bundler-2.2.32/libexec/bundle:49:in `block in <top (required)>'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/friendly_errors.rb:103:in `with_friendly_errors'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/bundler-2.2.32/libexec/bundle:37:in `<top (required)>'
+	from /opt/chef-workstation/embedded/bin/bundle:23:in `load'
+	from /opt/chef-workstation/embedded/bin/bundle:23:in `<main>'
+Puma starting in single mode...
+* Puma version: 5.6.4 (ruby 3.0.3-p157) ("Birdie's Version")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: development
+*          PID: 43462
+Rails Error: Unable to access log file. Please ensure that /opt/chef-workstation/embedded/service/workstation-gui/log/development.log exists and is writable (i.e. make it writable for user and group: chmod 0664 /opt/chef-workstation/embedded/service/workstation-gui/log/development.log). The log level has been raised to WARN and the output directed to STDERR until the problem is fixed.
+* Listening on http://0.0.0.0:3000
+bundler: failed to load command: /opt/chef-workstation/embedded/bin/puma (/opt/chef-workstation/embedded/bin/puma)
+/opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:248:in `write': Permission denied @ rb_sysopen - tmp/pids/server.pid (Errno::EACCES)
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:248:in `write_pid'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:112:in `write_state'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/single.rb:48:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:182:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/cli.rb:81:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/bin/puma:10:in `<top (required)>'
+	from /opt/chef-workstation/embedded/bin/puma:25:in `load'
+	from /opt/chef-workstation/embedded/bin/puma:25:in `<top (required)>'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:58:in `load'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:58:in `kernel_load'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:23:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:478:in `exec'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor.rb:392:in `dispatch'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:31:in `dispatch'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/base.rb:485:in `start'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:25:in `start'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/bundler-2.2.32/libexec/bundle:49:in `block in <top (required)>'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/friendly_errors.rb:103:in `with_friendly_errors'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/bundler-2.2.32/libexec/bundle:37:in `<top (required)>'
+	from /opt/chef-workstation/embedded/bin/bundle:23:in `load'
+	from /opt/chef-workstation/embedded/bin/bundle:23:in `<main>'
+Puma starting in single mode...
+* Puma version: 5.6.4 (ruby 3.0.3-p157) ("Birdie's Version")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: development
+*          PID: 43491
+Rails Error: Unable to access log file. Please ensure that /opt/chef-workstation/embedded/service/workstation-gui/log/development.log exists and is writable (i.e. make it writable for user and group: chmod 0664 /opt/chef-workstation/embedded/service/workstation-gui/log/development.log). The log level has been raised to WARN and the output directed to STDERR until the problem is fixed.
+* Listening on http://0.0.0.0:3000
+bundler: failed to load command: /opt/chef-workstation/embedded/bin/puma (/opt/chef-workstation/embedded/bin/puma)
+/opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:248:in `write': Permission denied @ rb_sysopen - tmp/pids/server.pid (Errno::EACCES)
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:248:in `write_pid'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:112:in `write_state'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/single.rb:48:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:182:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/cli.rb:81:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/bin/puma:10:in `<top (required)>'
+	from /opt/chef-workstation/embedded/bin/puma:25:in `load'
+	from /opt/chef-workstation/embedded/bin/puma:25:in `<top (required)>'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:58:in `load'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:58:in `kernel_load'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:23:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:478:in `exec'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor.rb:392:in `dispatch'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:31:in `dispatch'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/base.rb:485:in `start'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:25:in `start'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/bundler-2.2.32/libexec/bundle:49:in `block in <top (required)>'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/friendly_errors.rb:103:in `with_friendly_errors'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/bundler-2.2.32/libexec/bundle:37:in `<top (required)>'
+	from /opt/chef-workstation/embedded/bin/bundle:23:in `load'
+	from /opt/chef-workstation/embedded/bin/bundle:23:in `<main>'
+Puma starting in single mode...
+* Puma version: 5.6.4 (ruby 3.0.3-p157) ("Birdie's Version")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: development
+*          PID: 43547
+Rails Error: Unable to access log file. Please ensure that /opt/chef-workstation/embedded/service/workstation-gui/log/development.log exists and is writable (i.e. make it writable for user and group: chmod 0664 /opt/chef-workstation/embedded/service/workstation-gui/log/development.log). The log level has been raised to WARN and the output directed to STDERR until the problem is fixed.
+* Listening on http://0.0.0.0:3000
+bundler: failed to load command: /opt/chef-workstation/embedded/bin/puma (/opt/chef-workstation/embedded/bin/puma)
+/opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:248:in `write': Permission denied @ rb_sysopen - tmp/pids/server.pid (Errno::EACCES)
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:248:in `write_pid'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:112:in `write_state'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/single.rb:48:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:182:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/cli.rb:81:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/bin/puma:10:in `<top (required)>'
+	from /opt/chef-workstation/embedded/bin/puma:25:in `load'
+	from /opt/chef-workstation/embedded/bin/puma:25:in `<top (required)>'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:58:in `load'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:58:in `kernel_load'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:23:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:478:in `exec'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor.rb:392:in `dispatch'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:31:in `dispatch'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/base.rb:485:in `start'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:25:in `start'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/bundler-2.2.32/libexec/bundle:49:in `block in <top (required)>'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/friendly_errors.rb:103:in `with_friendly_errors'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/bundler-2.2.32/libexec/bundle:37:in `<top (required)>'
+	from /opt/chef-workstation/embedded/bin/bundle:23:in `load'
+	from /opt/chef-workstation/embedded/bin/bundle:23:in `<main>'
+Puma starting in single mode...
+* Puma version: 5.6.4 (ruby 3.0.3-p157) ("Birdie's Version")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: development
+*          PID: 43610
+Rails Error: Unable to access log file. Please ensure that /opt/chef-workstation/embedded/service/workstation-gui/log/development.log exists and is writable (i.e. make it writable for user and group: chmod 0664 /opt/chef-workstation/embedded/service/workstation-gui/log/development.log). The log level has been raised to WARN and the output directed to STDERR until the problem is fixed.
+* Listening on http://0.0.0.0:3000
+bundler: failed to load command: /opt/chef-workstation/embedded/bin/puma (/opt/chef-workstation/embedded/bin/puma)
+/opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:248:in `write': Permission denied @ rb_sysopen - tmp/pids/server.pid (Errno::EACCES)
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:248:in `write_pid'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:112:in `write_state'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/single.rb:48:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/launcher.rb:182:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/lib/puma/cli.rb:81:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/puma-5.6.4/bin/puma:10:in `<top (required)>'
+	from /opt/chef-workstation/embedded/bin/puma:25:in `load'
+	from /opt/chef-workstation/embedded/bin/puma:25:in `<top (required)>'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:58:in `load'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:58:in `kernel_load'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli/exec.rb:23:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:478:in `exec'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor.rb:392:in `dispatch'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:31:in `dispatch'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/vendor/thor/lib/thor/base.rb:485:in `start'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/cli.rb:25:in `start'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/bundler-2.2.32/libexec/bundle:49:in `block in <top (required)>'
+	from /opt/chef-workstation/embedded/lib/ruby/3.0.0/bundler/friendly_errors.rb:103:in `with_friendly_errors'
+	from /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems/bundler-2.2.32/libexec/bundle:37:in `<top (required)>'
+	from /opt/chef-workstation/embedded/bin/bundle:23:in `load'
+	from /opt/chef-workstation/embedded/bin/bundle:23:in `<main>'
