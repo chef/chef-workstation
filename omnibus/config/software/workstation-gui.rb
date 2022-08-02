@@ -22,6 +22,11 @@ source path: File.join("#{project.files_path}", "../../src/workstation-gui")
 
 # todo need to checkout all the dependency
 dependency "ruby"
+dependency "libxml2"
+dependency "libxslt"
+dependency "liblzma"
+dependency "zlib"
+dependency "libarchive"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
@@ -31,8 +36,6 @@ build do
   # bundle "config set without 'development doc'"
   # exec 'brew install libxml2'
   # exec 'bundle config build.nokogiri "--use-system-libraries --with-xml2-include=/usr/local/opt/libxml2/include/libxml2"'
-
-  exec 'brew install xz'
 
   bundle "install" \
          " --jobs #{workers}" \
