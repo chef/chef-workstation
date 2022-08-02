@@ -27,15 +27,15 @@ dependency "libxslt"
 dependency "liblzma"
 dependency "zlib"
 dependency "libarchive"
-# dependency "nokogiri" # (nokogiri cannot go in the Gemfile, see wall of text in the software defn)
-# dependency "ruby-cleanup"
-# dependency "more-ruby-cleanup"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
   # bundle "package --no-install", env: env
   # This statement is to replace the --without flag which is getting deprecated
+  # bundle "config set without 'development doc'"
+  # exec 'brew install libxml2'
+  # exec 'bundle config build.nokogiri "--use-system-libraries --with-xml2-include=/usr/local/opt/libxml2/include/libxml2"'
 
   bundle "install" \
          " --jobs #{workers}" \
