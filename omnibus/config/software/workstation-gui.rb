@@ -29,8 +29,10 @@ build do
   # bundle "package --no-install", env: env
   # This statement is to replace the --without flag which is getting deprecated
   # bundle "config set without 'development doc'"
-  exec 'brew install libxml2'
-  exec 'bundle config build.nokogiri "--use-system-libraries --with-xml2-include=/usr/local/opt/libxml2/include/libxml2"'
+  # exec 'brew install libxml2'
+  # exec 'bundle config build.nokogiri "--use-system-libraries --with-xml2-include=/usr/local/opt/libxml2/include/libxml2"'
+
+  exec 'brew install xz'
 
   bundle "install" \
          " --jobs #{workers}" \
