@@ -20,7 +20,13 @@ gem "puma", "~> 5.0"
 
 gem "net-smtp", require: false
 
+<<<<<<< HEAD
 gem "premailer-rails", group: %i{development production}
+=======
+gem "premailer-rails", group: [:development, :production]
+
+
+>>>>>>> a0cc9697 (updated the Gemfile)
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -50,9 +56,13 @@ gem "jbuilder"
 # gem "bootsnap", require: false
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # gem "nokogiri"
 =======
 gem "nokogiri"
+=======
+# gem "nokogiri"
+>>>>>>> a0cc9697 (updated the Gemfile)
 
 # Use Sass to process CSS
 # gem "sassc-rails"
