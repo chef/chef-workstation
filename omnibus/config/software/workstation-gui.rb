@@ -37,10 +37,11 @@ build do
   # exec 'brew install libxml2'
   # exec 'bundle config build.nokogiri "--use-system-libraries --with-xml2-include=/usr/local/opt/libxml2/include/libxml2"'
 
+  bundle "config set --local path 'vendor/bundle' "
+
   bundle "install" \
          " --jobs #{workers}" \
-         " --retry 3" \
-         " --path=vendor/bundle",
+         " --retry 3",
          env: env
 
 
