@@ -36,7 +36,11 @@ build do
   # bundle "config set without 'development doc'"
   # exec 'brew install libxml2'
   # exec 'bundle config build.nokogiri "--use-system-libraries --with-xml2-include=/usr/local/opt/libxml2/include/libxml2"'
-
+  bundle "package --no-install", env: env
+  bundle "config local.digest 'vendor/bundle' "
+  bundle "config local.websocket-driver 'vendor/bundle' "
+  bundle "config local.racc 'vendor/bundle' "
+  bundle "config local.strscan 'vendor/bundle' "
   bundle "config set --local path 'vendor/bundle' "
 
   bundle "install" \
