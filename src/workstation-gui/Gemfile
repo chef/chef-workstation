@@ -13,7 +13,7 @@ gem "sprockets-rails"
 # gem 'concurrent-ruby', '~> 1.1', '>= 1.1.10'
 
 # Use sqlite3 as the database for Active Record
-# gem "sqlite3", "~> 1.4"
+gem "sqlite3", "~> 1.4"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -25,9 +25,12 @@ gem "premailer-rails", group: %i{development production}
 =======
 gem "premailer-rails", group: [:development, :production]
 
+<<<<<<< HEAD
 
 >>>>>>> a0cc9697 (updated the Gemfile)
 
+=======
+>>>>>>> e128002e (updated Gemfile)
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
@@ -53,8 +56,9 @@ gem "jbuilder"
 # gem "tzinfo-data", platforms: %i[xmingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
-# gem "bootsnap", require: false
+gem "bootsnap", require: false
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 # gem "nokogiri"
@@ -63,6 +67,9 @@ gem "nokogiri"
 =======
 # gem "nokogiri"
 >>>>>>> a0cc9697 (updated the Gemfile)
+=======
+gem "nokogiri"
+>>>>>>> e128002e (updated Gemfile)
 
 # Use Sass to process CSS
 # gem "sassc-rails"
