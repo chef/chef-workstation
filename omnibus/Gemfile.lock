@@ -8,11 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/chef/omnibus.git
-<<<<<<< HEAD
   revision: 053efc33a0d050c2860f6b90c913b6e8f382d025
-=======
-  revision: 4c0a3d0a021bcfcabedf4cb7d87fb24a7db385fd
->>>>>>> 088752dd (updated the omnibus branch)
   branch: poorndm/whitelist_liblzma
   specs:
     omnibus (9.0.6)
