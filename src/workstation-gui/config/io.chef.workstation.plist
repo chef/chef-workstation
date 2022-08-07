@@ -23,9 +23,10 @@
 
     <key>ProgramArguments</key>
     <array>
-      <string>/usr/local/bin/puma</string>
+      <string>bundle exec</string>
+      <string>/opt/chef-workstation/embedded/lib/ruby/3.0.0/bin/puma</string>
       <string>-C</string>
-      <string>/Users/ngupta/src/workstation-gui/config/puma.rb</string>
+      <string>/opt/chef-workstation/embedded/service/workstation-gui/config/puma.rb</string>
     </array>
 
   </dict>
