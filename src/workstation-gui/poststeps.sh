@@ -6,4 +6,8 @@ cd /opt/chef-workstation/embedded/service/workstation-gui
 
 echo "$PWD"
 
-bundle exec /opt/chef-workstation/embedded/lib/ruby/3.0.0/bin/puma -C config/puma.rb
+cp /opt/chef-workstation/embedded/service/workstation-gui/config/io.chef.workstation.plist ~/Library/LaunchAgents/
+
+launchctl load ~/Library/LaunchAgents/io.chef.workstation.plist
+
+launchctl start ~/Library/LaunchAgents/io.chef.workstation.plist
