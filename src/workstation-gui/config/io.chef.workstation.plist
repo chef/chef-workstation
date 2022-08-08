@@ -4,7 +4,7 @@
   <dict>
 
     <key>Label</key>
-    <string>com.journal.today.plist</string>
+    <string>com.chef.workstation.plist</string>
 
     <key>RunAtLoad</key>
     <true/>
@@ -13,13 +13,13 @@
     <integer>20</integer>
 
     <key>StandardErrorPath</key>
-    <string>/Users/ngupta/src/workstation-gui/stderr.log</string>
+    <string>/opt/chef-workstation/embedded/service/workstation-gui/stderr.log</string>
 
     <key>StandardOutPath</key>
-    <string>/Users/ngupta/src/workstation-gui/stdout.log</string>
+    <string>/opt/chef-workstation/embedded/service/workstation-gui/stdout.log</string>
 
     <key>WorkingDirectory</key>
-    <string>/Users/ngupta/chef-ui-backend</string>
+    <string>/opt/chef-workstation/embedded/service/workstation-gui</string>
 
     <key>ProgramArguments</key>
     <array>
