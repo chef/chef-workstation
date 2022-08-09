@@ -8,6 +8,11 @@
 
     <key>RunAtLoad</key>
     <true/>
+    <key>KeepAlive</key>
+	  <dict>
+		  <key>SuccessfulExit</key>
+		  <false/>
+	  </dict>
 
     <key>StartInterval</key>
     <integer>20</integer>
