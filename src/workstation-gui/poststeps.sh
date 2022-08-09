@@ -6,6 +6,12 @@ cd /opt/chef-workstation/embedded/service/workstation-gui
 
 echo "$PWD"
 
+# Regenerate the secrets
+rm config/master.key
+rm config/credentials.yml.enc
+EDITOR=echo rails credentials:edit
+rake secrets:regenerate
+
 cp /opt/chef-workstation/embedded/service/workstation-gui/config/io.chef.workstation.plist ~/Library/LaunchAgents/
 
 launchctl load ~/Library/LaunchAgents/io.chef.workstation.plist
