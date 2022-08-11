@@ -17,6 +17,6 @@ mv /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/ruby/3.0.0/bin/* /opt/chef
 
 chmod +x /opt/chef-workstation/embedded/service/workstation-gui/config/server.sh
 
-cp /opt/chef-workstation/embedded/service/workstation-gui/config/io.chef.workstation.plist ~/Library/LaunchAgents/
+cp /opt/chef-workstation/embedded/service/workstation-gui/config/io.chef.chef-workstation.plist ~/Library/LaunchAgents/
 
-launchctl load ~/Library/LaunchAgents/io.chef.workstation.plist
+launchctl load ~/Library/LaunchAgents/io.chef.chef-workstation.plist
