@@ -4,7 +4,7 @@
   <dict>
 
     <key>Label</key>
-    <string>com.chef.workstation.plist</string>
+    <string>io.chef.chef-workstation</string>
 
     <key>RunAtLoad</key>
     <true/>
