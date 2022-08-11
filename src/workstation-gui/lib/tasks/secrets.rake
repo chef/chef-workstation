@@ -38,6 +38,9 @@ def yaml_content(access_key, secret)
 end
 
 def write_to_files(data, key)
+  # Remove the existing files before write
+  [CONTENT_PATH, KEY_PATH].each { |path| File.delete(path) if File.exist?(path) }
+
   IO.binwrite(Rails.application.root.join(CONTENT_PATH), data)
   File.write(Rails.application.root.join(KEY_PATH), key)
 end
