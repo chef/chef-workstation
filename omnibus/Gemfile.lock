@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/chef/omnibus.git
-  revision: 83d8428abde4cb289a161f736822ba02563a884c
+  revision: ec194420d4fff6edf108a17913f8ff85f8c91a4c
   branch: main
   specs:
-    omnibus (9.0.3)
+    omnibus (9.0.5)
       aws-sdk-s3 (~> 1)
       chef-cleanroom (~> 1.0)
       chef-utils (>= 15.4)
@@ -465,8 +465,8 @@ GEM
 
 PLATFORMS
   ruby
-  x64-mingw
   x64-mingw32
+  x64-unknown
   x86-mingw32
 
 DEPENDENCIES
