@@ -8,12 +8,6 @@
 
     <key>RunAtLoad</key>
     <true/>
-    <key>KeepAlive</key>
-	  <dict>
-		  <key>SuccessfulExit</key>
-		  <false/>
-	  </dict>
-
     <key>StartInterval</key>
     <integer>20</integer>
 
@@ -28,8 +22,11 @@
 
     <key>ProgramArguments</key>
     <array>
-      <string>/opt/chef-workstation/embedded/service/workstation-gui/config/server.sh</string>
+      <string>/opt/chef-workstation/embedded/bin/bundle</string>
+      <string>exec</string>
+      <string>/opt/chef-workstation/embedded/bin/puma</string>
+      <string>-C</string>
+      <string>/opt/chef-workstation/embedded/service/workstation-gui/config/puma.rb</string>
     </array>
-
   </dict>
 </plist>
