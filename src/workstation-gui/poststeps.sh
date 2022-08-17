@@ -16,7 +16,7 @@ echo "Updated the persmissions for tmp and log" >> bashlog.txt
 rm config/credentials.yml.enc
 rm config/master.key
 echo "Deleted files" >> bashlog.txt
-rake secrets:regenerate
+rake secrets:regenerate >> bashlog.txt
 echo "Regerated the secrets" >> bashlog.txt
 
 cp /opt/chef-workstation/embedded/service/workstation-gui/config/io.chef.workstation.plist ~/Library/LaunchAgents/
