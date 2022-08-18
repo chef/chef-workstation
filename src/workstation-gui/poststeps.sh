@@ -17,7 +17,9 @@ rm config/credentials.yml.enc
 rm config/master.key
 echo "Deleted files" >> bashlog.txt
 echo "===================================" >> bashlog.txt
-/opt/chef-workstation/embedded/bin/bundle exec /opt/chef-workstation/embedded/bin/rake secrets:regenerate >> bashlog.txt
+#/opt/chef-workstation/embedded/bin/bundle exec /opt/chef-workstation/embedded/bin/rake secrets:regenerate >> bashlog.txt
+bash secrets.sh
+
 echo "===================================" >> bashlog.txt
 echo "Regerated the secrets" >> bashlog.txt
 
