@@ -4,11 +4,10 @@
   <dict>
 
     <key>Label</key>
-    <string>com.chef.workstation.plist</string>
+    <string>io.chef.chef-workstation</string>
 
     <key>RunAtLoad</key>
     <true/>
-
     <key>StartInterval</key>
     <integer>20</integer>
 
@@ -23,11 +22,11 @@
 
     <key>ProgramArguments</key>
     <array>
-      <string>bundle exec</string>
-      <string>/opt/chef-workstation/embedded/lib/ruby/3.0.0/bin/puma</string>
+      <string>/opt/chef-workstation/embedded/bin/bundle</string>
+      <string>exec</string>
+      <string>/opt/chef-workstation/embedded/bin/puma</string>
       <string>-C</string>
       <string>/opt/chef-workstation/embedded/service/workstation-gui/config/puma.rb</string>
     </array>
-
   </dict>
 </plist>

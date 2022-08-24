@@ -41,7 +41,6 @@ build do
   # bundle "config local.websocket-driver 'vendor/bundle/ruby/3.0.0/gems' "
   # bundle "config local.racc 'vendor/bundle' "
   # bundle "config local.strscan 'vendor/bundle' "
-  # bundle "config set --local path '#{install_dir}/embedded/lib/'", env: env
 
   bundle "install" \
          " --jobs #{workers}" \
