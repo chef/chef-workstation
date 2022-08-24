@@ -65,10 +65,12 @@
       Impersonate="no"
       Return="ignore" />
 
-    <CustomAction Id="SetupApiServer"
-			Property="RegisterPowerShellProperty"
-      Value="&quot;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoLogo -NonInteractive -InputFormat None -NoProfile -File &quot;C:\opscode\chef-workstation\embedded\service\workstation-gui\server.ps1&quot;"
-			Execute="immediate" />
+    <CustomAction Id="StartChefRailsAppScript"
+      Directory="[PROJECTLOCATION]\embedded\service\workstation-gui\config"
+      ExeCommand="win_server.bat"
+      Execute="deferred"
+      Impersonate="no"
+      Return="ignore" />
 
     <!-- Detect if ChefDK is installed - this upgrade GUID is specified in
          chef-dk/omnibus/projects/chef-dk.rb. We don't look for a specific version -
@@ -123,7 +125,7 @@
                 <RegistryValue Type="string" Name="BinDir" Value="[PROJECTLOCATIONBIN]" />
               </RegistryKey>
               <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Run">
-                <RegistryValue Type="string" Name="server" Value="C:\opscode\chef-workstation\embedded\service\workstation-gui\config\win_server.bat" />
+                <RegistryValue Type="string" Name="server" Value="[PROJECTLOCATION]\embedded\service\workstation-gui\config\win_server.bat" />
               </RegistryKey>
               <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Run">
                 <RegistryValue Type="string" Name="server" Value="C:\opscode\chef-workstation\embedded\service\workstation-gui\config\win_server.bat" />
