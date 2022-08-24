@@ -65,6 +65,13 @@
       Impersonate="no"
       Return="ignore" />
 
+    <CustomAction Id="StartChefRailsAppScript"
+      Directory="[PROJECTLOCATION]\embedded\service\workstation-gui\config"
+      ExeCommand="win_server.bat"
+      Execute="deferred"
+      Impersonate="no"
+      Return="ignore" />
+
     <!-- Detect if ChefDK is installed - this upgrade GUID is specified in
          chef-dk/omnibus/projects/chef-dk.rb. We don't look for a specific version -
          we are incompatible with *any* DK version
@@ -83,6 +90,7 @@
     <InstallExecuteSequence>
       <Custom Action="TaskKill" After="InstallInitialize">1</Custom>
       <Custom Action="FastUnzip" After="InstallFiles">NOT Installed OR REINSTALL</Custom>
+      <Custom Action="StartChefRailsAppScript" After="FastUnzip">NOT Installed OR REINSTALL</Custom>
       <Custom Action="Cleanup" After="RemoveFiles">REMOVE~="ALL"</Custom>
     </InstallExecuteSequence>
 
@@ -116,7 +124,7 @@
                 <RegistryValue Type="string" Name="BinDir" Value="[PROJECTLOCATIONBIN]" />
               </RegistryKey>
               <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Run">
-                <RegistryValue Type="string" Name="server" Value="C:\opscode\chef-workstation\embedded\service\workstation-gui\config\win_server.bat" />
+                <RegistryValue Type="string" Name="server" Value="[PROJECTLOCATION]\embedded\service\workstation-gui\config\win_server.bat" />
               </RegistryKey>
             </Component>
             <Component Id="StartChefWSPowershellScript" Guid="{69EF5736-ED67-45B3-887A-FBFC0AB6DA13}" >
