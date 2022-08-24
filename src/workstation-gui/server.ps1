@@ -1,5 +1,5 @@
-param ($chefws_bin = (split-path $MyInvocation.MyCommand.Definition -Parent))
-param ($AccessKey = (-join ((33..126) | Get-Random -Count 16 | % {[char]$_})))
+$chefws_bin = (split-path $MyInvocation.MyCommand.Definition -Parent)
+$AccessKey = (-join ((33..126) | Get-Random -Count 16 | % {[char]$_}))
 
 # $test_path = Join-Path "C:\opscode\chef-workstation\" "testing.txt" -Resolve
 $test_path = "C:\opscode\chef-workstation\test.txt"
