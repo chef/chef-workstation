@@ -10,12 +10,10 @@ Try {
   if ( test-path $conemulocation )
   {
       start-process $conemulocation -verb open -argumentlist '/title',"`"$chefwstitle`"",'/cmd','powershell.exe','-noexit','-command',$chefwscommand
-      start-process "cmd.exe" "/c C:/opscode/chef-workstation/embedded/service/workstation-gui/config/win_server.bat"
   }
   else
   {
       start-process powershell.exe -verb open -argumentlist '-noexit','-command',"$chefwscommand; (get-host).ui.rawui.windowtitle = '$chefwstitle'"
-      start-process "cmd.exe" "/c C:/opscode/chef-workstation/embedded/service/workstation-gui/config/win_server.bat"
   }
 }
 Catch
