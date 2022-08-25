@@ -8,3 +8,7 @@ $parent = split-path $test_path -Parent
 Set-Location -Path $parent
 
 Add-Content -Path "test.txt" -Value "This is a testing file"
+
+Set-Location -Path "\embedded\service\workstation-gui\config\"
+
+.\win_server.bat
