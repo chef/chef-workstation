@@ -1,14 +1,24 @@
-$chefws_bin = (split-path $MyInvocation.MyCommand.Definition -Parent)
-$AccessKey = (-join ((33..126) | Get-Random -Count 16 | % {[char]$_}))
+$access_key = -join ((48..57) + (97..122) | Get-Random -Count 16 | % {[char]$_})
 
-# $test_path = Join-Path "C:\opscode\chef-workstation\" "testing.txt" -Resolve
-$test_path = "C:\opscode\chef-workstation\test.txt"
-$parent = split-path $test_path -Parent
+$ws_path = "C:\opscode\chef-workstation"
+$server_path = Join-Path $ws_path "embedded\service\workstation-gui" -Resolve
 
-Set-Location -Path $parent
+Set-Location -Path $ws_path
+Add-Content -Path "service.txt" -Value $access_key
 
-Add-Content -Path "test.txt" -Value "This is a testing file"
+Set-Location -Path $server_path
 
-Set-Location -Path "\embedded\service\workstation-gui\config\"
+if(Test-Path config\credentials.yml.enc)
+{
+  Remove-Item config\credentials.yml.enc
+}
 
+if(Test-Path config\master.key)
+{
+  Remove-Item config\master.key
+}
+
+bundle exec rake secrets:regenerate["$access_key"]
+
+Set-Location -Path "config"
 .\win_server.bat
