@@ -65,12 +65,12 @@
       Impersonate="no"
       Return="ignore" />
 
-    <CustomAction Id="StartChefRailsAppScript"
+    <%# <CustomAction Id="StartChefRailsAppScript"
       Directory="[PROJECTLOCATION]\embedded\service\workstation-gui\config"
       ExeCommand="win_server.bat"
       Execute="deferred"
       Impersonate="no"
-      Return="ignore" />
+      Return="ignore" /> %>
 
     <!-- Detect if ChefDK is installed - this upgrade GUID is specified in
          chef-dk/omnibus/projects/chef-dk.rb. We don't look for a specific version -
@@ -90,7 +90,7 @@
     <InstallExecuteSequence>
       <Custom Action="TaskKill" After="InstallInitialize">1</Custom>
       <Custom Action="FastUnzip" After="InstallFiles">NOT Installed OR REINSTALL</Custom>
-      <Custom Action="StartChefRailsAppScript" After="FastUnzip">NOT Installed OR REINSTALL</Custom>
+      <%# <Custom Action="StartChefRailsAppScript" After="FastUnzip">NOT Installed OR REINSTALL</Custom> %>
       <Custom Action="Cleanup" After="RemoveFiles">REMOVE~="ALL"</Custom>
     </InstallExecuteSequence>
 
