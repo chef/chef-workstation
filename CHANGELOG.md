@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.8.1010 -->
-## [22.8.1010](https://github.com/chef/chef-workstation/tree/22.8.1010) (2022-08-17)
+<!-- latest_release 22.8.1011 -->
+## [22.8.1011](https://github.com/chef/chef-workstation/tree/22.8.1011) (2022-08-30)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.176 [#2908](https://github.com/chef/chef-workstation/pull/2908) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update signing identity [#2914](https://github.com/chef/chef-workstation/pull/2914) ([tpowell-progress](https://github.com/tpowell-progress))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.7.1006 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update signing identity [#2914](https://github.com/chef/chef-workstation/pull/2914) ([tpowell-progress](https://github.com/tpowell-progress)) <!-- 22.8.1011 -->
 - Bump Chef Workstation App to 0.2.176 [#2908](https://github.com/chef/chef-workstation/pull/2908) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.8.1010 -->
 - Bump kitchen-dokken to 2.17.3 [#2898](https://github.com/chef/chef-workstation/pull/2898) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.7.1009 -->
 - Bump habitat to 1.6.521 [#2894](https://github.com/chef/chef-workstation/pull/2894) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 22.7.1008 -->
