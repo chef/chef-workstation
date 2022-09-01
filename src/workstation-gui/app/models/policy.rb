@@ -4,7 +4,7 @@
 # Use Policy.update_policy_file
 
 class Policy < ApplicationRecord
-  include ActiveModel::Model
+  # include ActiveModel::Model
 
   require 'chef-cli/policyfile_services/install'
 
