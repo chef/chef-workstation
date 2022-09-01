@@ -14,20 +14,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session
-  before_action :authenticate_api_requests!
+class AuthenticationController < ApplicationController
+  before_action :validate_creds, only: %i[login]
+  skip_before_action :authenticate_api_requests!, only: %i[login]
 
-  def authenticate_api_requests!
-    header = request.headers['Authorization']
-    header = header.split(' ').last if header
-
-    decoded = Auth::JwtToken.decode(header)
+  def login
     access_key = Rails.application.credentials.access_key.to_s
-    if decoded['access_key'] != access_key
-      render json: { error: 'Invalid auth credentials' }, status: :unauthorized
+
+    if params[:access_key] == access_key
+      token = Auth::JwtToken.encode(access_key: params[:access_key])
+
+      render json: {
+        token: token
+      }, status: :ok
+    else
+      render json: { errors: "Invalid credentials" }, status: :unauthorized
     end
-  rescue JWT::DecodeError => e
-    render json: { error: "Unable to process the auth token: #{e.message}" }, status: :unauthorized
+  end
+
+  def testing
+    render json: {status: "okay", message: "success" }
+  end
+
+  private
+
+  def validate_creds
+    render json: { errors: "Access key is required"} unless params.key?(:access_key)
   end
 end

@@ -15,6 +15,8 @@
 
 # mv /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/ruby/3.0.0/bin/* /opt/chef-workstation/bin
 
+bash secrets.sh
+
 chmod +x /opt/chef-workstation/embedded/service/workstation-gui/config/server.sh
 
 chmod -R 777 /opt/chef-workstation/embedded/service/workstation-gui/tmp
