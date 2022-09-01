@@ -12,5 +12,6 @@ fi
 echo "$access_key"
 echo "$access_key" >> /opt/chef-workstation/service.txt
 
+rm config/credentials.yml.enc
+rm config/master.key
 /opt/chef-workstation/embedded/bin/bundle exec /opt/chef-workstation/embedded/bin/rake secrets:regenerate["$access_key"]
-#rake secrets:regenerate["$access_key"]
