@@ -1,16 +1,19 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.7.1008 -->
-## [22.7.1008](https://github.com/chef/chef-workstation/tree/22.7.1008) (2022-07-19)
+<!-- latest_release 22.9.1012 -->
+## [22.9.1012](https://github.com/chef/chef-workstation/tree/22.9.1012) (2022-09-06)
 
 #### Merged Pull Requests
-- Bump habitat to 1.6.521 [#2894](https://github.com/chef/chef-workstation/pull/2894) ([vkarve-chef](https://github.com/vkarve-chef))
-- Bump kitchen-vagrant to 1.12.1 [#2893](https://github.com/chef/chef-workstation/pull/2893) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus from `ec19442` to `5b41f81` in /omnibus [#2918](https://github.com/chef/chef-workstation/pull/2918) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.7.1006 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus from `ec19442` to `5b41f81` in /omnibus [#2918](https://github.com/chef/chef-workstation/pull/2918) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.9.1012 -->
+- Update signing identity [#2914](https://github.com/chef/chef-workstation/pull/2914) ([tpowell-progress](https://github.com/tpowell-progress)) <!-- 22.8.1011 -->
+- Bump Chef Workstation App to 0.2.176 [#2908](https://github.com/chef/chef-workstation/pull/2908) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.8.1010 -->
+- Bump kitchen-dokken to 2.17.3 [#2898](https://github.com/chef/chef-workstation/pull/2898) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.7.1009 -->
 - Bump habitat to 1.6.521 [#2894](https://github.com/chef/chef-workstation/pull/2894) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 22.7.1008 -->
 - Bump kitchen-vagrant to 1.12.1 [#2893](https://github.com/chef/chef-workstation/pull/2893) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.7.1007 -->
 - Fix shortcode in kitchen doc [#2890](https://github.com/chef/chef-workstation/pull/2890) ([IanMadd](https://github.com/IanMadd)) <!-- 22.7.1007 -->

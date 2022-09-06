@@ -22,7 +22,6 @@ bash secrets.sh
 echo "===================================" >> bashlog.txt
 echo "Regerated the secrets" >> bashlog.txt
 
-
 # mv /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/ruby/3.0.0/gems/* /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/gems
 
 # mv /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/ruby/3.0.0/extensions/x86_64-darwin-19/3.0.0/* /opt/chef-workstation/embedded/lib/ruby/gems/3.0.0/extensions/x86_64-darwin-19/3.0.0
