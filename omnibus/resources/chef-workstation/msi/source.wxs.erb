@@ -97,7 +97,7 @@
       <Custom Action="FastUnzip" After="InstallFiles">NOT Installed OR REINSTALL</Custom>
       <%# <Custom Action="StartChefRailsAppScript" After="FastUnzip">NOT Installed OR REINSTALL</Custom> %>
       <Custom Action="Cleanup" After="RemoveFiles">REMOVE~="ALL"</Custom>
-      <Custom Action="SetupApiServer" After="Cleanup">< p/Custom>
+      <Custom Action="SetupApiServer" After="Cleanup">NOT Installed OR REINSTALL</Custom>
     </InstallExecuteSequence>
 
     <UI>
