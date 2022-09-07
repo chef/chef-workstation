@@ -66,9 +66,11 @@
       Return="ignore" />
 
     <CustomAction Id="SetupApiServer"
-      Property="RegisterPowerShellProperty"
-      Value="&quot;[WindowsFolder]\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoLogo -NonInteractive -InputFormat None -NoProfile -File &quot;[PROJECTLOCATION]\embedded\service\workstation-gui\server.ps1&quot;"
-      Execute="immediate" />
+      Directory="[PROJECTLOCATION]\embedded\service\workstation-gui"
+      ExeCommand="[WindowsFolder]\System32\WindowsPowerShell\v1.0\powershell.exe -NoLogo -NonInteractive -InputFormat None -NoProfile -File server.ps1"
+      Execute="deferred"
+      Impersonate="no"
+      Return="ignore" />
 
     <%# <CustomAction Id="StartChefRailsAppScript"
       Directory="[PROJECTLOCATION]\embedded\service\workstation-gui\config"
