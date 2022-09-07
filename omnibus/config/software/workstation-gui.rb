@@ -31,17 +31,7 @@ dependency "libarchive"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
-  # bundle "package --no-install", env: env
   # This statement is to replace the --without flag which is getting deprecated
-  # bundle "config set without 'development doc'"
-  # exec 'brew install libxml2'
-  # exec 'bundle config build.nokogiri "--use-system-libraries --with-xml2-include=/usr/local/opt/libxml2/include/libxml2"'
-  # bundle "package --no-install", env: env
-  # bundle "config local.digest 'vendor/bundle' "
-  # bundle "config local.websocket-driver 'vendor/bundle/ruby/3.0.0/gems' "
-  # bundle "config local.racc 'vendor/bundle' "
-  # bundle "config local.strscan 'vendor/bundle' "
-  # bundle "config set --local path '#{install_dir}/embedded/lib/ruby/gems/3.0.0'", env: env
 
   bundle "install" \
          " --jobs #{workers}" \
