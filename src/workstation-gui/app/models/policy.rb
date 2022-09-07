@@ -30,6 +30,8 @@ class Policy < ApplicationRecord
   end
 
   def self.push_policy_file
+    # require 'pry'
+    # binding.pry
     install_push_file_config(CLIConfig.new.chef_config, policyfile_name = "Policyfile.rb")
     { 'status' => 200, 'message' => 'Success' }
   rescue StandardError => e

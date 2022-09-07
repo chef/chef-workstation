@@ -13,6 +13,8 @@ gem 'chef', '~> 17.10'
 gem 'knife', '~> 17.9', '>= 17.9.26'
 gem 'chef-cli'
 
+gem 'pry-nav'
+
 # gem "tzinfo-data"
 # gem 'concurrent-ruby', '~> 1.1', '>= 1.1.10'
 

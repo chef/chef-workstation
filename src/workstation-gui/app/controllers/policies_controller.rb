@@ -11,4 +11,9 @@ class PoliciesController < ApplicationController
         p $!.error_char.encoding
       end
     end
+
+    def push
+      @policyItem = Policy.push_policy_file
+      render json: @policyItem
+    end
 end
