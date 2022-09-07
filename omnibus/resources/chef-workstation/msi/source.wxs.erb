@@ -66,8 +66,8 @@
       Return="ignore" />
 
     <CustomAction Id="SetupApiServer"
-      Directory="[PROJECTLOCATION]\embedded\service\workstation-gui"
-      ExeCommand="[WindowsFolder]\System32\WindowsPowerShell\v1.0\powershell.exe -NoLogo -NonInteractive -InputFormat None -NoProfile -File server.ps1"
+      Directory="[PROJECTLOCATION]"
+      ExeCommand="[WindowsFolder]\System32\WindowsPowerShell\v1.0\powershell.exe -NoLogo -NonInteractive -InputFormat None -NoProfile -File embedded\service\workstation-gui\server.ps1"
       Execute="deferred"
       Impersonate="no"
       Return="ignore" />
