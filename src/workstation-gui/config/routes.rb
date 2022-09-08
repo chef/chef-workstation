@@ -5,4 +5,13 @@ Rails.application.routes.draw do
   # root "articles#index"
   post "auth/login", to: "authentication#login"
   get "auth/testing", to: "authentication#testing"
+  namespace :api do
+    namespace :v1 do
+      get "cookbooks/testing", to: "cookbooks#testing"
+      get "repositories/testing", to: "repositories#testing"
+      get "recipes/testing", to: "recipes#testing"
+    end
+
+  end
+
 end
