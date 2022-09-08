@@ -3,7 +3,7 @@ module Auth
     SECRET_KEY = Rails.application.credentials.secret_key_base.to_s
 
     class << self
-      def encode(payload, exp = 30.seconds.from_now) #1.week.from_now)
+      def encode(payload, exp = 1.week.from_now)
         payload[:exp] = exp.to_i
 
         JWT.encode(payload, SECRET_KEY)
