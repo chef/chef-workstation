@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   def authenticate_api_user!
     header = request.headers['Authorization']
     header = header.split(' ').last if header
+    return render json: { error: "Missing authorization headers" }, status: :unauthorized if header.nil?
 
     decoded = Auth::JwtToken.decode(header)
     access_key = Rails.application.credentials.access_key.to_s
