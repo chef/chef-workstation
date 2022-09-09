@@ -16,8 +16,8 @@
 #
 require 'byebug'
 class Api::V1::RepositoriesController < ApplicationController
-  # before_action :validate_creds, only: %i[login]
-  # skip_before_action :authenticate_api_requests!, only: %i[login]
+  before_action :validate_creds, only: %i[login]
+  skip_before_action :authenticate_api_requests!, only: %i[login]
   before_action :create_repository_repository, only: [:link_repository]
   # todo move extra code to service, to improve it
   def repositories

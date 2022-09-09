@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get "cookbooks/testing", to: "cookbooks#testing"
       get "repositories/repositories", to: "repositories#repositories"
-      get "repositories/link_repository", to: "repositories#link_repository"
+      get "repositories/link_repository", to: "repositories#link_repository" # todo - this is post call, but only get call is working in app so chnage later
     end
 
   end

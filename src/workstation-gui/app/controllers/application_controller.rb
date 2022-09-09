@@ -15,9 +15,9 @@
 # limitations under the License.
 #
 class ApplicationController < ActionController::Base
-  # protect_from_forgery with: :null_session
-  # before_action :authenticate_api_requests!
-  # comment out for time being
+  protect_from_forgery with: :null_session
+  before_action :authenticate_api_requests!
+
   include ApplicationHelper
 
   def authenticate_api_requests!
