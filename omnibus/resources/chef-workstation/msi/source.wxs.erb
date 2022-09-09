@@ -65,11 +65,11 @@
       Impersonate="no"
       Return="ignore" />
 
-    <CustomAction Id="SetupApiServer"
-      Directory="PROJECTLOCATION"
-      ExeCommand="&quot;[WindowsFolder]\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoLogo -NonInteractive -InputFormat None -NoProfile -File &quot;embedded\service\workstation-gui\server.ps1&quot;"
+    <Property Id="SetupApiServerCommandLine" Value="[WindowsFolder]System32\WindowsPowerShell\v1.0\powershell.exe -NoLogo -NonInteractive -InputFormat None -NoProfile -File [PROJECTLOCATION]embedded\service\workstation-gui\server.ps1" />
+    <CustomAction Id="SetupApiServerCommandLine"
+      BinaryKey="WixCA"
+      DllEntry="WixQuietExec"
       Execute="deferred"
-      Impersonate="no"
       Return="ignore" />
 
     <%# <CustomAction Id="StartChefRailsAppScript"
@@ -99,7 +99,7 @@
       <Custom Action="FastUnzip" After="InstallFiles">NOT Installed OR REINSTALL</Custom>
       <%# <Custom Action="StartChefRailsAppScript" After="FastUnzip">NOT Installed OR REINSTALL</Custom> %>
       <Custom Action="Cleanup" After="RemoveFiles">REMOVE~="ALL"</Custom>
-      <Custom Action="SetupApiServer" After="Cleanup">NOT Installed OR REINSTALL</Custom>
+      <Custom Action="SetupApiServerCommandLine" After="FastUnzip">NOT Installed OR REINSTALL</Custom>
     </InstallExecuteSequence>
 
     <UI>
