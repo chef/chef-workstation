@@ -14,45 +14,57 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+require 'byebug'
 class Api::V1::RepositoriesController < ApplicationController
   # before_action :validate_creds, only: %i[login]
   # skip_before_action :authenticate_api_requests!, only: %i[login]
-  before_action :create_repository_repository
-
+  before_action :create_repository_repository, only: [:link_repository]
+  # todo move extra code to service, to improve it
   def repositories
-    render json: {status: "okay", message: "success" }
+    data_hash = parse_file(read_repo_file)
+    # todo - add pagination
+    result = result_post_pagination(data_hash["repositories"], params[:limit], params[:page])
+    render json: { repositories: result, message: "success", code: "200" }, status: 200
+
+  rescue StandardError => e
+    render json: { message: e.message , code: "422" }, status: 422
   end
 
-  def link_repository(repository_params)
+  def link_repository
     require 'json'
     check_for_duplicate_linking # todo can move these to service
     write_new_path_to_file
+    render json: {status: "ok", message: "success", code: "200" }, status: 200
+
+  rescue StandardError => e
+    render json: { message: e.message , code: "422" }, status: 422
   end
 
   private
 
   def check_for_duplicate_linking
-    data_hash = JSON.parse(read_repo_file)
-    data_hash[0][:repositories]
-    if data_hash[0][:repositories].any? {|h| h[:filepath] == repository_params[:filepath]}
-      render json: {status: "422", message: "Repository already linked" } and return
+    unless read_repo_file.empty?
+      data_hash = parse_file(read_repo_file)
+      if data_hash["repositories"].any? {|h| h["filepath"] == repository_params["filepath"]} # todo make sure to use sym, for better code quality ex h[:filepath], jspn is not reading symbol
+        raise StandardError.new("Repository already linked")
+      end
     end
   end
 
   def write_new_path_to_file
     tempHash = {
       "id" => repository_params[:id],
+      "type" => repository_params[:type],
       "repository_name" => repository_params[:repository_name],
       "cookbooks" => repository_params[:cookbooks],
       "filepath" => repository_params[:filepath]
     }
-    File.open(chef_repo_storage_file,"w") do |f|
-      f.write(tempHash.to_json)
-    end
-  end
 
-  def read_repo_file
-     File.read(chef_repo_storage_file)
+    data_hash =  parse_file(read_repo_file)
+    data_hash["repositories"] << tempHash
+    File.open(chef_repo_storage_file,"w") do |f|
+      f.write(data_hash.to_json)
+    end
   end
 
   def  create_repository_repository
@@ -71,9 +83,10 @@ class Api::V1::RepositoriesController < ApplicationController
   end
 
   def repository_params
+    raise StandardError.new("Invalid repository path")  if !validate_path(params[:repositories][:filepath])
     params[:repositories][:id] = generate_random_id if  params[:repositories][:id].nil?
     params[:repositories][:cookbooks] = [] if  params[:repositories][:cookbooks].nil?
-    params[:repositories][:repository_name] = get_repo_name( params[:repositories][:filepath] )if  params[:repositories][:cookbooks].nil?
-    params.require(:repositories).permit(:id, :repository_name, :cookbooks, :filepath)
+    params[:repositories][:repository_name] = get_repo_name( params[:repositories][:filepath] )if  params[:repositories][:repository_name].nil?
+    params.require(:repositories).permit(:id, :repository_name, :filepath, :type, cookbooks: [])
   end
 end
