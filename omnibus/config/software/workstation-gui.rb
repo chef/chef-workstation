@@ -38,7 +38,6 @@ build do
          " --retry 3",
          env: env
 
-
   # This fails because we're installing Ruby C extensions in the wrong place!
   # bundle "exec rake assets:precompile", env: env # Note--> not needed as this is api only app
   gui_app_path = "#{install_dir}/embedded/service/workstation-gui/"
