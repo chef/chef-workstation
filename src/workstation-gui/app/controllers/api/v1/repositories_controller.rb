@@ -14,15 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-require 'byebug'
 class Api::V1::RepositoriesController < ApplicationController
-  before_action :validate_creds, only: %i[login]
-  skip_before_action :authenticate_api_requests!, only: %i[login]
+  # before_action :validate_creds, only: %i[login]
+  # skip_before_action :authenticate_api_requests!, only: %i[login]
   before_action :create_repository_repository, only: [:link_repository]
   # todo move extra code to service, to improve it
   def repositories
     data_hash = parse_file(read_repo_file)
-    # todo - add pagination
     result = result_post_pagination(data_hash["repositories"], params[:limit], params[:page])
     render json: { repositories: result, message: "success", code: "200" }, status: 200
 
@@ -31,10 +29,10 @@ class Api::V1::RepositoriesController < ApplicationController
   end
 
   def link_repository
-    require 'json'
+    require "json"
     check_for_duplicate_linking # todo can move these to service
     write_new_path_to_file
-    render json: {status: "ok", message: "success", code: "200" }, status: 200
+    render json: { status: "ok", message: "success", code: "200" }, status: 200
 
   rescue StandardError => e
     render json: { message: e.message , code: "422" }, status: 422
@@ -45,7 +43,7 @@ class Api::V1::RepositoriesController < ApplicationController
   def check_for_duplicate_linking
     unless read_repo_file.empty?
       data_hash = parse_file(read_repo_file)
-      if data_hash["repositories"].any? {|h| h["filepath"] == repository_params["filepath"]} # todo make sure to use sym, for better code quality ex h[:filepath], jspn is not reading symbol
+      if data_hash["repositories"].any? { |h| h["filepath"] == repository_params["filepath"] } # todo make sure to use sym, for better code quality ex h[:filepath], jspn is not reading symbol
         raise StandardError.new("Repository already linked")
       end
     end
@@ -57,17 +55,17 @@ class Api::V1::RepositoriesController < ApplicationController
       "type" => repository_params[:type],
       "repository_name" => repository_params[:repository_name],
       "cookbooks" => repository_params[:cookbooks],
-      "filepath" => repository_params[:filepath]
+      "filepath" => repository_params[:filepath],
     }
 
     data_hash =  parse_file(read_repo_file)
     data_hash["repositories"] << tempHash
-    File.open(chef_repo_storage_file,"w") do |f|
+    File.open(chef_repo_storage_file, "w") do |f|
       f.write(data_hash.to_json)
     end
   end
 
-  def  create_repository_repository
+  def create_repository_repository
     unless File.exist?(chef_repo_storage_file)
       create_chef_repo_storage_file
     end
@@ -75,18 +73,29 @@ class Api::V1::RepositoriesController < ApplicationController
   end
 
   def validate_creds
-    render json: { errors: "Access key is required"} unless params.key?(:access_key)
+    render json: { errors: "Access key is required" } unless params.key?(:access_key)
   end
 
   def get_repo_name(file_path)
-    file_path.split("/").last  # todo handle case for windows aswell.
+    file_path.split("/").last # todo handle case for windows aswell.
+  end
+
+  def add_cookbooks_details
+    path = params[:repositories][:filepath]
+    raise StandardError.new("Not valid repository structure, need to have cookbooks") unless valid_path_structure(path, "cookbooks")
+
+    filepath = File.join(path , "cookbooks")
+    cb_list = Dir.entries(filepath).select { |f| File.directory?( File.join(filepath , f)) }
+    cb_list -= [".", "..", "..."]
+    cb_list.map! { |val| { cookbook_name: val, filepath: File.join(filepath, val) } } # todo move this to cookbook service
   end
 
   def repository_params
-    raise StandardError.new("Invalid repository path")  if !validate_path(params[:repositories][:filepath])
+    raise StandardError.new("Invalid repository path")  unless validate_path(params[:repositories][:filepath])
+
     params[:repositories][:id] = generate_random_id if  params[:repositories][:id].nil?
-    params[:repositories][:cookbooks] = [] if  params[:repositories][:cookbooks].nil?
-    params[:repositories][:repository_name] = get_repo_name( params[:repositories][:filepath] )if  params[:repositories][:repository_name].nil?
-    params.require(:repositories).permit(:id, :repository_name, :filepath, :type, cookbooks: [])
+    params[:repositories][:cookbooks] = add_cookbooks_details if  params[:repositories][:cookbooks].nil? # todo move this to cookbook service
+    params[:repositories][:repository_name] = get_repo_name( params[:repositories][:filepath] ) if params[:repositories][:repository_name].nil?
+    params.require(:repositories).permit(:id, :repository_name, :filepath, :type, cookbooks: %i{cookbook_name filepath})
   end
 end
