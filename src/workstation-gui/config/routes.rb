@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # post "policies/push", to: "policies#push"
-  post "policies/create"
+  post "policies/push"
   
 end

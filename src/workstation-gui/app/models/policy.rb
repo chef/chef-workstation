@@ -12,6 +12,9 @@ class Policy < ApplicationRecord
 
   class CLIConfig
     include ChefCLI::Configurable
+    def config
+      Hash.new
+    end
   end
 
 
