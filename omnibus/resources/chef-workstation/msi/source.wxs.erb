@@ -65,12 +65,24 @@
       Impersonate="no"
       Return="ignore" />
 
-    <Property Id="SetupApiServerCommandLine" Value="[WindowsFolder]System32\WindowsPowerShell\v1.0\powershell.exe -NoLogo -NonInteractive -InputFormat None -NoProfile -File [PROJECTLOCATION]embedded\service\workstation-gui\server.ps1" />
-    <CustomAction Id="SetupApiServerCommandLine"
-      BinaryKey="WixCA"
-      DllEntry="WixQuietExec"
-      Execute="deferred"
-      Return="ignore" />
+<!--    <Property Id="SetupApiServerCommandLine" Value="[WindowsFolder]System32\WindowsPowerShell\v1.0\powershell.exe -NoLogo -NonInteractive -InputFormat None -NoProfile -File [PROJECTLOCATION]embedded\service\workstation-gui\server.ps1" />-->
+<!--    <CustomAction Id="SetupApiServerCommandLine"-->
+<!--      BinaryKey="WixCA"-->
+<!--      DllEntry="WixQuietExec"-->
+<!--      Execute="deferred"-->
+<!--      Return="ignore" />-->
+
+      <CustomAction Id="SetupApiServerCommandLine"
+        Property="RegisterPowerShellProperty"
+        Value="&quot;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoLogo -NonInteractive -InputFormat None -NoProfile -File &quot;[PROJECTLOCATION]embedded\service\workstation-gui\server.ps1&quot;"
+        Execute="immediate" />
+
+      <CustomAction Id="RegisterPowerShellProperty"
+        BinaryKey="WixCA"
+        DllEntry="CAQuietExec64"
+        Execute="deferred"
+        Return="check"
+        Impersonate="no" />
 
     <%# <CustomAction Id="StartChefRailsAppScript"
       Directory="[PROJECTLOCATION]\embedded\service\workstation-gui\config"
@@ -99,7 +111,9 @@
       <Custom Action="FastUnzip" After="InstallFiles">NOT Installed OR REINSTALL</Custom>
       <%# <Custom Action="StartChefRailsAppScript" After="FastUnzip">NOT Installed OR REINSTALL</Custom> %>
       <Custom Action="Cleanup" After="RemoveFiles">REMOVE~="ALL"</Custom>
-      <Custom Action="SetupApiServerCommandLine" After="FastUnzip">NOT Installed OR REINSTALL</Custom>
+<!--      <Custom Action="SetupApiServerCommandLine" After="FastUnzip">NOT Installed OR REINSTALL</Custom>-->
+      <Custom Action="SetupApiServerCommandLine" After="FastUnzip">NOT  Installed</Custom>
+      <Custom Action="RegisterPowerShellProperty" After="FastUnzip">NOT Installed</Custom>
     </InstallExecuteSequence>
 
     <UI>
