@@ -47,4 +47,14 @@ module ApplicationHelper
     File.directory?(directory)
   end
 
+
+  def get_policy_file(filepath)
+    res = Dir.entries(filepath).select { |f| f == 'Policyfile.rb' }
+    return res[0] if !res.empty?
+
+    res = Dir.entries(filepath).select { |f| f.split(".").include?('rb' || 'json') } # NOTE- todo- logic if policyfile is named something else
+    res-= ['metadata.rb', 'metadata.json']
+    res[0] # todo- Need to confirm and check logic
+  end
+
 end

@@ -24,7 +24,6 @@ class Api::V1::CookbooksController < ApplicationController
     cookbooks_list.each do |list|
       result << list["cookbooks"]
     end
-
     result = result_post_pagination( result.flatten, params[:limit], params[:page])
     render json: { cookbooks: result, message: "success", code: "200" }, status: 200
 

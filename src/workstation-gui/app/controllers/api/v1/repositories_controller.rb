@@ -87,15 +87,23 @@ class Api::V1::RepositoriesController < ApplicationController
     filepath = File.join(path , "cookbooks")
     cb_list = Dir.entries(filepath).select { |f| File.directory?( File.join(filepath , f)) }
     cb_list -= [".", "..", "..."]
-    cb_list.map! { |val| { cookbook_name: val, filepath: File.join(filepath, val) } } # todo move this to cookbook service
+    cb_list.map! do |val| {
+      cookbook_name: val,
+      filepath: File.join(filepath, val),
+      repository:  params[:repositories][:repository_name],
+      actions_available: ['upload', 'remove'],
+      policyfile: get_policy_file(File.join(filepath, val))
+    }
+    end # todo move this to cookbook service
   end
 
   def repository_params
     raise StandardError.new("Invalid repository path")  unless validate_path(params[:repositories][:filepath])
 
     params[:repositories][:id] = generate_random_id if  params[:repositories][:id].nil?
-    params[:repositories][:cookbooks] = add_cookbooks_details if  params[:repositories][:cookbooks].nil? # todo move this to cookbook service
     params[:repositories][:repository_name] = get_repo_name( params[:repositories][:filepath] ) if params[:repositories][:repository_name].nil?
-    params.require(:repositories).permit(:id, :repository_name, :filepath, :type, cookbooks: %i{cookbook_name filepath})
+    params[:repositories][:cookbooks] = add_cookbooks_details if  params[:repositories][:cookbooks].nil? # todo move this to cookbook service
+    params.require(:repositories).permit(:id, :repository_name, :filepath, :type, cookbooks: [:cookbook_name, :filepath, :repository, :policyfile,
+                                                                                              actions_available: []])
   end
 end
