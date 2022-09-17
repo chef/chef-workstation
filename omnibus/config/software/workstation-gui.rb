@@ -27,6 +27,8 @@ dependency "libxslt"
 dependency "liblzma"
 dependency "zlib"
 dependency "libarchive"
+dependency "ruby-cleanup"
+dependency "more-ruby-cleanup"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
