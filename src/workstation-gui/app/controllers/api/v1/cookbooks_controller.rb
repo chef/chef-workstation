@@ -35,7 +35,11 @@ class Api::V1::CookbooksController < ApplicationController
 
   def get_repository_cookbooks
     data_hash =  parse_file(read_repo_file)
-    data_hash["repositories"].select { |data| data["id"] == params[:id] }
+    if params[:repo_id].present?
+      data_hash["repositories"].select { |data| data["id"] == params[:repo_id] } # returns all the cookbook if repo_id is not given
+    else
+      data_hash["repositories"]
+    end
   end
 
   def validate_creds

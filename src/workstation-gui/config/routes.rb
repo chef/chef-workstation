@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   get "auth/testing", to: "authentication#testing"
   namespace :api do
     namespace :v1 do
-      get "repositories/repositories", to: "repositories#repositories"
+      get "repositories/list_repositories", to: "repositories#repositories"
       get "repositories/link_repository", to: "repositories#link_repository" # todo - this is post call, but only get call is working in app so change later
-      get "repositories/:id/cookbooks", to: "cookbooks#cookbooks"
+      get "repositories/cookbooks", to: "cookbooks#cookbooks"
       get "cookbook/recipes", to: "recipes#recipes"
     end
 

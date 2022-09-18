@@ -20,12 +20,14 @@ class Api::V1::RecipesController < ApplicationController
 
   def recipes
     path = params[:filepath]
+    raise StandardError.new("Filepath for recipe is not given") if path.nil?
     raise StandardError.new("Not valid Cookbook structure, need to have Recipes") unless valid_path_structure(path, "recipes")
 
     filepath = File.join(path , "recipes")
     cb_list = Dir.entries(filepath).select { |f| File.file?( File.join(filepath , f)) }
+    count = cb_list.size
     result  = result_post_pagination( cb_list, params[:limit], params[:page])
-    render json: { recipes: result, message: "success", code: "200" }, status: 200
+    render json: { recipes: result, count: count,  message: "success", code: "200" }, status: 200
 
   rescue StandardError => e
     render json: { message: e.message , code: "422" }, status: 422
