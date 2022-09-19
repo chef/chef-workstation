@@ -18,6 +18,8 @@ class Api::V1::RecipesController < ApplicationController
   # before_action :validate_creds, only: %i[login]
   # skip_before_action :authenticate_api_requests!, only: %i[login]
 
+  include WorkstationHelper
+
   def recipes
     path = params[:filepath]
     raise StandardError.new("Filepath for recipe is not given") if path.nil?

@@ -15,9 +15,12 @@
 # limitations under the License.
 #
 class Api::V1::RepositoriesController < ApplicationController
+
+  include WorkstationHelper
   # before_action :validate_creds, only: %i[login]
   # skip_before_action :authenticate_api_requests!, only: %i[login]
   before_action :create_repository_repository, only: [:link_repository]
+
   # todo move extra code to service, to improve it
   def repositories
     data_hash = parse_file(read_repo_file)
@@ -98,7 +101,7 @@ class Api::V1::RepositoriesController < ApplicationController
   end
 
   def repository_params
-    raise StandardError.new("Invalid repository path")  unless validate_path(params[:repositories][:filepath])
+    raise StandardError.new("Invalid repository path")  unless validate_dir_path(params[:repositories][:filepath])
 
     params[:repositories][:id] = generate_random_id if  params[:repositories][:id].nil?
     params[:repositories][:repository_name] = get_repo_name( params[:repositories][:filepath] ) if params[:repositories][:repository_name].nil?

@@ -17,6 +17,7 @@
 class Api::V1::CookbooksController < ApplicationController
   # before_action :validate_creds, only: %i[login]
   # skip_before_action :authenticate_api_requests!, only: %i[login]
+  include WorkstationHelper
 
   def cookbooks
     cookbooks_list = get_repository_cookbooks

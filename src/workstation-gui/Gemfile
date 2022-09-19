@@ -53,8 +53,6 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 gem "nokogiri"
-gem 'byebug'
-gem 'pry'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -85,5 +83,4 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem 'rspec-rails', ">= 3.9.0"
-
 end
