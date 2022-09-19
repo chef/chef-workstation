@@ -28,8 +28,8 @@ dependency "liblzma"
 dependency "zlib"
 dependency "libarchive"
 dependency "nokogiri" # (nokogiri cannot go in the Gemfile, see wall of text in the software defn)
-dependency "ruby-cleanup"
-dependency "more-ruby-cleanup"
+# dependency "ruby-cleanup"
+# dependency "more-ruby-cleanup"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
