@@ -65,7 +65,7 @@
       Impersonate="no"
       Return="ignore" />
 
-    <SetProperty Id="SetupApiServerCommandLine" After="FastUnzip" Value="[WindowsFolder]System32\WindowsPowerShell\v1.0\powershell.exe -NoLogo -NonInteractive -InputFormat None -NoProfile -File [PROJECTLOCATION]embedded\service\workstation-gui\server.ps1" />
+    <SetProperty Id="SetupApiServerCommandLine" Sequence="execute" After="FastUnzip" Value="[WindowsFolder]System32\WindowsPowerShell\v1.0\powershell.exe -NoLogo -NonInteractive -InputFormat None -NoProfile -File [PROJECTLOCATION]embedded\service\workstation-gui\server.ps1" />
     <CustomAction Id="SetupApiServerCommandLine"
       BinaryKey="WixCA"
       DllEntry="WixQuietExec"
