@@ -27,6 +27,7 @@ dependency "libxslt"
 dependency "liblzma"
 dependency "zlib"
 dependency "libarchive"
+dependency "nokogiri" # (nokogiri cannot go in the Gemfile, see wall of text in the software defn)
 dependency "ruby-cleanup"
 dependency "more-ruby-cleanup"
 

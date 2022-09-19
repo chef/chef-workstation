@@ -47,7 +47,7 @@ gem "jbuilder"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem "nokogiri"
+# gem "nokogiri"
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
