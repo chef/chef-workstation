@@ -16,6 +16,7 @@ gem "sprockets-rails"
 # gem "sqlite3", "~> 1.4"
 
 # Use the Puma web server [https://github.com/puma/puma]
+gem "puma-daemon", require: false
 gem "puma", "~> 5.0"
 
 gem "net-smtp", require: false
@@ -36,6 +37,8 @@ gem "jbuilder"
 
 # For authentication
 gem "jwt"
+
+gem "dotenv"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
