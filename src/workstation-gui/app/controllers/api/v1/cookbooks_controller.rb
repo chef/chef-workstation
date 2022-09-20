@@ -19,6 +19,12 @@ class Api::V1::CookbooksController < ApplicationController
   # skip_before_action :authenticate_api_requests!, only: %i[login]
   include WorkstationHelper
 
+  # ##Important## Todo make sure to add or update data in .chef/repository.json every time new recipe or cookbook is
+  # created by cli as in gui updated result will not be given by api.
+  #either we can do it during creation fro cli or later run some callback before fetching ckkobook or repository
+  # to update(we also can't update everytime so decide on thta callback)
+  # Update cookbook is important to implement to keep track of newer cookbooks and maintain data
+
   def cookbooks
     cookbooks_list = get_repository_cookbooks
     result = []

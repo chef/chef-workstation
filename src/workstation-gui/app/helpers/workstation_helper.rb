@@ -57,4 +57,10 @@ module WorkstationHelper
     res[0] # todo- Need to confirm and check logic
   end
 
+  def  get_recipe_count(dirpath)
+    directory = File.join(dirpath, 'recipes')
+    recipes = Dir.entries(directory).select { |f| f.split(".").include?('rb') }
+    recipes.size
+  end
+
 end
