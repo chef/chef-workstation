@@ -15,11 +15,10 @@ module WorkstationGui
   class Application < Rails::Application
     Dotenv.load
 
-    config.autoloader = :classic
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.autoload_paths += %W(#{config.root}/lib)
-    config.autoload_paths += Dir["#{config.root}/lib/**/"]
+    # config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -27,6 +26,5 @@ module WorkstationGui
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
-    config.eager_load_paths << Rails.root.join("lib")
   end
 end
