@@ -37,6 +37,7 @@ gem "jbuilder"
 # For authentication
 gem "jwt"
 
+# To load the .env file
 gem "dotenv"
 
 # Use Redis adapter to run Action Cable in production
