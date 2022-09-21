@@ -57,7 +57,6 @@ class Api::V1::RepositoriesController < ApplicationController
       "id" => repository_params[:id],
       "type" => repository_params[:type],
       "repository_name" => repository_params[:repository_name],
-      "cookbooks" => repository_params[:cookbooks],
       "filepath" => repository_params[:filepath],
     }
 
@@ -83,34 +82,12 @@ class Api::V1::RepositoriesController < ApplicationController
     file_path.split("/").last # todo handle case for windows aswell.
   end
 
-  def add_cookbooks_details
-    path = params[:repositories][:filepath]
-    raise StandardError.new("Not valid repository structure, need to have cookbooks") unless valid_path_structure(path, "cookbooks")
-
-    filepath = File.join(path , "cookbooks")
-    cb_list = Dir.entries(filepath).select { |f| File.directory?( File.join(filepath , f)) }
-    cb_list -= [".", "..", "..."]
-    cb_list.map! do |val| {
-      cookbook_name: val,
-      filepath: File.join(filepath, val),
-      repository:  params[:repositories][:repository_name],
-      actions_available: ['upload'],
-      recipe_count: get_recipe_count(File.join(filepath, val)),
-      policyfile: get_policy_file(File.join(filepath, val))
-    }
-    end # todo move this to cookbook service
-  end
 
   def repository_params
     raise StandardError.new("Invalid repository path")  unless validate_dir_path(params[:repositories][:filepath])
 
     params[:repositories][:id] = generate_random_id if  params[:repositories][:id].nil?
     params[:repositories][:repository_name] = get_repo_name( params[:repositories][:filepath] ) if params[:repositories][:repository_name].nil?
-    params[:repositories][:cookbooks] = add_cookbooks_details if  params[:repositories][:cookbooks].nil? # todo move this to cookbook service
-    params.require(:repositories).permit(:id, :repository_name, :filepath, :type, cookbooks: [:cookbook_name, :filepath,
-                                                                                              :repository,
-                                                                                              :policyfile,
-                                                                                              :recipe_count,
-                                                                                              actions_available: []])
+    params.require(:repositories).permit(:id, :repository_name, :filepath, :type)
   end
 end

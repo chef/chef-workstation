@@ -34,6 +34,10 @@ module WorkstationHelper
     File.directory?(dir_path)
   end
 
+  def validate_file_path(file_path)
+    File.file?(file_path)
+  end
+
   def result_post_pagination(array_data, limit, page)
     limit ||= DEFAULT_LIMIT
     page ||= DEFAULT_PAGE
@@ -59,8 +63,11 @@ module WorkstationHelper
 
   def  get_recipe_count(dirpath)
     directory = File.join(dirpath, 'recipes')
-    recipes = Dir.entries(directory).select { |f| f.split(".").include?('rb') }
-    recipes.size
+    if validate_dir_path(directory)
+      Dir.entries(directory).select { |f| f.split(".").include?('rb') }.size
+    else
+      0
+    end
   end
 
 end

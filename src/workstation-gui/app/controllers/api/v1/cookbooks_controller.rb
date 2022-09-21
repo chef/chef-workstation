@@ -19,17 +19,12 @@ class Api::V1::CookbooksController < ApplicationController
   # skip_before_action :authenticate_api_requests!, only: %i[login]
   include WorkstationHelper
 
-  # ##Important## Todo make sure to add or update data in .chef/repository.json every time new recipe or cookbook is
-  # created by cli as in gui updated result will not be given by api.
-  #either we can do it during creation fro cli or later run some callback before fetching ckkobook or repository
-  # to update(we also can't update everytime so decide on thta callback)
-  # Update cookbook is important to implement to keep track of newer cookbooks and maintain data
-
   def cookbooks
-    cookbooks_list = get_repository_cookbooks
+    cookbooks_list = get_repository_list
+
     result = []
     cookbooks_list.each do |list|
-      result << list["cookbooks"]
+      result << add_cookbooks_details(list)
     end
     result = result_post_pagination( result.flatten, params[:limit], params[:page])
     render json: { cookbooks: result, message: "success", code: "200" }, status: 200
@@ -40,13 +35,34 @@ class Api::V1::CookbooksController < ApplicationController
 
   private
 
-  def get_repository_cookbooks
+  def get_repository_list
     data_hash =  parse_file(read_repo_file)
-    if params[:repo_id].present?
-      data_hash["repositories"].select { |data| data["id"] == params[:repo_id] } # returns all the cookbook if repo_id is not given
+    if  params[:repo_path].present?
+      data_hash["repositories"].select { |data| data["filepath"] == params[:repo_path] }
+    elsif params[:repo_id].present?
+      data_hash["repositories"].select { |data| data["id"] == params[:repo_id] }
     else
       data_hash["repositories"]
     end
+  end
+
+  def add_cookbooks_details(list)
+    path = list["filepath"]
+    repository_name = list["repository_name"]
+    return [] unless valid_path_structure(path, "cookbooks")
+
+    filepath = File.join(path , "cookbooks")
+    cb_list = Dir.entries(filepath).select { |f| File.directory?( File.join(filepath , f)) }
+    cb_list -= [".", "..", "..."]
+    cb_list.map! do |val| {
+      cookbook_name: val,
+      filepath: File.join(filepath, val),
+      repository:  repository_name,
+      actions_available: ['upload'],
+      recipe_count: get_recipe_count(File.join(filepath, val)),
+      policyfile: get_policy_file(File.join(filepath, val))
+    }
+    end # todo move this to cookbook service
   end
 
   def validate_creds
