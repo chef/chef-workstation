@@ -9,6 +9,10 @@ gem "rails", "~> 7.0.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+gem 'chef', '~> 17.10'
+gem 'knife', '~> 17.9', '>= 17.9.26'
+gem 'chef-cli'
+
 # gem "tzinfo-data"
 # gem 'concurrent-ruby', '~> 1.1', '>= 1.1.10'
 
@@ -49,7 +53,7 @@ gem "dotenv"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-# gem "tzinfo-data", platforms: %i[xmingw mswin x64_mingw jruby]
+gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false

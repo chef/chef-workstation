@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   post "auth/login", to: "authentication#login"
   get "auth/testing", to: "authentication#testing"
+  post "policies/install"
+  
 end
