@@ -20,25 +20,24 @@ license :project_license
 
 source path: File.join("#{project.files_path}", "../../src/workstation-gui")
 
-# todo need to checkout all the dependency
-dependency "ruby"
-dependency "libxml2"
-dependency "libxslt"
-dependency "liblzma"
-dependency "zlib"
-dependency "libarchive"
-
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
+  # This statement is to replace the --without flag which is getting deprecated
+  bundle "package --no-install", env: env
+  bundle "config set without 'development doc test'"
   bundle "install" \
          " --jobs #{workers}" \
+         " --binstubs=#{install_dir}/embedded/bin" \
          " --retry 3",
          env: env
 
   # This fails because we're installing Ruby C extensions in the wrong place!
   # bundle "exec rake assets:precompile", env: env # Note--> not needed as this is api only app
   gui_app_path = "#{install_dir}/embedded/service/workstation-gui/"
+
+  # FileUtils.mkdir_p gui_app_path
+  # FileUtils.cp project_dir, gui_app_path
 
   mkdir gui_app_path
   copy "#{project_dir}/*", gui_app_path
