@@ -68,7 +68,7 @@ build do
   # gems that the various applications need for day-to-day functionality.
   excluded_groups = %w{server docgen maintenance pry travis integration ci}
 
-  env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
+  # env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
 
   # install the whole bundle first
   bundle "config set --local without '#{excluded_groups.join(" ")}'", env: env
