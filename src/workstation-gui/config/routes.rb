@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   post "auth/login", to: "authentication#login"
   get "auth/testing", to: "authentication#testing"
   post "policies/install"
+  # post "policies/push", to: "policies#push"
+  post "policies/push"
   
 end
