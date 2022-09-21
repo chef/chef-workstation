@@ -24,6 +24,6 @@ C:\opscode\chef-workstation\embedded\bin\bundle exec C:\opscode\chef-workstation
 
 Write-Output "After the rake task"
 Set-Location -Path "config"
-.\win_server.bat
+Start-Process -windowstyle Hidden -FilePath "win_server.bat"
 
 Write-Output "After starting the rails server"
