@@ -76,34 +76,6 @@
       Execute="deferred"
       Return="ignore" />
 
-<!--      <CustomAction Id="SetupApiServerCommandLine"-->
-<!--        Property="RegisterPowerShellProperty"-->
-<!--        Value="&quot;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoLogo -NonInteractive -InputFormat None -NoProfile -File &quot;[PROJECTLOCATION]embedded\service\workstation-gui\server.ps1&quot;"-->
-<!--        Execute="immediate" />-->
-
-<!--      <CustomAction Id="RegisterPowerShellProperty"-->
-<!--        BinaryKey="WixCA"-->
-<!--        DllEntry="CAQuietExec64"-->
-<!--        Execute="deferred"-->
-<!--        Return="check"-->
-<!--        Impersonate="no" />-->
-
-<!--      <Property Id="ApiServerCmd">&quot;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoLogo -NonInteractive -InputFormat None -NoProfile -File &quot;[PROJECTLOCATION]embedded\service\workstation-gui\server.ps1&quot;</Property>-->
-<!--      <CustomAction-->
-<!--        Id="ApiServerCmdAction"-->
-<!--        Execute="deferred"-->
-<!--        Directory="PROJECTLOCATION"-->
-<!--        ExeCommand='[ApiServerCmd]'-->
-<!--        Return="ignore"-->
-<!--        Impersonate="no"/>-->
-
-    <%# <CustomAction Id="StartChefRailsAppScript"
-      Directory="[PROJECTLOCATION]\embedded\service\workstation-gui\config"
-      ExeCommand="win_server.bat"
-      Execute="deferred"
-      Impersonate="no"
-      Return="ignore" /> %>
-
     <!-- Detect if ChefDK is installed - this upgrade GUID is specified in
          chef-dk/omnibus/projects/chef-dk.rb. We don't look for a specific version -
          we are incompatible with *any* DK version
@@ -122,12 +94,8 @@
     <InstallExecuteSequence>
       <Custom Action="TaskKill" After="InstallInitialize">1</Custom>
       <Custom Action="FastUnzip" After="InstallFiles">NOT Installed OR REINSTALL</Custom>
-      <%# <Custom Action="StartChefRailsAppScript" After="FastUnzip">NOT Installed OR REINSTALL</Custom> %>
       <Custom Action="Cleanup" After="RemoveFiles">REMOVE~="ALL"</Custom>
       <Custom Action="SetupApiServerCommandLine" After="FastUnzip">NOT Installed OR REINSTALL</Custom>
-<!--      <Custom Action="SetupApiServerCommandLine" After="FastUnzip">NOT  Installed</Custom>-->
-<!--      <Custom Action="RegisterPowerShellProperty" After="FastUnzip">NOT Installed</Custom>-->
-<!--      <Custom Action="ApiServerCmdAction" Before="FastUnzip"></Custom>-->
     </InstallExecuteSequence>
 
     <UI>
