@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   post "policies/install"
   # post "policies/push", to: "policies#push"
   post "policies/push"
-  
+  namespace :api do
+    namespace :v1 do
+      resource :cookbook, only: [:create]
+    end
+  end
 end
