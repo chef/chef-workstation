@@ -3,7 +3,7 @@
 # changes are merged to main Expeditor takes that version, runs a script to
 # replace it here and pushes a new commit / build through.
 
-override "chef-analyze", version: "0.1.184"
+override "chef-analyze", version: "0.1.185"
 # /DO NOT MODIFY
 
 override "libarchive", version: "3.5.2"
@@ -20,6 +20,7 @@ override "libxslt", version: windows? ? "1.1.34" : "1.1.35"
 override "libyaml", version: "0.1.7"
 override "makedepend", version: "1.0.5"
 override "ncurses", version: "5.9"
+# override "nokogiri", version: "1.13.1"
 override "openssl", version: macos? ? "1.1.1m" : "1.0.2zb"
 override "pkg-config-lite", version: "0.28-1"
 override "ruby", version: "3.0.3"
@@ -28,3 +29,4 @@ override "rust", version: "1.37.0"
 override "util-macros", version: "1.19.0"
 override "xproto", version: "7.0.28"
 override "zlib", version: "1.2.11"
+

@@ -17,8 +17,8 @@ if(Test-Path config\master.key)
 {
   Remove-Item config\master.key
 }
-
-bundle exec rake secrets:regenerate["$access_key"]
+C:\opscode\chef-workstation\embedded\bin\bundle exec C:\opscode\chef-workstation\embedded\bin\rake secrets:regenerate["$access_key"]
 
 Set-Location -Path "config"
-.\win_server.bat
+Start-Process -windowstyle Hidden -FilePath "win_server.bat"
+

@@ -41,13 +41,12 @@ build do
   # bundle "config local.websocket-driver 'vendor/bundle/ruby/3.0.0/gems' "
   # bundle "config local.racc 'vendor/bundle' "
   # bundle "config local.strscan 'vendor/bundle' "
-  # bundle "config set --local path '#{install_dir}/embedded/lib/ruby/gems/3.0.0'", env: env
+  # bundle "config set --local path '#{install_dir}/embedded/lib/'", env: env
 
   bundle "install" \
          " --jobs #{workers}" \
          " --retry 3",
          env: env
-
 
   # This fails because we're installing Ruby C extensions in the wrong place!
   # bundle "exec rake assets:precompile", env: env # Note--> not needed as this is api only app

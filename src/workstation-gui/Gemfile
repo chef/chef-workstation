@@ -9,6 +9,12 @@ gem "rails", "~> 7.0.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+gem 'chef', '~> 17.10'
+gem 'knife', '~> 17.9', '>= 17.9.26'
+gem 'chef-cli'
+
+gem 'pry-nav'
+
 # gem "tzinfo-data"
 # gem 'concurrent-ruby', '~> 1.1', '>= 1.1.10'
 
@@ -34,8 +40,10 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# For basic token based authentication
+# For authentication
 gem "jwt"
+
+gem "dotenv"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
