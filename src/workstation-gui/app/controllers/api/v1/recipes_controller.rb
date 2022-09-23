@@ -15,8 +15,8 @@
 # limitations under the License.
 #
 class Api::V1::RecipesController < ApplicationController
-  # before_action :validate_creds, only: %i[login]
-  # skip_before_action :authenticate_api_requests!, only: %i[login]
+  before_action :validate_creds, only: %i[login]
+  skip_before_action :authenticate_api_requests!, only: %i[login]
 
   include Workstation::Workable
 

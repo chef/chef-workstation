@@ -4,8 +4,8 @@ module Api
   module V1
     class CookbooksController < ApplicationController
 
-      # before_action :authenticate_api_requests!
-      # before_action :validate_params
+      before_action :authenticate_api_requests!
+      before_action :validate_params
 
       def create
         cookbook_upload = Cookbook.cookbook_upload(upload_params[:cookbook_name],

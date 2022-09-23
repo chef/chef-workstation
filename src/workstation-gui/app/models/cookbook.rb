@@ -43,15 +43,19 @@ class Cookbook < ApplicationRecord
 
   def self.get_repository_list(params)
     data_hash =  parse_file(read_repo_file)
+  
     if params[:repo_path].present?
+      raise StandardError.new("Invalid repository path")  unless validate_repo_by_path(data_hash["repositories"], params[:repo_path])
       data_hash["repositories"].select { |data| data["filepath"] == params[:repo_path] } # todo - retrun exception incase wrong id
     elsif params[:repo_id].present?
+      raise StandardError.new("Invalid repository path")  unless validate_repo_by_id(data_hash["repositories"], params[:repo_id])
       data_hash["repositories"].select { |data| data["id"] == params[:repo_id] }
     else
       data_hash["repositories"]
     end
   end
 
+  private 
   def self.add_cookbooks_details(list)
     path = list["filepath"]
     repository_name = list["repository_name"]
