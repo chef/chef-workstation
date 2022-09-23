@@ -18,7 +18,7 @@ class Api::V1::RecipesController < ApplicationController
   # before_action :validate_creds, only: %i[login]
   # skip_before_action :authenticate_api_requests!, only: %i[login]
 
-  include WorkstationHelper
+  include Workstation::Workable
 
   def recipes
     path = params[:filepath]
@@ -28,7 +28,7 @@ class Api::V1::RecipesController < ApplicationController
     filepath = File.join(path , "recipes")
     cb_list = Dir.entries(filepath).select { |f| File.file?( File.join(filepath , f)) }
     count = cb_list.size
-    result  = result_post_pagination( cb_list, params[:limit], params[:page])
+    result  = result_post_pagination( cb_list, params[:limit], params[:page], count)
     render json: { recipes: result, count: count,  message: "success", code: "200" }, status: 200
 
   rescue StandardError => e

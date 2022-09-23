@@ -15,8 +15,7 @@
 # limitations under the License.
 #
 class Api::V1::RepositoriesController < ApplicationController
-
-  include WorkstationHelper
+  include Workstation::Workable
   # before_action :validate_creds, only: %i[login]
   # skip_before_action :authenticate_api_requests!, only: %i[login]
   before_action :create_repository_repository, only: [:link_repository]
@@ -24,8 +23,9 @@ class Api::V1::RepositoriesController < ApplicationController
   # todo move extra code to service, to improve it
   def repositories
     data_hash = parse_file(read_repo_file)
-    result = result_post_pagination(data_hash["repositories"], params[:limit], params[:page])
-    render json: { repositories: result, message: "success", code: "200" }, status: 200
+    repo_list = data_hash["repositories"]
+    result = result_post_pagination(repo_list, params[:limit], params[:page], repo_list.size)
+    render json: { repositories: result,total_size:  repo_list.size, message: "success", code: "200" }, status: 200
 
   rescue StandardError => e
     render json: { message: e.message , code: "422" }, status: 422
@@ -81,7 +81,6 @@ class Api::V1::RepositoriesController < ApplicationController
   def get_repo_name(file_path)
     file_path.split("/").last # todo handle case for windows aswell.
   end
-
 
   def repository_params
     raise StandardError.new("Invalid repository path")  unless validate_dir_path(params[:repositories][:filepath])
