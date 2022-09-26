@@ -22,11 +22,10 @@ source path: File.join("#{project.files_path}", "../../src/workstation-gui")
 
 # todo need to checkout all the dependency
 dependency "ruby"
-dependency "libxml2"
-dependency "libxslt"
-dependency "liblzma"
-dependency "zlib"
-dependency "libarchive"
+# dependency "libxml2"
+# dependency "libxslt"
+# dependency "zlib"
+# dependency "libarchive"
 # dependency "nokogiri" # (nokogiri cannot go in the Gemfile, see wall of text in the software defn)
 # dependency "ruby-cleanup"
 # dependency "more-ruby-cleanup"
