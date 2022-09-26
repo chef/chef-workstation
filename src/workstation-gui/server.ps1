@@ -6,6 +6,9 @@ $server_path = Join-Path $ws_path "embedded\service\workstation-gui" -Resolve
 Set-Location -Path $ws_path
 Add-Content -Path "service.txt" -Value $access_key
 
+$chefws_bin = (split-path $MyInvocation.MyCommand.Definition -Parent) | Split-Path
+Add-Content -Path "sample.txt" -Value $chefws_bin
+
 Set-Location -Path $server_path
 
 if(Test-Path config\credentials.yml.enc)
