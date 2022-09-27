@@ -62,6 +62,8 @@ end
 # No gems get shipped that are not declared in components/gems/Gemfile
 dependency "gems"
 
+dependency "nokogiri"
+
 dependency "gem-version-manifest"
 dependency "gem-permissions"
 dependency "rubygems-customization"
