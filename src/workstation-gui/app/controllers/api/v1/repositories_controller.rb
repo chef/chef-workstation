@@ -14,10 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-class Api::V1::RepositoriesController < ApplicationController
+class Api::V1::RepositoriesController < ApiV1Controller
   include Workstation::Workable
-  before_action :validate_creds, only: %i[login]
-  skip_before_action :authenticate_api_requests!, only: %i[login]
+
   before_action :create_repository_repository, only: [:link_repository]
 
   # todo move extra code to service, to improve it
@@ -72,10 +71,6 @@ class Api::V1::RepositoriesController < ApplicationController
       create_chef_repo_storage_file
     end
     true
-  end
-
-  def validate_creds
-    render json: { errors: "Access key is required" } unless params.key?(:access_key)
   end
 
   def get_repo_name(file_path)

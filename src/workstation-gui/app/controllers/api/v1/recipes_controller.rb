@@ -14,9 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-class Api::V1::RecipesController < ApplicationController
-  before_action :validate_creds, only: %i[login]
-  skip_before_action :authenticate_api_requests!, only: %i[login]
+class Api::V1::RecipesController < ApiV1Controller
 
   include Workstation::Workable
 
@@ -33,11 +31,5 @@ class Api::V1::RecipesController < ApplicationController
 
   rescue StandardError => e
     render json: { message: e.message , code: "422" }, status: 422
-  end
-
-  private
-
-  def validate_creds
-    render json: { errors: "Access key is required" } unless params.key?(:access_key)
   end
 end

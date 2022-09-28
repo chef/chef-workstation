@@ -2,9 +2,8 @@
 
 module Api
   module V1
-    class CookbooksController < ApplicationController
+    class CookbooksController < ApiV1Controller
 
-      before_action :authenticate_api_requests!
       before_action :validate_params
 
       def create
