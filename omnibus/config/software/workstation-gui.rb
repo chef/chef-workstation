@@ -23,7 +23,7 @@ source path: File.join("#{project.files_path}", "../../src/workstation-gui")
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
-  env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
+  # env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
   
 
   # This statement is to replace the --without flag which is getting deprecated
