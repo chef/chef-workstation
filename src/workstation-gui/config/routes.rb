@@ -3,13 +3,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  post "auth/login", to: "authentication#login"
-  get "auth/testing", to: "authentication#testing"
   post "policies/install"
   # post "policies/push", to: "policies#push"
   post "policies/push"
   namespace :api do
     namespace :v1 do
+      post "auth/login", to: "authentication#login"
+
       resource :cookbook, only: [:create]
       get "repositories/list_repositories", to: "repositories#repositories"
       get "repositories/link_repository", to: "repositories#link_repository" # todo - this is post call, but only get call is working in app so change later

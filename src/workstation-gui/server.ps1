@@ -1,6 +1,6 @@
 $access_key = -join ((48..57) + (97..122) | Get-Random -Count 16 | % {[char]$_})
 
-$ws_path = "C:\opscode\chef-workstation"
+$ws_path = (split-path $MyInvocation.MyCommand.Definition -Parent) | Split-Path | Split-Path | Split-Path
 $server_path = Join-Path $ws_path "embedded\service\workstation-gui" -Resolve
 
 Set-Location -Path $ws_path
