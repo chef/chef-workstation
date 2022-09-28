@@ -22,11 +22,11 @@ source path: File.join("#{project.files_path}", "../../src/workstation-gui")
 
 # todo need to checkout all the dependency
 dependency "ruby"
-dependency "libxml2"
-dependency "libxslt"
-dependency "liblzma"
-dependency "zlib"
-dependency "libarchive"
+# dependency "libxml2"
+# dependency "libxslt"
+# dependency "liblzma"
+# dependency "zlib"
+# dependency "libarchive"
 # dependency "libxml2"
 # dependency "libxslt"
 # dependency "zlib"
@@ -38,10 +38,12 @@ dependency "libarchive"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
-  env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
+  # env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
   
 
   # This statement is to replace the --without flag which is getting deprecated
+  bundle "package --no-install", env: env
+  bundle "config set without 'development doc'"
 
   bundle "install" \
          " --jobs #{workers}" \
@@ -55,6 +57,9 @@ build do
   # FileUtils.mkdir_p gui_app_path
   # FileUtils.cp project_dir, gui_app_path
 
-  mkdir gui_app_path
-  copy "#{project_dir}/*", gui_app_path
+  # mkdir gui_app_path
+  # copy "#{project_dir}/*", gui_app_path
+
+  FileUtils.mkdir_p gui_app_path
+  FileUtils.cp project_dir, gui_app_path
 end
