@@ -57,9 +57,6 @@ build do
   # FileUtils.mkdir_p gui_app_path
   # FileUtils.cp project_dir, gui_app_path
 
-  # mkdir gui_app_path
-  # copy "#{project_dir}/*", gui_app_path
-
-  FileUtils.mkdir_p gui_app_path
-  FileUtils.cp project_dir, gui_app_path
+  mkdir gui_app_path
+  copy "#{project_dir}/*", gui_app_path
 end
