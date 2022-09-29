@@ -3,12 +3,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  post "policies/install"
-  # post "policies/push", to: "policies#push"
-  post "policies/push"
   namespace :api do
     namespace :v1 do
       post "auth/login", to: "authentication#login"
+      post "policies/install", to: "policies#install"
+      post "policies/push", to: "policies#push"
 
       resource :cookbook, only: [:create]
       get "repositories/list_repositories", to: "repositories#repositories"
