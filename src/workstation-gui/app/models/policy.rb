@@ -25,16 +25,14 @@ class Policy < ApplicationRecord
     JSON.parse(e.message)
   end
 
-  def self.install_policy_file(policyfile_name = "Policyfile.rb")
-    install_policy_file_config(policyfile_name)
+  def self.install_policy_file(policyfile_name = "Policyfile.rb", directory_path = nil)
+    install_policy_file_config(policyfile_name, directory_path)
     { 'status' => 200, 'message' => 'Success' }
   rescue StandardError => e
     JSON.parse(e.message)
   end
 
   def self.push_policy_file
-    # require 'pry'
-    # binding.pry
     install_push_file_config(CLIConfig.new.chef_config, policyfile_name = "Policyfile.rb")
     { 'status' => 200, 'message' => 'Success' }
   rescue StandardError => e
@@ -53,10 +51,10 @@ class Policy < ApplicationRecord
     raise Exceptions::UnprocessableEntityAPI, e
   end
 
-  def self.install_policy_file_config(policyfile_name)
+  def self.install_policy_file_config(policyfile_name, directory_path = nil)
     ChefCLI::PolicyfileServices::Install.new(policyfile: policyfile_name,
                                              ui: ChefCLI::UI.new,
-                                             root_dir: Dir.pwd,
+                                             root_dir: directory_path || Dir.pwd,
                                              config: nil).run
   rescue StandardError => e
     raise Exceptions::UnprocessableEntityAPI, e
