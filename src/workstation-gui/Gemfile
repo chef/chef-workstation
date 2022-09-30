@@ -37,6 +37,8 @@ gem "jwt"
 
 gem "dotenv"
 
+gem "tzinfo-data"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem "tzinfo-data", platforms: %i{xmingw mswin x64_mingw jruby}
 
