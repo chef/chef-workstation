@@ -27,7 +27,7 @@ echo "  -> Removing files..."
 sudo rm -rf '/opt/chef-workstation'
 sudo rm -rf '/Applications/Chef Workstation App.app'
 echo "  -> Removing .plist for server"
-sudo rm -rf '~/Library/LaunchAgents/io.chef.chef-workstation.plist'
+sudo rm -rf ~/Library/LaunchAgents/io.chef.chef-workstation.plist
 echo "  -> Removing binary links in /usr/local/bin..."
 sudo find /usr/local/bin -lname '/opt/chef-workstation/*' -delete
 echo "  -> Forgetting com.getchef.pkg.chef-workstation package..."

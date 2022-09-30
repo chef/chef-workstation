@@ -31,6 +31,7 @@ dependency "libarchive"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
+  bundle "package --no-install", env: env
   bundle "install" \
          " --jobs #{workers}" \
          " --retry 3",
