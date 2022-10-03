@@ -22,19 +22,23 @@ source path: File.join("#{project.files_path}", "../../src/workstation-gui")
 
 # todo need to checkout all the dependency
 dependency "ruby"
-dependency "libxml2"
-dependency "libxslt"
-dependency "liblzma"
-dependency "zlib"
-dependency "libarchive"
+# dependency "libxml2"
+# dependency "libxslt"
+# dependency "liblzma"
+# dependency "zlib"
+# dependency "libarchive"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
   bundle "package --no-install", env: env
+
+  bundle "config set without 'development doc'"
+
   bundle "install" \
          " --jobs #{workers}" \
-         " --retry 3",
+         " --retry 3" \
+         " --path=vendor/bundle",
          env: env
 
   # This fails because we're installing Ruby C extensions in the wrong place!
