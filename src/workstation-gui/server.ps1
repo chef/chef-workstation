@@ -18,9 +18,6 @@ if(Test-Path config\master.key)
 {
   Remove-Item config\master.key
 }
+Start-Process -WindowStyle Hidden -File "$bin_path\bundle" -ArgumentList "exec", "$bin_path\rake", "secrets:regenerate['$access_key']"
 
-$regenerate_cmd = "$bin_path\bundle exec $bin_path\rake secrets:regenerate['$access_key']"
-Invoke-Expression $regenerate_cmd
-
-$puma_cmd = "$bin_path\bundle exec $bin_path\puma -C $server_path\config\puma.rb"
-Invoke-Expression $puma_cmd
+Start-Process -WindowStyle Hidden -File "$bin_path\bundle" -ArgumentLis "exec", "$bin_path\puma", "-C", "$server_path\config\puma.rb"
