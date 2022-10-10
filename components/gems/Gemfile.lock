@@ -454,9 +454,9 @@ GEM
       mixlib-shellout (>= 2.0, < 4.0)
       pastel (~> 0.7)
       solve (> 2.0, < 5.0)
-    chef-config (17.10.0)
+    chef-config (18.0.157)
       addressable
-      chef-utils (= 17.10.0)
+      chef-utils (= 18.0.157)
       fuzzyurl
       mixlib-config (>= 2.2.12, < 4.0)
       mixlib-shellout (>= 2.0, < 4.0)
@@ -479,7 +479,7 @@ GEM
       webrick
     chef_deprecations (0.2.0)
     cheffish (17.0.0)
-      chef-utils (>= 17.0)
+      chef-utils (>= 18.0)
       chef-zero (>= 14.0)
       net-ssh
     chefspec (9.3.3)

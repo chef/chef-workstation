@@ -53,7 +53,7 @@ group(:omnibus_package) do
   # fixes.
   # gem "chef", ">= 18.0"
   gem "chef", git: "https://github.com/chef/chef", branch: "main"
-  gem "chef-bin", git: "https://github.com/chef/chef", branch: "main", glob: 'chef-bin/*.gemspec'
+  gem "chef-bin", git: "https://github.com/chef/chef", branch: "main", glob: "chef-bin/*.gemspec"
   gem "ohai", ">= 18.0"
   gem "cheffish", ">= 17.0"
 
@@ -81,7 +81,7 @@ group(:omnibus_package) do
   gem "kitchen-vra", ">= 3.0"
 
   # knife & plugins
-  gem "knife", git: "https://github.com/chef/chef", branch: "main", glob: 'knife/*.gemspec'
+  gem "knife", git: "https://github.com/chef/chef", branch: "main", glob: "knife/*.gemspec"
   gem "knife-azure", ">= 3.0.0"
   gem "knife-ec2", ">= 1.0.28"
   gem "knife-google", ">= 4.2.7"
