@@ -54,6 +54,8 @@ group(:omnibus_package) do
   # gem "chef", ">= 18.0"
   gem "chef", git: "https://github.com/chef/chef", branch: "main"
   gem "chef-bin", git: "https://github.com/chef/chef", branch: "main", glob: "chef-bin/*.gemspec"
+  gem "chef-utils", git: "https://github.com/chef/chef", branch: "main", glob: "chef-utils/*.gemspec"
+  gem "chef-config", git: "https://github.com/chef/chef", branch: "main", glob: "chef-config/*.gemspec"
   gem "ohai", ">= 18.0"
   gem "cheffish", ">= 17.0"
 
