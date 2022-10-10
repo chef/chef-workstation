@@ -43,7 +43,7 @@ group(:omnibus_package) do
   gem "chef_deprecations", ">= 0.1.2"
 
   # avoid failures running 0.0.7.7 on windows
-  gem "unf_ext", "=0.0.7.6"
+  gem "unf_ext", "=0.0.8.2"
 
   gem "appbundler"
 
@@ -51,9 +51,10 @@ group(:omnibus_package) do
   # gems to Rubygems now, so letting this float on latest should always give us the latest
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
-  gem "chef", ">= 17.0"
-  gem "chef-bin", ">= 17.0"
-  gem "ohai", ">= 17.0"
+  # gem "chef", ">= 18.0"
+  gem "chef", git: "https://github.com/chef/chef", branch: "main"
+  gem "chef-bin", git: "https://github.com/chef/chef", branch: "main", glob: 'chef-bin/*.gemspec'
+  gem "ohai", ">= 18.0"
   gem "cheffish", ">= 17.0"
 
   # chefspec
@@ -61,7 +62,8 @@ group(:omnibus_package) do
   gem "fauxhai-ng", ">= 8.7.1"
 
   # inspec
-  gem "inspec-bin", "~> 4.23"
+  # gem "inspec-bin", "~> 4.23"
+  gem "inspec-core-bin", ">= 5" # need to provide the binaries for inspec
 
   # test-kitchen and plugins
   gem "test-kitchen", ">= 3.0"
@@ -79,7 +81,7 @@ group(:omnibus_package) do
   gem "kitchen-vra", ">= 3.0"
 
   # knife & plugins
-  gem "knife"
+  gem "knife", git: "https://github.com/chef/chef", branch: "main", glob: 'knife/*.gemspec'
   gem "knife-azure", ">= 3.0.0"
   gem "knife-ec2", ">= 1.0.28"
   gem "knife-google", ">= 4.2.7"
@@ -120,7 +122,7 @@ end
 # Everything except Windows
 group(:ruby_shadow) do
   # if ruby-shadow does a release that supports ruby-3.0 this can be removed
-  gem "ruby-shadow", git: "https://github.com/chef/ruby-shadow", branch: "lcg/ruby-3.0", platforms: :ruby
+  gem "ruby-shadow", git: "https://github.com/chef/ruby-shadow", branch: "lcg/ruby-3.0", platforms: :ruby unless RUBY_PLATFORM == "x64-mingw-ucrt"
 end
 
 gem "chefstyle", group: :test
