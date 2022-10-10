@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem chefstyle
+gem "chefstyle"
 
 group :development do
   gem "chefstyle"
