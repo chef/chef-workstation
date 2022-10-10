@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+gem chefstyle
+
 group :development do
   gem "chefstyle"
   gem "rake"
