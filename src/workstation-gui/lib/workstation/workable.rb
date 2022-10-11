@@ -11,10 +11,9 @@ module Workstation
         end
     
         def create_chef_repo_storage_file
-            fobj = File.open(chef_repo_storage_file, "w") do |f|
+            File.open(chef_repo_storage_file, "w") do |f|
                 f.write({ "repositories" => [] }.to_json)
             end
-            fobj.close
             chef_repo_storage_file
         end
     
