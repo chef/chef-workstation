@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.9.1012 -->
-## [22.9.1012](https://github.com/chef/chef-workstation/tree/22.9.1012) (2022-09-06)
+<!-- latest_release 22.10.1013 -->
+## [22.10.1013](https://github.com/chef/chef-workstation/tree/22.10.1013) (2022-10-11)
 
 #### Merged Pull Requests
-- Bump omnibus from `ec19442` to `5b41f81` in /omnibus [#2918](https://github.com/chef/chef-workstation/pull/2918) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump omnibus from `5b41f81` to `5bc091a` in /omnibus [#2938](https://github.com/chef/chef-workstation/pull/2938) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.7.1006 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus from `5b41f81` to `5bc091a` in /omnibus [#2938](https://github.com/chef/chef-workstation/pull/2938) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.10.1013 -->
 - Bump omnibus from `ec19442` to `5b41f81` in /omnibus [#2918](https://github.com/chef/chef-workstation/pull/2918) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.9.1012 -->
 - Update signing identity [#2914](https://github.com/chef/chef-workstation/pull/2914) ([tpowell-progress](https://github.com/tpowell-progress)) <!-- 22.8.1011 -->
 - Bump Chef Workstation App to 0.2.176 [#2908](https://github.com/chef/chef-workstation/pull/2908) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.8.1010 -->
