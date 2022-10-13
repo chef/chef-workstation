@@ -1,14 +1,14 @@
 GIT
   remote: https://github.com/chef/chef
-  revision: e9c2a8b884d42a6427e7bfb28b8dcb344a10871e
+  revision: 4ebac36cd739c66a5abf8fdc42ff089388a0dbd2
   branch: main
   specs:
-    chef (18.0.157)
+    chef (18.0.161)
       addressable
       aws-sdk-s3 (~> 1.91)
       aws-sdk-secretsmanager (~> 1.46)
-      chef-config (= 18.0.157)
-      chef-utils (= 18.0.157)
+      chef-config (= 18.0.161)
+      chef-utils (= 18.0.161)
       chef-vault
       chef-zero (>= 14.0.11)
       corefoundation (~> 0.3.4)
@@ -37,13 +37,13 @@ GIT
       unf_ext (>= 0.0.8.2)
       uuidtools (>= 2.1.5, < 3.0)
       vault (~> 0.16)
-    chef (18.0.157-x64-mingw-ucrt)
+    chef (18.0.161-x64-mingw-ucrt)
       addressable
       aws-sdk-s3 (~> 1.91)
       aws-sdk-secretsmanager (~> 1.46)
-      chef-config (= 18.0.157)
+      chef-config (= 18.0.161)
       chef-powershell (~> 1.0.12)
-      chef-utils (= 18.0.157)
+      chef-utils (= 18.0.161)
       chef-vault
       chef-zero (>= 14.0.11)
       corefoundation (~> 0.3.4)
@@ -83,32 +83,46 @@ GIT
       win32-service (>= 2.1.5, < 3.0)
       win32-taskscheduler (~> 2.0)
       wmi-lite (~> 1.0)
-    chef-config (18.0.157)
+
+GIT
+  remote: https://github.com/chef/chef
+  revision: 4ebac36cd739c66a5abf8fdc42ff089388a0dbd2
+  branch: main
+  glob: chef-bin/*.gemspec
+  specs:
+    chef-bin (18.0.161)
+      chef (= 18.0.161)
+
+GIT
+  remote: https://github.com/chef/chef
+  revision: 4ebac36cd739c66a5abf8fdc42ff089388a0dbd2
+  branch: main
+  glob: chef-config/*.gemspec
+  specs:
+    chef-config (18.0.161)
       addressable
-      chef-utils (= 18.0.157)
+      chef-utils (= 18.0.161)
       fuzzyurl
       mixlib-config (>= 2.2.12, < 4.0)
       mixlib-shellout (>= 2.0, < 4.0)
       tomlrb (~> 1.2)
-    chef-utils (18.0.157)
+
+GIT
+  remote: https://github.com/chef/chef
+  revision: 4ebac36cd739c66a5abf8fdc42ff089388a0dbd2
+  branch: main
+  glob: chef-utils/*.gemspec
+  specs:
+    chef-utils (18.0.161)
       concurrent-ruby
 
 GIT
   remote: https://github.com/chef/chef
-  revision: e9c2a8b884d42a6427e7bfb28b8dcb344a10871e
-  branch: main
-  glob: chef-bin/*.gemspec
-  specs:
-    chef-bin (18.0.157)
-      chef (= 18.0.157)
-
-GIT
-  remote: https://github.com/chef/chef
-  revision: e9c2a8b884d42a6427e7bfb28b8dcb344a10871e
+  revision: 4ebac36cd739c66a5abf8fdc42ff089388a0dbd2
   branch: main
   glob: knife/*.gemspec
   specs:
-    knife (18.0.157)
+    knife (18.0.161)
       bcrypt_pbkdf (~> 1.1)
       chef (>= 18)
       chef-config (>= 18)
@@ -438,8 +452,8 @@ GEM
       train-core (~> 3.0)
       train-winrm
       tty-spinner
-    chef-bin (18.0.157)
-      chef (= 18.0.157)
+    chef-bin (18.0.161)
+      chef (= 18.0.161)
     chef-cli (5.6.1)
       addressable (>= 2.3.5, < 2.9)
       chef (>= 18.0)
@@ -452,21 +466,12 @@ GEM
       mixlib-shellout (>= 2.0, < 4.0)
       pastel (~> 0.7)
       solve (> 2.0, < 5.0)
-    chef-config (18.0.157)
-      addressable
-      chef-utils (= 18.0.157)
-      fuzzyurl
-      mixlib-config (>= 2.2.12, < 4.0)
-      mixlib-shellout (>= 2.0, < 4.0)
-      tomlrb (~> 1.2)
     chef-powershell (1.0.13)
       ffi (~> 1.15)
       ffi-yajl (~> 2.4)
     chef-telemetry (1.1.1)
       chef-config
       concurrent-ruby (~> 1.0)
-    chef-utils (18.0.157)
-      concurrent-ruby
     chef-vault (4.1.10)
     chef-zero (15.0.11)
       ffi-yajl (~> 2.2)
@@ -477,7 +482,7 @@ GEM
       webrick
     chef_deprecations (0.2.0)
     cheffish (17.0.0)
-      chef-utils (>= 18.0)
+      chef-utils (>= 17.0)
       chef-zero (>= 14.0)
       net-ssh
     chefspec (9.3.3)
@@ -696,28 +701,6 @@ GEM
       rack (>= 1.6, < 3.0)
       test-kitchen
       vmware-vra (>= 3.1.0)
-    knife (18.0.157)
-      bcrypt_pbkdf (~> 1.1)
-      chef (>= 18)
-      chef-config (>= 18)
-      chef-utils (>= 18)
-      chef-vault
-      erubis (~> 2.7)
-      ffi (>= 1.15)
-      ffi-yajl (~> 2.2)
-      highline (>= 1.6.9, < 3)
-      license-acceptance (>= 1.0.5, < 3)
-      mixlib-archive (>= 0.4, < 2.0)
-      mixlib-cli (>= 2.1.1, < 3.0)
-      net-ssh (>= 5.1, < 7)
-      net-ssh-multi (~> 1.2, >= 1.2.1)
-      ohai (~> 18.0)
-      pastel
-      train-core (~> 3.2, >= 3.2.28)
-      train-winrm (>= 0.2.5)
-      tty-prompt (~> 0.21)
-      tty-screen (~> 0.6)
-      tty-table (~> 0.11)
     knife-azure (4.0.0)
       azure_mgmt_compute (~> 0.18, >= 0.18.3)
       azure_mgmt_network (~> 0.18, >= 0.18.2)
@@ -798,7 +781,7 @@ GEM
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
     minitar (0.9)
-    minitest (5.14.2)
+    minitest (5.16.3)
     mixlib-archive (1.1.7)
       mixlib-log
     mixlib-authentication (3.0.10)
@@ -854,6 +837,8 @@ GEM
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    nokogiri (1.13.8-x64-mingw-ucrt)
+      racc (~> 1.4)
     nori (2.6.0)
     notiffany (0.1.3)
       nenv (~> 0.1)
@@ -861,7 +846,7 @@ GEM
     octokit (4.25.1)
       faraday (>= 1, < 3)
       sawyer (~> 0.9)
-    ohai (18.0.14)
+    ohai (18.0.20)
       chef-config (>= 14.12, < 19)
       chef-utils (>= 16.0, < 19)
       ffi (~> 1.9)
@@ -1143,6 +1128,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
+    unf_ext (0.0.8.2-x64-mingw-ucrt)
     unicode-display_width (2.3.0)
     unicode_utils (1.4.0)
     uuidtools (2.2.0)
@@ -1247,7 +1233,9 @@ DEPENDENCIES
   chef-apply (>= 0.4.16)
   chef-bin!
   chef-cli (>= 5.3.1)
+  chef-config!
   chef-telemetry (>= 1.0.8)
+  chef-utils!
   chef_deprecations (>= 0.1.2)
   cheffish (>= 17.0)
   chefspec (>= 9.3)
@@ -1283,7 +1271,7 @@ DEPENDENCIES
   knife-windows (>= 3.0.11)
   listen
   mdl (>= 0.7.0)
-  minitest (= 5.14.2)
+  minitest (~> 5.16, >= 5.16.3)
   mixlib-archive (>= 1.0)
   mixlib-install
   net-ssh (>= 4.2.0)
@@ -1311,4 +1299,4 @@ DEPENDENCIES
   winrm-fs
 
 BUNDLED WITH
-   2.2.32
+   2.3.18
