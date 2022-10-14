@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: fc901c6446e6354058133b89a29a6ef8e2995b3d
+  revision: ca097df718e97bf5db88e6a38a94df0c1d10c4d2
   branch: main
   specs:
     omnibus-software (4.0.0)
@@ -34,8 +34,8 @@ GEM
     artifactory (3.0.15)
     awesome_print (1.9.2)
     aws-eventstream (1.2.0)
-    aws-partitions (1.644.0)
-    aws-sdk-core (3.159.0)
+    aws-partitions (1.645.0)
+    aws-sdk-core (3.160.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.525.0)
       aws-sigv4 (~> 1.1)
@@ -53,8 +53,6 @@ GEM
     aws-sigv4 (1.5.2)
       aws-eventstream (~> 1, >= 1.0.2)
     bcrypt_pbkdf (1.1.0)
-    bcrypt_pbkdf (1.1.0-x64-mingw32)
-    bcrypt_pbkdf (1.1.0-x86-mingw32)
     berkshelf (8.0.2)
       chef (>= 15.7.32)
       chef-config
@@ -274,11 +272,6 @@ GEM
     mixlib-shellout (3.2.7)
       chef-utils
     mixlib-shellout (3.2.7-universal-mingw32)
-      chef-utils
-      ffi-win32-extensions (~> 1.0.3)
-      win32-process (~> 0.9)
-      wmi-lite (~> 1.0)
-    mixlib-shellout (3.2.7-x64-mingw-ucrt)
       chef-utils
       ffi-win32-extensions (~> 1.0.3)
       win32-process (~> 0.9)
