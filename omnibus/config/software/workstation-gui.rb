@@ -26,16 +26,26 @@ dependency "ruby"
 # dependency "libxslt"
 # dependency "liblzma"
 # dependency "zlib"
-# dependency "libarchive"
+dependency "libarchive"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
-  env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
+  # env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
+
+  # bundle "install" \
+  #        " --jobs #{workers}" \
+  #        " --retry 3",
+  #        env: env
+
+  bundle "package --no-install", env: env
+
+  bundle "config set without 'development doc'"
 
   bundle "install" \
          " --jobs #{workers}" \
-         " --retry 3",
+         " --retry 3" \
+         " --path=vendor/bundle",
          env: env
 
   # This fails because we're installing Ruby C extensions in the wrong place!
