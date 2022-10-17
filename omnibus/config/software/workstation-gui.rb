@@ -35,8 +35,7 @@ build do
 
   bundle "install" \
          " --jobs #{workers}" \
-         " --retry 3" \
-         " --path=vendor/bundle",
+         " --retry 3",
          env: env
 
   # This fails because we're installing Ruby C extensions in the wrong place!
