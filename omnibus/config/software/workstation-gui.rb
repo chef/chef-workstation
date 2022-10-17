@@ -40,11 +40,8 @@ build do
 
   # bundle "package --no-install", env: env
 
-  bundle "install" \
-         " --jobs #{workers}" \
-         " --retry 3" \
-         " --path=vendor/bundle",
-         env: env
+  bundle "config set --local without '#{excluded_groups.join(" ")}'", env: env
+  bundle "install --jobs 10", env: env
 
   # This fails because we're installing Ruby C extensions in the wrong place!
   # bundle "exec rake assets:precompile", env: env # Note--> not needed as this is api only app
