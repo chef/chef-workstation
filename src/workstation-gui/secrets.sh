@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /opt/chef-workstation/embedded/service/workstation-gui/ || return
 
 # Generate the access_key
 if openssl version
