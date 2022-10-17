@@ -21,7 +21,7 @@
 name "rb-fsevent-gem"
 
 # IMPORTANT: this must be in sync with the components/gems/Gemfile.lock version, currently 0.11.1
-default_version "e46390c4a12d26288e44c42539594e90a7c6fc46"
+default_version "623f64a7edfd2505e64aa2125f01a54ffd6166ba"
 
 source git: "https://github.com/thibaudgg/rb-fsevent.git"
 
