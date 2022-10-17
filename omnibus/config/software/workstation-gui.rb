@@ -40,8 +40,6 @@ build do
 
   bundle "package --no-install", env: env
 
-  bundle "config set without 'development doc'"
-
   bundle "install" \
          " --jobs #{workers}" \
          " --retry 3" \
