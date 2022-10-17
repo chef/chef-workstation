@@ -38,7 +38,7 @@ build do
   #        " --retry 3",
   #        env: env
 
-  bundle "package --no-install", env: env
+  # bundle "package --no-install", env: env
 
   bundle "install" \
          " --jobs #{workers}" \
