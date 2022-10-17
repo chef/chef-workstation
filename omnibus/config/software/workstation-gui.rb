@@ -33,8 +33,6 @@ build do
 
   env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
 
-  bundle "config set --local without '#{excluded_groups.join(" ")}'", env: env
-
   bundle "install" \
          " --jobs #{workers}" \
          " --retry 3" \
