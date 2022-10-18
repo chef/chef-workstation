@@ -8,8 +8,8 @@ GIT
 
 GIT
   remote: https://github.com/chef/omnibus.git
-  revision: 053efc33a0d050c2860f6b90c913b6e8f382d025
-  branch: poorndm/whitelist_liblzma
+  revision: 5bc091ab3ed4ab002ef85dad3923914c25bb3dcd
+  branch: main
   specs:
     omnibus (9.0.6)
       aws-sdk-s3 (~> 1)
