@@ -22,10 +22,10 @@ source path: File.join("#{project.files_path}", "../../src/workstation-gui")
 
 # todo need to checkout all the dependency
 dependency "ruby"
-# dependency "libxml2"
-# dependency "libxslt"
-# dependency "liblzma"
-# dependency "zlib"
+dependency "libxml2"
+dependency "libxslt"
+dependency "liblzma"
+dependency "zlib"
 dependency "libarchive"
 
 build do
