@@ -3,7 +3,7 @@ module Workstation
         DEFAULT_LIMIT = 10
         DEFAULT_PAGE = 1
         def chef_dir
-            File.expand_path("~/.chef") # todo move this file in .chef string in module with constants
+            File.expand_path(File.join(Dir.home, ".chef")) # todo move this file in .chef string in module with constants
         end
     
         def chef_repo_storage_file

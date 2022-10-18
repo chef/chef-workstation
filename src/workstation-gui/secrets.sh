@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /opt/chef-workstation/embedded/service/workstation-gui/ || return
 
 # Generate the access_key
 if openssl version
@@ -10,7 +11,7 @@ fi
 
 #access_key=$(openssl rand -hex 16)
 echo "$access_key"
-echo "$access_key" >> /opt/chef-workstation/service.txt
+echo "$access_key" >| /opt/chef-workstation/service.txt
 
 rm config/credentials.yml.enc
 rm config/master.key

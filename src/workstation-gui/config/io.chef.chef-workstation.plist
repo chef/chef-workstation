@@ -12,10 +12,10 @@
     <integer>20</integer>
 
     <key>StandardErrorPath</key>
-    <string>/opt/chef-workstation/embedded/service/workstation-gui/stderr.log</string>
+    <string>/opt/chef-workstation/embedded/service/workstation-gui/log/stderr.log</string>
 
     <key>StandardOutPath</key>
-    <string>/opt/chef-workstation/embedded/service/workstation-gui/stdout.log</string>
+    <string>/opt/chef-workstation/embedded/service/workstation-gui/log/stdout.log</string>
 
     <key>WorkingDirectory</key>
     <string>/opt/chef-workstation/embedded/service/workstation-gui</string>
