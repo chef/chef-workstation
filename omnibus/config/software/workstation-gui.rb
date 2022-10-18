@@ -31,7 +31,7 @@ dependency "libarchive"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
-  # env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
+  env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
 
   bundle "install" \
          " --jobs #{workers}" \
