@@ -113,7 +113,7 @@ group(:omnibus_package) do
   gem "rb-readline"
   gem "winrm-fs"
   gem "winrm-elevated"
-  gem "berkshelf", ">= 7.0.10"
+  gem "berkshelf", git: 'https://github.com/chef/berkshelf.git', branch: 'sanjain/update_farday '
   gem "mdl", ">= 0.7.0"
 end
 
