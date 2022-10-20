@@ -25,15 +25,15 @@ class Policy < ApplicationRecord
     JSON.parse(e.message)
   end
 
-  def self.install_policy_file(policyfile_name = "Policyfile.rb", directory_path = nil)
-    install_policy_file_config(policyfile_name, directory_path)
+  def self.install_policy_file(directory_path)
+    install_policy_file_config(policyfile_name = "Policyfile.rb", directory_path)
     { 'status' => 200, 'message' => 'Success' }
   rescue StandardError => e
     JSON.parse(e.message)
   end
 
-  def self.push_policy_file
-    install_push_file_config(CLIConfig.new.chef_config, policyfile_name = "Policyfile.rb")
+  def self.push_policy_file(directory_path)
+    install_push_file_config(CLIConfig.new.chef_config, policyfile_name = "Policyfile.rb", directory_path)
     { 'status' => 200, 'message' => 'Success' }
   rescue StandardError => e
     JSON.parse(e.message)
@@ -51,7 +51,7 @@ class Policy < ApplicationRecord
     raise Exceptions::UnprocessableEntityAPI, e
   end
 
-  def self.install_policy_file_config(policyfile_name, directory_path = nil)
+  def self.install_policy_file_config(policyfile_name, directory_path)
     ChefCLI::PolicyfileServices::Install.new(policyfile: policyfile_name,
                                              ui: ChefCLI::UI.new,
                                              root_dir: directory_path || Dir.pwd,
@@ -60,12 +60,12 @@ class Policy < ApplicationRecord
     raise Exceptions::UnprocessableEntityAPI, e
   end
 
-  def self.install_push_file_config(chef_config, policyfile_name)
+  def self.install_push_file_config(chef_config, policyfile_name, directory_path)
     ChefCLI::PolicyfileServices::Push.new(policyfile: policyfile_name,
                                           ui: ChefCLI::UI.new,
                                           policy_group: "Policyfile.lock.json",
                                           config: chef_config,
-                                          root_dir: Dir.pwd).run
+                                          root_dir: directory_path || Dir.pwd).run
   rescue StandardError => e
     raise Exceptions::UnprocessableEntityAPI, e
   end
