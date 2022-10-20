@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 22.10.1014 -->
+## [22.10.1014](https://github.com/chef/chef-workstation/tree/22.10.1014) (2022-10-20)
+
+#### Merged Pull Requests
+- Bump nokogiri to 1.13.9 [#2942](https://github.com/chef/chef-workstation/pull/2942) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=22.10.1013 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Bump nokogiri to 1.13.9 [#2942](https://github.com/chef/chef-workstation/pull/2942) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.10.1014 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
