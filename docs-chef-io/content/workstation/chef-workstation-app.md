@@ -14,6 +14,7 @@ gh_repo = "chef-workstation"
 
 The Chef Workstation App (CWA) is an early release desktop application that provides additional services for Chef Workstation:
 
+* Run cookbook actions in local repositories
 * Update checking and notifications
 * Chef Workstation version information
 
@@ -37,6 +38,16 @@ Start Chef Workstation App by running the command `chef-workstation-app`.
 ### Mac
 
 Start `Chef Workstation App` from your Applications folder.
+
+## Managing cookbooks in the Chef Workstation App dashboard
+
+### Linking repositories to the App
+
+To access the cookbook management dashboard, select "Manage Cookbooks" in the CWA tray app menu (Windows) or the application menu (Mac). The Repositories view lets you to choose folders in your computer that represent the chef-repo's you need to work on. The repositories and the cookbooks present in each of these will be listed in the dashboard's Cookbooks view. The linked chef-repo's are persisted so you only need to add them once in the cookbook management dashboard. The repository name displayed in the dashboard is the same as the folder name.
+
+### Accessing cookbook actions
+
+At present, the Cookbooks view (or the Activity view) lets you upload the selected cookbooks to the configured Chef Infra Server. To upload a cookbook, click the 'Upload' button corresponding to the cookbook. If you want to upload multiple cookbooks at a time, select the cookbooks and click the 'Upload All' button.
 
 ## Disabling Automatic Update Checks
 
