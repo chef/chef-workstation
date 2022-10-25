@@ -1,25 +1,32 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.9.1012 -->
-## [22.9.1012](https://github.com/chef/chef-workstation/tree/22.9.1012) (2022-09-06)
+<!-- latest_release 22.10.1014 -->
+## [22.10.1014](https://github.com/chef/chef-workstation/tree/22.10.1014) (2022-10-20)
 
 #### Merged Pull Requests
-- Bump omnibus from `ec19442` to `5b41f81` in /omnibus [#2918](https://github.com/chef/chef-workstation/pull/2918) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump nokogiri to 1.13.9 [#2942](https://github.com/chef/chef-workstation/pull/2942) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
-<!-- release_rollup since=22.7.1006 -->
+<!-- release_rollup since=22.10.1013 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
-- Bump omnibus from `ec19442` to `5b41f81` in /omnibus [#2918](https://github.com/chef/chef-workstation/pull/2918) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.9.1012 -->
-- Update signing identity [#2914](https://github.com/chef/chef-workstation/pull/2914) ([tpowell-progress](https://github.com/tpowell-progress)) <!-- 22.8.1011 -->
-- Bump Chef Workstation App to 0.2.176 [#2908](https://github.com/chef/chef-workstation/pull/2908) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.8.1010 -->
-- Bump kitchen-dokken to 2.17.3 [#2898](https://github.com/chef/chef-workstation/pull/2898) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.7.1009 -->
-- Bump habitat to 1.6.521 [#2894](https://github.com/chef/chef-workstation/pull/2894) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 22.7.1008 -->
-- Bump kitchen-vagrant to 1.12.1 [#2893](https://github.com/chef/chef-workstation/pull/2893) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.7.1007 -->
-- Fix shortcode in kitchen doc [#2890](https://github.com/chef/chef-workstation/pull/2890) ([IanMadd](https://github.com/IanMadd)) <!-- 22.7.1007 -->
+- Bump nokogiri to 1.13.9 [#2942](https://github.com/chef/chef-workstation/pull/2942) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.10.1014 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [22.10.1013](https://github.com/chef/chef-workstation/tree/22.10.1013) (2022-10-12)
+
+#### Merged Pull Requests
+- Fix shortcode in kitchen doc [#2890](https://github.com/chef/chef-workstation/pull/2890) ([IanMadd](https://github.com/IanMadd))
+- Bump kitchen-vagrant to 1.12.1 [#2893](https://github.com/chef/chef-workstation/pull/2893) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump habitat to 1.6.521 [#2894](https://github.com/chef/chef-workstation/pull/2894) ([vkarve-chef](https://github.com/vkarve-chef))
+- Bump kitchen-dokken to 2.17.3 [#2898](https://github.com/chef/chef-workstation/pull/2898) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.176 [#2908](https://github.com/chef/chef-workstation/pull/2908) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Update signing identity [#2914](https://github.com/chef/chef-workstation/pull/2914) ([tpowell-progress](https://github.com/tpowell-progress))
+- Bump omnibus from `ec19442` to `5b41f81` in /omnibus [#2918](https://github.com/chef/chef-workstation/pull/2918) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump omnibus from `5b41f81` to `5bc091a` in /omnibus [#2938](https://github.com/chef/chef-workstation/pull/2938) ([dependabot[bot]](https://github.com/dependabot[bot]))
+<!-- latest_stable_release -->
+
 ## [22.7.1006](https://github.com/chef/chef-workstation/tree/22.7.1006) (2022-07-05)
 
 #### Merged Pull Requests
@@ -56,7 +63,6 @@
 - using msys2 devkit [#2877](https://github.com/chef/chef-workstation/pull/2877) ([mwrock](https://github.com/mwrock))
 - Bump omnibus-software from `6d7d6a3` to `15c88a7` in /omnibus [#2879](https://github.com/chef/chef-workstation/pull/2879) ([dependabot[bot]](https://github.com/dependabot[bot]))
 - Bump test-kitchen to 3.3.1 [#2880](https://github.com/chef/chef-workstation/pull/2880) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [22.6.973](https://github.com/chef/chef-workstation/tree/22.6.973) (2022-06-06)
 
