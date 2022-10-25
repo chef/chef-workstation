@@ -6,40 +6,37 @@
 class Policy < ApplicationRecord
   # include ActiveModel::Model
 
-  require 'chef-cli/policyfile_services/install'
-  require 'chef-cli/policyfile_services/push.rb'
-  require 'chef-cli/configurable.rb'
+  require "chef-cli/policyfile_services/install"
+  require "chef-cli/policyfile_services/push"
+  require "chef-cli/configurable"
 
   class CLIConfig
     include ChefCLI::Configurable
     def config
-      Hash.new
+      {}
     end
   end
 
-
   def self.update_policy_file(policyfile_name = "Policyfile.rb")
     install_policy_file_config(policyfile_name)
-    { 'status' => 200, 'message' => 'Success' }
+    { "status" => 200, "message" => "Success" }
   rescue StandardError => e
     JSON.parse(e.message)
   end
 
   def self.install_policy_file(directory_path)
-    install_policy_file_config(policyfile_name = "Policyfile.rb", directory_path)
-    { 'status' => 200, 'message' => 'Success' }
+    install_policy_file_config("Policyfile.rb", directory_path)
+    { "status" => 200, "message" => "Success" }
   rescue StandardError => e
     JSON.parse(e.message)
   end
 
   def self.push_policy_file(directory_path)
-    install_push_file_config(CLIConfig.new.chef_config, policyfile_name = "Policyfile.rb", directory_path)
-    { 'status' => 200, 'message' => 'Success' }
+    install_push_file_config(CLIConfig.new.chef_config, "Policyfile.rb", directory_path)
+    { "status" => 200, "message" => "Success" }
   rescue StandardError => e
     JSON.parse(e.message)
   end
-
-  private
 
   def self.update_policy_file_config(policyfile_name)
     ChefCLI::PolicyfileServices::Install.new(policyfile: policyfile_name,

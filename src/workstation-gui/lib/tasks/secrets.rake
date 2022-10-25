@@ -15,12 +15,12 @@
 # limitations under the License.
 #
 #
-require 'securerandom'
-require 'yaml'
+require "securerandom" unless defined?(SecureRandom)
+require "yaml"
 
-KEY_PATH = 'config/master.key'.freeze
-CONTENT_PATH = 'config/credentials.yml.enc'.freeze
-CIPHER = 'aes-128-gcm'.freeze
+KEY_PATH = "config/master.key".freeze
+CONTENT_PATH = "config/credentials.yml.enc".freeze
+CIPHER = "aes-128-gcm".freeze
 
 # This rake task will generate a new secret_key_base and an access_token.
 # This task will overwrite the whole content of credentials.yml.enc and master.key files.

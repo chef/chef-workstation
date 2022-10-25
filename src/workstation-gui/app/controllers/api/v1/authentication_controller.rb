@@ -17,8 +17,8 @@
 module Api
   module V1
     class AuthenticationController < ApiV1Controller
-      before_action :validate_creds, only: %i[login]
-      skip_before_action :authenticate_api_requests!, only: %i[login]
+      before_action :validate_creds, only: %i{login}
+      skip_before_action :authenticate_api_requests!, only: %i{login}
 
       def login
         access_key = Rails.application.credentials.access_key.to_s
@@ -28,10 +28,10 @@ module Api
 
           render json: {
             data: {
-              token: token
+              token: token,
             },
             message: "success",
-            status: "200"
+            status: "200",
           }
         else
           render json: { message: "Invalid credentials", status: 401 }, status: :unauthorized
