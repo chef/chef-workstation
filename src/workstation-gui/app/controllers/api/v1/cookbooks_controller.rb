@@ -4,7 +4,6 @@ module Api
   module V1
     class CookbooksController < ApiV1Controller
 
-      before_action :validate_params
 
       def create
         cookbook_upload = Cookbook.cookbook_upload(upload_params[:cookbook_name],
@@ -15,7 +14,6 @@ module Api
 
       def cookbooks
         cookbooks_list = Cookbook.get_repository_list(params)
-
         result, total_size = Cookbook.fetch_cookbooks(cookbooks_list, params)
         render json: { cookbooks: result, total_size: total_size, message: "success", code: "200" }, status: 200
 
@@ -27,13 +25,6 @@ module Api
 
       def upload_params
         params.require(:cookbook).permit(:config_file, :cookbook_name, :cookbook_path)
-      end
-
-      def validate_params
-        unless params.key?(:cookbook_name) || params.key?(:cookbook_path)
-          render json: { message: "unprocessable entity", status: 422 },
-                 status: 422
-        end
       end
     end
   end

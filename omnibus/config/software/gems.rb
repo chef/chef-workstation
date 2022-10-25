@@ -44,7 +44,7 @@ dependency "google-protobuf"
 # @todo https://github.com/guard/rb-fsevent/issues/83
 dependency "rb-fsevent-gem" if macos?
 
-dependency "workstation-gui"
+dependency "workstation-gui" if macos?
 
 build do
   env = if !windows?
