@@ -17,6 +17,7 @@ class Cookbook < ApplicationRecord
   end
 
   def self.cookbook_upload_config(cookbook_name, cookbook_path, config_file = nil)
+    # TODO: Examine the situation to see if ARGV should not be cleared.
     # If we don't clean ARGV, the args that used to run Puma will clash with Knife.
     ARGV.clear
     @app = Chef::Application.new
