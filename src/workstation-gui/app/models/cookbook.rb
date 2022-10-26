@@ -17,6 +17,8 @@ class Cookbook < ApplicationRecord
   end
 
   def self.cookbook_upload_config(cookbook_name, cookbook_path, config_file = nil)
+    # If we don't clean ARGV, the args that used to run Puma will clash with Knife.
+    ARGV.clear
     @app = Chef::Application.new
     @app.config[:config_file] = config_file || "#{Dir.home}/.chef/config.rb"
     @app.configure_chef
