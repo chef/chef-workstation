@@ -4,7 +4,6 @@ module Api
   module V1
     class CookbooksController < ApiV1Controller
 
-
       def create
         cookbook_upload = Cookbook.cookbook_upload(upload_params[:cookbook_name],
                                                    upload_params[:cookbook_path],
