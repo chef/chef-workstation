@@ -11,17 +11,15 @@ RSpec.describe "Api::V1::Repositories", type: :request do
   describe "GET /api/v1/repositories/link_repository" do
     it "returns a successful response" do
       # Todo should be post call -- get call is not working so using post call(this will fail ones after passing)
-      if false # commenting out for time being
-        params = {
-          "repositories":
-            {
-          "type": "local",
-          "filepath": "/Users/prsingh/Documents/repo-for-app-linking/chef-repo6", # make this valid path  with cookbook and then test
-             },
-        }
-        get "/api/v1/repositories/link_repository", params: params
-        expect(response).to be_successful
-      end
+      params = {
+        "repositories":
+          {
+        "type": "local",
+        "filepath": "/Users/prsingh/Documents/repo-for-app-linking/chef-repo6", # make this valid path  with cookbook and then test
+           },
+      }
+      post "/api/v1/repositories/link_repository", params: params
+      expect(response).to be_successful
 
     end
 
@@ -34,7 +32,7 @@ RSpec.describe "Api::V1::Repositories", type: :request do
             "filepath": "/Users/prsingh/Documents/repo-for-app-linking/chef-repo1", # make this valid path  with cookbook and then test
           },
       }
-      get "/api/v1/repositories/link_repository", params: params
+      post "/api/v1/repositories/link_repository", params: params
       expect(response.status).to eq(422)
     end
   end
