@@ -4,15 +4,15 @@ module Api
     class PoliciesController < ApiV1Controller
 
       def push
-        @policyItem = Policy.push_policy_file(directory_path = params[:directory_path])
-        render json: @policyItem
+        @policy_item = Policy.push_policy_file(params[:directory_path])
+        render json: @policy_item
       rescue StandardError => e
         render json: { message: e.message , code: "422" }, status: 422
       end
 
       def install
-        @policyItem = Policy.install_policy_file(directory_path = params[:directory_path])
-        render json: @policyItem
+        @policy_item = Policy.install_policy_file(params[:directory_path])
+        render json: @policy_item
       rescue StandardError => e
         render json: { message: e.message , code: "422" }, status: 422
       end

@@ -24,7 +24,7 @@ class Api::V1::RepositoriesController < ApiV1Controller
     data_hash = parse_file(read_repo_file)
     repo_list = data_hash["repositories"]
     result = result_post_pagination(repo_list, params[:limit], params[:page], repo_list.size)
-    render json: { repositories: result,total_size:  repo_list.size, message: "success", code: "200" }, status: 200
+    render json: { repositories: result, total_size: repo_list.size, message: "success", code: "200" }, status: 200
 
   rescue StandardError => e
     render json: { message: e.message , code: "422" }, status: 422
@@ -52,7 +52,7 @@ class Api::V1::RepositoriesController < ApiV1Controller
   end
 
   def write_new_path_to_file
-    tempHash = {
+    temp_hash = {
       "id" => repository_params[:id],
       "type" => repository_params[:type],
       "repository_name" => repository_params[:repository_name],
@@ -60,7 +60,7 @@ class Api::V1::RepositoriesController < ApiV1Controller
     }
 
     data_hash =  parse_file(read_repo_file)
-    data_hash["repositories"] << tempHash
+    data_hash["repositories"] << temp_hash
     File.open(chef_repo_storage_file, "w") do |f|
       f.write(data_hash.to_json)
     end
