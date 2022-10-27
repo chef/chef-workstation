@@ -9,9 +9,6 @@ bash /opt/chef-workstation/embedded/service/workstation-gui/secrets.sh
 
 cp /opt/chef-workstation/embedded/service/workstation-gui/config/io.chef.chef-workstation.plist ~/Library/LaunchAgents/
 
-echo "Sudo user is "
-echo $USER
-
 # Unload first, this will help reload the service on further upgrades
 sudo -u $USER launchctl unload ~/Library/LaunchAgents/io.chef.chef-workstation.plist
 
