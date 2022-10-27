@@ -23,6 +23,8 @@ module Api
       def login
         access_key = Rails.application.credentials.access_key.to_s
 
+        Rails.logger.warn("The access key saved in credentials are #{access_key} and user input is #{params[:access_key]}")
+
         if params[:access_key] == access_key
           token = Auth::JwtToken.encode(access_key: params[:access_key])
 
