@@ -1183,6 +1183,12 @@ None.
 
 {{% chef-workstation/ctl_chef_install %}}
 
+{{< note >}}
+
+{{% chef-workstation/ctl_chef_install_cache_note %}}
+
+{{< /note >}}
+
 #### Syntax
 
 {{% chef-workstation/ctl_chef_install_syntax %}}
