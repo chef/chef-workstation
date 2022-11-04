@@ -21,7 +21,7 @@ group(:omnibus_package, :development, :test) do
   # Require a minimum version that is packaged in the Ruby install, so we do
   # not install old unecessary versions. When we bump Ruby we need to look
   # at these pins and adjust them.
-  gem "minitest", "= 5.14.2"
+  gem "minitest", "~> 5.16", ">= 5.16.3"
 
   gem "rake", "= 13.0.1" # prevent double rake as of 12.2020
   gem "guard"
@@ -43,7 +43,7 @@ group(:omnibus_package) do
   gem "chef_deprecations", ">= 0.1.2"
 
   # avoid failures running 0.0.7.7 on windows
-  gem "unf_ext", "=0.0.7.6"
+  gem "unf_ext", "=0.0.8.2"
 
   gem "appbundler"
 
@@ -51,9 +51,10 @@ group(:omnibus_package) do
   # gems to Rubygems now, so letting this float on latest should always give us the latest
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
-  gem "chef", ">= 17.0"
-  gem "chef-bin", ">= 17.0"
-  gem "ohai", ">= 17.0"
+  gem "chef", ">= 18.0"
+  gem "chef-bin", ">= 18.0"
+  gem "chef-utils", ">= 18.0"
+  gem "ohai", ">= 18.0"
   gem "cheffish", ">= 17.0"
 
   # chefspec
@@ -61,7 +62,7 @@ group(:omnibus_package) do
   gem "fauxhai-ng", ">= 8.7.1"
 
   # inspec
-  gem "inspec-bin", "~> 4.23"
+  gem "inspec-bin", "~> 5"
 
   # test-kitchen and plugins
   gem "test-kitchen", ">= 3.0"
@@ -79,7 +80,7 @@ group(:omnibus_package) do
   gem "kitchen-vra", ">= 3.0"
 
   # knife & plugins
-  gem "knife"
+  gem "knife", ">= 18.0"
   gem "knife-azure", ">= 3.0.0"
   gem "knife-ec2", ">= 1.0.28"
   gem "knife-google", ">= 4.2.7"
