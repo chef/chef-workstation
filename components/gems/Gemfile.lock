@@ -1168,7 +1168,6 @@ DEPENDENCIES
   mixlib-archive (>= 1.0)
   mixlib-install
   net-ssh (>= 4.2.0)
-  nokogiri (>= 1.11.7)
   ohai (>= 18.0)
   pry (= 0.13.0)
   pry-byebug
