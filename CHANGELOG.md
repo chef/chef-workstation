@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.11.1015 -->
-## [22.11.1015](https://github.com/chef/chef-workstation/tree/22.11.1015) (2022-11-10)
+<!-- latest_release 22.11.1016 -->
+## [22.11.1016](https://github.com/chef/chef-workstation/tree/22.11.1016) (2022-11-14)
 
 #### Merged Pull Requests
-- Fix a bunch of typos and a few bad links [#2970](https://github.com/chef/chef-workstation/pull/2970) ([IanMadd](https://github.com/IanMadd))
+- Bump mixlib-install to 3.12.24 [#2971](https://github.com/chef/chef-workstation/pull/2971) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.10.1013 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump mixlib-install to 3.12.24 [#2971](https://github.com/chef/chef-workstation/pull/2971) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.11.1016 -->
 - Fix a bunch of typos and a few bad links [#2970](https://github.com/chef/chef-workstation/pull/2970) ([IanMadd](https://github.com/IanMadd)) <!-- 22.11.1015 -->
 - Bump nokogiri to 1.13.9 [#2942](https://github.com/chef/chef-workstation/pull/2942) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.10.1014 -->
 <!-- release_rollup -->
