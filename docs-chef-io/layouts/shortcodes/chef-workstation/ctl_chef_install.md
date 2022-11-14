@@ -14,8 +14,11 @@ under management by Chef.
 
 By default, the cookbook cache is located in `~/.chef-workstation`
 on macOS and Linux, and in `%LOCALAPPDATA%\chef-workstation` on Windows.
-Set the location of the desired cache directory by setting the `CHEF_WORKSTATION_HOME` environment variable.
-
+On macOS or Linux, set the desired location of the cache directory by setting the `CHEF_WORKSTATION_HOME`
+environment variable in your `.bashrc` or `zshrc` file. For example, `CHEF_WORKSTATION_HOME="~/.workstation"`.
+On Windows, use the `setx` [command](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/setx)
+or access the [Advanced](https://support.microsoft.com/en-us/topic/how-to-manage-environment-variables-in-windows-xp-5bf6725b-655e-151c-0b55-9a8c9c7f747d)
+tab in System Properties to set the `CHEF_WORKSTATION_HOME` environment variable.
 </div>
 
 </div>
