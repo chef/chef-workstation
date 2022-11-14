@@ -492,35 +492,35 @@ The following `knife bootstrap` settings can be added to the `config.rb` file:
 
 `knife[:bootstrap_template]`
 
-: Adds the the `--bootstrap-template` option.
+: Adds the `--bootstrap-template` option.
 
 `knife[:bootstrap_url]`
 
-: Adds the the `--bootstrap-url` option.
+: Adds the `--bootstrap-url` option.
 
 `knife[:bootstrap_vault_item]`
 
-: Adds the the `--bootstrap-vault-item` option.
+: Adds the `--bootstrap-vault-item` option.
 
 `knife[:bootstrap_version]`
 
-: Adds the the `--bootstrap-version` option.
+: Adds the `--bootstrap-version` option.
 
 `knife[:bootstrap_wget_options]`
 
-: Adds the the `--bootstrap-wget-options` option.
+: Adds the `--bootstrap-wget-options` option.
 
 `knife[:run_list]`
 
-: Adds the the `--run-list` option.
+: Adds the `--run-list` option.
 
 `knife[:template_file]`
 
-: Adds the the `--bootstrap-template` option.
+: Adds the `--bootstrap-template` option.
 
 `knife[:use_sudo]`
 
-: Adds the the `--sudo` option.
+: Adds the `--sudo` option.
 
 {{< note >}}
 
@@ -535,7 +535,7 @@ The following `knife client create` settings can be added to the `config.rb` fil
 
 `knife[:file]`
 
-: Adds the the `--file` option.
+: Adds the `--file` option.
 
 ### client reregister
 
@@ -543,7 +543,7 @@ The following `knife client reregister` settings can be added to the `config.rb`
 
 `knife[:file]`
 
-: Adds the the `--file` option.
+: Adds the `--file` option.
 
 ### configure
 
@@ -555,35 +555,35 @@ The following `knife configure` settings can be added to the `config.rb` file:
 
 `knife[:config_file]`
 
-: Adds the the `--config` option.
+: Adds the `--config` option.
 
 `knife[:disable_editing]`
 
-: Adds the the `--disable-editing` option.
+: Adds the `--disable-editing` option.
 
 `knife[:file]`
 
-: Adds the the `--file` option.
+: Adds the `--file` option.
 
 `knife[:initial]`
 
-: Adds the the `--initial` option.
+: Adds the `--initial` option.
 
 `knife[:repository]`
 
-: Adds the the `--repository` option.
+: Adds the `--repository` option.
 
 `knife[:user_home]`
 
-: Adds the the `--user` option.
+: Adds the `--user` option.
 
 `knife[:user_password]`
 
-: Adds the the `--password` option.
+: Adds the `--password` option.
 
 `knife[:yes]`
 
-: Adds the the `--yes` option.
+: Adds the `--yes` option.
 
 ### cookbook bulk delete
 
@@ -591,11 +591,11 @@ The following `knife cookbook bulk delete` settings can be added to the `config.
 
 `knife[:purge]`
 
-: Adds the the `--purge` option.
+: Adds the `--purge` option.
 
 `knife[:yes]`
 
-: Adds the the `--yes` option.
+: Adds the `--yes` option.
 
 ### cookbook create
 
@@ -603,7 +603,7 @@ The following `knife cookbook create` settings can be added to the `config.rb` f
 
 `knife[:readme_format]`
 
-: Adds the the `--readme-format` option.
+: Adds the `--readme-format` option.
 
 ### cookbook delete
 
@@ -611,15 +611,15 @@ The following `knife cookbook delete` settings can be added to the `config.rb` f
 
 `knife[:all]`
 
-: Adds the the `--all` option.
+: Adds the `--all` option.
 
 `knife[:print_after]`
 
-: Adds the the `--print-after` option.
+: Adds the `--print-after` option.
 
 `knife[:purge]`
 
-: Adds the the `--purge` option.
+: Adds the `--purge` option.
 
 ### cookbook download
 
@@ -627,15 +627,15 @@ The following `knife cookbook download` settings can be added to the `config.rb`
 
 `knife[:download_directory]`
 
-: Adds the the `--dir` option.
+: Adds the `--dir` option.
 
 `knife[:force]`
 
-: Adds the the `--force` option.
+: Adds the `--force` option.
 
 `knife[:latest]`
 
-: Adds the the `--latest` option.
+: Adds the `--latest` option.
 
 ### cookbook list
 
@@ -643,11 +643,11 @@ The following `knife cookbook list` settings can be added to the `config.rb` fil
 
 `knife[:all]`
 
-: Adds the the `--all` option.
+: Adds the `--all` option.
 
 `knife[:environment]`
 
-: Adds the the `--environment` option.
+: Adds the `--environment` option.
 
 ### cookbook metadata
 
@@ -655,7 +655,7 @@ The following `knife cookbook metadata` settings can be added to the `config.rb`
 
 `knife[:all]`
 
-: Adds the the `--all` option.
+: Adds the `--all` option.
 
 ### cookbook show
 
@@ -663,15 +663,15 @@ The following `knife cookbook show` settings can be added to the `config.rb` fil
 
 `knife[:fqdn]`
 
-: Adds the the `--fqdn` option.
+: Adds the `--fqdn` option.
 
 `knife[:platform]`
 
-: Adds the the `--platform` option.
+: Adds the `--platform` option.
 
 `knife[:platform_version]`
 
-: Adds the the `--platform-version` option.
+: Adds the `--platform-version` option.
 
 ### cookbook upload
 
@@ -679,23 +679,23 @@ The following `knife cookbook upload` settings can be added to the `config.rb` f
 
 `knife[:all]`
 
-: Adds the the `--all` option.
+: Adds the `--all` option.
 
 `knife[:depends]`
 
-: Adds the the `--include-dependencies` option.
+: Adds the `--include-dependencies` option.
 
 `knife[:environment]`
 
-: Adds the the `--environment` option.
+: Adds the `--environment` option.
 
 `knife[:force]`
 
-: Adds the the `--force` option.
+: Adds the `--force` option.
 
 `knife[:freeze]`
 
-: Adds the the `--freeze` option.
+: Adds the `--freeze` option.
 
 ### supermarket download
 
@@ -703,11 +703,11 @@ The following `knife supermarket download` settings can be added to the `config.
 
 `knife[:file]`
 
-: Adds the the `--file` option.
+: Adds the `--file` option.
 
 `knife[:force]`
 
-: Adds the the `--force` option.
+: Adds the `--force` option.
 
 `knife[:supermarket_site]`
 
@@ -719,19 +719,19 @@ The following `knife supermarket install` settings can be added to the `config.r
 
 `knife[:cookbook_path]`
 
-: Adds the the `--cookbook-path` option.
+: Adds the `--cookbook-path` option.
 
 `knife[:file]`
 
-: Adds the the `--file` option.
+: Adds the `--file` option.
 
 `knife[:no_deps]`
 
-: Adds the the `--skip-dependencies` option.
+: Adds the `--skip-dependencies` option.
 
 `knife[:use_current_branch]`
 
-: Adds the the `--use-current-branch` option.
+: Adds the `--use-current-branch` option.
 
 `knife[:supermarket_site]`
 
@@ -743,7 +743,7 @@ The following `knife supermarket share` settings can be added to the `config.rb`
 
 `knife[:cookbook_path]`
 
-: Adds the the `--cookbook-path` option.
+: Adds the `--cookbook-path` option.
 
 `knife[:supermarket_site]`
 
@@ -755,11 +755,11 @@ The following `knife data bag create` settings can be added to the `config.rb` f
 
 `knife[:secret]`
 
-: Adds the the `--secret` option.
+: Adds the `--secret` option.
 
 `knife[:secret_file]`
 
-: Adds the the `--secret-file` option.
+: Adds the `--secret-file` option.
 
 ### data bag edit
 
@@ -767,15 +767,15 @@ The following `knife data bag edit` settings can be added to the `config.rb` fil
 
 `knife[:print_after]`
 
-: Adds the the `--print-after` option.
+: Adds the `--print-after` option.
 
 `knife[:secret]`
 
-: Adds the the `--secret` option.
+: Adds the `--secret` option.
 
 `knife[:secret_file]`
 
-: Adds the the `--secret-file` option.
+: Adds the `--secret-file` option.
 
 ### data bag from file
 
@@ -783,15 +783,15 @@ The following `knife data bag from file` settings can be added to the `config.rb
 
 `knife[:all]`
 
-: Adds the the `--all` option.
+: Adds the `--all` option.
 
 `knife[:secret]`
 
-: Adds the the `--secret` option.
+: Adds the `--secret` option.
 
 `knife[:secret_file]`
 
-: Adds the the `--secret-file` option.
+: Adds the `--secret-file` option.
 
 ### data bag show
 
@@ -799,11 +799,11 @@ The following `knife data bag show` settings can be added to the `config.rb` fil
 
 `knife[:secret]`
 
-: Adds the the `--secret` option.
+: Adds the `--secret` option.
 
 `knife[:secret_file]`
 
-: Adds the the `--secret-file` option.
+: Adds the `--secret-file` option.
 
 ### delete
 
@@ -811,19 +811,19 @@ The following `knife delete` settings can be added to the `config.rb` file:
 
 `knife[:chef_repo_path]`
 
-: Adds the the `--chef-repo-path` option.
+: Adds the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-: Adds the the `--concurrency` option.
+: Adds the `--concurrency` option.
 
 `knife[:recurse]`
 
-: Adds the the `--recurse` option.
+: Adds the `--recurse` option.
 
 `knife[:repo_mode]`
 
-: Adds the the `--repo-mode` option.
+: Adds the `--repo-mode` option.
 
 ### deps
 
@@ -831,27 +831,27 @@ The following `knife deps` settings can be added to the `config.rb` file:
 
 `knife[:chef_repo_path]`
 
-: Adds the the `--chef-repo-path` option.
+: Adds the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-: Adds the the `--concurrency` option.
+: Adds the `--concurrency` option.
 
 `knife[:recurse]`
 
-: Adds the the `--recurse` option.
+: Adds the `--recurse` option.
 
 `knife[:remote]`
 
-: Adds the the `--remote` option.
+: Adds the `--remote` option.
 
 `knife[:repo_mode]`
 
-: Adds the the `--repo-mode` option.
+: Adds the `--repo-mode` option.
 
 `knife[:tree]`
 
-: Adds the the `--tree` option.
+: Adds the `--tree` option.
 
 ### diff
 
@@ -859,27 +859,27 @@ The following `knife diff` settings can be added to the `config.rb` file:
 
 `knife[:chef_repo_path]`
 
-: Adds the the `--chef-repo-path` option.
+: Adds the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-: Adds the the `--concurrency` option.
+: Adds the `--concurrency` option.
 
 `knife[:name_only]`
 
-: Adds the the `--name-only` option.
+: Adds the `--name-only` option.
 
 `knife[:name_status]`
 
-: Adds the the `--name-status` option.
+: Adds the `--name-status` option.
 
 `knife[:recurse]`
 
-: Adds the the `--recurse` option.
+: Adds the `--recurse` option.
 
 `knife[:repo_mode]`
 
-: Adds the the `--repo-mode` option.
+: Adds the `--repo-mode` option.
 
 ### download
 
@@ -887,19 +887,19 @@ The following `knife download` settings can be added to the `config.rb` file:
 
 `knife[:chef_repo_path]`
 
-: Adds the the `--chef-repo-path` option.
+: Adds the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-: Adds the the `--concurrency` option.
+: Adds the `--concurrency` option.
 
 `knife[:recurse]`
 
-: Adds the the `--recurse` option.
+: Adds the `--recurse` option.
 
 `knife[:repo_mode]`
 
-: Adds the the `--repo-mode` option.
+: Adds the `--repo-mode` option.
 
 ### edit
 
@@ -907,27 +907,27 @@ The following `knife edit` settings can be added to the `config.rb` file:
 
 `knife[:chef_repo_path]`
 
-: Adds the the `--chef-repo-path` option.
+: Adds the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-: Adds the the `--concurrency` option.
+: Adds the `--concurrency` option.
 
 `knife[:disable_editing]`
 
-: Adds the the `--disable-editing` option.
+: Adds the `--disable-editing` option.
 
 `knife[:editor]`
 
-: Adds the the `--editor` option.
+: Adds the `--editor` option.
 
 `knife[:local]`
 
-: Adds the the `--local` option.
+: Adds the `--local` option.
 
 `knife[:repo_mode]`
 
-: Adds the the `--repo-mode` option.
+: Adds the `--repo-mode` option.
 
 ### environment create
 
@@ -936,7 +936,7 @@ The following `knife environment create` settings can be added to the
 
 `knife[:description]`
 
-: Adds the the `--description` option.
+: Adds the `--description` option.
 
 ### environment from file
 
@@ -944,11 +944,11 @@ The following `knife environment from file` settings can be added to the `config
 
 `knife[:all]`
 
-: Adds the the `--all` option.
+: Adds the `--all` option.
 
 `knife[:print_after]`
 
-: Adds the the `--print-after` option.
+: Adds the `--print-after` option.
 
 ### exec
 
@@ -956,11 +956,11 @@ The following `knife exec` settings can be added to the `config.rb` file:
 
 `knife[:exec]`
 
-: Adds the the `--exec` option.
+: Adds the `--exec` option.
 
 `knife[:script_path]`
 
-: Adds the the `--script-path` option.
+: Adds the `--script-path` option.
 
 ### list
 
@@ -968,23 +968,23 @@ The following `knife list` settings can be added to the `config.rb` file:
 
 `knife[:bare_directories]`
 
-: Adds the the `-d` option.
+: Adds the `-d` option.
 
 `knife[:chef_repo_path]`
 
-: Adds the the `--chef-repo-path` option.
+: Adds the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-: Adds the the `--concurrency` option.
+: Adds the `--concurrency` option.
 
 `knife[:recursive]`
 
-: Adds the the `-R` option.
+: Adds the `-R` option.
 
 `knife[:repo_mode]`
 
-: Adds the the `--repo-mode` option.
+: Adds the `--repo-mode` option.
 
 ### node from file
 
@@ -992,7 +992,7 @@ The following `knife node from file` settings can be added to the `config.rb` fi
 
 `knife[:print_after]`
 
-: Adds the the `--print-after` option.
+: Adds the `--print-after` option.
 
 ### node list
 
@@ -1000,7 +1000,7 @@ The following `knife node list` settings can be added to the `config.rb` file:
 
 `knife[:environment]`
 
-: Adds the the `--environment` option.
+: Adds the `--environment` option.
 
 ### node run list add
 
@@ -1008,7 +1008,7 @@ The following `knife node run list add` settings can be added to the `config.rb`
 
 `knife[:after]`
 
-: Adds the the `--after` option.
+: Adds the `--after` option.
 
 `knife[:run_list]`
 
@@ -1028,27 +1028,27 @@ The following `knife raw` settings can be added to the `config.rb` file:
 
 `knife[:chef_repo_path]`
 
-: Adds the the `--chef-repo-path` option.
+: Adds the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-: Adds the the `--concurrency` option.
+: Adds the `--concurrency` option.
 
 `knife[:input]`
 
-: Adds the the `--input` option.
+: Adds the `--input` option.
 
 `knife[:method]`
 
-: Adds the the `--method` option.
+: Adds the `--method` option.
 
 `knife[:pretty]`
 
-: Adds the the `--[no-]pretty` option.
+: Adds the `--[no-]pretty` option.
 
 `knife[:repo_mode]`
 
-: Adds the the `--repo-mode` option.
+: Adds the `--repo-mode` option.
 
 ### role create
 
@@ -1056,7 +1056,7 @@ The following `knife role create` settings can be added to the `config.rb` file:
 
 `knife[:description]`
 
-: Adds the the `--description` option.
+: Adds the `--description` option.
 
 ### role from file
 
@@ -1064,7 +1064,7 @@ The following `knife role from file` settings can be added to the `config.rb` fi
 
 `knife[:print_after]`
 
-: Adds the the `--print-after` option.
+: Adds the `--print-after` option.
 
 ### role show
 
@@ -1072,7 +1072,7 @@ The following `knife role show` settings can be added to the `config.rb` file:
 
 `knife[:environment]`
 
-: Adds the the `--environment` option.
+: Adds the `--environment` option.
 
 ### ssh
 
@@ -1080,39 +1080,39 @@ The following `knife ssh` settings can be added to the `config.rb` file:
 
 `knife[:concurrency]`
 
-: Adds the the `--concurrency` option.
+: Adds the `--concurrency` option.
 
 `knife[:identity_file]`
 
-: Adds the the `--identity-file` option.
+: Adds the `--identity-file` option.
 
 `knife[:host_key_verify]`
 
-: Adds the the `--[no-]host-key-verify` option.
+: Adds the `--[no-]host-key-verify` option.
 
 `knife[:manual]`
 
-: Adds the the `--manual-list` option.
+: Adds the `--manual-list` option.
 
 `knife[:ssh_attribute]`
 
-: Adds the the `--attribute` option.
+: Adds the `--attribute` option.
 
 `knife[:ssh_gateway]`
 
-: Adds the the `--ssh-gateway` option.
+: Adds the `--ssh-gateway` option.
 
 `knife[:ssh_password]`
 
-: Adds the the `--ssh-password` option.
+: Adds the `--ssh-password` option.
 
 `knife[:ssh_port]`
 
-: Adds the the `--ssh-port` option.
+: Adds the `--ssh-port` option.
 
 `knife[:ssh_user]`
 
-: Adds the the `--ssh-user` option.
+: Adds the `--ssh-user` option.
 
 ### status
 
@@ -1120,15 +1120,15 @@ The following `knife status` settings can be added to the `config.rb` file:
 
 `knife[:hide_by_mins]`
 
-: Adds the the `--hide-by-mins` option.
+: Adds the `--hide-by-mins` option.
 
 `knife[:run_list]`
 
-: Adds the the `--run-list` option.
+: Adds the `--run-list` option.
 
 `knife[:sort_reverse]`
 
-: Adds the the `--sort-reverse` option.
+: Adds the `--sort-reverse` option.
 
 ### upload
 
@@ -1136,19 +1136,19 @@ The following `knife upload` settings can be added to the `config.rb` file:
 
 `knife[:chef_repo_path]`
 
-: Adds the the `--chef-repo-path` option.
+: Adds the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-: Adds the the `--concurrency` option.
+: Adds the `--concurrency` option.
 
 `knife[:recurse]`
 
-: Adds the the `--recurse` option.
+: Adds the `--recurse` option.
 
 `knife[:repo_mode]`
 
-: Adds the the `--repo-mode` option.
+: Adds the `--repo-mode` option.
 
 ### user create
 
@@ -1156,15 +1156,15 @@ The following `knife user create` settings can be added to the `config.rb` file:
 
 `knife[:file]`
 
-: Adds the the `--file` option.
+: Adds the `--file` option.
 
 `knife[:user_key]`
 
-: Adds the the `--user-key` option.
+: Adds the `--user-key` option.
 
 `knife[:user_password]`
 
-: Adds the the `--password` option.
+: Adds the `--password` option.
 
 ### user reregister
 
@@ -1172,7 +1172,7 @@ The following `knife user reregister` settings can be added to the `config.rb` f
 
 `knife[:file]`
 
-: Adds the the `--file` option.
+: Adds the `--file` option.
 
 ### xargs
 
@@ -1180,56 +1180,56 @@ The following `knife delete` settings can be added to the `config.rb` file:
 
 `knife[:chef_repo_path]`
 
-: Adds the the `--chef-repo-path` option.
+: Adds the `--chef-repo-path` option.
 
 `knife[:concurrency]`
 
-: Adds the the `--concurrency` option.
+: Adds the `--concurrency` option.
 
 `knife[:diff]`
 
-: Adds the the `--diff` option.
+: Adds the `--diff` option.
 
 `knife[:dry_run]`
 
-: Adds the the `--dry-run` option.
+: Adds the `--dry-run` option.
 
 `knife[:force]`
 
-: Adds the the `--force` option.
+: Adds the `--force` option.
 
 `knife[:local]`
 
-: Adds the the `--local` option.
+: Adds the `--local` option.
 
 `knife[:max_arguments_per_command]`
 
-: Adds the the `--max-args` option.
+: Adds the `--max-args` option.
 
 `knife[:max_command_line]`
 
-: Adds the the `--max-chars` option.
+: Adds the `--max-chars` option.
 
 `knife[:null_separator]`
 
-: Adds the the `-0` option.
+: Adds the `-0` option.
 
 `knife[:patterns]`
 
-: Adds the the `--pattern` option.
+: Adds the `--pattern` option.
 
 `knife[:replace_all]`
 
-: Adds the the `--replace` option.
+: Adds the `--replace` option.
 
 `knife[:replace_first]`
 
-: Adds the the `--replace-first` option.
+: Adds the `--replace-first` option.
 
 `knife[:repo_mode]`
 
-: Adds the the `--repo-mode` option.
+: Adds the `--repo-mode` option.
 
 `knife[:verbose_commands]`
 
-: Adds the the `-t` option.
+: Adds the `-t` option.
