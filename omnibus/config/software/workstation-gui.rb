@@ -20,17 +20,14 @@ license :project_license
 
 source path: File.join("#{project.files_path}", "../../src/workstation-gui")
 
-# todo need to checkout all the dependency
 dependency "ruby"
-dependency "libxml2"
-dependency "libxslt"
-dependency "liblzma"
-dependency "zlib"
-dependency "libarchive"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
+  # This statement is to replace the --without flag which is getting deprecated
+  # bundle "package --no-install", env: env
+  bundle "config set without 'development doc test'"
   bundle "install" \
          " --jobs #{workers}" \
          " --retry 3",

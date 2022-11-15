@@ -85,12 +85,11 @@ if windows?
   dependency "ruby-windows-system-libraries"
 end
 
+dependency "workstation-gui"
 dependency "chef-workstation-app"
 dependency "uninstall-scripts"
 dependency "ruby-env-script"
 dependency "ruby-cleanup"
-dependency "workstation-gui"
-
 # further gem cleanup other projects might not yet want to use
 dependency "more-ruby-cleanup"
 
