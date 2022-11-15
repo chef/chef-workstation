@@ -966,8 +966,6 @@ the isolation of applications used by Chef Workstation from other Ruby
 development tools that may be present on the workstation. This supports
 Bash, fish, Windows PowerShell (posh), and zsh.
 
-bash zsh fish PowerShell (posh)
-
 ### Syntax
 
 This subcommand has the following syntax:
