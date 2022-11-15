@@ -108,7 +108,7 @@ Values
 : Value must be a valid, writable file path.
 
 Default
-: `"$USERHOME/.chef-workstation/logs/default.log"
+: `"$USERHOME/.chef-workstation/logs/default.log"`
 
 Used by
 : `chef-run`
