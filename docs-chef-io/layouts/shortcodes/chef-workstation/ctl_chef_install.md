@@ -1,4 +1,4 @@
-Use the `chef install` subcommand to evaluate a policy file and find a
+Use the `chef install` subcommand to evaluate a Policyfile and find a
 compatible set of cookbooks, build a run-list, cache it locally, and
 then emit a `Policyfile.lock.json` file that describes the locked policy
 set. The `Policyfile.lock.json` file may be used to install the locked

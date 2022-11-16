@@ -17,9 +17,9 @@ aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html",
 This guide walks you through the four parts to set up Chef Workstation on your computer.
 
 - [Configure Ruby Environment]({{< relref "#configure-ruby-environment" >}})
-- [Set up your chef-repo]({{< relref "#setup-your-chef-repo" >}}) for storing your cookbooks
-- [Set up Chef Credentials]({{< relref "#setup-chef-credentials" >}})
-- [Verify Client-to-Server Communication]({{< relref "#Verify Client-to-Server Communication" >}})
+- [Set up your chef-repo]({{< relref "#set-up-your-chef-repo" >}}) for storing your cookbooks
+- [Set up Chef Credentials]({{< relref "#set-up-chef-credentials" >}})
+- [Verify Client-to-Server Communication]({{< relref "#verify-client-to-server-communication" >}})
 
 ## Prerequisites
 
@@ -189,7 +189,7 @@ registered_node
 
 ### Fetch Self Signed Certificates
 
-If the Chef Infra Server you're configured to use has a self signed certificate, you'll use the `knife ssl fetch` subcommand to download the the Chef Infra Server TLS/SSL certificate and save it in your `.chef/trusted_certs`.
+If the Chef Infra Server you're configured to use has a self signed certificate, you'll use the `knife ssl fetch` subcommand to download the Chef Infra Server TLS/SSL certificate and save it in your `.chef/trusted_certs`.
 
 Chef Infra verifies the security of all requests made to the server from tools such a knife and Chef Infra Client. The certificate that is generated during the installation of the Chef Infra Server is self-signed, which means there isn't a signing certificate authority (CA) to verify. In addition, this certificate must be downloaded to any machine from which knife and/or Chef Infra Client will make requests to the Chef Infra Server.
 
