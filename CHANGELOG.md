@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.11.1016 -->
-## [22.11.1016](https://github.com/chef/chef-workstation/tree/22.11.1016) (2022-11-14)
+<!-- latest_release 22.11.1017 -->
+## [22.11.1017](https://github.com/chef/chef-workstation/tree/22.11.1017) (2022-11-22)
 
 #### Merged Pull Requests
-- Bump mixlib-install to 3.12.24 [#2971](https://github.com/chef/chef-workstation/pull/2971) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `7d0e0fe` to `46eb852` in /omnibus [#2981](https://github.com/chef/chef-workstation/pull/2981) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.10.1013 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `7d0e0fe` to `46eb852` in /omnibus [#2981](https://github.com/chef/chef-workstation/pull/2981) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.11.1017 -->
 - Bump mixlib-install to 3.12.24 [#2971](https://github.com/chef/chef-workstation/pull/2971) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.11.1016 -->
 - Fix a bunch of typos and a few bad links [#2970](https://github.com/chef/chef-workstation/pull/2970) ([IanMadd](https://github.com/IanMadd)) <!-- 22.11.1015 -->
 - Bump nokogiri to 1.13.9 [#2942](https://github.com/chef/chef-workstation/pull/2942) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.10.1014 -->
