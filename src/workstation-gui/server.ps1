@@ -38,5 +38,5 @@ IF ($serverProcess | Select-String -Pattern $activePortPattern -Quiet) {
 Start-Process -WindowStyle Hidden -File "$bin_path\bundle" -ArgumentList "exec", "$bin_path\rake", "secrets:regenerate['$access_key']"
 Write-Output("Regenerated the secrets")
 
-Start-Process -WindowStyle Hidden -File "$bin_path\bundle" -ArgumentLis "exec", "$bin_path\puma", "-C", "$server_path\config\puma.rb"
+Start-Process -WindowStyle Hidden -File "$bin_path\bundle" -ArgumentList "exec", "$bin_path\puma", "-C", "$server_path\config\puma.rb"
 Write-Output("Start the service on port 7050.")
