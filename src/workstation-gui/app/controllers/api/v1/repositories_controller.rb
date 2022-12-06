@@ -17,7 +17,7 @@
 class Api::V1::RepositoriesController < ApiV1Controller
   include Workstation::Workable
 
-  before_action :create_repository_repository, only: [:link_repository]
+  before_action :create_repository_repository
 
   # todo move extra code to service, to improve it
   def repositories
