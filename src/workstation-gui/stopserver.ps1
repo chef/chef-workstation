@@ -9,6 +9,6 @@ IF ($serverProcess | Select-String -Pattern $activePortPattern -Quiet) {
   $firstMatch = $matches.Matches.Get(0).Value
 
   $pidNumber = [regex]::match($firstMatch, $pidNumberPattern).Value
-  taskkill /pid $pidNumber /f
+  Stop-Process -Id $pidNumber -Force
   Write-Output "Terminated the service after locating it running on PID:$pidNumber."
 }

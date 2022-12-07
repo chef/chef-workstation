@@ -52,6 +52,13 @@
         DllEntry="WixShellExec"
         Impersonate="yes" />
 
+    <Property Id="WixQuietExecCmdLine" Value='"[WindowsFolder]System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NonInteractive -InputFormat None -NoProfile -windowstyle hidden -File "[PROJECTLOCATION]embedded\service\workstation-gui\stopserver.ps1"'/>
+    <CustomAction Id="RailsSvc.TaskKill"
+      BinaryKey="WixCA"
+      DllEntry="WixQuietExec"
+      Execute="immediate"
+      Return="ignore"/>
+
     <CustomAction Id="TaskKill"
       BinaryKey="WixCA"
       DllEntry="WixQuietExec"
@@ -72,19 +79,8 @@
       Value='"[WindowsFolder]System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NonInteractive -InputFormat None -NoProfile -windowstyle hidden -File "[PROJECTLOCATION]embedded\service\workstation-gui\server.ps1"' />
     <CustomAction Id="SetupApiServerCommandLine"
       BinaryKey="WixCA"
-      DllEntry="WixQuietExecCmdLine"
+      DllEntry="WixQuietExec"
       Execute="deferred"
-      Return="ignore" />
-
-    <SetProperty
-      Id="ClearApiServerCommandLine"
-      Sequence="execute"
-      After="InstallInitialize"
-      Value='"[WindowsFolder]System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NonInteractive -InputFormat None -NoProfile -windowstyle hidden -File "[PROJECTLOCATION]embedded\service\workstation-gui\stopserver.ps1"' />
-    <CustomAction Id="ClearApiServerCommandLine"
-      BinaryKey="WixCA"
-      DllEntry="WixQuietExecCmdLine"
-      Execute="immediate"
       Return="ignore" />
 
     <!-- Detect if ChefDK is installed - this upgrade GUID is specified in
@@ -105,7 +101,7 @@
     <InstallExecuteSequence>
       <Custom Action="TaskKill" After="InstallInitialize">1</Custom>
       <Custom Action="FastUnzip" After="InstallFiles">NOT Installed OR REINSTALL</Custom>
-      <Custom Action="ClearApiServerCommandLine" After="InstallInitialize">REMOVE~="ALL"</Custom>
+      <Custom Action="RailsSvc.TaskKill" Before="InstallValidate">REMOVE~="ALL"</Custom>
       <Custom Action="Cleanup" After="RemoveFiles">REMOVE~="ALL"</Custom>
       <Custom Action="SetupApiServerCommandLine" After="FastUnzip">NOT Installed OR REINSTALL</Custom>
     </InstallExecuteSequence>
