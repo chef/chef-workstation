@@ -76,16 +76,16 @@
       Execute="deferred"
       Return="ignore" />
 
-    <SetProperty
-      Id="ClearApiServerCommandLine"
-      Sequence="execute"
-      Before="RemoveFiles"
+    <CustomAction Id="ClearApiServerCmd"
+      Property="ClearApiServerCommandLine"
+      Execute="immediate"
       Value='"[WindowsFolder]System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NonInteractive -InputFormat None -NoProfile -windowstyle hidden -File "[PROJECTLOCATION]embedded\service\workstation-gui\stopserver.ps1"' />
     <CustomAction Id="ClearApiServerCommandLine"
       BinaryKey="WixCA"
       DllEntry="WixQuietExec"
       Execute="deferred"
-      Return="ignore" />
+      Return="ignore"
+      Impersonate="no" />
 
     <!-- Detect if ChefDK is installed - this upgrade GUID is specified in
          chef-dk/omnibus/projects/chef-dk.rb. We don't look for a specific version -
@@ -105,6 +105,7 @@
     <InstallExecuteSequence>
       <Custom Action="TaskKill" After="InstallInitialize">1</Custom>
       <Custom Action="FastUnzip" After="InstallFiles">NOT Installed OR REINSTALL</Custom>
+      <Custom Action="ClearApiServerCmd" Before="CostInitialize">REMOVE~="ALL"</Custom>
       <Custom Action="ClearApiServerCommandLine" Before="RemoveFiles">REMOVE~="ALL"</Custom>
       <Custom Action="Cleanup" After="RemoveFiles">REMOVE~="ALL"</Custom>
       <Custom Action="SetupApiServerCommandLine" After="FastUnzip">NOT Installed OR REINSTALL</Custom>
