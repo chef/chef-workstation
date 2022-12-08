@@ -8,7 +8,8 @@ module Api
         cookbook_upload = Cookbook.cookbook_upload(upload_params[:cookbook_name],
                                                    upload_params[:cookbook_path],
                                                    upload_params[:config_file])
-        render json: { status: cookbook_upload }
+
+        render json: cookbook_upload, status: upload_status(cookbook_upload)
       end
 
       def cookbooks
@@ -17,13 +18,19 @@ module Api
         render json: { cookbooks: result, total_size: total_size, message: "success", code: "200" }, status: 200
 
       rescue StandardError => e
-        render json: { message: e.message , code: "422" }, status: 422
+        render json: { message: e.message, code: "422" }, status: 422
       end
 
       private
 
       def upload_params
         params.require(:cookbook).permit(:config_file, :cookbook_name, :cookbook_path)
+      end
+
+      def upload_status(response)
+        return :unprocessable_entity unless response["code"] == 200
+
+        :ok
       end
     end
   end

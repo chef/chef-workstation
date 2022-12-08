@@ -31,10 +31,10 @@ module Api
               token: token,
             },
             message: "success",
-            status: "200",
+            code: "200",
           }
         else
-          render json: { message: "Invalid credentials", status: 401 }, status: :unauthorized
+          render json: { message: "Invalid credentials", code: 401 }, status: :unauthorized
         end
       end
 
@@ -42,7 +42,7 @@ module Api
 
       def validate_creds
         unless params.key?(:access_key)
-          render json: { errors: "Access key is required", status: 401 }, status: :unauthorized
+          render json: { errors: "Access key is required", code: 401 }, status: :unauthorized
         end
       end
     end

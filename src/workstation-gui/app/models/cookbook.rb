@@ -11,7 +11,7 @@ class Cookbook < ApplicationRecord
 
   def self.cookbook_upload(cookbook_name, cookbook_path, config_file = nil)
     cookbook_upload_config(cookbook_name, cookbook_path, config_file)
-    { "status" => 200, "message" => "Success" }
+    { "code" => 200, "message" => "Success" }
   rescue StandardError => e
     JSON.parse(e.message)
   end
