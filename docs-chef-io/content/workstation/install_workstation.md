@@ -51,7 +51,7 @@ Supported Host Operating Systems:
 </tr>
 <tr class="even">
 <td>Ubuntu</td>
-<td>16.04, 18.04, 20.04</td>
+<td>18.04, 20.04, 22.04</td>
 </tr>
 <tr class="odd">
 <td>Debian</td>
