@@ -74,7 +74,10 @@ class Api::V1::RepositoriesController < ApiV1Controller
   end
 
   def get_repo_name(file_path)
-    file_path.split("/").last # todo handle case for windows aswell.
+    sep = "/"
+    sep = "\\" if Gem.win_platform?
+
+    file_path.split(sep).last
   end
 
   def repository_params
