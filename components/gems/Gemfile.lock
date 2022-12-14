@@ -625,7 +625,7 @@ GEM
       fog-openstack (~> 1.0)
       ohai
       test-kitchen (>= 1.4.1, < 4)
-    kitchen-vagrant (1.12.1)
+    kitchen-vagrant (1.13.0)
       test-kitchen (>= 1.4, < 4)
     kitchen-vcenter (2.11.13)
       net-ping (>= 2.0.0, < 3.0)
