@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/chef/omnibus.git
-  revision: 52b6d2e08bc2c90592b99da41a1728fb1629f673
+  revision: 831437387f5496c2d9b9ba1e3ba283dd01bda147
   branch: main
   specs:
-    omnibus (9.0.12)
+    omnibus (9.0.14)
       aws-sdk-s3 (~> 1.116.0)
       chef-cleanroom (~> 1.0)
       chef-utils (>= 15.4)
