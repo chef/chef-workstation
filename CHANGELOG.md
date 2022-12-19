@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.12.1022 -->
-## [22.12.1022](https://github.com/chef/chef-workstation/tree/22.12.1022) (2022-12-15)
+<!-- latest_release 22.12.1023 -->
+## [22.12.1023](https://github.com/chef/chef-workstation/tree/22.12.1023) (2022-12-19)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.181 [#3005](https://github.com/chef/chef-workstation/pull/3005) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- APIs for the GUI App [#2933](https://github.com/chef/chef-workstation/pull/2933) ([ashiqueps](https://github.com/ashiqueps))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.10.1013 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- APIs for the GUI App [#2933](https://github.com/chef/chef-workstation/pull/2933) ([ashiqueps](https://github.com/ashiqueps)) <!-- 22.12.1023 -->
 - Bump Chef Workstation App to 0.2.181 [#3005](https://github.com/chef/chef-workstation/pull/3005) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.12.1022 -->
 - Bump kitchen-ec2 to 3.14.0 [#2988](https://github.com/chef/chef-workstation/pull/2988) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.12.1021 -->
 - Bump omnibus-software from `46eb852` to `a0f9b4b` in /omnibus [#2984](https://github.com/chef/chef-workstation/pull/2984) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.11.1020 -->
