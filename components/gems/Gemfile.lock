@@ -632,12 +632,12 @@ GEM
       rbvmomi (>= 1.11, < 4.0)
       test-kitchen (>= 1.16, < 4)
       vsphere-automation-sdk (~> 0.4)
-    kitchen-vra (3.2.1)
+    kitchen-vra (3.3.0)
       ffi-yajl (>= 2.2.3, < 2.5.0)
       highline
       rack (>= 1.6, < 3.0)
       test-kitchen
-      vmware-vra (>= 3.1.0)
+      vmware-vra (~> 3.0, >= 3.2.0)
     knife (17.10.0)
       bcrypt_pbkdf (~> 1.1)
       chef (>= 17)
