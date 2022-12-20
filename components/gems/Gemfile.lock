@@ -1,33 +1,4 @@
 GIT
-  remote: https://github.com/chef/chef
-  revision: 79867588444b2f2500dc96173263acd5e53aa73b
-  branch: main
-  glob: knife/*.gemspec
-  specs:
-    knife (18.0.202)
-      bcrypt_pbkdf (~> 1.1)
-      chef (>= 18)
-      chef-config (>= 18)
-      chef-utils (>= 18)
-      chef-vault
-      erubis (~> 2.7)
-      ffi (>= 1.15)
-      ffi-yajl (~> 2.2)
-      highline (>= 1.6.9, < 3)
-      license-acceptance (>= 1.0.5, < 3)
-      mixlib-archive (>= 0.4, < 2.0)
-      mixlib-cli (>= 2.1.1, < 3.0)
-      net-ssh (>= 5.1, < 8)
-      net-ssh-multi (~> 1.2, >= 1.2.1)
-      ohai (~> 18.0)
-      pastel
-      train-core (~> 3.10)
-      train-winrm (>= 0.2.5)
-      tty-prompt (~> 0.21)
-      tty-screen (~> 0.6)
-      tty-table (~> 0.11)
-
-GIT
   remote: https://github.com/chef/ruby-shadow
   revision: 3b8ea40b0e943b5de721d956741308ce805a5c3c
   branch: lcg/ruby-3.0
@@ -619,6 +590,28 @@ GEM
       rack (>= 1.6, < 3.0)
       test-kitchen
       vmware-vra (>= 3.1.0)
+    knife (18.0.185)
+      bcrypt_pbkdf (~> 1.1)
+      chef (>= 18)
+      chef-config (>= 18)
+      chef-utils (>= 18)
+      chef-vault
+      erubis (~> 2.7)
+      ffi (>= 1.15)
+      ffi-yajl (~> 2.2)
+      highline (>= 1.6.9, < 3)
+      license-acceptance (>= 1.0.5, < 3)
+      mixlib-archive (>= 0.4, < 2.0)
+      mixlib-cli (>= 2.1.1, < 3.0)
+      net-ssh (>= 5.1, < 8)
+      net-ssh-multi (~> 1.2, >= 1.2.1)
+      ohai (~> 18.0)
+      pastel
+      train-core (~> 3.10)
+      train-winrm (>= 0.2.5)
+      tty-prompt (~> 0.21)
+      tty-screen (~> 0.6)
+      tty-table (~> 0.11)
     knife-azure (4.0.0)
       azure_mgmt_compute (~> 0.18, >= 0.18.3)
       azure_mgmt_network (~> 0.18, >= 0.18.2)
@@ -1131,7 +1124,7 @@ DEPENDENCIES
   kitchen-vagrant (>= 1.9)
   kitchen-vcenter (>= 2.8)
   kitchen-vra (>= 3.0)
-  knife!
+  knife
   knife-azure (>= 3.0.0)
   knife-ec2 (>= 1.0.28)
   knife-google (>= 4.2.7)
