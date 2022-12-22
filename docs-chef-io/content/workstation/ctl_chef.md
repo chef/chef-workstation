@@ -19,6 +19,19 @@ The chef executable is a command-line tool that does the following:
 
 - Generates repositories, cookbooks, recipes, attributes, templates, and custom resources.
 - Installs gems into the Chef development environment's Ruby installation.
+- Helps you manage your [Policyfiles](/policyfile/). Please refer the Policyfile commands [section](#policyfile-commands).
+
+
+{{< note >}}
+
+By default, the cookbook cache is located in `~/.chef-workstation` on macOS and Linux, and in `%LOCALAPPDATA%\chef-workstation` on Windows.
+On macOS or Linux, set the desired location of the cache directory by setting the `CHEF_WORKSTATION_HOME`
+environment variable in your `.bashrc` or `zshrc` file. For example, `CHEF_WORKSTATION_HOME="~/.workstation"`.
+On Windows, use the `setx` [command](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/setx)
+or access the [Advanced](https://support.microsoft.com/en-us/topic/how-to-manage-environment-variables-in-windows-xp-5bf6725b-655e-151c-0b55-9a8c9c7f747d)
+tab in System Properties to set the `CHEF_WORKSTATION_HOME` environment variable.
+
+{{< /note >}}
 
 ## chef capture
 
@@ -965,8 +978,6 @@ Workstation as the system Ruby. Chef Workstation is designed to allow
 the isolation of applications used by Chef Workstation from other Ruby
 development tools that may be present on the workstation. This supports
 Bash, fish, Windows PowerShell (posh), and zsh.
-
-bash zsh fish PowerShell (posh)
 
 ### Syntax
 
