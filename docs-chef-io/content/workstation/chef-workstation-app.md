@@ -45,11 +45,17 @@ To access the cookbook management dashboard, select "Manage Cookbooks" in the CW
 
 ### Linking repositories
 
-The Repositories view lets you to choose folders in your computer that represent the chef-repo's you need to work on. The cookbooks present in each of these repositories will be listed in the dashboard's Cookbooks view. The linked chef-repo's are persisted so you only need to add them once in the cookbook management dashboard. The repository name displayed in the dashboard is the same as the folder name.
+The 'Chef Repositories' view lets you to choose folders in your computer that represent the chef-repo's you need to work on. Click 'Add New' to select a chef-repo folder. The cookbooks present in each of these repositories will be listed in the dashboard's 'Cookbooks' view. The linked chef-repo's are persisted so you only need to add them once in the cookbook management dashboard. The repository name displayed in the dashboard is the same as the folder name.
 
 ### Accessing cookbook actions
 
-At present, the Cookbooks view (or the Activity view) lets you upload the selected cookbooks to the configured Chef Infra Server. To upload a cookbook, click the 'Upload' button corresponding to the cookbook. If you want to upload multiple cookbooks at a time, select the cookbooks and click the 'Upload All' button.
+At present, the 'Cookbooks' view lets you upload the selected cookbooks to the configured Chef Infra Server. To upload a cookbook, click the 'Upload' button corresponding to the cookbook.
+
+{{< note >}}
+
+There is a known limitation where the profile settings in `~/.chef/credentials` are not parsed correctly, causing a request signing error to show up when you upload a cookbook. To overcome this issue, please copy your knife `config.rb` to `~/.chef`. This is a temporary workaround and a proper fix will be introduced soon.
+
+{{< /note >}}
 
 ## Disabling Automatic Update Checks
 
