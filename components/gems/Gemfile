@@ -79,7 +79,7 @@ group(:omnibus_package) do
   gem "kitchen-vra", ">= 3.0"
 
   # knife & plugins
-  gem "knife"
+  gem "knife", git: "https://github.com/chef/chef", branch: "main", glob: "knife/*.gemspec"
   gem "knife-azure", ">= 3.0.0"
   gem "knife-ec2", ">= 1.0.28"
   gem "knife-google", ">= 4.2.7"
@@ -120,7 +120,7 @@ end
 # Everything except Windows
 group(:ruby_shadow) do
   # if ruby-shadow does a release that supports ruby-3.0 this can be removed
-  gem "ruby-shadow", git: "https://github.com/chef/ruby-shadow", branch: "lcg/ruby-3.0", platforms: :ruby
+  gem "ruby-shadow", git: "https://github.com/chef/ruby-shadow", branch: "lcg/ruby-3.0", platforms: :ruby unless RUBY_PLATFORM == "x64-mingw-ucrt"
 end
 
 gem "chefstyle", group: :test
