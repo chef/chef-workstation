@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 23.1.1025 -->
+## [23.1.1025](https://github.com/chef/chef-workstation/tree/23.1.1025) (2023-01-09)
+
+#### Merged Pull Requests
+- Bump kitchen-vcenter to 2.12.0 [#3022](https://github.com/chef/chef-workstation/pull/3022) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=22.12.1024 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Bump kitchen-vcenter to 2.12.0 [#3022](https://github.com/chef/chef-workstation/pull/3022) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 23.1.1025 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
