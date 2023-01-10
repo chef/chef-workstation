@@ -45,7 +45,7 @@ group(:omnibus_package) do
   # avoid failures running 0.0.7.7 on windows
   gem "unf_ext", "=0.0.8.2"
 
-  gem "appbundler", git: "https://github.com/nikhil2611/appbundler", branch: "nikhil/update-bundler-method"
+  gem "appbundler"
 
   # Expeditor manages the version of chef released to Rubygems. We only release 'stable' chef
   # gems to Rubygems now, so letting this float on latest should always give us the latest
