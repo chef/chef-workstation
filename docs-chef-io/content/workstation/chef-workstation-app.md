@@ -51,9 +51,11 @@ To add a new Chef repository and its cookbooks, select **Add New** and then navi
 
 The linked Chef repositories are persistent, so you only need to add them once in the dashboard. The repository name displayed in the dashboard is the same as the Chef repository folder name.
 
-### Accessing cookbook actions
+### Cookbooks
 
-At present, the 'Cookbooks' view lets you upload the selected cookbooks to the configured Chef Infra Server. To upload a cookbook, click the 'Upload' button corresponding to the cookbook.
+Use the **Cookbooks** panel to upload cookbooks to a configured Chef Infra Server.
+
+To upload a cookbook, select **Upload** next to the corresponding cookbook.
 
 {{< note >}}
 
