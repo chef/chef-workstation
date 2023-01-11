@@ -1152,9 +1152,7 @@ GEM
 
 PLATFORMS
   ruby
-  x64-mingw32
-  x86-mingw32
-  x86_64-darwin-22
+  x64-mingw-ucrt
 
 DEPENDENCIES
   appbundler
@@ -1229,4 +1227,4 @@ DEPENDENCIES
   winrm-fs
 
 BUNDLED WITH
-   2.3.3
+   2.3.7
