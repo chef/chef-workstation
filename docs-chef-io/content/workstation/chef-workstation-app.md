@@ -43,9 +43,13 @@ Start `Chef Workstation App` from your Applications folder.
 
 The Chef Workstation App dashboard lets you manage Cookbooks and Chef repositories. Open the Chef Workstation App dashboard by selecting **Manage Cookbooks** from the Chef Workstation App menu in the menu bar (macOS) or taskbar (Windows).
 
-### Linking repositories
+### Chef Repositories
 
-The 'Chef Repositories' view lets you to choose folders in your computer that represent the chef-repo's you need to work on. Click 'Add New' to select a chef-repo folder. The cookbooks present in each of these repositories will be listed in the dashboard's 'Cookbooks' view. The linked chef-repo's are persisted so you only need to add them once in the cookbook management dashboard. The repository name displayed in the dashboard is the same as the folder name.
+Select **Chef Repositories** to view Chef repositories and cookbooks on your local workstation.
+
+To add a new Chef repository and its cookbooks, select **Add New** and then navigate to a Chef repository in your workstation's file system.
+
+The linked Chef repositories are persistent, so you only need to add them once in the dashboard. The repository name displayed in the dashboard is the same as the Chef repository folder name.
 
 ### Accessing cookbook actions
 
