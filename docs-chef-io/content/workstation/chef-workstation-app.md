@@ -39,9 +39,9 @@ Start Chef Workstation App by running the command `chef-workstation-app`.
 
 Start `Chef Workstation App` from your Applications folder.
 
-## Managing cookbooks
+## Chef Workstation App Window
 
-To access the cookbook management dashboard, select "Manage Cookbooks" in the CWA tray app menu (Windows) or the application menu (Mac).
+The Chef Workstation App window lets you manage Cookbooks and Chef repositories. Open the Chef Workstation App window by selecting **Manage Cookbooks** from the Chef Workstation App menu in the menu bar (macOS) or taskbar (Windows).
 
 ### Linking repositories
 
