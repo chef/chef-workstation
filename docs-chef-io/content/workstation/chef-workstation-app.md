@@ -59,7 +59,7 @@ To upload a cookbook, select **Upload** next to the corresponding cookbook.
 
 {{< note >}}
 
-There is a known limitation where the profile settings in `~/.chef/credentials` are not parsed correctly, causing a request signing error to show up when you upload a cookbook. To overcome this issue, please copy your knife `config.rb` to `~/.chef`. This is a temporary workaround and a proper fix will be introduced soon.
+There is a known limitation where the profile settings in `~/.chef/credentials` are not parsed correctly, causing a request signing error to show up when you upload a cookbook. To overcome this issue, copy your knife `config.rb` to `~/.chef`.
 
 {{< /note >}}
 
