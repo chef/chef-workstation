@@ -89,7 +89,6 @@ dependency "workstation-gui"
 dependency "chef-workstation-app"
 dependency "uninstall-scripts"
 dependency "ruby-env-script"
-dependency "ruby-msys2-devkit" if windows?
 dependency "ruby-cleanup"
 # further gem cleanup other projects might not yet want to use
 dependency "more-ruby-cleanup"
