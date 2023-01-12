@@ -23,6 +23,7 @@ aliases = ["/knife_bootstrap.html", "/knife_bootstrap/"]
 - Knife will copy the contents of the `~/.chef/client.d` directory on your local workstation to the `client.d` directory on the device being bootstrapped with the `knife bootstrap` command. You can also set the `client_d_dir` option in the `config.rb` file to point to an arbitrary directory instead of `~/.chef/client.d`, and the contents of that directory will be copied to the device being bootstrapped. All config files inside the `client.d` directory will get copied into the `/etc/chef/client.d` directory on the system being bootstrapped.
 - SSL certificates from an on-premises Chef Infra Server can be copied to the `/trusted_certs_dir` directory on your local workstation automatically by running [knife ssl fetch](/workstation/knife_ssl_fetch/). These certificates are used during `knife` operations to communicate with the Chef Infra Server.
 - By default, `knife bootstrap` will attempt to use `ssh` to connect to the target node. Use the `-o` to specify a different protocol, such as `winrm` for windows nodes.
+- `knife bootstrap` does not support an option to provide passphrases for private SSH keys; use an unencrypted private key instead. This will also help with unattended bootstraps -- you can use an SSH agent to provide a password for you while it runs in the same shell as your knife client.
 
 ## Syntax
 
