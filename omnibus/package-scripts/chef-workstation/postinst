@@ -107,7 +107,7 @@ if is_darwin; then
   ditto -x -k -V chef-workstation-app-mac.zip ./
   sudo rm -rf "/Applications/Chef Workstation App.app"
   sudo mv "Chef Workstation App.app" /Applications/
-  mv "/Applications/Chef Workstation App.app/Contents/Resources/assets/scripts/$app_launcher" $INSTALLER_DIR/bin || error_exit "Cannot move $app_launcher to $INSTALLER_DIR/bin"
+  cp "/Applications/Chef Workstation App.app/Contents/Resources/assets/scripts/$app_launcher" $INSTALLER_DIR/bin/. || error_exit "Cannot copy $app_launcher to $INSTALLER_DIR/bin"
   rm -rf "$INSTALLER_DIR/components"
   popd
 

@@ -7,6 +7,10 @@ chmod -R 777 /opt/chef-workstation/embedded/service/workstation-gui/log
 
 bash /opt/chef-workstation/embedded/service/workstation-gui/secrets.sh
 
+if [ ! -d "~/Library/LaunchAgents" ]; then
+  mkdir -p "~/Library/LaunchAgents"
+fi
+
 cp /opt/chef-workstation/embedded/service/workstation-gui/config/io.chef.chef-workstation.plist ~/Library/LaunchAgents/
 
 # Unload first, this will help reload the service on further upgrades
