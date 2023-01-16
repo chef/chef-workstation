@@ -1216,9 +1216,7 @@ GEM
 
 PLATFORMS
   ruby
-  x64-mingw
-  x64-mingw32
-  x86-mingw32
+  x64-mingw-ucrt
 
 DEPENDENCIES
   appbundler
