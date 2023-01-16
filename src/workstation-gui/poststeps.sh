@@ -5,13 +5,23 @@ chmod -R 777 /opt/chef-workstation/embedded/service/workstation-gui/tmp
 
 chmod -R 777 /opt/chef-workstation/embedded/service/workstation-gui/log
 
+echo "Generating seed secrets"
 bash /opt/chef-workstation/embedded/service/workstation-gui/secrets.sh
+echo $?
+echo "Exit-code of secrets.sh script run"
 
 if [ ! -d "~/Library/LaunchAgents" ]; then
+  echo $HOME
+  echo "Creating LaunchAgents folder"
   mkdir -p "~/Library/LaunchAgents"
+  echo $?
+  echo "Exit-code of LaunchAgents folder creation"
 fi
 
+echo "Copying plist to LaunchAgents"
 cp /opt/chef-workstation/embedded/service/workstation-gui/config/io.chef.chef-workstation.plist ~/Library/LaunchAgents/
+echo $?
+echo "Exit-code of plist copy"
 
 # Unload first, this will help reload the service on further upgrades
 sudo -u $USER launchctl unload ~/Library/LaunchAgents/io.chef.chef-workstation.plist
