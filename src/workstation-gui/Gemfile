@@ -7,8 +7,8 @@ gem "rails", "~> 7.0.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-gem "chef", "~> 17.10"
-gem "knife", "~> 17.9", ">= 17.9.26"
+gem "chef", ">= 18.0"
+gem "knife"
 gem "chef-cli"
 gem "chefstyle"
 gem "pry-nav"
@@ -51,5 +51,5 @@ group :test do
   gem "poltergeist"
   gem "selenium-webdriver"
   gem "webdrivers"
-  gem "rspec-rails", ">= 3.9.0"
+  gem "rspec-rails"
 end
