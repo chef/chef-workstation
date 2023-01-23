@@ -66,6 +66,3 @@ else
     copy "#{project_dir}/*", app_install_path
   end
 end
-
-
-
