@@ -664,7 +664,10 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-darwin-22
+  x64-mingw
+  x64-mingw32
+  x86-mingw32
+  x64-mingw-ucrt
 
 DEPENDENCIES
   bootsnap
