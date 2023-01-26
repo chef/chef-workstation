@@ -43,7 +43,7 @@ group(:omnibus_package) do
   gem "chef_deprecations", ">= 0.1.2"
 
   # avoid failures running 0.0.7.7 on windows
-  gem "unf_ext", "=0.0.8.2"
+  gem "unf_ext", ">= 0.0.8.2"
 
   gem "appbundler"
 
@@ -66,6 +66,8 @@ group(:omnibus_package) do
   #   # inspec
   #   gem "inspec-bin", "~> 4.23"
   # end
+
+  gem "rest-client", git: "https://github.com/chef/rest-client", branch: "jfm/ucrt_update1"
 
   gem "chef", ">= 18.0"
   gem "chef-bin", ">= 18.0"
@@ -98,7 +100,7 @@ group(:omnibus_package) do
   gem "kitchen-vra", ">= 3.0"
 
   # knife & plugins
-  gem "knife"
+  gem "knife", ">= 18.0"
   gem "knife-azure", ">= 3.0.0"
   gem "knife-ec2", ">= 1.0.28"
   gem "knife-google", ">= 4.2.7"
