@@ -69,7 +69,7 @@ group(:omnibus_package) do
 
   gem "rest-client", git: "https://github.com/chef/rest-client", branch: "jfm/ucrt_update1"
 
-  gem "chef", ">= 18.0"
+  gem "chef", "= 18.0.169"
   gem "chef-bin", ">= 18.0"
   gem "ohai", "~> 18.0"
     # inspec
@@ -100,7 +100,7 @@ group(:omnibus_package) do
   gem "kitchen-vra", ">= 3.0"
 
   # knife & plugins
-  gem "knife", ">= 18.0"
+  gem "knife", "= 18.0.185"
   gem "knife-azure", ">= 3.0.0"
   gem "knife-ec2", ">= 1.0.28"
   gem "knife-google", ">= 4.2.7"
