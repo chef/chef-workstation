@@ -348,7 +348,6 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2022.0105)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.1)
     minitar (0.9)
     minitest (5.17.0)
     mixlib-archive (1.1.7)
@@ -393,9 +392,6 @@ GEM
       net-ssh-gateway (>= 1.2.0)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.14.0)
-      mini_portile2 (~> 2.8.0)
-      racc (~> 1.4)
     nokogiri (1.14.0-x64-mingw-ucrt)
       racc (~> 1.4)
     nokogiri (1.14.0-x86_64-darwin)
@@ -587,7 +583,7 @@ GEM
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
-    tzinfo (2.0.5)
+    tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
@@ -654,9 +650,8 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
-  ruby
-  x64-mingw
   x64-mingw-ucrt
+  x86_64-darwin-22
 
 DEPENDENCIES
   bootsnap
