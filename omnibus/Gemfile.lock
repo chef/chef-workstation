@@ -499,7 +499,6 @@ PLATFORMS
   ruby
   x64-mingw
   x64-mingw-ucrt
-  x86-mingw32
   x86_64-darwin-22
 
 DEPENDENCIES
