@@ -146,8 +146,10 @@ end
 
 gem "chefstyle", group: :test
 
+gem "tzinfo-data"
+
 # Ensure support for push-client on Windows
-platforms :mswin, :mswin64, :mingw, :x64_mingw do
+platforms :mswin, :mswin64, :x64_mingw do
   gem "rdp-ruby-wmi"
   gem "windows-pr"
   gem "win32-api"

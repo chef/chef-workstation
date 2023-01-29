@@ -754,7 +754,6 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2022.0105)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.1)
     minitar (0.9)
     minitest (5.17.0)
     mixlib-archive (1.1.7)
@@ -1102,6 +1101,8 @@ GEM
       tty-screen (~> 0.8)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2022.7)
+      tzinfo (>= 1.0.0)
     uber (0.1.0)
     unf (0.1.4)
       unf_ext
@@ -1189,8 +1190,7 @@ GEM
     wmi-lite (1.0.7)
 
 PLATFORMS
-  ruby
-  x64-mingw-ucrt
+  x64-mingw-ucrt64
   x86_64-darwin-22
 
 DEPENDENCIES
@@ -1254,6 +1254,7 @@ DEPENDENCIES
   rest-client!
   ruby-shadow!
   test-kitchen (>= 3.0)
+  tzinfo-data
   unf_ext (>= 0.0.8.2)
   win32-api
   win32-dir
