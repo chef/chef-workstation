@@ -55,7 +55,7 @@ Supported Host Operating Systems:
 </tr>
 <tr class="odd">
 <td>Debian</td>
-<td>9, 10, 11</td>
+<td>10, 11</td>
 </tr>
 </tbody>
 </table>
