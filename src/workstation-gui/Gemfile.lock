@@ -650,6 +650,7 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
+  x64-mingw
   x64-mingw-ucrt
   x86_64-darwin-22
 
@@ -680,4 +681,4 @@ DEPENDENCIES
   webdrivers
 
 BUNDLED WITH
-   2.3.3
+   2.3.7
