@@ -8,8 +8,7 @@ fips-platforms:
   - ubuntu-*-x86_64
   - windows-*
 builder-to-testers-map:
-  debian-9-x86_64:
-    - debian-9-x86_64
+  debian-10-x86_64:
     - debian-10-x86_64
     - debian-11-x86_64
   el-7-x86_64:
