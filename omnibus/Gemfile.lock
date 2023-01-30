@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: 72dfcf99ab422737c78f1d4efbd80bdd5e5a9d6c
+  revision: a92e9308f79a8ed9636ba5639e06512d1a5f42f9
   branch: poorndm/stunnel-openssl-updates-ws
   specs:
     omnibus-software (23.1.274)
