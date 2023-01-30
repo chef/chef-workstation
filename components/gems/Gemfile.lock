@@ -1185,7 +1185,8 @@ GEM
     wmi-lite (1.0.7)
 
 PLATFORMS
-  x64-mingw-ucrt64
+  x64-mingw
+  x64-mingw-ucrt
   x86_64-darwin-22
 
 DEPENDENCIES
@@ -1263,4 +1264,4 @@ DEPENDENCIES
   winrm-fs
 
 BUNDLED WITH
-   2.3.3
+   2.3.7
