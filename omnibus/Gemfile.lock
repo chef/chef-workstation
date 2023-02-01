@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: d020fcc66a786801fbf1a489de516675a4fe87a6
+  revision: 07d9e825735c7e16b77fdec2c8f046ea29c62a28
   branch: poorndm/stunnel-openssl-updates-ws
   specs:
     omnibus-software (23.1.274)
@@ -247,7 +247,7 @@ GEM
       tomlrb (>= 1.2, < 3.0)
       tty-box (~> 0.6)
       tty-prompt (~> 0.20)
-    license_scout (1.3.3)
+    license_scout (1.3.4)
       ffi-yajl (~> 2.2)
       mixlib-shellout (>= 2.2, < 4.0)
       toml-rb (>= 1, < 3)
