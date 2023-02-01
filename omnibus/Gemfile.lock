@@ -34,7 +34,7 @@ GEM
     artifactory (3.0.15)
     awesome_print (1.9.2)
     aws-eventstream (1.2.0)
-    aws-partitions (1.701.0)
+    aws-partitions (1.702.0)
     aws-sdk-core (3.170.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.651.0)
@@ -266,7 +266,7 @@ GEM
     mixlib-cli (2.1.8)
     mixlib-config (3.0.27)
       tomlrb
-    mixlib-install (3.12.24)
+    mixlib-install (3.12.27)
       mixlib-shellout
       mixlib-versioning
       thor
@@ -481,13 +481,14 @@ GEM
     zhexdump (0.0.2)
 
 PLATFORMS
+  ruby
   x64-mingw
   x64-mingw-ucrt
   x86_64-darwin-22
 
 DEPENDENCIES
   artifactory
-  berkshelf (>= 7.0)
+  berkshelf (>= 8.0)
   kitchen-vagrant
   omnibus!
   omnibus-software!

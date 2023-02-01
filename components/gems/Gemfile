@@ -134,7 +134,7 @@ group(:omnibus_package) do
   gem "rb-readline"
   gem "winrm-fs"
   gem "winrm-elevated"
-  gem "berkshelf", ">= 7.0.10"
+  gem "berkshelf", ">= 8.0"
   gem "mdl", ">= 0.7.0"
 end
 
@@ -149,7 +149,7 @@ gem "chefstyle", group: :test
 gem "tzinfo-data"
 
 # Ensure support for push-client on Windows
-platforms :mswin, :mswin64, :x64_mingw do
+platforms :mswin, :mswin64, :mingw, :x64_mingw do
   gem "rdp-ruby-wmi"
   gem "windows-pr"
   gem "win32-api"
