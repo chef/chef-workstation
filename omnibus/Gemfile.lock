@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: a92e9308f79a8ed9636ba5639e06512d1a5f42f9
-  branch: poorndm/stunnel-openssl-updates-ws
+  revision: db8acc3fa5baaee33eeefc0ae47c11d9cf0be2b5
+  branch: main
   specs:
-    omnibus-software (23.1.274)
+    omnibus-software (23.1.280)
       omnibus (>= 9.0.0)
 
 GIT
@@ -482,7 +482,6 @@ GEM
 
 PLATFORMS
   ruby
-  x64-mingw
   x64-mingw-ucrt
   x86_64-darwin-22
 
@@ -497,4 +496,4 @@ DEPENDENCIES
   winrm-elevated
 
 BUNDLED WITH
-   2.3.7
+   2.3.3
