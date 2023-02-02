@@ -32,7 +32,7 @@ GEM
     artifactory (3.0.15)
     ast (2.4.2)
     aws-eventstream (1.2.0)
-    aws-partitions (1.702.0)
+    aws-partitions (1.703.0)
     aws-sdk-alexaforbusiness (1.58.0)
       aws-sdk-core (~> 3, >= 3.165.0)
       aws-sigv4 (~> 1.1)
@@ -164,7 +164,7 @@ GEM
     aws-sdk-guardduty (1.63.0)
       aws-sdk-core (~> 3, >= 3.165.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-iam (1.74.0)
+    aws-sdk-iam (1.75.0)
       aws-sdk-core (~> 3, >= 3.165.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-kafka (1.54.0)
@@ -240,7 +240,7 @@ GEM
     aws-sdk-sms (1.42.0)
       aws-sdk-core (~> 3, >= 3.165.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-sns (1.58.0)
+    aws-sdk-sns (1.59.0)
       aws-sdk-core (~> 3, >= 3.165.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-sqs (1.53.0)
@@ -606,7 +606,7 @@ GEM
     iso8601 (0.13.0)
     jmespath (1.6.2)
     json (2.6.3)
-    jwt (2.6.0)
+    jwt (2.7.0)
     kartograph (0.2.8)
     kitchen-azurerm (1.10.5)
       azure_mgmt_network (~> 0.18, >= 0.18.2)
@@ -1190,9 +1190,8 @@ GEM
 
 PLATFORMS
   ruby
-  x64-mingw
-  x64-mingw32
-  x86-mingw32
+  x64-mingw-ucrt
+  x86_64-darwin-22
 
 DEPENDENCIES
   appbundler
