@@ -650,7 +650,9 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
-  x64-mingw
+  ruby
+  x64-mingw32
+  x86-mingw32
   x64-mingw-ucrt
 
 DEPENDENCIES

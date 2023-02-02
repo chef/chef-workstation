@@ -51,8 +51,6 @@ dependency "preparation"
 
 dependency "habitat"
 
-dependency "nokogiri"
-
 if windows?
   dependency "git-windows"
 else
