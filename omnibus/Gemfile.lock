@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: 07d9e825735c7e16b77fdec2c8f046ea29c62a28
+  revision: f8c17c9fe7a5862c7c6f1c097ff317e295e81fe2
   branch: poorndm/stunnel-openssl-updates-ws
   specs:
     omnibus-software (23.1.274)
@@ -34,7 +34,7 @@ GEM
     artifactory (3.0.15)
     awesome_print (1.9.2)
     aws-eventstream (1.2.0)
-    aws-partitions (1.702.0)
+    aws-partitions (1.703.0)
     aws-sdk-core (3.170.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.651.0)
