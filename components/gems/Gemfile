@@ -52,28 +52,11 @@ group(:omnibus_package) do
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
 
-  # if Gem.ruby_version >= Gem::Version.new("3.1.0")
-  #   gem "chef", ">= 18.0"
-  #   gem "chef-bin", ">= 18.0"
-  #   gem "ohai", "~> 18.0"
-  #   # inspec
-  #   gem "inspec-bin", "~> 5.18.14"
-  # else
-  #   # Ruby 2.7 presumably - TODO remove this when 2.7 is sunsetted
-  #   gem "chef", ">= 17.0"
-  #   gem "chef-bin", ">= 17.0"
-  #   gem "ohai", ">= 17.0"
-  #   # inspec
-  #   gem "inspec-bin", "~> 4.23"
-  # end
-
   gem "rest-client", git: "https://github.com/chef/rest-client", branch: "jfm/ucrt_update1"
 
   gem "chef", ">= 18.0.0"
   gem "chef-bin", ">= 18.0"
   gem "ohai", "~> 18.0"
-    # inspec
-  gem "inspec-bin", "~> 5.18.14"
 
   gem "cheffish", ">= 17.0"
 
@@ -82,7 +65,7 @@ group(:omnibus_package) do
   gem "fauxhai-ng", ">= 8.7.1"
 
   # inspec
-  # gem "inspec-bin", "~> 5.18.14"
+  gem "inspec-bin", "~> 5.18.14"
 
   # test-kitchen and plugins
   gem "test-kitchen", ">= 3.0"
@@ -146,7 +129,7 @@ end
 
 gem "chefstyle", group: :test
 
-gem "tzinfo-data"
+# gem "tzinfo-data"
 
 # Ensure support for push-client on Windows
 platforms :mswin, :mswin64, :mingw, :x64_mingw do

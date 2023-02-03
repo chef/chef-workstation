@@ -7,4 +7,4 @@ of shipped gems.
 
 To update the Gemfile.lock, run:
 
-`bundle lock --update --add-platform ruby x64-mingw32 x86-mingw32`
+`bundle lock --update --add-platform ruby x64-mingw32 x86-mingw32 x64-mingw-ucrt`
