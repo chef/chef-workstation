@@ -52,8 +52,6 @@ group(:omnibus_package) do
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
 
-  gem "rest-client", git: "https://github.com/chef/rest-client", branch: "jfm/ucrt_update1"
-
   gem "chef", ">= 18.0.0"
   gem "chef-bin", ">= 18.0"
   gem "ohai", "~> 18.0"
