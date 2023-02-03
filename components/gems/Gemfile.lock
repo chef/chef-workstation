@@ -1,15 +1,4 @@
 GIT
-  remote: https://github.com/chef/rest-client
-  revision: badd0bea3c31a2ed1f49590760d2e4b665ecbce3
-  branch: jfm/ucrt_update1
-  specs:
-    rest-client (2.1.0)
-      http-accept (>= 1.7.0, < 2.0)
-      http-cookie (>= 1.0.2, < 2.0)
-      mime-types (>= 1.16, < 4.0)
-      netrc (~> 0.8)
-
-GIT
   remote: https://github.com/chef/ruby-shadow
   revision: 3b8ea40b0e943b5de721d956741308ce805a5c3c
   branch: lcg/ruby-3.0
@@ -894,6 +883,11 @@ GEM
       uber (< 0.2.0)
     resource_kit (0.1.8)
       addressable (>= 2.3.6, < 3.0.0)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     retriable (3.1.2)
     retryable (3.0.5)
     rexml (3.2.5)
@@ -1102,8 +1096,6 @@ GEM
       tty-screen (~> 0.8)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2022.7)
-      tzinfo (>= 1.0.0)
     uber (0.1.0)
     unf (0.1.4)
       unf_ext
@@ -1252,10 +1244,8 @@ DEPENDENCIES
   rake (= 13.0.1)
   rb-readline
   rdp-ruby-wmi
-  rest-client!
   ruby-shadow!
   test-kitchen (>= 3.0)
-  tzinfo-data
   unf_ext (>= 0.0.8.2)
   win32-api
   win32-dir
