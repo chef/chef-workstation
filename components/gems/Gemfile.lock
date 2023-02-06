@@ -427,10 +427,10 @@ GEM
       chef-utils (>= 17.0)
       chef-zero (>= 14.0)
       net-ssh
-    chefspec (9.3.3)
+    chefspec-chef (9.3.4)
       chef (>= 15)
       chef-cli
-      fauxhai-ng (>= 7.5)
+      fauxhai-chef (>= 9.3)
       rspec (~> 3.0)
     chefstyle (2.2.2)
       rubocop (= 1.25.1)
@@ -488,7 +488,7 @@ GEM
     faraday-net_http_persistent (1.2.0)
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
-    fauxhai-ng (9.3.0)
+    fauxhai-chef (9.3.5)
       net-ssh
     ffi (1.15.5)
     ffi (1.15.5-x64-mingw-ucrt)
@@ -1233,14 +1233,14 @@ DEPENDENCIES
   chef-telemetry (>= 1.0.8)
   chef_deprecations (>= 0.1.2)
   cheffish (>= 17.0)
-  chefspec (>= 9.3)
+  chefspec-chef (>= 9.3)
   chefstyle
   cookstyle (>= 7.8)
   dep-selector-libgecode
   dep_selector
   docker-api (>= 2.0)
   ed25519
-  fauxhai-ng (>= 8.7.1)
+  fauxhai-chef (>= 9.3)
   ffi-libarchive
   guard
   inspec-bin (~> 5.18.14)

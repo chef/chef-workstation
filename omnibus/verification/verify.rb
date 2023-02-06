@@ -201,8 +201,8 @@ module ChefWorkstation
         c.smoke_test { sh("#{bin("chef-run")} -v", env: { "CHEF_TELEMETRY_OPT_OUT" => "true" }) }
       end
 
-      add_component "chefspec" do |c|
-        c.gem_base_dir = "chefspec"
+      add_component "chefspec-chef" do |c|
+        c.gem_base_dir = "chefspec-chef"
         c.unit_test do
           bundle_install_mutex.synchronize { sh("#{embedded_bin("bundle")} install") }
           sh("#{embedded_bin("bundle")} exec #{embedded_bin("rake")} unit")
@@ -243,9 +243,9 @@ module ChefWorkstation
           end
         end
       end
-      add_component "fauxhai-ng" do |c|
-        c.gem_base_dir = "fauxhai-ng"
-        c.smoke_test { sh("#{embedded_bin("gem")} list fauxhai-ng") }
+      add_component "fauxhai-chef" do |c|
+        c.gem_base_dir = "fauxhai-chef"
+        c.smoke_test { sh("#{embedded_bin("gem")} list fauxhai-chef") }
       end
 
       add_component "kitchen-vagrant" do |c|
