@@ -27,10 +27,17 @@ build do
     # Copy the chef gem's distro stuff over
     chef_gem_path = File.expand_path("../..", shellout!("#{install_dir}/embedded/bin/gem which chef").stdout.chomp)
 
+    puts "-------chef_gem_path is ------#{chef_gem_path}"
+
     chef_module_dir = "#{install_dir}/modules/chef"
+    puts "-------chef_module_dir is ------#{chef_module_dir}"
     create_directory(chef_module_dir)
+    puts "-------chef_module_dir is ------#{chef_module_dir}"
     Dir.glob("#{chef_gem_path}/distro/powershell/chef/*").each do |file|
+    puts "-------file is ------#{file}"
+    puts "-------path is ------#{system "ls -al #{chef_gem_path}/distro/"}"
       copy_file(file, chef_module_dir)
+      puts "-------after-copy is ------#{system "ls -al #{chef_module_dir}"}"
     end
   end
 end
