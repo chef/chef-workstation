@@ -15,7 +15,7 @@ task :update do
   require "bundler"
   Bundler.with_unbundled_env do
     Dir.chdir("./components/gems/") do
-      sh "bundle _2.1.4_ lock --update --add-platform ruby x64-mingw32 x86-mingw32"
+      sh "bundle _2.1.4_ lock --update --add-platform ruby x64-mingw32 x86-mingw32 x64-mingw-ucrt"
     end
   end
 end
