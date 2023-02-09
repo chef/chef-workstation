@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.2.1027 -->
-## [23.2.1027](https://github.com/chef/chef-workstation/tree/23.2.1027) (2023-02-07)
+<!-- latest_release 23.2.1028 -->
+## [23.2.1028](https://github.com/chef/chef-workstation/tree/23.2.1028) (2023-02-09)
 
 #### Merged Pull Requests
-- Bump kitchen-dokken to 2.19.1 [#3050](https://github.com/chef/chef-workstation/pull/3050) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Ruby 3.1 and client 18.1 update [#3043](https://github.com/chef/chef-workstation/pull/3043) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=22.12.1024 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Ruby 3.1 and client 18.1 update [#3043](https://github.com/chef/chef-workstation/pull/3043) ([nikhil2611](https://github.com/nikhil2611)) <!-- 23.2.1028 -->
 - Bump kitchen-dokken to 2.19.1 [#3050](https://github.com/chef/chef-workstation/pull/3050) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 23.2.1027 -->
 - Bump kitchen-vra to 3.3.1 [#3044](https://github.com/chef/chef-workstation/pull/3044) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 23.2.1026 -->
 - Bump kitchen-vcenter to 2.12.0 [#3022](https://github.com/chef/chef-workstation/pull/3022) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 23.1.1025 -->
