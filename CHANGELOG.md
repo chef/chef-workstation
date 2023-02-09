@@ -1,22 +1,20 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.2.1028 -->
-## [23.2.1028](https://github.com/chef/chef-workstation/tree/23.2.1028) (2023-02-09)
-
-#### Merged Pull Requests
-- Ruby 3.1 and client 18.1 update [#3043](https://github.com/chef/chef-workstation/pull/3043) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=22.12.1024 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Ruby 3.1 and client 18.1 update [#3043](https://github.com/chef/chef-workstation/pull/3043) ([nikhil2611](https://github.com/nikhil2611)) <!-- 23.2.1028 -->
-- Bump kitchen-dokken to 2.19.1 [#3050](https://github.com/chef/chef-workstation/pull/3050) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 23.2.1027 -->
-- Bump kitchen-vra to 3.3.1 [#3044](https://github.com/chef/chef-workstation/pull/3044) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 23.2.1026 -->
-- Bump kitchen-vcenter to 2.12.0 [#3022](https://github.com/chef/chef-workstation/pull/3022) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 23.1.1025 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [23.2.1028](https://github.com/chef/chef-workstation/tree/23.2.1028) (2023-02-09)
+
+#### Merged Pull Requests
+- Bump kitchen-vcenter to 2.12.0 [#3022](https://github.com/chef/chef-workstation/pull/3022) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-vra to 3.3.1 [#3044](https://github.com/chef/chef-workstation/pull/3044) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-dokken to 2.19.1 [#3050](https://github.com/chef/chef-workstation/pull/3050) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Ruby 3.1 and client 18.1 update [#3043](https://github.com/chef/chef-workstation/pull/3043) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_stable_release -->
+
 ## [22.12.1024](https://github.com/chef/chef-workstation/tree/22.12.1024) (2023-01-09)
 
 #### Merged Pull Requests
@@ -31,7 +29,6 @@
 - Bump Chef Workstation App to 0.2.181 [#3005](https://github.com/chef/chef-workstation/pull/3005) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - APIs for the GUI App [#2933](https://github.com/chef/chef-workstation/pull/2933) ([ashiqueps](https://github.com/ashiqueps))
 - Bump Chef Workstation App to 0.2.183 [#3013](https://github.com/chef/chef-workstation/pull/3013) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [22.10.1013](https://github.com/chef/chef-workstation/tree/22.10.1013) (2022-10-12)
 
