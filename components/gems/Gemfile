@@ -125,6 +125,8 @@ group(:omnibus_package) do
   gem "mdl", ">= 0.7.0"
 end
 
+gem "proxifier", git: "https://github.com/chef/ruby-proxifier", branch: "lcg/ruby-3"
+
 # Everything except Windows
 group(:ruby_shadow) do
   # if ruby-shadow does a release that supports ruby-3.0 this can be removed
