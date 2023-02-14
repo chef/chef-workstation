@@ -7,8 +7,8 @@ gem "rails", "~> 7.0.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-gem "chef", "= 18.0.185"
-gem "knife", "= 18.0.185"
+gem "chef", ">= 18.0"
+gem "knife", ">= 18.0"
 gem "chef-cli"
 gem "chefstyle"
 gem "pry-nav"
