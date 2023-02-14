@@ -7,7 +7,7 @@ override "chef-analyze", version: "0.1.185"
 # /DO NOT MODIFY
 
 override "libarchive", version: "3.5.2"
-override "libffi", version: "3.3"
+override "libffi", version: "3.4.2"
 override "libiconv", version: "1.16"
 override "liblzma", version: "5.2.5"
 
@@ -19,12 +19,14 @@ override "libxslt", version: windows? ? "1.1.34" : "1.1.35"
 
 override "libyaml", version: "0.1.7"
 override "makedepend", version: "1.0.5"
-override "ncurses", version: "5.9"
+override "ncurses", version: "6.3"
 override "openssl", version: macos? ? "1.1.1m" : "1.0.2zb"
 override "pkg-config-lite", version: "0.28-1"
-override "ruby", version: "3.0.3"
-override "ruby-msys2-devkit", version: "3.0.3-1"
+override "ruby", version: "3.1.2"
+override "ruby-windows-devkit-bash", version: "3.1.23-4-msys-1.0.18"
+override "ruby-msys2-devkit", version: "3.1.2-1"
 override "rust", version: "1.37.0"
 override "util-macros", version: "1.19.0"
 override "xproto", version: "7.0.28"
 override "zlib", version: "1.2.11"
+

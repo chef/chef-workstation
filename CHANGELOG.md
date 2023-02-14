@@ -1,22 +1,35 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 22.11.1017 -->
-## [22.11.1017](https://github.com/chef/chef-workstation/tree/22.11.1017) (2022-11-22)
-
-#### Merged Pull Requests
-- Bump omnibus-software from `7d0e0fe` to `46eb852` in /omnibus [#2981](https://github.com/chef/chef-workstation/pull/2981) ([dependabot[bot]](https://github.com/dependabot[bot]))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=22.10.1013 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Bump omnibus-software from `7d0e0fe` to `46eb852` in /omnibus [#2981](https://github.com/chef/chef-workstation/pull/2981) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 22.11.1017 -->
-- Bump mixlib-install to 3.12.24 [#2971](https://github.com/chef/chef-workstation/pull/2971) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.11.1016 -->
-- Fix a bunch of typos and a few bad links [#2970](https://github.com/chef/chef-workstation/pull/2970) ([IanMadd](https://github.com/IanMadd)) <!-- 22.11.1015 -->
-- Bump nokogiri to 1.13.9 [#2942](https://github.com/chef/chef-workstation/pull/2942) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 22.10.1014 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [23.2.1028](https://github.com/chef/chef-workstation/tree/23.2.1028) (2023-02-09)
+
+#### Merged Pull Requests
+- Bump kitchen-vcenter to 2.12.0 [#3022](https://github.com/chef/chef-workstation/pull/3022) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-vra to 3.3.1 [#3044](https://github.com/chef/chef-workstation/pull/3044) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-dokken to 2.19.1 [#3050](https://github.com/chef/chef-workstation/pull/3050) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Ruby 3.1 and client 18.1 update [#3043](https://github.com/chef/chef-workstation/pull/3043) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_stable_release -->
+
+## [22.12.1024](https://github.com/chef/chef-workstation/tree/22.12.1024) (2023-01-09)
+
+#### Merged Pull Requests
+- Bump nokogiri to 1.13.9 [#2942](https://github.com/chef/chef-workstation/pull/2942) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Fix a bunch of typos and a few bad links [#2970](https://github.com/chef/chef-workstation/pull/2970) ([IanMadd](https://github.com/IanMadd))
+- Bump mixlib-install to 3.12.24 [#2971](https://github.com/chef/chef-workstation/pull/2971) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `7d0e0fe` to `46eb852` in /omnibus [#2981](https://github.com/chef/chef-workstation/pull/2981) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.179 [#2960](https://github.com/chef/chef-workstation/pull/2960) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus from `5bc091a` to `52b6d2e` in /omnibus [#2980](https://github.com/chef/chef-workstation/pull/2980) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump omnibus-software from `46eb852` to `a0f9b4b` in /omnibus [#2984](https://github.com/chef/chef-workstation/pull/2984) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump kitchen-ec2 to 3.14.0 [#2988](https://github.com/chef/chef-workstation/pull/2988) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.181 [#3005](https://github.com/chef/chef-workstation/pull/3005) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- APIs for the GUI App [#2933](https://github.com/chef/chef-workstation/pull/2933) ([ashiqueps](https://github.com/ashiqueps))
+- Bump Chef Workstation App to 0.2.183 [#3013](https://github.com/chef/chef-workstation/pull/3013) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+
 ## [22.10.1013](https://github.com/chef/chef-workstation/tree/22.10.1013) (2022-10-12)
 
 #### Merged Pull Requests
@@ -28,7 +41,6 @@
 - Update signing identity [#2914](https://github.com/chef/chef-workstation/pull/2914) ([tpowell-progress](https://github.com/tpowell-progress))
 - Bump omnibus from `ec19442` to `5b41f81` in /omnibus [#2918](https://github.com/chef/chef-workstation/pull/2918) ([dependabot[bot]](https://github.com/dependabot[bot]))
 - Bump omnibus from `5b41f81` to `5bc091a` in /omnibus [#2938](https://github.com/chef/chef-workstation/pull/2938) ([dependabot[bot]](https://github.com/dependabot[bot]))
-<!-- latest_stable_release -->
 
 ## [22.7.1006](https://github.com/chef/chef-workstation/tree/22.7.1006) (2022-07-05)
 

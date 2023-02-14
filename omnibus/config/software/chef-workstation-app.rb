@@ -21,9 +21,9 @@ skip_transitive_dependency_licensing
 license_file "LICENSE"
 
 # These three lines are updated automatically by Expeditor
-default_version "0.2.177"
-source sha1: "81269908d3f7a6a6d8ba683890229baca7c7b0cc" if windows?
-source sha1: "f8d2133756c13b1016bfc708d4d43bf31b085aa6" if linux?
+default_version "0.2.184"
+source sha1: "025696c8abca52cc6411921f92ef3c2ea5dfa9c5" if windows?
+source sha1: "96cd11934871e499bd196586b16bea3ca3c8ec3d" if linux?
 
 platform_name = if macos?
                   if arm?
@@ -66,6 +66,3 @@ else
     copy "#{project_dir}/*", app_install_path
   end
 end
-
-
-

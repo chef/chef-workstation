@@ -6,8 +6,8 @@ require (
 	github.com/chef/go-chef-cli v0.0.4
 	github.com/chef/go-libs v0.4.1
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/spf13/cobra v1.6.0
-	github.com/stretchr/testify v1.8.0
+	github.com/spf13/cobra v1.6.1
+	github.com/stretchr/testify v1.8.1
 	golang.org/x/sys v0.0.0-20211205182925-97ca703d548d
 )
 

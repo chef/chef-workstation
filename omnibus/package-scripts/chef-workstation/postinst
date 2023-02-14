@@ -81,6 +81,12 @@ for binary in $binaries; do
 done
 
 if is_darwin; then
+
+  echo "This script is about to run another script."
+  sh /opt/chef-workstation/embedded/service/workstation-gui/poststeps.sh
+  echo "This script has just run another script."
+
+
   # the app launcher comes from the chef-workstation-app repo, here we are just using
   # it to start the app as a service on MacOS systems, it will start at boot
   app_launcher=chef_workstation_app_launcher
@@ -101,7 +107,7 @@ if is_darwin; then
   ditto -x -k -V chef-workstation-app-mac.zip ./
   sudo rm -rf "/Applications/Chef Workstation App.app"
   sudo mv "Chef Workstation App.app" /Applications/
-  mv "/Applications/Chef Workstation App.app/Contents/Resources/assets/scripts/$app_launcher" $INSTALLER_DIR/bin || error_exit "Cannot move $app_launcher to $INSTALLER_DIR/bin"
+  cp "/Applications/Chef Workstation App.app/Contents/Resources/assets/scripts/$app_launcher" $INSTALLER_DIR/bin/. || error_exit "Cannot copy $app_launcher to $INSTALLER_DIR/bin"
   rm -rf "$INSTALLER_DIR/components"
   popd
 
