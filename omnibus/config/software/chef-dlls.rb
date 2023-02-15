@@ -26,9 +26,13 @@ build do
   block "Install windows powershell dlls to \\embedded\bin" do
     # Copy the chef gem's distro stuff over
     chef_gem_path = File.expand_path("../..", shellout!("#{install_dir}/embedded/bin/gem which chef").stdout.chomp)
+    puts "-------chef_gem_path is ------#{chef_gem_path}"
 
     chef_module_dir = "#{install_dir}/embedded/bin"
+    puts "-------chef_module_dir is ------#{chef_module_dir}"
     require "fileutils"
+    puts "-------path is ------#{system "ls -al #{chef_gem_path}/distro/"}"
     FileUtils.cp_r "#{chef_gem_path}/distro/ruby_bin_folder/AMD64/.", chef_module_dir, verbose: true
+    puts "-------after-copy is ------#{system "ls -al #{chef_module_dir}"}"
   end
 end
