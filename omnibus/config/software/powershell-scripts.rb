@@ -33,7 +33,7 @@ build do
     template_file =  File.join("#{chef_gem_path}", "distro", "templates", "powershell", "chef", "chef.psm1.erb")
     puts "-------template_file is ------#{template_file}"
 
-    psm1_path = template_file =  File.join("#{chef_gem_path}", "distro", "powershell", "chef")
+    psm1_path = File.join("#{chef_gem_path}", "distro", "powershell", "chef")
     puts "-------psm1_path is ------#{psm1_path}"
 
     create_directory(psm1_path)
