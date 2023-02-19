@@ -53,7 +53,7 @@ build do
     puts "-------chef_psm1 is ------#{chef_psm1}"
 
     File.open(::File.join(psm1_path, "chef.psm1"), "w") { |f| f.write(chef_psm1) }
-    puts "-------chef.psm1 is ------#{chef.psm1}"
+    puts "-------chef.pam1 path is ------#{system "ls -al #{psm1_path}/"}"
 
     Dir.glob("#{chef_gem_path}/distro/powershell/chef/*").each do |file|
     puts "-------file is ------#{file}"
