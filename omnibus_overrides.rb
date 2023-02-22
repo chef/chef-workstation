@@ -20,7 +20,8 @@ override "libxslt", version: windows? ? "1.1.34" : "1.1.35"
 override "libyaml", version: "0.1.7"
 override "makedepend", version: "1.0.5"
 override "ncurses", version: "6.3"
-override "openssl", version: macos? ? "1.1.1t" : "1.0.2zg"
+override :openssl, version: "1.1.1t" if mac_os_x?
+
 override "pkg-config-lite", version: "0.28-1"
 override "ruby", version: "3.1.2"
 override "ruby-windows-devkit-bash", version: "3.1.23-4-msys-1.0.18"
