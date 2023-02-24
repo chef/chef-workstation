@@ -34,8 +34,6 @@ group(:dep_selector) do
   gem "dep-selector-libgecode"
 end
 
-gem "proxifier", git: "https://github.com/chef/ruby-proxifier", branch: "lcg/ruby-3"
-
 # We tend to track latest stable release without pinning.
 # In order to prevent the depsolver from downgrading we pin some floors with ">=".
 # We should only be using "~>" to work around bugs, or temporarily pinning some tech debt.
@@ -66,6 +64,8 @@ group(:omnibus_package) do
   #   gem "ohai", ">= 17.0"
   #   gem "inspec-bin", "~> 4.23"
   # end
+
+  gem "proxifier", git: "https://github.com/chef/ruby-proxifier", branch: "lcg/ruby-3"
 
   gem "chef", ">= 18.0"
   gem "chef-bin", ">= 18.0"
