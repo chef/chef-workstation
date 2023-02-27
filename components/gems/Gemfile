@@ -54,19 +54,6 @@ group(:omnibus_package) do
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
 
-  # if Gem.ruby_version >= Gem::Version.new("3.1.0")
-  #   gem "chef", ">= 18.0.0"
-  #   gem "chef-bin", ">= 18.0.0"
-  #   gem "ohai", "~> 18.0"
-  #   gem "inspec-bin", "~> 5.18.14"
-  # else
-  #   # Ruby 2.7 presumably - TODO remove this when 2.7 is sunsetted
-  #   gem "chef", ">x= 17.0"
-  #   gem "chef-bin", ">= 17.0"
-  #   gem "ohai", ">= 17.0"
-  #   gem "inspec-bin", "~> 4.23"
-  # end
-
   gem "chef", ">= 18.0"
   gem "chef-bin", ">= 18.0"
   gem "chef-utils", ">= 18.0"
