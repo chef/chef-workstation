@@ -13,6 +13,7 @@ gem "pedump"
 group :development do
   # Use Berkshelf for resolving cookbook dependencies
   gem "berkshelf", ">= 8.0"
+  gem "proxifier", git: "https://github.com/chef/ruby-proxifier", branch: "lcg/ruby-3"
 
   # Use Test Kitchen with Vagrant for converging the build environment
   gem "test-kitchen", ">= 2"

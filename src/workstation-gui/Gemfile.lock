@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/chef/ruby-proxifier
+  revision: 8b87d0b5b469adbd93eabc0d20f3e47007aef743
+  branch: lcg/ruby-3
+  specs:
+    proxifier (1.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -127,7 +134,6 @@ GEM
       net-sftp (>= 2.1.2, < 5.0)
       ohai (~> 18.0)
       plist (~> 3.2)
-      proxifier (~> 1.0)
       syslog-logger (~> 1.6)
       train-core (~> 3.10)
       train-rest (>= 0.4.1)
@@ -163,7 +169,6 @@ GEM
       net-sftp (>= 2.1.2, < 5.0)
       ohai (~> 18.0)
       plist (~> 3.2)
-      proxifier (~> 1.0)
       syslog-logger (~> 1.6)
       train-core (~> 3.10)
       train-rest (>= 0.4.1)
@@ -440,7 +445,6 @@ GEM
       actionmailer (>= 3)
       net-smtp
       premailer (~> 1.7, >= 1.7.9)
-    proxifier (1.0.3)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -694,6 +698,7 @@ DEPENDENCIES
   nokogiri
   poltergeist
   premailer-rails
+  proxifier!
   pry-nav
   puma (~> 5.0)
   rails (~> 7.0.3)

@@ -20,6 +20,8 @@ gem "net-smtp", require: false
 
 gem "premailer-rails", group: %i{development production}
 
+gem "proxifier", git: "https://github.com/chef/ruby-proxifier", branch: "lcg/ruby-3"
+
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 

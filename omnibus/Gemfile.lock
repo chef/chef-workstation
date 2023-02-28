@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/chef/ruby-proxifier
+  revision: 8b87d0b5b469adbd93eabc0d20f3e47007aef743
+  branch: lcg/ruby-3
+  specs:
+    proxifier (1.0.3)
+
+GIT
   remote: https://github.com/chef/omnibus-software.git
   revision: b83f579f6a108786d34ee07e792333451a80d300
   branch: main
@@ -93,7 +100,6 @@ GEM
       net-sftp (>= 2.1.2, < 5.0)
       ohai (~> 18.0)
       plist (~> 3.2)
-      proxifier (~> 1.0)
       syslog-logger (~> 1.6)
       train-core (~> 3.10)
       train-rest (>= 0.4.1)
@@ -129,7 +135,6 @@ GEM
       net-sftp (>= 2.1.2, < 5.0)
       ohai (~> 18.0)
       plist (~> 3.2)
-      proxifier (~> 1.0)
       syslog-logger (~> 1.6)
       train-core (~> 3.10)
       train-rest (>= 0.4.1)
@@ -332,7 +337,6 @@ GEM
       rainbow
       zhexdump (>= 0.0.2)
     plist (3.6.0)
-    proxifier (1.0.3)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -513,6 +517,7 @@ DEPENDENCIES
   omnibus!
   omnibus-software!
   pedump
+  proxifier!
   test-kitchen (>= 2)
   winrm-elevated
 
