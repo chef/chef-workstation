@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.3.1029 -->
-## [23.3.1029](https://github.com/chef/chef-workstation/tree/23.3.1029) (2023-03-02)
+<!-- latest_release 23.3.1030 -->
+## [23.3.1030](https://github.com/chef/chef-workstation/tree/23.3.1030) (2023-03-02)
 
 #### Merged Pull Requests
-- Bump Chef Workstation App to 0.2.185 [#3069](https://github.com/chef/chef-workstation/pull/3069) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-vagrant to 1.14.1 [#3052](https://github.com/chef/chef-workstation/pull/3052) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=23.2.1028 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-vagrant to 1.14.1 [#3052](https://github.com/chef/chef-workstation/pull/3052) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 23.3.1030 -->
 - Bump Chef Workstation App to 0.2.185 [#3069](https://github.com/chef/chef-workstation/pull/3069) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 23.3.1029 -->
 <!-- release_rollup -->
 
