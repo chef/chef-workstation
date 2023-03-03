@@ -1,20 +1,18 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.3.1030 -->
-## [23.3.1030](https://github.com/chef/chef-workstation/tree/23.3.1030) (2023-03-02)
-
-#### Merged Pull Requests
-- Bump kitchen-vagrant to 1.14.1 [#3052](https://github.com/chef/chef-workstation/pull/3052) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=23.2.1028 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Bump kitchen-vagrant to 1.14.1 [#3052](https://github.com/chef/chef-workstation/pull/3052) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 23.3.1030 -->
-- Bump Chef Workstation App to 0.2.185 [#3069](https://github.com/chef/chef-workstation/pull/3069) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 23.3.1029 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [23.3.1030](https://github.com/chef/chef-workstation/tree/23.3.1030) (2023-03-03)
+
+#### Merged Pull Requests
+- Bump Chef Workstation App to 0.2.185 [#3069](https://github.com/chef/chef-workstation/pull/3069) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-vagrant to 1.14.1 [#3052](https://github.com/chef/chef-workstation/pull/3052) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_stable_release -->
+
 ## [23.2.1028](https://github.com/chef/chef-workstation/tree/23.2.1028) (2023-02-09)
 
 #### Merged Pull Requests
@@ -22,7 +20,6 @@
 - Bump kitchen-vra to 3.3.1 [#3044](https://github.com/chef/chef-workstation/pull/3044) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump kitchen-dokken to 2.19.1 [#3050](https://github.com/chef/chef-workstation/pull/3050) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Ruby 3.1 and client 18.1 update [#3043](https://github.com/chef/chef-workstation/pull/3043) ([nikhil2611](https://github.com/nikhil2611))
-<!-- latest_stable_release -->
 
 ## [22.12.1024](https://github.com/chef/chef-workstation/tree/22.12.1024) (2023-01-09)
 
