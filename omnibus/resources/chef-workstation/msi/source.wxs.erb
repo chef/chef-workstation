@@ -65,21 +65,10 @@
       Impersonate="no"
       Return="ignore" />
 
-    <SetProperty
-      Id="SetupApiServerCommandLine"
-      Sequence="execute"
-      After="FastUnzip"
-      Value='"[WindowsFolder]System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NonInteractive -InputFormat None -NoProfile -windowstyle hidden -File "[PROJECTLOCATION]embedded\service\workstation-gui\server.ps1"' />
-    <CustomAction Id="SetupApiServerCommandLine"
-      BinaryKey="WixCA"
-      DllEntry="WixQuietExec"
-      Execute="deferred"
-      Return="ignore" />
-
     <CustomAction Id="ClearApiServerCmd"
       Property="ClearApiServerCommandLine"
       Execute="immediate"
-      Value='"[WindowsFolder]System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NonInteractive -InputFormat None -NoProfile -windowstyle hidden -File "[PROJECTLOCATION]embedded\service\workstation-gui\stopserver.ps1"' />
+      Value='"[WindowsFolder]System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NonInteractive -InputFormat None -NoProfile -windowstyle hidden -File "Resources\assets\stopserver.ps1"' />
     <CustomAction Id="ClearApiServerCommandLine"
       BinaryKey="WixCA"
       DllEntry="WixQuietExec"
@@ -108,7 +97,6 @@
       <Custom Action="ClearApiServerCmd" After="CostFinalize">REMOVE~="ALL"</Custom>
       <Custom Action="ClearApiServerCommandLine" Before="RemoveFiles">REMOVE~="ALL"</Custom>
       <Custom Action="Cleanup" After="RemoveFiles">REMOVE~="ALL"</Custom>
-      <Custom Action="SetupApiServerCommandLine" After="FastUnzip">NOT Installed OR REINSTALL</Custom>
     </InstallExecuteSequence>
 
     <UI>
@@ -139,9 +127,6 @@
               <RegistryKey Root="HKLM" Key="Software\Chef\Chef Workstation">
                 <RegistryValue Type="string" Name="InstallDir" Value="[PROJECTLOCATION]" />
                 <RegistryValue Type="string" Name="BinDir" Value="[PROJECTLOCATIONBIN]" />
-              </RegistryKey>
-              <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Run">
-                <RegistryValue Type="string" Name="server" Value="[PROJECTLOCATION]embedded\service\workstation-gui\config\chef_ws_server.cmd" />
               </RegistryKey>
             </Component>
             <Component Id="StartChefWSPowershellScript" Guid="{69EF5736-ED67-45B3-887A-FBFC0AB6DA13}" >
