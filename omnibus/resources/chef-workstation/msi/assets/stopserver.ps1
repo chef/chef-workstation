@@ -11,4 +11,5 @@ IF ($serverProcess | Select-String -Pattern $activePortPattern -Quiet) {
   $pidNumber = [regex]::match($firstMatch, $pidNumberPattern).Value
   taskkill /pid $pidNumber /f
   Write-Output "Terminated the service after locating it running on PID:$pidNumber."
+  Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "server"
 }

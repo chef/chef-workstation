@@ -87,6 +87,8 @@ if is_darwin; then
   if [ -f "$FILE" ]; then
     sudo -u $USER launchctl unload $HOME/Library/LaunchAgents/io.chef.chef-workstation.plist
     sudo rm -rf ~/Library/LaunchAgents/io.chef.chef-workstation.plist
+    sudo rm -rf /opt/chef-workstation/service.txt
+    sudo rm -rf /opt/chef-workstation/embedded/service
   fi
 
   # the app launcher comes from the chef-workstation-app repo, here we are just using
