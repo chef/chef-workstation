@@ -82,10 +82,14 @@ done
 
 if is_darwin; then
 
-  echo "This script is about to run another script."
-  sh /opt/chef-workstation/embedded/service/workstation-gui/poststeps.sh
-  echo "This script has just run another script."
-
+  # this will be removed when we bring back the workstation-gui changes back 
+  FILE="$HOME/Library/LaunchAgents/io.chef.chef-workstation.plist"
+  if [ -f "$FILE" ]; then
+    sudo -u $USER launchctl unload $HOME/Library/LaunchAgents/io.chef.chef-workstation.plist
+    sudo rm -rf $HOME/Library/LaunchAgents/io.chef.chef-workstation.plist
+    sudo rm -rf $INSTALLER_DIR/service.txt
+    sudo rm -rf $INSTALLER_DIR/embedded/service
+  fi
 
   # the app launcher comes from the chef-workstation-app repo, here we are just using
   # it to start the app as a service on MacOS systems, it will start at boot
