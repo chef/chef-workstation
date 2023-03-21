@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 23.3.1031 -->
+## [23.3.1031](https://github.com/chef/chef-workstation/tree/23.3.1031) (2023-03-21)
+
+#### Merged Pull Requests
+- Remove Manage Cookbooks files from packaging [#3086](https://github.com/chef/chef-workstation/pull/3086) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=23.3.1030 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Remove Manage Cookbooks files from packaging [#3086](https://github.com/chef/chef-workstation/pull/3086) ([nikhil2611](https://github.com/nikhil2611)) <!-- 23.3.1031 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
