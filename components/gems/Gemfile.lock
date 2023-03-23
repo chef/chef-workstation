@@ -442,7 +442,7 @@ GEM
     concurrent-ruby (1.2.0)
     cookbook-omnifetch (0.12.2)
       mixlib-archive (>= 0.4, < 2.0)
-    cookstyle (7.32.1)
+    cookstyle (7.32.2)
       rubocop (= 1.25.1)
     corefoundation (0.3.13)
       ffi (>= 1.15.0)
