@@ -252,24 +252,24 @@ For encrypted data bag items, use *either* `--secret` or
 
 The following examples show how to use this knife subcommand:
 
-**Create a data bag from a file**
+**Update a data bag from a file**
 
-To create a data bag on the Chef Infra Server from a file:
+To update a data bag named "devops_data" on the Chef Infra Server from a file:
 
 ``` bash
-knife data bag from file "path to JSON file"
+knife data bag from file devops_data "path to JSON file"
 ```
 
-**Create an encrypted data bag from a file**
+**Update an encrypted data bag from a file**
 
-To create a data bag named "devops_data" that contains encrypted data,
+To update a data bag named "devops_data" that contains encrypted data using a file-based encryption key,
 enter:
 
 ``` bash
-knife data bag from file devops_data --secret-file "path to decryption file"
+knife data bag from file devops_data "path to content file" --secret-file "path to encryption file"
 ```
 
-**Create an encrypted data bag for use with Chef Infra Client local
+**Update an encrypted data bag for use with Chef Infra Client local
 mode**
 
 {{% chef-workstation/knife_data_bag_from_file_create_encrypted_local_mode %}}
