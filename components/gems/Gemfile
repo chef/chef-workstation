@@ -52,20 +52,14 @@ group(:omnibus_package) do
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
 
-  if Gem.ruby_version >= Gem::Version.new("3.1.0")
-    gem "chef", "= 18.0.185"
-    gem "chef-bin", "=18.0.185"
-    gem "ohai", "~> 18.0"
-    gem "inspec-bin", "~> 5.18.14"
-  else
-    # Ruby 2.7 presumably - TODO remove this when 2.7 is sunsetted
-    gem "chef", ">= 17.0"
-    gem "chef-bin", ">= 17.0"
-    gem "ohai", ">= 17.0"
-    gem "inspec-bin", "~> 4.23"
-  end
+  gem "chef", ">= 18.2"
+  gem "chef-bin", ">= 18.2"
+  gem "chef-utils", ">= 18.2"
+  gem "ohai", ">= 18.1"
 
   gem "cheffish", ">= 17.0"
+
+  gem "inspec-bin", "~> 5"
 
   # chefspec
   gem "chefspec", ">= 9.3"
@@ -87,7 +81,7 @@ group(:omnibus_package) do
   gem "kitchen-vra", ">= 3.0"
 
   # knife & plugins
-  gem "knife", "= 18.0.185"
+  gem "knife", ">= 18.2"
   gem "knife-azure", ">= 3.0.0"
   gem "knife-ec2", ">= 1.0.28"
   gem "knife-google", ">= 4.2.7"
