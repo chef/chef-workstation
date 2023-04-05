@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.3.1031 -->
-## [23.3.1031](https://github.com/chef/chef-workstation/tree/23.3.1031) (2023-03-21)
+<!-- latest_release 23.4.1032 -->
+## [23.4.1032](https://github.com/chef/chef-workstation/tree/23.4.1032) (2023-04-05)
 
 #### Merged Pull Requests
-- Remove Manage Cookbooks files from packaging [#3086](https://github.com/chef/chef-workstation/pull/3086) ([nikhil2611](https://github.com/nikhil2611))
+- Updated chef to 18.2 and fixed knife ssl issues [#3093](https://github.com/chef/chef-workstation/pull/3093) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=23.3.1030 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Updated chef to 18.2 and fixed knife ssl issues [#3093](https://github.com/chef/chef-workstation/pull/3093) ([nikhil2611](https://github.com/nikhil2611)) <!-- 23.4.1032 -->
 - Remove Manage Cookbooks files from packaging [#3086](https://github.com/chef/chef-workstation/pull/3086) ([nikhil2611](https://github.com/nikhil2611)) <!-- 23.3.1031 -->
 <!-- release_rollup -->
 
