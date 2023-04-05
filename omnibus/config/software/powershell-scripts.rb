@@ -28,7 +28,7 @@ build do
     chef_gem_path = File.expand_path("../..", shellout!("#{install_dir}/embedded/bin/gem which chef").stdout.chomp)
 
     require "erb"
-    template_file =  File.join("#{chef_gem_path}", "distro", "templates", "powershell", "chef", "chef.psm1.erb")
+    template_file = File.join("#{chef_gem_path}", "distro", "templates", "powershell", "chef", "chef.psm1.erb")
     psm1_path = File.join("#{chef_gem_path}", "distro", "powershell", "chef")
     create_directory(psm1_path)
     chef_module_dir = "#{install_dir}/modules/chef"
