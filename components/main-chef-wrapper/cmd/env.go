@@ -23,18 +23,22 @@ import (
 	"os"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
+	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
 	"github.com/spf13/cobra"
 )
 
 var envCmd = &cobra.Command{
 	Use:                "env",
 	Short:              "Prints environment variables used by %s",
-	DisableFlagParsing: true,
+	DisableFlagParsing: false,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) >= 1 {
 			cmd.Help()
 			os.Exit(0)
+		}
+		chefLicense, _ := cmd.Flags().GetString("chef-license")
+		if chefLicense != "" {
+			return Runner.PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
 		}
 		ReturnEnvironment()
 		return nil
