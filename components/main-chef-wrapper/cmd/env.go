@@ -47,9 +47,9 @@ var envCmd = &cobra.Command{
 	},
 }
 
-func contains(flags []string, e string) bool {
-	for _, a := range flags {
-		if a == e {
+func contains(flags []string, flagPassed string) bool {
+	for _, flag := range flags {
+		if flag == flagPassed {
 			return true
 		}
 	}
