@@ -30,19 +30,30 @@ import (
 var envCmd = &cobra.Command{
 	Use:                "env",
 	Short:              "Prints environment variables used by %s",
-	DisableFlagParsing: false,
+	DisableFlagParsing: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) >= 1 {
-			cmd.Help()
-			os.Exit(0)
-		}
-		chefLicense, _ := cmd.Flags().GetString("chef-license")
-		if chefLicense != "" {
-			return Runner.PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+			flags := []string{"--chef-license",
+				"--config", "--debug", "--version", "-c", "-d", "-v"}
+			if contains(flags, args[0]) {
+				return Runner.PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+			} else {
+				cmd.Help()
+				os.Exit(0)
+			}
 		}
 		ReturnEnvironment()
 		return nil
 	},
+}
+
+func contains(flags []string, e string) bool {
+	for _, a := range flags {
+		if a == e {
+			return true
+		}
+	}
+	return false
 }
 
 func ReturnEnvironment() {
