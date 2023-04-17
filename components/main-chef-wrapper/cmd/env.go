@@ -23,7 +23,7 @@ import (
 	"os"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
+	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
 	"github.com/spf13/cobra"
 )
 
@@ -33,12 +33,27 @@ var envCmd = &cobra.Command{
 	DisableFlagParsing: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) >= 1 {
-			cmd.Help()
-			os.Exit(0)
+			flags := []string{"--chef-license",
+				"--config", "--debug", "--version", "-c", "-d", "-v"}
+			if contains(flags, args[0]) {
+				return Runner.PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+			} else {
+				cmd.Help()
+				os.Exit(0)
+			}
 		}
 		ReturnEnvironment()
 		return nil
 	},
+}
+
+func contains(flags []string, flagPassed string) bool {
+	for _, flag := range flags {
+		if flag == flagPassed {
+			return true
+		}
+	}
+	return false
 }
 
 func ReturnEnvironment() {
