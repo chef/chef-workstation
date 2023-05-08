@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 23.5.1033 -->
+## [23.5.1033](https://github.com/chef/chef-workstation/tree/23.5.1033) (2023-05-08)
+
+#### Merged Pull Requests
+- Bump omnibus from `cf97613` to `ae855f3` in /omnibus [#3107](https://github.com/chef/chef-workstation/pull/3107) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=23.4.1032 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Bump omnibus from `cf97613` to `ae855f3` in /omnibus [#3107](https://github.com/chef/chef-workstation/pull/3107) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 23.5.1033 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
