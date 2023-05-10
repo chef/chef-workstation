@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.5.1035 -->
-## [23.5.1035](https://github.com/chef/chef-workstation/tree/23.5.1035) (2023-05-09)
+<!-- latest_release 23.5.1036 -->
+## [23.5.1036](https://github.com/chef/chef-workstation/tree/23.5.1036) (2023-05-10)
 
 #### Merged Pull Requests
-- Add RHEL-9 native package [#3108](https://github.com/chef/chef-workstation/pull/3108) ([vkarve-chef](https://github.com/vkarve-chef))
+- Bump kitchen-azurerm to 1.12.0 [#3100](https://github.com/chef/chef-workstation/pull/3100) ([ashiqueps](https://github.com/ashiqueps))
 <!-- latest_release -->
 
 <!-- release_rollup since=23.4.1032 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump kitchen-azurerm to 1.12.0 [#3100](https://github.com/chef/chef-workstation/pull/3100) ([ashiqueps](https://github.com/ashiqueps)) <!-- 23.5.1036 -->
 - Add RHEL-9 native package [#3108](https://github.com/chef/chef-workstation/pull/3108) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 23.5.1035 -->
 - Bump omnibus-software from `225e357` to `f06bbea` in /omnibus [#3106](https://github.com/chef/chef-workstation/pull/3106) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 23.5.1034 -->
 - Bump omnibus from `cf97613` to `ae855f3` in /omnibus [#3107](https://github.com/chef/chef-workstation/pull/3107) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 23.5.1033 -->
