@@ -427,7 +427,7 @@ GEM
       chef-utils (>= 17.0)
       chef-zero (>= 14.0)
       net-ssh
-    chefspec-chef (9.3.4)
+    chefspec (9.3.4)
       chef (>= 15)
       chef-cli
       fauxhai-chef (>= 9.3)
@@ -1233,7 +1233,7 @@ DEPENDENCIES
   chef-telemetry (>= 1.0.8)
   chef_deprecations (>= 0.1.2)
   cheffish (>= 17.0)
-  chefspec-chef (>= 9.3)
+  chefspec (>= 9.3)
   chefstyle
   cookstyle (>= 7.8)
   dep-selector-libgecode
