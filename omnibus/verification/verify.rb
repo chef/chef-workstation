@@ -201,8 +201,8 @@ module ChefWorkstation
         c.smoke_test { sh("#{bin("chef-run")} -v", env: { "CHEF_TELEMETRY_OPT_OUT" => "true" }) }
       end
 
-      add_component "chefspec-chef" do |c|
-        c.gem_base_dir = "chefspec-chef"
+      add_component "chefspec" do |c|
+        c.gem_base_dir = "chefspec"
         c.unit_test do
           bundle_install_mutex.synchronize { sh("#{embedded_bin("bundle")} install") }
           sh("#{embedded_bin("bundle")} exec #{embedded_bin("rake")} unit")
