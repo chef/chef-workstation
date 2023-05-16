@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.5.1038 -->
-## [23.5.1038](https://github.com/chef/chef-workstation/tree/23.5.1038) (2023-05-16)
+<!-- latest_release 23.5.1039 -->
+## [23.5.1039](https://github.com/chef/chef-workstation/tree/23.5.1039) (2023-05-16)
 
 #### Merged Pull Requests
-- Update pending fauxhai-chef references [#3112](https://github.com/chef/chef-workstation/pull/3112) ([vkarve-chef](https://github.com/vkarve-chef))
+- Fix for Dockerfile smell DL3008 [#3098](https://github.com/chef/chef-workstation/pull/3098) ([grosa1](https://github.com/grosa1))
 <!-- latest_release -->
 
 <!-- release_rollup since=23.4.1032 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Fix for Dockerfile smell DL3008 [#3098](https://github.com/chef/chef-workstation/pull/3098) ([grosa1](https://github.com/grosa1)) <!-- 23.5.1039 -->
 - Update pending fauxhai-chef references [#3112](https://github.com/chef/chef-workstation/pull/3112) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 23.5.1038 -->
 - Use the new forked chefspec-chef and fauxhai-chef gems [#3049](https://github.com/chef/chef-workstation/pull/3049) ([davidjkling](https://github.com/davidjkling)) <!-- 23.5.1037 -->
 - Bump kitchen-azurerm to 1.12.0 [#3100](https://github.com/chef/chef-workstation/pull/3100) ([ashiqueps](https://github.com/ashiqueps)) <!-- 23.5.1036 -->
