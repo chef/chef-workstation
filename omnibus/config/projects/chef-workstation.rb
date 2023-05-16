@@ -85,7 +85,6 @@ if windows?
   dependency "ruby-windows-system-libraries"
 end
 
-dependency "workstation-gui"
 dependency "chef-workstation-app"
 dependency "uninstall-scripts"
 dependency "ruby-env-script"

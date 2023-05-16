@@ -1,2 +1,0 @@
-PowerShell -Command "Set-ExecutionPolicy Unrestricted" >> "%TEMP%\StartupLog.txt" 2>&1
-PowerShell -windowstyle hidden %SYSTEMDRIVE%\opscode\chef-workstation\embedded\service\workstation-gui\server.ps1 >> "%TEMP%\StartupLog.txt" 2>&1
