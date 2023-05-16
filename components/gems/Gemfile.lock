@@ -488,7 +488,7 @@ GEM
     faraday-net_http_persistent (1.2.0)
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
-    fauxhai-chef (9.3.5)
+    fauxhai-chef (9.3.8)
       net-ssh
     ffi (1.15.5)
     ffi (1.15.5-x64-mingw-ucrt)
