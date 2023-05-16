@@ -67,8 +67,8 @@ group(:omnibus_package) do
 
   gem "cheffish", ">= 17.0"
 
-  # chefspec, now forked into https://github.com/chef
-  gem "chefspec-chef", ">= 9.3"
+  # fauxhai, now forked into https://github.com/chef
+  gem "chefspec", ">= 9.3"
   gem "fauxhai-chef", ">= 9.3"
 
   # test-kitchen and plugins
