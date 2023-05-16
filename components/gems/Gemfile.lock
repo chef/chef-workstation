@@ -427,7 +427,7 @@ GEM
       chef-utils (>= 17.0)
       chef-zero (>= 14.0)
       net-ssh
-    chefspec (9.3.4)
+    chefspec (9.3.6)
       chef (>= 15)
       chef-cli
       fauxhai-chef (>= 9.3)
