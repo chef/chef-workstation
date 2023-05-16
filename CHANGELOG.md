@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.5.1037 -->
-## [23.5.1037](https://github.com/chef/chef-workstation/tree/23.5.1037) (2023-05-16)
+<!-- latest_release 23.5.1038 -->
+## [23.5.1038](https://github.com/chef/chef-workstation/tree/23.5.1038) (2023-05-16)
 
 #### Merged Pull Requests
-- Use the new forked chefspec-chef and fauxhai-chef gems [#3049](https://github.com/chef/chef-workstation/pull/3049) ([davidjkling](https://github.com/davidjkling))
+- Update pending fauxhai-chef references [#3112](https://github.com/chef/chef-workstation/pull/3112) ([vkarve-chef](https://github.com/vkarve-chef))
 <!-- latest_release -->
 
 <!-- release_rollup since=23.4.1032 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update pending fauxhai-chef references [#3112](https://github.com/chef/chef-workstation/pull/3112) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 23.5.1038 -->
 - Use the new forked chefspec-chef and fauxhai-chef gems [#3049](https://github.com/chef/chef-workstation/pull/3049) ([davidjkling](https://github.com/davidjkling)) <!-- 23.5.1037 -->
 - Bump kitchen-azurerm to 1.12.0 [#3100](https://github.com/chef/chef-workstation/pull/3100) ([ashiqueps](https://github.com/ashiqueps)) <!-- 23.5.1036 -->
 - Add RHEL-9 native package [#3108](https://github.com/chef/chef-workstation/pull/3108) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 23.5.1035 -->
