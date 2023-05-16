@@ -434,7 +434,7 @@ GEM
     chefspec (9.3.6)
       chef (>= 15)
       chef-cli
-      fauxhai-ng (>= 7.5)
+      fauxhai-chef (>= 9.3)
       rspec (~> 3.0)
     chefstyle (2.2.2)
       rubocop (= 1.25.1)
@@ -504,7 +504,7 @@ GEM
     faraday-retry (1.0.3)
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
-    fauxhai-ng (9.3.0)
+    fauxhai-chef (9.3.8)
       net-ssh
     ffi (1.15.5)
     ffi (1.15.5-x64-mingw-ucrt)
@@ -1267,7 +1267,7 @@ DEPENDENCIES
   dep_selector
   docker-api (>= 2.0)
   ed25519
-  fauxhai-ng (>= 8.7.1)
+  fauxhai-chef (>= 9.3)
   ffi-libarchive
   guard
   inspec-bin (~> 5)
