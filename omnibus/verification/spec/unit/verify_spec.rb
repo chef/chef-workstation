@@ -43,7 +43,7 @@ describe ChefWorkstation::Command::Verify do
       "chef-client",
       "chef-cli",
       "chef-apply",
-      "chefspec-chef",
+      "chefspec",
       "generated-cookbooks-pass-chefspec",
       "fauxhai-chef",
       "kitchen-vagrant",
