@@ -661,7 +661,7 @@ GEM
       rack (>= 1.6, < 3.0)
       test-kitchen
       vmware-vra (~> 3.0, >= 3.2.0)
-    knife (18.2.5)
+    knife (18.2.7)
       bcrypt_pbkdf (~> 1.1)
       chef (>= 18)
       chef-config (>= 18)
