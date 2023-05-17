@@ -61,13 +61,13 @@ group(:omnibus_package) do
 
   gem "inspec-bin", "~> 5"
 
-  # chefspec
+  # chefspec & fauxhai, now forked into https://github.com/chef
   gem "chefspec", ">= 9.3"
-  gem "fauxhai-ng", ">= 8.7.1"
+  gem "fauxhai-chef", ">= 9.3"
 
   # test-kitchen and plugins
   gem "test-kitchen", ">= 3.0"
-  gem "kitchen-azurerm", ">= 1.7"
+  gem "kitchen-azurerm", ">= 1.12.0"
   gem "kitchen-ec2", ">= 3.10"
   gem "kitchen-digitalocean", ">= 0.13"
   gem "kitchen-dokken", ">= 2.14"

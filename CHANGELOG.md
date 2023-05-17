@@ -1,26 +1,37 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.4.1032 -->
-## [23.4.1032](https://github.com/chef/chef-workstation/tree/23.4.1032) (2023-04-05)
+<!-- latest_release 23.5.1039 -->
+## [23.5.1039](https://github.com/chef/chef-workstation/tree/23.5.1039) (2023-05-16)
 
 #### Merged Pull Requests
-- Updated chef to 18.2 and fixed knife ssl issues [#3093](https://github.com/chef/chef-workstation/pull/3093) ([nikhil2611](https://github.com/nikhil2611))
+- Fix for Dockerfile smell DL3008 [#3098](https://github.com/chef/chef-workstation/pull/3098) ([grosa1](https://github.com/grosa1))
 <!-- latest_release -->
 
-<!-- release_rollup since=23.3.1030 -->
+<!-- release_rollup since=23.4.1032 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
-- Updated chef to 18.2 and fixed knife ssl issues [#3093](https://github.com/chef/chef-workstation/pull/3093) ([nikhil2611](https://github.com/nikhil2611)) <!-- 23.4.1032 -->
-- Remove Manage Cookbooks files from packaging [#3086](https://github.com/chef/chef-workstation/pull/3086) ([nikhil2611](https://github.com/nikhil2611)) <!-- 23.3.1031 -->
+- Fix for Dockerfile smell DL3008 [#3098](https://github.com/chef/chef-workstation/pull/3098) ([grosa1](https://github.com/grosa1)) <!-- 23.5.1039 -->
+- Update pending fauxhai-chef references [#3112](https://github.com/chef/chef-workstation/pull/3112) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 23.5.1038 -->
+- Use the new forked chefspec-chef and fauxhai-chef gems [#3049](https://github.com/chef/chef-workstation/pull/3049) ([davidjkling](https://github.com/davidjkling)) <!-- 23.5.1037 -->
+- Bump kitchen-azurerm to 1.12.0 [#3100](https://github.com/chef/chef-workstation/pull/3100) ([ashiqueps](https://github.com/ashiqueps)) <!-- 23.5.1036 -->
+- Add RHEL-9 native package [#3108](https://github.com/chef/chef-workstation/pull/3108) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 23.5.1035 -->
+- Bump omnibus-software from `225e357` to `f06bbea` in /omnibus [#3106](https://github.com/chef/chef-workstation/pull/3106) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 23.5.1034 -->
+- Bump omnibus from `cf97613` to `ae855f3` in /omnibus [#3107](https://github.com/chef/chef-workstation/pull/3107) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 23.5.1033 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [23.4.1032](https://github.com/chef/chef-workstation/tree/23.4.1032) (2023-04-05)
+
+#### Merged Pull Requests
+- Remove Manage Cookbooks files from packaging [#3086](https://github.com/chef/chef-workstation/pull/3086) ([nikhil2611](https://github.com/nikhil2611))
+- Updated chef to 18.2 and fixed knife ssl issues [#3093](https://github.com/chef/chef-workstation/pull/3093) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_stable_release -->
+
 ## [23.3.1030](https://github.com/chef/chef-workstation/tree/23.3.1030) (2023-03-03)
 
 #### Merged Pull Requests
 - Bump Chef Workstation App to 0.2.185 [#3069](https://github.com/chef/chef-workstation/pull/3069) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump kitchen-vagrant to 1.14.1 [#3052](https://github.com/chef/chef-workstation/pull/3052) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
-<!-- latest_stable_release -->
 
 ## [23.2.1028](https://github.com/chef/chef-workstation/tree/23.2.1028) (2023-02-09)
 
