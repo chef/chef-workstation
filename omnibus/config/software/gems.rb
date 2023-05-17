@@ -85,7 +85,7 @@ build do
   appbundle "mixlib-install", lockdir: project_dir, gem: "mixlib-install", without: %w{test chefstyle debug}, env: env
   appbundle "chef-zero", lockdir: project_dir, gem: "chef-zero", without: %w{pedant development debug}, env: env
   appbundle "cookstyle", lockdir: project_dir, gem: "cookstyle", without: %w{docs profiling rubocop_gems development debug}, env: env
-  appbundle "fauxhai", lockdir: project_dir, gem: "fauxhai-ng", env: env
+  appbundle "fauxhai", lockdir: project_dir, gem: "fauxhai-chef", env: env
 
   # Note - 'chef-apply' gem provides 'chef-run', not 'chef-apply' which ships with chef-bin...
   %w{chef-bin chef-apply chef-vault ohai}.each do |gem|

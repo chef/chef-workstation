@@ -1,8 +1,22 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 23.5.1039 -->
+## [23.5.1039](https://github.com/chef/chef-workstation/tree/23.5.1039) (2023-05-16)
+
+#### Merged Pull Requests
+- Fix for Dockerfile smell DL3008 [#3098](https://github.com/chef/chef-workstation/pull/3098) ([grosa1](https://github.com/grosa1))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=23.4.1032 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Fix for Dockerfile smell DL3008 [#3098](https://github.com/chef/chef-workstation/pull/3098) ([grosa1](https://github.com/grosa1)) <!-- 23.5.1039 -->
+- Update pending fauxhai-chef references [#3112](https://github.com/chef/chef-workstation/pull/3112) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 23.5.1038 -->
+- Use the new forked chefspec-chef and fauxhai-chef gems [#3049](https://github.com/chef/chef-workstation/pull/3049) ([davidjkling](https://github.com/davidjkling)) <!-- 23.5.1037 -->
+- Bump kitchen-azurerm to 1.12.0 [#3100](https://github.com/chef/chef-workstation/pull/3100) ([ashiqueps](https://github.com/ashiqueps)) <!-- 23.5.1036 -->
+- Add RHEL-9 native package [#3108](https://github.com/chef/chef-workstation/pull/3108) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 23.5.1035 -->
+- Bump omnibus-software from `225e357` to `f06bbea` in /omnibus [#3106](https://github.com/chef/chef-workstation/pull/3106) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 23.5.1034 -->
+- Bump omnibus from `cf97613` to `ae855f3` in /omnibus [#3107](https://github.com/chef/chef-workstation/pull/3107) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 23.5.1033 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
