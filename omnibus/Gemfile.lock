@@ -325,7 +325,7 @@ GEM
     parslet (1.8.2)
     pastel (0.8.0)
       tty-color (~> 0.5)
-    pedump (0.6.5)
+    pedump (0.6.6)
       awesome_print
       iostruct (>= 0.0.4)
       multipart-post (>= 2.0.0)
@@ -456,7 +456,7 @@ GEM
     vault (0.17.0)
       aws-sigv4
     webrick (1.8.1)
-    win32-api (1.10.1)
+    win32-api (1.10.1-universal-mingw32)
     win32-certstore (0.6.15)
       chef-powershell (>= 1.0.12)
       ffi
