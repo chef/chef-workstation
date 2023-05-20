@@ -47,7 +47,7 @@ Supported Host Operating Systems:
 </tr>
 <tr class="odd">
 <td>Red Hat Enterprise Linux / CentOS</td>
-<td>7.x, 8.x</td>
+<td>7.x, 8.x, 9.x</td>
 </tr>
 <tr class="even">
 <td>Ubuntu</td>
