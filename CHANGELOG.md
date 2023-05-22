@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.5.1039 -->
-## [23.5.1039](https://github.com/chef/chef-workstation/tree/23.5.1039) (2023-05-16)
+<!-- latest_release 23.5.1040 -->
+## [23.5.1040](https://github.com/chef/chef-workstation/tree/23.5.1040) (2023-05-22)
 
 #### Merged Pull Requests
-- Fix for Dockerfile smell DL3008 [#3098](https://github.com/chef/chef-workstation/pull/3098) ([grosa1](https://github.com/grosa1))
+- Bump omnibus-software from `f06bbea` to `67a1705` in /omnibus [#3114](https://github.com/chef/chef-workstation/pull/3114) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=23.4.1032 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `f06bbea` to `67a1705` in /omnibus [#3114](https://github.com/chef/chef-workstation/pull/3114) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 23.5.1040 -->
 - Fix for Dockerfile smell DL3008 [#3098](https://github.com/chef/chef-workstation/pull/3098) ([grosa1](https://github.com/grosa1)) <!-- 23.5.1039 -->
 - Update pending fauxhai-chef references [#3112](https://github.com/chef/chef-workstation/pull/3112) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 23.5.1038 -->
 - Use the new forked chefspec-chef and fauxhai-chef gems [#3049](https://github.com/chef/chef-workstation/pull/3049) ([davidjkling](https://github.com/davidjkling)) <!-- 23.5.1037 -->
