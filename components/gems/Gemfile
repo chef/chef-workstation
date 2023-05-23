@@ -140,3 +140,8 @@ platforms :mswin, :mswin64, :mingw, :x64_mingw do
   gem "win32-service", ">= 2.1.5" # 2.1.5 resolves ffi warnings
   gem "win32-security" # remove this once https://github.com/eitoball/net-ping/pull/32 is merged
 end
+gem "chef-config", "18.2.7"
+
+source "https://artifactory-internal.ps.chef.co/artifactory/api/gems/omnibus-gems-local/" do
+  gem "chef-licensing"
+end
