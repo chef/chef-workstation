@@ -1,12 +1,11 @@
 GIT
   remote: https://github.com/ashiqueps/chef-cli
-  revision: b6a5f954616c98e40ef8ae79e43f9ece16d6c3b4
+  revision: d631e6baaaa0cb2cfe0073a62d97ca1fb2c6f113
   branch: CHEF-2616-license-command
   specs:
     chef-cli (5.6.11)
       addressable (>= 2.3.5, < 2.9)
       chef (>= 16.0)
-      chef-licensing (~> 0.4)
       cookbook-omnifetch (~> 0.5)
       diff-lcs (>= 1.0, < 1.4)
       ffi-yajl (>= 1.0, < 3.0)
