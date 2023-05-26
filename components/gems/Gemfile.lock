@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ashiqueps/chef-cli
-  revision: 848621ec083685e917d3f350930e24c930afc0cd
+  revision: b6a5f954616c98e40ef8ae79e43f9ece16d6c3b4
   branch: CHEF-2616-license-command
   specs:
     chef-cli (5.6.11)
@@ -38,7 +38,7 @@ GEM
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.0.4.3)
+    activesupport (7.0.5)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -51,7 +51,7 @@ GEM
     artifactory (3.0.15)
     ast (2.4.2)
     aws-eventstream (1.2.0)
-    aws-partitions (1.767.0)
+    aws-partitions (1.770.0)
     aws-sdk-alexaforbusiness (1.58.0)
       aws-sdk-core (~> 3, >= 3.165.0)
       aws-sigv4 (~> 1.1)
@@ -109,7 +109,7 @@ GEM
     aws-sdk-codedeploy (1.52.0)
       aws-sdk-core (~> 3, >= 3.165.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-codepipeline (1.55.0)
+    aws-sdk-codepipeline (1.56.0)
       aws-sdk-core (~> 3, >= 3.165.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-cognitoidentity (1.31.0)
@@ -121,12 +121,12 @@ GEM
     aws-sdk-configservice (1.90.0)
       aws-sdk-core (~> 3, >= 3.165.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-core (3.173.0)
+    aws-sdk-core (3.173.1)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.651.0)
       aws-sigv4 (~> 1.5)
       jmespath (~> 1, >= 1.6.1)
-    aws-sdk-costandusagereportservice (1.43.0)
+    aws-sdk-costandusagereportservice (1.44.0)
       aws-sdk-core (~> 3, >= 3.165.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-databasemigrationservice (1.53.0)
@@ -825,7 +825,7 @@ GEM
       net-ssh-gateway (>= 1.2.0)
     netaddr (1.5.3)
     netrc (0.11.0)
-    nokogiri (1.15.1-x86_64-darwin)
+    nokogiri (1.15.2-x86_64-darwin)
       racc (~> 1.4)
     nori (2.6.0)
     notiffany (0.1.3)
