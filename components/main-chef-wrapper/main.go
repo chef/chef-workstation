@@ -20,12 +20,14 @@ package main
 
 import (
 	"fmt"
-	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
 	"log"
 	"os"
 	"os/exec"
 	"path"
+	"path/filepath"
 	"runtime"
+
+	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
 	homedir "github.com/mitchellh/go-homedir"
@@ -152,6 +154,34 @@ func exists(path string) (bool, error) {
 	return false, err
 }
 
+func checkLicenseFlag() {
+	home, _ := os.UserHomeDir()
+	if len(os.Args) > 2 && os.Args[2] == "enable" && os.Args[3] == "true" {
+		f, err := os.Create(filepath.Join(home, ".chef/license_feature.json"))
+		if err != nil {
+			fmt.Println("not able to enable chef")
+			os.Exit(1)
+		}
+		defer f.Close()
+		f.Write([]byte(`true`))
+		fmt.Println("Now you can use chef commands.")
+		os.Exit(1)
+	} else if len(os.Args) > 2 && os.Args[2] == "enable" && os.Args[3] == "false" {
+		err := os.Remove(filepath.Join(home, ".chef/license_feature.json"))
+		if err != nil {
+			fmt.Println("not able to disable chef")
+			os.Exit(1)
+		}
+	} else if len(os.Args) > 1 && os.Args[1] == "license" {
+		info, _ := os.Stat(filepath.Join(home, ".chef/license_feature.json"))
+		if info == nil {
+			fmt.Println("To use chef license feature you need to enable the license flag. \nTo enable it run `chef license enable true`")
+			os.Exit(1)
+		}
+	}
+
+}
+
 func main() {
 	if len(os.Args) > 1 {
 
@@ -161,5 +191,6 @@ func main() {
 	}
 
 	doStartupTasks()
+	checkLicenseFlag()
 	cmd.Execute()
 }
