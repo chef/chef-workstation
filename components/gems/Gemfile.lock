@@ -276,7 +276,7 @@ GEM
     azure_mgmt_storage (0.23.0)
       ms_rest_azure (~> 0.12.0)
     bcrypt_pbkdf (1.1.0)
-    berkshelf (8.0.5)
+    berkshelf (8.0.7)
       chef (>= 15.7.32)
       chef-config
       cleanroom (~> 1.0)
