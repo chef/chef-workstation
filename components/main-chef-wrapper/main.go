@@ -163,26 +163,23 @@ func checkLicenseFlag() {
 	if len(os.Args) > 3 && os.Args[1] == "license" && os.Args[2] == "enable" && os.Args[3] == "true" {
 		f, err := os.Create(filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c"))
 		if err != nil {
-			fmt.Println("Not able to enable chef")
-			os.Exit(1)
+			log.Fatal("Not able to enable chef")
 		}
 		defer f.Close()
 		f.Write([]byte(`true`))
-		fmt.Println("Now you can use chef commands.")
-		os.Exit(1)
+		log.Println("Now you can use chef commands.")
+		os.Exit(0)
 	} else if len(os.Args) > 3 && os.Args[1] == "license" && os.Args[2] == "enable" && os.Args[3] == "false" {
 		err := os.Remove(filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c"))
 		if err != nil {
-			fmt.Println("Not able to disable chef")
-			os.Exit(1)
+			log.Fatal("Not able to disable chef")
 		}
-		fmt.Println("License feature got disabled")
+		log.Println("License feature got disabled")
 		os.Exit(0)
 	} else if len(os.Args) > 2 && os.Args[1] == "license" {
 		info, _ := os.Stat(filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c"))
 		if info == nil {
-			fmt.Println("To use chef license feature you need to enable the license flag. \nTo enable it run `chef license enable true`")
-			os.Exit(1)
+			log.Fatal("To use chef license feature you need to enable the license flag. \nTo enable it run `chef license enable true`")
 		}
 	}
 
@@ -243,9 +240,8 @@ func main() {
 			cmd.Execute()
 			os.Exit(0)
 		}
-		fmt.Println("inside license check")
+		// fmt.Println("inside license check")
 		licenseConfig := readLicenseConfig()
-		fmt.Println("licenseConfig", licenseConfig)
 		licensing.CheckSoftwareEntitlement(licenseConfig.ChefEntitlementID, licenseConfig.LicenseServerURL)
 	}
 	cmd.Execute()
