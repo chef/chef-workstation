@@ -21,7 +21,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
@@ -32,6 +31,8 @@ import (
 	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
 
 	licensing "github.com/chef/go-libs/licensing"
+
+	_ "embed"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
 	homedir "github.com/mitchellh/go-homedir"
@@ -192,18 +193,13 @@ type Configuration struct {
 	LicenseServerURL   string `json:"licenseServerURL"`
 }
 
+//go:embed dist/licensingConfig.json
+var config []byte
+
 func readLicenseConfig() Configuration {
-	confFile, err := os.Open("dist/licensingConfig.json")
-	if err != nil {
-		panic(err)
-	}
-	defer confFile.Close()
-	conf, err := ioutil.ReadAll(confFile)
-	if err != nil {
-		panic(err)
-	}
-	myConf := Configuration{}
-	err = json.Unmarshal(conf, &myConf)
+
+	var myConf Configuration
+	err := json.Unmarshal(config, &myConf)
 	if err != nil {
 		panic(err)
 	}
