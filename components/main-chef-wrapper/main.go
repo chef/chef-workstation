@@ -159,6 +159,7 @@ func exists(path string) (bool, error) {
 	return false, err
 }
 
+// feature flag for license
 func checkLicenseFlag() {
 	home, _ := os.UserHomeDir()
 	if len(os.Args) > 3 && os.Args[1] == "license" && os.Args[2] == "enable" && os.Args[3] == "true" {
@@ -168,7 +169,7 @@ func checkLicenseFlag() {
 		}
 		defer f.Close()
 		f.Write([]byte(`true`))
-		log.Println("Now you can use chef commands.")
+		log.Println("Now you can use chef commands using the license.")
 		os.Exit(0)
 	} else if len(os.Args) > 3 && os.Args[1] == "license" && os.Args[2] == "enable" && os.Args[3] == "false" {
 		err := os.Remove(filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c"))
@@ -186,11 +187,22 @@ func checkLicenseFlag() {
 
 }
 
+func featureEnabled() bool {
+	home, _ := os.UserHomeDir()
+	licensePath := filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c")
+	info, _ := os.Stat(licensePath)
+	if info != nil {
+		return true
+	} else {
+		return false
+	}
+}
+
 type Configuration struct {
 	ChefProductName    string `json:"chefProductName"`
-	ChefEntitlementID  string `json:"chefEntitlementId"`
+	ChefEntitlementID  string `json:"chefEntitlementId"` // TODO : Need to confirm the chefEntitlementId before merge
 	ChefExecutableName string `json:"chefExecutableName"`
-	LicenseServerURL   string `json:"licenseServerURL"`
+	LicenseServerURL   string `json:"licenseServerURL"` // TODO : Need to confirm the licenseServerURL before merge
 }
 
 //go:embed dist/licensingConfig.json
@@ -204,17 +216,6 @@ func readLicenseConfig() Configuration {
 		panic(err)
 	}
 	return myConf
-}
-
-func featureEnabled() bool {
-	home, _ := os.UserHomeDir()
-	licensePath := filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c")
-	info, _ := os.Stat(licensePath)
-	if info != nil {
-		return true
-	} else {
-		return false
-	}
 }
 
 func main() {
@@ -238,6 +239,8 @@ func main() {
 		}
 		// fmt.Println("inside license check")
 		licenseConfig := readLicenseConfig()
+
+		// calling licensing package in go-lib
 		licensing.CheckSoftwareEntitlement(licenseConfig.ChefEntitlementID, licenseConfig.LicenseServerURL)
 	}
 	cmd.Execute()
