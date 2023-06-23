@@ -3,8 +3,8 @@
 github.com/chef/go-chef-cli/cmd
 github.com/chef/go-chef-cli/core
 github.com/chef/go-chef-cli/supermarket
-# github.com/chef/go-libs v0.4.1
-## explicit; go 1.13
+# github.com/chef/go-libs v0.4.2
+## explicit; go 1.18
 github.com/chef/go-libs/distgen
 # github.com/davecgh/go-spew v1.1.1
 ## explicit
