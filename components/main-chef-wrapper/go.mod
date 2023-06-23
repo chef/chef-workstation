@@ -7,8 +7,8 @@ require (
 	github.com/chef/go-libs v0.4.2
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/spf13/cobra v1.7.0
-	github.com/stretchr/testify v1.8.2
-	golang.org/x/sys v0.7.0
+	github.com/stretchr/testify v1.8.4
+	golang.org/x/sys v0.9.0
 )
 
 require (
