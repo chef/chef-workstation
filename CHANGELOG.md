@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 23.6.1041 -->
+## [23.6.1041](https://github.com/chef/chef-workstation/tree/23.6.1041) (2023-06-28)
+
+#### Merged Pull Requests
+- Added the license command and feature flag to handle license changes [#3126](https://github.com/chef/chef-workstation/pull/3126) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=23.5.1040 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Added the license command and feature flag to handle license changes [#3126](https://github.com/chef/chef-workstation/pull/3126) ([nikhil2611](https://github.com/nikhil2611)) <!-- 23.6.1041 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
