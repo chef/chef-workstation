@@ -24,7 +24,10 @@ The chef executable is a command-line tool that does the following:
 
 {{< note >}}
 
-By default, the cookbook cache is located in `~/.chef-workstation` on macOS and Linux, and in `%LOCALAPPDATA%\chef-workstation` on Windows.
+1. To run chef commands in Chef Workstation, you need an active license installed on the system. Please refer to the license command
+[documentation](/workstation/ctl_chef/#chef-license) or run `chef license --help` to know more.
+
+1. By default, the cookbook cache is located in `~/.chef-workstation` on macOS and Linux, and in `%LOCALAPPDATA%\chef-workstation` on Windows.
 On macOS or Linux, set the desired location of the cache directory by setting the `CHEF_WORKSTATION_HOME`
 environment variable in your `.bashrc` or `zshrc` file. For example, `CHEF_WORKSTATION_HOME="~/.workstation"`.
 On Windows, use the `setx` [command](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/setx)
