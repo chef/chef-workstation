@@ -777,19 +777,19 @@ This subcommand has the following options:
 
 None.
 
-### chef license
+## chef license
 
 {{% chef-workstation/ctl_chef_license %}}
 
-#### Syntax
+### Syntax
 
 {{% chef-workstation/ctl_chef_license_syntax %}}
 
-#### Options
+### Options
 
 {{% chef-workstation/ctl_chef_license_options %}}
 
-#### Examples
+### Examples
 
 None.
 
