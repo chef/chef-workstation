@@ -777,6 +777,22 @@ This subcommand has the following options:
 
 None.
 
+### chef license
+
+{{% chef-workstation/ctl_chef_license %}}
+
+#### Syntax
+
+{{% chef-workstation/ctl_chef_generate_license_syntax %}}
+
+#### Options
+
+{{% chef-workstation/ctl_chef_generate_license_options %}}
+
+#### Examples
+
+None.
+
 ## chef report cookbooks
 
 Use the `chef report cookbooks` subcommand to generate a cookbook-oriented report for your Chef Infra environment.
