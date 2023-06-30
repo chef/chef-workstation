@@ -783,11 +783,11 @@ None.
 
 #### Syntax
 
-{{% chef-workstation/ctl_chef_generate_license_syntax %}}
+{{% chef-workstation/ctl_chef_license_syntax %}}
 
 #### Options
 
-{{% chef-workstation/ctl_chef_generate_license_options %}}
+{{% chef-workstation/ctl_chef_license_options %}}
 
 #### Examples
 
