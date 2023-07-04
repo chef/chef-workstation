@@ -83,7 +83,7 @@ applications that may be running on the target machine.
 
 ### macOS Install
 
-1. Visit the [Chef Workstation downloads page](https://www.chef.io/downloads/tools/workstation?os=mac_os_x) and select the appropriate package for your macOS version. Select on the **Download** button.
+1. Visit [Chef Downloads](https://www.chef.io/downloads) to download a Chef Workstation package.
 1. Follow the steps to accept the license and install Chef Workstation.
 
 Alternately, install Chef Workstation using the [Homebrew](https://brew.sh/) package manager:
@@ -92,7 +92,7 @@ Alternately, install Chef Workstation using the [Homebrew](https://brew.sh/) pac
 
 ### Windows Install
 
-1. Visit the [Chef Workstation downloads page](https://www.chef.io/downloads/tools/workstation?os=windows) and select the appropriate package for your Windows version. Click on the **Download** button.
+1. Visit [Chef Downloads](https://www.chef.io/downloads) to download a Chef Workstation package.
 1. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the `C:\opscode\chef-workstation\` directory.
 1. **Optional:** Set the default shell. On Windows it is strongly recommended to use Windows PowerShell instead of `cmd.exe`.
 
