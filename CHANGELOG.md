@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.6.1041 -->
-## [23.6.1041](https://github.com/chef/chef-workstation/tree/23.6.1041) (2023-06-28)
+<!-- latest_release 23.7.1042 -->
+## [23.7.1042](https://github.com/chef/chef-workstation/tree/23.7.1042) (2023-07-10)
 
 #### Merged Pull Requests
-- Added the license command and feature flag to handle license changes [#3126](https://github.com/chef/chef-workstation/pull/3126) ([nikhil2611](https://github.com/nikhil2611))
+- Fix expeditor dependency update PR creation script [#3137](https://github.com/chef/chef-workstation/pull/3137) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=23.5.1040 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Fix expeditor dependency update PR creation script [#3137](https://github.com/chef/chef-workstation/pull/3137) ([nikhil2611](https://github.com/nikhil2611)) <!-- 23.7.1042 -->
 - Added the license command and feature flag to handle license changes [#3126](https://github.com/chef/chef-workstation/pull/3126) ([nikhil2611](https://github.com/nikhil2611)) <!-- 23.6.1041 -->
 <!-- release_rollup -->
 
