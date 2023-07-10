@@ -18,6 +18,7 @@ function new_gem_included() {
 }
 
 branch="expeditor/${GEM_NAME}_${EXPEDITOR_VERSION}"
+git checkout main
 git branch -D "$branch" || true
 git checkout -b "$branch"
 
