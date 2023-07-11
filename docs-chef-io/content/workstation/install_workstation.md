@@ -120,7 +120,7 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
 
 ### Linux
 
-1. Visit the [Chef Workstation downloads page](https://www.chef.io/downloads/tools/workstation) and download the appropriate package for your distribution:
+1. Visit the [Chef Downloads page](https://www.chef.io/downloads) and download the appropriate package for your distribution:
 
     - Red Hat Enterprise Linux
 
