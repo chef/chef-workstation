@@ -1,19 +1,18 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.6.1041 -->
-## [23.6.1041](https://github.com/chef/chef-workstation/tree/23.6.1041) (2023-06-28)
-
-#### Merged Pull Requests
-- Added the license command and feature flag to handle license changes [#3126](https://github.com/chef/chef-workstation/pull/3126) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=23.5.1040 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Added the license command and feature flag to handle license changes [#3126](https://github.com/chef/chef-workstation/pull/3126) ([nikhil2611](https://github.com/nikhil2611)) <!-- 23.6.1041 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [23.7.1042](https://github.com/chef/chef-workstation/tree/23.7.1042) (2023-07-10)
+
+#### Merged Pull Requests
+- Added the license command and feature flag to handle license changes [#3126](https://github.com/chef/chef-workstation/pull/3126) ([nikhil2611](https://github.com/nikhil2611))
+- Fix expeditor dependency update PR creation script [#3137](https://github.com/chef/chef-workstation/pull/3137) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_stable_release -->
+
 ## [23.5.1040](https://github.com/chef/chef-workstation/tree/23.5.1040) (2023-05-23)
 
 #### Merged Pull Requests
@@ -25,7 +24,6 @@
 - Update pending fauxhai-chef references [#3112](https://github.com/chef/chef-workstation/pull/3112) ([vkarve-chef](https://github.com/vkarve-chef))
 - Fix for Dockerfile smell DL3008 [#3098](https://github.com/chef/chef-workstation/pull/3098) ([grosa1](https://github.com/grosa1))
 - Bump omnibus-software from `f06bbea` to `67a1705` in /omnibus [#3114](https://github.com/chef/chef-workstation/pull/3114) ([dependabot[bot]](https://github.com/dependabot[bot]))
-<!-- latest_stable_release -->
 
 ## [23.4.1032](https://github.com/chef/chef-workstation/tree/23.4.1032) (2023-04-05)
 
