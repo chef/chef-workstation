@@ -128,7 +128,7 @@ end
 gem "chefstyle", group: :test
 
 # Ensure support for push-client on Windows
-platforms :mswin, :mswin64, :mingw, :x64_mingw do
+if RUBY_PLATFORM.match?(/mswin|mingw|windows/)
   gem "rdp-ruby-wmi"
   gem "windows-pr"
   gem "win32-api"
