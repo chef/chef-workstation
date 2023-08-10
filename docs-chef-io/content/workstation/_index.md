@@ -19,7 +19,7 @@ aliases = ["/about_workstation.html", "/about_chefdk.html", "/chef_dk.html", "/a
 
 <!-- markdownlint-disable-file MD033 -->
 
-{{% chef-workstation/chef_workstation %}}
+{{< readfile file="content/workstation/reusable/md/chef_workstation.md" >}}
 
 Chef Workstation replaces ChefDK, combining all the existing features
 with new features, such as ad-hoc task support and the new Chef

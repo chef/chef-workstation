@@ -14,9 +14,9 @@ aliases = ["/knife_search.html", "/knife_search/"]
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
 
-{{% search %}}
+{{< readfile file="content/reusable/md/search.md" >}}
 
-{{% chef-workstation/knife_search_summary %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_summary.md" >}}
 
 ## Syntax
 
@@ -73,11 +73,11 @@ knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
 
 ### Query Syntax
 
-{{% search_query_syntax %}}
+{{< readfile file="content/reusable/md/search_query_syntax.md" >}}
 
 ### Keys
 
-{{% search_key %}}
+{{< readfile file="content/reusable/md/search_key.md" >}}
 
 To search for the available fields for a particular object, use the
 `show` argument with any of the following knife subcommands:
@@ -86,81 +86,81 @@ To search for the available fields for a particular object, use the
 
 #### Nested Fields
 
-{{% search_key_nested %}}
+{{< readfile file="content/reusable/md/search_key_nested.md" >}}
 
 #### Examples
 
-{{% search_key_name %}}
+{{< readfile file="content/reusable/md/search_key_name.md" >}}
 
-{{% search_key_wildcard_question_mark %}}
+{{< readfile file="content/reusable/md/search_key_wildcard_question_mark.md" >}}
 
-{{% search_key_wildcard_asterisk %}}
+{{< readfile file="content/reusable/md/search_key_wildcard_asterisk.md" >}}
 
-{{% search_key_nested_starting_with %}}
+{{< readfile file="content/reusable/md/search_key_nested_starting_with.md" >}}
 
-{{% search_key_nested_range %}}
+{{< readfile file="content/reusable/md/search_key_nested_range.md" >}}
 
 ### About Patterns
 
-{{% search_pattern %}}
+{{< readfile file="content/reusable/md/search_pattern.md" >}}
 
 #### Exact Matching
 
-{{% search_pattern_exact %}}
+{{< readfile file="content/reusable/md/search_pattern_exact.md" >}}
 
-{{% search_pattern_exact_key_and_item %}}
+{{< readfile file="content/reusable/md/search_pattern_exact_key_and_item.md" >}}
 
-{{% search_pattern_exact_key_and_item_string %}}
+{{< readfile file="content/reusable/md/search_pattern_exact_key_and_item_string.md" >}}
 
 #### Wildcard Matching
 
-{{% search_pattern_wildcard %}}
+{{< readfile file="content/reusable/md/search_pattern_wildcard.md" >}}
 
-{{% search_pattern_wildcard_any_node %}}
+{{< readfile file="content/reusable/md/search_pattern_wildcard_any_node.md" >}}
 
-{{% search_pattern_wildcard_node_contains %}}
+{{< readfile file="content/reusable/md/search_pattern_wildcard_node_contains.md" >}}
 
 #### Range Matching
 
-{{% search_pattern_range %}}
+{{< readfile file="content/reusable/md/search_pattern_range.md" >}}
 
-{{% search_pattern_range_in_between %}}
+{{< readfile file="content/reusable/md/search_pattern_range_in_between.md" >}}
 
-{{% search_pattern_range_exclusive %}}
+{{< readfile file="content/reusable/md/search_pattern_range_exclusive.md" >}}
 
 #### Fuzzy Matching
 
-{{% search_pattern_fuzzy %}}
+{{< readfile file="content/reusable/md/search_pattern_fuzzy.md" >}}
 
-{{% search_pattern_fuzzy_summary %}}
+{{< readfile file="content/reusable/md/search_pattern_fuzzy_summary.md" >}}
 
 ### About Operators
 
-{{% search_boolean_operators %}}
+{{< readfile file="content/reusable/md/search_boolean_operators.md" >}}
 
-{{% search_boolean_operators_andnot %}}
+{{< readfile file="content/reusable/md/search_boolean_operators_andnot.md" >}}
 
 #### AND
 
-{{% search_boolean_and %}}
+{{< readfile file="content/reusable/md/search_boolean_and.md" >}}
 
 #### NOT
 
-{{% search_boolean_not %}}
+{{< readfile file="content/reusable/md/search_boolean_not.md" >}}
 
 #### OR
 
-{{% search_boolean_or %}}
+{{< readfile file="content/reusable/md/search_boolean_or.md" >}}
 
 ### Special Characters
 
-{{% search_special_characters %}}
+{{< readfile file="content/reusable/md/search_special_characters.md" >}}
 
 ## Options
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_common_options_link %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_common_options_link.md" >}}
 
 {{< /note >}}
 
@@ -216,40 +216,40 @@ The following examples show how to use this knife subcommand:
 
 **Search by platform ID**
 
-{{% chef-workstation/knife_search_by_platform_ids %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_platform_ids.md" >}}
 
 **Search by instance type**
 
-{{% chef-workstation/knife_search_by_platform_instance_type %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_platform_instance_type.md" >}}
 
 **Search by recipe**
 
-{{% chef-workstation/knife_search_by_recipe %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_recipe.md" >}}
 
 **Search by cookbook, then recipe**
 
-{{% chef-workstation/knife_search_by_cookbook %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_cookbook.md" >}}
 
 **Search by node**
 
-{{% chef-workstation/knife_search_by_node %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_node.md" >}}
 
 **Search by node and environment**
 
-{{% chef-workstation/knife_search_by_node_and_environment %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_node_and_environment.md" >}}
 
 **Search for nested attributes**
 
-{{% chef-workstation/knife_search_by_nested_attribute %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_nested_attribute.md" >}}
 
 **Search for multiple attributes**
 
-{{% chef-workstation/knife_search_by_query_for_many_attributes %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_query_for_many_attributes.md" >}}
 
 **Search for nested attributes using a search query**
 
-{{% chef-workstation/knife_search_by_query_for_nested_attribute %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_query_for_nested_attribute.md" >}}
 
 **Use a test query**
 
-{{% chef-workstation/knife_search_test_query_for_ssh %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_test_query_for_ssh.md" >}}

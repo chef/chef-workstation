@@ -15,7 +15,7 @@ aliases = ["/ctl_kitchen.html", "/ctl_kitchen/"]
 +++
 <!-- markdownlint-disable-file MD024 MD036 MD046-->
 
-{{% chef-workstation/ctl_kitchen_summary %}}
+{{< readfile file="content/workstation/reusable/md/ctl_kitchen_summary.md" >}}
 
 {{< note >}}
 

@@ -5,11 +5,7 @@ certificates match the hostname of the remote server, running
 `knife ssl fetch` is the only step required to verify a remote server
 that is accessed by either knife or Chef Infra Client.
 
-<div class="admonition-warning">
-
-<p class="admonition-warning-title">Warning</p>
-
-<div class="admonition-warning-text">
+{{< warning >}}
 
 It is the user's responsibility to verify the authenticity of every SSL
 certificate before downloading it to the `/.chef/trusted_certs`
@@ -20,6 +16,4 @@ is forged, malicious, or otherwise harmful. Therefore it is essential
 that users take the proper steps before downloading certificates into
 this directory.
 
-</div>
-
-</div>
+{{< /warning >}}

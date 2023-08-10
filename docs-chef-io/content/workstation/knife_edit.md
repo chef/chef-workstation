@@ -13,7 +13,7 @@ aliases = ["/knife_edit.html", "/knife_edit/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
 
-{{% chef-workstation/knife_edit_summary %}}
+{{< readfile file="content/workstation/reusable/md/knife_edit_summary.md" >}}
 
 ## Syntax
 
@@ -27,7 +27,7 @@ knife edit (options)
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_common_options_link %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_common_options_link.md" >}}
 
 {{< /note >}}
 
@@ -51,7 +51,7 @@ This subcommand has the following options:
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_all_config_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_all_config_options.md" >}}
 
 {{< /note >}}
 
@@ -61,4 +61,4 @@ The following examples show how to use this knife subcommand:
 
 ### Remove a user from /groups/admins.json
 
-{{% chef-workstation/knife_edit_admin_users %}}
+{{< readfile file="content/workstation/reusable/md/knife_edit_admin_users.md" >}}
