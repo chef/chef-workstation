@@ -14,7 +14,7 @@ product = ["workstation"]
 +++
 <!-- markdownlint-disable-file MD033 -->
 
-{{% plugin_knife_summary %}}
+{{< readfile file="content/reusable/md/plugin_knife_summary.md" >}}
 
 - The same [common options](/workstation/knife_options/) used by knife
     subcommands can also be used by knife plug-ins

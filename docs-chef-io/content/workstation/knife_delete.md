@@ -13,7 +13,7 @@ aliases = ["/knife_delete.html", "/knife_delete/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
 
-{{% chef-workstation/knife_delete_summary %}}
+{{< readfile file="content/workstation/reusable/md/knife_delete_summary.md" >}}
 
 ## Syntax
 
@@ -27,7 +27,7 @@ knife delete [PATTERN...] (options)
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_common_options_link %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_common_options_link.md" >}}
 
 {{< /note >}}
 
@@ -59,7 +59,7 @@ This subcommand has the following options:
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_all_config_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_all_config_options.md" >}}
 
 {{< /note >}}
 

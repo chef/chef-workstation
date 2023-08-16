@@ -247,7 +247,7 @@ settings:
 
 ## .d Directories
 
-{{% config_rb_client_dot_d_directories %}}
+{{< readfile file="content/reusable/md/config_rb_client_dot_d_directories.md" >}}
 
 ## Optional Settings
 

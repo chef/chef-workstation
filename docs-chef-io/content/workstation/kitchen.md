@@ -14,7 +14,7 @@ aliases = ["/kitchen.html", "/kitchen/"]
     weight = 10
 +++
 
-{{% chef-workstation/test_kitchen %}}
+{{< readfile file="content/workstation/reusable/md/test_kitchen.md" >}}
 
 The key concepts in Test Kitchen are:
 
@@ -26,11 +26,11 @@ The key concepts in Test Kitchen are:
 
 ## Bento
 
-{{% chef-workstation/bento %}}
+{{< readfile file="content/workstation/reusable/md/bento.md" >}}
 
 ## Drivers
 
-{{% chef-workstation/test_kitchen_drivers %}}
+{{< readfile file="content/workstation/reusable/md/test_kitchen_drivers.md" >}}
 
 ## Validation with InSpec
 
@@ -43,7 +43,7 @@ converged cookbook for easy local validation of your infrastructure.
 
 ## kitchen (executable)
 
-{{% chef-workstation/ctl_kitchen_summary %}}
+{{< readfile file="content/workstation/reusable/md/ctl_kitchen_summary.md" >}}
 
 {{< note >}}
 
@@ -54,7 +54,7 @@ For more information about the `kitchen` command line tool, see
 
 ## kitchen.yml
 
-{{% chef-workstation/test_kitchen_yml %}}
+{{< readfile file="content/workstation/reusable/md/test_kitchen_yml.md" >}}
 
 {{< note >}}
 
@@ -65,7 +65,7 @@ For more information about the kitchen.yml file, see
 
 ### Syntax
 
-{{% chef-workstation/test_kitchen_yml_syntax %}}
+{{< readfile file="content/workstation/reusable/md/test_kitchen_yml_syntax.md" >}}
 
 ### Work with Proxies
 

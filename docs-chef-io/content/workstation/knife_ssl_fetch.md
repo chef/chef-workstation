@@ -14,7 +14,7 @@ aliases = ["/knife_ssl_fetch.html", "/knife_ssl_fetch/"]
 +++
 <!-- markdownlint-disable-file MD036 -->
 
-{{% chef-workstation/knife_ssl_fetch_summary %}}
+{{< readfile file="content/workstation/reusable/md/knife_ssl_fetch_summary.md" >}}
 
 ## Syntax
 
@@ -63,4 +63,4 @@ knife ssl fetch https://www.example.com
 
 **Verify Checksums**
 
-{{% chef-workstation/knife_ssl_fetch_verify_certificate %}}
+{{< readfile file="content/workstation/reusable/md/knife_ssl_fetch_verify_certificate.md" >}}
