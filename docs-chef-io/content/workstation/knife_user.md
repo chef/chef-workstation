@@ -14,11 +14,11 @@ aliases = ["/knife_user.html", "/knife_user/"]
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
 
-{{% chef-workstation/knife_user_summary %}}
+{{< readfile file="content/workstation/reusable/md/knife_user_summary.md" >}}
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_common_options_link %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_common_options_link.md" >}}
 
 {{< /note >}}
 
@@ -82,7 +82,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_all_config_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_all_config_options.md" >}}
 
 {{< /note >}}
 
@@ -453,7 +453,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_all_config_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_all_config_options.md" >}}
 
 {{< /note >}}
 

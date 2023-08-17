@@ -31,7 +31,7 @@ New-Item -Path "c:\" -Name ".chef" -ItemType "directory"
 New-Item -ItemType "file" -Path "c:\.chef\config.rb"
 ```
 
-{{% chef_repo_many_users_same_knife %}}
+{{< readfile file="content/reusable/md/chef_repo_many_users_same_knife.md" >}}
 
 **Profile Support since Chef 13.7**
 

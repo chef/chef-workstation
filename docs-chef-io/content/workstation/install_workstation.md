@@ -15,7 +15,7 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
 +++
 <!-- markdownlint-disable-file MD033 -->
 
-{{% chef-workstation/chef_workstation %}}
+{{< readfile file="content/workstation/reusable/md/chef_workstation.md" >}}
 
 ## Supported Platforms
 
@@ -112,11 +112,11 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
 
 #### Spaces and Directories
 
-{{% windows_spaces_and_directories %}}
+{{< readfile file="content/reusable/md/windows_spaces_and_directories.md" >}}
 
 #### Top-level Directory Names
 
-{{% windows_top_level_directory_names %}}
+{{< readfile file="content/reusable/md/windows_top_level_directory_names.md" >}}
 
 ### Linux
 

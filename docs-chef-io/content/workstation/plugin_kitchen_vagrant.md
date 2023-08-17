@@ -14,8 +14,8 @@ aliases = ["/plugin_kitchen_vagrant.html", "/plugin_kitchen_vagrant/"]
     weight = 40
 +++
 
-{{% chef-workstation/test_kitchen_driver_vagrant %}}
+{{< readfile file="content/workstation/reusable/md/test_kitchen_driver_vagrant.md" >}}
 
-{{% chef-workstation/test_kitchen_driver_vagrant_settings %}}
+{{< readfile file="content/workstation/reusable/md/test_kitchen_driver_vagrant_settings.md" >}}
 
-{{% chef-workstation/test_kitchen_driver_vagrant_config %}}
+{{< readfile file="content/workstation/reusable/md/test_kitchen_driver_vagrant_config.md" >}}

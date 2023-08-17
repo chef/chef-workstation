@@ -14,13 +14,13 @@ aliases = ["/knife_node.html", "/knife_node/"]
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
 
-{{% node %}}
+{{< readfile file="content/reusable/md/node.md" >}}
 
-{{% chef-workstation/knife_node_summary %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_summary.md" >}}
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_common_options_link %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_common_options_link.md" >}}
 
 {{< /note >}}
 
@@ -277,7 +277,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_all_config_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_all_config_options.md" >}}
 
 {{< /note >}}
 
@@ -324,35 +324,35 @@ knife node policy set test-node 'test-group' 'test-name'
 
 ## run_list add
 
-{{% node_run_list %}}
+{{< readfile file="content/reusable/md/node_run_list.md" >}}
 
-{{% chef-workstation/knife_node_run_list_add %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add.md" >}}
 
-{{% node_run_list_format %}}
+{{< readfile file="content/reusable/md/node_run_list_format.md" >}}
 
 ### Syntax
 
-{{% chef-workstation/knife_node_run_list_add_syntax %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_syntax.md" >}}
 
 {{< warning >}}
 
-{{% chef-workstation/knife_common_windows_quotes %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_windows_quotes.md" >}}
 
 {{< /warning >}}
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_windows_quotes_module %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_windows_quotes_module.md" >}}
 
 {{< /note >}}
 
 ### Options
 
-{{% chef-workstation/knife_node_run_list_add_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_options.md" >}}
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_all_config_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_all_config_options.md" >}}
 
 {{< /note >}}
 
@@ -362,31 +362,31 @@ The following examples show how to use this knife subcommand:
 
 **Add a role**
 
-{{% chef-workstation/knife_node_run_list_add_role %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_role.md" >}}
 
 **Add roles and recipes**
 
-{{% chef-workstation/knife_node_run_list_add_roles_and_recipes %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_roles_and_recipes.md" >}}
 
 **Add a recipe with a FQDN**
 
-{{% chef-workstation/knife_node_run_list_add_recipe_with_fqdn %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_recipe_with_fqdn.md" >}}
 
 **Add a recipe with a cookbook**
 
-{{% chef-workstation/knife_node_run_list_add_recipe_with_cookbook %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_recipe_with_cookbook.md" >}}
 
 **Add the default recipe**
 
-{{% chef-workstation/knife_node_run_list_add_default_recipe %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_default_recipe.md" >}}
 
 ## run_list remove
 
-{{% chef-workstation/knife_node_run_list_remove %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_remove.md" >}}
 
 ### Syntax
 
-{{% chef-workstation/knife_node_run_list_remove_syntax %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_remove_syntax.md" >}}
 
 ### Options
 
@@ -394,7 +394,7 @@ This command does not have any specific options.
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_all_config_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_all_config_options.md" >}}
 
 {{< /note >}}
 
@@ -404,29 +404,29 @@ The following examples show how to use this knife subcommand:
 
 **Remove a role**
 
-{{% chef-workstation/knife_node_run_list_remove_role %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_remove_role.md" >}}
 
 **Remove a run-list**
 
-{{% chef-workstation/knife_node_run_list_remove_run_list %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_remove_run_list.md" >}}
 
 ## run_list set
 
-{{% chef-workstation/knife_node_run_list_set %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_set.md" >}}
 
 ### Syntax
 
-{{% chef-workstation/knife_node_run_list_set_syntax %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_set_syntax.md" >}}
 
 {{< warning >}}
 
-{{% chef-workstation/knife_common_windows_quotes %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_windows_quotes.md" >}}
 
 {{< /warning >}}
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_windows_quotes_module %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_windows_quotes_module.md" >}}
 
 {{< /note >}}
 

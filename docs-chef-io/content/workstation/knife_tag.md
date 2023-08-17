@@ -14,13 +14,13 @@ aliases = ["/knife_tag.html", "/knife_tag/"]
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
 
-{{% chef_tags %}}
+{{< readfile file="content/reusable/md/chef_tags.md" >}}
 
-{{% chef-workstation/knife_tag_summary %}}
+{{< readfile file="content/workstation/reusable/md/knife_tag_summary.md" >}}
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_common_options_link %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_common_options_link.md" >}}
 
 {{< /note >}}
 
