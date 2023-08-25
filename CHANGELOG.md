@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.8.1046 -->
-## [23.8.1046](https://github.com/chef/chef-workstation/tree/23.8.1046) (2023-08-24)
+<!-- latest_release 23.8.1047 -->
+## [23.8.1047](https://github.com/chef/chef-workstation/tree/23.8.1047) (2023-08-25)
 
 #### Merged Pull Requests
-- Updated the dependencies [#3151](https://github.com/chef/chef-workstation/pull/3151) ([ashiqueps](https://github.com/ashiqueps))
+- Reverted ffi-yajl to 2.4.0 [#3152](https://github.com/chef/chef-workstation/pull/3152) ([ashiqueps](https://github.com/ashiqueps))
 <!-- latest_release -->
 
 <!-- release_rollup since=23.7.1042 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Reverted ffi-yajl to 2.4.0 [#3152](https://github.com/chef/chef-workstation/pull/3152) ([ashiqueps](https://github.com/ashiqueps)) <!-- 23.8.1047 -->
 - Updated the dependencies [#3151](https://github.com/chef/chef-workstation/pull/3151) ([ashiqueps](https://github.com/ashiqueps)) <!-- 23.8.1046 -->
 - Bump Chef Workstation App to 0.2.190 [#3150](https://github.com/chef/chef-workstation/pull/3150) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 23.8.1045 -->
 - Bump Chef Workstation App to 0.2.189 [#3146](https://github.com/chef/chef-workstation/pull/3146) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 23.8.1044 -->
