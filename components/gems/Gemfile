@@ -119,11 +119,11 @@ group(:omnibus_package) do
   gem "mdl", ">= 0.7.0"
 end
 
-# Everything except Windows
-group(:ruby_shadow) do
-  # if ruby-shadow does a release that supports ruby-3.0 this can be removed
-  gem "ruby-shadow", git: "https://github.com/chef/ruby-shadow", branch: "lcg/ruby-3.0", platforms: :ruby unless RUBY_PLATFORM == "x64-mingw-ucrt"
-end
+# # Everything except Windows
+# group(:ruby_shadow) do
+#   # if ruby-shadow does a release that supports ruby-3.0 this can be removed
+#   gem "ruby-shadow", git: "https://github.com/chef/ruby-shadow", branch: "lcg/ruby-3.0", platforms: :ruby unless RUBY_PLATFORM == "x64-mingw-ucrt"
+# end
 
 gem "chefstyle", group: :test
 
