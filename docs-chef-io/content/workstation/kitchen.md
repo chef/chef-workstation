@@ -32,13 +32,13 @@ The key concepts in Test Kitchen are:
 
 {{< readfile file="content/workstation/reusable/md/test_kitchen_drivers.md" >}}
 
-## Validation with InSpec
+## Validation with Chef InSpec
 
 Test Kitchen will create a VM or cloud instance, install Chef Infra
 Client to that system, and converge Chef Infra Client with your local
 cookbook. Once this is complete, you will want to perform automated
 validation against the infrastructure you have built to validate its
-configuration. Test Kitchen allows you to run InSpec tests against your
+configuration. Test Kitchen allows you to run Chef InSpec tests against your
 converged cookbook for easy local validation of your infrastructure.
 
 ## kitchen (executable)
@@ -67,13 +67,13 @@ For more information about the kitchen.yml file, see
 
 {{< readfile file="content/workstation/reusable/md/test_kitchen_yml_syntax.md" >}}
 
-### Work with Proxies
+### Work with proxies
 
-{{< readfile file="layouts/shortcodes/chef-workstation/test_kitchen_yml_syntax_proxy.md" >}}
+{{< readfile file="content/workstation/reusable/md/test_kitchen_yml_syntax_proxy.md" >}}
 
-## For more information ...
+## Additional information
 
-For more information about test-driven development and Test Kitchen:
+For more information about test-driven development and Test Kitchen, see the kitchen.ci website:
 
 - [kitchen.ci](https://kitchen.ci/)
 - [Getting Started with Test Kitchen](https://kitchen.ci/docs/getting-started/introduction/)

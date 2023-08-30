@@ -139,7 +139,7 @@ This subcommand has the following options:
 
 : Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-  {{< readfile file="layouts/shortcodes/chef-workstation/ctl_kitchen_common_option_platforms.md" >}}
+  {{< readfile file="content/workstation/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -289,7 +289,7 @@ This subcommand has the following options:
 
 : Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-    {{< readfile file="layouts/shortcodes/chef-workstation/ctl_kitchen_common_option_platforms.md" >}}
+    {{< readfile file="content/workstation/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -415,7 +415,7 @@ This subcommand has the following options:
 
 : Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-  {{< readfile file="layouts/shortcodes/chef-workstation/ctl_kitchen_common_option_platforms.md" >}}
+  {{< readfile file="content/workstation/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -460,7 +460,7 @@ This subcommand has the following options:
 
 : Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-  {{< readfile file="layouts/shortcodes/chef-workstation/ctl_kitchen_common_option_platforms.md" >}}
+  {{< readfile file="content/workstation/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -615,7 +615,7 @@ This subcommand has the following options:
 
 : Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-  {{< readfile file="layouts/shortcodes/chef-workstation/ctl_kitchen_common_option_platforms.md" >}}
+  {{< readfile file="content/workstation/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -662,7 +662,7 @@ This subcommand has the following options:
 
 : Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-  {{< readfile file="layouts/shortcodes/chef-workstation/ctl_kitchen_common_option_platforms.md" >}}
+  {{< readfile file="content/workstation/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -719,7 +719,7 @@ This subcommand has the following options:
 
 : Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-  {{< readfile file="layouts/shortcodes/chef-workstation/ctl_kitchen_common_option_platforms.md" >}}
+  {{< readfile file="content/workstation/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -802,7 +802,7 @@ This subcommand has the following options:
 
 : Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-  {{< readfile file="layouts/shortcodes/chef-workstation/ctl_kitchen_common_option_platforms.md" >}}
+  {{< readfile file="content/workstation/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -850,7 +850,7 @@ This subcommand has the following options:
 
 : Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-  {{< readfile file="layouts/shortcodes/chef-workstation/ctl_kitchen_common_option_platforms.md" >}}
+  {{< readfile file="content/workstation/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -902,7 +902,7 @@ This subcommand has the following options:
 
 : Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-  {{< readfile file="layouts/shortcodes/chef-workstation/ctl_kitchen_common_option_platforms.md" >}}
+  {{< readfile file="content/workstation/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
@@ -1027,7 +1027,7 @@ This subcommand has the following options:
 
 : Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-    {{< readfile file="layouts/shortcodes/chef-workstation/ctl_kitchen_common_option_platforms.md" >}}
+    {{< readfile file="content/workstation/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
 ### Examples
 
