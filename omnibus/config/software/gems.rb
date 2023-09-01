@@ -75,17 +75,32 @@ build do
   bundle "install --jobs 10", env: env
 
   block do
-    # Install gems from git repos.  This makes the assumption that there is a <gemname>.gemspec and
+    gem_home = Gem.paths.home
+
+    puts "fixing bundle installed gems in #{gem_home}"
+
+    # Install gems from git repos.  This makes the assumption that there is a <gem_name>.gemspec and
     # you can simply gem build + gem install the resulting gem, so nothing fancy.  This does not use
     # rake install since we need --conservative --minimal-deps in order to not install duplicate gems.
     #
-    Dir["#{install_dir.tr('\\', "/")}/embedded/lib/ruby/gems/*/bundler/gems/*"].each do |gempath|
-      gemname = File.basename(gempath).gsub(/-[A-Fa-f0-9]{12}$/, "")
-      # we can't use "commmand" or "bundle" or "gem" DSL methods here since those are lazy and we need to run commands immediately
-      # (this is like a shell_out inside of a ruby_block in core chef, you don't use an execute resource inside of a ruby_block or
-      # things get really weird and unexpected)
-      shellout! "gem build #{gemname}.gemspec", env: env, cwd: gempath
-      shellout! "gem install #{gemname}*.gem --conservative --minimal-deps --no-document", env: env, cwd: gempath
+    Dir["#{gem_home}/bundler/gems/*"].each do |gempath|
+      matches = File.basename(gempath).match(/.*-[A-Fa-f0-9]{12}/)
+      next unless matches
+
+      gem_name = File.basename(Dir["#{gempath}/*.gemspec"].first, ".gemspec")
+      # FIXME: should strip any valid ruby platform off of the gem_name if it matches
+
+      next unless gem_name
+
+      # FIXME: should omit the gem which is in the current directory and not hard code chef
+      # next if %w{chef chef-universal-mingw-ucrt proxifier}.include?(gem_name)
+
+      puts "re-installing #{gem_name}..."
+
+      Dir.chdir(gempath) do
+        system("gem build #{gem_name}.gemspec") or raise "gem build failed"
+        system("gem install #{gem_name}*.gem --conservative --minimal-deps --no-document") or raise "gem install failed"
+      end
     end
   end
 
