@@ -74,6 +74,8 @@ build do
   bundle "config set --local without '#{excluded_groups.join(" ")}'", env: env
   bundle "install --jobs 10", env: env
 
+  ruby "post-bundle-install.rb", env: env
+
   appbundle "knife", lockdir: project_dir, gem: "knife", without: %w{development}, env: env
   appbundle "foodcritic", lockdir: project_dir, gem: "chef_deprecations", without: %w{development test}, env: env
   appbundle "delivery", lockdir: project_dir, gem: "chef_deprecations", without: %w{development test}, env: env
