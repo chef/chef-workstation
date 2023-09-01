@@ -74,7 +74,20 @@ build do
   bundle "config set --local without '#{excluded_groups.join(" ")}'", env: env
   bundle "install --jobs 10", env: env
 
-  ruby "post-bundle-install.rb", env: env
+  block do
+    # Install gems from git repos.  This makes the assumption that there is a <gemname>.gemspec and
+    # you can simply gem build + gem install the resulting gem, so nothing fancy.  This does not use
+    # rake install since we need --conservative --minimal-deps in order to not install duplicate gems.
+    #
+    Dir["#{install_dir.tr('\\', "/")}/embedded/lib/ruby/gems/*/bundler/gems/*"].each do |gempath|
+      gemname = File.basename(gempath).gsub(/-[A-Fa-f0-9]{12}$/, "")
+      # we can't use "commmand" or "bundle" or "gem" DSL methods here since those are lazy and we need to run commands immediately
+      # (this is like a shell_out inside of a ruby_block in core chef, you don't use an execute resource inside of a ruby_block or
+      # things get really weird and unexpected)
+      shellout! "gem build #{gemname}.gemspec", env: env, cwd: gempath
+      shellout! "gem install #{gemname}*.gem --conservative --minimal-deps --no-document", env: env, cwd: gempath
+    end
+  end
 
   appbundle "knife", lockdir: project_dir, gem: "knife", without: %w{development}, env: env
   appbundle "foodcritic", lockdir: project_dir, gem: "chef_deprecations", without: %w{development test}, env: env
