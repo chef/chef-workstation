@@ -2,8 +2,6 @@
 
 gem_home = Gem.paths.home
 
-puts "gem_home--------#{gem_home}-----"
-
 puts "fixing bundle installed gems in #{gem_home}"
 
 # Install gems from git repos.  This makes the assumption that there is a <gem_name>.gemspec and
@@ -12,18 +10,12 @@ puts "fixing bundle installed gems in #{gem_home}"
 #
 Dir["#{gem_home}/bundler/gems/*"].each do |gempath|
   matches = File.basename(gempath).match(/.*-[A-Fa-f0-9]{12}/)
-  puts "matches----------#{gempath}----"
   next unless matches
 
   gem_name = File.basename(Dir["#{gempath}/*.gemspec"].first, ".gemspec")
   # FIXME: should strip any valid ruby platform off of the gem_name if it matches
 
-  puts "gem_name----------#{gem_name}"
-
   next unless gem_name
-
-  # FIXME: should omit the gem which is in the current directory and not hard code chef
-  # next if %w{chef chef-universal-mingw-ucrt proxifier}.include?(gem_name)
 
   puts "re-installing #{gem_name}..."
 
