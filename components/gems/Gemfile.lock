@@ -1,5 +1,5 @@
 GIT
-   remote: https://github.com/adsr/chef-cli
+   remote: https://github.com/chef/chef-cli
    revision: f67c7ef585929ffa378d6e3640328dd68ae9f234
    branch: nikhil/updated-ffi-yajl-version
    specs:

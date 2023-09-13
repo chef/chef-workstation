@@ -95,7 +95,7 @@ group(:omnibus_package) do
   gem "ed25519"
   gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
   # gem "chef-cli", ">= 5.3.1"
-  gem "chef-cli", git: "https://github.com/adsr/chef-cli", branch: "nikhil/updated-ffi-yajl-version"
+  gem "chef-cli", git: "https://github.com/chef/chef-cli", branch: "nikhil/updated-ffi-yajl-version"
   gem "chef-apply", ">= 0.4.16"
 
   # chef-telemetry previously pulled in an unecessary library (http)
