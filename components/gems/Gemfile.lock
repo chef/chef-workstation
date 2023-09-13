@@ -1,4 +1,22 @@
 GIT
+   remote: https://github.com/adsr/chef-cli
+   revision: f67c7ef585929ffa378d6e3640328dd68ae9f234
+   branch: nikhil/updated-ffi-yajl-version
+   specs:
+     chef-cli (5.6.13)
+       addressable (>= 2.3.5, < 2.9)
+       chef (>= 16.0)
+       cookbook-omnifetch (~> 0.5)
+       diff-lcs (>= 1.0, < 1.4)
+       ffi-yajl (>= 1.0, < 3.0)
+       license-acceptance (>= 1.0.11, < 3)
+       minitar (~> 0.6)
+       mixlib-cli (>= 1.7, < 3.0)
+       mixlib-shellout (>= 2.0, < 4.0)
+       pastel (~> 0.7)
+       solve (> 2.0, < 5.0)
+
+GIT
   remote: https://github.com/chef/ruby-shadow
   revision: 3b8ea40b0e943b5de721d956741308ce805a5c3c
   branch: lcg/ruby-3.0
@@ -394,6 +412,7 @@ GEM
       tty-spinner
     chef-bin (18.2.7)
       chef (= 18.2.7)
+<<<<<<< Updated upstream
     chef-cli (5.6.12)
       addressable (>= 2.3.5, < 2.9)
       chef (>= 16.0)
@@ -406,6 +425,8 @@ GEM
       mixlib-shellout (>= 2.0, < 4.0)
       pastel (~> 0.7)
       solve (> 2.0, < 5.0)
+=======
+>>>>>>> Stashed changes
     chef-config (18.2.7)
       addressable
       chef-utils (= 18.2.7)
