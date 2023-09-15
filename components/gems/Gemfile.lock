@@ -394,7 +394,7 @@ GEM
       tty-spinner
     chef-bin (18.2.7)
       chef (= 18.2.7)
-    chef-cli (5.6.13)
+    chef-cli (5.6.14)
       addressable (>= 2.3.5, < 2.9)
       chef (>= 16.0)
       cookbook-omnifetch (~> 0.5)
@@ -415,7 +415,7 @@ GEM
       tomlrb (~> 1.2)
     chef-powershell (18.0.2)
       ffi (~> 1.15)
-      ffi-yajl (~> 2.5)
+      ffi-yajl (~> 2.4)
     chef-telemetry (1.1.1)
       chef-config
       concurrent-ruby (~> 1.0)
@@ -542,7 +542,7 @@ GEM
       ffi (~> 1.0)
     ffi-win32-extensions (1.0.4)
       ffi
-    ffi-yajl (2.6.0)
+    ffi-yajl (2.4.0)
       libyajl2 (>= 1.2)
     filesize (0.2.0)
     fog-core (2.3.0)
