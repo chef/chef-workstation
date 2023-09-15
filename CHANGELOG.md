@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.8.1048 -->
-## [23.8.1048](https://github.com/chef/chef-workstation/tree/23.8.1048) (2023-08-30)
+<!-- latest_release 23.9.1049 -->
+## [23.9.1049](https://github.com/chef/chef-workstation/tree/23.9.1049) (2023-09-15)
 
 #### Merged Pull Requests
-- Bump omnibus from `ae855f3` to `26c34d2` in /omnibus [#3148](https://github.com/chef/chef-workstation/pull/3148) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Updated the chef-cli version to 5.6.13 [#3160](https://github.com/chef/chef-workstation/pull/3160) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=23.7.1042 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Updated the chef-cli version to 5.6.13 [#3160](https://github.com/chef/chef-workstation/pull/3160) ([nikhil2611](https://github.com/nikhil2611)) <!-- 23.9.1049 -->
 - Bump omnibus from `ae855f3` to `26c34d2` in /omnibus [#3148](https://github.com/chef/chef-workstation/pull/3148) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 23.8.1048 -->
 - Reverted ffi-yajl to 2.4.0 [#3152](https://github.com/chef/chef-workstation/pull/3152) ([ashiqueps](https://github.com/ashiqueps)) <!-- 23.8.1047 -->
 - Updated the dependencies [#3151](https://github.com/chef/chef-workstation/pull/3151) ([ashiqueps](https://github.com/ashiqueps)) <!-- 23.8.1046 -->
