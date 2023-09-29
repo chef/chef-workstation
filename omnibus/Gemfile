@@ -12,7 +12,7 @@ gem "pedump"
 # by running bundle config set --local without dep_selector && bundle install to speed up build times.
 group :development do
   # Use Berkshelf for resolving cookbook dependencies
-  gem "berkshelf", ">= 8.0"
+  gem "berkshelf", git: "https://github.com/chef/berkshelf.git", branch: "nikhil/CHEF-3994-X509_STORE_add_cert-error"
 
   # Use Test Kitchen with Vagrant for converging the build environment
   gem "test-kitchen", ">= 2"

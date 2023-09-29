@@ -115,7 +115,7 @@ group(:omnibus_package) do
   gem "rb-readline"
   gem "winrm-fs"
   gem "winrm-elevated"
-  gem "berkshelf", ">= 8.0"
+  gem "berkshelf", git: "https://github.com/chef/berkshelf.git", branch: "nikhil/CHEF-3994-X509_STORE_add_cert-error"
   gem "mdl", ">= 0.7.0"
 end
 
