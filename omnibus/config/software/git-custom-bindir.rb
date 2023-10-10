@@ -40,7 +40,7 @@ dependency "expat"
 
 relative_path "git-#{version}"
 
-version("2.39.3") { source sha256: "abece3940775676c1a059be6a4f031029b4fcac21312b0c287baae12524e7c2b" }
+version("2.39.3") { source sha256: "2f9aa93c548941cc5aff641cedc24add15b912ad8c9b36ff5a41b1a9dcad783e" }
 
 source url: "https://www.kernel.org/pub/software/scm/git/git-#{version}.tar.gz"
 
