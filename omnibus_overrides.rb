@@ -16,7 +16,7 @@ override "liblzma", version: "5.2.5"
 # work to fix that issue in IPACK-145.
 override "libxml2", version: windows? ? "2.9.10" : "2.10.4"
 override "libxslt", version: windows? ? "1.1.34" : "1.1.35"
-override "go", version: "1.20.7"
+override "go", version: "1.20.9"
 override "libyaml", version: "0.1.7"
 override "makedepend", version: "1.0.5"
 override "ncurses", version: "6.4"
