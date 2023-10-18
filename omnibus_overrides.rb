@@ -10,7 +10,7 @@ override "libarchive", version: "3.6.2"
 override "libffi", version: "3.4.2"
 override "libiconv", version: "1.16"
 override "liblzma", version: "5.2.5"
-override "curl", version: "7.84.0"
+override "curl", version: "8.4.0"
 
 # libxslt 1.1.35 does not build successfully with libxml2 2.9.13 on Windows so we will pin
 # windows builds to libxslt 1.1.34 and libxml2 2.9.10 for now and followup later with the
@@ -29,5 +29,5 @@ override "ruby-msys2-devkit", version: "3.1.2-1"
 override "rust", version: "1.37.0"
 override "util-macros", version: "1.19.0"
 override "xproto", version: "7.0.28"
-override "zlib", version: "1.2.11"
+override "zlib", version: "1.3"
 
