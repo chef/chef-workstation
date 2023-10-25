@@ -17,7 +17,7 @@ override "curl", version: "8.4.0"
 # work to fix that issue in IPACK-145.
 override "libxml2", version: windows? ? "2.9.10" : "2.10.4"
 override "libxslt", version: windows? ? "1.1.34" : "1.1.35"
-override "go", version: "1.20.9"
+override "go", version: "1.21.3"
 override "libyaml", version: "0.1.7"
 override "makedepend", version: "1.0.5"
 override "ncurses", version: "6.4"
