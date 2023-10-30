@@ -83,7 +83,7 @@ func createRubyEnvUnix() {
 }
 
 func createRubyEnvWindows() {
-	InstallerDir := `C:\opscode\chef-workstation`
+	InstallerDir := `D:\opscode\chef-workstation`
 	home, err := os.UserHomeDir()
 	installationPath := path.Join(home, `.chef\ruby-env.json`)
 	result, err := exists(installationPath)
