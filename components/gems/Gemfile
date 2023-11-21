@@ -52,9 +52,9 @@ group(:omnibus_package) do
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
 
-  gem "chef", ">= 18.2"
-  gem "chef-bin", ">= 18.2"
-  gem "chef-utils", ">= 18.2"
+  gem "chef", ">= 18.3"
+  gem "chef-bin", ">= 18.3"
+  gem "chef-utils", ">= 18.3"
   gem "ohai", ">= 18.1"
 
   gem "cheffish", ">= 17.0"
