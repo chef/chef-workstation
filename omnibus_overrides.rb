@@ -11,12 +11,6 @@ override "libffi", version: "3.4.2"
 override "libiconv", version: "1.16"
 override "liblzma", version: "5.2.5"
 override "curl", version: "8.4.0"
-
-# libxslt 1.1.35 does not build successfully with libxml2 2.9.13 on Windows so we will pin
-# windows builds to libxslt 1.1.34 and libxml2 2.9.10 for now and followup later with the
-# work to fix that issue in IPACK-145.
-override "libxml2", version: windows? ? "2.9.10" : "2.10.4"
-override "libxslt", version: windows? ? "1.1.34" : "1.1.35"
 override "go", version: "1.21.3"
 override "libyaml", version: "0.1.7"
 override "makedepend", version: "1.0.5"
