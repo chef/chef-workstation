@@ -50,6 +50,7 @@ instance_eval(IO.read(overrides_path), overrides_path)
 dependency "preparation"
 
 dependency "habitat"
+dependency "openssl"
 
 if windows?
   dependency "git-windows"
