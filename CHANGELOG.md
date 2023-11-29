@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.11.1052 -->
-## [23.11.1052](https://github.com/chef/chef-workstation/tree/23.11.1052) (2023-11-27)
+<!-- latest_release 23.11.1053 -->
+## [23.11.1053](https://github.com/chef/chef-workstation/tree/23.11.1053) (2023-11-29)
 
 #### Merged Pull Requests
-- Updated the msi signing method [#3183](https://github.com/chef/chef-workstation/pull/3183) ([ashiqueps](https://github.com/ashiqueps))
+- Fix TOC for chef-vault [#3176](https://github.com/chef/chef-workstation/pull/3176) ([chuhn](https://github.com/chuhn))
 <!-- latest_release -->
 
 <!-- release_rollup since=23.7.1042 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Fix TOC for chef-vault [#3176](https://github.com/chef/chef-workstation/pull/3176) ([chuhn](https://github.com/chuhn)) <!-- 23.11.1053 -->
 - Updated the msi signing method [#3183](https://github.com/chef/chef-workstation/pull/3183) ([ashiqueps](https://github.com/ashiqueps)) <!-- 23.11.1052 -->
 - adding adhoc canary [#3178](https://github.com/chef/chef-workstation/pull/3178) ([sean-simmons-progress](https://github.com/sean-simmons-progress)) <!-- 23.11.1051 -->
 - Bump omnibus from `26c34d2` to `56015cb` in /omnibus [#3162](https://github.com/chef/chef-workstation/pull/3162) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 23.9.1050 -->
