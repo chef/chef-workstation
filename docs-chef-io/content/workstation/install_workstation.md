@@ -19,46 +19,17 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
 
 ## Supported Platforms
 
-Supported Host Operating Systems:
+The following table lists the commercially supported platforms and versions for Chef Workstation:
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr class="even">
-<td>Amazon Linux</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>Apple macOS</td>
-<td>10.15, 11, 12</td>
-</tr>
-<tr class="even">
-<td>Windows</td>
-<td>10, 11, Server 2012, Server 2012 R2, Server 2016, Server 2019, Server 2022</td>
-</tr>
-<tr class="odd">
-<td>Red Hat Enterprise Linux / CentOS</td>
-<td>7.x, 8.x, 9.x</td>
-</tr>
-<tr class="even">
-<td>Ubuntu</td>
-<td>18.04, 20.04, 22.04</td>
-</tr>
-<tr class="odd">
-<td>Debian</td>
-<td>10, 11</td>
-</tr>
-</tbody>
-</table>
+{{< readfile file = "content/workstation/reusable/md/workstation_supported_platforms.md" >}}
+
+### Derived Platforms
+
+The following table lists supported derived platforms and versions for Chef Workstation.
+
+See our policy on [support for derived platforms](/platforms/#support-for-derived-platforms) for more information.
+
+{{< readfile file = "content/workstation/reusable/md/workstation_supported_derived_platforms.md" >}}
 
 ## System Requirements
 
