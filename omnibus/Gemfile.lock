@@ -239,6 +239,7 @@ GEM
       tty-table (~> 0.10)
     iostruct (0.0.5)
     ipaddress (0.8.3)
+    iso8601 (0.13.0)
     jmespath (1.6.2)
     json (2.6.3)
     kitchen-vagrant (1.14.2)
@@ -325,7 +326,7 @@ GEM
     parslet (2.0.0)
     pastel (0.8.0)
       tty-color (~> 0.5)
-    pedump (0.6.6)
+    pedump (0.6.7)
       awesome_print
       iostruct (>= 0.0.4)
       multipart-post (>= 2.0.0)
