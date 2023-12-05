@@ -110,4 +110,5 @@ build do
   # make -j N on openssl is not reliable
   make env: env
   make "install", env: env
+  make "install_fips", env: env
 end
