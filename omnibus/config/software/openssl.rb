@@ -68,7 +68,7 @@ build do
     "--libdir=#{install_dir}/embedded/lib",
   ]
 
-  configure_args += ["-enable-fips", "-enable-weak-ssl-ciphers"] if fips_mode?
+  configure_args += ["enable-fips", "enable-weak-ssl-ciphers"] if fips_mode?
 
   configure_cmd =
     if mac_os_x?
@@ -110,4 +110,5 @@ build do
   # make -j N on openssl is not reliable
   make env: env
   make "install", env: env
+  make "install_fips", env: env
 end
