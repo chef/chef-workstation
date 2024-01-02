@@ -57,12 +57,12 @@ build do
   configure_args = [
     "--prefix=#{install_dir}/embedded",
     "no-unit-test",
-    "no-comp",
-    "no-idea",
-    "no-mdc2",
-    "no-rc5",
-    "no-ssl2",
-    "no-ssl3",
+    # "no-comp",
+    # "no-idea",
+    # "no-mdc2",
+    # "no-rc5",
+    # "no-ssl2",
+    # "no-ssl3",
     "no-zlib",
     "shared",
     "--libdir=#{install_dir}/embedded/lib",
@@ -95,8 +95,8 @@ build do
   # Some of the algorithms which are being used are deprecated in OpenSSL3 and moved to legacy provider.
   # We need those algorithms for the working of chef-workstation and other packages.
   # This patch will enable the legacy providers!
-  configure_args << "enable-legacy"
-  patch source: "openssl-3.0.0-enable-legacy-provider.patch", env: env
+  # configure_args << "enable-legacy"
+  # patch source: "openssl-3.0.0-enable-legacy-provider.patch", env: env
 
   # Out of abundance of caution, we put the feature flags first and then
   # the crazy platform specific compiler flags at the end.
