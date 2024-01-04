@@ -53,7 +53,7 @@ In slack, run the `/expeditor promote chef-workstation 20.10.168` and supply the
 
 ### Common Failures
 
-Sometimes the Omnitruck cache takes a long time to refresh. If you run `curl 'https://omnitruck.chef.io/stable/chef-workstation/metadata?p=mac_os_x&pv=10.15&m=x86_64&v=latest'` and it does not return the version you just promoted, the omnitruck cache has not been updated. Run this periodically (it can sometimes take a few hours) and retry the failed portion of the promote process after the correct version is returned. Retries can be performed on the Expeditor messages in `#chef-ws-notify`.
+Sometimes the Omnitruck cache takes a long time to refresh. If you run `curl 'https://omnitruck.chef.io/stable/chef-workstation/metadata?p=mac_os_x&pv=11&m=x86_64&v=latest'` and it does not return the version you just promoted, the omnitruck cache has not been updated. Run this periodically (it can sometimes take a few hours) and retry the failed portion of the promote process after the correct version is returned. Retries can be performed on the Expeditor messages in `#chef-ws-notify`.
 
 The released package is also uploaded to Homebrew and Chocolatey via a triggered [third party packages](https://buildkite.com/chef/chef-chef-workstation-main-third-party-packages) pipeline. This often fails if the Omnitruck cache is slow to update. Continue retrying the Chocolatey pipeline after Omnitruck has refreshed and it should eventually succeed.
 

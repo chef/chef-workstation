@@ -14,7 +14,7 @@ aliases = ["/knife_windows.html", "/knife_windows/"]
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
 
-{{% chef-workstation/knife_windows_summary %}}
+{{< readfile file="content/workstation/reusable/md/knife_windows_summary.md" >}}
 
 {{< note >}}
 
@@ -191,7 +191,7 @@ This argument has the following options:
 
 Use the `winrm` argument to create a connection to one or more remote machines. As each connection is created, a password must be provided. This argument uses the same syntax as the `search` subcommand.
 
-{{% chef-workstation/knife_windows_winrm_ports %}}
+{{< readfile file="content/workstation/reusable/md/knife_windows_winrm_ports.md" >}}
 
 ### Syntax
 

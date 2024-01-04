@@ -3,17 +3,11 @@ test instances on cloud providers such as Amazon EC2, Google Compute
 Engine, and Microsoft Azure. You can also test on multiple local
 hypervisors, such as VMware, Hyper-V, or VirtualBox.
 
-<div class="admonition-note">
-
-<p class="admonition-note-title">Note</p>
-
-<div class="admonition-note-text">
+{{< note >}}
 
 Chef Workstation includes many common Test Kitchen drivers.
 
-</div>
-
-</div>
+{{< /note >}}
 
 Most drivers have driver-specific configuration settings that must be
 added to the kitchen.yml file before Test Kitchen will be able to use

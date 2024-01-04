@@ -14,9 +14,9 @@ aliases = ["/knife_bootstrap.html", "/knife_bootstrap/"]
 +++
 <!-- markdownlint-disable-file MD036 MD046-->
 
-{{% chef_client_bootstrap_node %}}
+{{< readfile file="content/reusable/md/chef_client_bootstrap_node.md" >}}
 
-{{% chef-workstation/knife_bootstrap_summary %}}
+{{< readfile file="content/workstation/reusable/md/knife_bootstrap_summary.md" >}}
 
 **Considerations:**
 
@@ -37,7 +37,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_common_options_link %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_common_options_link.md" >}}
 
 {{< /note >}}
 
@@ -286,7 +286,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_all_config_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_all_config_options.md" >}}
 
 {{< /note >}}
 
@@ -343,11 +343,11 @@ The `--node-name` option is required for a validatorless bootstrap.
 
 ### FIPS Mode
 
-{{% fips_intro_client %}}
+{{< readfile file="content/reusable/md/fips_intro_client.md" >}}
 
 **Bootstrap a node using FIPS**
 
-{{% chef-workstation/knife_bootstrap_node_fips %}}
+{{< readfile file="content/workstation/reusable/md/knife_bootstrap_node_fips.md" >}}
 
 ## Custom Templates
 

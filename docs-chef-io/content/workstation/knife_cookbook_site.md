@@ -14,7 +14,7 @@ aliases = ["/knife_cookbook_site.html", "/knife_cookbook_site/"]
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
 
-{{% supermarket_api_summary %}}
+{{< readfile file="/content/supermarket/reusable/md/supermarket_api_summary.md" >}}
 
 Use the `knife cookbook site` subcommand to interact with cookbooks that
 are available in the [Chef Supermarket](https://supermarket.chef.io/). A
@@ -31,13 +31,13 @@ supermarket](/workstation/knife_supermarket/) command.
 
 {{< warning >}}
 
-{{% chef-workstation/notes_knife_cookbook_site_use_devkit_berkshelf %}}
+{{< readfile file="content/workstation/reusable/md/notes_knife_cookbook_site_use_devkit_berkshelf.md" >}}
 
 {{< /warning >}}
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_common_options_link %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_common_options_link.md" >}}
 
 {{< /note >}}
 
@@ -93,7 +93,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_all_config_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_all_config_options.md" >}}
 
 {{< /note >}}
 
@@ -175,7 +175,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_all_config_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_all_config_options.md" >}}
 
 {{< /note >}}
 
@@ -370,7 +370,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_all_config_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_all_config_options.md" >}}
 
 {{< /note >}}
 

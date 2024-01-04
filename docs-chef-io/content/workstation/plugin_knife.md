@@ -14,7 +14,7 @@ product = ["workstation"]
 +++
 <!-- markdownlint-disable-file MD033 -->
 
-{{% plugin_knife_summary %}}
+{{< readfile file="content/reusable/md/plugin_knife_summary.md" >}}
 
 - The same [common options](/workstation/knife_options/) used by knife
     subcommands can also be used by knife plug-ins
@@ -37,7 +37,7 @@ The following knife plug-ins are maintained by Chef:
 <tbody>
 <tr>
 <td><a href="https://github.com/chef/knife-azure">knife-azure</a></td>
-<td>{{< readfile file="layouts/shortcodes/chef-workstation/knife_azure.md" >}}</td>
+<td>{{< readfile file="content/workstation/reusable/md/knife_azure.md" >}}</td>
 </tr>
 <tr>
 <td><a href="https://github.com/chef/knife-ec2">knife-ec2</a></td>

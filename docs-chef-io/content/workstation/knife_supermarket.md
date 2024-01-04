@@ -23,13 +23,13 @@ arguments do not require a user account: `download`, `search`,
 
 {{< note >}}
 
-{{% chef-workstation/notes_knife_cookbook_site_use_devkit_berkshelf %}}
+{{< readfile file="content/workstation/reusable/md/notes_knife_cookbook_site_use_devkit_berkshelf.md" >}}
 
 {{< /note >}}
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_common_options_link %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_common_options_link.md" >}}
 
 {{< /note >}}
 

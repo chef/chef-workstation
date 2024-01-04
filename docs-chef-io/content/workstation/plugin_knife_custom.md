@@ -14,7 +14,7 @@ product = ["workstation"]
 +++
 <!-- markdownlint-disable-file MD033 MD037-->
 
-{{% plugin_knife_summary %}}
+{{< readfile file="content/reusable/md/plugin_knife_summary.md" >}}
 
 The Chef Infra Client will load knife plugins from the following
 locations:
