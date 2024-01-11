@@ -112,9 +112,9 @@ build do
   make "install", env: env
   make "install_fips", env: env
 
-  command "openssl -help"
-  command "openssl list -providers"
+  command "#{install_dir}/embedded/bin/openssl -help"
+  command "#{install_dir}embedded/bin/openssl list -providers"
   if fips_mode?
-    command "openssl fipsinstall -out #{install_dir}/embedded/ssl/fipsmodule.cnf -module #{install_dir}/embedded/lib/ossl-modules/fips.#{windows? ? "dll" : "so"}"
+    command "#{install_dir}embedded/bin/openssl fipsinstall -out #{install_dir}/embedded/ssl/fipsmodule.cnf -module #{install_dir}/embedded/lib/ossl-modules/fips.#{windows? ? "dll" : "so"}"
   end
 end
