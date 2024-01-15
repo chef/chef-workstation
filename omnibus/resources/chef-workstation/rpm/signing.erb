@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 unless (rpm_cmd = ARGV[0])
+  puts "ARGV[0] is -------#{ARGV[0]}"
   STDERR.puts 'Usage: sign-rpm RPM_COMMAND'
   exit 1
 end
@@ -10,19 +11,24 @@ password = '<%= passphrase %>'
 require 'pty'
 
 puts rpm_cmd
+puts "------rpm_cmd is:-----#{rpm_cmd}"
 PTY.spawn(rpm_cmd) do |r, w, pid|
+  puts "r is -------#{r}"
   prompt = r.read(19)
 
   # match the expected prompt exactly, since that's the only way we know if
   # something went wrong.
   puts "------prompt is:--#{prompt}"
   unless prompt == 'Enter pass phrase: '
+    puts "#{prompt == 'Enter pass phrase: '}"
+    puts "--------inside unless prompt == 'Enter pass phrase: '"
     STDERR.puts "unexpected output from `#{rpm_cmd}`: '#{prompt}'"
     Process.kill(:KILL, pid)
     exit 1
   end
 
   STDOUT.puts prompt
+  puts "testing:---------#{STDOUT.puts prompt}"
   w.write("#{password}\n")
 
   # Keep printing output unti the command exits
@@ -30,6 +36,7 @@ PTY.spawn(rpm_cmd) do |r, w, pid|
     begin
       line = r.gets
       puts line
+      puts "line-------#{line}"
       if (line =~ /failed/) && !(line =~ /warning:/)
         STDERR.puts 'RPM signing failure'
         exit 1
