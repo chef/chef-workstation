@@ -15,6 +15,7 @@ PTY.spawn(rpm_cmd) do |r, w, pid|
 
   # match the expected prompt exactly, since that's the only way we know if
   # something went wrong.
+  puts "------prompt is:--#{prompt}"
   unless prompt == 'Enter pass phrase: '
     STDERR.puts "unexpected output from `#{rpm_cmd}`: '#{prompt}'"
     Process.kill(:KILL, pid)
