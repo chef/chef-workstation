@@ -7,15 +7,9 @@ This allows each test to be run in isolation, ensuring that different
 behaviors within the same codebase can be tested thoroughly before those
 changes are committed to production.
 
-<div class="admonition-note">
-
-<p class="admonition-note-title">Note</p>
-
-<div class="admonition-note-text">
+{{< note >}}
 
 Any Test Kitchen subcommand that does not specify an instance will be
 applied to all instances.
 
-</div>
-
-</div>
+{{< /note >}}

@@ -14,7 +14,7 @@ aliases = ["/knife_ssl_check.html", "/knife_ssl_check/"]
 +++
 <!-- markdownlint-disable-file MD036 -->
 
-{{% chef-workstation/knife_ssl_check_summary %}}
+{{< readfile file="content/workstation/reusable/md/knife_ssl_check_summary.md" >}}
 
 ## Syntax
 
@@ -38,11 +38,11 @@ The following examples show how to use this knife subcommand:
 
 **SSL certificate has valid X.509 properties**
 
-{{% chef-workstation/knife_ssl_check_verify_server_config %}}
+{{< readfile file="content/workstation/reusable/md/knife_ssl_check_verify_server_config.md" >}}
 
 **SSL certificate has invalid X.509 properties**
 
-{{% chef-workstation/knife_ssl_check_bad_ssl_certificate %}}
+{{< readfile file="content/workstation/reusable/md/knife_ssl_check_bad_ssl_certificate.md" >}}
 
 **Verify the SSL configuration for Chef Infra Client**
 

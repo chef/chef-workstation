@@ -9,7 +9,11 @@ preview_netlify: chef_web_docs
 	rm -rf chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/*
 	cp -R content chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/content
 	cp -R static chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/static
-	cp -R layouts chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/layouts
+
+	if [ -d "layouts" ]; then \
+		cp -R layouts chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/layouts; \
+	fi
+
 	cp -R config.toml chef-web-docs/_vendor/github.com/chef/chef-workstation/docs-chef-io/
 	pushd chef-web-docs && make bundle; hugo --buildFuture --gc --minify --environment development && popd
 

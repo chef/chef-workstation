@@ -14,7 +14,7 @@ aliases = ["/knife_diff.html", "/knife_diff/"]
 +++
 <!-- markdownlint-disable-file MD036 -->
 
-{{% chef-workstation/knife_diff_summary %}}
+{{< readfile file="content/workstation/reusable/md/knife_diff_summary.md" >}}
 
 ## Syntax
 
@@ -28,7 +28,7 @@ knife diff [PATTERN...] (options)
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_common_options_link %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_common_options_link.md" >}}
 
 {{< /note >}}
 
@@ -68,7 +68,7 @@ This subcommand has the following options:
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_all_config_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_all_config_options.md" >}}
 
 {{< /note >}}
 

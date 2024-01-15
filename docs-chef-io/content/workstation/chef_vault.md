@@ -50,6 +50,8 @@ knife[:vault_admins] = [ 'example-alice', 'example-bob', 'example-carol' ]
 
 (These values can be overridden on the command line by using `-A`)
 
+## `knife vault`
+
 ### Syntax
 
 ``` shell
@@ -197,7 +199,7 @@ knife vault update VAULT ITEM VALUES (options)
 
 ### Example Commands
 
-### `create`
+#### `create`
 
 Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients `role:webserver`, `client1` and `client2` and admins `admin1` and `admin2`:
 
@@ -247,7 +249,7 @@ A JSON file can be used in place of specifying the values on the command line, s
 
 {{< /note >}}
 
-### `update`
+#### `update`
 
 Update the values in `username` and `password` in the vault passwords and item root. Will overwrite existing values if values already exist!
 
@@ -329,7 +331,7 @@ knife vault update passwords root -C "client1,client2" -A "admin1,admin2"
 
 ..Note:: A JSON file can be used in place of specifying the values on the command line, see global options below for details
 
-### `remove`
+#### `remove`
 
 Remove the values in `username` and `password` from the vault passwords and item root.
 
@@ -403,7 +405,7 @@ Remove `admin1` and `admin2` from encrypted admins for the vault passwords and i
 knife vault remove passwords root -A "admin1,admin2"
 ```
 
-### `delete`
+#### `delete`
 
 Delete the item root from the vault passwords
 
@@ -411,7 +413,7 @@ Delete the item root from the vault passwords
 knife vault delete passwords root
 ```
 
-### `show`
+#### `show`
 
 Show the items in a vault.
 
@@ -443,7 +445,7 @@ Show the contents for the item user_pem in the vault certs.
 knife vault show certs user_pem "contents"
 ```
 
-### `edit`
+#### `edit`
 
 Decrypt the entire root item in the passwords vault and open it in json format in your \$EDITOR. Writing and exiting out the editor will save and encrypt the vault item.
 
@@ -451,7 +453,7 @@ Decrypt the entire root item in the passwords vault and open it in json format i
 knife vault edit passwords root
 ```
 
-### `download`
+#### `download`
 
 Decrypt and download an encrypted file to the specified path.
 
@@ -459,7 +461,7 @@ Decrypt and download an encrypted file to the specified path.
 knife vault download certs user_pem ~/downloaded_user_pem
 ```
 
-### `rotate keys`
+#### `rotate keys`
 
 Rotate the shared key for the vault passwords and item root. The shared key is that which is used for the chef encrypted data bag item.
 
@@ -473,7 +475,7 @@ To remove clients which have been deleted from Chef but not from the vault, add 
 knife vault rotate keys passwords root --clean-unknown-clients
 ```
 
-### `rotate all keys`
+#### `rotate all keys`
 
 Rotate the shared key for all vaults and items. The shared key is that which is used for the chef encrypted data bag item.
 
@@ -487,7 +489,7 @@ Removes clients which have been deleted from Chef but not from the vault.
 knife vault rotate keys passwords root --clean-unknown-clients
 ```
 
-### `refresh`
+#### `refresh`
 
 This command reads the search_query in the vault item, performs the search, and reapplies the results.
 
@@ -501,7 +503,7 @@ To remove clients which have been deleted from Chef but not from the vault, add 
 knife vault refresh passwords root --clean-unknown-clients
 ```
 
-### `isvault`
+#### `isvault`
 
 This command checks if the given item is a vault or not, and exit with a status of 0 if it is and 1 if it is not.
 
@@ -509,7 +511,7 @@ This command checks if the given item is a vault or not, and exit with a status 
 knife vault isvault VAULT ITEM
 ```
 
-### `itemtype`
+#### `itemtype`
 
 This command outputs the type of the data bag item: normal, encrypted or vault
 
@@ -530,7 +532,7 @@ knife vault itemtype VAULT ITEM
 | `-F` `FORMAT` | `--format FORMAT` | Format for decrypted output | summary | `summary`, `json`, `yaml`, `pp` | `show` |
 | --clean-unknown-clients | none | Remove unknown clients during key rotation | none | none | `refresh`, `remove`, `rotate` |
 
-## Options for knife bootstrap
+### Options for knife bootstrap
 
 Use the following options with a validatorless bootstrap to specify items that are stored in Chef Vault:
 
@@ -546,7 +548,7 @@ Use the following options with a validatorless bootstrap to specify items that a
 
 : A JSON string that contains a list of vaults and items to be updated. --bootstrap-vault-json '{ "vault1": \["item1", "item2"\], "vault2": "item2" }'
 
-### Using Chef Vault in recipes
+## Using Chef Vault in recipes
 
 To use this gem in a recipe to decrypt data you must first install the gem via a chef_gem resource. Once the gem is installed, `require` the gem and then you can create a new instance of Chef Vault.
 
@@ -620,7 +622,7 @@ end
 
 This functionality is also available from the command line as `knife vault itemtype VAULT ITEM`.
 
-### Stand Alone Usage
+## Stand Alone Usage
 
 The `chef-vault` gem can be used as a stand-alone binary to decrypt values stored in Chef. It requires that Chef is installed on the system and that you have a valid `config.rb`. This is useful if you want to mix Chef Vault into non-Chef recipe code, for example some other script where you want to protect a password.
 
@@ -634,7 +636,7 @@ Use `chef-vault --help` to see all all available options
 chef-vault -v passwords -i root -a password -k /etc/chef/config.rb
 ```
 
-### Testing
+## Testing
 
 To stub vault items in ChefSpec, use the [chef-vault-testfixture](https://rubygems.org/gems/chef-vault-testfixtures) gem.
 

@@ -77,7 +77,7 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
 
 If you're setting up Chef for the very first time **in your organization**, then you will need a Chef Infra repository for saving your cookbooks and other work.
 
-{{% chef_repo_description %}}
+{{< readfile file="content/reusable/md/chef_repo_description.md" >}}
 
 Use the [chef generate repo]({{< relref "ctl_chef.md#chef-generate-repo" >}}) command to create your Chef Infra repository. For example, to create a repository called `chef-repo`:
 
