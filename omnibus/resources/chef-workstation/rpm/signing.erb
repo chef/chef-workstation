@@ -14,7 +14,7 @@ puts rpm_cmd
 puts "------rpm_cmd is:-----#{rpm_cmd}"
 PTY.spawn(rpm_cmd) do |r, w, pid|
   puts "r is -------#{r}"
-  prompt = r.read()
+  prompt = r.read(19)
 
   # match the expected prompt exactly, since that's the only way we know if
   # something went wrong.
