@@ -247,3 +247,19 @@ standard. Include this file in the .rubocop.yml file by adding
 `inherit_from: .rubocop_todo.yml` to the top of the .rubocop.yml file.
 
 {{< /note >}}
+
+## Cookstyle Comments in Code
+
+You can also use `cookstyle` specific comments in your cookbook code to enable or disable cops instead of the standard `rubocop` comments. We think that it will be easier to understand the cops that you intend to control if you use `cookstyle` comments. You can continue to use the existing `rubocop` comments, if you prefer them, since both types of comments will be honored by Cookstyle.
+
+RuboCop comment to disable a cop:
+
+```ruby
+'node.normal[:foo] # rubocop: disable ChefCorrectness/Bar'
+```
+
+Cookstyle comment to disable a cop:
+
+```ruby
+'node.normal[:foo] # cookstyle: disable ChefCorrectness/Bar'
+```
