@@ -8,7 +8,7 @@ index ac858d6..d1cb967 100644
  # Refer to the OpenSSL security policy for more information.
 -# .include fipsmodule.cnf
 +
-+.include fipsmodule.cnf
++#  .include fipsmodule.cnf
 
  [openssl_init]
  providers = provider_sect
@@ -21,7 +21,7 @@ index ac858d6..d1cb967 100644
  # The fips section name should match the section name inside the
  # included fipsmodule.cnf.
 -# fips = fips_sect
-+fips = fips_sect
++#  fips = fips_sect
 
  # If no providers are activated explicitly, the default one is activated implicitly.
  # See man 7 OSSL_PROVIDER-default for more details.
@@ -49,7 +49,7 @@ index 12bc408..5b617b4 100644
  # Refer to the OpenSSL security policy for more information.
 -# .include fipsmodule.cnf
 +
-+.include fipsmodule.cnf
++#  .include fipsmodule.cnf
 
  [openssl_init]
  providers = provider_sect
@@ -62,7 +62,7 @@ index 12bc408..5b617b4 100644
  # The fips section name should match the section name inside the
  # included fipsmodule.cnf.
 -# fips = fips_sect
-+fips = fips_sect
++#  fips = fips_sect
 
  # If no providers are activated explicitly, the default one is activated implicitly.
  # See man 7 OSSL_PROVIDER-default for more details.
