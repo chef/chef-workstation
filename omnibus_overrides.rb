@@ -23,5 +23,5 @@ override "ruby-msys2-devkit", version: "3.1.2-1"
 override "rust", version: "1.37.0"
 override "util-macros", version: "1.19.0"
 override "xproto", version: "7.0.28"
-override "zlib", version: "1.3"
+override "zlib", version: "1.3.1"
 
