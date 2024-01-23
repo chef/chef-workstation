@@ -25,6 +25,7 @@ default_version "1.6.652"
 linux_sha = "a4f7c46df3b13ff41a451252b7f4abae322cdd77f54f470a5bc06d8da34cdf9e"
 darwin_sha = "df5c02dc4fc4a328d81fe7c031a50d13b6c25b1cdd06a51b1713e089378ec7a9"
 darwin_m1_sha = "938d333237f600c75ad4ead24777cb1457b9d89288156aba1a56327c8f2be955"
+linux_aarch_sha = "423c472275f82ef405d8f06a8cb69bde2e3d4e83c7b91545edc198a53cd73cae"
 windows_sha = "14cb43c4eea114207954b54dae488b597f8a61797c8e66722793400d2f5fe85e"
 # END DO NOT MODIFY
 
@@ -32,8 +33,13 @@ if windows?
   suffix = "x86_64-windows.zip"
   sha256 = windows_sha
 elsif linux?
-  suffix = "x86_64-linux.tar.gz"
-  sha256 = linux_sha
+  if arm?
+    suffix = "aarch64-linux.tar.gz"
+    sha256 = linux_aarch_sha
+  else
+    suffix = "x86_64-linux.tar.gz"
+    sha256 = linux_sha
+  end
 elsif mac?
   if arm?
     suffix = "aarch64-darwin.zip"
