@@ -33,7 +33,7 @@ BASE_URL="http://packages.chef.io/files/stable/habitat/latest"
 winsha=$(curl "$BASE_URL/hab-x86_64-windows.zip.sha256sum" --silent | cut -d ' ' -f 1)
 darwinsha=$(curl "$BASE_URL/hab-x86_64-darwin.zip.sha256sum" --silent | cut -d ' ' -f 1)
 darwinsha_m1=$(curl "$BASE_URL/hab-aarch64-darwin.zip.sha256sum" --silent | cut -d ' ' -f 1)
-linuxsha_aarch=$(curl "$BASE_URL/hab-aarch64-linux.zip.sha256sum" --silent | cut -d ' ' -f 1)
+linuxsha_aarch=$(curl "$BASE_URL/hab-aarch64-linux.tar.gz.sha256sum" --silent | cut -d ' ' -f 1)
 linsha=$(curl "$BASE_URL/hab-x86_64-linux.tar.gz.sha256sum" --silent | cut -d ' ' -f 1)
 sw_def_file="omnibus/config/software/habitat.rb"
 
