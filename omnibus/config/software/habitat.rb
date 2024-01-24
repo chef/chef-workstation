@@ -59,10 +59,13 @@ build do
   # "block" is needed to prevent evaluating the ruby code
   # before the project_dir contains the extracted package.
   block "Relocating habitat" do
+    puts "install_dir is------#{install_dir}"
     dest = File.join(install_dir, "bin")
+    puts "dest is -----#{dest}"
     # We don't just copy the bin itself because on Windows additional
     # supporting DLLs are included.
     Dir.glob("#{project_dir}/hab-*/*").each do |f|
+      puts "f is-----#{f}"
       copy f, dest
     end
   end
