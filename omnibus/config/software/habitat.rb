@@ -64,6 +64,8 @@ build do
     puts "dest is -----#{dest}"
     # We don't just copy the bin itself because on Windows additional
     # supporting DLLs are included.
+    puts "project_dir is----#{project_dir}"
+    puts "all files are----#{Dir.glob("#{project_dir}/hab-*/*")}"
     Dir.glob("#{project_dir}/hab-*/*").each do |f|
       puts "f is-----#{f}"
       copy f, dest
