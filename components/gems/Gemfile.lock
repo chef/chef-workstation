@@ -392,7 +392,7 @@ GEM
       win32-process (~> 0.9)
       win32-service (>= 2.1.5, < 3.0)
       win32-taskscheduler (~> 2.0)
-      wmi-lite (~> 1.0)  
+      wmi-lite (~> 1.0)
     chef-apply (0.9.6)
       chef (>= 16.0)
       chef-cli (>= 2.0.10)
@@ -431,7 +431,7 @@ GEM
       tomlrb (~> 1.2)
     chef-powershell (18.1.0)
       ffi (~> 1.15)
-      ffi-yajl (~> 2.4)  
+      ffi-yajl (~> 2.4)
     chef-telemetry (1.1.1)
       chef-config
       concurrent-ruby (~> 1.0)
@@ -559,7 +559,7 @@ GEM
     ffi-libarchive (1.1.13)
       ffi (~> 1.0)
     ffi-win32-extensions (1.0.4)
-      ffi  
+      ffi
     ffi-yajl (2.4.0)
       libyajl2 (>= 1.2)
     filesize (0.2.0)
@@ -839,6 +839,13 @@ GEM
       thor
     mixlib-log (3.0.9)
     mixlib-shellout (3.2.7)
+      chef-utils
+    mixlib-shellout (3.2.7-universal-mingw32)
+      chef-utils
+      ffi-win32-extensions (~> 1.0.3)
+      win32-process (~> 0.9)
+      wmi-lite (~> 1.0)
+    mixlib-shellout (3.2.7-x64-mingw-ucrt)
       chef-utils
       ffi-win32-extensions (~> 1.0.3)
       win32-process (~> 0.9)
@@ -1303,7 +1310,10 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
-  x86_64-darwin-22
+  ruby
+  x64-mingw-ucrt
+  x64-mingw32
+  x86-mingw32
 
 DEPENDENCIES
   appbundler
