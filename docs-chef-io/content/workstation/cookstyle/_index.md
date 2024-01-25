@@ -248,7 +248,7 @@ standard. Include this file in the .rubocop.yml file by adding
 
 {{< /note >}}
 
-## Cookstyle Comments in Code
+## Disable Cookstyle cops in code
 
 Use Cookstyle-specific comments in your cookbook code to enable or disable cops instead of the standard RuboCop comments.
 If you prefer them, you can also use RuboCop comments to enable and disable cops.
