@@ -258,7 +258,7 @@ RuboCop comment to disable a cop:
 'node.normal[:foo] # rubocop: disable ChefCorrectness/Bar'
 ```
 
-Cookstyle comment to disable a cop:
+Disable a cop using a Cookstyle comment:
 
 ```ruby
 'node.normal[:foo] # cookstyle: disable ChefCorrectness/Bar'
