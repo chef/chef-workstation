@@ -264,3 +264,12 @@ Disable a cop using a Cookstyle comment:
 ```ruby
 'node.normal[:foo] # cookstyle: disable ChefCorrectness/Bar'
 ```
+
+Disable a cop in a section of a file using a Cookstyle comment:
+
+```ruby
+# cookstyle: disable ChefCorrectness/Bar'
+'node.normal[:foo]
+# cookstyle: enable ChefCorrectness/Bar'
+```
+
