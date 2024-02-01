@@ -32,7 +32,7 @@ chef env
 echo "--- Ensure the 'chef report' subcommand cli works (chef report help)"
 chef report help
 
-if [ "$aarch" = "1" ]; then
+if [ "$aarch" = "0" ]; then
   echo "--- Ensure that 'hab' cli is available"
   hab help
 fi
