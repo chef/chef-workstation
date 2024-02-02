@@ -114,13 +114,12 @@ build do
 
   # Updating the openssl.cnf file to enable the fips provider
   fips_module = "#{install_dir}/embedded/ssl/fipsmodule.cnf"
-  command "#{install_dir}/embedded/bin/openssl -help"
-  command "#{install_dir}/embedded/bin/openssl list -providers"
   if fips_mode?
     command "#{install_dir}/embedded/bin/openssl fipsinstall -out #{fips_module} -module #{install_dir}/embedded/lib/ossl-modules/fips.#{windows? ? "dll" : "so"}"
 
     command "sed -i -e 's|# .include fipsmodule.cnf|.include #{fips_module}|g' #{install_dir}/embedded/ssl/openssl.cnf"
     command "sed -i -e 's|# fips = fips_sect|fips = fips_sect|g' #{install_dir}/embedded/ssl/openssl.cnf"
   end
+
   command "#{install_dir}/embedded/bin/openssl list -providers"
 end
