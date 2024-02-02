@@ -913,6 +913,7 @@ GEM
       plist (~> 3.1)
       train-core
       wmi-lite (~> 1.0)
+    openssl (3.2.0)
     optimist (3.1.0)
     options (2.3.2)
     os (1.1.4)
@@ -1360,6 +1361,7 @@ DEPENDENCIES
   net-ssh (>= 4.2.0)
   nokogiri (>= 1.11.7)
   ohai (>= 18.1)
+  openssl (>= 3.2.0)
   pry (= 0.13.0)
   pry-byebug
   pry-remote
