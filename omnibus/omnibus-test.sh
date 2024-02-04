@@ -6,18 +6,18 @@ is_darwin()
   uname -a | grep "^Darwin" 2>&1 >/dev/null
 }
 
-aarch="0"
-lin_aarch64()
-{
-  unamestr=$(uname)
-  unamearchstr=$(uname -m)
-  if [[ "$unamestr" == 'Linux' ]]; then
-	  if [[ "$unamearchstr" == 'aarch64' ]]; then
-      aarch="1"
-	    uname -m | grep "aarch64" 2>&1 >/dev/null
-    fi
-  fi
-}
+# aarch="0"
+# lin_aarch64()
+# {
+#   unamestr=$(uname)
+#   unamearchstr=$(uname -m)
+#   if [[ "$unamestr" == 'Linux' ]]; then
+# 	  if [[ "$unamearchstr" == 'aarch64' ]]; then
+#       aarch="1"
+# 	    uname -m | grep "aarch64" 2>&1 >/dev/null
+#     fi
+#   fi
+# }
 
 # Ensure user variables are set in git config
 git config --global user.email "you@example.com"
@@ -32,12 +32,12 @@ chef env
 echo "--- Ensure the 'chef report' subcommand cli works (chef report help)"
 chef report help
 
-lin_aarch64
+# lin_aarch64
 
-if [ "$aarch" = "0" ]; then
+# if [ "$aarch" = "0" ]; then
   echo "--- Ensure that 'hab' cli is available"
   hab help
-fi
+# fi
 
 # We are commenting this code on a purpose.
 # We have to stop building chef-automate-collect in chef workstation temporarily.
