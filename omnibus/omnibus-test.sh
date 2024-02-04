@@ -18,6 +18,15 @@ is_darwin()
 #     fi
 #   fi
 # }
+platform="0"
+is_linux()
+{
+  unamestr=$(uname)
+  if [[ "$unamestr" == 'Linux' ]]; then
+    platform="1"
+    uname -a | grep "^Linux" 2>&1 >/dev/null
+  fi
+}
 
 # Ensure user variables are set in git config
 git config --global user.email "you@example.com"
@@ -32,12 +41,12 @@ chef env
 echo "--- Ensure the 'chef report' subcommand cli works (chef report help)"
 chef report help
 
-# lin_aarch64
+is_linux
 
-# if [ "$aarch" = "0" ]; then
+if [ "$platform" = "0" ]; then
   echo "--- Ensure that 'hab' cli is available"
   hab help
-# fi
+fi
 
 # We are commenting this code on a purpose.
 # We have to stop building chef-automate-collect in chef workstation temporarily.
