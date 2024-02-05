@@ -24,6 +24,7 @@ require "chef-cli/command/base"
 require "chef-cli/exceptions"
 require "chef-cli/helpers"
 
+
 require_relative "component_test"
 
 module ChefWorkstation
@@ -290,7 +291,7 @@ module ChefWorkstation
 
             sh!("#{usr_bin_path("ohai")} -v")
             sh!("#{usr_bin_path("inspec")} version")
-            sh!("#{usr_bin_path("hab")} --version") unless linux?
+            sh!("#{usr_bin_path("hab")} --version") unless RUBY_PLATFORM =~ /linux/
           end
 
           # Test blocks are expected to return a Mixlib::ShellOut compatible
