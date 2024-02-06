@@ -49,7 +49,7 @@ instance_eval(IO.read(overrides_path), overrides_path)
 
 dependency "preparation"
 
-dependency "habitat" unless linux?
+dependency "habitat"
 dependency "openssl"
 
 if windows?

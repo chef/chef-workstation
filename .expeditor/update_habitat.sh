@@ -33,7 +33,6 @@ BASE_URL="http://packages.chef.io/files/stable/habitat/latest"
 winsha=$(curl "$BASE_URL/hab-x86_64-windows.zip.sha256sum" --silent | cut -d ' ' -f 1)
 darwinsha=$(curl "$BASE_URL/hab-x86_64-darwin.zip.sha256sum" --silent | cut -d ' ' -f 1)
 darwinsha_m1=$(curl "$BASE_URL/hab-aarch64-darwin.zip.sha256sum" --silent | cut -d ' ' -f 1)
-linuxsha_aarch=$(curl "$BASE_URL/hab-aarch64-linux.tar.gz.sha256sum" --silent | cut -d ' ' -f 1)
 linsha=$(curl "$BASE_URL/hab-x86_64-linux.tar.gz.sha256sum" --silent | cut -d ' ' -f 1)
 sw_def_file="omnibus/config/software/habitat.rb"
 
@@ -45,7 +44,6 @@ sed -i -r "s/windows_sha = .*/windows_sha = \"$winsha\"/" $sw_def_file
 sed -i -r "s/linux_sha = .*/linux_sha = \"$linsha\"/" $sw_def_file
 sed -i -r "s/darwin_sha = .*/darwin_sha = \"$darwinsha\"/" $sw_def_file
 sed -i -r "s/darwin_m1_sha = .*/darwin_m1_sha = \"$darwinsha_m1\"/" $sw_def_file
-sed -i -r "s/linux_aarch_sha = .*/linux_aarch_sha = \"$linuxsha_aarch\"/" $sw_def_file
 sed -i -r "s/^default_version \".*/default_version \"$version\"/" $sw_def_file
 
 branch="expeditor/hab-${version}"

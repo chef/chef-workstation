@@ -291,7 +291,7 @@ module ChefWorkstation
 
             sh!("#{usr_bin_path("ohai")} -v")
             sh!("#{usr_bin_path("inspec")} version")
-            sh!("#{usr_bin_path("hab")} --version") unless RUBY_PLATFORM =~ /linux/
+            sh!("#{usr_bin_path("hab")} --version") unless RUBY_PLATFORM =~ /aarch64-linux/
           end
 
           # Test blocks are expected to return a Mixlib::ShellOut compatible
