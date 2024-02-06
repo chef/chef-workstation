@@ -52,7 +52,7 @@ func showVersionViaVersionManifest() {
 		dist.ClientProduct: dist.ClientGem,
 		dist.InspecProduct: dist.InspecGem,
 		dist.CliProduct:    dist.CliGem,
-		// dist.HabProduct:    dist.HabSoftwareName,
+		dist.HabProduct:    dist.HabSoftwareName,
 		"Test Kitchen":     "test-kitchen",
 		"Cookstyle":        "cookstyle",
 	}

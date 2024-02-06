@@ -49,7 +49,7 @@ instance_eval(IO.read(overrides_path), overrides_path)
 
 dependency "preparation"
 
-dependency "habitat"
+dependency "habitat" unless RUBY_PLATFORM =~ /aarch64-linux/
 dependency "openssl"
 
 if windows?
