@@ -8,30 +8,53 @@ BRANCH="${EXPEDITOR_PRODUCT_KEY}-${EXPEDITOR_VERSION}"
 URL="https://omnitruck.chef.io/stable/$EXPEDITOR_PRODUCT_KEY/metadata?p=mac_os_x&pv=11&m=x86_64&v=$EXPEDITOR_VERSION"
 SHA=""
 
-echo "--- Getting $FORK_OWNER/$REPO_NAME repository and updating latest from upstream $UPSTREAM_OWNER/$REPO_NAME"
-git clone https://github.com/$FORK_OWNER/$REPO_NAME
-cd $REPO_NAME
+echo "Forking the repo"
+brew tap --force homebrew/cask
 
+cd "$(brew --repository homebrew/cask)"
+
+echo "Setting up the forked repo"
 git config user.email "expeditor@chef.io"
 git config user.name "Chef Expeditor"
 
-git remote add upstream https://github.com/$UPSTREAM_OWNER/$REPO_NAME
 git fetch --all
+git checkout -b "$BRANCH" #upstream/master
 
-# Reset the chef/homebrew-cask fork to the upstream so we are always
-# making a PR off their master
-git reset --hard upstream/master
-git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" main
+# This conforms with the PR template used by homebrew-cask
+# https://github.com/Homebrew/homebrew-cask/.github/PULL_REQUEST_TEMPLATE.md
+TITLE="Bump $EXPEDITOR_PRODUCT_KEY to $EXPEDITOR_VERSION"
+BODY=$(cat <<EOB
+After making any changes to a cask, existing or new, verify:
 
-git checkout main
-git checkout -b "$BRANCH"
+- [x] The submission is for [a stable version](https://docs.brew.sh/Acceptable-Casks#stable-versions).
+- [x] \`brew audit --cask --online chef-workstation\` is error-free.
+- [x] \`brew style --fix chef-workstation\` reports no offenses.
+
+Additionally, **if adding a new cask**:
+
+- [ ] Named the cask according to the [token reference](https://docs.brew.sh/Cask-Cookbook#token-reference).
+- [ ] Checked the cask was not [already refused](https://github.com/Homebrew/homebrew-cask/search?q=is%3Aclosed&type=Issues).
+- [ ] Checked the cask is submitted to [the correct repo](https://docs.brew.sh/Acceptable-Casks#finding-a-home-for-your-cask).
+- [ ] \`brew audit --cask --new <cask>\` worked successfully.
+- [ ] \`brew install --cask <cask>\` worked successfully.
+- [ ] \`brew uninstall --cask <cask>\` worked successfully.
+
+EOB
+)
+
+COMMIT_BODY=$(cat <<EOB
+$TITLE
+
+$BODY
+EOB
+)
 
 function get_sha() {
   curl -Ss "$URL" | sed -n 's/sha256\s*\(\S*\)/\1/p' | awk '{$1=$1;print}'
 }
 
-delay=20 # seconds
-tries=60 # retry for up to 20 minutes
+delay=60 # seconds
+tries=60 # retry for up to 1 hour
 
 echo "--- Fetching package information for $EXPEDITOR_PRODUCT_KEY @ $EXPEDITOR_VERSION - $tries attempts remain"
 for (( i=1; i<=tries; i+=1 )); do
@@ -50,59 +73,8 @@ for (( i=1; i<=tries; i+=1 )); do
   fi
 done
 
-echo "Updating Casks/chef-workstation.rb version: $EXPEDITOR_VERSION sha: $SHA"
+echo "Running the brew bump-cask-pr task to bump the version...."
 
-sed -i '' "s/version '.*'/version '$EXPEDITOR_VERSION'/g" Casks/chef-workstation.rb
-sed -i '' "s/sha256 '.*'/sha256 '$SHA'/g" Casks/chef-workstation.rb
-
-echo "--- Debug: git diff of patched files follows"
-
-git diff
-
-echo "--- Verifying Cask"
-
-brew style --cask --fix ./Casks/chef-workstation.rb
-brew audit --cask ./Casks/chef-workstation.rb
-
-echo "-- Committing change"
-
-# This conforms with the PR template used by homebrew-cask
-# https://github.com/Homebrew/homebrew-cask/.github/PULL_REQUEST_TEMPLATE.md
-TITLE="Bump $EXPEDITOR_PRODUCT_KEY to $EXPEDITOR_VERSION"
-BODY=$(cat <<EOB
-After making all changes to the cask:
-- [x] \`brew cask audit --download Casks/chef-workstation.rb\` is error-free.
-- [x] \`brew cask style --fix Casks/chef-workstation.rb\` reports no offenses.
-- [x] The commit message includes the cask’s name and version.
-- [x] The submission is for stable version.
-EOB
-)
-# the json form of this needs to not have newlines.
-PR_BODY="After making all changes to the cask:\\n - [x] \`brew cask audit --download Casks/chef-workstation.rb\` is error-free.\\n - [x] \`brew cask style --fix Casks/chef-workstation.rb\` reports no offenses.\\n - [x] The commit message includes the cask’s name and version.\\n - [x] The submission is for stable version.\\n"
-
-COMMIT_BODY=$(cat <<EOB
-$TITLE
-
-$BODY
-EOB
-)
-
-if [[ $(git diff) ]]; then
-  git add ./Casks/chef-workstation.rb
-  git status
-  git commit --message "$COMMIT_BODY"
-
-  echo "--- Opening PR"
-
-  git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${FORK_OWNER}/${REPO_NAME}.git" "$BRANCH" --force;
-  result=$(curl --silent --header "Authorization: token $CHEF_CI_GITHUB_AUTH_TOKEN" \
-    --data-binary "{\"title\":\"$TITLE\",\"head\":\"chef:$BRANCH\",\"base\":\"master\",\"maintainer_can_modify\":false,\"body\":\"$PR_BODY\"}" \
-    -XPOST "https://api.github.com/repos/${UPSTREAM_OWNER}/${REPO_NAME}/pulls" \
-    --write-out "Response:%{http_code}")
-
-  # Fail the run if 201 (created) response not received.
-  echo "$result" | grep "Response:201"
-
-else
-  echo "No changes needed to the cask"
-fi
+brew bump-cask-pr $EXPEDITOR_PRODUCT_KEY --version $EXPEDITOR_VERSION \
+     --message "$COMMIT_BODY" \
+     --force -vvv
