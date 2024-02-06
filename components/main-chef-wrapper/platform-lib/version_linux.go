@@ -16,6 +16,7 @@
 package platform_lib
 
 import (
+	"runtime"
 	"encoding/json"
 	"fmt"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
@@ -56,6 +57,11 @@ func showVersionViaVersionManifest() {
 		"Test Kitchen":     "test-kitchen",
 		"Cookstyle":        "cookstyle",
 	}
+	if (runtime.GOOS == "linux") {
+	  if (runtime.GOARCH == "arm64") {
+		delete(productMap, dist.HabProduct)
+	  }
+    }
 	for prodName, component := range productMap {
 		fmt.Printf("\n%v version: %v", prodName, componentVersion(component))
 	}
