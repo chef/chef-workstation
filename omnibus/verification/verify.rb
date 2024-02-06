@@ -24,7 +24,6 @@ require "chef-cli/command/base"
 require "chef-cli/exceptions"
 require "chef-cli/helpers"
 
-
 require_relative "component_test"
 
 module ChefWorkstation

@@ -57,6 +57,7 @@ func showVersionViaVersionManifest() {
 		"Test Kitchen":     "test-kitchen",
 		"Cookstyle":        "cookstyle",
 	}
+	// TODO: once the hab package is available for linux aarch64, we can remove the below GOOS and GOARCH checks.
 	if (runtime.GOOS == "linux") {
 	  if (runtime.GOARCH == "arm64") {
 		delete(productMap, dist.HabProduct)

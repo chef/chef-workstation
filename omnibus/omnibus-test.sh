@@ -6,27 +6,18 @@ is_darwin()
   uname -a | grep "^Darwin" 2>&1 >/dev/null
 }
 
-aarch="0"
+lin_aarch="0"
 lin_aarch64()
 {
   unamestr=$(uname)
   unamearchstr=$(uname -m)
   if [[ "$unamestr" == 'Linux' ]]; then
 	  if [[ "$unamearchstr" == 'aarch64' ]]; then
-      aarch="1"
+      lin_aarch="1"
 	    uname -m | grep "aarch64" 2>&1 >/dev/null
     fi
   fi
 }
-# platform="0"
-# is_linux()
-# {
-#   unamestr=$(uname)
-#   if [[ "$unamestr" == 'Linux' ]]; then
-#     platform="1"
-#     uname -a | grep "^Linux" 2>&1 >/dev/null
-#   fi
-# }
 
 # Ensure user variables are set in git config
 git config --global user.email "you@example.com"
@@ -43,7 +34,7 @@ chef report help
 
 lin_aarch64
 
-if [ "$aarch" = "0" ]; then
+if [ "$lin_aarch" = "0" ]; then
   echo "--- Ensure that 'hab' cli is available"
   hab help
 fi
