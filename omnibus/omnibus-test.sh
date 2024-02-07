@@ -13,9 +13,9 @@ lin_aarch64()
   unamestr=$(uname)
   unamearchstr=$(uname -m)
   if [[ "$unamestr" == 'Linux' ]]; then
-	  if [[ "$unamearchstr" == 'aarch64' ]]; then
+    if [[ "$unamearchstr" == 'aarch64' ]]; then
       lin_aarch="1"
-	    uname -m | grep "aarch64" 2>&1 >/dev/null
+      uname -m | grep "aarch64" 2>&1 >/dev/null
     fi
   fi
 }
