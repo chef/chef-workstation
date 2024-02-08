@@ -68,7 +68,7 @@ build do
     "--libdir=#{install_dir}/embedded/lib",
   ]
 
-  configure_args += ["-enable-fips"] if fips_mode?
+  configure_args += ["enable-fips"] if fips_mode?
 
   configure_cmd =
     if mac_os_x?
@@ -110,4 +110,21 @@ build do
   # make -j N on openssl is not reliable
   make env: env
   make "install", env: env
+
+  if fips_mode?
+    # running the make install_fips step to install the FIPS provider
+    make "install_fips", env: env
+
+    fips_cnf_file = "#{install_dir}/embedded/ssl/fipsmodule.cnf"
+    fips_module_file = "#{install_dir}/embedded/lib/ossl-modules/fips.#{windows? ? "dll" : "so"}"
+
+    # Running the `openssl fipsinstall -out fipsmodule.cnf -module fips.so` command
+    command "#{install_dir}/embedded/bin/openssl fipsinstall -out #{fips_cnf_file} -module #{fips_module_file}"
+
+    # Updating the openssl.cnf file to enable the fips provider
+    command "sed -i -e 's|# .include fipsmodule.cnf|.include #{fips_cnf_file}|g' #{install_dir}/embedded/ssl/openssl.cnf"
+    command "sed -i -e 's|# fips = fips_sect|fips = fips_sect|g' #{install_dir}/embedded/ssl/openssl.cnf"
+  end
+
+  command "#{install_dir}/embedded/bin/openssl list -providers"
 end
