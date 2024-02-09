@@ -507,7 +507,6 @@ PLATFORMS
   x64-mingw32
   x86-mingw32
 
-
 DEPENDENCIES
   artifactory
   berkshelf (>= 8.0)
