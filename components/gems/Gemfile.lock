@@ -350,11 +350,11 @@ GEM
       corefoundation (~> 0.3.4)
       diff-lcs (>= 1.2.4, < 1.6.0, != 1.4.0)
       erubis (~> 2.7)
-      ffi (>= 1.15.5)
+      ffi (~> 1.15.5)
       ffi-libarchive (~> 1.0, >= 1.0.3)
       ffi-yajl (~> 2.2)
       iniparse (~> 1.4)
-      inspec-core (>= 5)
+      inspec-core (>= 5, < 6)
       iso8601 (>= 0.12.1, < 0.14)
       license-acceptance (>= 1.0.5, < 3)
       mixlib-archive (>= 0.4, < 2.0)
@@ -371,7 +371,7 @@ GEM
       train-core (~> 3.10)
       train-rest (>= 0.4.1)
       train-winrm (>= 0.2.5)
-      unf_ext (>= 0.0.8.2)
+      unf_ext (~> 0.0.8.2)
       uuidtools (>= 2.1.5, < 3.0)
       vault (~> 0.16)
       win32-api (~> 1.10.0)
@@ -814,6 +814,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2024.0206)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.5)
     minitar (0.9)
     minitest (5.22.2)
     mixlib-archive (1.1.7)
@@ -1045,6 +1046,7 @@ GEM
       unicode-display_width (>= 1.5, < 3.0)
       unicode_utils (~> 1.4)
     strings-ansi (0.2.0)
+    structured_warnings (0.4.0)
     syslog-logger (1.6.8)
     test-kitchen (3.6.0)
       bcrypt_pbkdf (~> 1.0)
@@ -1384,4 +1386,4 @@ DEPENDENCIES
   winrm-fs
 
 BUNDLED WITH
-  2.3.3
+   2.3.3
