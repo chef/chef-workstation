@@ -914,7 +914,6 @@ GEM
       plist (~> 3.1)
       train-core
       wmi-lite (~> 1.0)
-    openssl (3.2.0)
     optimist (3.1.0)
     options (2.3.2)
     os (1.1.4)
@@ -1208,8 +1207,8 @@ GEM
     uber (0.1.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.9.1)
-    unf_ext (0.0.9.1-x64-mingw-ucrt)
+    unf_ext (0.0.8.2)
+    unf_ext (0.0.8.2-x64-mingw-ucrt)
     unicode-display_width (2.5.0)
     unicode_utils (1.4.0)
     uuidtools (2.2.0)
@@ -1363,7 +1362,6 @@ DEPENDENCIES
   net-ssh (>= 4.2.0)
   nokogiri (>= 1.11.7)
   ohai (>= 18.1)
-  openssl (>= 3.2.0)
   pry (= 0.13.0)
   pry-byebug
   pry-remote
