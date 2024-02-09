@@ -420,6 +420,9 @@ GEM
       mixlib-config (>= 2.2.12, < 4.0)
       mixlib-shellout (>= 2.0, < 4.0)
       tomlrb (~> 1.2)
+    chef-powershell (18.1.0)
+      ffi (~> 1.15)
+      ffi-yajl (~> 2.4)
     chef-telemetry (1.1.1)
       chef-config
       concurrent-ruby (~> 1.0)
@@ -548,7 +551,7 @@ GEM
     ffi-libarchive (1.1.13)
       ffi (~> 1.0)
     ffi-win32-extensions (1.0.4)
-      ffi  
+      ffi
     ffi-yajl (2.4.0)
       libyajl2 (>= 1.2)
     filesize (0.2.0)
@@ -837,7 +840,7 @@ GEM
       chef-utils
       ffi-win32-extensions (~> 1.0.3)
       win32-process (~> 0.9)
-      wmi-lite (~> 1.0)  
+      wmi-lite (~> 1.0)
     mixlib-versioning (1.2.12)
     molinillo (0.8.0)
     mongo (2.13.2)
