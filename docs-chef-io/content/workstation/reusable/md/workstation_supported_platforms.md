@@ -1,6 +1,6 @@
 | Platform                          | Architecture    | Version                                                                       |
 |-----------------------------------| ----------------| ------------------------------------------------------------------------------|
-| Amazon Linux                      | x86_64, arch64  | 2.x, 2023                                                                           |
+| Amazon Linux                      | x86_64, arch64  | 2.x, 2023                                                                     |
 | macOS                             | x86_64, arch64  | 11.x, 12.x                                                                    |
 | Debian                            | x86_64          | 10.x, 11.x                                                                    |
 | Red Hat Enterprise Linux / CentOS | x86_64          | 7.x, 8.x, 9.x                                                                 |
