@@ -1,10 +1,9 @@
-//
 // Copyright (c) Chef Software, Inc.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-//     http://www.apache.org/licenses/LICENSE-2.0
+//	http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,15 +17,17 @@ package platform_lib
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
 	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
 	"path"
 	"path/filepath"
+	"runtime"
 	"strings"
+
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
+	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
 )
 
 var gemManifestMap map[string]interface{}
@@ -55,6 +56,10 @@ func showVersionViaVersionManifest() {
 		dist.HabProduct:    dist.HabSoftwareName,
 		"Test Kitchen":     "test-kitchen",
 		"Cookstyle":        "cookstyle",
+	}
+	// TODO: once the hab package is available for linux aarch64, we can remove the below GOOS and GOARCH checks.
+	if runtime.GOOS == "linux" && runtime.GOARCH == "arm64" {
+		delete(productMap, dist.HabProduct)
 	}
 	for prodName, component := range productMap {
 		fmt.Printf("\n%v version: %v", prodName, componentVersion(component))
