@@ -26,9 +26,13 @@ build do
   block "Install windows powershell scripts" do
     # Copy the chef gem's distro stuff over
     chef_gem_path = File.expand_path("../..", shellout!("#{install_dir}/embedded/bin/gem which chef").stdout.chomp)
+    puts "chef_gem_path is ------#{chef_gem_path}"
 
     require "erb"
     template_file = File.join("#{chef_gem_path}", "distro", "templates", "powershell", "chef", "chef.psm1.erb")
+    puts "template_file is ------#{template_file}"
+    puts "------directory entries------"
+    Dir.entries(".")
     psm1_path = File.join("#{chef_gem_path}", "distro", "powershell", "chef")
     create_directory(psm1_path)
     chef_module_dir = "#{install_dir}/modules/chef"
