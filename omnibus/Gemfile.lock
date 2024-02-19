@@ -503,6 +503,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw
   x64-mingw-ucrt
   x64-mingw32
   x86-mingw32
@@ -518,4 +519,4 @@ DEPENDENCIES
   winrm-elevated
 
 BUNDLED WITH
-   2.3.7
+   2.3.26
