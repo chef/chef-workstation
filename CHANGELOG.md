@@ -1,21 +1,19 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 24.2.1058 -->
-## [24.2.1058](https://github.com/chef/chef-workstation/tree/24.2.1058) (2024-02-07)
-
-#### Merged Pull Requests
-- Adding Amazon linux 2023 to the release pipeline [#3143](https://github.com/chef/chef-workstation/pull/3143) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=23.12.1055 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Adding Amazon linux 2023 to the release pipeline [#3143](https://github.com/chef/chef-workstation/pull/3143) ([nikhil2611](https://github.com/nikhil2611)) <!-- 24.2.1058 -->
-- chef-Workstation 24.2 release [#3198](https://github.com/chef/chef-workstation/pull/3198) ([nikhil2611](https://github.com/nikhil2611)) <!-- 24.2.1057 -->
-- Bump omnibus-software from `d357d5c` to `86649fa` in /omnibus [#3196](https://github.com/chef/chef-workstation/pull/3196) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 24.1.1056 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [24.2.1058](https://github.com/chef/chef-workstation/tree/24.2.1058) (2024-02-20)
+
+#### Merged Pull Requests
+- Bump omnibus-software from `d357d5c` to `86649fa` in /omnibus [#3196](https://github.com/chef/chef-workstation/pull/3196) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- chef-Workstation 24.2 release [#3198](https://github.com/chef/chef-workstation/pull/3198) ([nikhil2611](https://github.com/nikhil2611))
+- Adding Amazon linux 2023 to the release pipeline [#3143](https://github.com/chef/chef-workstation/pull/3143) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_stable_release -->
+
 ## [23.12.1055](https://github.com/chef/chef-workstation/tree/23.12.1055) (2023-12-07)
 
 #### Merged Pull Requests
@@ -32,7 +30,6 @@
 - Fix TOC for chef-vault [#3176](https://github.com/chef/chef-workstation/pull/3176) ([chuhn](https://github.com/chuhn))
 - OpenSSL 3 upgrade and Fix for workstation CVEs [#3180](https://github.com/chef/chef-workstation/pull/3180) ([ashiqueps](https://github.com/ashiqueps))
 - Bump pedump from 0.6.6 to 0.6.7 in /omnibus [#3190](https://github.com/chef/chef-workstation/pull/3190) ([dependabot[bot]](https://github.com/dependabot[bot]))
-<!-- latest_stable_release -->
 
 ## [23.7.1042](https://github.com/chef/chef-workstation/tree/23.7.1042) (2023-07-10)
 
