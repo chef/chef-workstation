@@ -2036,3 +2036,4 @@
 - Changes to make omnibus build complete. [#23](https://github.com/chef/chef-workstation/pull/23) ([jonsmorrow](https://github.com/jonsmorrow))
 - Add some dev dependencies to enhance irb [#22](https://github.com/chef/chef-workstation/pull/22) ([marcparadise](https://github.com/marcparadise))
 - Add Expeditor config [#21](https://github.com/chef/chef-workstation/pull/21) ([jaymalasinha](https://github.com/jaymalasinha))
+
