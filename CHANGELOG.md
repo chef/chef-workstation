@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 24.4.1059 -->
-## [24.4.1059](https://github.com/chef/chef-workstation/tree/24.4.1059) (2024-04-02)
+<!-- latest_release 24.4.1060 -->
+## [24.4.1060](https://github.com/chef/chef-workstation/tree/24.4.1060) (2024-04-02)
 
 #### Merged Pull Requests
-- Updated chef-client to 18.4.2 [#3205](https://github.com/chef/chef-workstation/pull/3205) ([nikhil2611](https://github.com/nikhil2611))
+- Update Netlify docs deploy method [#3217](https://github.com/chef/chef-workstation/pull/3217) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
 <!-- release_rollup since=24.2.1058 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update Netlify docs deploy method [#3217](https://github.com/chef/chef-workstation/pull/3217) ([IanMadd](https://github.com/IanMadd)) <!-- 24.4.1060 -->
 - Updated chef-client to 18.4.2 [#3205](https://github.com/chef/chef-workstation/pull/3205) ([nikhil2611](https://github.com/nikhil2611)) <!-- 24.4.1059 -->
 <!-- release_rollup -->
 
