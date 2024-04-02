@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 24.4.1059 -->
+## [24.4.1059](https://github.com/chef/chef-workstation/tree/24.4.1059) (2024-04-02)
+
+#### Merged Pull Requests
+- Updated chef-client to 18.4.2 [#3205](https://github.com/chef/chef-workstation/pull/3205) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=24.2.1058 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Updated chef-client to 18.4.2 [#3205](https://github.com/chef/chef-workstation/pull/3205) ([nikhil2611](https://github.com/nikhil2611)) <!-- 24.4.1059 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
