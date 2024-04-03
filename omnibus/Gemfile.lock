@@ -107,6 +107,7 @@ GEM
       aws-sdk-s3 (~> 1.91)
       aws-sdk-secretsmanager (~> 1.46)
       chef-config (= 18.4.12)
+      chef-powershell (~> 18.1.0)
       chef-utils (= 18.4.12)
       chef-vault
       chef-zero (>= 14.0.11)
