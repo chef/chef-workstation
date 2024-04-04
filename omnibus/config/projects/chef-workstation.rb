@@ -49,7 +49,8 @@ instance_eval(IO.read(overrides_path), overrides_path)
 
 dependency "preparation"
 
-dependency "habitat"
+# TODO: unless check should be removed once hab package is available in linux aarch64
+dependency "habitat" unless RUBY_PLATFORM =~ /aarch64-linux/
 dependency "openssl"
 
 if windows?
