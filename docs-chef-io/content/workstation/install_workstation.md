@@ -117,7 +117,8 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
         ``` bash
         dpkg -i chef-workstation_24.4.1063-1_amd64.deb
         ```
-   Note: Update the above version with the latest chef-workstation version. Please refer to [Chef Workstation Release Notes](https://docs.chef.io/release_notes_workstation/) to get the latest Chef-Workstation version.
+   Note: Update the above version with the latest chef-workstation version. Please refer to
+    [Chef Workstation Release Notes](https://docs.chef.io/release_notes_workstation) to get the latest Chef-Workstation version.
 
 ## Verify the Installation
 
