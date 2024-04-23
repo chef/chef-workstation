@@ -98,28 +98,53 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
     - Red Hat Enterprise Linux
 
       ```bash
-      wget https://packages.chef.io/files/stable/chef-workstation/<VERSION>/el/<RHEL_VERSION>/chef-workstation-<VERSION>-1.el<RHEL_VERSION>.x86_64.rpm
+      wget https://packages.chef.io/files/stable/chef-workstation/<WORKSTATION_VERSION>/el/<RHEL_VERSION>/chef-workstation-<WORKSTATION_VERSION>-1.el<RHEL_VERSION>.x86_64.rpm
       ```
+
+      For example:
+
+      ```sh
+      wget https://packages.chef.io/files/stable/chef-workstation/24.4.1063/el/8/chef-workstation-24.4.1063-1.el8.x86_64.rpm
+      ```
+
 
     - Debian/Ubuntu
 
       ``` bash
-      wget https://packages.chef.io/files/stable/chef-workstation/<VERSION>/ubuntu/<UBUNTU_VERSION>/chef-workstation_<VERSION>-1_amd64.deb
+      wget https://packages.chef.io/files/stable/chef-workstation/<WORKSTATION_VERSION>/ubuntu/<UBUNTU_VERSION>/chef-workstation_<WORKSTATION_VERSION>-1_amd64.deb
+      ```
+
+      For example:
+
+      ```sh
+      wget https://packages.chef.io/files/stable/chef-workstation/24.4.1063/ubuntu/20.04/chef-workstation_24.4.1063-1_amd64.deb
       ```
 
 1. Use your distribution's package manager to install Chef Workstation:
 
    - Red Hat Enterprise Linux:
 
-        ``` bash
-        yum localinstall chef-workstation-<VERSION>-1.el<RHEL_VERSION>.x86_64.rpm
-        ```
+     ``` bash
+     yum localinstall chef-workstation-<WORKSTATION_VERSION>-1.el<RHEL_VERSION>.x86_64.rpm
+     ```
+
+     For example:
+
+     ``` bash
+     yum localinstall chef-workstation-24.4.1063-1.el8.x86_64.rpm
+     ```
 
    - Debian/Ubuntu:
 
-        ``` bash
-        dpkg -i chef-workstation_<VERSION>-1_amd64.deb
-        ```
+     ``` bash
+     dpkg -i chef-workstation_<WORKSTATION_VERSION>-1_amd64.deb
+     ```
+
+     For example:
+
+     ```sh
+     dpkg -i chef-workstation_24.4.1063-1_amd64.deb
+     ```
 
 See the [Chef Workstation release notes](/release_notes_workstation/) or the [Omnitruck API](https://omnitruck.chef.io/stable/chef-workstation/versions/all) for supported version numbers.
 
