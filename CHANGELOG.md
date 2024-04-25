@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 24.4.1063 -->
-## [24.4.1063](https://github.com/chef/chef-workstation/tree/24.4.1063) (2024-04-04)
+<!-- latest_release 24.4.1064 -->
+## [24.4.1064](https://github.com/chef/chef-workstation/tree/24.4.1064) (2024-04-23)
 
 #### Merged Pull Requests
-- Modified the steps to install the FIPS provider for OpenSSL [#3203](https://github.com/chef/chef-workstation/pull/3203) ([ashiqueps](https://github.com/ashiqueps))
+- Updated the dependencies for the 24.04 release [#3222](https://github.com/chef/chef-workstation/pull/3222) ([ashiqueps](https://github.com/ashiqueps))
 <!-- latest_release -->
 
 <!-- release_rollup since=24.2.1058 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Updated the dependencies for the 24.04 release [#3222](https://github.com/chef/chef-workstation/pull/3222) ([ashiqueps](https://github.com/ashiqueps)) <!-- 24.4.1064 -->
 - Modified the steps to install the FIPS provider for OpenSSL [#3203](https://github.com/chef/chef-workstation/pull/3203) ([ashiqueps](https://github.com/ashiqueps)) <!-- 24.4.1063 -->
 - Bump artifactory from 3.0.15 to 3.0.17 in /omnibus [#3211](https://github.com/chef/chef-workstation/pull/3211) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 24.4.1062 -->
 - Bump omnibus-software from `9d0fd56` to `4ea194c` in /omnibus [#3219](https://github.com/chef/chef-workstation/pull/3219) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 24.4.1061 -->
