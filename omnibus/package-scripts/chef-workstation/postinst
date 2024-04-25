@@ -80,6 +80,10 @@ for binary in $binaries; do
   ln -sf "$INSTALLER_DIR/bin/$binary" $PREFIX/bin || error_exit "Cannot link $binary to $PREFIX/bin"
 done
 
+# Copy the refarctored c_rehash.rb file to bin
+sudo cp $INSTALLER_DIR/c_rehash.rb $INSTALLER_DIR/embedded/bin/c_rehash_ruby
+sudo chmod +x $INSTALLER_DIR/embedded/bin/c_rehash_ruby
+
 if is_darwin; then
 
   # this will be removed when we bring back the workstation-gui changes back 
