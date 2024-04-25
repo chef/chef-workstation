@@ -104,7 +104,7 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
       For example:
 
       ```sh
-      wget https://packages.chef.io/files/stable/chef-workstation/24.4.1063/el/8/chef-workstation-24.4.1063-1.el8.x86_64.rpm
+      wget https://packages.chef.io/files/stable/chef-workstation/24.4.1064/el/8/chef-workstation-24.4.1064-1.el8.x86_64.rpm
       ```
 
 
@@ -117,7 +117,7 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
       For example:
 
       ```sh
-      wget https://packages.chef.io/files/stable/chef-workstation/24.4.1063/ubuntu/20.04/chef-workstation_24.4.1063-1_amd64.deb
+      wget https://packages.chef.io/files/stable/chef-workstation/24.4.1064/ubuntu/20.04/chef-workstation_24.4.1064-1_amd64.deb
       ```
 
 1. Use your distribution's package manager to install Chef Workstation:
@@ -131,7 +131,7 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
      For example:
 
      ``` bash
-     yum localinstall chef-workstation-24.4.1063-1.el8.x86_64.rpm
+     yum localinstall chef-workstation-24.4.1064-1.el8.x86_64.rpm
      ```
 
    - Debian/Ubuntu:
@@ -143,7 +143,7 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
      For example:
 
      ```sh
-     dpkg -i chef-workstation_24.4.1063-1_amd64.deb
+     dpkg -i chef-workstation_24.4.1064-1_amd64.deb
      ```
 
 See the [Chef Workstation release notes](/release_notes_workstation/) or the [Omnitruck API](https://omnitruck.chef.io/stable/chef-workstation/versions/all) for supported version numbers.
@@ -159,7 +159,7 @@ chef -v
 Which returns the versions of all installed Chef tools:
 
 ``` shell
-Chef Workstation version: 24.4.1063
+Chef Workstation version: 24.4.1064
 Chef Infra Client version: 18.4.12
 Chef InSpec version: 5.22.40
 Chef CLI version: 5.6.14
