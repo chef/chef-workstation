@@ -20,5 +20,8 @@ license :project_license
 source path: File.join("#{project.files_path}", "../../components/rehash")
 
 build do
+  # Copy the file from the source to the bin directory
   copy "#{project_dir}/c_rehash.rb", "#{install_dir}/embedded/bin/c_rehash_ruby"
+  # Set the executable permission for the script
+  FileUtils.chmod("+x", "#{install_dir}/embedded/bin/c_rehash_ruby")
 end
