@@ -20,5 +20,5 @@ license :project_license
 source path: File.join("#{project.files_path}", "../../components/rehash")
 
 build do
-  copy "#{project_dir/c_rehash.rb}" "#{install_dir}/embedded/bin/c_rehash_ruby"
+  copy "#{project_dir}/c_rehash.rb" "#{install_dir}/embedded/bin/c_rehash_ruby"
 end
