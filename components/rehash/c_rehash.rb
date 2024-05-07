@@ -1,9 +1,9 @@
 #!/opt/chef-workstation/embedded/bin/ruby
 
-require 'openssl'
-require 'digest/md5'
-require 'optparse'
-require 'ostruct'
+require "openssl"
+require "digest/md5"
+require "optparse"
+require "ostruct"
 
 class CHashDir
   include Enumerable
@@ -16,9 +16,9 @@ class CHashDir
   def hash_dir(silent = false)
     # ToDo: Should lock the directory...
     @silent = silent
-    @fingerprint_cache = Hash.new
-    @cert_cache = Hash.new
-    @crl_cache = Hash.new
+    @fingerprint_cache = {}
+    @cert_cache = {}
+    @crl_cache = {}
     do_hash_dir
   end
 
@@ -67,16 +67,16 @@ class CHashDir
     end
   end
 
-private
+  private
 
   def crl_filename(crl)
-    path(hash_name(crl.issuer)) + '.pem'
+    path(hash_name(crl.issuer)) + ".pem"
   end
 
   def do_hash_dir
     Dir.chdir(@dirpath) do
       delete_symlink
-      Dir.glob('*.pem') do |pemfile|
+      Dir.glob("*.pem") do |pemfile|
         cert = load_pem_file(pemfile)
         case cert
         when OpenSSL::X509::Certificate
@@ -95,6 +95,7 @@ private
   def delete_symlink
     Dir.entries(".").each do |entry|
       next unless /^[\da-f]+\.r{0,1}\d+$/ =~ entry
+
       File.unlink(entry) if FileTest.symlink?(entry)
     end
   end
@@ -132,12 +133,13 @@ private
   def link_hash(org_filename, name, fingerprint)
     idx = 0
     filepath = nil
-    while true
+    loop do
       filepath = yield(idx)
-      break unless FileTest.symlink?(filepath) or FileTest.exist?(filepath)
+      break unless FileTest.symlink?(filepath) || FileTest.exist?(filepath)
       if @fingerprint_cache[filepath] == fingerprint
         return false
       end
+
       idx += 1
     end
     STDOUT.puts("#{org_filename} => #{filepath}") unless @silent
@@ -147,12 +149,10 @@ private
   end
 
   def symlink(from, to)
-    begin
-      File.symlink(from, to)
-    rescue
-      File.open(to, "w") do |f|
-        f << File.read(from)
-      end
+    File.symlink(from, to)
+  rescue
+    File.open(to, "w") do |f|
+      f << File.read(from)
     end
   end
 
@@ -202,9 +202,6 @@ def parse_args!(opt_parser, options)
 end
 
 if $0 == __FILE__
-  require 'pry'
-  require 'pry-nav'
-  binding.pry
   parse_args!(opt_parser, options)
 
   dirlist = options.dirs

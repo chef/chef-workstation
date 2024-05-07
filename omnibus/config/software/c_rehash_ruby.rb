@@ -15,7 +15,9 @@
 #
 
 name "c_rehash_ruby"
-license :project_license
+default_version "main"
+license "Apache-2.0"
+license_file "LICENSE"
 
 source path: File.join("#{project.files_path}", "../../components/rehash")
 
@@ -24,5 +26,4 @@ build do
   copy "#{project_dir}/c_rehash.rb", "#{install_dir}/embedded/bin/c_rehash_ruby"
   # Set the executable permission for the script
   command("chmod +x #{install_dir}/embedded/bin/c_rehash_ruby")
-  # FileUtils.chmod("+x", "#{install_dir}/embedded/bin/c_rehash_ruby")
 end
