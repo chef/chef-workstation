@@ -20,7 +20,7 @@ Chef Workstation installs everything you need to get started using Chef products
 
 ## Getting Started
 
-1. Download [Chef Workstation](https://downloads.chef.io/chef-workstation)
+1. Download [Chef Workstation](https://www.chef.io/downloads)
 
 2. Double-click the `.dmg` or `.msi` file to start the install process, or use the package manager for your Linux distribution.
 
