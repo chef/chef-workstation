@@ -27,6 +27,11 @@ group(:omnibus_package, :development, :test) do
   gem "guard"
   gem "cookstyle", ">= 7.8"
   gem "ffi-libarchive"
+
+  # The current version of OpenSSL that we are bundling with chef-workstation is 3.0.11
+  # The version of ruby/openssl that supports the FIPS mode of OpenSSL 3.0/3.1 is 3.2.0
+  # and later, hence pinning the version for openssl.
+  gem "openssl", ">= 3.2.0"
 end
 
 group(:dep_selector) do
@@ -43,7 +48,7 @@ group(:omnibus_package) do
   gem "chef_deprecations", ">= 0.1.2"
 
   # avoid failures running 0.0.7.7 on windows
-  gem "unf_ext", ">= 0.0.8.2"
+  gem "unf_ext", "~> 0.0.8.2"
 
   gem "appbundler"
 

@@ -1,32 +1,59 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 23.9.1050 -->
-## [23.9.1050](https://github.com/chef/chef-workstation/tree/23.9.1050) (2023-09-25)
+<!-- latest_release 24.5.1065 -->
+## [24.5.1065](https://github.com/chef/chef-workstation/tree/24.5.1065) (2024-05-14)
 
 #### Merged Pull Requests
-- Bump omnibus from `26c34d2` to `56015cb` in /omnibus [#3162](https://github.com/chef/chef-workstation/pull/3162) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- [CHEF-8498] Ruby implementation of c_rehash script  [#3234](https://github.com/chef/chef-workstation/pull/3234) ([ashiqueps](https://github.com/ashiqueps))
 <!-- latest_release -->
 
-<!-- release_rollup since=23.7.1042 -->
+<!-- release_rollup since=24.4.1064 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
-- Bump omnibus from `26c34d2` to `56015cb` in /omnibus [#3162](https://github.com/chef/chef-workstation/pull/3162) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 23.9.1050 -->
-- Updated the chef-cli version to 5.6.13 [#3160](https://github.com/chef/chef-workstation/pull/3160) ([nikhil2611](https://github.com/nikhil2611)) <!-- 23.9.1049 -->
-- Bump omnibus from `ae855f3` to `26c34d2` in /omnibus [#3148](https://github.com/chef/chef-workstation/pull/3148) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 23.8.1048 -->
-- Reverted ffi-yajl to 2.4.0 [#3152](https://github.com/chef/chef-workstation/pull/3152) ([ashiqueps](https://github.com/ashiqueps)) <!-- 23.8.1047 -->
-- Updated the dependencies [#3151](https://github.com/chef/chef-workstation/pull/3151) ([ashiqueps](https://github.com/ashiqueps)) <!-- 23.8.1046 -->
-- Bump Chef Workstation App to 0.2.190 [#3150](https://github.com/chef/chef-workstation/pull/3150) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 23.8.1045 -->
-- Bump Chef Workstation App to 0.2.189 [#3146](https://github.com/chef/chef-workstation/pull/3146) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 23.8.1044 -->
-- Updated all the dependencies [#3136](https://github.com/chef/chef-workstation/pull/3136) ([ashiqueps](https://github.com/ashiqueps)) <!-- 23.7.1043 -->
+- [CHEF-8498] Ruby implementation of c_rehash script  [#3234](https://github.com/chef/chef-workstation/pull/3234) ([ashiqueps](https://github.com/ashiqueps)) <!-- 24.5.1065 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [24.4.1064](https://github.com/chef/chef-workstation/tree/24.4.1064) (2024-04-30)
+
+#### Merged Pull Requests
+- Updated chef-client to 18.4.2 [#3205](https://github.com/chef/chef-workstation/pull/3205) ([nikhil2611](https://github.com/nikhil2611))
+- Update Netlify docs deploy method [#3217](https://github.com/chef/chef-workstation/pull/3217) ([IanMadd](https://github.com/IanMadd))
+- Bump omnibus-software from `9d0fd56` to `4ea194c` in /omnibus [#3219](https://github.com/chef/chef-workstation/pull/3219) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump artifactory from 3.0.15 to 3.0.17 in /omnibus [#3211](https://github.com/chef/chef-workstation/pull/3211) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Modified the steps to install the FIPS provider for OpenSSL [#3203](https://github.com/chef/chef-workstation/pull/3203) ([ashiqueps](https://github.com/ashiqueps))
+- Updated the dependencies for the 24.04 release [#3222](https://github.com/chef/chef-workstation/pull/3222) ([ashiqueps](https://github.com/ashiqueps))
+<!-- latest_stable_release -->
+
+## [24.2.1058](https://github.com/chef/chef-workstation/tree/24.2.1058) (2024-02-20)
+
+#### Merged Pull Requests
+- Bump omnibus-software from `d357d5c` to `86649fa` in /omnibus [#3196](https://github.com/chef/chef-workstation/pull/3196) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- chef-Workstation 24.2 release [#3198](https://github.com/chef/chef-workstation/pull/3198) ([nikhil2611](https://github.com/nikhil2611))
+- Adding Amazon linux 2023 to the release pipeline [#3143](https://github.com/chef/chef-workstation/pull/3143) ([nikhil2611](https://github.com/nikhil2611))
+
+## [23.12.1055](https://github.com/chef/chef-workstation/tree/23.12.1055) (2023-12-07)
+
+#### Merged Pull Requests
+- Updated all the dependencies [#3136](https://github.com/chef/chef-workstation/pull/3136) ([ashiqueps](https://github.com/ashiqueps))
+- Bump Chef Workstation App to 0.2.189 [#3146](https://github.com/chef/chef-workstation/pull/3146) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.190 [#3150](https://github.com/chef/chef-workstation/pull/3150) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Updated the dependencies [#3151](https://github.com/chef/chef-workstation/pull/3151) ([ashiqueps](https://github.com/ashiqueps))
+- Reverted ffi-yajl to 2.4.0 [#3152](https://github.com/chef/chef-workstation/pull/3152) ([ashiqueps](https://github.com/ashiqueps))
+- Bump omnibus from `ae855f3` to `26c34d2` in /omnibus [#3148](https://github.com/chef/chef-workstation/pull/3148) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Updated the chef-cli version to 5.6.13 [#3160](https://github.com/chef/chef-workstation/pull/3160) ([nikhil2611](https://github.com/nikhil2611))
+- Bump omnibus from `26c34d2` to `56015cb` in /omnibus [#3162](https://github.com/chef/chef-workstation/pull/3162) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- adding adhoc canary [#3178](https://github.com/chef/chef-workstation/pull/3178) ([sean-simmons-progress](https://github.com/sean-simmons-progress))
+- Updated the msi signing method [#3183](https://github.com/chef/chef-workstation/pull/3183) ([ashiqueps](https://github.com/ashiqueps))
+- Fix TOC for chef-vault [#3176](https://github.com/chef/chef-workstation/pull/3176) ([chuhn](https://github.com/chuhn))
+- OpenSSL 3 upgrade and Fix for workstation CVEs [#3180](https://github.com/chef/chef-workstation/pull/3180) ([ashiqueps](https://github.com/ashiqueps))
+- Bump pedump from 0.6.6 to 0.6.7 in /omnibus [#3190](https://github.com/chef/chef-workstation/pull/3190) ([dependabot[bot]](https://github.com/dependabot[bot]))
+
 ## [23.7.1042](https://github.com/chef/chef-workstation/tree/23.7.1042) (2023-07-10)
 
 #### Merged Pull Requests
 - Added the license command and feature flag to handle license changes [#3126](https://github.com/chef/chef-workstation/pull/3126) ([nikhil2611](https://github.com/nikhil2611))
 - Fix expeditor dependency update PR creation script [#3137](https://github.com/chef/chef-workstation/pull/3137) ([nikhil2611](https://github.com/nikhil2611))
-<!-- latest_stable_release -->
 
 ## [23.5.1040](https://github.com/chef/chef-workstation/tree/23.5.1040) (2023-05-23)
 
