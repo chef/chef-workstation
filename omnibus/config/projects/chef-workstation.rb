@@ -59,6 +59,8 @@ else
   dependency "git-custom-bindir"
 end
 
+dependency "c_rehash_ruby" unless windows?
+
 # This internal component (source in components/gems)
 # builds all gems that we ship with Workstation.
 # No gems get shipped that are not declared in components/gems/Gemfile

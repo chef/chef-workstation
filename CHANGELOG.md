@@ -1,18 +1,36 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 24.5.1065 -->
+## [24.5.1065](https://github.com/chef/chef-workstation/tree/24.5.1065) (2024-05-14)
+
+#### Merged Pull Requests
+- [CHEF-8498] Ruby implementation of c_rehash script  [#3234](https://github.com/chef/chef-workstation/pull/3234) ([ashiqueps](https://github.com/ashiqueps))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=24.4.1064 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- [CHEF-8498] Ruby implementation of c_rehash script  [#3234](https://github.com/chef/chef-workstation/pull/3234) ([ashiqueps](https://github.com/ashiqueps)) <!-- 24.5.1065 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [24.4.1064](https://github.com/chef/chef-workstation/tree/24.4.1064) (2024-04-30)
+
+#### Merged Pull Requests
+- Updated chef-client to 18.4.2 [#3205](https://github.com/chef/chef-workstation/pull/3205) ([nikhil2611](https://github.com/nikhil2611))
+- Update Netlify docs deploy method [#3217](https://github.com/chef/chef-workstation/pull/3217) ([IanMadd](https://github.com/IanMadd))
+- Bump omnibus-software from `9d0fd56` to `4ea194c` in /omnibus [#3219](https://github.com/chef/chef-workstation/pull/3219) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump artifactory from 3.0.15 to 3.0.17 in /omnibus [#3211](https://github.com/chef/chef-workstation/pull/3211) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Modified the steps to install the FIPS provider for OpenSSL [#3203](https://github.com/chef/chef-workstation/pull/3203) ([ashiqueps](https://github.com/ashiqueps))
+- Updated the dependencies for the 24.04 release [#3222](https://github.com/chef/chef-workstation/pull/3222) ([ashiqueps](https://github.com/ashiqueps))
+<!-- latest_stable_release -->
+
 ## [24.2.1058](https://github.com/chef/chef-workstation/tree/24.2.1058) (2024-02-20)
 
 #### Merged Pull Requests
 - Bump omnibus-software from `d357d5c` to `86649fa` in /omnibus [#3196](https://github.com/chef/chef-workstation/pull/3196) ([dependabot[bot]](https://github.com/dependabot[bot]))
 - chef-Workstation 24.2 release [#3198](https://github.com/chef/chef-workstation/pull/3198) ([nikhil2611](https://github.com/nikhil2611))
 - Adding Amazon linux 2023 to the release pipeline [#3143](https://github.com/chef/chef-workstation/pull/3143) ([nikhil2611](https://github.com/nikhil2611))
-<!-- latest_stable_release -->
 
 ## [23.12.1055](https://github.com/chef/chef-workstation/tree/23.12.1055) (2023-12-07)
 

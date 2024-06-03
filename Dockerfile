@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 LABEL maintainer="Chef Software, Inc. <docker@chef.io>"
 
 ARG CHANNEL=stable
-ARG VERSION=24.2.1058
+ARG VERSION=24.4.1064
 ENV DEBIAN_FRONTEND=noninteractive \
     GEM_HOME=/root/.chefdk/gem/ruby/3.0.0 \
     PATH=/opt/chef-workstation/bin:/opt/chef-workstation/embedded/bin:/root/.chefdk/gem/ruby/3.0.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
