@@ -21,11 +21,11 @@ skip_transitive_dependency_licensing true
 
 # DO NOT MODIFY: default_version and checksums are populated by
 #                workstation/.expeditor/update_habitat.sh
-default_version "1.6.652"
-linux_sha = "a4f7c46df3b13ff41a451252b7f4abae322cdd77f54f470a5bc06d8da34cdf9e"
-darwin_sha = "df5c02dc4fc4a328d81fe7c031a50d13b6c25b1cdd06a51b1713e089378ec7a9"
-darwin_m1_sha = "938d333237f600c75ad4ead24777cb1457b9d89288156aba1a56327c8f2be955"
-windows_sha = "14cb43c4eea114207954b54dae488b597f8a61797c8e66722793400d2f5fe85e"
+default_version "1.6.1041"
+linux_sha = "4bd03393c0d6d71f3a915fa0f79556d3e4ab79aa3ba314c376475024436ac77e"
+darwin_sha = "2dbde6139a47341d63e696014262b37958461fdaed7cfafe5e72f534bc66e40e"
+darwin_m1_sha = "8d93176945a1a9094ea33ef4fd1b8f0a3a7f82c80de88bca7c3fe70c7110d16d"
+windows_sha = "5e22c646eaaab1b1d6c59c99e7fbb11c63d2b6b7d825768937151e2ee38bb617"
 # END DO NOT MODIFY
 
 if windows?
