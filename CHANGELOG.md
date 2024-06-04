@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 24.5.1065 -->
-## [24.5.1065](https://github.com/chef/chef-workstation/tree/24.5.1065) (2024-05-14)
+<!-- latest_release 24.6.1066 -->
+## [24.6.1066](https://github.com/chef/chef-workstation/tree/24.6.1066) (2024-06-04)
 
 #### Merged Pull Requests
-- [CHEF-8498] Ruby implementation of c_rehash script  [#3234](https://github.com/chef/chef-workstation/pull/3234) ([ashiqueps](https://github.com/ashiqueps))
+- Updated dependencies to latest for upcoming chef-workstation release [#3240](https://github.com/chef/chef-workstation/pull/3240) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=24.4.1064 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Updated dependencies to latest for upcoming chef-workstation release [#3240](https://github.com/chef/chef-workstation/pull/3240) ([nikhil2611](https://github.com/nikhil2611)) <!-- 24.6.1066 -->
 - [CHEF-8498] Ruby implementation of c_rehash script  [#3234](https://github.com/chef/chef-workstation/pull/3234) ([ashiqueps](https://github.com/ashiqueps)) <!-- 24.5.1065 -->
 <!-- release_rollup -->
 
