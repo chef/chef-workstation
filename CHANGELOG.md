@@ -1,20 +1,18 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 24.6.1066 -->
-## [24.6.1066](https://github.com/chef/chef-workstation/tree/24.6.1066) (2024-06-04)
-
-#### Merged Pull Requests
-- Updated dependencies to latest for upcoming chef-workstation release [#3240](https://github.com/chef/chef-workstation/pull/3240) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=24.4.1064 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Updated dependencies to latest for upcoming chef-workstation release [#3240](https://github.com/chef/chef-workstation/pull/3240) ([nikhil2611](https://github.com/nikhil2611)) <!-- 24.6.1066 -->
-- [CHEF-8498] Ruby implementation of c_rehash script  [#3234](https://github.com/chef/chef-workstation/pull/3234) ([ashiqueps](https://github.com/ashiqueps)) <!-- 24.5.1065 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [24.6.1066](https://github.com/chef/chef-workstation/tree/24.6.1066) (2024-06-10)
+
+#### Merged Pull Requests
+- [CHEF-8498] Ruby implementation of c_rehash script  [#3234](https://github.com/chef/chef-workstation/pull/3234) ([ashiqueps](https://github.com/ashiqueps))
+- Updated dependencies to latest for upcoming chef-workstation release [#3240](https://github.com/chef/chef-workstation/pull/3240) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_stable_release -->
+
 ## [24.4.1064](https://github.com/chef/chef-workstation/tree/24.4.1064) (2024-04-30)
 
 #### Merged Pull Requests
@@ -24,7 +22,6 @@
 - Bump artifactory from 3.0.15 to 3.0.17 in /omnibus [#3211](https://github.com/chef/chef-workstation/pull/3211) ([dependabot[bot]](https://github.com/dependabot[bot]))
 - Modified the steps to install the FIPS provider for OpenSSL [#3203](https://github.com/chef/chef-workstation/pull/3203) ([ashiqueps](https://github.com/ashiqueps))
 - Updated the dependencies for the 24.04 release [#3222](https://github.com/chef/chef-workstation/pull/3222) ([ashiqueps](https://github.com/ashiqueps))
-<!-- latest_stable_release -->
 
 ## [24.2.1058](https://github.com/chef/chef-workstation/tree/24.2.1058) (2024-02-20)
 
