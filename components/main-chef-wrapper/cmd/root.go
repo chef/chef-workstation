@@ -58,6 +58,7 @@ type rootConfig struct {
 	configFile        string
 	licenseAcceptance string
 	debug             bool
+	license           string
 }
 
 var (
@@ -111,6 +112,7 @@ func FlagInit() error {
 	// These flags are common to all child commands.  Some of them do not need config or debug,
 	// so we can look at pushing this down; but it seems to make sense since it's present for more
 	// commands than it isn't.
+	RootCmd.PersistentFlags().StringVarP(&options.license, "chef-license-key", "", "", "Please pass the license Key")
 	RootCmd.PersistentFlags().StringVarP(&options.configFile, "config", "c", "", "Read configuration from `CONFIG_FILE_PATH`")
 	RootCmd.PersistentFlags().StringVar(&options.licenseAcceptance, "chef-license", "",
 		"Accept product license, where `ACCEPTANCE` is one of 'accept', 'accept-no-persist', or 'accept-silent'")
