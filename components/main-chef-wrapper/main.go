@@ -28,7 +28,8 @@ import (
 
 	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
 
-	licensing "github.com/chef/go-libs/licensing"
+	cheflicensing "github.com/chef/chef-licensing/components/go/pkg"
+	licenseconfig "github.com/chef/chef-licensing/components/go/pkg/config"
 
 	_ "embed"
 
@@ -173,13 +174,13 @@ func main() {
 
 	// calling licensing package in go-lib
 
-	c := &licensing.LicenseConfig{
+	c := &licenseconfig.LicenseConfig{
 		ProductName:      "Workstation",
 		EntitlementID:    "x6f3bc76-a94f-4b6c-bc97-4b7ed2b045c0",
 		LicenseServerURL: "https://licensing-acceptance.chef.co/License",
 	}
 
-	licensing.SetConfig(c)
-	licensing.FetchAndPersist()
+	licenseconfig.SetConfig(c.ProductName, c.EntitlementID, c.LicenseServerURL, c.ExecutableName)
+	cheflicensing.FetchAndPersist()
 	cmd.Execute()
 }
