@@ -28,12 +28,21 @@ import (
 
 	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
 
-	licensing "github.com/chef/go-libs/licensing"
+	cheflicensing "github.com/chef/chef-licensing/components/go/pkg"
+	licenseconfig "github.com/chef/chef-licensing/components/go/pkg/config"
 
 	_ "embed"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
 	homedir "github.com/mitchellh/go-homedir"
+)
+
+const (
+	PRODUCT_NAME                     = "Workstation"
+	ENTITLEMENT_ID                   = "x6f3bc76-a94f-4b6c-bc97-4b7ed2b045c0"
+	LICENSING_SERVER_URL             = "https://licensing-acceptance.chef.co/License"
+	LICENSE_SERVER_ENV_VARIABLE_NAME = "CHEF_LICENSE_SERVER"
+	EXECUTABLE_NAME                  = "chef"
 )
 
 func doStartupTasks() error {
@@ -61,18 +70,18 @@ func createDotChef() {
 
 func createRubyEnvUnix() {
 	InstallerDir := "/opt/chef-workstation"
-	home, err := os.UserHomeDir()
+	home, _ := os.UserHomeDir()
 	installationPath := path.Join(home, ".chef/ruby-env.json")
 	result, err := exists(installationPath)
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
-	if result != true {
+	if !result {
 		if createEnvJsonUnix(InstallerDir, installationPath) {
 			return
 		}
 	}
-	if result == true && platform_lib.MatchVersions() != true {
+	if result && !platform_lib.MatchVersions() {
 		if createEnvJsonUnix(InstallerDir, installationPath) {
 			return
 		}
@@ -82,25 +91,25 @@ func createRubyEnvUnix() {
 
 func createRubyEnvWindows() {
 	InstallerDir := platform_lib.WorkstationInfo().InstallDirectory
-	home, err := os.UserHomeDir()
+	home, _ := os.UserHomeDir()
 	installationPath := path.Join(home, `.chef\ruby-env.json`)
 	result, err := exists(installationPath)
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
 	if platform_lib.OmnibusInstall() {
-		if result != true {
+		if !result {
 			if createEnvJsonWindows(InstallerDir, installationPath) {
 				return
 			}
 		}
-		if result == true && platform_lib.MatchVersions() != true {
+		if result && !platform_lib.MatchVersions() {
 			if createEnvJsonWindows(InstallerDir, installationPath) {
 				return
 			}
 		}
 	} else {
-		if result != true {
+		if !result {
 			if createEnvJsonWindows(InstallerDir, installationPath) {
 				return
 			}
@@ -171,15 +180,24 @@ func main() {
 		os.Exit(0)
 	}
 
-	// calling licensing package in go-lib
+	initLicensing()
+	cmd.Execute()
+}
 
-	c := &licensing.LicenseConfig{
-		ProductName:      "Workstation",
-		EntitlementID:    "x6f3bc76-a94f-4b6c-bc97-4b7ed2b045c0",
-		LicenseServerURL: "https://licensing-acceptance.chef.co/License",
+func initLicensing() {
+	if os.Args[1] == "license" {
+		return
 	}
 
-	licensing.SetConfig(c)
-	licensing.FetchAndPersist()
-	cmd.Execute()
+	licenseconfig.SetConfig(PRODUCT_NAME, ENTITLEMENT_ID, getLicenseServerURL(), EXECUTABLE_NAME)
+	cheflicensing.FetchAndPersist()
+}
+
+func getLicenseServerURL() string {
+	key, _ := os.LookupEnv(LICENSE_SERVER_ENV_VARIABLE_NAME)
+	if key != "" {
+		return key
+	}
+
+	return LICENSING_SERVER_URL
 }

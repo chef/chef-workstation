@@ -1,0 +1,442 @@
+---
+:file_format_version: "1.0.0"
+
+interactions:
+  start:
+    messages: 
+      - |
+        ------------------------------------------------------------
+          License ID Validation
+
+          To continue using Chef {{.ProductName}}, a license ID is required.
+          (Free Tier, Trial, or Commercial)
+
+          If you generated a license previously, you might
+          have received it in an email.
+
+          If you are a commercial user, you can also find it in the
+          {{printHyperlink "https://community.progress.com/s/products/chef"}} portal.
+        ------------------------------------------------------------
+      - |
+    prompt_type: "Say"
+    paths: [ask_if_user_has_license_id]
+  
+  ask_if_user_has_license_id:
+    messages: ["Please choose one of the options below"]
+    options: ["I already have a license ID", "I don't have a license ID and would like to generate a new license ID", "Skip"]
+    prompt_type: "TimeoutSelect"
+    prompt_attributes:
+      timeout_warning_color: red
+      timeout_duration: 60
+      timeout_message: "Prompt timed out. Use non-interactive flags or enter an answer within 60 seconds.\n"
+    paths: [ask_for_license_id, info_of_license_types, skip_message]
+    response_path_map:
+      "I already have a license ID": ask_for_license_id
+      "I don't have a license ID and would like to generate a new license ID": info_of_license_types
+      "Skip": skip_message
+
+  skip_message:
+    messages: ['', '! {{printInColor "yellow" "[WARNING]"}} A license is required to continue using this product.', '']
+    prompt_type: Warn
+    paths: [skip_licensing]
+
+  skip_licensing:
+    messages: ["Are you sure to skip this step?"]
+    prompt_type: "Select"
+    options: ["Skip", "Generate a new license ID", "I already have a license ID"]
+    paths: [ask_for_license_id, info_of_license_types, skipped]
+    response_path_map:
+      "I already have a license ID": ask_for_license_id
+      "Generate a new license ID": info_of_license_types
+      "Skip": skipped
+  
+  skipped:
+    messages: ["License ID validation skipped!"]
+    prompt_type: "Say"
+    paths: [exit_with_message]
+
+  ask_for_license_id:
+    messages: ["Please enter your license ID: "]
+    prompt_type: "Ask"
+    paths: [validate_license_id_pattern]
+
+  validate_license_id_pattern:
+    action: DoesLicenseHaveValidPattern
+    paths: [validate_license_id_with_api, ask_for_license_id]
+    response_path_map:
+      "true": validate_license_id_with_api
+      "false": ask_for_license_id
+    description: "DoesLicenseHaveValidPattern is a method defined in ActionDetails"
+
+  validate_license_id_with_api:
+    action: IsLicenseValidOnServer
+    paths: [validate_license_restriction, fetch_invalid_license_msg]
+    response_path_map:
+      "true": validate_license_restriction
+      "false": fetch_invalid_license_msg
+    description: "IsLicenseValidOnServer is a method defined in ActionDetails"
+
+  fetch_invalid_license_msg:
+    action: FetchInvalidLicenseMessage
+    paths: [validation_failure]
+
+  validation_failure:
+    messages: ['{{printInColor "red" "✖"}} [Error] License validation failed: {{.FailureMessage}}.']
+    prompt_type: "Error"
+    paths: [retry_message]
+
+  retry_message:
+    messages: ["Please try again."]
+    prompt_type: "Say"
+    paths: [ask_for_license_id]
+
+  validate_license_restriction:
+    action: IsLicenseAllowed
+    paths: [validate_license_expiration, prompt_error_license_addition_restricted]
+    response_path_map:
+      "true": validate_license_expiration
+      "false": prompt_error_license_addition_restricted
+
+  validate_license_expiration:
+    action: CheckLicenseExpirationStatus
+    paths: [validation_success, prompt_license_about_to_expire, prompt_license_expired, prompt_license_exhausted]
+    response_path_map:
+      "active": validation_success
+      "about_to_expire": prompt_license_about_to_expire
+      "expired": prompt_license_expired
+      "exhausted_license": prompt_license_exhausted
+
+  prompt_error_license_addition_restricted:
+    messages: ['{{printInColor "red" "✖"}} [Error] License validation failed.\n']
+    prompt_type: "Error"
+    paths: [license_restriction_header_text]
+
+  license_restriction_header_text:
+    action: DetermineRestrictionType
+    paths: [trial_already_exist_message, free_license_already_exist_message, active_trial_exist_message]
+    response_path_map:
+      "trial_restriction": trial_already_exist_message
+      "free_restriction": free_license_already_exist_message
+      "active_trial_restriction": active_trial_exist_message
+
+  trial_already_exist_message:
+    messages: ["A Trial License already exists with following details: \n"]
+    prompt_type: "Say"
+    paths: [add_license_info_in_restriction_flow]
+
+  free_license_already_exist_message:
+    messages: ["A Free Tier License already exists with following details: \n"]
+    prompt_type: "Say"
+    paths: [add_license_info_in_restriction_flow]
+
+  active_trial_exist_message:
+    messages: ["An active Trial License already exists with following details \n"]
+    prompt_type: "Say"
+    paths: [add_license_info_in_restriction_flow]
+
+  add_license_info_in_restriction_flow:
+    action: DisplayLicenseInfo
+    paths: [license_restriction_foot_text]
+
+  license_restriction_foot_text:
+    action: FetchLicenseTypeRestricted
+    paths: [trial_restriction_message, free_restriction_message, only_commercial_allowed_message]
+    response_path_map:
+      "trial": trial_restriction_message
+      "free": free_restriction_message
+      "trial_and_free": only_commercial_allowed_message
+
+  trial_restriction_message:
+    prompt_type: "Say"
+    messages:
+      - Please generate a Free Tier or Commercial License by running {{printLicenseAddCommand}}.
+    paths: [exit_with_message]
+
+  free_restriction_message:
+    prompt_type: "Say"
+    messages:
+      - Please generate a Trial or Commercial License by running {{printLicenseAddCommand}}.
+    paths: [exit_with_message]
+
+  only_commercial_allowed_message:
+    prompt_type: "Say"
+    messages:
+      - Please generate a Commercial License by running {{printLicenseAddCommand}}.
+    paths: [exit_with_message]
+
+  validation_success:
+    messages: ['{{printInColor "green" "✔"}} {{printInColor "green" "[Success] License validated successfully."}}']
+    prompt_type: "Ok"
+    paths: [display_license_info]
+
+  display_license_info:
+    action: DisplayLicenseInfo
+    paths: [fetch_license_id]
+
+  fetch_license_id:
+    action: FetchLicenseId
+    paths: [is_commercial_license]
+
+  is_commercial_license:
+    action: IsCommercialLicense
+    response_path_map:
+      "true": exit
+      "false": warn_non_commercial_license
+    paths: [warn_non_commercial_license, exit]
+
+  warn_non_commercial_license:
+    messages: 
+    - |
+      ------------------------------------------------------------
+        {{printInColor "yellow" "! [WARNING]"}} Non-Commercial License
+
+        You are using a {{.LicenseType}} version - not meant for commercial usage.
+
+        If you are using it for commercial purposes, please reach
+        out to our sales team at {{printHyperlink "chef-sales@progress.com"}} to get
+        commercial license to be compliant with Progress Chef MLSA.
+      ------------------------------------------------------------
+    prompt_type: "Say"
+    paths: [exit]
+
+  ask_for_license_id:
+    messages: ["Please enter your license ID: "]
+    prompt_type: "Ask"
+    paths: [validate_license_id_pattern]
+
+  skipped:
+    messages: ["License ID validation skipped!"]
+    prompt_type: "Say"
+    paths: [exit_with_message]
+
+  exit_with_message:
+    messages: ["Thank you.\n"]
+    prompt_type: "Say"
+    paths: [exit]
+
+  prompt_license_expired:
+    messages: 
+      - |
+        ------------------------------------------------------------
+          {{printInColor "yellow" "! [WARNING]"}} {{.LicenseType}} License Expired
+
+          We hope you've been enjoying Chef {{.ProductName}}!
+          However, it seems like your license has expired.
+
+          Reach out to our sales team at {{printHyperlink "chef-sales@progress.com"}}
+          to move to commercial tier.
+
+          To get a new license, run {{printLicenseAddCommand}}
+          and select a license type.
+        ------------------------------------------------------------
+    prompt_type: "Say"
+    paths: [fetch_license_id]
+
+  prompt_license_about_to_expire:
+    messages: 
+      - |
+        ------------------------------------------------------------
+          {{printInColor "yellow" "! [WARNING]"}} Your license is about to expire in {{printBoldText .ExpirationInDays "days."}}
+
+          To avoid service disruptions, get a Commercial License
+          before {{printBoldText .LicenseExpirationDate ""}}
+        ------------------------------------------------------------
+    prompt_type: "Say"
+    paths: [fetch_license_id]
+
+  prompt_license_exhausted:
+    messages: 
+      - |
+        ------------------------------------------------------------
+          {{printInColor "yellow" "! [WARNING]"}} {{.LicenseType}} License Exhausted
+
+          We hope you've been enjoying Chef {{.ProductName}}!
+          However, it seems like you have exceeded your entitled usage limit on {{.UnitMeasure}}.
+
+          Reach out to our sales team at {{printHyperlink "chef-sales@progress.com"}}
+          to move to commercial-tier.
+        ------------------------------------------------------------
+    prompt_type: "Say"
+    paths: [is_run_allowed_on_license_exhausted]
+
+  is_run_allowed_on_license_exhausted:
+    action: IsRunAllowedOnLicenseExhausted
+    response_path_map:
+      "true": fetch_license_id
+      "false": exit
+    paths: [fetch_license_id, exit]
+  
+  info_of_license_types:
+    messages: 
+      - |
+        Thank you for taking interest in Chef {{.ProductName}}.
+
+        We have the following types of licenses.
+    prompt_type: "Say"
+    paths: [filter_license_type_options]
+
+  filter_license_type_options:
+    action: FilterLicenseTypeOptions
+    paths: [ask_for_all_license_type, ask_for_license_except_trial, ask_for_commercial_only, ask_for_license_except_free]
+    response_path_map:
+      "ask_for_all_license_type": ask_for_all_license_type
+      "ask_for_license_except_trial": ask_for_license_except_trial
+      "ask_for_commercial_only": ask_for_commercial_only
+      "ask_for_license_except_free": ask_for_license_except_free
+
+  ask_for_commercial_only:
+    prompt_type: "Select"
+    messages: ["Select the type of license below and then enter user details"]
+    options: ["1. Commercial License", "2. Quit license generation."]
+    paths: [commercial_license_selection, exit]
+    response_path_map:
+      "1. Commercial License": commercial_license_selection
+      "2. Quit license generation": exit
+
+  ask_for_license_except_trial:
+    prompt_type: "Select"
+    messages: ["Select the type of license below and then enter user details"]
+    options: [
+      "1. Free Tier License\n     Validity: Unlimited\n     No. of units: 10 nodes\n",
+      "2. Commercial License\n",
+      "3. Quit license generation"
+      ]
+    paths: [free_trial_license_selection, commercial_license_selection, exit]
+    response_path_map:
+      "1. Free Tier License\n     Validity: Unlimited\n     No. of units: 10 nodes\n": free_trial_license_selection
+      "1. Free Tier License\n     Validity: Unlimited\n     No. of units: 10 targets\n": free_trial_license_selection
+      "2. Commercial License\n": commercial_license_selection
+      "3. Quit license generation": exit
+
+  ask_for_license_except_free:
+    prompt_type: "Select"
+    messages: ["Select the type of license below and then enter user details\n"]
+    options: [
+      "1. Trial License\n     Validity: 30 Days\n     No. of units: Unlimited nodes\n",
+      "2. Commercial License\n",
+      "3. Quit license generation"
+      ]
+    paths: [free_trial_license_selection, commercial_license_selection, exit]
+    response_path_map:
+      "1. Trial License\n     Validity: 30 Days\n     No. of units: Unlimited nodes\n": free_trial_license_selection
+      "1. Trial License\n     Validity: 30 Days\n     No. of units: Unlimited targets\n": free_trial_license_selection
+      "2. Commercial License\n": commercial_license_selection
+      "3. Quit license generation": exit
+
+  ask_for_all_license_type:
+    prompt_type: "Select"
+    messages: ["Select the type of license below and then enter user details"]
+    options: [
+      "1. Free Tier License\n     Validity: Unlimited\n     No. of units: 10 nodes\n",
+      "2. Trial License\n     Validity: 30 Days\n     No. of units: Unlimited nodes\n",
+      "3. Commercial License\n",
+      "4. Quit license generation"
+      ]
+    paths: [free_trial_license_selection, commercial_license_selection, exit]
+    response_path_map:
+      "1. Free Tier License\n     Validity: Unlimited\n     No. of units: 10 nodes\n": free_trial_license_selection
+      "1. Free Tier License\n     Validity: Unlimited\n     No. of units: 10 targets\n": free_trial_license_selection
+      "2. Trial License\n     Validity: 30 Days\n     No. of units: Unlimited nodes\n": free_trial_license_selection
+      "2. Trial License\n     Validity: 30 Days\n     No. of units: Unlimited targets\n": free_trial_license_selection
+      "3. Commercial License\n": commercial_license_selection
+      "4. Quit license generation": exit
+
+  free_trial_license_selection:
+    messages:
+      - |
+        {{printInColor "yellow" "!"}} Kindly complete the user registration at {{printInColor "blue" "https://www.chef.io/license-generation-free-trial" true}}
+        
+        Once you submit the details, you will receive the license ID on the email id you provided.
+        
+    choice: Select an option
+    options: [
+      Validate license now,
+      Quit and validate license later
+      ]
+    prompt_type: "SayAndSelect"
+    paths: [validate_license_later_message, ask_for_license_id]
+    response_path_map:
+      "Validate license now": ask_for_license_id
+      "Quit and validate license later": validate_license_later_message
+
+  # TODO: Update the link for other ways to validate the license document.
+  validate_license_later_message:
+    messages: 
+      - |
+        You can enter the license later on by selecting {{printInColor "" "I already have a license ID" false true}} when prompted for license.
+        To learn about more ways to enter the license, kindly visit {{printInColor "blue" "www.docs.chef.io" true}}.
+    prompt_type: "Say"
+    paths: [exit]
+
+  commercial_license_selection:
+    messages: ['Get in touch with the Sales Team by filling out the form available at {{printInColor "blue" "https://www.chef.io/contact-us" true}}', '']
+    options: [Quit]
+    choice: Select an option
+    prompt_type: "SayAndSelect"
+    response_path_map:
+      Quit: exit_with_message
+
+  prompt_license_addition_restriction:
+    action: SetLicenseInfo
+    paths: [prompt_error_license_addition_restricted]
+
+  prompt_error_license_addition_restricted:
+    messages: ['{{printInColor "red" "✖"}} [Error] License validation failed.']
+    prompt_type: "Error"
+    paths: [license_restriction_header_text]
+
+  license_restriction_header_text:
+    action: DetermineRestrictionType
+    paths: [trial_already_exist_message, free_license_already_exist_message, active_trial_exist_message]
+    response_path_map:
+      "trial_restriction": trial_already_exist_message
+      "free_restriction": free_license_already_exist_message
+      "active_trial_restriction": active_trial_exist_message
+
+  trial_already_exist_message:
+    messages: ["A Trial License already exists with following details:"]
+    prompt_type: "Say"
+    paths: [add_license_info_in_restriction_flow]
+
+  free_license_already_exist_message:
+    messages: ["A Free Tier License already exists with following details:"]
+    prompt_type: "Say"
+    paths: [add_license_info_in_restriction_flow]
+
+  active_trial_exist_message:
+    messages: ["An active Trial License already exists with following details."]
+    prompt_type: "Say"
+    paths: [add_license_info_in_restriction_flow]
+
+  add_license_info_in_restriction_flow:
+    action: DisplayLicenseInfo
+    paths: [license_restriction_foot_text]
+
+  license_restriction_foot_text:
+    action: FetchLicenseTypeRestricted
+    paths: [trial_restriction_message, free_restriction_message, only_commercial_allowed_message]
+    response_path_map:
+      "trial": trial_restriction_message
+      "free": free_restriction_message
+      "trial_and_free": only_commercial_allowed_message
+
+  trial_restriction_message:
+    prompt_type: "Say"
+    messages:
+      - | 
+        Please generate a Free Tier or Commercial License by running {{printLicenseAddCommand}}.
+    paths: [exit_with_message]
+
+  free_restriction_message:
+    prompt_type: "Say"
+    messages:
+      - |
+        Please generate a Trial or Commercial License by running {{printLicenseAddCommand}}.
+    paths: [exit_with_message]
+
+  only_commercial_allowed_message:
+    prompt_type: "Say"
+    messages:
+      - |
+        Please generate a Commercial License by running {{printLicenseAddCommand}}.
+    paths: [exit_with_message]
