@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/chef/chef-licensing/components/go/pkg/api"
+	"golang.org/x/term"
 )
 
 var licenseKeys []string
@@ -42,13 +43,15 @@ func GlobalFetchAndPersist() []string {
 		return getLicenseKeys()
 	}
 
-	newKeys = fetchInteractively(startID)
-	if len(newKeys) > 0 {
-		licenseClient, _ := api.GetClient().GetLicenseClient(newKeys)
-		persistAndConcat(newKeys, licenseClient.LicenseType)
-		if (!licenseClient.IsExpired() && !licenseClient.IsExhausted()) || licenseClient.IsCommercial() {
-			fmt.Printf("License Key: %s\n", licenseKeys[0])
-			return licenseKeys
+	if isTTY() {
+		newKeys = fetchInteractively(startID)
+		if len(newKeys) > 0 {
+			licenseClient, _ := api.GetClient().GetLicenseClient(newKeys)
+			persistAndConcat(newKeys, licenseClient.LicenseType)
+			if (!licenseClient.IsExpired() && !licenseClient.IsExhausted()) || licenseClient.IsCommercial() {
+				fmt.Printf("License Key: %s\n", licenseKeys[0])
+				return licenseKeys
+			}
 		}
 	}
 
@@ -135,4 +138,8 @@ func validateAndFetchLicenseType(key string) string {
 	}
 
 	return licenseType
+}
+
+func isTTY() bool {
+	return term.IsTerminal(int(os.Stdout.Fd()))
 }

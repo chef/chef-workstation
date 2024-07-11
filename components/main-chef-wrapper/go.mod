@@ -8,7 +8,7 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/spf13/cobra v1.8.0
 	github.com/stretchr/testify v1.9.0
-	golang.org/x/sys v0.21.0
+	golang.org/x/sys v0.22.0
 )
 
 replace github.com/chef/chef-licensing/components/go => /Users/asaidala/Projects/chef-licensing/components/go
@@ -34,7 +34,7 @@ require (
 	github.com/theckman/yacspin v0.13.12 // indirect
 	github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778 // indirect
 	golang.org/x/sync v0.7.0 // indirect
-	golang.org/x/term v0.6.0 // indirect
+	golang.org/x/term v0.22.0 // indirect
 	golang.org/x/text v0.16.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
