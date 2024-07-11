@@ -194,8 +194,8 @@ func initLicensing() {
 }
 
 func getLicenseServerURL() string {
-	key, _ := os.LookupEnv(LICENSE_SERVER_ENV_VARIABLE_NAME)
-	if key != "" {
+	key, ok := os.LookupEnv(LICENSE_SERVER_ENV_VARIABLE_NAME)
+	if ok && key != "" {
 		return key
 	}
 
