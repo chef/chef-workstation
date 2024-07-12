@@ -351,7 +351,7 @@ GEM
       train-winrm (>= 0.2.5)
       unf_ext (~> 0.0.8.2)
       uuidtools (>= 2.1.5, < 3.0)
-      vault (~> 0.16)
+      vault (~> 0.18.2)
     chef (18.5.0-x64-mingw-ucrt)
       addressable
       aws-sdk-s3 (~> 1.91)
@@ -387,7 +387,7 @@ GEM
       train-winrm (>= 0.2.5)
       unf_ext (~> 0.0.8.2)
       uuidtools (>= 2.1.5, < 3.0)
-      vault (~> 0.16)
+      vault (~> 0.18.2)
       win32-api (~> 1.10.0)
       win32-certstore (~> 0.6.15)
       win32-event (~> 0.6.1)
@@ -429,6 +429,9 @@ GEM
       faraday-http-cache
       tty-prompt (~> 0.23)
       tty-spinner (~> 0.9.3)
+    chef-powershell (18.1.0)
+      ffi (~> 1.15)
+      ffi-yajl (~> 2.4)
     chef-telemetry (1.1.1)
       chef-config
       concurrent-ruby (~> 1.0)
@@ -553,6 +556,8 @@ GEM
     ffi (1.17.0-x86-mingw32)
     ffi-libarchive (1.1.14)
       ffi (~> 1.0)
+    ffi-win32-extensions (1.0.4)
+      ffi
     ffi-yajl (2.6.0)
       libyajl2 (>= 1.2)
     filesize (0.2.0)
@@ -673,6 +678,7 @@ GEM
       tty-prompt (~> 0.17)
       tty-table (~> 0.10)
     ipaddress (0.8.3)
+    iso8601 (0.13.0)
     jmespath (1.6.2)
     json (2.7.2)
     jsonpath (1.1.5)
@@ -836,6 +842,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2024.0702)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.7)
     minitar (0.9)
     minitest (5.24.1)
     mixlib-archive (1.1.7)
@@ -851,14 +858,14 @@ GEM
       mixlib-versioning
       thor
     mixlib-log (3.0.9)
-    mixlib-shellout (3.2.7)
+    mixlib-shellout (3.2.8)
       chef-utils
-    mixlib-shellout (3.2.7-universal-mingw32)
+    mixlib-shellout (3.2.8-universal-mingw32)
       chef-utils
       ffi-win32-extensions (~> 1.0.3)
       win32-process (~> 0.9)
       wmi-lite (~> 1.0)
-    mixlib-shellout (3.2.7-x64-mingw-ucrt)
+    mixlib-shellout (3.2.8-x64-mingw-ucrt)
       chef-utils
       ffi-win32-extensions (~> 1.0.3)
       win32-process (~> 0.9)
@@ -1069,6 +1076,7 @@ GEM
       unicode_utils (~> 1.4)
     strings-ansi (0.2.0)
     strscan (3.1.0)
+    structured_warnings (0.4.0)
     syslog-logger (1.6.8)
     test-kitchen (3.6.0)
       bcrypt_pbkdf (~> 1.0)
@@ -1233,8 +1241,6 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
-    unf (0.1.4)
-      unf_ext
     unf_ext (0.0.8.2)
     unf_ext (0.0.8.2-x64-mingw-ucrt)
     unicode-display_width (2.5.0)
