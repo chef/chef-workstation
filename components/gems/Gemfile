@@ -86,7 +86,11 @@ group(:omnibus_package) do
   gem "kitchen-vra", ">= 3.0"
 
   # knife & plugins
-  gem "knife", ">= 18.2"
+  gem "knife",
+      git: 'https://github.com/chef/chef.git',
+      branch: "ashiqueps/test-workstation-licensing-changes",
+      glob: "knife/knife.gemspec"
+
   gem "knife-azure", ">= 3.0.0"
   gem "knife-ec2", ">= 1.0.28"
   gem "knife-google", ">= 4.2.7"
