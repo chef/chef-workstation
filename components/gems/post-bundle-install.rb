@@ -13,6 +13,7 @@ Dir["#{gem_home}/bundler/gems/*"].each do |gempath|
   next unless matches
 
   gem_name = File.basename(Dir["#{gempath}/*.gemspec"].first, ".gemspec")
+  next if gem_name == "chef-universal-mingw-ucrt"
   # FIXME: should strip any valid ruby platform off of the gem_name if it matches
 
   next unless gem_name
