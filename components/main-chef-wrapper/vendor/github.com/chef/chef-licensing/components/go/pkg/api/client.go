@@ -127,7 +127,7 @@ func parseClientResponse(body []byte) (*LicenseClient, error) {
 		return nil, errors.New(invalidResp.Message)
 
 	}
-	return nil, errors.New("Unable to parse the license client response")
+	return nil, errors.New("unable to parse the license client response")
 }
 
 func getResponseBody(resp *http.Response) []byte {

@@ -34,20 +34,23 @@ func HasUnrestrictedLicenseAdded(newKeys []string, licenseType string) bool {
 		var existingLicenseKeysInFile []string
 		if licenseType == "free" && DoesUserHasActiveTrialLicense() {
 			existingLicenseKeysInFile = FetchLicenseKeysBasedOnType(":trial")
-		} else {
+		} else if userHasActiveTrialOrFreeLicense() {
+			// Handling license addition restriction scenarios only if the current license is an active license
 			existingLicenseKeysInFile = FetchLicenseKeysBasedOnType(":" + licenseType)
 		}
-		if existingLicenseKeysInFile[len(existingLicenseKeysInFile)-1] != newKeys[0] {
-			promptLicenseAdditionRestricted(licenseType, existingLicenseKeysInFile)
-			return false
+		// Only prompt when a new trial license is added
+		if len(existingLicenseKeysInFile) > 0 {
+			if existingLicenseKeysInFile[len(existingLicenseKeysInFile)-1] != newKeys[0] {
+				promptLicenseAdditionRestricted(licenseType, existingLicenseKeysInFile)
+				return false
+			}
 		}
 
 		return true
 	} else {
 		persistAndConcat(newKeys, licenseType)
+		return true
 	}
-
-	return true
 }
 
 func allowedLicencesForAddition() []string {

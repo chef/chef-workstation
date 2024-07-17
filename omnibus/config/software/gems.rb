@@ -77,6 +77,7 @@ build do
   ruby "post-bundle-install.rb", env: env
 
   command "gem list"
+  command "which knife"
 
   appbundle "knife", lockdir: project_dir, gem: "knife", without: %w{development}, env: env
   appbundle "foodcritic", lockdir: project_dir, gem: "chef_deprecations", without: %w{development test}, env: env

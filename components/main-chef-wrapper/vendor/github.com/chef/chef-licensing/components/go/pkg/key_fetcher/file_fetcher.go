@@ -7,6 +7,7 @@ import (
 	"slices"
 	"time"
 
+	"github.com/chef/chef-licensing/components/go/pkg/api"
 	"github.com/chef/chef-licensing/components/go/pkg/config"
 	"gopkg.in/yaml.v2"
 )
@@ -57,6 +58,17 @@ func readLicenseKeyFile() *LicenseFileData {
 		log.Fatal(err)
 	}
 	return li
+}
+
+func userHasActiveTrialOrFreeLicense() bool {
+	li := readLicenseKeyFile()
+	if len(li.Licenses) > 0 {
+		allLicenseKeys := licenseFileFetch()
+		licenseClient, _ := api.GetClient().GetLicenseClient(allLicenseKeys)
+		return (licenseClient.LicenseType == "trial" || licenseClient.LicenseType == "free") && licenseClient.IsActive()
+	} else {
+		return false
+	}
 }
 
 func licenseFileFetch() []string {

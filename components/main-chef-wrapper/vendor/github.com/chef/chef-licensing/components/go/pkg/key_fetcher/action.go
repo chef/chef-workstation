@@ -161,26 +161,25 @@ func (ad ActionDetail) DoesLicenseHaveValidPattern() string {
 }
 
 func (ad ActionDetail) IsLicenseValidOnServer() string {
-	spinner, err := spinner.GetSpinner()
+	spn, err := spinner.GetSpinner("License Validation")
 	if err != nil {
 		fmt.Printf("Unable to start the spinner\n")
 	}
-	_ = spinner.Start()
-	spinner.Message("In progress")
+	spinner.StartSpinner(spn, "In Progress")
+
 	isValid, message := api.GetClient().ValidateLicenseAPI(GetLastUserInput(), true)
 
+	var stopChar string
+	var stopColor string
 	if isValid {
-		spinner.StopCharacter("✓")
-		spinner.StopColors("green")
+		stopChar = "✓"
+		stopColor = "green"
 	} else {
-		spinner.StopCharacter("✖")
-		spinner.StopColors("red")
+		stopChar = "✖"
+		stopColor = "red"
 		PromptInput.FailureMessage = message.Error()
 	}
-
-	spinner.Message("Done")
-	_ = spinner.Stop()
-
+	spinner.StopSpinner(spn, "Done", stopChar, stopColor)
 	return ad.ResponsePathMap[strconv.FormatBool(isValid)]
 }
 

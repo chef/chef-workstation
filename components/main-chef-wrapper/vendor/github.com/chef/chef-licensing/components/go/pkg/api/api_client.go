@@ -5,8 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"net/url"
+	"sync"
 
 	config "github.com/chef/chef-licensing/components/go/pkg/config"
 	// licenseclient "github.com/progress-platform-services/chef-platform-license-management/public/client/license-management/license"
@@ -22,10 +24,17 @@ type APIClient struct {
 	Headers    map[string]string
 }
 
-var apiClient *APIClient
+var (
+	apiClient *APIClient
+	once      sync.Once
+)
 
 func (c *APIClient) BaseURL() string {
-	return fmt.Sprintf("%s/%s/", c.URL, CLIENT_VERSION)
+	baseUrl, err := url.Parse(fmt.Sprintf("%s/%s/", c.URL, CLIENT_VERSION))
+	if err != nil {
+		log.Fatal("Error parsing the provided URL: ", err)
+	}
+	return baseUrl.String()
 }
 
 // func NewAPIClient() licenseclient.LicenseClient {
@@ -58,9 +67,9 @@ func NewClient() *APIClient {
 }
 
 func GetClient() *APIClient {
-	if apiClient == nil {
+	once.Do(func() {
 		apiClient = NewClient()
-	}
+	})
 
 	return apiClient
 }
@@ -111,9 +120,12 @@ func (c *APIClient) doRequest(method, endpoint string, body io.Reader) (*http.Re
 	return c.HTTPClient.Do(req)
 }
 
-func (c *APIClient) decodeJSON(resp *http.Response, v interface{}) error {
+func (c *APIClient) decodeJSON(resp *http.Response, v interface{}) {
 	defer resp.Body.Close()
-	return json.NewDecoder(resp.Body).Decode(v)
+	err := json.NewDecoder(resp.Body).Decode(v)
+	if err != nil {
+		log.Fatal("Failed to parse the response from the server:", err)
+	}
 }
 
 func (c *APIClient) encodeJSON(v interface{}) (io.Reader, error) {
