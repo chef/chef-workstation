@@ -74,10 +74,10 @@ build do
   bundle "config set --local without '#{excluded_groups.join(" ")}'", env: env
   bundle "install --jobs 10", env: env
 
-  command "gem list"
+  # command "gem list"
 
   # command "/opt/chef-workstation/embedded/bin/gem install knife --git https://github.com/chef/chef.git --branch ashiqueps/test-workstation-licensing-changes --glob knife/knife.gemspec --install-dir /opt/chef-workstation/embedded/lib/ruby/gems/3.1.0"
-  command "wget https://courier-testing-assets.s3.amazonaws.com/knife-18.5.0.gem && gem install knife-18.5.0.gem --install-dir /opt/chef-workstation/embedded/lib/ruby/gems/3.1.0"
+  # command "wget https://courier-testing-assets.s3.amazonaws.com/knife-18.5.0.gem && gem install knife-18.5.0.gem --install-dir /opt/chef-workstation/embedded/lib/ruby/gems/3.1.0"
   ruby "post-bundle-install.rb", env: env
 
   command "gem list"
