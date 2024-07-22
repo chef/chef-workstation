@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 24.7.1067 -->
+## [24.7.1067](https://github.com/chef/chef-workstation/tree/24.7.1067) (2024-07-22)
+
+#### Merged Pull Requests
+- Bump kitchen-dokken to 2.20.6 [#3250](https://github.com/chef/chef-workstation/pull/3250) ([KawaiDesu](https://github.com/KawaiDesu))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=24.6.1066 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Bump kitchen-dokken to 2.20.6 [#3250](https://github.com/chef/chef-workstation/pull/3250) ([KawaiDesu](https://github.com/KawaiDesu)) <!-- 24.7.1067 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
