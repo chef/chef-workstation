@@ -25,6 +25,7 @@ import (
 	"os/exec"
 	"path"
 	"runtime"
+	"slices"
 
 	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
 
@@ -44,6 +45,8 @@ const (
 	LICENSE_SERVER_ENV_VARIABLE_NAME = "CHEF_LICENSE_SERVER"
 	EXECUTABLE_NAME                  = "chef"
 )
+
+var LICENSE_EXCLUDED_COMMANDS = []string{"license", "shell-init"}
 
 func doStartupTasks() error {
 	createDotChef()
@@ -185,7 +188,7 @@ func main() {
 }
 
 func initLicensing() {
-	if os.Args[1] == "license" {
+	if slices.Contains(LICENSE_EXCLUDED_COMMANDS, os.Args[1]) {
 		return
 	}
 
