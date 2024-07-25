@@ -84,13 +84,13 @@ group(:omnibus_package) do
   gem "kitchen-vagrant", ">= 1.9"
   gem "kitchen-vcenter", ">= 2.8"
   gem "kitchen-vra", ">= 3.0"
-  gem "knife", ">= 18.2"
+  # gem "knife", ">= 18.2"
 
   # # knife & plugins
-  # gem "knife",
-  #     git: 'https://github.com/chef/chef.git',
-  #     branch: "ashiqueps/test-workstation-licensing-changes",
-  #     glob: "knife/knife.gemspec"
+  gem "knife",
+      git: 'https://github.com/chef/chef.git',
+      branch: "ashiqueps/test-workstation-licensing-changes",
+      glob: "knife/knife.gemspec"
 
   gem "knife-azure", ">= 3.0.0"
   gem "knife-ec2", ">= 1.0.28"
