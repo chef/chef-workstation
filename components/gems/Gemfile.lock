@@ -19,11 +19,11 @@ GIT
 
 GIT
   remote: https://github.com/chef/chef.git
-  revision: 096f1381475cf61698bbd9da01b61324f18573dd
+  revision: 6a34ac8f705755b99af005fc7cd3eaffa973079e
   branch: ashiqueps/test-workstation-licensing-changes
   glob: knife/knife.gemspec
   specs:
-    knife (18.5.0)
+    knife (18.5.1)
       bcrypt_pbkdf (~> 1.1)
       chef (>= 18)
       chef-config (>= 18)
