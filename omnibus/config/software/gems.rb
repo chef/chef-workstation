@@ -79,6 +79,9 @@ build do
   if windows?
     command "powershell.exe -Command \"[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri https://courier-testing-assets.s3.amazonaws.com/knife-18.5.1.gem -OutFile #{install_dir}\\embedded\\knife-18.5.1.gem\""
     command "gem install #{install_dir}\\embedded\\knife-18.5.1.gem --install-dir #{install_dir}\\embedded\\lib\\ruby\\gems\\3.1.0"
+
+    command "powershell.exe -Command \"[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri https://courier-testing-assets.s3.amazonaws.com/chef-cli-5.6.14.gem -OutFile #{install_dir}\\embedded\\chef-cli-5.6.14.gem\""
+    command "gem install #{install_dir}\\embedded\\chef-cli-5.6.14.gem --install-dir #{install_dir}\\embedded\\lib\\ruby\\gems\\3.1.0"
   else
     # command "/opt/chef-workstation/embedded/bin/gem install knife --git https://github.com/chef/chef.git --branch ashiqueps/test-workstation-licensing-changes --glob knife/knife.gemspec --install-dir /opt/chef-workstation/embedded/lib/ruby/gems/3.1.0"
     command "wget https://courier-testing-assets.s3.amazonaws.com/knife-18.5.1.gem && gem install knife-18.5.1.gem --install-dir /opt/chef-workstation/embedded/lib/ruby/gems/3.1.0"
