@@ -185,7 +185,7 @@ func main() {
 }
 
 func initLicensing() {
-	if os.Args[1] == "license" {
+	if os.Args[1] == "license" || os.Args[1] == "shell-init" {
 		return
 	}
 
