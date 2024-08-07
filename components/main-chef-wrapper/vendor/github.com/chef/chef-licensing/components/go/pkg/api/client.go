@@ -123,11 +123,18 @@ func parseClientResponse(body []byte) (*LicenseClient, error) {
 
 	var invalidResp apiResponse
 	err = json.Unmarshal(body, &invalidResp)
+	respErr := errors.New("unable to parse the server response")
 	if err == nil && !invalidResp.Data {
-		return nil, errors.New(invalidResp.Message)
-
+		if strings.Contains(invalidResp.Message, "not entitled") {
+			respErr = errors.New("software is not entitled")
+		} else {
+			respErr = errors.New(invalidResp.Message)
+		}
+	} else if err != nil {
+		respErr = err
 	}
-	return nil, errors.New("Unable to parse the license client response")
+
+	return nil, respErr
 }
 
 func getResponseBody(resp *http.Response) []byte {

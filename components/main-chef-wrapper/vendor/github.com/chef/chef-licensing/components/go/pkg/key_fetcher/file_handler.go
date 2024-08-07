@@ -3,6 +3,7 @@ package keyfetcher
 import "os"
 
 type FileHandler interface {
+	CheckFilePresence(filename string) bool
 	ReadFile(filename string) ([]byte, error)
 	WriteFile(filename string, data []byte, perm os.FileMode) error
 }
@@ -17,9 +18,19 @@ func (LicenseFileHandler) WriteFile(filename string, data []byte, perm os.FileMo
 	return os.WriteFile(filename, data, perm)
 }
 
+func (LicenseFileHandler) CheckFilePresence(filename string) bool {
+	_, err := os.Stat("/Users/asaidala/.chef/licenses.yaml")
+	if os.IsNotExist(err) {
+		return false
+	} else {
+		return true
+	}
+}
+
 type MockFileHandler struct {
 	Content []byte
 	Error   error
+	Present bool
 }
 
 func (m MockFileHandler) ReadFile(filename string) ([]byte, error) {
@@ -28,6 +39,10 @@ func (m MockFileHandler) ReadFile(filename string) ([]byte, error) {
 
 func (m MockFileHandler) WriteFile(filename string, data []byte, perm os.FileMode) error {
 	return m.Error
+}
+
+func (m MockFileHandler) CheckFilePresence(filename string) bool {
+	return m.Present
 }
 
 var fileHandler *FileHandler

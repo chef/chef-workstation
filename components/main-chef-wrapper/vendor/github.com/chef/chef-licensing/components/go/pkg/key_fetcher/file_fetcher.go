@@ -7,6 +7,7 @@ import (
 	"slices"
 	"time"
 
+	"github.com/chef/chef-licensing/components/go/pkg/api"
 	"github.com/chef/chef-licensing/components/go/pkg/config"
 	"gopkg.in/yaml.v2"
 )
@@ -29,6 +30,14 @@ type LicenseData struct {
 	UpdateTime  string `yaml:":update_time"`
 }
 
+func FetchLicenseKeys() (out []string) {
+	content := readLicenseKeyFile()
+	for _, key := range content.Licenses {
+		out = append(out, key.LicenseKey)
+	}
+	return
+}
+
 func FetchLicenseKeysBasedOnType(licenseType string) (out []string) {
 	content := readLicenseKeyFile()
 	for _, key := range content.Licenses {
@@ -42,12 +51,13 @@ func FetchLicenseKeysBasedOnType(licenseType string) (out []string) {
 func readLicenseKeyFile() *LicenseFileData {
 	li := &LicenseFileData{}
 	filePath := licenseFilePath()
-	info, _ := os.Stat(filePath)
-	if info == nil {
+	handler := *GetFileHandler()
+	exists := handler.CheckFilePresence(filePath)
+	if !exists {
 		return li
 	}
 
-	data, err := (*GetFileHandler()).ReadFile(filePath)
+	data, err := handler.ReadFile(filePath)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -57,6 +67,17 @@ func readLicenseKeyFile() *LicenseFileData {
 		log.Fatal(err)
 	}
 	return li
+}
+
+func userHasActiveTrialOrFreeLicense() bool {
+	li := readLicenseKeyFile()
+	if len(li.Licenses) > 0 {
+		allLicenseKeys := licenseFileFetch()
+		licenseClient, _ := api.GetClient().GetLicenseClient(allLicenseKeys)
+		return (licenseClient.LicenseType == "trial" || licenseClient.LicenseType == "free") && licenseClient.IsActive()
+	} else {
+		return false
+	}
 }
 
 func licenseFileFetch() []string {

@@ -9,11 +9,8 @@ require (
 	github.com/spf13/cobra v1.8.0
 	github.com/stretchr/testify v1.9.0
 	golang.org/x/sys v0.22.0
+	github.com/chef/chef-licensing/components/go v1.0.3
 )
-
-replace github.com/chef/chef-licensing/components/go => /Users/asaidala/Projects/chef-licensing/components/go
-
-require github.com/chef/chef-licensing/components/go v0.0.0
 
 require (
 	github.com/atotto/clipboard v0.1.4 // indirect

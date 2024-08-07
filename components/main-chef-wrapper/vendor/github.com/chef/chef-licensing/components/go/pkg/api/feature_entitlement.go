@@ -1,5 +1,10 @@
 package api
 
+import (
+	"fmt"
+	"net/http"
+)
+
 type FeatureEntitlement struct {
 	Entitled   bool            `json:"entitled"`
 	EntitledBy map[string]bool `json:"entitledBy"`
@@ -23,6 +28,9 @@ func (c APIClient) GetFeatureByName(featureName string, keys []string) (*Feature
 	if err != nil {
 		return nil, err
 	}
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("received non-200 response: %d", resp.StatusCode)
+	}
 
 	var data featureResponse
 	c.decodeJSON(resp, &data)
@@ -41,6 +49,9 @@ func (c APIClient) GetFeatureByGUID(featureID string, keys []string) (*FeatureEn
 	resp, err := c.doPOSTRequest("featurebyid", params)
 	if err != nil {
 		return nil, err
+	}
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("received non-200 response: %d", resp.StatusCode)
 	}
 
 	var data featureResponse

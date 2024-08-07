@@ -8,10 +8,42 @@ import (
 	"strings"
 
 	"github.com/chef/chef-licensing/components/go/pkg/api"
-	"golang.org/x/term"
+	"github.com/chef/chef-licensing/components/go/pkg/spinner"
 )
 
 var licenseKeys []string
+
+func FetchAndPersist() []string {
+	if isLocalServer() {
+		return OnPremFetchAndPersist()
+	} else {
+		return GlobalFetchAndPersist()
+	}
+}
+
+func OnPremFetchAndPersist() []string {
+	newKeys := fetchFromArg()
+	if len(newKeys) > 0 {
+		log.Fatal("'--chef-license-key <value>' option is not supported with airgapped environment. You cannot add license from airgapped environment.")
+	}
+
+	if len(licenseKeys) != 0 {
+		isActive, startID := isLicenseActive(getLicenseKeys())
+		if isActive {
+			return licenseKeys
+		} else if spinner.IsTTY() {
+			fetchInteractively(startID)
+		}
+	}
+
+	licenseClient, _ := api.GetClient().GetLicenseClient(licenseKeys)
+	if licenseClient != nil && (!licenseClient.IsExpired() && !licenseClient.IsExhausted()) || licenseClient.IsCommercial() {
+		return licenseKeys
+	}
+
+	log.Fatal("Unable to obtain a License Key.")
+	return licenseKeys
+}
 
 func GlobalFetchAndPersist() []string {
 	// Load the existing licenseKeys from the license file
@@ -19,15 +51,15 @@ func GlobalFetchAndPersist() []string {
 		appendLicenseKey(key)
 	}
 
-	newKeys := []string{fetchFromArg()}
-	licenseType := validateAndFetchLicenseType(newKeys[0])
+	newKeys := fetchFromArg()
+	licenseType := validateAndFetchLicenseType(newKeys)
 	if licenseType != "" && !HasUnrestrictedLicenseAdded(newKeys, licenseType) {
 		appendLicenseKey(newKeys[0])
 		return licenseKeys
 	}
 
-	newKeys = []string{fetchFromEnv()}
-	licenseType = validateAndFetchLicenseType(newKeys[0])
+	newKeys = fetchFromEnv()
+	licenseType = validateAndFetchLicenseType(newKeys)
 	if licenseType != "" && !HasUnrestrictedLicenseAdded(newKeys, licenseType) {
 		appendLicenseKey(newKeys[0])
 		return licenseKeys
@@ -35,15 +67,13 @@ func GlobalFetchAndPersist() []string {
 
 	// Return keys if license keys are active and not expired or expiring
 	// Return keys if there is any error in /client API call, and do not block the flow.
-	// Client API possible errors will be handled in software entitlement check call (made after this)
-	// client_api_call_error is set to true when there is an error in licenses_active? call
 	isActive, startID := isLicenseActive(getLicenseKeys())
 	fileClient, _ := api.GetClient().GetLicenseClient(getLicenseKeys(), true)
 	if len(getLicenseKeys()) > 0 && isActive && fileClient.IsCommercial() {
 		return getLicenseKeys()
 	}
 
-	if isTTY() {
+	if spinner.IsTTY() {
 		newKeys = fetchInteractively(startID)
 		if len(newKeys) > 0 {
 			licenseClient, _ := api.GetClient().GetLicenseClient(newKeys)
@@ -53,6 +83,8 @@ func GlobalFetchAndPersist() []string {
 				return licenseKeys
 			}
 		}
+	} else {
+		newKeys = []string{}
 	}
 
 	if len(newKeys) == 0 && fileClient != nil && ((!fileClient.IsExpired() && !fileClient.IsExhausted()) || fileClient.IsCommercial()) {
@@ -76,18 +108,20 @@ func appendLicenseKey(key string) {
 	licenseKeys = append(licenseKeys, key)
 }
 
-func fetchFromArg() string {
+func fetchFromArg() (out []string) {
 	var licenseKey string
 	flag.StringVar(&licenseKey, "chef-license-key", "", "Chef license key")
 
 	flag.Parse()
 	args := flag.Args()
-	if len(args) == 0 {
-		return licenseKey
-	} else {
+	if len(args) != 0 {
 		licenseKey = getFlagArgs(args)
-		return licenseKey
 	}
+	if licenseKey != "" {
+		out = append(out, licenseKey)
+	}
+
+	return
 }
 
 func getFlagArgs(args []string) string {
@@ -116,30 +150,42 @@ func getFlagArgs(args []string) string {
 	return licensekey
 }
 
-func fetchFromEnv() string {
-	key, _ := os.LookupEnv("CHEF_LICENSE_KEY")
+func fetchFromEnv() (out []string) {
+	key, ok := os.LookupEnv("CHEF_LICENSE_KEY")
+	if ok && key != "" {
+		out = append(out, key)
+	}
 
-	return key
+	return
 }
 
 func fetchInteractively(startID string) []string {
 	return StartInteractions(startID)
 }
 
-func validateAndFetchLicenseType(key string) string {
-	var licenseType string
-	if key == "" {
-		return licenseType
+func validateAndFetchLicenseType(keys []string) (licenseType string) {
+	if len(keys) == 0 {
+		return
 	}
-
-	isValid, _ := api.GetClient().ValidateLicenseAPI(key)
+	isValid, _ := api.GetClient().ValidateLicenseAPI(keys[0])
 	if isValid {
-		licenseType = FetchLicenseType([]string{key})
+		licenseType = FetchLicenseType(keys)
 	}
 
 	return licenseType
 }
 
-func isTTY() bool {
-	return term.IsTerminal(int(os.Stdout.Fd()))
+func isLocalServer() bool {
+	keys, err := api.GetClient().ListLicensesAPI()
+	if err != nil && err.Error() == "not found" {
+		return false
+	} else if err != nil {
+		log.Fatal("Something went wrong with the licensing server: ", err)
+	}
+
+	for _, key := range keys {
+		appendLicenseKey(key)
+	}
+
+	return true
 }

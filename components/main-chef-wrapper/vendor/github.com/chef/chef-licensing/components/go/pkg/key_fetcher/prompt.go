@@ -173,21 +173,13 @@ func validateLicenseFormat(key string) error {
 }
 
 func getLicense() api.LicenseClient {
-	spinner, err := spinner.GetSpinner()
+	spn, err := spinner.GetSpinner("License Validation")
 	if err != nil {
 		fmt.Printf("Unable to start the spinner\n")
 	}
-	_ = spinner.Start()
-	// spinner.Message("In progress")
-	spinner.Suffix("")
+	spinner.StartSpinner(spn, "In Progress")
 	client, _ := api.GetClient().GetLicenseClient([]string{PromptInput.LicenseID})
-
-	// spinner.StopCharacter("✓")
-	// spinner.StopColors("green")
-
-	spinner.Message("Done")
-
-	_ = spinner.Stop()
+	spinner.StopSpinner(spn, "", "", "")
 
 	return *client
 }

@@ -1,5 +1,10 @@
 package api
 
+import (
+	"fmt"
+	"net/http"
+)
+
 type entitlementsResponse struct {
 	Data       map[string][]Entitlement `json:"data"`
 	StatusCode int                      `json:"status"`
@@ -30,6 +35,9 @@ func (c APIClient) GetAllEntitlementsByLisenceID(keys []string) (*map[string][]E
 	resp, err := c.doPOSTRequest("entitlements", params)
 	if err != nil {
 		return nil, err
+	}
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("received non-200 response: %d", resp.StatusCode)
 	}
 
 	var data entitlementsResponse
