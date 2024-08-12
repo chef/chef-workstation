@@ -1,26 +1,23 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 24.8.1068 -->
-## [24.8.1068](https://github.com/chef/chef-workstation/tree/24.8.1068) (2024-08-09)
-
-#### Merged Pull Requests
-- updated doc with the current updated versions [#3267](https://github.com/chef/chef-workstation/pull/3267) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=24.6.1066 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- updated doc with the current updated versions [#3267](https://github.com/chef/chef-workstation/pull/3267) ([nikhil2611](https://github.com/nikhil2611)) <!-- 24.8.1068 -->
-- Bump kitchen-dokken to 2.20.6 [#3250](https://github.com/chef/chef-workstation/pull/3250) ([KawaiDesu](https://github.com/KawaiDesu)) <!-- 24.7.1067 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [24.8.1068](https://github.com/chef/chef-workstation/tree/24.8.1068) (2024-08-12)
+
+#### Merged Pull Requests
+- Bump kitchen-dokken to 2.20.6 [#3250](https://github.com/chef/chef-workstation/pull/3250) ([KawaiDesu](https://github.com/KawaiDesu))
+- updated doc with the current updated versions [#3267](https://github.com/chef/chef-workstation/pull/3267) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_stable_release -->
+
 ## [24.6.1066](https://github.com/chef/chef-workstation/tree/24.6.1066) (2024-06-10)
 
 #### Merged Pull Requests
 - [CHEF-8498] Ruby implementation of c_rehash script  [#3234](https://github.com/chef/chef-workstation/pull/3234) ([ashiqueps](https://github.com/ashiqueps))
 - Updated dependencies to latest for upcoming chef-workstation release [#3240](https://github.com/chef/chef-workstation/pull/3240) ([nikhil2611](https://github.com/nikhil2611))
-<!-- latest_stable_release -->
 
 ## [24.4.1064](https://github.com/chef/chef-workstation/tree/24.4.1064) (2024-04-30)
 
