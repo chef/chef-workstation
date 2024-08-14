@@ -89,7 +89,7 @@ group(:omnibus_package) do
   # # knife & plugins
   gem "knife",
       git: 'https://github.com/chef/chef.git',
-      branch: "ashiqueps/test-workstation-licensing-changes",
+      branch: "ashiqueps/license-bootstrap-only",
       glob: "knife/knife.gemspec"
 
   gem "knife-azure", ">= 3.0.0"
@@ -104,7 +104,7 @@ group(:omnibus_package) do
   # ed25519 ssh key support done here as it's a native gem we can't put in train
   gem "ed25519"
   gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
-  gem "chef-cli", git: "https://github.com/ashiqueps/chef-cli", branch: "CHEF-2616-license-command"
+  gem "chef-cli"#, git: "https://github.com/ashiqueps/chef-cli", branch: "CHEF-2616-license-command"
   gem "chef-apply", ">= 0.4.16"
 
   # chef-telemetry previously pulled in an unecessary library (http)

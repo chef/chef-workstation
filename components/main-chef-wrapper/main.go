@@ -183,7 +183,7 @@ func main() {
 		os.Exit(0)
 	}
 
-	initLicensing()
+	// initLicensing()
 	cmd.Execute()
 }
 
