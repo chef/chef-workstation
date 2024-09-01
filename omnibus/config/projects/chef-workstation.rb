@@ -89,7 +89,7 @@ if windows?
   dependency "ruby-windows-system-libraries"
 end
 
-dependency "chef-workstation-app"
+# dependency "chef-workstation-app"
 dependency "uninstall-scripts"
 dependency "ruby-env-script"
 dependency "ruby-cleanup"

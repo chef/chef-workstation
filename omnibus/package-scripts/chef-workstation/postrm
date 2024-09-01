@@ -13,7 +13,7 @@ cleanup_symlinks() {
   # Keep removed symlinks in this list, so that removal of upgraded packages still cleans up
   # leftovers from older versions. We keep the push jobs values here to cleanup old releases
   workstation_binaries="berks chef chef-cli chef-apply chef-shell chef-solo chef-vault cookstyle dco delivery foodcritic inspec kitchen knife ohai push-apply pushy-client pushy-service-manager chef-client mixlib-install chef-zero fauxhai"
-  binaries="chef-run chef-workstation-app $workstation_binaries chef-analyze hab"
+  binaries="chef-run $workstation_binaries chef-analyze hab"
 
   for binary in $binaries; do
     rm -f "$PREFIX/bin/$binary"

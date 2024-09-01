@@ -44,13 +44,13 @@
     <Binary Id="CustomActionFastMsiDLL"
       SourceFile="CustomActionFastMsi.CA.dll" />
 
-    <Property Id="WixQuietExecCmdLine" Value='"[WindowsFolder]\System32\taskkill.exe" /T /F /IM "Chef Workstation App*"' />
+    <%# <Property Id="WixQuietExecCmdLine" Value='"[WindowsFolder]\System32\taskkill.exe" /T /F /IM "Chef Workstation App*"' /> %>
 
-    <Property Id="WixShellExecTarget" Value="[WSAPPDIR]\Chef Workstation App.exe" />
+    <%# <Property Id="WixShellExecTarget" Value="[WSAPPDIR]\Chef Workstation App.exe" />
     <CustomAction Id="LaunchApplication"
         BinaryKey="WixCA"
         DllEntry="WixShellExec"
-        Impersonate="yes" />
+        Impersonate="yes" /> %>
 
     <CustomAction Id="TaskKill"
       BinaryKey="WixCA"
@@ -170,10 +170,10 @@
                 <RegistryKey Root="HKCR" Key="CLSID\{9008CA83-83E4-41FF-9C07-696E2CC47B52}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" />
               </Component>
             </Directory>
-            <Directory Id="COMPONENTS" Name="components">
+            <%# <Directory Id="COMPONENTS" Name="components">
               <Directory Id="WSAPPDIR" Name="chef-workstation-app">
               </Directory>
-            </Directory>
+            </Directory> %>
             <Directory Id="EMBEDDED" Name="embedded" >
               <Directory Id="EMBEDDEDBIN" Name="bin" >
                 <Component Id="ChefWSEnvHacks" Guid="{3498A65D-33D8-4CF2-BAB8-6FA072A7070D}" >
@@ -197,18 +197,18 @@
               Show="minimized"
               Icon="cwsps.ico"/>
           </Component>
-          <Component Id="ChefWSAppStartMenuShortcut" Guid="{6CFD92E5-B45F-48F2-AC17-54B647D65E66}">
+          <%# <Component Id="ChefWSAppStartMenuShortcut" Guid="{6CFD92E5-B45F-48F2-AC17-54B647D65E66}">
             <Shortcut Id="ChefWSAppStartMenuShortcutDef"
               Name="!(loc.ChefWSAppShortcutName)"
               Description="!(loc.ChefWSAppShortcutDesc)"
               Target="[WSAPPDIR]\Chef Workstation App.exe"
               Icon="cws.ico"/>
-          </Component>
+          </Component> %>
         </Directory>
       </Directory>
 
       <!-- This component puts the WS App in the common autostart folder [if the Feature is selected] -->
-      <Directory Id="WIX_DIR_COMMON_ALTSTARTUP" >
+      <%# <Directory Id="WIX_DIR_COMMON_ALTSTARTUP" >
         <Component Id="ChefWSAppAutostartShortcut" Guid="{DF9613D2-4BCA-4D81-8BFA-989070EF1633}">
           <Shortcut Id="ChefAppWSAutostartShortcutDef"
             Name="!(loc.ChefWSAppShortcutName)"
@@ -216,7 +216,7 @@
             Target="[WSAPPDIR]\Chef Workstation App.exe"
             Icon="cws.ico"/>
         </Component>
-      </Directory>
+      </Directory> %>
 
       <Directory Id="DesktopFolder" Name="Desktop">
         <Component Id="PowershellDesktopShortcut" Guid="{396E22A6-A7B6-4AA1-B63C-83A3DD7007A8}">
@@ -263,14 +263,14 @@
       </Feature>
     </Feature>
 
-    <Feature Id="ChefWSApp" Title="!(loc.FeatureChefWSApp)" Description="!(loc.FeatureChefWSAppDesc)"
+    <%# <Feature Id="ChefWSApp" Title="!(loc.FeatureChefWSApp)" Description="!(loc.FeatureChefWSAppDesc)"
       Level="1" AllowAdvertise="no">
       <ComponentRef Id="ChefWSAppStartMenuShortcut" />
       <Feature Id="ChefWSAppAutostartFeature" Title="!(loc.FeatureChefWSAppAutostart)"
                Description="!(loc.FeatureChefWSAppAutostartDesc)" Level="1" AllowAdvertise="no" >
         <ComponentRef Id="ChefWSAppAutostartShortcut" />
       </Feature>
-    </Feature>
+    </Feature> %>
 
     <!--
     UI Stuff
@@ -282,7 +282,7 @@
     <Property Id="ARPPRODUCTICON" Value="cws16.ico" />
     <Property Id="ARPHELPLINK" Value="https://community.chef.io/tools/chef-workstation/" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
-    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="!(loc.LaunchChefWSApp)" />
+    <%# <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="!(loc.LaunchChefWSApp)" /> %>
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1"/>
 
     <!-- Use our custom UI sequence which is based on WixUI_FeatureTree  - the default WIX installer UI that includes a feature tree
