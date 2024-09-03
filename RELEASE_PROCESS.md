@@ -22,7 +22,6 @@ Examine the [open PRs](https://github.com/chef/chef-workstation/pulls) on the Ch
 
 Dependabot and Expeditor are configured to create PRs when dependent packages are updated. Those processes can sometimes fail or there may be a pending PR in a dependent package that should be merged. Check the following repos and ensure they have the desired PRs merged, released, and updated in Chef Workstation:
 
-<!-- * [Chef Workstation App](https://github.com/chef/chef-workstation-app) -->
 * [Chef CLI](https://github.com/chef/chef-cli)
 * [Chef Analyze](https://github.com/chef/chef-analyze/)
 * [Chef Infra Client](https://github.com/chef/chef/)
