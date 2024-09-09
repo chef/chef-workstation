@@ -130,7 +130,7 @@ package :msi do
   fast_msi true
   upgrade_code "9870C512-DF2C-43D9-8C28-7ACD60ABBE27"
   wix_light_extension "WixUtilExtension"
-  signing_identity "769E6AF679126F184850AAC7C5C823A80DB3ADAA", machine_store: false, keypair_alias: "key_495941360"
+  signing_identity "7D16AE73AB249D473362E9332D029089DBBB89B2", machine_store: false, keypair_alias: "key_875762014"
 end
 
 # We don't support appx builds, and they eat a lot of time.
