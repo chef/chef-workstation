@@ -9,7 +9,6 @@
 
 Chef Workstation installs everything you need to get started using Chef products on Windows, Mac and Linux. It includes:
 
-* Chef Workstation App
 * Chef Infra Client
 * Chef InSpec
 * Chef Habitat

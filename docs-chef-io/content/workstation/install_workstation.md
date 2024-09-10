@@ -41,10 +41,6 @@ Minimum system requirements:
 - Disk: 8GB
 - Additional memory and storage space may be necessary to take advantage of Chef Workstation tools such as Test Kitchen which creates and manages virtualized test environments.
 
-Additional Chef Workstation App Requirements:
-
-- On Linux, you must have a graphical window manager running with support for system tray icons. For some distributions you may also need to install additional libraries. After you install the Chef Workstation package from the terminal, the post-install message will tell you which, if any, additional libraries are required to run the Chef Workstation App.
-
 ## Installation
 
 The Chef Workstation installer must run as a privileged user.
