@@ -80,6 +80,17 @@ for binary in $binaries; do
   ln -sf "$INSTALLER_DIR/bin/$binary" $PREFIX/bin || error_exit "Cannot link $binary to $PREFIX/bin"
 done
 
+if is_darwin; then
+
+  FILE="$HOME/Library/LaunchAgents/io.chef.chef-workstation.app.plist"
+
+  if [ -f "$FILE" ]; then
+    sudo -u $USER launchctl unload $HOME/Library/LaunchAgents/io.chef.chef-workstation.app.plist
+    sudo rm -rf $HOME/Library/LaunchAgents/io.chef.chef-workstation.app.plist
+  fi
+  sudo rm -rf '/Applications/Chef Workstation App.app'
+fi
+
 echo ""
 echo "Thank you for installing Chef Workstation!"
 echo "You can find some tips on getting started at https://docs.chef.io/workstation/getting_started/"
