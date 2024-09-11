@@ -89,6 +89,9 @@ if is_darwin; then
     sudo rm -rf $HOME/Library/LaunchAgents/io.chef.chef-workstation.app.plist
   fi
   sudo rm -rf '/Applications/Chef Workstation App.app'
+  app_launcher=chef_workstation_app_launcher
+  su "$USER" $INSTALLER_DIR/bin/$app_launcher remove
+
 fi
 
 echo ""
