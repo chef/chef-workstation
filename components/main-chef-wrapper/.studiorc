@@ -6,7 +6,7 @@ hab pkg install chef/studio-common >/dev/null
 source "$(hab pkg path chef/studio-common)/bin/studio-common"
 
 # switch all go commands to use the vendor/ directory
-export GOFLAGS="-mod=vendor"
+#export GOFLAGS="-mod=vendor"
 
 # Specify where to put 'go installed' binaries
 export GOBIN=/src/bin
