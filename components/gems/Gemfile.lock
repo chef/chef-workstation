@@ -299,7 +299,7 @@ GEM
     azure_mgmt_storage (0.23.0)
       ms_rest_azure (~> 0.12.0)
     base64 (0.2.0)
-    bcrypt_pbkdf (1.1.1-x86_64-darwin)
+    bcrypt_pbkdf (1.1.1)
     berkshelf (8.0.9)
       chef (>= 15.7.32)
       chef-config
@@ -435,6 +435,9 @@ GEM
       mixlib-config (>= 2.2.12, < 4.0)
       mixlib-shellout (>= 2.0, < 4.0)
       tomlrb (~> 1.2)
+    chef-powershell (18.1.0)
+      ffi (~> 1.15)
+      ffi-yajl (~> 2.4)
     chef-licensing (1.0.2)
       activesupport (~> 7.0, < 7.1)
       chef-config (>= 15)
