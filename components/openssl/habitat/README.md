@@ -1,13 +1,8 @@
-[![Build Status](https://dev.azure.com/chefcorp-partnerengineering/Chef%20Base%20Plans/_apis/build/status/chef-base-plans.openssl?branchName=master)](https://dev.azure.com/chefcorp-partnerengineering/Chef%20Base%20Plans/_build/latest?definitionId=119&branchName=master)
-
-# openssl
+# OpenSSL with FIPS and Legacy providers
 
 OpenSSL is an open source project that provides a robust, commercial-grade, and full-featured toolkit for the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols. It is also a general-purpose cryptography library.  See [documentation](https://www.openssl.org)
 
-## Maintainers
-
-* The Core Planners: <chef-core-planners@chef.io>
-
+The FIPS and Legacy providers are activated in this specially designed OpenSSL package to improve compatibility with the Chef Workstation.
 ## Type of Package
 
 Binary package
