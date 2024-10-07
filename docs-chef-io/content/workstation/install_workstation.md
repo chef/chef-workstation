@@ -98,26 +98,26 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
     - Red Hat Enterprise Linux
 
       ```bash
-      wget https://packages.chef.io/files/stable/chef-workstation/<WORKSTATION_VERSION>/el/<RHEL_VERSION>/chef-workstation-<WORKSTATION_VERSION>-1.el<RHEL_VERSION>.x86_64.rpm
+      wget https://chefdownload-commercial.chef.io/files/stable/chef-workstation/<WORKSTATION_VERSION>/el/<RHEL_VERSION>/chef-workstation-<WORKSTATION_VERSION>-1.el<RHEL_VERSION>.x86_64.rpm
       ```
 
       For example:
 
       ```sh
-      wget https://packages.chef.io/files/stable/chef-workstation/24.4.1064/el/8/chef-workstation-24.4.1064-1.el8.x86_64.rpm
+      wget https://chefdownload-commercial.chef.io/files/stable/chef-workstation/24.4.1064/el/8/chef-workstation-24.4.1064-1.el8.x86_64.rpm
       ```
 
 
     - Debian/Ubuntu
 
       ``` bash
-      wget https://packages.chef.io/files/stable/chef-workstation/<WORKSTATION_VERSION>/ubuntu/<UBUNTU_VERSION>/chef-workstation_<WORKSTATION_VERSION>-1_amd64.deb
+      wget https://chefdownload-commercial.chef.io/files/stable/chef-workstation/<WORKSTATION_VERSION>/ubuntu/<UBUNTU_VERSION>/chef-workstation_<WORKSTATION_VERSION>-1_amd64.deb
       ```
 
       For example:
 
       ```sh
-      wget https://packages.chef.io/files/stable/chef-workstation/24.4.1064/ubuntu/20.04/chef-workstation_24.4.1064-1_amd64.deb
+      wget https://chefdownload-commercial.chef.io/files/stable/chef-workstation/24.4.1064/ubuntu/20.04/chef-workstation_24.4.1064-1_amd64.deb
       ```
 
 1. Use your distribution's package manager to install Chef Workstation:
