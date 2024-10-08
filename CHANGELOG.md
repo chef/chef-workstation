@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 24.10.1069 -->
-## [24.10.1069](https://github.com/chef/chef-workstation/tree/24.10.1069) (2024-10-08)
+<!-- latest_release 24.10.1070 -->
+## [24.10.1070](https://github.com/chef/chef-workstation/tree/24.10.1070) (2024-10-08)
 
 #### Merged Pull Requests
-- Remove references to packages.chef.io [#3281](https://github.com/chef/chef-workstation/pull/3281) ([dishanktiwari2501](https://github.com/dishanktiwari2501))
+- Update knife_ssh.md [#3271](https://github.com/chef/chef-workstation/pull/3271) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
 <!-- release_rollup since=24.8.1068 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update knife_ssh.md [#3271](https://github.com/chef/chef-workstation/pull/3271) ([IanMadd](https://github.com/IanMadd)) <!-- 24.10.1070 -->
 - Remove references to packages.chef.io [#3281](https://github.com/chef/chef-workstation/pull/3281) ([dishanktiwari2501](https://github.com/dishanktiwari2501)) <!-- 24.10.1069 -->
 <!-- release_rollup -->
 
