@@ -86,17 +86,15 @@ This subcommand has the following options:
 
 : The search query used to return a list of servers to be accessed using SSH and the specified `SSH_COMMAND`. This option uses the same syntax as the search subcommand. If the `SEARCH_QUERY` does not contain a colon character (`:`), then the default query pattern is `tags:*#{@query}* OR roles:*#{@query}* OR fqdn:*#{@query}* OR addresses:*#{@query}*`, which means the following two search queries are effectively the same:
 
-<!-- -->
-
-``` bash
-knife search ubuntu
-```
-
-or:
-
-``` bash
-knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
-```
+  ``` bash
+  knife search ubuntu
+  ```
+  
+  or:
+  
+  ``` bash
+  knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
+  ```
 
 `SSH_COMMAND`
 
