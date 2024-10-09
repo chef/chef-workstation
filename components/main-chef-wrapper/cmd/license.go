@@ -21,7 +21,6 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"path/filepath"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 	"github.com/spf13/cobra"
@@ -38,9 +37,5 @@ var licenseCmd = &cobra.Command{
 
 func init() {
 	licenseCmd.Short = fmt.Sprintf(licenseCmd.Short, dist.WorkstationProduct)
-	home, _ := os.UserHomeDir()
-	info, _ := os.Stat(filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c"))
-	if info != nil {
-		RootCmd.AddCommand(licenseCmd)
-	}
+	RootCmd.AddCommand(licenseCmd)
 }
