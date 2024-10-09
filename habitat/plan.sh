@@ -1,5 +1,5 @@
 pkg_name=chef-workstation
-pkg_origin=chef
+pkg_origin=ngupta26
 pkg_maintainer="The Chef Maintainers <humans@chef.io>"
 pkg_description="Chef Workstation - Opinionated tools for getting the most out of the Chef ecosystem"
 pkg_license=('Apache-2.0')
@@ -12,9 +12,6 @@ pkg_build_deps=(
   core/go22
   core/gcc-libs
   core/pkg-config
-  # We make this a build dependency since we are going to import
-  # the generated binary into our list of binaries.
-  # @afiune: Not sure if this is the right pattern but it works.
   chef/chef-analyze
 )
 pkg_deps=(
@@ -32,6 +29,9 @@ pkg_deps=(
   core/libarchive
   core/coreutils
   core/git
+  ngupta26/cookstyle
+  ngupta26/berkshelf
+  ngupta26/chef-cli
 )
 
 pkg_version() {
@@ -48,6 +48,13 @@ do_verify() {
 }
 
 do_prepare() {
+  # Clear any existing GEM_PATH
+  unset GEM_PATH
+
+  # Set GEM_HOME and GEM_PATH
+  export GEM_HOME="$pkg_prefix/vendor"
+  export GEM_PATH="$GEM_HOME"  # Initialize GEM_PATH to only GEM_HOME
+  export PATH="$GEM_HOME/bin:$PATH"  # Add GEM_HOME/bin to PATH
   export OPENSSL_LIB_DIR=$(pkg_path_for openssl)/lib
   export OPENSSL_INCLUDE_DIR=$(pkg_path_for openssl)/include
   export SSL_CERT_FILE=$(pkg_path_for cacerts)/ssl/cert.pem
@@ -56,17 +63,40 @@ do_prepare() {
   build_line "Using Ruby ABI version '${RUBY_ABI_VERSION}'"
 
   build_line "Setting link for /usr/bin/env to 'coreutils'"
-  if [ ! -f /usr/bin/env ]; then
-    ln -s "$(pkg_interpreter_for core/coreutils bin/env)" /usr/bin/env
-  fi
+  # if [ ! -f /usr/bin/env ]; then
+  #   ln -s "$(pkg_interpreter_for core/coreutils bin/env)" /usr/bin/env
+  # fi
+
+  # Set the path for ruby from the core/ruby31 package
+RUBY_PATH="$(hab pkg path core/ruby31)/bin/ruby"
+
+# Check if the ruby executable exists
+if [ -x "$RUBY_PATH" ]; then
+    # Create the symlink for ruby
+    ln -sf "$RUBY_PATH" /usr/bin/env
+    echo "Symlink created: /usr/bin/ruby -> $RUBY_PATH"
+else
+    echo "Error: Ruby executable not found at $RUBY_PATH"
+fi
+
+# Set the symlink for /usr/bin/env to the ruby executable
+# if [ ! -e /usr/bin/env ]; then
+#     sudo ln -s "$RUBY_PATH" /usr/bin/env
+#     echo "Symlink created: /usr/bin/env -> $RUBY_PATH"
+# else
+#     echo "/usr/bin/env already exists."
+# fi
 }
 
 do_build() {
-  export GEM_HOME
-  export GEM_PATH
-  # TODO this appears to give us no depsolver? What are the effects?
-  GEM_HOME="$pkg_prefix"
-  GEM_PATH="$(pkg_path_for bundler):${GEM_HOME}"
+  # Set up environment variables for the build
+  export GEM_HOME="$pkg_prefix"
+  export GEM_PATH="${GEM_HOME}"
+  export PATH="$PATH:/hab/pkgs/core/ruby31/3.1.6/20240912144513/bin"
+
+  sed -i '1s|^.*|#!/hab/pkgs/core/ruby31/3.1.6/20240912144513/bin/ruby|' /hab/pkgs/ngupta26/cookstyle/7.32.11/20241006190955/vendor/bin/rspec
+
+
 
   export NOKOGIRI_CONFIG
   NOKOGIRI_CONFIG="--use-system-libraries \
@@ -80,84 +110,51 @@ do_build() {
     bundle config --local build.nokogiri "$NOKOGIRI_CONFIG"
     bundle config --local silence_root_warning 1
     bundle config set --local without dep_selector
-    bundle install --no-deployment --jobs 10 --retry 5 --path "$pkg_prefix"
+    bundle config set --local without all 
+
+    # Install the gems listed in the Gemfile
+    
+    # bundle install --jobs 10 --retry 5 --path "$pkg_prefix"
+  
+    ls -l "${SRC_PATH}/components/gems/post-bundle-install.rb"
+
+    ruby "${SRC_PATH}/components/gems/post-bundle-install.rb"
   )
 
   build_line "Building top-level 'chef' CMD wrapper"
   ( cd "${SRC_PATH}/components/main-chef-wrapper" || exit_with "unable to enter main-chef-wrapper directory" 1
     CGO_ENABLED=0 go build -o "$pkg_prefix/bin/chef"
   )
+
+  build_line "Creating gem-version-manifest........"
+  # ls -l "${SRC_PATH}/config/software"
+  ruby "${SRC_PATH}/config/software/installed_gems_as_json.rb"
 }
 
-#######################################################
-# !!!              IMPORTANT REMINDER             !!! #
-#######################################################
-# Any changes to plan.sh related to installed gems    #
-# (eg 'without' flags, additions/removals) must       #
-# also be updated in omnibus/config/software/gems.rb  #
-#######################################################
 
+# do_install() {
+#   export ruby_bin_dir="$pkg_prefix/ruby-bin"
+
+#   build_line "Creating bin directories"
+#   mkdir -p "$ruby_bin_dir"
+# ( cd "${SRC_PATH}/components/gems" || exit_with "unable to enter components/gems directory" 1
+#   appbundle cookstyle "changelog,docs,profiling,rubocop_gems,development,debug"
+#   wrap_ruby_bin "cookstyle"
+#   appbundle "berkshelf" "changelog,debug,docs,development"
+#   wrap_ruby_bin "bershelf"
+# )
+#   build_line "Installing 'chef-analyze' binary"
+#   cp "$(pkg_path_for chef-analyze)/bin/chef-analyze" "$pkg_prefix/bin"
+# }
 do_install() {
-  export ruby_bin_dir
-  ruby_bin_dir="$pkg_prefix/ruby-bin"
-
-  build_line "Creating bin directories"
-  mkdir -p "$ruby_bin_dir"
-
-  ( cd "${SRC_PATH}/components/gems" || exit_with "unable to enter components/gems directory" 1
-    appbundle "chef-cli" "changelog,docs,debug"
-    wrap_ruby_bin "chef-cli"
-
-    appbundle "chef-bin" "docgen,chefstyle"
-    wrap_ruby_bin "chef-client"
-    wrap_ruby_bin "chef-solo"
-    wrap_ruby_bin "chef-resource-inspector"
-    wrap_ruby_bin "chef-shell"
-
-    appbundle "knife" "development"
-    wrap_ruby_bin "knife"
-
-    appbundle "inspec-bin" "changelog,debug,docs,development"
-    wrap_ruby_bin "inspec"
-
-    appbundle ohai "changelog"
-    wrap_ruby_bin "ohai"
-
-    appbundle "chef_deprecations" "development,test"
-    wrap_ruby_bin "foodcritic"
-
-    appbundle "test-kitchen" "changelog,debug,docs,development"
-    wrap_ruby_bin "kitchen"
-
-    appbundle "berkshelf" "changelog,debug,docs,development"
-    wrap_ruby_bin "berks"
-
-    appbundle cookstyle "changelog,docs,profiling,rubocop_gems,development,debug"
-    wrap_ruby_bin "cookstyle"
-
-    appbundle "chef-vault" "changelog"
-    wrap_ruby_bin "chef-vault"
-
-    appbundle chef-apply "changelog,docs,debug" # really, chef-run
-    wrap_ruby_bin "chef-run"
-
-    appbundle mixlib-install "test,chefstyle,debug"
-    wrap_ruby_bin "mixlib-install"
-
-    appbundle fauxhai
-    wrap_ruby_bin "fauxhai"
-
-    appbundle chef-zero "pedant,development,debug"
-    wrap_ruby_bin "chef-zero"
-  )
+  build_line "Installing binaries from Habitat packages"
+    export GEM_HOME="$pkg_prefix"
+  export GEM_PATH="${GEM_HOME}"
 
   if [ "$(readlink /usr/bin/env)" = "$(pkg_interpreter_for core/coreutils bin/env)" ]; then
     build_line "Removing the symlink created for '/usr/bin/env'"
     rm /usr/bin/env
   fi
-
-  build_line "Installing 'chef-analyze' binary"
-  cp "$(pkg_path_for chef-analyze)/bin/chef-analyze" "$pkg_prefix/bin"
 }
 
 appbundle() {
@@ -167,32 +164,23 @@ appbundle() {
 
 do_end() {
   do_default_end
-  # Don't leave this behind - our bundle options will create this
-  # owned by root, making it an annoying cleanup if you're also
-  # doing a 'bundle install' outside of hab.
   rm -rf "${SRC_PATH}/components/gems/.bundle"
 }
 
-# Stubs
 do_strip() {
   return 0
 }
 
-# Copied from https://github.com/habitat-sh/core-plans/blob/f84832de42b300a64f1b38c54d659c4f6d303c95/bundler/plan.sh#L32
 wrap_ruby_bin() {
-  local bin_basename
-  local real_cmd
-  local wrapper
-  bin_basename="$1"
-  real_cmd="$ruby_bin_dir/$bin_basename"
-  wrapper="$pkg_prefix/bin/$bin_basename"
+  local bin_basename="$1"
+  local real_cmd="$ruby_bin_dir/$bin_basename"
+  local wrapper="$pkg_prefix/bin/$bin_basename"
 
   build_line "Adding wrapper for '$bin_basename': $wrapper -> $real_cmd"
   cat <<EOF > "$wrapper"
 #!$(pkg_interpreter_for core/bash bin/sh)
 set -e
 if test -n "\$DEBUG"; then set -x; fi
-# Inform Chef-Workstation that is running from a habitat install
 export HAB_WS_PATH="$pkg_prefix"
 export HAB_WS_EMBEDDED_DIR="${ruby_bin_dir}:$(hab pkg path core/bundler):$(hab pkg path $ruby_pkg)/bin"
 
@@ -200,10 +188,8 @@ export GEM_HOME="$pkg_prefix/ruby/$RUBY_ABI_VERSION"
 export GEM_PATH="$(pkg_path_for $ruby_pkg)/lib/ruby/gems/${RUBY_ABI_VERSION}:$(pkg_path_for core/bundler):${pkg_prefix}/ruby/${RUBY_ABI_VERSION}:${pkg_prefix}"
 export SSL_CERT_FILE=$(pkg_path_for core/cacerts)/ssl/cert.pem
 
-# Tell the appbundler bin not to reset GEM_HOME and GEM_PATH. Has nothing to do with RVM.
 export APPBUNDLER_ALLOW_RVM=true
 unset RUBYOPT GEMRC
-exec $(pkg_path_for $ruby_pkg)/bin/ruby ${real_cmd} \$@
 exec $(pkg_path_for $ruby_pkg)/bin/ruby ${real_cmd} "\$@"
 EOF
   chmod -v 755 "$wrapper"
