@@ -1,5 +1,5 @@
 pkg_name=chef-workstation
-pkg_origin=ngupta26
+pkg_origin=chef
 pkg_maintainer="The Chef Maintainers <humans@chef.io>"
 pkg_description="Chef Workstation - Opinionated tools for getting the most out of the Chef ecosystem"
 pkg_license=('Apache-2.0')
@@ -12,7 +12,7 @@ pkg_build_deps=(
   core/go22
   core/gcc-libs
   core/pkg-config
-  chef/chef-analyze
+  "${pkg_origin}/chef-analyze"
 )
 pkg_deps=(
   core/glibc
@@ -29,9 +29,9 @@ pkg_deps=(
   core/libarchive
   core/coreutils
   core/git
-  ngupta26/cookstyle
-  ngupta26/berkshelf
-  ngupta26/chef-cli
+  "${pkg_origin}/cookstyle"
+  "${pkg_origin}/berkshelf"
+  "${pkg_origin}/chef-cli"
 )
 
 pkg_version() {
@@ -63,11 +63,11 @@ do_prepare() {
   build_line "Using Ruby ABI version '${RUBY_ABI_VERSION}'"
 
   build_line "Setting link for /usr/bin/env to 'coreutils'"
-  # if [ ! -f /usr/bin/env ]; then
-  #   ln -s "$(pkg_interpreter_for core/coreutils bin/env)" /usr/bin/env
-  # fi
+  if [ ! -f /usr/bin/env ]; then
+    ln -s "$(pkg_interpreter_for core/coreutils bin/env)" /usr/bin/env
+  fi
 
-  # Set the path for ruby from the core/ruby31 package
+# Set the path for ruby from the core/ruby31 package
 RUBY_PATH="$(hab pkg path core/ruby31)/bin/ruby"
 
 # Check if the ruby executable exists
@@ -78,14 +78,6 @@ if [ -x "$RUBY_PATH" ]; then
 else
     echo "Error: Ruby executable not found at $RUBY_PATH"
 fi
-
-# Set the symlink for /usr/bin/env to the ruby executable
-# if [ ! -e /usr/bin/env ]; then
-#     sudo ln -s "$RUBY_PATH" /usr/bin/env
-#     echo "Symlink created: /usr/bin/env -> $RUBY_PATH"
-# else
-#     echo "/usr/bin/env already exists."
-# fi
 }
 
 do_build() {
@@ -94,8 +86,7 @@ do_build() {
   export GEM_PATH="${GEM_HOME}"
   export PATH="$PATH:/hab/pkgs/core/ruby31/3.1.6/20240912144513/bin"
 
-  sed -i '1s|^.*|#!/hab/pkgs/core/ruby31/3.1.6/20240912144513/bin/ruby|' /hab/pkgs/ngupta26/cookstyle/7.32.11/20241006190955/vendor/bin/rspec
-
+  # sed -i '1s|^.*|#!/hab/pkgs/core/ruby31/3.1.6/20240912144513/bin/ruby|' /hab/pkgs/ngupta26/cookstyle/7.32.11/20241006190955/vendor/bin/rspec
 
 
   export NOKOGIRI_CONFIG
@@ -115,8 +106,6 @@ do_build() {
     # Install the gems listed in the Gemfile
     
     # bundle install --jobs 10 --retry 5 --path "$pkg_prefix"
-  
-    ls -l "${SRC_PATH}/components/gems/post-bundle-install.rb"
 
     ruby "${SRC_PATH}/components/gems/post-bundle-install.rb"
   )
@@ -127,29 +116,15 @@ do_build() {
   )
 
   build_line "Creating gem-version-manifest........"
-  # ls -l "${SRC_PATH}/config/software"
   ruby "${SRC_PATH}/config/software/installed_gems_as_json.rb"
 }
 
 
-# do_install() {
-#   export ruby_bin_dir="$pkg_prefix/ruby-bin"
-
-#   build_line "Creating bin directories"
-#   mkdir -p "$ruby_bin_dir"
-# ( cd "${SRC_PATH}/components/gems" || exit_with "unable to enter components/gems directory" 1
-#   appbundle cookstyle "changelog,docs,profiling,rubocop_gems,development,debug"
-#   wrap_ruby_bin "cookstyle"
-#   appbundle "berkshelf" "changelog,debug,docs,development"
-#   wrap_ruby_bin "bershelf"
-# )
-#   build_line "Installing 'chef-analyze' binary"
-#   cp "$(pkg_path_for chef-analyze)/bin/chef-analyze" "$pkg_prefix/bin"
-# }
 do_install() {
-  build_line "Installing binaries from Habitat packages"
-    export GEM_HOME="$pkg_prefix"
+  export GEM_HOME="$pkg_prefix"
   export GEM_PATH="${GEM_HOME}"
+
+  build_line "Installing binaries from Habitat packages"
 
   if [ "$(readlink /usr/bin/env)" = "$(pkg_interpreter_for core/coreutils bin/env)" ]; then
     build_line "Removing the symlink created for '/usr/bin/env'"
