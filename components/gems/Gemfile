@@ -32,6 +32,9 @@ group(:omnibus_package, :development, :test) do
   # The version of ruby/openssl that supports the FIPS mode of OpenSSL 3.0/3.1 is 3.2.0
   # and later, hence pinning the version for openssl.
   gem "openssl", ">= 3.2.0"
+
+  # since we are using ruby 3.1.x, rdoc needs to be on 6.4.1.1 so we use this
+  gem "rdoc", "~> 6.4.1"
 end
 
 group(:dep_selector) do

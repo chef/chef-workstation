@@ -967,6 +967,8 @@ GEM
     pry-stack_explorer (0.6.1)
       binding_of_caller (~> 1.0)
       pry (~> 0.13)
+    psych (5.1.2)
+      stringio
     public_suffix (6.0.1)
     r18n-core (5.0.1)
     r18n-desktop (5.0.1)
@@ -989,7 +991,8 @@ GEM
       json (~> 2.3)
       nokogiri (~> 1.12, >= 1.12.5)
       optimist (~> 3.0)
-    rdp-ruby-wmi (0.3.1)
+    rdoc (6.4.1.1)
+      psych (>= 4.0.0)
     recursive-open-struct (1.1.3)
     regexp_parser (2.9.2)
     representable (3.2.0)
@@ -1067,12 +1070,14 @@ GEM
       semverse (>= 1.1, < 4.0)
     sshkey (2.0.0)
     sslshake (1.3.1)
+    stringio (3.1.1)
     strings (0.2.1)
       strings-ansi (~> 0.2)
       unicode-display_width (>= 1.5, < 3.0)
       unicode_utils (~> 1.4)
     strings-ansi (0.2.0)
     strscan (3.1.0)
+    structured_warnings (0.4.0)
     syslog-logger (1.6.8)
     test-kitchen (3.6.0)
       bcrypt_pbkdf (~> 1.0)
@@ -1237,10 +1242,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
-    unf (0.1.4)
-      unf_ext
     unf_ext (0.0.8.2)
-    unf_ext (0.0.8.2-x64-mingw-ucrt)
     unicode-display_width (2.5.0)
     unicode_utils (1.4.0)
     uuidtools (2.2.0)
@@ -1280,12 +1282,9 @@ GEM
       vsphere-automation-runtime (~> 0.4.6)
     webrick (1.8.1)
     win32-api (1.10.1)
-    win32-api (1.10.1-universal-mingw32)
     win32-certstore (0.6.15)
       chef-powershell (>= 1.0.12)
       ffi
-    win32-dir (0.7.2)
-      ffi (>= 1.0.0)
     win32-event (0.6.3)
       win32-ipc (>= 0.6.0)
     win32-eventlog (0.6.3)
@@ -1298,20 +1297,12 @@ GEM
       win32-ipc (>= 0.6.0)
     win32-process (0.10.0)
       ffi (>= 1.0.0)
-    win32-security (0.5.0)
-      ffi
-      ffi-win32-extensions
     win32-service (2.3.2)
       ffi
       ffi-win32-extensions
     win32-taskscheduler (2.0.4)
       ffi
       structured_warnings
-    windows-api (0.4.5)
-      win32-api (>= 1.4.5)
-    windows-pr (1.2.6)
-      win32-api (>= 1.4.5)
-      windows-api (>= 0.4.0)
     winrm (2.3.9)
       builder (>= 2.1.2)
       erubi (~> 1.8)
@@ -1403,18 +1394,10 @@ DEPENDENCIES
   pry-stack_explorer (>= 0.5.1)
   rake (= 13.0.1)
   rb-readline
-  rdp-ruby-wmi
+  rdoc (~> 6.4.1)
   ruby-shadow!
   test-kitchen (>= 3.0)
   unf_ext (~> 0.0.8.2)
-  win32-api
-  win32-dir
-  win32-event
-  win32-mutex
-  win32-process (>= 0.9.0)
-  win32-security
-  win32-service (>= 2.1.5)
-  windows-pr
   winrm-elevated
   winrm-fs
 
