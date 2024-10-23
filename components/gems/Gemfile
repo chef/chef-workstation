@@ -33,8 +33,7 @@ group(:omnibus_package, :development, :test) do
   # and later, hence pinning the version for openssl.
   gem "openssl", ">= 3.2.0"
 
-  # since we are using ruby 3.1.x, rdoc needs to be on 6.4.1.1 so we use this
-  gem "rdoc", "~> 6.4.1"
+  gem "rdoc", "~> 6.4.1" # 6.4.1.1 required for CVE-2024-27281, allow patch upgrades
 end
 
 group(:dep_selector) do
