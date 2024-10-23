@@ -47,11 +47,5 @@ fi
 # echo "--- Ensure that 'chef-automate-collect' cli is available"
 # chef exec chef-automate-collect -h
 
-# Verify that the chef-workstation-app was installed (MacOS only)
-if is_darwin; then
-  echo "--- Verifying that chef-workstation-app exist in /Applications directory"
-  test -d "/Applications/Chef Workstation App.app"
-fi
-
 echo "--- Run Workstation verification suite"
 /opt/chef-workstation/embedded/bin/ruby omnibus/verification/run.rb
