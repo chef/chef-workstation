@@ -9,7 +9,7 @@ ruby_pkg="core/ruby31"
 pkg_build_deps=(
   core/make
   core/gcc
-  core/go
+  core/go22
   core/gcc-libs
   core/pkg-config
   # We make this a build dependency since we are going to import
@@ -52,6 +52,7 @@ do_prepare() {
   export OPENSSL_INCLUDE_DIR=$(pkg_path_for openssl)/include
   export SSL_CERT_FILE=$(pkg_path_for cacerts)/ssl/cert.pem
   export RUBY_ABI_VERSION=$(ls $(pkg_path_for ${ruby_pkg})/lib/ruby/gems)
+  export GOPROXY=https://proxy.golang.org,direct
   build_line "Using Ruby ABI version '${RUBY_ABI_VERSION}'"
 
   build_line "Setting link for /usr/bin/env to 'coreutils'"
