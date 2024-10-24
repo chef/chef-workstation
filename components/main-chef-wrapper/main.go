@@ -19,23 +19,30 @@ limitations under the License.
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
 	"os"
 	"os/exec"
 	"path"
-	"path/filepath"
 	"runtime"
 
 	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
 
-	licensing "github.com/chef/go-libs/licensing"
+	cheflicensing "github.com/chef/chef-licensing/components/go/pkg"
+	licenseconfig "github.com/chef/chef-licensing/components/go/pkg/config"
 
 	_ "embed"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
 	homedir "github.com/mitchellh/go-homedir"
+)
+
+const (
+	PRODUCT_NAME                     = "Workstation"
+	ENTITLEMENT_ID                   = "x6f3bc76-a94f-4b6c-bc97-4b7ed2b045c0"
+	LICENSING_SERVER_URL             = "https://licensing-acceptance.chef.co/License"
+	LICENSE_SERVER_ENV_VARIABLE_NAME = "CHEF_LICENSE_SERVER"
+	EXECUTABLE_NAME                  = "chef"
 )
 
 func doStartupTasks() error {
@@ -63,18 +70,18 @@ func createDotChef() {
 
 func createRubyEnvUnix() {
 	InstallerDir := "/opt/chef-workstation"
-	home, err := os.UserHomeDir()
+	home, _ := os.UserHomeDir()
 	installationPath := path.Join(home, ".chef/ruby-env.json")
 	result, err := exists(installationPath)
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
-	if result != true {
+	if !result {
 		if createEnvJsonUnix(InstallerDir, installationPath) {
 			return
 		}
 	}
-	if result == true && platform_lib.MatchVersions() != true {
+	if result && !platform_lib.MatchVersions() {
 		if createEnvJsonUnix(InstallerDir, installationPath) {
 			return
 		}
@@ -84,25 +91,25 @@ func createRubyEnvUnix() {
 
 func createRubyEnvWindows() {
 	InstallerDir := platform_lib.WorkstationInfo().InstallDirectory
-	home, err := os.UserHomeDir()
+	home, _ := os.UserHomeDir()
 	installationPath := path.Join(home, `.chef\ruby-env.json`)
 	result, err := exists(installationPath)
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
 	if platform_lib.OmnibusInstall() {
-		if result != true {
+		if !result {
 			if createEnvJsonWindows(InstallerDir, installationPath) {
 				return
 			}
 		}
-		if result == true && platform_lib.MatchVersions() != true {
+		if result && !platform_lib.MatchVersions() {
 			if createEnvJsonWindows(InstallerDir, installationPath) {
 				return
 			}
 		}
 	} else {
-		if result != true {
+		if !result {
 			if createEnvJsonWindows(InstallerDir, installationPath) {
 				return
 			}
@@ -159,65 +166,6 @@ func exists(path string) (bool, error) {
 	return false, err
 }
 
-// feature flag for license
-func checkLicenseFlag() {
-	home, _ := os.UserHomeDir()
-	if len(os.Args) > 3 && os.Args[1] == "license" && os.Args[2] == "enable" && os.Args[3] == "true" {
-		f, err := os.Create(filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c"))
-		if err != nil {
-			log.Fatal("Not able to enable chef")
-		}
-		defer f.Close()
-		f.Write([]byte(`true`))
-		log.Println("Now you can use chef commands using the license.")
-		os.Exit(0)
-	} else if len(os.Args) > 3 && os.Args[1] == "license" && os.Args[2] == "enable" && os.Args[3] == "false" {
-		err := os.Remove(filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c"))
-		if err != nil {
-			log.Fatal("Not able to disable chef")
-		}
-		log.Println("License feature got disabled")
-		os.Exit(0)
-	} else if len(os.Args) > 2 && os.Args[1] == "license" {
-		info, _ := os.Stat(filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c"))
-		if info == nil {
-			log.Fatal("To use chef license feature you need to enable the license flag. \nTo enable it run `chef license enable true`")
-		}
-	}
-
-}
-
-func featureEnabled() bool {
-	home, _ := os.UserHomeDir()
-	licensePath := filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c")
-	info, _ := os.Stat(licensePath)
-	if info != nil {
-		return true
-	} else {
-		return false
-	}
-}
-
-type Configuration struct {
-	ChefProductName    string `json:"chefProductName"`
-	ChefEntitlementID  string `json:"chefEntitlementId"` // TODO : Need to confirm the chefEntitlementId before merge
-	ChefExecutableName string `json:"chefExecutableName"`
-	LicenseServerURL   string `json:"licenseServerURL"` // TODO : Need to confirm the licenseServerURL before merge
-}
-
-//go:embed dist/licensingConfig.json
-var config []byte
-
-func readLicenseConfig() Configuration {
-
-	var myConf Configuration
-	err := json.Unmarshal(config, &myConf)
-	if err != nil {
-		panic(err)
-	}
-	return myConf
-}
-
 func main() {
 	if len(os.Args) > 1 {
 
@@ -231,17 +179,25 @@ func main() {
 		cmd.Execute()
 		os.Exit(0)
 	}
-	checkLicenseFlag()
-	if featureEnabled() {
-		if os.Args[1] == "license" {
-			cmd.Execute()
-			os.Exit(0)
-		}
-		// fmt.Println("inside license check")
-		licenseConfig := readLicenseConfig()
 
-		// calling licensing package in go-lib
-		licensing.CheckSoftwareEntitlement(licenseConfig.ChefEntitlementID, licenseConfig.LicenseServerURL)
-	}
+	initLicensing()
 	cmd.Execute()
+}
+
+func initLicensing() {
+	if os.Args[1] == "license" || os.Args[1] == "shell-init" {
+		return
+	}
+
+	licenseconfig.SetConfig(PRODUCT_NAME, ENTITLEMENT_ID, getLicenseServerURL(), EXECUTABLE_NAME)
+	cheflicensing.FetchAndPersist()
+}
+
+func getLicenseServerURL() string {
+	key, ok := os.LookupEnv(LICENSE_SERVER_ENV_VARIABLE_NAME)
+	if ok && key != "" {
+		return key
+	}
+
+	return LICENSING_SERVER_URL
 }
