@@ -21,11 +21,8 @@ if is_darwin; then
   echo "This uninstaller will remove Chef Workstation."
   sudo /bin/sh -s <<'EOF'
 echo "Uninstalling Chef Workstation..."
-echo "  -> Removing Chef Workstation App..."
-/opt/chef-workstation/bin/chef_workstation_app_launcher remove
 echo "  -> Removing files..."
 sudo rm -rf '/opt/chef-workstation'
-sudo rm -rf '/Applications/Chef Workstation App.app'
 echo "  -> Removing .plist for server"
 sudo rm -rf '~/Library/LaunchAgents/io.chef.chef-workstation.plist'
 echo "  -> Removing binary links in /usr/local/bin..."
