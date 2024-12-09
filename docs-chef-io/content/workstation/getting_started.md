@@ -23,9 +23,9 @@ This guide walks you through the four parts to set up Chef Workstation on your c
 
 ## Prerequisites
 
-1. [Download and install Chef Workstation]({{< relref "install_workstation.md" >}})
-1. A running instance of [Chef Infra Server]({{< relref "server/install_server.md" >}}) or [Hosted Chef Server](https://manage.chef.io/signup).
-1. Unless using Chef Manage or Hosted Chef, the `CLIENT.PEM` file supplied by your Chef administrator.
+- [Chef Workstation]({{< relref "install_workstation.md" >}})
+- A running instance of [Chef Infra Server]({{< relref "server/install_server.md" >}}).
+- Unless using Chef Manage, the `CLIENT.PEM` file supplied by your Chef administrator.
 
 ## Configure Ruby Environment
 
@@ -102,7 +102,7 @@ The `knife configure` command requires the following values:
 - `Chef Server URL`: the full URL to your Chef Infra Server including the org
 - `Client Name`: the client name your server administrator created for you
 
-Your Chef administrator should provide this information. For Hosted Chef or Chef Manage, you can find this information in the Starter Kit file. Download the file on the Manage site by navigating to the Administration tab and selecting Starter Kit. (**Manage > Administration > Starter Kit > Download Starter Kit**)
+Your Chef administrator should provide this information. For Chef Manage, you can find this information in the Starter Kit file. Download the file on the Manage site by navigating to the Administration tab and selecting Starter Kit. (**Manage > Administration > Starter Kit > Download Starter Kit**)
 
 Find the `.chef/config.rb` file in the Starter Kit. It should look like:
 
@@ -127,7 +127,7 @@ The steps for downloading or generating these files vary depending on how you in
 <!----Tabs Section--->
 {{< foundation_tabs tabs-id="tabs-panel-container" >}}
 {{< foundation_tab active="true" panel-link="infra_and_automate_keys" tab-text="Chef Infra Server / Automate">}}
-{{< foundation_tab panel-link="hosted-keys" tab-text="Hosted Chef / Manage" >}}
+{{< foundation_tab panel-link="hosted-keys" tab-text="Chef Manage" >}}
 {{< /foundation_tabs >}}
 <!----End Tabs --->
 
@@ -137,33 +137,33 @@ The steps for downloading or generating these files vary depending on how you in
 
 Your Chef administrator will provide you with your client.pem file. Copy this file to the `~/.chef` directory.
 
-On macOS and Linux systems this looks something like:
+On macOS and Linux systems, this looks something like:
 
 ```bash
-cp ~/Downloads/MY_NAME.pem ~/.chef/
+cp ~/Downloads/USERNAME.pem ~/.chef/
 ```
 
-On Windows systems this will look something like this:
+On Windows systems this, looks something like this:
 
 ```powershell
-Copy-Item -Path C:\Users\MY_NAME\Downloads\MY_NAME.pem -Destination C:\Users\MY_NAME\.chef\
+Copy-Item -Path C:\Users\MY_NAME\Downloads\USERNAME.pem -Destination C:\Users\MY_NAME\.chef\
 ```
 
 {{< /foundation_tabs_panel >}}
 {{< foundation_tabs_panel panel-id="hosted-keys" >}}
 
-The client key file is located in the Starter Kit at `.chef/MY_NAME.pem`. Copy the .pem file to the `~/.chef` directory.
+The client key file is located in the Starter Kit at `.chef/USERNAME.pem`. Copy the .pem file to the `~/.chef` directory.
 
-On macOS and Linux systems this looks something like:
+On macOS and Linux systems, this looks something like:
 
 ```bash
-cp ~/Downloads/chef-repo/.chef/MY_NAME.pem ~/.chef/
+cp ~/Downloads/chef-repo/.chef/USERNAME.pem ~/.chef/
 ```
 
-On Windows systems this will look something like this:
+On Windows systems, this looks something like this:
 
 ```powershell
-Copy-Item -Path C:\Users\MY_NAME\Downloads\chef-repo\.chef\MY_NAME.pem -Destination C:\Users\MY_NAME\.chef\
+Copy-Item -Path C:\Users\MY_NAME\Downloads\chef-repo\.chef\USERNAME.pem -Destination C:\Users\MY_NAME\.chef\
 ```
 
 {{< /foundation_tabs_panel >}}
