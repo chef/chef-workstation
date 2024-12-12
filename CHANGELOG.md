@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 24.10.1071 -->
-## [24.10.1071](https://github.com/chef/chef-workstation/tree/24.10.1071) (2024-10-23)
+<!-- latest_release 24.12.1072 -->
+## [24.12.1072](https://github.com/chef/chef-workstation/tree/24.12.1072) (2024-12-12)
 
 #### Merged Pull Requests
-- Vendor dir removed and Go version updated [#3279](https://github.com/chef/chef-workstation/pull/3279) ([sanghinitin](https://github.com/sanghinitin))
+- Correct download APIs [#3287](https://github.com/chef/chef-workstation/pull/3287) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
 <!-- release_rollup since=24.8.1068 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Correct download APIs [#3287](https://github.com/chef/chef-workstation/pull/3287) ([IanMadd](https://github.com/IanMadd)) <!-- 24.12.1072 -->
 - Vendor dir removed and Go version updated [#3279](https://github.com/chef/chef-workstation/pull/3279) ([sanghinitin](https://github.com/sanghinitin)) <!-- 24.10.1071 -->
 - Update knife_ssh.md [#3271](https://github.com/chef/chef-workstation/pull/3271) ([IanMadd](https://github.com/IanMadd)) <!-- 24.10.1070 -->
 - Remove references to packages.chef.io [#3281](https://github.com/chef/chef-workstation/pull/3281) ([dishanktiwari2501](https://github.com/dishanktiwari2501)) <!-- 24.10.1069 -->
