@@ -19,6 +19,8 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
 
 For general information about downloading Chef products, see the [Chef download documentation](/download/).
 
+For supported Chef Workstation versions, see the [Chef Workstation release notes](/release_notes_workstation/) or use the [Chef download APIs](/download).
+
 ## Supported Platforms
 
 The following table lists the commercially supported platforms and versions for Chef Workstation:
@@ -49,10 +51,8 @@ Additional Chef Workstation App Requirements:
 
 The Chef Workstation installer must run as a privileged user.
 
-Chef Workstation installs to `/opt/chef-workstation/` on macOS / Linux
-and `C:\opscode\chef-workstation\` on Windows. These file locations
-help avoid interference between these components and other
-applications that may be running on the target machine.
+Chef Workstation installs to `/opt/chef-workstation/` on macOS and Linux, and `C:\opscode\chef-workstation\` on Windows.
+These file locations help avoid interference between these components and other applications that may be running on the target machine.
 
 ### macOS Install
 
@@ -93,60 +93,59 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
 
 ### Linux
 
-1. Visit the [Chef Downloads page](https://www.chef.io/downloads) or download the appropriate package for your distribution:
+You can use [Chef's download APIs](/download) or a package manager to install Chef Workstation on Linux.
 
-    - Red Hat Enterprise Linux
+#### Download API
 
-      ```bash
-      wget https://chefdownload-commercial.chef.io/files/stable/chef-workstation/<WORKSTATION_VERSION>/el/<RHEL_VERSION>/chef-workstation-<WORKSTATION_VERSION>-1.el<RHEL_VERSION>.x86_64.rpm
-      ```
+- To use the [Chef download APIs](/download) to download Chef Workstation:
 
-      For example:
+  ```bash
+  wget https://chefdownload-commercial.chef.io/stable/chef-workstation/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<WORKSTATION_VERSION>&license_id=<LICENSE_ID>
+  ```
 
-      ```sh
-      wget https://chefdownload-commercial.chef.io/files/stable/chef-workstation/24.4.1064/el/8/chef-workstation-24.4.1064-1.el8.x86_64.rpm
-      ```
+  Replace:
 
+  - `<PLATFORM>` with the platform you want to run Chef Workstation on. For example, `ubuntu` or `el`.
+  - `<PLATFORM_VERSION>` with the version of the platform you want to run Chef Workstation on.
+  - `<ARCHITECTURE>` with the architecture that Chef Workstation on. For example, `x86_64`.
+  - `<WORKSTATION_VERSION>` with the version of Chef Workstation you want to download.
+  - `<LICENSE_ID>` with your [Chef license ID](/licensing).
 
-    - Debian/Ubuntu
+  For example, run the following to download Chef Workstation 24.8.1068 on Red Hat Enterprise Linux 9 running on x86-64 architecture:
 
-      ``` bash
-      wget https://chefdownload-commercial.chef.io/files/stable/chef-workstation/<WORKSTATION_VERSION>/ubuntu/<UBUNTU_VERSION>/chef-workstation_<WORKSTATION_VERSION>-1_amd64.deb
-      ```
+  ```sh
+  wget https://chefdownload-commercial.chef.io/stable/chef-workstation/download?p=el&pv=9&m=x86_64&v=24.4.1068&license_id=<LICENSE_ID>
+  ```
 
-      For example:
+See the [Chef download API documentation](/download) and [Chef licensing documentation](/licensing) for more information.
 
-      ```sh
-      wget https://chefdownload-commercial.chef.io/files/stable/chef-workstation/24.4.1064/ubuntu/20.04/chef-workstation_24.4.1064-1_amd64.deb
-      ```
+#### Package manager
 
-1. Use your distribution's package manager to install Chef Workstation:
+You can use Yum or Dpkg package managers to install Chef Workstation.
 
-   - Red Hat Enterprise Linux:
+- To download Chef Workstation using Yum on Red Hat Enterprise Linux:
 
-     ``` bash
-     yum localinstall chef-workstation-<WORKSTATION_VERSION>-1.el<RHEL_VERSION>.x86_64.rpm
-     ```
+  ``` bash
+  yum localinstall chef-workstation-<WORKSTATION_VERSION>-1.el<RHEL_VERSION>.x86_64.rpm
+  ```
 
-     For example:
+  For example:
 
-     ``` bash
-     yum localinstall chef-workstation-24.4.1064-1.el8.x86_64.rpm
-     ```
+  ``` bash
+  yum localinstall chef-workstation-24.4.1064-1.el8.x86_64.rpm
+  ```
 
-   - Debian/Ubuntu:
+- To download Chef Workstation using Dpkg on Ubuntu or Debian:
 
-     ``` bash
-     dpkg -i chef-workstation_<WORKSTATION_VERSION>-1_amd64.deb
-     ```
+  ``` bash
+  dpkg -i chef-workstation_<WORKSTATION_VERSION>-1_amd64.deb
+  ```
 
-     For example:
+  For example:
 
-     ```sh
-     dpkg -i chef-workstation_24.4.1064-1_amd64.deb
-     ```
-
-See the [Chef Workstation release notes](/release_notes_workstation/) or the [Omnitruck API](https://omnitruck.chef.io/stable/chef-workstation/versions/all) for supported version numbers.
+  ```sh
+  dpkg -i chef-workstation_24.4.1064-1_amd64.deb
+  ```
 
 ## Verify the Installation
 
