@@ -1,0 +1,139 @@
+diff --git a/apps/openssl-vms.cnf b/apps/openssl-vms.cnf
+index ac858d6..ef32f1a 100644
+--- a/apps/openssl-vms.cnf
++++ b/apps/openssl-vms.cnf
+@@ -48,17 +48,19 @@ tsa_policy3 = 1.2.3.4.5.7
+ # fips provider. It contains a named section e.g. [fips_sect] which is
+ # referenced from the [provider_sect] below.
+ # Refer to the OpenSSL security policy for more information.
+-# .include fipsmodule.cnf
++
++.include fipsmodule.cnf
+ 
+ [openssl_init]
+ providers = provider_sect
+ 
+ # List of providers to load
+ [provider_sect]
+-default = default_sect
++base = base_sect
++legacy  = legacy_sect
+ # The fips section name should match the section name inside the
+ # included fipsmodule.cnf.
+-# fips = fips_sect
++fips = fips_sect
+ 
+ # If no providers are activated explicitly, the default one is activated implicitly.
+ # See man 7 OSSL_PROVIDER-default for more details.
+@@ -68,9 +70,11 @@ default = default_sect
+ # becomes unavailable in openssl.  As a consequence applications depending on
+ # OpenSSL may not work correctly which could lead to significant system
+ # problems including inability to remotely access the system.
+-[default_sect]
+-# activate = 1
++[base_sect]
++activate = 1
+ 
++[legacy_sect]
++activate = 1
+ 
+ ####################################################################
+ [ ca ]
+diff --git a/apps/openssl.cnf b/apps/openssl.cnf
+index 12bc408..9b29897 100644
+--- a/apps/openssl.cnf
++++ b/apps/openssl.cnf
+@@ -48,17 +48,18 @@ tsa_policy3 = 1.2.3.4.5.7
+ # fips provider. It contains a named section e.g. [fips_sect] which is
+ # referenced from the [provider_sect] below.
+ # Refer to the OpenSSL security policy for more information.
+-# .include fipsmodule.cnf
++.include fipsmodule.cnf
+ 
+ [openssl_init]
+ providers = provider_sect
+ 
+ # List of providers to load
+ [provider_sect]
+-default = default_sect
++base = base_sect
++legacy  = legacy_sect
+ # The fips section name should match the section name inside the
+ # included fipsmodule.cnf.
+-# fips = fips_sect
++fips = fips_sect
+ 
+ # If no providers are activated explicitly, the default one is activated implicitly.
+ # See man 7 OSSL_PROVIDER-default for more details.
+@@ -68,9 +69,11 @@ default = default_sect
+ # becomes unavailable in openssl.  As a consequence applications depending on
+ # OpenSSL may not work correctly which could lead to significant system
+ # problems including inability to remotely access the system.
+-[default_sect]
+-# activate = 1
++[base_sect]
++activate = 1
+ 
++[legacy_sect]
++activate = 1
+ 
+ ####################################################################
+ [ ca ]
+@@ -79,7 +82,7 @@ default_ca	= CA_default		# The default ca section
+ ####################################################################
+ [ CA_default ]
+ 
+-dir		= ./demoCA		# Where everything is kept
++dir		    = @cacerts_prefix@/ssl/certs	# Where everything is kept
+ certs		= $dir/certs		# Where the issued certs are kept
+ crl_dir		= $dir/crl		# Where the issued crl are kept
+ database	= $dir/index.txt	# database index file.
+@@ -309,7 +312,7 @@ default_tsa = tsa_config1	# the default TSA section
+ [ tsa_config1 ]
+ 
+ # These are used by the TSA reply generation only.
+-dir		= ./demoCA		# TSA root directory
++dir 		= @cacerts_prefix@/ssl/certs	# TSA root directory
+ serial		= $dir/tsaserial	# The current serial number (mandatory)
+ crypto_device	= builtin		# OpenSSL engine to use for signing
+ signer_cert	= $dir/tsacert.pem 	# The TSA signing certificate
+diff --git a/crypto/x509/by_file.c b/crypto/x509/by_file.c
+index 37d73ca..0cb5fb3 100644
+--- a/crypto/x509/by_file.c
++++ b/crypto/x509/by_file.c
+@@ -54,7 +54,9 @@ static int by_file_ctrl_ex(X509_LOOKUP *ctx, int cmd, const char *argp,
+     switch (cmd) {
+     case X509_L_FILE_LOAD:
+         if (argl == X509_FILETYPE_DEFAULT) {
+-            file = ossl_safe_getenv(X509_get_default_cert_file_env());
++            file = ossl_safe_getenv("HAB_SSL_CERT_FILE");
++            if (!file)
++                file = ossl_safe_getenv(X509_get_default_cert_file_env());
+             if (file)
+                 ok = (X509_load_cert_crl_file_ex(ctx, file, X509_FILETYPE_PEM,
+                                                  libctx, propq) != 0);
+diff --git a/Configurations/unix-Makefile.tmpl b/Configurations/unix-Makefile.tmpl
+index 17e194f..88b89c3 100644
+--- a/Configurations/unix-Makefile.tmpl
++++ b/Configurations/unix-Makefile.tmpl
+@@ -546,7 +546,7 @@ list-tests:
+        @echo "Tests are not supported with your chosen Configure options"
+        @ : {- output_on() if !$disabled{tests}; "" -}
+
+-install: install_sw install_ssldirs install_docs {- $disabled{fips} ? "" : "install_fips" -}
++install: install_sw install_ssldirs {- $disabled{fips} ? "" : "install_fips" -}
+
+ uninstall: uninstall_docs uninstall_sw {- $disabled{fips} ? "" : "uninstall_fips" -}
+
+diff --git a/Configurations/windows-makefile.tmpl b/Configurations/windows-makefile.tmpl
+index b8a1abc..a8eb1f0 100644
+--- a/Configurations/windows-makefile.tmpl
++++ b/Configurations/windows-makefile.tmpl
+@@ -453,7 +453,7 @@ list-tests:
+        @$(ECHO) "Tests are not supported with your chosen Configure options"
+        @{- output_on() if !$disabled{tests}; "\@rem" -}
+
+-install: install_sw install_ssldirs install_docs {- $disabled{fips} ? "" : "install_fips" -}
++install: install_sw install_ssldirs {- $disabled{fips} ? "" : "install_fips" -}
+
+ uninstall: uninstall_docs uninstall_sw {- $disabled{fips} ? "" : "uninstall_fips" -}
