@@ -229,10 +229,10 @@ settings:
 `http_proxy_pass`
 : The password for the proxy server when the proxy server is using an HTTP connection. Default value: `nil`.
 
-#### HTTPS Proxy Settings (such as the hosted Chef Infra Server)
+#### HTTPS Proxy Settings
 
 `https_proxy`
-: The proxy server for HTTPS connections. (The hosted Chef Infra Server uses an HTTPS connection.) Default value: `nil`.
+: The proxy server for HTTPS connections. Default value: `nil`.
 
 `https_proxy_user`
 : The user name for the proxy server when the proxy server is using an HTTPS connection. Default value: `nil`.
