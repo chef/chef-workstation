@@ -1,29 +1,26 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 24.12.1073 -->
-## [24.12.1073](https://github.com/chef/chef-workstation/tree/24.12.1073) (2024-12-16)
-
-#### Merged Pull Requests
-- CHEF-15132-Workstation release 24.12 [#3288](https://github.com/chef/chef-workstation/pull/3288) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=24.8.1068 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- CHEF-15132-Workstation release 24.12 [#3288](https://github.com/chef/chef-workstation/pull/3288) ([nikhil2611](https://github.com/nikhil2611)) <!-- 24.12.1073 -->
-- Correct download APIs [#3287](https://github.com/chef/chef-workstation/pull/3287) ([IanMadd](https://github.com/IanMadd)) <!-- 24.12.1072 -->
-- Vendor dir removed and Go version updated [#3279](https://github.com/chef/chef-workstation/pull/3279) ([sanghinitin](https://github.com/sanghinitin)) <!-- 24.10.1071 -->
-- Update knife_ssh.md [#3271](https://github.com/chef/chef-workstation/pull/3271) ([IanMadd](https://github.com/IanMadd)) <!-- 24.10.1070 -->
-- Remove references to packages.chef.io [#3281](https://github.com/chef/chef-workstation/pull/3281) ([dishanktiwari2501](https://github.com/dishanktiwari2501)) <!-- 24.10.1069 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [24.12.1073](https://github.com/chef/chef-workstation/tree/24.12.1073) (2024-12-18)
+
+#### Merged Pull Requests
+- Remove references to packages.chef.io [#3281](https://github.com/chef/chef-workstation/pull/3281) ([dishanktiwari2501](https://github.com/dishanktiwari2501))
+- Update knife_ssh.md [#3271](https://github.com/chef/chef-workstation/pull/3271) ([IanMadd](https://github.com/IanMadd))
+- Vendor dir removed and Go version updated [#3279](https://github.com/chef/chef-workstation/pull/3279) ([sanghinitin](https://github.com/sanghinitin))
+- Correct download APIs [#3287](https://github.com/chef/chef-workstation/pull/3287) ([IanMadd](https://github.com/IanMadd))
+- CHEF-15132-Workstation release 24.12 [#3288](https://github.com/chef/chef-workstation/pull/3288) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_stable_release -->
+
 ## [24.8.1068](https://github.com/chef/chef-workstation/tree/24.8.1068) (2024-08-12)
 
 #### Merged Pull Requests
 - Bump kitchen-dokken to 2.20.6 [#3250](https://github.com/chef/chef-workstation/pull/3250) ([KawaiDesu](https://github.com/KawaiDesu))
 - updated doc with the current updated versions [#3267](https://github.com/chef/chef-workstation/pull/3267) ([nikhil2611](https://github.com/nikhil2611))
-<!-- latest_stable_release -->
 
 ## [24.6.1066](https://github.com/chef/chef-workstation/tree/24.6.1066) (2024-06-10)
 
