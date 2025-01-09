@@ -33,7 +33,7 @@ build do
     create_directory(psm1_path)
     chef_module_dir = "#{install_dir}/modules/chef"
     create_directory(chef_module_dir)
-    template = ERB.new(IO.read(template_file))
+    template = ERB.new(File.read(template_file))
     chef_psm1 = template.result
     File.open(::File.join(psm1_path, "chef.psm1"), "w") { |f| f.write(chef_psm1) }
     Dir.glob("#{chef_gem_path}/distro/powershell/chef/*").each do |file|
