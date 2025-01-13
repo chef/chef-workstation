@@ -38,14 +38,14 @@ else
 end
 
 version_file = File.expand_path("../../../VERSION", __dir__)
-build_version IO.read(version_file).strip
+build_version File.read(version_file).strip
 build_iteration 1
 
 # In order to prevent unnecessary cache expiration,
 # package and package version overrides, build_version
 # and build_iteration are kept in <project-root>/omnibus_overrides.rb
 overrides_path = File.expand_path("../../../omnibus_overrides.rb", __dir__)
-instance_eval(IO.read(overrides_path), overrides_path)
+instance_eval(File.read(overrides_path), overrides_path)
 
 dependency "preparation"
 
