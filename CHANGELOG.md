@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 25.1.1074 -->
+## [25.1.1074](https://github.com/chef/chef-workstation/tree/25.1.1074) (2025-01-10)
+
+#### Merged Pull Requests
+- Remove hosted chef from docs [#3285](https://github.com/chef/chef-workstation/pull/3285) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=24.12.1073 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Remove hosted chef from docs [#3285](https://github.com/chef/chef-workstation/pull/3285) ([IanMadd](https://github.com/IanMadd)) <!-- 25.1.1074 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
