@@ -1,4 +1,25 @@
 GIT
+  remote: https://github.com/chef/chef-apply
+  revision: 1d26c98e41e3b87deaf6aadc5345feeffed8bc4e
+  branch: nikhil/updating-chef-cli-version
+  specs:
+    chef-apply (0.9.6)
+      chef (>= 16.0)
+      chef-cli (~> 5.6)
+      chef-telemetry (>= 1.0.2)
+      license-acceptance (>= 1.0.11, < 3)
+      mixlib-cli
+      mixlib-config (>= 3.0.5)
+      mixlib-install
+      mixlib-log
+      pastel
+      r18n-desktop
+      toml-rb
+      train-core (~> 3.0)
+      train-winrm
+      tty-spinner
+
+GIT
   remote: https://github.com/chef/ruby-shadow
   revision: 3b8ea40b0e943b5de721d956741308ce805a5c3c
   branch: lcg/ruby-3.0
@@ -1365,7 +1386,7 @@ DEPENDENCIES
   bcrypt_pbkdf (>= 1.1.0.rc1)
   berkshelf (>= 8.0)
   chef (>= 18.2)
-  chef-apply (>= 0.4.16)
+  chef-apply (>= 0.4.16)!
   chef-bin (>= 18.2)
   chef-cli (>= 5.3.1)
   chef-telemetry (>= 1.0.8)
