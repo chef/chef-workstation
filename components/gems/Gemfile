@@ -102,7 +102,7 @@ group(:omnibus_package) do
   gem "ed25519"
   gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
   gem "chef-cli", ">= 5.3.1", git: "https://github.com/chef/chef-cli", branch: "nikhil/update-diff-lcs"
-  gem "chef-apply", ">= 0.4.16"
+  gem "chef-apply", ">= 0.4.16", git: "https://github.com/chef/chef-apply", branch: "nikhil/updating-chef-cli-version"
 
   # chef-telemetry previously pulled in an unecessary library (http)
   gem "chef-telemetry", ">= 1.0.8"
