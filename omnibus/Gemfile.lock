@@ -423,7 +423,7 @@ GEM
     strings-ansi (0.2.0)
     structured_warnings (0.4.0)
     syslog-logger (1.6.8)
-    test-kitchen (3.7.0)
+    test-kitchen (3.6.0)
       bcrypt_pbkdf (~> 1.0)
       chef-utils (>= 16.4.35)
       ed25519 (~> 1.2)
@@ -487,7 +487,6 @@ GEM
       aws-sigv4
     webrick (1.9.1)
     win32-api (1.10.1-universal-mingw32)
-    win32-api (1.10.1)
     win32-certstore (0.6.16)
       chef-powershell
       ffi
