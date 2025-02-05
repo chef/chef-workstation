@@ -1,20 +1,18 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.2.1075 -->
-## [25.2.1075](https://github.com/chef/chef-workstation/tree/25.2.1075) (2025-02-03)
-
-#### Merged Pull Requests
-- CHEF-17644- Workstation 25.2 release  [#3294](https://github.com/chef/chef-workstation/pull/3294) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=24.12.1073 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- CHEF-17644- Workstation 25.2 release  [#3294](https://github.com/chef/chef-workstation/pull/3294) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.2.1075 -->
-- Remove hosted chef from docs [#3285](https://github.com/chef/chef-workstation/pull/3285) ([IanMadd](https://github.com/IanMadd)) <!-- 25.1.1074 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [25.2.1075](https://github.com/chef/chef-workstation/tree/25.2.1075) (2025-02-05)
+
+#### Merged Pull Requests
+- Remove hosted chef from docs [#3285](https://github.com/chef/chef-workstation/pull/3285) ([IanMadd](https://github.com/IanMadd))
+- CHEF-17644- Workstation 25.2 release  [#3294](https://github.com/chef/chef-workstation/pull/3294) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_stable_release -->
+
 ## [24.12.1073](https://github.com/chef/chef-workstation/tree/24.12.1073) (2024-12-18)
 
 #### Merged Pull Requests
@@ -23,7 +21,6 @@
 - Vendor dir removed and Go version updated [#3279](https://github.com/chef/chef-workstation/pull/3279) ([sanghinitin](https://github.com/sanghinitin))
 - Correct download APIs [#3287](https://github.com/chef/chef-workstation/pull/3287) ([IanMadd](https://github.com/IanMadd))
 - CHEF-15132-Workstation release 24.12 [#3288](https://github.com/chef/chef-workstation/pull/3288) ([nikhil2611](https://github.com/nikhil2611))
-<!-- latest_stable_release -->
 
 ## [24.8.1068](https://github.com/chef/chef-workstation/tree/24.8.1068) (2024-08-12)
 
