@@ -8,8 +8,8 @@ GIT
 
 GIT
   remote: https://github.com/chef/omnibus.git
-  revision: 0633d009f24dfced4eb6ab76346b84fbb8c970f0
-  branch: main
+  revision: 2a6018c079c519f2bb9d31d50746305be2e0cc1d
+  branch: poorndm/whitelist_curl_lib
   specs:
     omnibus (9.0.25)
       aws-sdk-s3 (~> 1.116.0)
