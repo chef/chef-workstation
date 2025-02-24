@@ -56,6 +56,8 @@ build do
 
   configure_args = [
     "--prefix=#{install_dir}/embedded",
+    "enable-tls1_3",
+    "enable-legacy",
     "no-unit-test",
     "no-comp",
     "no-idea",
