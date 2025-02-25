@@ -54,16 +54,8 @@ build do
     env["CXXFLAGS"] = env["CFLAGS"]
   end
 
-  if mac_os_x?
-    command "sed -i '' -e '/SSL_get0_group_name/d' #{install_dir}/embedded/lib/vtls/openssl.c"
-  else
-    command "sed -i -e '/SSL_get0_group_name/d' #{install_dir}/embedded/lib/vtls/openssl.c"
-  end
-
   configure_args = [
     "--prefix=#{install_dir}/embedded",
-    "enable-tls1_3",
-    "enable-legacy",
     "no-unit-test",
     "no-comp",
     "no-idea",
