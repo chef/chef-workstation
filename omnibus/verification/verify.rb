@@ -321,18 +321,6 @@ module ChefWorkstation
             with_file(File.join(cwd, "openssl.rb")) do |f|
               f.write test
             end
-            puts "---- OpenSSL Debug Info ----"
-            sh!("openssl version -a") # OpenSSL version & build info
-            sh!("ruby -ropenssl -e 'puts OpenSSL::OPENSSL_VERSION'") # Ruby OpenSSL version
-            # sh!("curl -V") # Curl version and OpenSSL linkage
-            sh!("otool -L $(which curl)") if RUBY_PLATFORM =~ /darwin/ # macOS: Check linked libraries
-            sh!("ldd $(which curl)") unless RUBY_PLATFORM =~ /darwin/ # Linux: Check linked libraries
-            sh!("ls -l /usr/local/lib/libcrypto* /usr/local/lib/libssl*") # OpenSSL libraries in /usr/local
-            sh!("ls -l /opt/chef/embedded/lib/libcrypto* /opt/chef/embedded/libssl*") # Chef's OpenSSL libraries
-
-            puts "---- Curl Debug Trace ----"
-            # sh!("curl -v --trace-ascii /dev/stdout --trace-time --tlsv1.3 https://www.google.com") 
-
             sh!("#{Gem.ruby} openssl.rb", cwd: cwd)
           end
         end
@@ -405,17 +393,7 @@ module ChefWorkstation
       add_component "curl" do |c|
         c.base_dir = "embedded/bin"
         c.smoke_test do
-          sh!("echo '==== curl binary location ===='")
-          sh!("which curl")
-
-          sh!("echo '==== curl linked libraries ===='")
-          sh!("otool -L $(which curl)") if RUBY_PLATFORM =~ /darwin/
-
-          # sh!("echo '==== curl version output ===='")
           # sh!("curl --version")
-
-          sh!("echo '==== OpenSSL version details ===='")
-          sh!("openssl version -a")
         end
       end
 
