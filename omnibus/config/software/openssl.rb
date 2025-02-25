@@ -23,7 +23,7 @@ skip_transitive_dependency_licensing true
 dependency "cacerts"
 dependency "openssl-fips" if fips_mode?
 
-default_version "3.0.15"
+default_version "3.0.9"
 
 # Openssl builds engines as libraries into a special directory. We need to include
 # that directory in lib_dirs so omnibus can sign them during macOS deep signing.
@@ -35,7 +35,7 @@ source url: "https://www.openssl.org/source/openssl-#{version}.tar.gz", extract:
 internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/#{name}-#{version}.tar.gz", extract: :lax_tar,
                 authorization: "X-JFrog-Art-Api:#{ENV["ARTIFACTORY_TOKEN"]}"
 
-version("3.0.15") { source sha256: "23c666d0edf20f14249b3d8f0368acaee9ab585b09e1de82107c66e1f3ec9533" }
+version("3.0.9") { source sha256: "eb1ab04781474360f77c318ab89d8c5a03abc38e63d65a603cabbf1b00a1dc90" }
 
 relative_path "openssl-#{version}"
 
