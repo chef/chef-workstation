@@ -393,7 +393,26 @@ module ChefWorkstation
       add_component "curl" do |c|
         c.base_dir = "embedded/bin"
         c.smoke_test do
-          # sh!("curl --version")
+          puts "==== Debugging curl OpenSSL Linkage ===="
+
+          # Check OpenSSL binary and version
+          puts "OpenSSL Binary Path:"
+          puts shellout!("which openssl").stdout
+
+          puts "OpenSSL Version:"
+          puts shellout!("openssl version -a").stdout
+
+          # Check dynamic libraries linked to libcurl
+          puts "Linked Libraries for libcurl.4.dylib:"
+          puts shellout!("otool -L /opt/chef-workstation/embedded/lib/libcurl.4.dylib").stdout
+
+          # Check if SSL_get0_group_name is present
+          puts "Checking for SSL_get0_group_name Symbol:"
+          symbol_check = shellout!("strings /opt/chef-workstation/embedded/lib/libcurl.4.dylib | grep SSL_get0_group_name || echo 'Symbol not found'").stdout
+          puts symbol_check
+
+          puts "==== Running curl version check ===="
+          puts shellout!("curl --version").stdout
         end
       end
 
