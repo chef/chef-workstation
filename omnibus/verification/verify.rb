@@ -393,26 +393,31 @@ module ChefWorkstation
       add_component "curl" do |c|
         c.base_dir = "embedded/bin"
         c.smoke_test do
+          def run_command(command)
+            cmd = Mixlib::ShellOut.new(command)
+            cmd.run_command
+            puts "COMMAND: #{command}"
+            puts "STDOUT:\n#{cmd.stdout}"
+            puts "STDERR:\n#{cmd.stderr}" unless cmd.stderr.empty?
+            cmd.error! # Raises error if command fails
+          rescue => e
+            puts "ERROR: #{e.message}"
+          end
+      
           puts "==== Debugging curl OpenSSL Linkage ===="
-
+      
           # Check OpenSSL binary and version
-          puts "OpenSSL Binary Path:"
-          puts shellout!("which openssl").stdout
-
-          puts "OpenSSL Version:"
-          puts shellout!("openssl version -a").stdout
-
+          run_command("which openssl")
+          run_command("openssl version -a")
+      
           # Check dynamic libraries linked to libcurl
-          puts "Linked Libraries for libcurl.4.dylib:"
-          puts shellout!("otool -L /opt/chef-workstation/embedded/lib/libcurl.4.dylib").stdout
-
+          run_command("otool -L /opt/chef-workstation/embedded/lib/libcurl.4.dylib")
+      
           # Check if SSL_get0_group_name is present
-          puts "Checking for SSL_get0_group_name Symbol:"
-          symbol_check = shellout!("strings /opt/chef-workstation/embedded/lib/libcurl.4.dylib | grep SSL_get0_group_name || echo 'Symbol not found'").stdout
-          puts symbol_check
-
+          run_command("strings /opt/chef-workstation/embedded/lib/libcurl.4.dylib | grep SSL_get0_group_name || echo 'Symbol not found'")
+      
           puts "==== Running curl version check ===="
-          puts shellout!("curl --version").stdout
+          run_command("curl --version")
         end
       end
 
