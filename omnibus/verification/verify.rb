@@ -403,50 +403,47 @@ module ChefWorkstation
           rescue => e
             puts "ERROR: #{e.message}"
           end
-
-          # puts "==== Debugging OpenSSL ===="
-
-          # # Check OpenSSL binary and version
-          # run_command("which openssl")
-          # run_command("openssl version -a")
-
-          # # Check if OpenSSL is correctly linked to libcurl
-          # run_command("otool -L $(which openssl)")
-          # run_command("otool -L /opt/chef-workstation/embedded/lib/libcurl.4.dylib")
-    
-          # # Check OpenSSL headers used during compilation
-          # run_command("grep -r 'OPENSSL_VERSION_TEXT' /opt/chef-workstation/embedded/include/openssl/")
-    
-          # # Verify OpenSSL library and headers
-          # run_command("find /opt/chef-workstation/embedded/include -name 'opensslconf.h'")
-          # run_command("find /opt/chef-workstation/embedded/lib -name 'libssl*' -o -name 'libcrypto*'")
-    
-          # # Check if SSL_get0_group_name is referenced in libcurl
-          # run_command("nm -g /opt/chef-workstation/embedded/lib/libcurl.4.dylib | grep SSL_get0_group_name || echo 'Symbol not found'")
-          # run_command("strings /opt/chef-workstation/embedded/lib/libcurl.4.dylib | grep SSL_get0_group_name || echo 'Symbol not found'")
-          # run_command("objdump -T /opt/chef-workstation/embedded/lib/libcurl.4.dylib | grep SSL_get0_group_name || echo 'Symbol not found'")
-    
-          # # Check for dynamically loaded libraries during runtime
-          # run_command("env DYLD_PRINT_LIBRARIES=1 curl --version 2>&1 | tee /tmp/curl_libs.log")
-    
-          # # Check curl binary location
-          # puts "==== Running curl version check ===="
-          # run_command("which curl")
-          # run_command("otool -L $(which curl) | grep -i openssl")
-          # run_command("env PATH=/opt/chef-workstation/embedded/bin:$PATH curl --version")
-          # run_command("curl --version")
-
-          puts "==== Checking OpenSSL ===="
-          run_command("which openssl")
-          run_command("openssl version -a")
+      
+          puts "==== Locating Chef Workstation OpenSSL ===="
+          chef_openssl = "/opt/chef-workstation/embedded/bin/openssl"
+      
+          if !File.exist?(chef_openssl)
+            puts "ERROR: Chef Workstation OpenSSL not found at #{chef_openssl}"
+            exit 1
+          end
+      
+          puts "Using OpenSSL from Chef Workstation: #{chef_openssl}"
           
+          puts "==== Checking OpenSSL ===="
+          run_command("#{chef_openssl} version -a")
+      
           puts "==== Checking Curl ===="
-          run_command("which curl")
-          run_command("otool -L $(which curl)")
-          run_command("curl --version")
+          chef_curl = "/opt/chef-workstation/embedded/bin/curl"
+      
+          if !File.exist?(chef_curl)
+            puts "ERROR: Chef Workstation Curl not found at #{chef_curl}"
+            exit 1
+          end
+      
+          puts "Using Curl from Chef Workstation: #{chef_curl}"
+      
+          puts "==== Checking Linked Libraries for libcurl ===="
+          run_command("otool -L /opt/chef-workstation/embedded/lib/libcurl.4.dylib")
+      
+          puts "==== Verifying OpenSSL Version Used by Curl ===="
+          curl_output = Mixlib::ShellOut.new("#{chef_curl} --version").run_command.stdout
+          unless curl_output.include?("OpenSSL/3.0.15")
+            puts "ERROR: Curl is not linking to OpenSSL 3.0.15!"
+            exit 1
+          end
 
+          run_command("otool -L #{chef_curl}")
+          run_command("#{chef_curl} --version")
+      
+          puts "Tests passed! Everything is using the expected OpenSSL version."
         end
       end
+      
 
       attr_reader :verification_threads
       attr_reader :verification_results
