@@ -393,57 +393,40 @@ module ChefWorkstation
       add_component "curl" do |c|
         c.base_dir = "embedded/bin"
         c.smoke_test do
-          def run_command(command)
-            cmd = Mixlib::ShellOut.new(command)
-            cmd.run_command
-            puts "COMMAND: #{command}"
-            puts "STDOUT:\n#{cmd.stdout}"
-            puts "STDERR:\n#{cmd.stderr}" unless cmd.stderr.empty?
-            cmd.error! # Raises error if command fails
-          rescue => e
-            puts "ERROR: #{e.message}"
-          end
-      
-          puts "==== Locating Chef Workstation OpenSSL ===="
-          chef_openssl = "/opt/chef-workstation/embedded/bin/openssl"
-      
-          if !File.exist?(chef_openssl)
-            puts "ERROR: Chef Workstation OpenSSL not found at #{chef_openssl}"
-            exit 1
-          end
-      
-          puts "Using OpenSSL from Chef Workstation: #{chef_openssl}"
-          
-          puts "==== Checking OpenSSL ===="
-          run_command("#{chef_openssl} version -a")
-      
-          puts "==== Checking Curl ===="
-          chef_curl = "/opt/chef-workstation/embedded/bin/curl"
-      
-          if !File.exist?(chef_curl)
-            puts "ERROR: Chef Workstation Curl not found at #{chef_curl}"
-            exit 1
-          end
-      
-          puts "Using Curl from Chef Workstation: #{chef_curl}"
-      
-          # puts "==== Checking Linked Libraries for libcurl ===="
-          # run_command("otool -L /opt/chef-workstation/embedded/lib/libcurl.4.dylib")
-      
-          puts "==== Verifying OpenSSL Version Used by Curl ===="
-          curl_output = Mixlib::ShellOut.new("#{chef_curl} --version").run_command.stdout
-          unless curl_output.include?("OpenSSL/3.0.9")
-            puts "ERROR: Curl is not linking to OpenSSL 3.0.9!"
-            exit 1
-          end
-
-          # run_command("otool -L #{chef_curl}")
-          run_command("#{chef_curl} --version")
-      
-          puts "Tests passed! Everything is using the expected OpenSSL version."
+            puts "==== Locating Chef Workstation OpenSSL ===="
+            chef_openssl = "/opt/chef-workstation/embedded/bin/openssl"
+            
+            if !File.exist?(chef_openssl)
+                puts "ERROR: Chef Workstation OpenSSL not found at #{chef_openssl}"
+                exit 1
+            end
+            
+            puts "Using OpenSSL from Chef Workstation: #{chef_openssl}"
+            puts "==== Checking OpenSSL ===="
+            sh!("#{chef_openssl} version -a")
+            
+            puts "==== Checking Curl ===="
+            chef_curl = "/opt/chef-workstation/embedded/bin/curl"
+            
+            if !File.exist?(chef_curl)
+                puts "ERROR: Chef Workstation Curl not found at #{chef_curl}"
+                exit 1
+            end
+            
+            puts "Using Curl from Chef Workstation: #{chef_curl}"
+            
+            puts "==== Verifying OpenSSL Version Used by Curl ===="
+            curl_output = `#{chef_curl} --version`
+            unless curl_output.include?("OpenSSL/3.0.9")
+                puts "ERROR: Curl is not linking to OpenSSL 3.0.9!"
+                exit 1
+            end
+            
+            sh!("#{chef_curl} --version")
+            
+            puts "Tests passed! Everything is using the expected OpenSSL version."
         end
-      end
-      
+    end
 
       attr_reader :verification_threads
       attr_reader :verification_results
