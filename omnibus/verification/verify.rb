@@ -421,10 +421,7 @@ module ChefWorkstation
                 puts "ERROR: Curl is not linking to OpenSSL 3.0.9!"
                 exit 1
             end
-            
             sh!("#{chef_curl} --version")
-            
-            puts "Tests passed! Everything is using the expected OpenSSL version."
         end
     end
 
