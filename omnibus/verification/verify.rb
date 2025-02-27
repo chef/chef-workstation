@@ -393,7 +393,25 @@ module ChefWorkstation
       add_component "curl" do |c|
         c.base_dir = "embedded/bin"
         c.smoke_test do
-          sh!("curl --version")
+          def run_command(command)
+            cmd = Mixlib::ShellOut.new(command)
+            cmd.run_command
+            puts "COMMAND: #{command}"
+            puts "STDOUT:\n#{cmd.stdout}"
+            puts "STDERR:\n#{cmd.stderr}" unless cmd.stderr.empty?
+            cmd.error! # Raises error if command fails
+          rescue => e
+            puts "ERROR: #{e.message}"
+          end
+          puts "==== Checking OpenSSL ===="
+          run_command("which openssl")
+          run_command("openssl version -a")
+          
+          puts "==== Checking Curl ===="
+          run_command("which curl")
+          run_command("otool -L $(which curl)")
+          run_command("curl --version")
+
         end
       end
 
