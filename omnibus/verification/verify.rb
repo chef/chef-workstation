@@ -392,6 +392,15 @@ module ChefWorkstation
 
       add_component "curl" do |c|
         c.base_dir = "embedded/bin"
+        # Debug tools installed on tester
+        shellout!(echo "******DEBUGGING")
+        shellout!(echo ":ruby: Validating Ruby can run")
+        shellout!("$EMBEDDED_BIN_DIR/ruby" --version)
+        shellout!(echo ":gem: Validating RubyGems can run")
+        shellout!("$EMBEDDED_BIN_DIR/gem" --version)
+        shellout!(echo ":bundler: Checking Bundler version")
+        shellout!("$EMBEDDED_BIN_DIR/bundle" --version)
+        shellout!("$EMBEDDED_BIN_DIR/ruby" -r openssl -e 'puts "Ruby can load OpenSSL"')
         c.smoke_test do
           sh!("curl --version")
         end
