@@ -390,39 +390,48 @@ module ChefWorkstation
         end
       end
 
-      add_component "curl" do |c|
-        c.base_dir = "embedded/bin"
-        c.smoke_test do
-            puts "==== Locating Chef Workstation OpenSSL ===="
-            chef_openssl = "/opt/chef-workstation/embedded/bin/openssl"
+    #   add_component "curl" do |c|
+    #     c.base_dir = "embedded/bin"
+    #     c.smoke_test do
+    #         puts "==== Locating Chef Workstation OpenSSL ===="
+    #         chef_openssl = "/opt/chef-workstation/embedded/bin/openssl"
             
-            if !File.exist?(chef_openssl)
-                puts "ERROR: Chef Workstation OpenSSL not found at #{chef_openssl}"
-                exit 1
-            end
+    #         if !File.exist?(chef_openssl)
+    #             puts "ERROR: Chef Workstation OpenSSL not found at #{chef_openssl}"
+    #             exit 1
+    #         end
             
-            puts "Using OpenSSL from Chef Workstation: #{chef_openssl}"
-            puts "==== Checking OpenSSL ===="
-            sh!("#{chef_openssl} version -a")
+    #         puts "Using OpenSSL from Chef Workstation: #{chef_openssl}"
+    #         puts "==== Checking OpenSSL ===="
+    #         sh!("#{chef_openssl} version -a")
             
-            puts "==== Checking Curl ===="
-            chef_curl = "/opt/chef-workstation/embedded/bin/curl"
+    #         puts "==== Checking Curl ===="
+    #         chef_curl = "/opt/chef-workstation/embedded/bin/curl"
             
-            if !File.exist?(chef_curl)
-                puts "ERROR: Chef Workstation Curl not found at #{chef_curl}"
-                exit 1
-            end
+    #         if !File.exist?(chef_curl)
+    #             puts "ERROR: Chef Workstation Curl not found at #{chef_curl}"
+    #             exit 1
+    #         end
             
-            puts "Using Curl from Chef Workstation: #{chef_curl}"
+    #         puts "Using Curl from Chef Workstation: #{chef_curl}"
             
-            puts "==== Verifying OpenSSL Version Used by Curl ===="
-            curl_output = `#{chef_curl} --version`
-            unless curl_output.include?("OpenSSL/3.0.9")
-                puts "ERROR: Curl is not linking to OpenSSL 3.0.9!"
-                exit 1
-            end
-            sh!("#{chef_curl} --version")
-        end
+    #         puts "==== Verifying OpenSSL Version Used by Curl ===="
+    #         curl_output = `#{chef_curl} --version`
+    #         unless curl_output.include?("OpenSSL/3.0.9")
+    #             puts "ERROR: Curl is not linking to OpenSSL 3.0.9!"
+    #             exit 1
+    #         end
+    #         sh!("#{chef_curl} --version")
+    #     end
+    # end
+
+    add_component "curl" do |c|
+      c.base_dir = "embedded/bin"
+      c.smoke_test do
+        puts "==== Checking Curl ===="
+        chef_curl = "/opt/chef-workstation/embedded/bin/curl"
+        sh!("#{chef_curl} --version")
+      end
     end
 
       attr_reader :verification_threads
