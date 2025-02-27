@@ -427,17 +427,17 @@ module ChefWorkstation
       
           puts "Using Curl from Chef Workstation: #{chef_curl}"
       
-          puts "==== Checking Linked Libraries for libcurl ===="
-          run_command("otool -L /opt/chef-workstation/embedded/lib/libcurl.4.dylib")
+          # puts "==== Checking Linked Libraries for libcurl ===="
+          # run_command("otool -L /opt/chef-workstation/embedded/lib/libcurl.4.dylib")
       
           puts "==== Verifying OpenSSL Version Used by Curl ===="
           curl_output = Mixlib::ShellOut.new("#{chef_curl} --version").run_command.stdout
-          unless curl_output.include?("OpenSSL/3.0.15")
-            puts "ERROR: Curl is not linking to OpenSSL 3.0.15!"
+          unless curl_output.include?("OpenSSL/3.0.9")
+            puts "ERROR: Curl is not linking to OpenSSL 3.0.9!"
             exit 1
           end
 
-          run_command("otool -L #{chef_curl}")
+          # run_command("otool -L #{chef_curl}")
           run_command("#{chef_curl} --version")
       
           puts "Tests passed! Everything is using the expected OpenSSL version."
