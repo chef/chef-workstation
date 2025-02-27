@@ -392,17 +392,29 @@ module ChefWorkstation
 
       add_component "curl" do |c|
         c.base_dir = "embedded/bin"
-        # Debug tools installed on tester
-        shellout!(echo "******DEBUGGING")
-        shellout!(echo ":ruby: Validating Ruby can run")
-        shellout!("$EMBEDDED_BIN_DIR/ruby" --version)
-        shellout!(echo ":gem: Validating RubyGems can run")
-        shellout!("$EMBEDDED_BIN_DIR/gem" --version)
-        shellout!(echo ":bundler: Checking Bundler version")
-        shellout!("$EMBEDDED_BIN_DIR/bundle" --version)
-        shellout!("$EMBEDDED_BIN_DIR/ruby" -r openssl -e 'puts "Ruby can load OpenSSL"')
         c.smoke_test do
-          sh!("curl --version")
+          # Verify we're using the embedded OpenSSL
+          openssl_path = File.join(omnibus_root, "embedded/bin/openssl")
+          openssl_version = sh!("#{openssl_path} version")
+          msg("Using OpenSSL from Chef Workstation: #{openssl_version.stdout.strip}")
+
+          # Set SSL_CERT_FILE to use embedded certificates
+          ssl_cert_file = File.join(omnibus_root, "embedded/ssl/certs/cacert.pem")
+
+          # Test curl with explicit SSL cert path
+          env = {
+            "SSL_CERT_FILE" => ssl_cert_file,
+            "CURL_CA_BUNDLE" => ssl_cert_file,
+            "PATH" => "#{File.join(omnibus_root, 'embedded/bin')}:#{ENV['PATH']}"
+          }
+
+          # Verify curl version and SSL backend
+          sh!("curl --version", env: env)
+
+          # Test HTTPS connection to verify SSL is working
+          test_url = "https://www.chef.io"
+          msg("Testing HTTPS connection to #{test_url}")
+          sh!("curl -sS --fail #{test_url}", env: env)
         end
       end
 
