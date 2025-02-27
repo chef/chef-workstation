@@ -393,28 +393,41 @@ module ChefWorkstation
       add_component "curl" do |c|
         c.base_dir = "embedded/bin"
         c.smoke_test do
-          # Verify we're using the embedded OpenSSL
-          openssl_path = File.join(omnibus_root, "embedded/bin/openssl")
-          openssl_version = sh!("#{openssl_path} version")
-          msg("Using OpenSSL from Chef Workstation: #{openssl_version.stdout.strip}")
+          embedded_lib_path = File.join(omnibus_root, "embedded/lib")
 
-          # Set SSL_CERT_FILE to use embedded certificates
-          ssl_cert_file = File.join(omnibus_root, "embedded/ssl/certs/cacert.pem")
+          # First verify library dependencies
+          curl_lib = File.join(embedded_lib_path, "libcurl.4.dylib")
+          otool_check = sh!("otool -L #{curl_lib}")
+          unless otool_check.stdout.include?("#{embedded_lib_path}/libssl")
+            raise "libcurl not properly linked to embedded OpenSSL"
+          end
 
-          # Test curl with explicit SSL cert path
           env = {
-            "SSL_CERT_FILE" => ssl_cert_file,
-            "CURL_CA_BUNDLE" => ssl_cert_file,
+            "DYLD_LIBRARY_PATH" => embedded_lib_path,
+            "DYLD_FALLBACK_LIBRARY_PATH" => embedded_lib_path,
+            "SSL_CERT_FILE" => File.join(omnibus_root, "embedded/ssl/certs/cacert.pem"),
+            "CURL_CA_BUNDLE" => File.join(omnibus_root, "embedded/ssl/certs/cacert.pem"),
             "PATH" => "#{File.join(omnibus_root, 'embedded/bin')}:#{ENV['PATH']}"
           }
 
-          # Verify curl version and SSL backend
-          sh!("curl --version", env: env)
+          # Test curl functionality and version info
+          curl_version = sh!("curl --version", env: env)
+          unless curl_version.stdout.include?("OpenSSL")
+            raise "Curl is not properly configured with OpenSSL support"
+          end
 
-          # Test HTTPS connection to verify SSL is working
-          test_url = "https://www.chef.io"
-          msg("Testing HTTPS connection to #{test_url}")
-          sh!("curl -sS --fail #{test_url}", env: env)
+          # Test HTTPS functionality
+          sh!("curl -sS --fail https://www.chef.io", env: env)
+
+          # Additional SSL verification
+          begin
+            ssl_test = sh!("curl -sS --fail https://www.chef.io -v", env: env)
+            unless ssl_test.stdout.include?("SSL connection")
+              raise "Curl SSL connection verification failed"
+            end
+          rescue => e
+            raise "SSL verification failed: #{e.message}"
+          end
         end
       end
 
