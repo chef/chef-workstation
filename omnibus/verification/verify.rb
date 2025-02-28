@@ -370,25 +370,32 @@ module ChefWorkstation
           c.smoke_test do
             tmpdir do |cwd|
               sh!("#{File.join(omnibus_root, "gitbin", "git")} config -l")
-              sh!("#{File.join(omnibus_root, "gitbin", "git")} clone https://github.com/chef/license-acceptance", cwd: cwd)
-
+        
+              # Ensure git uses the embedded curl and OpenSSL
+              env = {
+                "LD_LIBRARY_PATH" => "/opt/chef-workstation/embedded/lib",
+                "DYLD_LIBRARY_PATH" => "/opt/chef-workstation/embedded/lib",
+                "GIT_CURL_VERBOSE" => "1",
+                "GIT_SSL_NO_VERIFY" => "1",
+                "GIT_TRACE" => "1"
+              }
+        
+              sh!("env #{env.map { |k, v| "#{k}='#{v}'" }.join(' ')} #{File.join(omnibus_root, "gitbin", "git")} clone https://github.com/chef/license-acceptance", cwd: cwd)
+        
               # If /usr/bin/git is a symlink, fail the test.
-              # Note that this test cannot go last because it does not return a
-              # Mixlib::Shellout object in the windows case, which will break the tests.
               failure_str = "#{nix_platform_native_bin_dir}/git contains a symlink which might mean we accidentally overwrote system git via chefcli."
               result = sh("readlink #{nix_platform_native_bin_dir}/git")
-              # if a symlink was found, test to see if it is in a chefcli install
+              
               if result.status.exitstatus == 0
                 raise failure_str if result.stdout =~ /chefcli/
               end
-
+        
               # <chef_dk>/bin/ should not contain a git binary.
               failure_str = "`<chef_dk>/bin/git --help` should fail as git should be installed in gitbin"
               fail_if_exit_zero("#{bin("git")} --help", failure_str)
             end
           end
         end
-      end
 
     #   add_component "curl" do |c|
     #     c.base_dir = "embedded/bin"
