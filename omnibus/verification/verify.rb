@@ -370,11 +370,14 @@ module ChefWorkstation
           c.smoke_test do
             tmpdir do |cwd|
               env_vars = {
-                "DYLD_LIBRARY_PATH" => "/opt/chef-workstation/embedded/lib:#{ENV['DYLD_LIBRARY_PATH']}"
+                "DYLD_LIBRARY_PATH" => "/opt/chef-workstation/embedded/lib:#{ENV['DYLD_LIBRARY_PATH']}",
+                "LD_LIBRARY_PATH" => "/opt/chef-workstation/embedded/lib:#{ENV['LD_LIBRARY_PATH']}"
               }
+              
+              # Correct usage of sh! with env_vars as the first argument
               sh!(env_vars, "#{File.join(omnibus_root, 'gitbin', 'git')} config -l")
-              sh!(env_vars, "/opt/chef-workstation/gitbin/git clone https://github.com/chef/license-acceptance")
-
+              sh!(env_vars, "#{File.join(omnibus_root, 'gitbin', 'git')} clone https://github.com/chef/license-acceptance", cwd: cwd)
+        
 
               # If /usr/bin/git is a symlink, fail the test.
               # Note that this test cannot go last because it does not return a
@@ -397,37 +400,43 @@ module ChefWorkstation
       add_component "curl" do |c|
         c.base_dir = "embedded/bin"
         c.smoke_test do
-            puts "==== Locating Chef Workstation OpenSSL ===="
-            chef_openssl = "/opt/chef-workstation/embedded/bin/openssl"
-            
-            if !File.exist?(chef_openssl)
-                puts "ERROR: Chef Workstation OpenSSL not found at #{chef_openssl}"
-                exit 1
-            end
-            
-            puts "Using OpenSSL from Chef Workstation: #{chef_openssl}"
-            puts "==== Checking OpenSSL ===="
-            sh!("#{chef_openssl} version -a")
-            
-            puts "==== Checking Curl ===="
-            chef_curl = "/opt/chef-workstation/embedded/bin/curl"
-            
-            if !File.exist?(chef_curl)
-                puts "ERROR: Chef Workstation Curl not found at #{chef_curl}"
-                exit 1
-            end
-            
-            puts "Using Curl from Chef Workstation: #{chef_curl}"
-            
-            puts "==== Verifying OpenSSL Version Used by Curl ===="
-            curl_output = `#{chef_curl} --version`
-            unless curl_output.include?("OpenSSL/3.0.9")
-                puts "ERROR: Curl is not linking to OpenSSL 3.0.9!"
-                exit 1
-            end
-            sh!("#{chef_curl} --version")
+          puts "==== Locating Chef Workstation OpenSSL ===="
+          chef_openssl = "/opt/chef-workstation/embedded/bin/openssl"
+          
+          unless File.exist?(chef_openssl)
+            puts "ERROR: Chef Workstation OpenSSL not found at #{chef_openssl}"
+            exit 1
+          end
+          
+          puts "Using OpenSSL from Chef Workstation: #{chef_openssl}"
+          puts "==== Checking OpenSSL ===="
+          sh!("#{chef_openssl} version -a")
+          
+          puts "==== Checking Curl ===="
+          chef_curl = "/opt/chef-workstation/embedded/bin/curl"
+          
+          unless File.exist?(chef_curl)
+            puts "ERROR: Chef Workstation Curl not found at #{chef_curl}"
+            exit 1
+          end
+          
+          puts "Using Curl from Chef Workstation: #{chef_curl}"
+          
+          puts "==== Verifying OpenSSL Version Used by Curl ===="
+          env_vars = {
+            "DYLD_LIBRARY_PATH" => "/opt/chef-workstation/embedded/lib:#{ENV['DYLD_LIBRARY_PATH']}",
+            "LD_LIBRARY_PATH" => "/opt/chef-workstation/embedded/lib:#{ENV['LD_LIBRARY_PATH']}"
+          }
+          curl_output = `#{chef_curl} --version`
+          unless curl_output.include?("OpenSSL/3.0.9")
+            puts "ERROR: Curl is not linking to OpenSSL 3.0.9!"
+            exit 1
+          end
+          
+          # Correct usage of sh! with env_vars as the first argument
+          sh!(env_vars, "#{chef_curl} --version")
         end
-    end
+      end
 
       attr_reader :verification_threads
       attr_reader :verification_results
@@ -441,6 +450,11 @@ module ChefWorkstation
       end
 
       def run(params = [ ])
+
+        # Set environment variables to use embedded OpenSSL
+        ENV["DYLD_LIBRARY_PATH"] = "/opt/chef-workstation/embedded/lib:#{ENV['DYLD_LIBRARY_PATH']}"
+        ENV["LD_LIBRARY_PATH"] = "/opt/chef-workstation/embedded/lib:#{ENV['LD_LIBRARY_PATH']}"
+
         err("[WARN] This is an internal command used by the Chef Workstation development team. If you are a Chef Workstation user, please do not run it.")
         @components_filter = parse_options(params)
 
