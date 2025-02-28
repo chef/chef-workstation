@@ -90,13 +90,15 @@ build do
       "#{prefix} disable-gost"
     end
 
-  # Patches
-  patch source: "openssl-3.0.1-do-not-install-docs.patch", env: env
-  # Some of the algorithms which are being used are deprecated in OpenSSL3 and moved to legacy provider.
-  # We need those algorithms for the working of chef-workstation and other packages.
-  # This patch will enable the legacy providers!
-  configure_args << "enable-legacy"
-  patch source: "openssl-3.0.0-enable-legacy-provider.patch", env: env
+  if version.start_with? "3.0"
+    # Patches
+    patch source: "openssl-3.0.1-do-not-install-docs.patch", env: env
+    # Some of the algorithms which are being used are deprecated in OpenSSL3 and moved to legacy provider.
+    # We need those algorithms for the working of chef-workstation and other packages.
+    # This patch will enable the legacy providers!
+    configure_args << "enable-legacy"
+    patch source: "openssl-3.0.0-enable-legacy-provider.patch", env: env
+  end
 
   # Out of abundance of caution, we put the feature flags first and then
   # the crazy platform specific compiler flags at the end.
