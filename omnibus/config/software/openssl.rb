@@ -23,7 +23,7 @@ skip_transitive_dependency_licensing true
 dependency "cacerts"
 dependency "openssl-fips" if fips_mode?
 
-default_version "3.0.15"
+default_version "3.2.4"
 
 # Openssl builds engines as libraries into a special directory. We need to include
 # that directory in lib_dirs so omnibus can sign them during macOS deep signing.
@@ -35,7 +35,7 @@ source url: "https://www.openssl.org/source/openssl-#{version}.tar.gz", extract:
 internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/#{name}-#{version}.tar.gz", extract: :lax_tar,
                 authorization: "X-JFrog-Art-Api:#{ENV["ARTIFACTORY_TOKEN"]}"
 
-version("3.0.15") { source sha256: "23c666d0edf20f14249b3d8f0368acaee9ab585b09e1de82107c66e1f3ec9533" }
+version("3.2.4") { source sha256: "b23ad7fd9f73e43ad1767e636040e88ba7c9e5775bfa5618436a0dd2c17c3716" }
 
 relative_path "openssl-#{version}"
 
@@ -91,7 +91,8 @@ build do
     end
 
   # Patches
-  patch source: "openssl-3.0.1-do-not-install-docs.patch", env: env
+  patch source: "openssl-3.2.4-do-not-install-docs.patch", env: env
+  # patch source: "openssl-3.0.1-do-not-install-docs.patch", env: env
   # Some of the algorithms which are being used are deprecated in OpenSSL3 and moved to legacy provider.
   # We need those algorithms for the working of chef-workstation and other packages.
   # This patch will enable the legacy providers!
