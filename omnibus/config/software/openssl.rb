@@ -57,11 +57,7 @@ build do
   configure_args = [
     "--prefix=#{install_dir}/embedded",
     "no-unit-test",
-    "no-comp",
-    "no-idea",
-    "no-mdc2",
     "no-rc5",
-    "no-ssl2",
     "no-ssl3",
     "no-zlib",
     "shared",
