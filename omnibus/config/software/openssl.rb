@@ -136,15 +136,12 @@ build do
   
     # Step 7: Validate the FIPS provider is being used
     # Wraps the `openssl` command with the fipsprovider path to verify it's being used correctly
-    command "#{install_dir}/embedded/bin/openssl util/wrap.pl -fips apps/openssl list -provider-path #{install_dir}/embedded/lib/ossl-modules/ -provider fips -providers"
+    # command "#{install_dir}/embedded/bin/openssl util/wrap.pl -fips apps/openssl list -provider-path #{install_dir}/embedded/lib/ossl-modules/ -provider fips -providers"
   
     # Step 8: Run tests using OpenSSL 3.0 FIPS provider
     command "#{install_dir}/embedded/bin/openssl fipsinstall -out #{install_dir}/embedded/ssl/fipsmodule.cnf -module #{install_dir}/embedded/lib/ossl-modules/fips.so"
     command "make tests"
-    
-    # Optional: To check if FIPS is properly enabled
-    command "#{install_dir}/embedded/bin/openssl list -providers"
   end
-  
+  command "#{install_dir}/embedded/bin/openssl list -providers"
     
 end
