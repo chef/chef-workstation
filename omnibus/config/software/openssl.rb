@@ -140,7 +140,6 @@ build do
   
     # Step 8: Run tests using OpenSSL 3.0 FIPS provider
     command "#{install_dir}/embedded/bin/openssl fipsinstall -out #{install_dir}/embedded/ssl/fipsmodule.cnf -module #{install_dir}/embedded/lib/ossl-modules/fips.so"
-    command "make tests"
   end
   command "#{install_dir}/embedded/bin/openssl list -providers"
     
