@@ -121,9 +121,6 @@ build do
     command "cd openssl-3.0.9 && ./Configure enable-fips"
     command "cd openssl-3.0.9 && make"
   
-    # Step 3: Return to the previous directory
-    command "cd .."
-  
     # Step 4: Install FIPS module
     fips_provider_path = "#{install_dir}/embedded/lib/ossl-modules/fips.#{windows? ? "dll" : "so"}"
     fips_cnf_file = "#{install_dir}/embedded/ssl/fipsmodule.cnf"
