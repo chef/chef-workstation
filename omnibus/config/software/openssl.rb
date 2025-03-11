@@ -45,12 +45,16 @@ build do
   if mac_os_x? && arm?
     env["CFLAGS"] << " -Qunused-arguments"
   elsif windows?
+    # XXX: OpenSSL explicitly sets -march=i486 and expects that to be honored.
+    # It has OPENSSL_IA32_SSE2 controlling whether it emits optimized SSE2 code
+    # and the 32-bit calling convention involving XMM registers is...  vague.
+    # Do not enable SSE2 generally because the hand optimized assembly will
+    # overwrite registers that mingw expects to get preserved.
     env["CFLAGS"] = "-I#{install_dir}/embedded/include"
     env["CPPFLAGS"] = env["CFLAGS"]
     env["CXXFLAGS"] = env["CFLAGS"]
   end
 
-  # Configure and Build OpenSSL 3.4.1 (default version)
   configure_args = [
     "--prefix=#{install_dir}/embedded",
     "no-unit-test",
@@ -87,56 +91,64 @@ build do
       "#{prefix} disable-gost"
     end
 
-  # Patches and configurations
+  # Patches
   patch source: "openssl-3.4.1-do-not-install-docs.patch", env: env
+  # Some of the algorithms which are being used are deprecated in OpenSSL3 and moved to legacy provider.
+  # We need those algorithms for the working of chef-workstation and other packages.
+  # This patch will enable the legacy providers!
   configure_args << "enable-legacy"
   patch source: "openssl-3.4.1-enable-legacy-provider.patch", env: env
 
+  # Out of abundance of caution, we put the feature flags first and then
+  # the crazy platform specific compiler flags at the end.
   configure_args << env["CFLAGS"]
+
   configure_command = configure_args.unshift(configure_cmd).join(" ")
 
   command configure_command, env: env, in_msys_bash: true
+
   make "depend", env: env
+  # make -j N on openssl is not reliable
   make env: env
   make "install", env: env
 
   if fips_mode?
-    # FIPS-specific steps only executed when fips_mode is enabled
-
-    # Step 1: Download and build OpenSSL 3.0.9 (FIPS validated version)
-    fips_version = "3.0.9"
-    fips_source_url = "https://www.openssl.org/source/openssl-#{fips_version}.tar.gz"
-    fips_relative_path = "openssl-#{fips_version}"
-
-    # Download and extract the OpenSSL 3.0.9 tarball
-    unless system("wget #{fips_source_url}")
-      raise "Failed to download OpenSSL #{fips_version}!"
-    end
-    command "tar -xf openssl-#{fips_version}.tar.gz", env: env
-
-    # Build OpenSSL 3.0.9 with FIPS
-    Dir.chdir(fips_relative_path) do
-      command "./Configure enable-fips", env: env
-      make "depend", env: env
-      make env: env
-    end
-
-    # Step 2: Copy FIPS provider artifacts (fips.so or fips.dll) from OpenSSL 3.0.9
-    fips_module_file = "#{install_dir}/embedded/lib/ossl-modules/fips.#{windows? ? 'dll' : 'so'}"
+    # Step 1: Download and extract OpenSSL 3.0.9 (FIPS enabled)
+    command "wget https://www.openssl.org/source/openssl-3.0.9.tar.gz"
+    command "tar -xf openssl-3.0.9.tar.gz"
+    command "cd openssl-3.0.9 && ./Configure enable-fips"
+    
+    # Step 2: Build OpenSSL 3.0.9
+    command "cd openssl-3.0.9 && make"
+  
+    # Step 3: Install OpenSSL binaries
+    command "cd openssl-3.0.9 && make install"
+  
+    # Step 4: Install FIPS module (make install_fips)
+    command "cd openssl-3.0.9 && make install_fips"
+  
+    # Step 5: Run fipsinstall to generate fipsmodule.cnf
+    fips_provider_path = "#{install_dir}/embedded/lib/ossl-modules/fips.#{windows? ? "dll" : "so"}"
     fips_cnf_file = "#{install_dir}/embedded/ssl/fipsmodule.cnf"
-
-    command "cp #{fips_relative_path}/providers/fips.#{windows? ? 'dll' : 'so'} #{fips_module_file}", env: env
-    command "cp #{fips_relative_path}/providers/fipsmodule.cnf #{fips_cnf_file}", env: env
-
-    # Step 3: Validate FIPS provider is active in OpenSSL 3.4.1
-    command "#{install_dir}/embedded/bin/openssl list -provider-path #{install_dir}/embedded/lib/ossl-modules -provider fips -providers", env: env
-
-    # Step 4: Run tests using the OpenSSL 3.0.9 FIPS provider
-    make "tests", env: env
-
-    # Step 5: Install FIPS provider artifacts to known locations
-    command "sudo make install_fips", env: env
+    
+    # Run fipsinstall to generate fipsmodule.cnf
+    command "#{install_dir}/embedded/bin/openssl fipsinstall -out #{fips_cnf_file} -module #{fips_provider_path}"
+  
+    # Step 6: Update openssl.cnf to include the fipsmodule.cnf file
+    command "sed -i -e 's|# .include fipsmodule.cnf|.include #{fips_cnf_file}|g' #{install_dir}/embedded/ssl/openssl.cnf"
+    command "sed -i -e 's|# fips = fips_sect|fips = fips_sect|g' #{install_dir}/embedded/ssl/openssl.cnf"
+  
+    # Step 7: Copy FIPS provider artifacts (fips.so and fipsmodule.cnf)
+    command "cp ../openssl-3.0.9/providers/fips.so providers/"
+    command "cp ../openssl-3.0.9/providers/fipsmodule.cnf providers/"
+  
+    # Step 8: Validate that the FIPS provider is being used
+    command "./util/wrap.pl -fips apps/openssl list -provider-path providers -provider fips -providers"
+  
+    # Step 9: Run tests using the OpenSSL 3.0 FIPS provider
+    command "make tests"
+  
+    # Verifying the installation of OpenSSL with FIPS
+    command "#{install_dir}/embedded/bin/openssl list -providers"
   end
-
-  command "#{install_dir}/embedded/bin/openssl list -providers"
 end
