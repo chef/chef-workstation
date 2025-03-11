@@ -116,39 +116,38 @@ build do
     # Step 1: Download and extract OpenSSL 3.0.9 (FIPS enabled)
     command "wget https://www.openssl.org/source/openssl-3.0.9.tar.gz"
     command "tar -xf openssl-3.0.9.tar.gz"
+  
+    # Step 2: Build OpenSSL 3.0.9 with FIPS enabled
     command "cd openssl-3.0.9 && ./Configure enable-fips"
-    
-    # Step 2: Build OpenSSL 3.0.9
     command "cd openssl-3.0.9 && make"
   
-    # Step 3: Install OpenSSL binaries
-    command "cd openssl-3.0.9 && make install"
+    # Step 3: Return to the previous directory
+    command "cd .."
   
-    # Step 4: Install FIPS module (make install_fips)
-    command "cd openssl-3.0.9 && make install_fips"
-  
-    # Step 5: Run fipsinstall to generate fipsmodule.cnf
+    # Step 4: Install FIPS module
     fips_provider_path = "#{install_dir}/embedded/lib/ossl-modules/fips.#{windows? ? "dll" : "so"}"
     fips_cnf_file = "#{install_dir}/embedded/ssl/fipsmodule.cnf"
-    
-    # Run fipsinstall to generate fipsmodule.cnf
     command "#{install_dir}/embedded/bin/openssl fipsinstall -out #{fips_cnf_file} -module #{fips_provider_path}"
   
-    # Step 6: Update openssl.cnf to include the fipsmodule.cnf file
+    # Step 5: Copy FIPS provider artifacts (fips.so and fipsmodule.cnf) to the correct location in the embedded path
+    command "cp openssl-3.0.9/providers/fips.so #{install_dir}/embedded/lib/ossl-modules/"
+    command "cp openssl-3.0.9/providers/fipsmodule.cnf #{install_dir}/embedded/ssl/"
+  
+    # Step 6: Update openssl.cnf to include fipsmodule.cnf from embedded path
     command "sed -i -e 's|# .include fipsmodule.cnf|.include #{fips_cnf_file}|g' #{install_dir}/embedded/ssl/openssl.cnf"
     command "sed -i -e 's|# fips = fips_sect|fips = fips_sect|g' #{install_dir}/embedded/ssl/openssl.cnf"
   
-    # Step 7: Copy FIPS provider artifacts (fips.so and fipsmodule.cnf)
-    command "cp ../openssl-3.0.9/providers/fips.so providers/"
-    command "cp ../openssl-3.0.9/providers/fipsmodule.cnf providers/"
+    # Step 7: Validate the FIPS provider is being used
+    # Wraps the `openssl` command with the fipsprovider path to verify it's being used correctly
+    command "#{install_dir}/embedded/bin/openssl util/wrap.pl -fips apps/openssl list -provider-path #{install_dir}/embedded/lib/ossl-modules/ -provider fips -providers"
   
-    # Step 8: Validate that the FIPS provider is being used
-    command "./util/wrap.pl -fips apps/openssl list -provider-path providers -provider fips -providers"
-  
-    # Step 9: Run tests using the OpenSSL 3.0 FIPS provider
+    # Step 8: Run tests using OpenSSL 3.0 FIPS provider
+    command "#{install_dir}/embedded/bin/openssl fipsinstall -out #{install_dir}/embedded/ssl/fipsmodule.cnf -module #{install_dir}/embedded/lib/ossl-modules/fips.so"
     command "make tests"
-  
-    # Verifying the installation of OpenSSL with FIPS
+    
+    # Optional: To check if FIPS is properly enabled
     command "#{install_dir}/embedded/bin/openssl list -providers"
   end
+  
+    
 end
