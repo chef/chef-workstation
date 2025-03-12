@@ -116,7 +116,13 @@ build do
     command "wget https://www.openssl.org/source/openssl-3.0.9.tar.gz"
     command "tar -xf openssl-3.0.9.tar.gz"
 
-    command "cd openssl-3.0.9 && ./Configure enable-fips"
+    if windows?
+      platform = windows_arch_i386? ? "mingw" : "mingw64"
+      command "cd openssl-3.0.9 && perl.exe Configure #{platform} enable-fips"
+    else
+      command "cd openssl-3.0.9 && ./Configure enable-fips"
+    end
+
     command "cd openssl-3.0.9 && make"
 
     fips_provider_path = "#{install_dir}/embedded/lib/ossl-modules/fips.#{windows? ? "dll" : "so"}"
