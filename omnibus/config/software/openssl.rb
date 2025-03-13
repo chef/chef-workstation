@@ -23,7 +23,7 @@ skip_transitive_dependency_licensing true
 dependency "cacerts"
 dependency "openssl-fips" if fips_mode?
 
-default_version "3.4.1"  # We are using OpenSSL 3.4.1
+default_version "3.2.4"  # We are using OpenSSL 3.2.4
 
 # Openssl builds engines as libraries into a special directory. We need to include
 # that directory in lib_dirs so omnibus can sign them during macOS deep signing.
@@ -31,12 +31,12 @@ lib_dirs lib_dirs.concat(["#{install_dir}/embedded/lib/engines"])
 lib_dirs lib_dirs.concat(["#{install_dir}/embedded/lib/engines-3"])
 lib_dirs lib_dirs.concat(["#{install_dir}/embedded/lib/ossl-modules"])
 
-# Source URL for OpenSSL 3.4.1 (latest release)
+# Source URL for OpenSSL 3.2.4
 source url: "https://www.openssl.org/source/openssl-#{version}.tar.gz", extract: :lax_tar
 internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/#{name}-#{version}.tar.gz", extract: :lax_tar,
                 authorization: "X-JFrog-Art-Api:#{ENV["ARTIFACTORY_TOKEN"]}"
 
-version("3.4.1") { source sha256: "002a2d6b30b58bf4bea46c43bdd96365aaf8daa6c428782aa4feee06da197df3" }
+version("3.2.4") { source sha256: "b23ad7fd9f73e43ad1767e636040e88ba7c9e5775bfa5618436a0dd2c17c3716" }
 
 relative_path "openssl-#{version}"
 
@@ -92,12 +92,12 @@ build do
     end
 
   # Patches
-  patch source: "openssl-3.4.1-do-not-install-docs.patch", env: env
+  patch source: "openssl-3.2.4-do-not-install-docs.patch", env: env
   # Some of the algorithms which are being used are deprecated in OpenSSL3 and moved to legacy provider.
   # We need those algorithms for the working of chef-workstation and other packages.
   # This patch will enable the legacy providers!
   configure_args << "enable-legacy"
-  patch source: "openssl-3.4.1-enable-legacy-provider.patch", env: env
+  patch source: "openssl-3.2.4-enable-legacy-provider.patch", env: env
 
   # Out of abundance of caution, we put the feature flags first and then
   # the crazy platform specific compiler flags at the end.

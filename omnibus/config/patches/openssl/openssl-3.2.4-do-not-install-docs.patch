@@ -1,5 +1,5 @@
---- openssl-3.4.1/Configurations/unix-Makefile.tmpl.org	2025-03-03 12:05:33
-+++ openssl-3.4.1/Configurations/unix-Makefile.tmpl	2025-03-03 12:25:17
+--- openssl-3.2.4/Configurations/unix-Makefile.tmpl.org	2025-03-03 12:05:33
++++ openssl-3.2.4/Configurations/unix-Makefile.tmpl	2025-03-03 12:25:17
 @@ -625,7 +625,7 @@
  # Install helper targets #############################################
  ##@ Installation
@@ -9,8 +9,8 @@
  
  uninstall: {- "uninstall_docs" if !$disabled{docs}; -} uninstall_sw {- $disabled{fips} ? "" : "uninstall_fips" -} ## Uninstall software and documentation
  
---- openssl-3.4.1/Configurations/windows-makefile.tmpl.org	2025-03-03 12:15:23
-+++ openssl-3.4.1/Configurations/windows-makefile.tmpl	2025-03-03 12:23:04
+--- openssl-3.2.4/Configurations/windows-makefile.tmpl.org	2025-03-03 12:15:23
++++ openssl-3.2.4/Configurations/windows-makefile.tmpl	2025-03-03 12:23:04
 @@ -455,7 +455,7 @@
  	@$(ECHO) "Tests are not supported with your chosen Configure options"
  	@{- output_on() if !$disabled{tests}; "\@rem" -}
