@@ -114,20 +114,22 @@ build do
 
   if fips_mode?
 
+    openssl_fips_version = "3.0.9"
+
     # Downloading the openssl-3.0.9.tar.gz file and extracting it
-    command "wget https://www.openssl.org/source/openssl-3.0.9.tar.gz"
-    command "tar -xf openssl-3.0.9.tar.gz"
+    command "wget https://www.openssl.org/source/openssl-#{openssl_fips_version}.tar.gz"
+    command "tar -xf openssl-#{openssl_fips_version}.tar.gz"
 
     # Configuring the fips provider
     if windows?
       platform = windows_arch_i386? ? "mingw" : "mingw64"
-      command "cd openssl-3.0.9 && perl.exe Configure #{platform} enable-fips"
+      command "cd openssl-#{openssl_fips_version} && perl.exe Configure #{platform} enable-fips"
     else
-      command "cd openssl-3.0.9 && ./Configure enable-fips"
+      command "cd openssl-#{openssl_fips_version} && ./Configure enable-fips"
     end
 
     # Building the fips provider
-    command "cd openssl-3.0.9 && make"
+    command "cd openssl-#{openssl_fips_version} && make"
 
     fips_provider_path = "#{install_dir}/embedded/lib/ossl-modules/fips.#{windows? ? "dll" : "so"}"
     fips_cnf_file = "#{install_dir}/embedded/ssl/fipsmodule.cnf"
@@ -136,8 +138,8 @@ build do
     command "#{install_dir}/embedded/bin/openssl fipsinstall -out #{fips_cnf_file} -module #{fips_provider_path}"
 
     # Copying the fips provider and fipsmodule.cnf file to the embedded directory
-    command "cp openssl-3.0.9/providers/fips.#{windows? ? "dll" : "so"} #{install_dir}/embedded/lib/ossl-modules/"
-    command "cp openssl-3.0.9/providers/fipsmodule.cnf #{install_dir}/embedded/ssl/"
+    command "cp openssl-#{openssl_fips_version}/providers/fips.#{windows? ? "dll" : "so"} #{install_dir}/embedded/lib/ossl-modules/"
+    command "cp openssl-#{openssl_fips_version}/providers/fipsmodule.cnf #{install_dir}/embedded/ssl/"
 
     # Updating the openssl.cnf file to enable the fips provider
     command "sed -i -e 's|# .include fipsmodule.cnf|.include #{fips_cnf_file}|g' #{install_dir}/embedded/ssl/openssl.cnf"
