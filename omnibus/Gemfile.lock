@@ -423,7 +423,7 @@ GEM
     strings-ansi (0.2.0)
     structured_warnings (0.4.0)
     syslog-logger (1.6.8)
-    test-kitchen (3.6.0)
+    test-kitchen (3.7.0)
       bcrypt_pbkdf (~> 1.0)
       chef-utils (>= 16.4.35)
       ed25519 (~> 1.2)
@@ -545,7 +545,7 @@ DEPENDENCIES
   omnibus!
   omnibus-software!
   pedump
-  test-kitchen (>= 2)
+  test-kitchen (>= 3.0)
   winrm-elevated
 
 BUNDLED WITH
