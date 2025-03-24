@@ -19,14 +19,33 @@ Dir["#{gem_home}/bundler/gems/*"].each do |gempath|
 
   puts "re-installing #{gem_name}..."
 
-  Dir.chdir(gempath) do
-    # Only changes below this point (maintaining your original structure)
-    if RUBY_PLATFORM.match?(/mswin|mingw|win32|cygwin/i)
-      system("#{Gem.bindir}/gem.bat build #{gem_name}.gemspec") or raise "gem build failed"
-      system("#{Gem.bindir}/gem.bat install #{gem_name}*.gem --conservative --minimal-deps --no-document --platform ruby") or raise "gem install failed"
-    else
-      system("gem build #{gem_name}.gemspec") or raise "gem build failed"
-      system("gem install #{gem_name}*.gem --conservative --minimal-deps --no-document") or raise "gem install failed"
+  Dir.chdir(File.expand_path(gempath)) do
+    gemspec_file = "#{gem_name}.gemspec"
+    gem_file_pattern = "#{gem_name}-*.gem"
+
+    unless File.exist?(gemspec_file)
+      raise "Error: Gemspec not found for #{gem_name} in #{gempath}"
     end
+
+    puts "Building gem using #{gemspec_file} in #{gempath}..."
+    unless system("gem build #{gemspec_file}")
+      raise "Gem build failed for #{gem_name}. Check gemspec and dependencies."
+    end
+
+    puts "Looking for built gem matching #{gem_file_pattern}..."
+    built_gem = Dir.glob(gem_file_pattern).first
+    unless built_gem
+      raise "Error: No built gem found for #{gem_name}. Check gem build output."
+    end
+
+    puts "Installing gem: #{built_gem}"
+    install_command = "gem install #{built_gem} --conservative --minimal-deps --no-document"
+    puts "Running: #{install_command}"
+
+    unless system(install_command)
+      raise "Gem install failed for #{built_gem}. Check the error output."
+    end
+
+    puts "Successfully installed #{built_gem}"
   end
 end
