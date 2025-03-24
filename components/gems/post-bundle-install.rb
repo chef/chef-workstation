@@ -20,15 +20,13 @@ Dir["#{gem_home}/bundler/gems/*"].each do |gempath|
   puts "re-installing #{gem_name}..."
 
   Dir.chdir(gempath) do
-    # Only Windows-specific change (line added)
-    gem_cmd = Gem.win_platform? ? "#{Gem.bindir}/gem.bat" : "gem"
-
-    # Original build command (unchanged)
-    system("#{gem_cmd} build #{gem_name}.gemspec") or raise "gem build failed"
-
-    # Original install command with one Windows addition
-    install_flags = "--conservative --minimal-deps --no-document"
-    install_flags += " --platform ruby" if Gem.win_platform?
-    system("#{gem_cmd} install #{gem_name}*.gem #{install_flags}") or raise "gem install failed"
+    # Only changes below this point (maintaining your original structure)
+    if RUBY_PLATFORM.match?(/mswin|mingw|win32|cygwin/i)
+      system("#{Gem.bindir}/gem.bat build #{gem_name}.gemspec") or raise "gem build failed"
+      system("#{Gem.bindir}/gem.bat install #{gem_name}*.gem --conservative --minimal-deps --no-document --platform ruby") or raise "gem install failed"
+    else
+      system("gem build #{gem_name}.gemspec") or raise "gem build failed"
+      system("gem install #{gem_name}*.gem --conservative --minimal-deps --no-document") or raise "gem install failed"
+    end
   end
 end
