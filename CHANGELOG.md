@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 25.3.1076 -->
+## [25.3.1076](https://github.com/chef/chef-workstation/tree/25.3.1076) (2025-03-25)
+
+#### Merged Pull Requests
+- Updated the curl to version 8.12.1 and openSSL to version 3.2.4 [#3305](https://github.com/chef/chef-workstation/pull/3305) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=25.2.1075 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Updated the curl to version 8.12.1 and openSSL to version 3.2.4 [#3305](https://github.com/chef/chef-workstation/pull/3305) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.3.1076 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
