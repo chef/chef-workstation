@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 group :development do
-  gem "chefstyle"
+  gem "cookstyle"
   gem "rake"
   # enable tests for the verification behavior in omnibus/verification
   gem "chef-cli"
@@ -9,4 +9,3 @@ group :development do
 
   gem "simplecov", require: false
 end
-

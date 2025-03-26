@@ -84,7 +84,7 @@ build do
   appbundle "chef-run", lockdir: project_dir, gem: "chef-apply", without: %w{development docs debug}, env: env
   appbundle "chef-cli", lockdir: project_dir, gem: "chef-cli", without: %w{development profile test}, env: env
   appbundle "berkshelf", lockdir: project_dir, gem: "berkshelf", without: %w{changelog build docs debug development}, env: env
-  appbundle "mixlib-install", lockdir: project_dir, gem: "mixlib-install", without: %w{test chefstyle debug}, env: env
+  appbundle "mixlib-install", lockdir: project_dir, gem: "mixlib-install", without: %w{test debug}, env: env
   appbundle "chef-zero", lockdir: project_dir, gem: "chef-zero", without: %w{pedant development debug}, env: env
   appbundle "cookstyle", lockdir: project_dir, gem: "cookstyle", without: %w{docs profiling rubocop_gems development debug}, env: env
   appbundle "fauxhai", lockdir: project_dir, gem: "fauxhai-chef", env: env

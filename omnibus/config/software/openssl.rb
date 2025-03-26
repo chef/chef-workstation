@@ -34,7 +34,7 @@ lib_dirs lib_dirs.concat(["#{install_dir}/embedded/lib/ossl-modules"])
 # Source URL for OpenSSL 3.2.4
 source url: "https://www.openssl.org/source/openssl-#{version}.tar.gz", extract: :lax_tar
 internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/#{name}-#{version}.tar.gz", extract: :lax_tar,
-                authorization: "X-JFrog-Art-Api:#{ENV["ARTIFACTORY_TOKEN"]}"
+  authorization: "X-JFrog-Art-Api:#{ENV["ARTIFACTORY_TOKEN"]}"
 
 version("3.2.4") { source sha256: "b23ad7fd9f73e43ad1767e636040e88ba7c9e5775bfa5618436a0dd2c17c3716" }
 
