@@ -1,5 +1,5 @@
 begin
-  require "cookstyle"
+  require "cookstyle/chefstyle"
   require "rubocop/rake_task"
   desc "Run Chefstyle tests"
   RuboCop::RakeTask.new(:style) do |task|
