@@ -101,7 +101,7 @@ group(:omnibus_package) do
   # ed25519 ssh key support done here as it's a native gem we can't put in train
   gem "ed25519"
   gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
-  gem "chef-cli", git: "https://github.com/chef/chef-cli", branch: "chef-cli-5"
+  gem "chef-cli"
   gem "chef-apply", ">= 0.4.16"
 
   # chef-telemetry previously pulled in an unecessary library (http)
