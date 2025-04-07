@@ -1,20 +1,18 @@
 GIT
-  remote: https://github.com/chef/kitchen-vcenter
-  revision: bcad8e9d5380fad054a307c028c33e2b22d34fdb
-  branch: CHEF-9590-openssl-eof-issue
-  specs:
-    kitchen-vcenter (2.12.2)
-      net-ping (>= 2.0.0, < 3.0)
-      rbvmomi2 (>= 3.5.0, < 4.0)
-      test-kitchen (>= 1.16, < 4)
-      vsphere-automation-sdk (~> 0.4)
-
-GIT
   remote: https://github.com/chef/ruby-shadow
   revision: 3b8ea40b0e943b5de721d956741308ce805a5c3c
   branch: lcg/ruby-3.0
   specs:
     ruby-shadow (2.5.0)
+
+GEM
+  remote: https://gem.fury.io/ashique/
+  specs:
+    kitchen-vcenter (2.13.0)
+      net-ping (>= 2.0.0, < 3.0)
+      rbvmomi2 (>= 3.5.0, < 4.0)
+      test-kitchen (>= 1.16, < 4)
+      vsphere-automation-sdk (~> 0.4)
 
 GEM
   remote: https://rubygems.org/
@@ -1399,7 +1397,7 @@ DEPENDENCIES
   kitchen-inspec (>= 2.5)
   kitchen-openstack (>= 5.0)
   kitchen-vagrant (>= 1.9)
-  kitchen-vcenter!
+  kitchen-vcenter (= 2.13.0)!
   kitchen-vra (>= 3.0)
   knife (>= 18.2)
   knife-azure (>= 3.0.0)
