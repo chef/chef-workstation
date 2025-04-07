@@ -38,7 +38,7 @@ end
 
 group(:dep_selector) do
   gem "dep_selector"
-  gem 'dep-selector-libgecode', git: 'https://github.com/chef/dep-selector-libgecode'
+  gem 'dep-selector-libgecode'
 end
 
 # We tend to track latest stable release without pinning.

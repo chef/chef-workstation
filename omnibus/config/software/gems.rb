@@ -69,13 +69,19 @@ build do
   excluded_groups = %w{server docgen maintenance pry travis integration ci}
 
   env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
+  env["USE_SYSTEM_GECODE"] = "true"
+
+  puts "++++++========"
+  puts env["USE_SYSTEM_GECODE"]
+  puts "++++++========"
 
   # install the whole bundle first
   bundle "config set --local without '#{excluded_groups.join(" ")}'", env: env
+  puts "end ----- ++++++========"
   bundle "install --jobs 10", env: env
-
+  puts " line 82 end ----- ++++++========"
   ruby "post-bundle-install.rb", env: env
-
+  puts " line 85 end ----- ++++++========"
   appbundle "knife", lockdir: project_dir, gem: "knife", without: %w{development}, env: env
   appbundle "foodcritic", lockdir: project_dir, gem: "chef_deprecations", without: %w{development test}, env: env
   appbundle "delivery", lockdir: project_dir, gem: "chef_deprecations", without: %w{development test}, env: env
