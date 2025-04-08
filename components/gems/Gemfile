@@ -132,8 +132,6 @@ group(:ruby_shadow) do
   gem "ruby-shadow", git: "https://github.com/chef/ruby-shadow", branch: "lcg/ruby-3.0", platforms: :ruby unless RUBY_PLATFORM == "x64-mingw-ucrt"
 end
 
-gem "chefstyle", group: :test
-
 # Ensure support for push-client on Windows
 if RUBY_PLATFORM.match?(/mswin|mingw|windows/)
   gem "rdp-ruby-wmi"
