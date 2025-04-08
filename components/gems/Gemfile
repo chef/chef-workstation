@@ -25,7 +25,7 @@ group(:omnibus_package, :development, :test) do
 
   gem "rake", "= 13.0.1" # prevent double rake as of 12.2020
   gem "guard"
-  gem "cookstyle", ">= 7.8"
+  gem "cookstyle", git: "https://github.com/chef/cookstyle", branch: "main"
   gem "ffi-libarchive"
 
   # The current version of OpenSSL that we are bundling with chef-workstation is 3.0.11
