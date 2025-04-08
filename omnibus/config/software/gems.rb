@@ -100,4 +100,5 @@ build do
     gemdir = shellout!("#{install_dir}/embedded/bin/gem environment gemdir", env: env).stdout.chomp
     remove_directory "#{gemdir}/bundler"
   end
+  puts " end 109 line 85 end ----- ++++++========"
 end

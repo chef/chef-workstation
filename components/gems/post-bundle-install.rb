@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 gem_home = Gem.paths.home
-
+puts "++++++I am in post-bundle-install.rb"
 puts "fixing bundle installed gems in #{gem_home}"
 
 # Install gems from git repos.  This makes the assumption that there is a <gem_name>.gemspec and
