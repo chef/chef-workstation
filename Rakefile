@@ -1,7 +1,7 @@
 begin
   require "cookstyle/chefstyle"
   require "rubocop/rake_task"
-  desc "Run Chefstyle tests"
+  desc "Run Cookstyle tests"
   RuboCop::RakeTask.new(:style) do |task|
     task.options += ["--display-cop-names", "--no-color"]
   end
