@@ -38,7 +38,7 @@ end
 
 group(:dep_selector) do
   gem "dep_selector"
-  gem "dep-selector-libgecode"
+  gem "dep-selector-libgecode" , git: "https://github.com/sanjain-progress/dep-selector-libgecode.git", branch: "sanjain/fix_darwin_installation"
 end
 
 # We tend to track latest stable release without pinning.
