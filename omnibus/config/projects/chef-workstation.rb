@@ -107,6 +107,7 @@ dependency "main-chef-wrapper"
 dependency "chef-analyze"
 # removes the go language installed at embedded/go
 dependency "go-uninstall"
+dependency "gecode"
 
 exclude "**/.git"
 exclude "**/bundler/git"
