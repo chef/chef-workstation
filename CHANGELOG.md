@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.3.1076 -->
-## [25.3.1076](https://github.com/chef/chef-workstation/tree/25.3.1076) (2025-03-25)
+<!-- latest_release 25.4.1077 -->
+## [25.4.1077](https://github.com/chef/chef-workstation/tree/25.4.1077) (2025-04-09)
 
 #### Merged Pull Requests
-- Updated the curl to version 8.12.1 and openSSL to version 3.2.4 [#3305](https://github.com/chef/chef-workstation/pull/3305) ([nikhil2611](https://github.com/nikhil2611))
+- Bump nokogiri from 1.17.2 to 1.18.4 in /components/gems [#3309](https://github.com/chef/chef-workstation/pull/3309) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=25.2.1075 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump nokogiri from 1.17.2 to 1.18.4 in /components/gems [#3309](https://github.com/chef/chef-workstation/pull/3309) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 25.4.1077 -->
 - Updated the curl to version 8.12.1 and openSSL to version 3.2.4 [#3305](https://github.com/chef/chef-workstation/pull/3305) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.3.1076 -->
 <!-- release_rollup -->
 
