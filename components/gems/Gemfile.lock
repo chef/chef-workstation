@@ -1,14 +1,4 @@
 GIT
-  remote: https://github.com/chef/cookstyle
-  revision: 8aeda8c8f9a8d51bc98b3a1fb66f91d7bcdd1fb2
-  branch: main
-  specs:
-    cookstyle (7.32.14)
-      base64
-      ostruct
-      rubocop (= 1.25.1)
-
-GIT
   remote: https://github.com/chef/ruby-shadow
   revision: 3b8ea40b0e943b5de721d956741308ce805a5c3c
   branch: lcg/ruby-3.0
@@ -475,6 +465,8 @@ GEM
     connection_pool (2.4.1)
     cookbook-omnifetch (0.12.2)
       mixlib-archive (>= 0.4, < 2.0)
+    cookstyle (7.32.8)
+      rubocop (= 1.25.1)
     corefoundation (0.3.13)
       ffi (>= 1.15.0)
     date (3.4.1)
@@ -1072,7 +1064,7 @@ GEM
       rubocop-ast (>= 1.15.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.44.0)
+    rubocop-ast (1.43.0)
       parser (>= 3.3.7.2)
       prism (~> 1.4)
     ruby-progressbar (1.13.0)
@@ -1390,7 +1382,7 @@ DEPENDENCIES
   chef_deprecations (>= 0.1.2)
   cheffish (>= 17.0)
   chefspec (>= 9.3)
-  cookstyle!
+  cookstyle (>= 7.8)
   dep-selector-libgecode
   dep_selector
   docker-api (>= 2.0)
