@@ -66,6 +66,10 @@ dependency "c_rehash_ruby" unless windows?
 # No gems get shipped that are not declared in components/gems/Gemfile
 dependency "gems"
 
+if macos?
+  dependency "gecode"
+end  
+
 dependency "gem-version-manifest"
 dependency "gem-permissions"
 dependency "rubygems-customization"
