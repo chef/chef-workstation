@@ -113,6 +113,10 @@ dependency "go-uninstall"
 exclude "**/.git"
 exclude "**/bundler/git"
 
+# Exclude problematic gems
+exclude "gem 'dep_selector'"
+exclude "gem 'dep-selector-libgecode'"
+
 package :rpm do
   signing_passphrase ENV["OMNIBUS_RPM_SIGNING_PASSPHRASE"]
   compression_level 1
