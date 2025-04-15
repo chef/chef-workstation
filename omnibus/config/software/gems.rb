@@ -66,7 +66,7 @@ build do
   # TODO - reevaluate groups - would like to universally exclude development,
   # testing but we'll need to make sure that's safe and doesn't remove
   # gems that the various applications need for day-to-day functionality.
-  excluded_groups = %w{server docgen maintenance pry travis integration ci}
+  excluded_groups = %w{server docgen maintenance pry travis integration ci dep_selector}
 
   env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
 

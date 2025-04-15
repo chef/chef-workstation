@@ -36,9 +36,21 @@ group(:omnibus_package, :development, :test) do
   gem "rdoc", "~> 6.4.1" # 6.4.1.1 required for CVE-2024-27281, allow patch upgrades
 end
 
+# Comment out or remove this group since it's causing build failures
+# group(:dep_selector) do
+#   gem "dep_selector"
+#   gem "dep-selector-libgecode"
+# end
+
+# Alternative approach: Add platform restrictions if you still need these gems
 group(:dep_selector) do
-  gem "dep_selector"
-  gem "dep-selector-libgecode"
+  # Only install on platforms where the native extensions are known to build successfully
+  # Skip on newer platforms where the build is failing
+  platforms = [:ruby]
+  platforms -= [:ruby] if RUBY_VERSION >= "3.0"
+  
+  gem "dep_selector", platforms: platforms
+  gem "dep-selector-libgecode", platforms: platforms
 end
 
 # We tend to track latest stable release without pinning.

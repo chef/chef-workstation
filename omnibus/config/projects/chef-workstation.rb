@@ -66,6 +66,8 @@ dependency "c_rehash_ruby" unless windows?
 # No gems get shipped that are not declared in components/gems/Gemfile
 dependency "gems"
 
+dependency "gecode"
+
 dependency "gem-version-manifest"
 dependency "gem-permissions"
 dependency "rubygems-customization"
@@ -110,6 +112,10 @@ dependency "go-uninstall"
 
 exclude "**/.git"
 exclude "**/bundler/git"
+
+# Exclude problematic gems
+exclude "gem 'dep_selector'"
+exclude "gem 'dep-selector-libgecode'"
 
 package :rpm do
   signing_passphrase ENV["OMNIBUS_RPM_SIGNING_PASSPHRASE"]
