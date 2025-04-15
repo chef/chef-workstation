@@ -52,15 +52,47 @@ build do
     env["CXX"] = "g++44"
   end
 
-  command "./configure" \
-          " --prefix=#{install_dir}/embedded" \
-          " --disable-doc-dot" \
-          " --disable-doc-search" \
-          " --disable-doc-tagfile" \
-          " --disable-doc-chm" \
-          " --disable-doc-docset" \
-          " --disable-qt" \
-          " --disable-examples", env: env
+  # Add these special flags for macOS 12+ and Apple Silicon
+  if mac_os_x?
+    # Add special flags for newer macOS versions (12+) and Apple Silicon
+    if mac_os_x_version && mac_os_x_version.satisfies?(">= 12")
+      # Add C++11 standard and silence deprecation warnings
+      env["CXXFLAGS"] = "#{env["CXXFLAGS"]} -std=c++11 -Wno-deprecated-copy -Wno-new-returns-null"
+      
+      # Add architecture-specific flags for arm64 (Apple Silicon)
+      if arm?
+        env["CXXFLAGS"] = "#{env["CXXFLAGS"]} -arch arm64"
+        env["LDFLAGS"] = "#{env["LDFLAGS"]} -arch arm64"
+      end
+    end
+    
+    # Configure with the enhanced environment
+    configure_command = [
+      "./configure",
+      "--prefix=#{install_dir}/embedded",
+      "--disable-doc-dot",
+      "--disable-doc-search",
+      "--disable-doc-tagfile",
+      "--disable-doc-chm",
+      "--disable-doc-docset",
+      "--disable-qt",
+      "--disable-examples",
+      "--disable-flatzinc",
+    ]
+    
+    command configure_command.join(" "), env: env
+  else
+    # Existing configure command for non-macOS platforms
+    command "./configure" \
+            " --prefix=#{install_dir}/embedded" \
+            " --disable-doc-dot" \
+            " --disable-doc-search" \
+            " --disable-doc-tagfile" \
+            " --disable-doc-chm" \
+            " --disable-doc-docset" \
+            " --disable-qt" \
+            " --disable-examples", env: env
+  end
 
   make "-j #{workers}", env: env
   make "install", env: env
