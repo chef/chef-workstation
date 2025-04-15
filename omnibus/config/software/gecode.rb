@@ -54,16 +54,16 @@ build do
 
   # Add these special flags for macOS 12+ and Apple Silicon
   if mac_os_x?
-    # Add special flags for newer macOS versions (12+) and Apple Silicon
-    if mac_os_x_version && mac_os_x_version.satisfies?(">= 12")
-      # Add C++11 standard and silence deprecation warnings
-      env["CXXFLAGS"] = "#{env["CXXFLAGS"]} -std=c++11 -Wno-deprecated-copy -Wno-new-returns-null"
-      
-      # Add architecture-specific flags for arm64 (Apple Silicon)
-      if arm?
-        env["CXXFLAGS"] = "#{env["CXXFLAGS"]} -arch arm64"
-        env["LDFLAGS"] = "#{env["LDFLAGS"]} -arch arm64"
-      end
+    env = with_standard_compiler_flags(with_embedded_path)
+    
+    # Add C++11 standard and silence deprecation warnings for all macOS builds
+    # since we only support macOS 12+
+    env["CXXFLAGS"] = "#{env["CXXFLAGS"]} -std=c++11 -Wno-deprecated-copy -Wno-new-returns-null"
+    
+    # Add architecture-specific flags for arm64 (Apple Silicon)
+    if ohai['kernel']['machine'] == 'arm64'
+      env["CXXFLAGS"] = "#{env["CXXFLAGS"]} -arch arm64"
+      env["LDFLAGS"] = "#{env["LDFLAGS"]} -arch arm64"
     end
     
     # Configure with the enhanced environment
