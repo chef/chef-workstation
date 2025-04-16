@@ -37,8 +37,8 @@ group(:omnibus_package, :development, :test) do
 end
 
 group(:dep_selector) do
-  gem "dep_selector", git: "https://github.com/sanjain-progress/dep-selector", branch: "sanjain/fix_darwin_installation"
-  gem "dep-selector-libgecode", git: "https://github.com/chef/dep-selector-libgecode", branch: "sanjain/fix_darwin_installation"
+  gem "dep-selector-libgecode", install: -> { system("USE_SYSTEM_GECODE=1 gem install dep-selector-libgecode") }
+  gem "dep_selector"
 end
 
 # We tend to track latest stable release without pinning.
