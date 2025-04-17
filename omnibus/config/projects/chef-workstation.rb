@@ -52,7 +52,9 @@ dependency "preparation"
 # TODO: unless check should be removed once hab package is available in linux aarch64
 dependency "habitat" unless RUBY_PLATFORM =~ /aarch64-linux/
 dependency "openssl"
-dependency "gecode"
+if mac_os_x?
+  dependency "gecode"
+end
 
 if windows?
   dependency "git-windows"
