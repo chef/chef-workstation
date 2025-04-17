@@ -51,6 +51,27 @@ build do
       env["LDFLAGS"] = "#{env["LDFLAGS"]} -arch arm64"
     end
     
+    # Insert patch for auxiliary files on macOS builds
+    puts "**********Patch to get the auxilary file for macOS **********"
+    config_scripts = %w[config.guess config.sub]
+    config_scripts.each do |script|
+      brew_path = "/opt/homebrew/opt/automake/libexec/gnubin/#{script}"
+      gnu_path = "/usr/local/opt/automake/libexec/gnubin/#{script}"
+      system_path = `which #{script}`.strip
+      src = if File.exist?(brew_path)
+        brew_path
+      elsif File.exist?(gnu_path)
+        gnu_path
+      elsif !system_path.empty?
+        system_path
+      else
+        nil
+      end
+      if src && File.exist?(src)
+        FileUtils.cp(src, File.join(build_dir, script))
+      end
+    end
+    
     # Configure with the enhanced environment
     configure_command = [
       "./configure",
