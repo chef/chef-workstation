@@ -38,45 +38,77 @@ internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/#{name}-#{version}.
 relative_path "gecode-release-#{version}"
 
 build do
-  env = with_standard_compiler_flags(with_embedded_path)
+  # Add these special flags for all macOS 12+ systems
+  if mac_os_x?
+    env = with_standard_compiler_flags(with_embedded_path)
+    
+    # Add C++11 standard and silence deprecation warnings for all macOS builds
+    env["CXXFLAGS"] = "#{env["CXXFLAGS"]} -std=c++11 -Wno-deprecated-copy -Wno-new-returns-null"
+    
+    # Add architecture-specific flags for arm64 (Apple Silicon)
+    if ohai['kernel']['machine'] == 'arm64'
+      env["CXXFLAGS"] = "#{env["CXXFLAGS"]} -arch arm64"
+      env["LDFLAGS"] = "#{env["LDFLAGS"]} -arch arm64"
+    end
+    
+    # Configure with the enhanced environment
+    configure_command = [
+      "./configure",
+      "--prefix=#{install_dir}/embedded",
+      "--disable-doc-dot",
+      "--disable-doc-search",
+      "--disable-doc-tagfile",
+      "--disable-doc-chm",
+      "--disable-doc-docset",
+      "--disable-qt",
+      "--disable-examples",
+      "--disable-flatzinc",
+    ]
+    
+    command configure_command.join(" "), env: env
+  else
+    env = with_standard_compiler_flags(with_embedded_path)
 
-  # On some RHEL-based systems, the default GCC that's installed is 4.1. We
-  # need to use 4.4, which is provided by the gcc44 and gcc44-c++ packages.
-  # These do not use the gcc binaries so we set the flags to point to the
-  # correct version here.
-  if File.exist?("/usr/bin/gcc44")
-    env["CC"]  = "gcc44"
-    env["CXX"] = "g++44"
+    # On some RHEL-based systems, the default GCC that's installed is 4.1. We
+    # need to use 4.4, which is provided by the gcc44 and gcc44-c++ packages.
+    # These do not use the gcc binaries so we set the flags to point to the
+    # correct version here.
+    if File.exist?("/usr/bin/gcc44")
+      env["CC"]  = "gcc44"
+      env["CXX"] = "g++44"
+    end
+
+    # Insert patch here
+    puts "**********Patch to get the auxilary file **********"
+    config_scripts = %w[config.guess config.sub]
+    config_scripts.each do |script|
+      brew_path = "/opt/homebrew/opt/automake/libexec/gnubin/#{script}"
+      gnu_path = "/usr/local/opt/automake/libexec/gnubin/#{script}"
+      system_path = `which #{script}`.strip
+      src = if File.exist?(brew_path)
+        brew_path
+      elsif File.exist?(gnu_path)
+        gnu_path
+      elsif !system_path.empty?
+        system_path
+      else
+        nil
+      end
+      if src && File.exist?(src)
+        FileUtils.cp(src, File.join(build_dir, script))
+      end
+    end
+    
+    command "./configure" \
+            " --prefix=#{install_dir}/embedded" \
+            " --disable-doc-dot" \
+            " --disable-doc-search" \
+            " --disable-doc-tagfile" \
+            " --disable-doc-chm" \
+            " --disable-doc-docset" \
+            " --disable-qt" \
+            " --disable-examples", env: env
   end
-
-  # Insert patch here
-  puts "**********Patch to get the auxilary file **********"
-  config_scripts = %w[config.guess config.sub]
-  config_scripts.each do |script|
-    brew_path = "/opt/homebrew/opt/automake/libexec/gnubin/#{script}"
-    gnu_path = "/usr/local/opt/automake/libexec/gnubin/#{script}"
-    system_path = `which #{script}`.strip
-    src = if File.exist?(brew_path)
-      brew_path
-    elsif File.exist?(gnu_path)
-      gnu_path
-    elsif !system_path.empty?
-      system_path
-    else
-      nil
-    end
-    if src && File.exist?(src)
-      FileUtils.cp(src, File.join(build_dir, script))
-    end
-  command "./configure" \
-          " --prefix=#{install_dir}/embedded" \
-          " --disable-doc-dot" \
-          " --disable-doc-search" \
-          " --disable-doc-tagfile" \
-          " --disable-doc-chm" \
-          " --disable-doc-docset" \
-          " --disable-qt" \
-          " --disable-examples", env: env
 
   make "-j #{workers}", env: env
   make "install", env: env
