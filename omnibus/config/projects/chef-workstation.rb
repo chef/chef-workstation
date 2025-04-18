@@ -53,9 +53,9 @@ dependency "preparation"
 dependency "habitat" unless RUBY_PLATFORM =~ /aarch64-linux/
 if mac_os_x? && arm?
   dependency "autoconf"
-  dependency "openssl"
+  dependency "gecode"
 end
-dependency "gecode"
+dependency "openssl"
 
 if windows?
   dependency "git-windows"
