@@ -87,7 +87,7 @@ group(:omnibus_package) do
   # gem "kitchen-vcenter", git: "https://github.com/chef/kitchen-vcenter", branch: "CHEF-9590-openssl-eof-issue"
   gem "kitchen-vra", ">= 3.0"
   source "https://gem.fury.io/ashique/" do
-    gem "kitchen-vcenter", "= 2.13.0"
+    gem "kitchen-vcenter", "= 2.13.1"
   end
 
   # knife & plugins
