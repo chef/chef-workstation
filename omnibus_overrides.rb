@@ -27,4 +27,6 @@ override "util-macros", version: "1.19.0"
 override "xproto", version: "7.0.28"
 override "zlib", version: "1.3.1"
 override "expat", version: "2.6.4"
-override "autoconf", version: "2.69"
+if mac_os_x? && arm?
+  override "autoconf", version: "2.69"
+end
