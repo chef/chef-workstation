@@ -100,4 +100,93 @@ build do
     gemdir = shellout!("#{install_dir}/embedded/bin/gem environment gemdir", env: env).stdout.chomp
     remove_directory "#{gemdir}/bundler"
   end
+
+  # Special handling for macOS 12+
+  if mac_os_x? && ohai['platform_version'].to_f >= 12.0
+    # Create a helper script to modify how gems are installed
+    block do
+      File.write("#{project_dir}/macos_12_helper.rb", <<~EOH)
+        # Force Ruby platform to avoid native extensions
+        ENV['BUNDLE_FORCE_RUBY_PLATFORM'] = 'true'
+        
+        # First, modify the Gemfile to exclude problematic gems on macOS
+        gemfile_content = File.read("#{project_dir}/Gemfile")
+        if !gemfile_content.include?('platforms = [:mswin, :mingw, :x64_mingw]')
+          # Add platform restrictions if not already present
+          new_content = gemfile_content.gsub(
+            /gem "berkshelf", ">= 8.0"/,
+            'gem "berkshelf", ">= 8.0"\n\n' +
+            '# Skip problematic gems on macOS 12+\n' +
+            'platforms = [:mswin, :mingw, :x64_mingw]\n' +
+            'gem "dep_selector", platforms: platforms\n' + 
+            'gem "dep-selector-libgecode", platforms: platforms\n' +
+            'gem "solve", "~> 4.0.4"'
+          )
+          File.write("#{project_dir}/Gemfile", new_content)
+          
+          # Remove Gemfile.lock to force regeneration
+          File.unlink("#{project_dir}/Gemfile.lock") if File.exist?("#{project_dir}/Gemfile.lock")
+        end
+        
+        # Create a monkey patch for Rubygems to intercept the installation of dep-selector-libgecode
+        # This will inject the config.guess and config.sub files during gem installation
+        patch_code = <<-RUBY
+          module Gem
+            class Installer
+              alias original_install install
+              
+              def install
+                if spec.name == 'dep-selector-libgecode'
+                  puts "Intercepting dep-selector-libgecode installation to add auxiliary files"
+                  result = original_install
+                  
+                  # Find the gem's extension build directory
+                  ext_dir = File.join(spec.full_gem_path, 'ext', 'libgecode3', 'vendor', 'gecode-3.7.3')
+                  if Dir.exist?(ext_dir)
+                    puts "Patching auxiliary files in #{ext_dir}"
+                    
+                    # Copy auxiliary files
+                    %w[config.guess config.sub].each do |script|
+                      sources = [
+                        "/opt/homebrew/opt/automake/libexec/gnubin/#{script}",
+                        "/usr/local/opt/automake/libexec/gnubin/#{script}",
+                        `which #{script}`.strip
+                      ]
+                      
+                      source = sources.find { |s| !s.empty? && File.exist?(s) }
+                      if source
+                        puts "Copying #{source} to #{File.join(ext_dir, script)}"
+                        require 'fileutils'
+                        FileUtils.cp(source, File.join(ext_dir, script))
+                      end
+                    end
+                  end
+                  
+                  return result
+                end
+                
+                original_install
+              end
+            end
+          end
+        RUBY
+        
+        # Write the patch to a file
+        File.write("#{ENV['HOME']}/gem_installer_patch.rb", patch_code)
+        
+        # Add require statement to rubygems setup
+        setup_file = "#{RbConfig::CONFIG['rubylibdir']}/rubygems/defaults/operating_system.rb"
+        unless File.exist?(setup_file)
+          require 'fileutils'
+          FileUtils.mkdir_p(File.dirname(setup_file))
+          File.write(setup_file, "require '#{ENV['HOME']}/gem_installer_patch.rb'")
+        end
+      EOH
+      
+      command "#{install_dir}/embedded/bin/ruby macos_12_helper.rb", cwd: project_dir, env: env
+    end
+    
+    # Set env vars for macOS 12+
+    env["BUNDLE_FORCE_RUBY_PLATFORM"] = "true"
+  end
 end
