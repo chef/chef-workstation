@@ -51,6 +51,10 @@ dependency "preparation"
 
 # TODO: unless check should be removed once hab package is available in linux aarch64
 dependency "habitat" unless RUBY_PLATFORM =~ /aarch64-linux/
+dependecy "autoconf"
+puts "++++++++++"
+puts `autoconf --version`
+puts "-------autoconf"
 dependency "openssl"
 dependency "gecode"
 
