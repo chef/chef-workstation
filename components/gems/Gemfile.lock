@@ -8,7 +8,7 @@ GIT
 GEM
   remote: https://gem.fury.io/ashique/
   specs:
-    kitchen-vcenter (2.13.0)
+    kitchen-vcenter (2.13.1)
       net-ping (>= 2.0.0, < 3.0)
       rbvmomi2 (>= 3.5.0, < 4.0)
       test-kitchen (>= 1.16, < 4)
