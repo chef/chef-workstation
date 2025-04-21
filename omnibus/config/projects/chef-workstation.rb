@@ -53,7 +53,6 @@ dependency "preparation"
 dependency "habitat" unless RUBY_PLATFORM =~ /aarch64-linux/
 dependency "openssl"
 if mac_os_x?
-  dependency "autoconf"
   dependency "gecode"
 end
 
