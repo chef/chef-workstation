@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.4.1079 -->
-## [25.4.1079](https://github.com/chef/chef-workstation/tree/25.4.1079) (2025-04-17)
+<!-- latest_release 25.4.1080 -->
+## [25.4.1080](https://github.com/chef/chef-workstation/tree/25.4.1080) (2025-04-22)
 
 #### Merged Pull Requests
-- reverting this change due to chef oss limitations with secrets [#3319](https://github.com/chef/chef-workstation/pull/3319) ([sean-simmons-progress](https://github.com/sean-simmons-progress))
+- CHEF-20210 : Verified builds on both x86_64 and arm64 macOS  [#3321](https://github.com/chef/chef-workstation/pull/3321) ([sanjain-progress](https://github.com/sanjain-progress))
 <!-- latest_release -->
 
 <!-- release_rollup since=25.2.1075 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- CHEF-20210 : Verified builds on both x86_64 and arm64 macOS  [#3321](https://github.com/chef/chef-workstation/pull/3321) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 25.4.1080 -->
 - reverting this change due to chef oss limitations with secrets [#3319](https://github.com/chef/chef-workstation/pull/3319) ([sean-simmons-progress](https://github.com/sean-simmons-progress)) <!-- 25.4.1079 -->
 - make pipelines public: verify [#3311](https://github.com/chef/chef-workstation/pull/3311) ([jaymzh](https://github.com/jaymzh)) <!-- 25.4.1078 -->
 - Bump nokogiri from 1.17.2 to 1.18.4 in /components/gems [#3309](https://github.com/chef/chef-workstation/pull/3309) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 25.4.1077 -->
