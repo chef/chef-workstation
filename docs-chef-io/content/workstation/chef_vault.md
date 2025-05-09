@@ -25,6 +25,12 @@ Chef Vault does not currently support alternate keying mechanisms like GPG and A
 
 {{< warning >}}
 
+⚠️ **DEPRECATION NOTICE**: Chef Vault is no longer in active development and will eventually move to end-of-life status. Users are encouraged to explore alternative solutions for secrets management.
+
+{{< /warning >}}
+
+{{< warning >}}
+
 To use Chef Vault, Chef Infra Client must be configured to use public/private key pairs. Chef Vault is incompatible with the practice of using Chef Infra Client with a private key, such as `client.pem`, and a certificate set as its public identity in the Chef Infra Server database. To update existing nodes to use `chef-vault`, first re-register your Chef Infra Client nodes with the Chef Infra Server which will generate public/private key pairs, and then install Chef Vault on each node. If Chef Vault is used with a Chef Infra Client instance that has a private key, such as `client.pem`, and a certificate set as its public identity in the Chef Infra Server database, Chef Vault will generate the following error:
 
 ``` none
