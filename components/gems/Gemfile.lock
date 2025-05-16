@@ -899,6 +899,9 @@ GEM
       net-ssh (>= 2.6.5)
       net-ssh-gateway (>= 1.2.0)
     netrc (0.11.0)
+    nokogiri (1.18.8)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     nokogiri (1.18.8-x64-mingw-ucrt)
     nori (2.7.0)
       bigdecimal
