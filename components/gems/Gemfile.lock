@@ -660,7 +660,7 @@ GEM
     gyoku (1.4.0)
       builder (>= 2.1.2)
       rexml (~> 3.0)
-    hashdiff (1.1.2)
+    hashdiff (1.0.1)
     hashie (4.1.0)
     highline (2.1.0)
     http-accept (1.7.0)
@@ -718,16 +718,16 @@ GEM
       multi_json
     jwt (2.10.1)
       base64
-    k8s-ruby (0.17.2)
+    k8s-ruby (0.16.0)
       base64
       dry-configurable
       dry-struct
       dry-types
       excon (~> 0.71)
-      hashdiff (~> 1.0)
+      hashdiff (~> 1.0.0)
       jsonpath (~> 1.1)
-      recursive-open-struct (~> 1.1, >= 1.1.3)
-      yajl-ruby (~> 1.4)
+      recursive-open-struct (~> 1.1.3)
+      yajl-ruby (~> 1.4.0)
       yaml-safe_load_stream3
     kartograph (0.2.8)
     kitchen-azurerm (1.13.2)
@@ -880,6 +880,7 @@ GEM
       mime-types-data (~> 3.2025, >= 3.2025.0507)
     mime-types-data (3.2025.0514)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.8)
     minitar (1.0.2)
     minitest (5.25.5)
     mixlib-archive (1.1.7)
@@ -1037,7 +1038,7 @@ GEM
       optimist (~> 3.0)
     rdoc (6.4.1.1)
       psych (>= 4.0.0)
-    recursive-open-struct (1.3.1)
+    recursive-open-struct (1.1.3)
       ostruct
     regexp_parser (2.10.0)
     representable (3.2.0)
@@ -1253,7 +1254,7 @@ GEM
       net-ssh (>= 2.9, < 8.0)
     train-habitat (0.2.22)
     train-kubernetes (0.2.1)
-      k8s-ruby (>= 0.17.2)
+      k8s-ruby (~> 0.16.0)
       train (~> 3.0)
     train-rest (0.5.0)
       aws-sigv4 (~> 1.5)
