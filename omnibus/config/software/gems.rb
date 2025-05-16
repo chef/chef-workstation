@@ -44,6 +44,9 @@ dependency "google-protobuf"
 # @todo https://github.com/guard/rb-fsevent/issues/83
 dependency "rb-fsevent-gem" if macos?
 
+# Whitelist the liblzma dependency to prevent health check failure
+whitelist_file(/liblzma\.5\.dylib/)
+
 build do
   env = if !windows?
           with_standard_compiler_flags(with_embedded_path)
@@ -68,7 +71,8 @@ build do
   # gems that the various applications need for day-to-day functionality.
   excluded_groups = %w{server docgen maintenance pry travis integration ci}
 
-  env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
+  # Change to false to force Nokogiri to use the bundled libraries instead of system ones
+  env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "false"
 
   # install the whole bundle first
   bundle "config set --local without '#{excluded_groups.join(" ")}'", env: env
