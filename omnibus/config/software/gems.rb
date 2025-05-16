@@ -45,7 +45,7 @@ dependency "google-protobuf"
 dependency "rb-fsevent-gem" if macos?
 
 # Whitelist the liblzma dependency to prevent health check failure
-whitelist_file(/liblzma\.5\.dylib/)
+# whitelist_file(/liblzma\.5\.dylib/)
 
 build do
   env = if !windows?
@@ -57,6 +57,12 @@ build do
           # ruby that we just built.
           { "Path" => "#{install_dir}\\embedded\\bin;#{ENV["PATH"]}" }
         end
+
+  # Ensure Nokogiri and other gems link against embedded libraries
+  embedded_dir = "#{install_dir}/embedded"
+  env["PKG_CONFIG_PATH"] = "#{embedded_dir}/lib/pkgconfig"
+  env["CFLAGS"] = "-I#{embedded_dir}/include"
+  env["LDFLAGS"] = "-L#{embedded_dir}/lib"
 
   #######################################################
   # !!!              IMPORTANT REMINDER             !!! #
@@ -71,8 +77,7 @@ build do
   # gems that the various applications need for day-to-day functionality.
   excluded_groups = %w{server docgen maintenance pry travis integration ci}
 
-  # Change to false to force Nokogiri to use the bundled libraries instead of system ones
-  env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "false"
+  env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
 
   # install the whole bundle first
   bundle "config set --local without '#{excluded_groups.join(" ")}'", env: env
