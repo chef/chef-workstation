@@ -91,19 +91,19 @@ build do
   end
 
   erb source: "config.mak.erb",
-      dest: "#{project_dir}/config.mak",
-      mode: 0755,
-      vars: {
-               cc: env["CC"],
-               ld: env["LD"],
-               cflags: env["CFLAGS"],
-               cppflags: env["CPPFLAGS"],
-               install: env["INSTALL"],
-               install_dir: install_dir,
-               ldflags: env["LDFLAGS"],
-               shell_path: env["SHELL_PATH"],
-               config_hash: config_hash,
-             }
+    dest: "#{project_dir}/config.mak",
+    mode: 0755,
+    vars: {
+             cc: env["CC"],
+             ld: env["LD"],
+             cflags: env["CFLAGS"],
+             cppflags: env["CPPFLAGS"],
+             install: env["INSTALL"],
+             install_dir: install_dir,
+             ldflags: env["LDFLAGS"],
+             shell_path: env["SHELL_PATH"],
+             config_hash: config_hash,
+           }
 
   # NOTE - If you run ./configure the environment variables set above will not be
   # used and only the command line args will be used. The issue with this is you
