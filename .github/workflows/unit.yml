@@ -1,3 +1,6 @@
+permissions:
+  contents: read
+
 # This is a basic workflow to help you get started with Action
 name: CI
 
@@ -27,4 +30,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           failedThreshold: 79
-          resultPath: coverage/.last_run.json 
+          resultPath: coverage/.last_run.json

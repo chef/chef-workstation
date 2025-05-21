@@ -1,19 +1,32 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.1.1074 -->
-## [25.1.1074](https://github.com/chef/chef-workstation/tree/25.1.1074) (2025-01-10)
+<!-- latest_release 25.5.1082 -->
+## [25.5.1082](https://github.com/chef/chef-workstation/tree/25.5.1082) (2025-05-12)
 
 #### Merged Pull Requests
-- Remove hosted chef from docs [#3285](https://github.com/chef/chef-workstation/pull/3285) ([IanMadd](https://github.com/IanMadd))
+- update Mac builder matrix to resolve notarization step failure [#3328](https://github.com/chef/chef-workstation/pull/3328) ([sanjain-progress](https://github.com/sanjain-progress))
 <!-- latest_release -->
 
-<!-- release_rollup since=24.12.1073 -->
+<!-- release_rollup since=25.2.1075 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
-- Remove hosted chef from docs [#3285](https://github.com/chef/chef-workstation/pull/3285) ([IanMadd](https://github.com/IanMadd)) <!-- 25.1.1074 -->
+- update Mac builder matrix to resolve notarization step failure [#3328](https://github.com/chef/chef-workstation/pull/3328) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 25.5.1082 -->
+- Add support for macOS 13 and macOS 14 for arm [#3215](https://github.com/chef/chef-workstation/pull/3215) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.5.1081 -->
+- CHEF-20210 : Verified builds on both x86_64 and arm64 macOS  [#3321](https://github.com/chef/chef-workstation/pull/3321) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 25.4.1080 -->
+- reverting this change due to chef oss limitations with secrets [#3319](https://github.com/chef/chef-workstation/pull/3319) ([sean-simmons-progress](https://github.com/sean-simmons-progress)) <!-- 25.4.1079 -->
+- make pipelines public: verify [#3311](https://github.com/chef/chef-workstation/pull/3311) ([jaymzh](https://github.com/jaymzh)) <!-- 25.4.1078 -->
+- Bump nokogiri from 1.17.2 to 1.18.4 in /components/gems [#3309](https://github.com/chef/chef-workstation/pull/3309) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 25.4.1077 -->
+- Updated the curl to version 8.12.1 and openSSL to version 3.2.4 [#3305](https://github.com/chef/chef-workstation/pull/3305) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.3.1076 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [25.2.1075](https://github.com/chef/chef-workstation/tree/25.2.1075) (2025-02-05)
+
+#### Merged Pull Requests
+- Remove hosted chef from docs [#3285](https://github.com/chef/chef-workstation/pull/3285) ([IanMadd](https://github.com/IanMadd))
+- CHEF-17644- Workstation 25.2 release  [#3294](https://github.com/chef/chef-workstation/pull/3294) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_stable_release -->
+
 ## [24.12.1073](https://github.com/chef/chef-workstation/tree/24.12.1073) (2024-12-18)
 
 #### Merged Pull Requests
@@ -22,7 +35,6 @@
 - Vendor dir removed and Go version updated [#3279](https://github.com/chef/chef-workstation/pull/3279) ([sanghinitin](https://github.com/sanghinitin))
 - Correct download APIs [#3287](https://github.com/chef/chef-workstation/pull/3287) ([IanMadd](https://github.com/IanMadd))
 - CHEF-15132-Workstation release 24.12 [#3288](https://github.com/chef/chef-workstation/pull/3288) ([nikhil2611](https://github.com/nikhil2611))
-<!-- latest_stable_release -->
 
 ## [24.8.1068](https://github.com/chef/chef-workstation/tree/24.8.1068) (2024-08-12)
 

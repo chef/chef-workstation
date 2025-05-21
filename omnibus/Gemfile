@@ -15,7 +15,7 @@ group :development do
   gem "berkshelf", ">= 8.0"
 
   # Use Test Kitchen with Vagrant for converging the build environment
-  gem "test-kitchen", ">= 2"
+  gem "test-kitchen", ">= 3.0"
   gem "kitchen-vagrant"
   gem "winrm-elevated"
 end
