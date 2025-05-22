@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.5.1083 -->
-## [25.5.1083](https://github.com/chef/chef-workstation/tree/25.5.1083) (2025-05-21)
+<!-- latest_release 25.5.1084 -->
+## [25.5.1084](https://github.com/chef/chef-workstation/tree/25.5.1084) (2025-05-22)
 
 #### Merged Pull Requests
-- Updated gems and dependencies for upcoming chef workstation 25.5 release [#3340](https://github.com/chef/chef-workstation/pull/3340) ([nikhil2611](https://github.com/nikhil2611))
+- Remove rexml versions with potential CVEs  [#3342](https://github.com/chef/chef-workstation/pull/3342) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=25.2.1075 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Remove rexml versions with potential CVEs  [#3342](https://github.com/chef/chef-workstation/pull/3342) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.5.1084 -->
 - Updated gems and dependencies for upcoming chef workstation 25.5 release [#3340](https://github.com/chef/chef-workstation/pull/3340) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.5.1083 -->
 - update Mac builder matrix to resolve notarization step failure [#3328](https://github.com/chef/chef-workstation/pull/3328) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 25.5.1082 -->
 - Add support for macOS 13 and macOS 14 for arm [#3215](https://github.com/chef/chef-workstation/pull/3215) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.5.1081 -->
