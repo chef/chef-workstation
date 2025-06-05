@@ -491,7 +491,10 @@ knife vault rotate keys passwords root --clean-unknown-clients
 
 #### `refresh`
 
-This command reads the search_query in the vault item, performs the search, and reapplies the results.
+This command reads the search_query stored in the vault item, re-executes the search, and refreshes access for all nodes that match the updated query results.
+
+Note: This operation doesn't update or re-encrypt credentials for admin users. To update an admin's credentials, use the [`knife vault update`](#update) command.
+
 
 ``` shell
 knife vault refresh VAULT ITEM
