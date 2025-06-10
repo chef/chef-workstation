@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 25.6.1085 -->
+## [25.6.1085](https://github.com/chef/chef-workstation/tree/25.6.1085) (2025-06-10)
+
+#### Merged Pull Requests
+- CHEF-22524 Describe chef-vault refresh command  [#3332](https://github.com/chef/chef-workstation/pull/3332) ([sanjain-progress](https://github.com/sanjain-progress))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=25.5.1084 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- CHEF-22524 Describe chef-vault refresh command  [#3332](https://github.com/chef/chef-workstation/pull/3332) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 25.6.1085 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
