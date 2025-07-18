@@ -1,9 +1,10 @@
 GIT
   remote: https://github.com/chef/omnibus-software.git
-  revision: 9af77d5aaf86d6a9d113438abaeda18a4eba0de5
+  revision: 6e8cf122cedadca0947e2702eb09aad48f4d96e0
   branch: main
   specs:
     omnibus-software (24.6.324)
+      ffi (< 1.17.0)
       omnibus (>= 9.0.0)
 
 GIT
@@ -16,6 +17,7 @@ GIT
       chef-cleanroom (~> 1.0)
       chef-utils (>= 15.4)
       contracts (>= 0.16.0, < 0.17.0)
+      ffi (<= 1.17.0)
       ffi-yajl (~> 2.2)
       license_scout (~> 1.3.17)
       mixlib-shellout (>= 2.0, < 4.0)
@@ -39,17 +41,17 @@ GEM
     artifactory (3.0.17)
     ast (2.4.3)
     awesome_print (1.9.2)
-    aws-eventstream (1.3.2)
-    aws-partitions (1.1106.0)
-    aws-sdk-core (3.224.0)
+    aws-eventstream (1.4.0)
+    aws-partitions (1.1130.0)
+    aws-sdk-core (3.226.3)
       aws-eventstream (~> 1, >= 1.3.0)
       aws-partitions (~> 1, >= 1.992.0)
       aws-sigv4 (~> 1.9)
       base64
       jmespath (~> 1, >= 1.6.1)
       logger
-    aws-sdk-kms (1.101.0)
-      aws-sdk-core (~> 3, >= 3.216.0)
+    aws-sdk-kms (1.106.0)
+      aws-sdk-core (~> 3, >= 3.225.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-s3 (1.116.0)
       aws-sdk-core (~> 3, >= 3.127.0)
@@ -58,9 +60,9 @@ GEM
     aws-sdk-secretsmanager (1.115.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sigv4 (1.11.0)
+    aws-sigv4 (1.12.1)
       aws-eventstream (~> 1, >= 1.0.2)
-    base64 (0.2.0)
+    base64 (0.3.0)
     bcrypt_pbkdf (1.1.1)
     berkshelf (8.0.22)
       chef (>= 18.0.0)
@@ -282,21 +284,19 @@ GEM
     ipaddress (0.8.3)
     iso8601 (0.13.0)
     jmespath (1.6.2)
-    json (2.12.0)
+    json (2.13.0)
     kitchen-vagrant (2.0.1)
       test-kitchen (>= 1.4, < 4)
-    language_server-protocol (3.17.0.5)
     libyajl2 (2.1.0)
     license-acceptance (2.1.13)
       pastel (~> 0.7)
       tomlrb (>= 1.2, < 3.0)
       tty-box (~> 0.6)
       tty-prompt (~> 0.20)
-    license_scout (1.3.17)
+    license_scout (1.3.18)
       ffi-yajl (~> 2.2)
       mixlib-shellout (>= 2.2, < 4.0)
       toml-rb (>= 1, < 3)
-    lint_roller (1.1.0)
     little-plugger (1.1.4)
     logger (1.7.0)
     logging (2.4.0)
@@ -387,7 +387,6 @@ GEM
       rainbow
       zhexdump (>= 0.0.2)
     plist (3.7.2)
-    prism (1.4.0)
     proxifier2 (1.1.0)
     pry (0.15.2)
       coderay (~> 1.1)
