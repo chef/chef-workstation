@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.7.1086 -->
-## [25.7.1086](https://github.com/chef/chef-workstation/tree/25.7.1086) (2025-07-16)
+<!-- latest_release 25.7.1087 -->
+## [25.7.1087](https://github.com/chef/chef-workstation/tree/25.7.1087) (2025-07-18)
 
 #### Merged Pull Requests
-- Update knife_org.md [#3355](https://github.com/chef/chef-workstation/pull/3355) ([ashiqueps](https://github.com/ashiqueps))
+- Building the windows on 2019: removed the windows 8 and 2012 [#3356](https://github.com/chef/chef-workstation/pull/3356) ([ashiqueps](https://github.com/ashiqueps))
 <!-- latest_release -->
 
 <!-- release_rollup since=25.5.1084 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Building the windows on 2019: removed the windows 8 and 2012 [#3356](https://github.com/chef/chef-workstation/pull/3356) ([ashiqueps](https://github.com/ashiqueps)) <!-- 25.7.1087 -->
 - Update knife_org.md [#3355](https://github.com/chef/chef-workstation/pull/3355) ([ashiqueps](https://github.com/ashiqueps)) <!-- 25.7.1086 -->
 - CHEF-22524 Describe chef-vault refresh command  [#3332](https://github.com/chef/chef-workstation/pull/3332) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 25.6.1085 -->
 <!-- release_rollup -->
