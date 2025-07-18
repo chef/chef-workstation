@@ -73,6 +73,33 @@ module ChefWorkstation
         self.class.components
       end
 
+      # Check if the current platform is a FIPS-enabled platform based on
+      # BUILDKITE_LABEL and the fips-platforms configuration in .expeditor/release.omnibus.yml
+      #
+      # FIPS platforms are:
+      # - el-*-x86_64 (RHEL/CentOS/AlmaLinux/etc)
+      # - ubuntu-*-x86_64 (Ubuntu)
+      # - windows-* (Windows)
+      #
+      # Returns true if running on a FIPS platform, false otherwise.
+      # If BUILDKITE_LABEL is not set (e.g., local development), returns false.
+      def fips_platform?
+        buildkite_label = ENV["BUILDKITE_LABEL"]
+        return false unless buildkite_label
+
+        # FIPS platforms from .expeditor/release.omnibus.yml:
+        # - el-*-x86_64
+        # - ubuntu-*-x86_64  
+        # - windows-*
+        fips_patterns = [
+          /^el-.*-x86_64$/,
+          /^ubuntu-.*-x86_64$/,
+          /^windows-.*$/
+        ]
+
+        fips_patterns.any? { |pattern| buildkite_label.match?(pattern) }
+      end
+
       bundle_install_mutex = Mutex.new
 
       #
@@ -326,8 +353,13 @@ module ChefWorkstation
           raise "Expected OpenSSL library version to include \#{expected_version}, got: \#{OpenSSL::OPENSSL_LIBRARY_VERSION}"
         end
         puts "✓ OpenSSL library version check passed"
+        EOF
 
-        # Test that FIPS mode can be activated
+        # Only test FIPS mode on FIPS-enabled platforms
+        openssl_fips_test = <<-EOF.gsub(/^\s+/, "")
+        require "openssl"
+
+        # Test that FIPS mode can be activated (only on FIPS platforms)
         begin
           # Check if FIPS mode can be enabled (this will fail if FIPS provider is not available)
           original_fips_mode = OpenSSL.fips_mode
@@ -358,6 +390,16 @@ module ChefWorkstation
               f.write openssl_version_test
             end
             sh!("#{Gem.ruby} openssl_version.rb", cwd: cwd)
+
+            # Only test FIPS mode on FIPS-enabled platforms
+            if fips_platform?
+              with_file(File.join(cwd, "openssl_fips.rb")) do |f|
+                f.write openssl_fips_test
+              end
+              sh!("#{Gem.ruby} openssl_fips.rb", cwd: cwd)
+            else
+              puts "ℹ FIPS mode test skipped (non-FIPS platform)"
+            end
           end
         end
 
@@ -388,11 +430,15 @@ module ChefWorkstation
           end
           puts "✓ Legacy provider found"
 
-          # Check for FIPS provider (3.0.9)
-          unless providers_result.stdout.include?("fips")
-            raise "FIPS provider not found in OpenSSL providers list"
+          # Check for FIPS provider (3.0.9) only on FIPS-enabled platforms
+          if fips_platform?
+            unless providers_result.stdout.include?("fips")
+              raise "FIPS provider not found in OpenSSL providers list on FIPS platform"
+            end
+            puts "✓ FIPS provider found (FIPS platform detected)"
+          else
+            puts "ℹ FIPS provider check skipped (non-FIPS platform)"
           end
-          puts "✓ FIPS provider found"
         end
       end
 
