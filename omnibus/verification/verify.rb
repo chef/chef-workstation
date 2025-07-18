@@ -305,7 +305,7 @@ module ChefWorkstation
         # https://github.com/chef/chef-cli/issues/420
         c.gem_base_dir = "chef"
 
-        test = <<-EOF.gsub(/^\s+/, "")
+        ssl_connectivity_test = <<-EOF.gsub(/^\s+/, "")
         require "net/http" unless defined?(Net::HTTP)
 
         uris = %w{https://www.google.com https://chef.io/ https://ec2.amazonaws.com}
@@ -316,13 +316,83 @@ module ChefWorkstation
         end
         EOF
 
+        openssl_version_test = <<-EOF.gsub(/^\s+/, "")
+        require "openssl"
+
+        # Test that Ruby's OpenSSL library version matches 3.2.4
+        puts "OpenSSL library version: \#{OpenSSL::OPENSSL_LIBRARY_VERSION}"
+        expected_version = "3.2.4"
+        unless OpenSSL::OPENSSL_LIBRARY_VERSION.include?(expected_version)
+          raise "Expected OpenSSL library version to include \#{expected_version}, got: \#{OpenSSL::OPENSSL_LIBRARY_VERSION}"
+        end
+        puts "✓ OpenSSL library version check passed"
+
+        # Test that FIPS mode can be activated
+        begin
+          # Check if FIPS mode can be enabled (this will fail if FIPS provider is not available)
+          original_fips_mode = OpenSSL.fips_mode
+          puts "Original FIPS mode: \#{original_fips_mode}"
+          
+          # Try to enable FIPS mode
+          OpenSSL.fips_mode = true
+          puts "FIPS mode enabled: \#{OpenSSL.fips_mode}"
+          
+          # Try to disable FIPS mode
+          OpenSSL.fips_mode = false
+          puts "FIPS mode disabled: \#{OpenSSL.fips_mode}"
+          
+          puts "✓ FIPS mode activation/deactivation test passed"
+        rescue => e
+          raise "FIPS mode test failed: \#{e.message}"
+        end
+        EOF
+
         c.unit_test do
           tmpdir do |cwd|
-            with_file(File.join(cwd, "openssl.rb")) do |f|
-              f.write test
+            with_file(File.join(cwd, "openssl_connectivity.rb")) do |f|
+              f.write ssl_connectivity_test
             end
-            sh!("#{Gem.ruby} openssl.rb", cwd: cwd)
+            sh!("#{Gem.ruby} openssl_connectivity.rb", cwd: cwd)
+
+            with_file(File.join(cwd, "openssl_version.rb")) do |f|
+              f.write openssl_version_test
+            end
+            sh!("#{Gem.ruby} openssl_version.rb", cwd: cwd)
           end
+        end
+
+        c.smoke_test do
+          # Test OpenSSL executable version and providers
+          result = sh!("#{embedded_bin("openssl")} version")
+          puts "OpenSSL executable version: #{result.stdout.strip}"
+          
+          unless result.stdout.include?("3.2.4")
+            raise "Expected OpenSSL executable version to include 3.2.4, got: #{result.stdout.strip}"
+          end
+          puts "✓ OpenSSL executable version check passed"
+
+          # Test that providers are available
+          providers_result = sh!("#{embedded_bin("openssl")} list -providers")
+          puts "Available providers:"
+          puts providers_result.stdout
+          
+          # Check for default provider (3.2.4)
+          unless providers_result.stdout.include?("default")
+            raise "Default provider not found in OpenSSL providers list"
+          end
+          puts "✓ Default provider found"
+
+          # Check for legacy provider (3.2.4)
+          unless providers_result.stdout.include?("legacy")
+            raise "Legacy provider not found in OpenSSL providers list"
+          end
+          puts "✓ Legacy provider found"
+
+          # Check for FIPS provider (3.0.9)
+          unless providers_result.stdout.include?("fips")
+            raise "FIPS provider not found in OpenSSL providers list"
+          end
+          puts "✓ FIPS provider found"
         end
       end
 
