@@ -110,9 +110,9 @@ module ChefWorkstation
       # - ubuntu-*-x86_64  
       # - windows-*
       fips_patterns = [
-        /^el-.*-x86_64$/,
-        /^ubuntu-.*-x86_64$/,
-        /^windows-.*$/
+        / el-.*-x86_64/,
+        / ubuntu-.*-x86_64/,
+        / windows-.*/
       ]
 
       fips_patterns.any? { |pattern| buildkite_label.match?(pattern) }
