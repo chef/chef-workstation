@@ -353,27 +353,29 @@ module ChefWorkstation
         EOF
 
         c.unit_test do
+          last_result = nil
           tmpdir do |cwd|
             with_file(File.join(cwd, "openssl_connectivity.rb")) do |f|
               f.write ssl_connectivity_test
             end
-            sh!("#{Gem.ruby} openssl_connectivity.rb", cwd: cwd)
+            last_result = sh!("#{Gem.ruby} openssl_connectivity.rb", cwd: cwd)
 
             with_file(File.join(cwd, "openssl_version.rb")) do |f|
               f.write openssl_version_test
             end
-            sh!("#{Gem.ruby} openssl_version.rb", cwd: cwd)
+            last_result = sh!("#{Gem.ruby} openssl_version.rb", cwd: cwd)
 
             # Only test FIPS mode on FIPS-enabled platforms
             if fips_platform?
               with_file(File.join(cwd, "openssl_fips.rb")) do |f|
                 f.write openssl_fips_test
               end
-              sh!("#{Gem.ruby} openssl_fips.rb", cwd: cwd)
+              last_result = sh!("#{Gem.ruby} openssl_fips.rb", cwd: cwd)
             else
               puts "ℹ FIPS mode test skipped (non-FIPS platform)"
             end
           end
+          last_result
         end
 
         c.smoke_test do
@@ -412,6 +414,7 @@ module ChefWorkstation
           else
             puts "ℹ FIPS provider check skipped (non-FIPS platform)"
           end
+          providers_result
         end
       end
 
