@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.7.1088 -->
-## [25.7.1088](https://github.com/chef/chef-workstation/tree/25.7.1088) (2025-07-18)
+<!-- latest_release 25.7.1089 -->
+## [25.7.1089](https://github.com/chef/chef-workstation/tree/25.7.1089) (2025-07-23)
 
 #### Merged Pull Requests
-- Bump omnibus-software from `9af77d5` to `6e8cf12` in /omnibus [#3358](https://github.com/chef/chef-workstation/pull/3358) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- CHEF-23806- Security fixes for Chef Workstation [#3364](https://github.com/chef/chef-workstation/pull/3364) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=25.5.1084 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- CHEF-23806- Security fixes for Chef Workstation [#3364](https://github.com/chef/chef-workstation/pull/3364) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.7.1089 -->
 - Bump omnibus-software from `9af77d5` to `6e8cf12` in /omnibus [#3358](https://github.com/chef/chef-workstation/pull/3358) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 25.7.1088 -->
 - Building the windows on 2019: removed the windows 8 and 2012 [#3356](https://github.com/chef/chef-workstation/pull/3356) ([ashiqueps](https://github.com/ashiqueps)) <!-- 25.7.1087 -->
 - Update knife_org.md [#3355](https://github.com/chef/chef-workstation/pull/3355) ([ashiqueps](https://github.com/ashiqueps)) <!-- 25.7.1086 -->
