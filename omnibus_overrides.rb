@@ -6,11 +6,11 @@
 override "chef-analyze", version: "0.1.187"
 # /DO NOT MODIFY
 
-override "libarchive", version: "3.8.1"
+override "libarchive", version: "3.7.9"
 override "libffi", version: "3.4.2"
 override "libiconv", version: "1.16"
 override "liblzma", version: "5.2.5"
-override "curl", version: "8.12.1"
+override "curl", version: "8.14.1"
 override "go", version: "1.23.9"
 override "git-windows", version: "2.47.0"
 override "libyaml", version: "0.1.7"
