@@ -6,7 +6,7 @@
 override "chef-analyze", version: "0.1.187"
 # /DO NOT MODIFY
 
-override "libarchive", version: "3.7.9"
+override "libarchive", version: "3.8.1"
 override "libffi", version: "3.4.2"
 override "libiconv", version: "1.16"
 override "liblzma", version: "5.2.5"
