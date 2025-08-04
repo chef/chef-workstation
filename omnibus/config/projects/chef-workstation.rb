@@ -100,9 +100,6 @@ dependency "ruby-cleanup"
 # further gem cleanup other projects might not yet want to use
 dependency "more-ruby-cleanup"
 
-# introduced for rexml cleanup
-dependency "remove-old-gems"
-
 dependency "go"
 dependency "main-chef-wrapper"
 
