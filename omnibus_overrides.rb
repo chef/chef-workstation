@@ -5,7 +5,7 @@
 
 override "chef-analyze", version: "0.1.187"
 # /DO NOT MODIFY
-
+override :nokogiri, version: "1.18.9"
 override "libxml2", version: "2.13.8"
 override "libxslt", version: "1.1.43"
 override "libarchive", version: "3.8.1"
