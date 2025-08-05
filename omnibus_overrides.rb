@@ -6,6 +6,8 @@
 override "chef-analyze", version: "0.1.187"
 # /DO NOT MODIFY
 
+override "libxml2", version: "2.13.8"
+override "libxslt", version: "1.1.43"
 override "libarchive", version: "3.8.1"
 override "libffi", version: "3.4.2"
 override "libiconv", version: "1.16"
@@ -14,8 +16,6 @@ override "curl", version: "8.14.1"
 override "go", version: "1.23.9"
 override "git-windows", version: "2.47.0"
 override "libyaml", version: "0.1.7"
-override "libxml2", version: "2.13.8"
-override "libxslt", version: "1.1.43"
 override "makedepend", version: "1.0.5"
 override "ncurses", version: "6.4"
 override :stunnel, version: "5.71"

@@ -66,9 +66,15 @@ build do
   # TODO - reevaluate groups - would like to universally exclude development,
   # testing but we'll need to make sure that's safe and doesn't remove
   # gems that the various applications need for day-to-day functionality.
-  excluded_groups = %w{server docgen maintenance pry travis integration ci}
+  excluded_groups = %w{server docgen maintenance pry travis integration ci dep_selector}
 
-  env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "false"
+  env["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "true"
+  env["NOKOGIRI_CONFIG"] = "#{install_dir}/embedded/bin/xml2-config"
+
+
+  block "Print install_dir ++++++" do
+    puts "Install dir is: #{install_dir}"
+  end
 
   # install the whole bundle first
   bundle "config set --local without '#{excluded_groups.join(" ")}'", env: env
