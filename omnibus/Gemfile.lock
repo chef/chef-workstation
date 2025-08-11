@@ -3,7 +3,7 @@ GIT
   revision: a45f01b5fdd0a11f1914d067f4c7bb39bcdddfea
   branch: main
   specs:
-    omnibus-software (25.8.337)
+    omnibus-software (25.8.338)
       ffi (< 1.17.0)
       omnibus (>= 9.0.0)
 
