@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.8.1090 -->
-## [25.8.1090](https://github.com/chef/chef-workstation/tree/25.8.1090) (2025-08-04)
+<!-- latest_release 25.8.1091 -->
+## [25.8.1091](https://github.com/chef/chef-workstation/tree/25.8.1091) (2025-08-20)
 
 #### Merged Pull Requests
-- CHEF-23974 Updated libraries to fix CVEs , component upgrades and other fixes [#3374](https://github.com/chef/chef-workstation/pull/3374) ([nikhil2611](https://github.com/nikhil2611))
+- Update libxml2 to 2.13.8 with conditional Nokogiri build configuration [#3381](https://github.com/chef/chef-workstation/pull/3381) ([sanjain-progress](https://github.com/sanjain-progress))
 <!-- latest_release -->
 
 <!-- release_rollup since=25.5.1084 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update libxml2 to 2.13.8 with conditional Nokogiri build configuration [#3381](https://github.com/chef/chef-workstation/pull/3381) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 25.8.1091 -->
 - CHEF-23974 Updated libraries to fix CVEs , component upgrades and other fixes [#3374](https://github.com/chef/chef-workstation/pull/3374) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.8.1090 -->
 - CHEF-23806- Security fixes for Chef Workstation [#3364](https://github.com/chef/chef-workstation/pull/3364) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.7.1089 -->
 - Bump omnibus-software from `9af77d5` to `6e8cf12` in /omnibus [#3358](https://github.com/chef/chef-workstation/pull/3358) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 25.7.1088 -->
