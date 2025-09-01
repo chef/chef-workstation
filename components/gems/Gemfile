@@ -122,7 +122,7 @@ group(:omnibus_package) do
   gem "rb-readline"
   gem "winrm-fs"
   gem "winrm-elevated"
-  gem "berkshelf", ">= 8.0"
+  gem "berkshelf", github: "chef/berkshelf", branch: "main"
   gem "mdl", ">= 0.7.0"
 end
 
