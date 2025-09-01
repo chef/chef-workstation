@@ -602,14 +602,12 @@ PLATFORMS
 DEPENDENCIES
   artifactory
   berkshelf!
-  cookstyle (= 7.32.8)
   kitchen-vagrant
   omnibus!
   omnibus-software!
   pedump
   test-kitchen (>= 3.0)
-  train-winrm (= 0.2.19)
   winrm-elevated
 
 BUNDLED WITH
-   2.6.9
+   2.3.7
