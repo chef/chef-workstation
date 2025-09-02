@@ -1,24 +1,4 @@
 GIT
-  remote: https://github.com/chef/berkshelf.git
-  revision: 8d728adf004a8226da0d503e48eb966d421a8b00
-  branch: main
-  specs:
-    berkshelf (8.1.4)
-      chef (>= 18.0.0)
-      chef-cleanroom (~> 1.0)
-      chef-config
-      concurrent-ruby (~> 1.0)
-      ffi (>= 1.15.5, <= 1.16.3)
-      minitar (~> 1.0)
-      mixlib-archive (>= 1.1.4, < 2.0)
-      mixlib-config (>= 2.2.5)
-      mixlib-shellout (>= 2.0, < 4.0)
-      octokit (>= 4.0, < 6.0)
-      retryable (>= 2.0, < 4.0)
-      solve (~> 4.0)
-      thor (~> 1.4)
-
-GIT
   remote: https://github.com/chef/omnibus-software.git
   revision: 50c78858b655f84c33d5cd89910561a77a421629
   branch: main
@@ -88,6 +68,20 @@ GEM
       aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.3.0)
     bcrypt_pbkdf (1.1.1)
+    berkshelf (8.1.4)
+      chef (>= 18.0.0)
+      chef-cleanroom (~> 1.0)
+      chef-config
+      concurrent-ruby (~> 1.0)
+      ffi (>= 1.15.5, <= 1.16.3)
+      minitar (~> 1.0)
+      mixlib-archive (>= 1.1.4, < 2.0)
+      mixlib-config (>= 2.2.5)
+      mixlib-shellout (>= 2.0, < 4.0)
+      octokit (>= 4.0, < 6.0)
+      retryable (>= 2.0, < 4.0)
+      solve (~> 4.0)
+      thor (~> 1.4)
     bigdecimal (3.2.2)
     builder (3.3.0)
     chef (18.8.11)
@@ -601,7 +595,7 @@ PLATFORMS
 
 DEPENDENCIES
   artifactory
-  berkshelf!
+  berkshelf (>= 8.0)
   kitchen-vagrant
   omnibus!
   omnibus-software!

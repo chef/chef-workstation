@@ -1,24 +1,4 @@
 GIT
-  remote: https://github.com/chef/berkshelf.git
-  revision: 8d728adf004a8226da0d503e48eb966d421a8b00
-  branch: main
-  specs:
-    berkshelf (8.1.4)
-      chef (>= 18.0.0)
-      chef-cleanroom (~> 1.0)
-      chef-config
-      concurrent-ruby (~> 1.0)
-      ffi (>= 1.15.5, <= 1.16.3)
-      minitar (~> 1.0)
-      mixlib-archive (>= 1.1.4, < 2.0)
-      mixlib-config (>= 2.2.5)
-      mixlib-shellout (>= 2.0, < 4.0)
-      octokit (>= 4.0, < 6.0)
-      retryable (>= 2.0, < 4.0)
-      solve (~> 4.0)
-      thor (~> 1.4)
-
-GIT
   remote: https://github.com/chef/ruby-shadow
   revision: 3b8ea40b0e943b5de721d956741308ce805a5c3c
   branch: lcg/ruby-3.0
@@ -303,6 +283,20 @@ GEM
       ms_rest_azure (~> 0.12.0)
     base64 (0.3.0)
     bcrypt_pbkdf (1.1.2.rc1)
+    berkshelf (8.1.4)
+      chef (>= 18.0.0)
+      chef-cleanroom (~> 1.0)
+      chef-config
+      concurrent-ruby (~> 1.0)
+      ffi (>= 1.15.5, <= 1.16.3)
+      minitar (~> 1.0)
+      mixlib-archive (>= 1.1.4, < 2.0)
+      mixlib-config (>= 2.2.5)
+      mixlib-shellout (>= 2.0, < 4.0)
+      octokit (>= 4.0, < 6.0)
+      retryable (>= 2.0, < 4.0)
+      solve (~> 4.0)
+      thor (~> 1.4)
     bigdecimal (3.2.2)
     binding_of_caller (1.0.1)
       debug_inspector (>= 1.2.0)
@@ -1405,7 +1399,7 @@ DEPENDENCIES
   appbundler
   artifactory
   bcrypt_pbkdf (>= 1.1.0.rc1)
-  berkshelf!
+  berkshelf (>= 8.0)
   chef (>= 18.2)
   chef-apply (>= 0.4.16)
   chef-bin (>= 18.2)
