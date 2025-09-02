@@ -38,7 +38,7 @@ platform_name = if macos?
                 end
 
 source_url = "https://packages.chef.io/files/unstable/chef-workstation-app/#{version}/chef-workstation-app-#{version}-#{platform_name}.zip"
-internal_source url = "https://packages.chef.io/files/unstable/chef-workstation-app/#{version}/chef-workstation-app-#{version}-#{platform_name}.zip"
+internal_source url: "https://packages.chef.io/files/unstable/chef-workstation-app/#{version}/chef-workstation-app-#{version}-#{platform_name}.zip"
 app_install_path = "#{install_dir}/components/chef-workstation-app"
 
 # These electron dependencies are pulled in/created
