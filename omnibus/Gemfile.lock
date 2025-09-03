@@ -296,7 +296,7 @@ GEM
     iso8601 (0.13.0)
     jmespath (1.6.2)
     json (2.13.2)
-    kitchen-vagrant (2.0.1)
+    kitchen-vagrant (2.1.0)
       test-kitchen (>= 1.4, < 4)
     libyajl2 (2.1.0)
     license-acceptance (2.1.13)
