@@ -1,8 +1,6 @@
 # Chef Workstation
 
 
-**Umbrella Project**: [Chef Workstation](https://github.com/chef/chef-oss-practices/blob/main/projects/chef-workstation.md)
-
 Chef Workstation installs everything you need to get started using Chef products on Windows, Mac and Linux. It includes:
 
 * Chef Workstation App
