@@ -20,7 +20,9 @@ license "BSD-3-Clause"
 license_file "https://raw.githubusercontent.com/golang/go/master/LICENSE"
 
 # Defaults
+platform = "linux"
 arch = "amd64"
+ext = "tar.gz"
 
 if windows?
   platform = "windows"
@@ -33,15 +35,15 @@ if windows?
                 authorization: "X-JFrog-Art-Api:#{ENV["ARTIFACTORY_TOKEN"]}"
 
 elsif mac_os_x?
-  # platform = "darwin"
+  platform = "darwin"
   if intel?
-    # arch = "amd64"
+    arch = "amd64"
     version "1.23.12" do
       source url: "https://artifactory-internal.ps.chef.co/artifactory/omnibus-software-local/go/go1.23.12.darwin-amd64.tar.gz",
              sha256: "0f6efdc3ffc6f03b230016acca0aef43c229de022d0ff401e7aa4ad4862eca8e"
     end
   else
-    # arch = "arm64"
+    arch = "arm64"
     version "1.23.12" do
       source url: "https://artifactory-internal.ps.chef.co/artifactory/omnibus-software-local/go/go1.23.12.darwin-arm64.tar.gz",
              sha256: "5bfa117e401ae64e7ffb960243c448b535fe007e682a13ff6c7371f4a6f0ccaa"
@@ -49,7 +51,7 @@ elsif mac_os_x?
   end
 
 elsif armhf?
-  # arch = "armv6l"
+  arch = "armv6l"
   version("1.23.12") { source sha256: "9704eba01401a3793f54fac162164b9c5d8cc6f3cab5cee72684bb72294d9f41" }
 
   source url: "https://artifactory-internal.ps.chef.co/artifactory/omnibus-software-local/#{name}/#{name}#{version}.linux-armv6l.tar.gz"
@@ -58,7 +60,7 @@ elsif armhf?
                 authorization: "X-JFrog-Art-Api:#{ENV["ARTIFACTORY_TOKEN"]}"
 
 elsif arm?
-  # arch = "arm64"
+  arch = "arm64"
   # version_list: url=https://golang.org/dl/ filter=*.linux-arm64.tar.gz
   version("1.23.12") { source sha256: "52ce172f96e21da53b1ae9079808560d49b02ac86cecfa457217597f9bc28ab3" }
 
@@ -70,12 +72,12 @@ elsif arm?
 else
   # version_list: url=https://golang.org/dl/ filter=*.linux-amd64.tar.gz
   version("1.23.12") { source sha256: "d3847fef834e9db11bf64e3fb34db9c04db14e068eeb064f49af747010454f90" }
-end
 
-source url: "https://artifactory-internal.ps.chef.co/artifactory/omnibus-software-local/#{name}/#{name}#{version}.linux-amd64.tar.gz"
+  source url: "https://artifactory-internal.ps.chef.co/artifactory/omnibus-software-local/#{name}/#{name}#{version}.linux-amd64.tar.gz"
 
-internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/#{name}-#{version}.%{platform}-%{arch}.%{ext}",
+  internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/#{name}-#{version}.%{platform}-%{arch}.%{ext}",
                 authorization: "X-JFrog-Art-Api:#{ENV["ARTIFACTORY_TOKEN"]}"
+end
 
 build do
   # We do not use 'sync' since we've found multiple errors with other software definitions
