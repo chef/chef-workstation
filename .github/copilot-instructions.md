@@ -185,7 +185,11 @@ When prompted to create a PR, follow this comprehensive workflow:
    - Testing performed and coverage results
    - List of all files modified
    - Screenshots/examples if applicable
-5. **Label Management**: Add appropriate labels such as "Type: Enhancement" for new features or "Aspect: Documentation" for documentation changes
+5. **Label Management**: Add appropriate labels based on change type:
+   - **Documentation/Config Changes**: "Expeditor: Skip All" + "Aspect: Documentation"
+   - **Feature Changes**: "Type: Enhancement" + appropriate Expeditor labels if needed
+   - **Bug Fixes**: "Type: Bug" + appropriate Expeditor labels if needed
+   - **Test-only Changes**: "Expeditor: Skip Version Bump" if you want changelog but no version bump
 
 ### 5. Step-by-Step Execution Protocol
 
@@ -353,7 +357,45 @@ This ensures transparency and allows for course correction at any point in the d
 - When amending commits, use `git commit --amend --signoff --no-edit`
 - The signoff adds a "Signed-off-by" trailer to commit messages
 
-### 12. Release and Build Pipeline Awareness
+### 12. Expeditor Integration and Label Management
+
+**Expeditor Overview:**
+- Chef Workstation uses Expeditor for automated builds, releases, and dependency management
+- Expeditor responds to PR merges and automatically performs version bumping, changelog updates, and builds
+- Specific labels control which Expeditor actions are triggered or skipped
+
+**Critical Expeditor Labels:**
+- **"Expeditor: Skip All"** - Skips ALL Expeditor actions (version bump, changelog, builds)
+- **"Expeditor: Skip Version Bump"** - Skips only version bumping
+- **"Expeditor: Skip Changelog"** - Skips changelog updates
+- **"Expeditor: Skip Omnibus"** - Skips Omnibus package builds
+- **"Expeditor: Skip Habitat"** - Skips Habitat package builds
+- **"Aspect: Documentation"** - Also skips version bump, changelog, and builds (same as Skip All)
+
+**When to Use Expeditor Skip Labels:**
+- **Documentation Changes**: Use "Expeditor: Skip All" or "Aspect: Documentation"
+- **Configuration Updates**: Use "Expeditor: Skip All" when no code changes affect functionality
+- **CI/CD Changes**: Use "Expeditor: Skip All" for workflow or pipeline changes
+- **README/Markdown Updates**: Use "Aspect: Documentation"
+- **Test-only Changes**: Use "Expeditor: Skip Version Bump" if you want changelog but no version bump
+
+**Expeditor Build Channels:**
+- **unstable** → **current** → **stable** (promotion flow)
+- Packages automatically promoted from unstable to current after passing tests
+- Manual promotion from current to stable using Expeditor commands
+
+**Expeditor Automation:**
+- Automatically updates dependencies when gems are published
+- Triggers builds across multiple platforms and package formats
+- Updates Dockerfile and publishes release notes on stable releases
+- Integrates with Slack (#chef-ws-notify) for build notifications
+
+**For This PR:**
+Since this PR only adds documentation and configuration files without changing functional code, it should use:
+- **"Expeditor: Skip All"** label to prevent unnecessary version bumps and builds
+- **"Aspect: Documentation"** label to categorize the change type
+
+### 13. Release and Build Pipeline Awareness
 
 - **Expeditor Integration**: The project uses Expeditor for automated builds and releases
 - **Build Channels**: Packages flow through `unstable` → `current` → `stable` channels
@@ -363,7 +405,7 @@ This ensures transparency and allows for course correction at any point in the d
   - `components/gems/Gemfile.lock`: Dependency management (use `rake update` task for updates)
 - **Slack Integration**: Build notifications go to `#chef-ws-notify` channel
 
-### 13. Dependency Management Guidelines
+### 14. Dependency Management Guidelines
 
 **Ruby Dependencies:**
 - Use `bundle _2.1.4_ lock --update --add-platform ruby x64-mingw32 x86-mingw32 x64-mingw-ucrt` for Gemfile.lock updates
@@ -380,7 +422,7 @@ This ensures transparency and allows for course correction at any point in the d
 - Use `~>` only for bug workarounds or temporary tech debt
 - Equality pin critical gems (chef, chef-bin, etc.)
 
-### 14. Code Quality and Standards
+### 15. Code Quality and Standards
 
 **Style Guidelines:**
 - Ruby: Use Chefstyle (RuboCop) - run `rake style`
@@ -392,13 +434,13 @@ This ensures transparency and allows for course correction at any point in the d
 - Go: Built-in testing package with cross-platform considerations
 - Integration: Test Kitchen with multiple drivers (Azure, EC2, Docker, etc.)
 
-### 15. Security and Compliance
+### 16. Security and Compliance
 
 - **CVE Awareness**: Keep security gems updated (e.g., rdoc ~> 6.4.1 for CVE-2024-27281)
 - **FIPS Compliance**: Maintain OpenSSL 3.2.0+ for FIPS mode support
 - **License Compliance**: All files must include Apache 2.0 license headers
 
-### 16. Platform-Specific Considerations
+### 17. Platform-Specific Considerations
 
 **Windows Support:**
 - Include Windows-specific gems when `RUBY_PLATFORM.match?(/mswin|mingw|windows/)`
@@ -410,7 +452,7 @@ This ensures transparency and allows for course correction at any point in the d
 - Support macOS (dmg packaging)
 - Maintain Linux compatibility
 
-### 17. Code Ownership and Review Process
+### 18. Code Ownership and Review Process
 
 **CODEOWNERS Structure:**
 - Default reviewers: `@chef/chef-workstation-owners`, `@chef/chef-workstation-approvers`, `@chef/chef-workstation-reviewers`
@@ -424,7 +466,7 @@ This ensures transparency and allows for course correction at any point in the d
 - Expeditor files require JEX team approval
 - Documentation changes need docs team review
 
-### 18. Build Environment Setup
+### 19. Build Environment Setup
 
 **Local Development:**
 - Use Habitat Studio for Go components development
@@ -436,7 +478,7 @@ This ensures transparency and allows for course correction at any point in the d
 - Kitchen-based builds available for multiple platforms
 - Clean builds: `bin/omnibus clean chef-workstation --purge`
 
-### 19. Issue Templates and Bug Reporting
+### 20. Issue Templates and Bug Reporting
 
 When creating issues, use appropriate templates:
 - `BUG_TEMPLATE.md` for bug reports
@@ -444,7 +486,7 @@ When creating issues, use appropriate templates:
 - `DESIGN_PROPOSAL.md` for architectural changes
 - `SUPPORT_QUESTION.md` for user support
 
-### 20. Critical Dependencies to Monitor
+### 21. Critical Dependencies to Monitor
 
 **Core Chef Components:**
 - Chef Infra Client (≥ 18.2)
