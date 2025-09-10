@@ -148,7 +148,7 @@ When prompted to create a PR, follow this comprehensive workflow:
    
    # Stage and commit changes with meaningful messages
    git add .
-   git commit -m "<JIRA_ID>: Brief description of changes"
+   git commit --signoff -m "<JIRA_ID>: Brief description of changes"
    
    # Push to remote
    git push origin <JIRA_ID>
@@ -260,7 +260,7 @@ Follow this complete workflow when implementing any task:
 #### Phase 4: Pull Request Creation
 8. **Git Operations**
    - Create branch using Jira ID as branch name (e.g., `PROJ-123`)
-   - Stage and commit changes with meaningful commit messages
+   - Stage and commit changes with meaningful commit messages using `--signoff` for DCO compliance
    - Push changes to remote repository
    - Follow proper commit message format
 
@@ -346,7 +346,14 @@ This ensures transparency and allows for course correction at any point in the d
 - Explain technical decisions in code comments
 - Update relevant documentation
 
-### 11. Release and Build Pipeline Awareness
+### 11. DCO (Developer Certificate of Origin) Compliance
+
+- **All commits MUST be signed off** using `git commit --signoff` or `git commit -s`
+- This is required for DCO compliance and builds will fail without proper signoff
+- When amending commits, use `git commit --amend --signoff --no-edit`
+- The signoff adds a "Signed-off-by" trailer to commit messages
+
+### 12. Release and Build Pipeline Awareness
 
 - **Expeditor Integration**: The project uses Expeditor for automated builds and releases
 - **Build Channels**: Packages flow through `unstable` → `current` → `stable` channels
@@ -356,7 +363,7 @@ This ensures transparency and allows for course correction at any point in the d
   - `components/gems/Gemfile.lock`: Dependency management (use `rake update` task for updates)
 - **Slack Integration**: Build notifications go to `#chef-ws-notify` channel
 
-### 12. Dependency Management Guidelines
+### 13. Dependency Management Guidelines
 
 **Ruby Dependencies:**
 - Use `bundle _2.1.4_ lock --update --add-platform ruby x64-mingw32 x86-mingw32 x64-mingw-ucrt` for Gemfile.lock updates
@@ -373,7 +380,7 @@ This ensures transparency and allows for course correction at any point in the d
 - Use `~>` only for bug workarounds or temporary tech debt
 - Equality pin critical gems (chef, chef-bin, etc.)
 
-### 13. Code Quality and Standards
+### 14. Code Quality and Standards
 
 **Style Guidelines:**
 - Ruby: Use Chefstyle (RuboCop) - run `rake style`
@@ -385,13 +392,13 @@ This ensures transparency and allows for course correction at any point in the d
 - Go: Built-in testing package with cross-platform considerations
 - Integration: Test Kitchen with multiple drivers (Azure, EC2, Docker, etc.)
 
-### 14. Security and Compliance
+### 15. Security and Compliance
 
 - **CVE Awareness**: Keep security gems updated (e.g., rdoc ~> 6.4.1 for CVE-2024-27281)
 - **FIPS Compliance**: Maintain OpenSSL 3.2.0+ for FIPS mode support
 - **License Compliance**: All files must include Apache 2.0 license headers
 
-### 15. Platform-Specific Considerations
+### 16. Platform-Specific Considerations
 
 **Windows Support:**
 - Include Windows-specific gems when `RUBY_PLATFORM.match?(/mswin|mingw|windows/)`
@@ -403,7 +410,7 @@ This ensures transparency and allows for course correction at any point in the d
 - Support macOS (dmg packaging)
 - Maintain Linux compatibility
 
-### 16. Code Ownership and Review Process
+### 17. Code Ownership and Review Process
 
 **CODEOWNERS Structure:**
 - Default reviewers: `@chef/chef-workstation-owners`, `@chef/chef-workstation-approvers`, `@chef/chef-workstation-reviewers`
@@ -417,7 +424,7 @@ This ensures transparency and allows for course correction at any point in the d
 - Expeditor files require JEX team approval
 - Documentation changes need docs team review
 
-### 17. Build Environment Setup
+### 18. Build Environment Setup
 
 **Local Development:**
 - Use Habitat Studio for Go components development
@@ -429,7 +436,7 @@ This ensures transparency and allows for course correction at any point in the d
 - Kitchen-based builds available for multiple platforms
 - Clean builds: `bin/omnibus clean chef-workstation --purge`
 
-### 18. Issue Templates and Bug Reporting
+### 19. Issue Templates and Bug Reporting
 
 When creating issues, use appropriate templates:
 - `BUG_TEMPLATE.md` for bug reports
@@ -437,7 +444,7 @@ When creating issues, use appropriate templates:
 - `DESIGN_PROPOSAL.md` for architectural changes
 - `SUPPORT_QUESTION.md` for user support
 
-### 19. Critical Dependencies to Monitor
+### 20. Critical Dependencies to Monitor
 
 **Core Chef Components:**
 - Chef Infra Client (≥ 18.2)
