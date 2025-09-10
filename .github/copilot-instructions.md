@@ -185,7 +185,7 @@ When prompted to create a PR, follow this comprehensive workflow:
    - Testing performed and coverage results
    - List of all files modified
    - Screenshots/examples if applicable
-5. **Label Management**: Automatically add the label "runtest:all:stable" to the PR
+5. **Label Management**: Add appropriate labels such as "Type: Enhancement" for new features or "Aspect: Documentation" for documentation changes
 
 ### 5. Step-by-Step Execution Protocol
 
@@ -272,7 +272,7 @@ Follow this complete workflow when implementing any task:
      - List of files modified
      - Testing performed and coverage results
      - Screenshots/examples if applicable
-   - Add required labels including "runtest:all:stable"
+   - Add required labels appropriate to the change type (e.g., "Type: Enhancement", "Aspect: Documentation")
 
 **Prompt**: "Phase 4 complete. PR created successfully at [PR URL]. All implementation steps finished. Summary: [complete summary of all work done, files modified, test coverage achieved]. Would you like to perform any additional tasks?"
 
