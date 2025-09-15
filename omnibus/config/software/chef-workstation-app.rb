@@ -29,23 +29,23 @@ source sha1: "a13ba6239fbc839daeb5a6800bac87bcb74c257f" if linux?
 if macos?
   if arm?
     platform_name = "darwin-arm64"
-    version("0.2.191") do 
+    version("0.2.191") do
       source sha256: "430c42999c07c41ab0eb27bcb40b7925b5311987c1d7cad352c4516a57540f24"
     end
   else
     platform_name = "darwin-x64"
-    version("0.2.191") do 
+    version("0.2.191") do
       source sha256: "135ab6c1ac447399a918094ba50d720f842cf0515714709967fe4ce56059c477"
     end
   end
 elsif windows?
   platform_name = "win32-x64"
-  version("0.2.191") do 
+  version("0.2.191") do
     source sha256: "09e63b50167f00d0ceb1e14cba4a3621b2d7109141fd1b338942e5f33a95c7b7"
   end
 else
   platform_name = "linux-x64" 
-  version("0.2.191") do 
+  version("0.2.191") do
     source sha256: "3690120a99e11e1ff64b9a9d74a4fdd51fcb4dae1987bec92f006903b1a24de4"
   end
 end
