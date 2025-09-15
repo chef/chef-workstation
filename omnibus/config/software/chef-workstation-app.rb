@@ -44,12 +44,11 @@ elsif windows?
     source sha256: "09e63b50167f00d0ceb1e14cba4a3621b2d7109141fd1b338942e5f33a95c7b7"
   end
 else
-  platform_name = "linux-x64" 
+  platform_name = "linux-x64"
   version("0.2.191") do
     source sha256: "3690120a99e11e1ff64b9a9d74a4fdd51fcb4dae1987bec92f006903b1a24de4"
   end
 end
-
 
 source_url = "https://packages.chef.io/files/unstable/chef-workstation-app/#{version}/chef-workstation-app-#{version}-#{platform_name}.zip"
 
