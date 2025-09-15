@@ -20,6 +20,8 @@ default_version "main"
 license "Apache-2.0"
 license_file "LICENSE"
 source git: "https://github.com/chef/chef-analyze.git"
+source_url = "https://github.com/chef/chef-analyze.git"
+internal_source url: "https://github.com/chef/chef-analyze.git"
 
 dependency "go"
 
