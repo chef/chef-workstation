@@ -4,12 +4,12 @@ license "Apache-2.0"
 license_file "LICENSE"
 
 # versions_list: https://github.com/chef/chef-analyze/tags filter=*.tar.gz
-source url: "https://github.com/chef/chef-analyze/archive/refs/tags/v#{default_version}.tar.gz",
+source url: "https://github.com/chef/chef-analyze/archive/refs/tags/#{default_version}.tar.gz",
        sha256: "ebcf945ded48df30f7281db3ea88392a06722c88b838d2fb77e3040b9434f429"
 
 
 # Update the internal_source URL to match the source URL
-internal_source url: "https://github.com/chef/chef-analyze/archive/refs/tags/v#{default_version}.tar.gz"
+internal_source url: "https://github.com/chef/chef-analyze/archive/refs/tags/#{default_version}.tar.gz"
 
 
 dependency "go"
