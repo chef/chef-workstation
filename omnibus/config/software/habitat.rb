@@ -48,7 +48,8 @@ end
 
 source url: "https://packages.chef.io/files/stable/habitat/#{version}/hab-#{suffix}",
   sha256: sha256
-
+internal_source url: "https://packages.chef.io/files/stable/habitat/#{version}/hab-#{suffix}",
+  sha256: sha256
 build do
   # "block" is needed to prevent evaluating the ruby code
   # before the project_dir contains the extracted package.

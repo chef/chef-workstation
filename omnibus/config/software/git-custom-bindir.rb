@@ -43,7 +43,7 @@ relative_path "git-#{version}"
 version("2.39.3") { source sha256: "2f9aa93c548941cc5aff641cedc24add15b912ad8c9b36ff5a41b1a9dcad783e" }
 
 source url: "https://www.kernel.org/pub/software/scm/git/git-#{version}.tar.gz"
-
+internal_source url: "https://www.kernel.org/pub/software/scm/git/git-#{version}.tar.gz"
 bin_dirs ["#{install_dir}/gitbin", "#{install_dir}/embedded/libexec/git-core"]
 
 build do
