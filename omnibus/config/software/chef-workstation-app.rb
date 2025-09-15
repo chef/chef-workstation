@@ -38,7 +38,11 @@ platform_name = if macos?
                 end
 
 source_url = "https://packages.chef.io/files/unstable/chef-workstation-app/#{version}/chef-workstation-app-#{version}-#{platform_name}.zip"
+# update the version list and shasum based when default version is updated
+version("0.2.191") { source sha256: "60ec98b6d6f4b76a9d4f2f4c40fb564eb175234ddc7284f20beac9bcc3841107" }
+
 internal_source url: "https://packages.chef.io/files/unstable/chef-workstation-app/#{version}/chef-workstation-app-#{version}-#{platform_name}.zip"
+
 app_install_path = "#{install_dir}/components/chef-workstation-app"
 
 # These electron dependencies are pulled in/created
