@@ -34,6 +34,8 @@ version("v3.21.12") do
   internal_source url: "https://github.com/protocolbuffers/protobuf/archive/refs/tags/v3.21.12.tar.gz"
 end
 
+relative_path "protobuf-3.21.12" # match the version above without the 'v'
+
 license :project_license
 
 build do
