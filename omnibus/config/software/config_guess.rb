@@ -21,6 +21,8 @@ default_version "master"
 # Use our GitHub mirror of the Savannah repository
 source url: "https://github.com/chef/config-mirror/archive/refs/heads/master.tar.gz",
        sha256: "cc60204d0b512cfd86eca96c079b48494495c5b7937c873b708cce81ca52dc2d" # Replace with the actual checksum
+internal_source url: "https://github.com/chef/config-mirror/archive/refs/heads/master.tar.gz",
+       sha256: "cc60204d0b512cfd86eca96c079b48494495c5b7937c873b708cce81ca52dc2d"
 
 # versions_list: https://github.com/chef/config-mirror/tags filter=*.tar.gz
 
