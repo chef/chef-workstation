@@ -25,7 +25,8 @@ default_version "v3.21.12"
 
 dependency "ruby"
 
-source git: "https://github.com/google/protobuf.git"
+source git: "https://github.com/google/protobuf.git",
+  sha256: "930c2c3b5ecc6c9c12615cf5ad93f1cd6e12d0aba862b572e076259970ac3a53"
 internal_source url: "https://github.com/google/protobuf.git"
 
 # versions_list: https://github.com/protocolbuffers/protobuf/tags filter=*.tar.gz
