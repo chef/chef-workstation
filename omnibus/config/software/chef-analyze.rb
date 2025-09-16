@@ -10,6 +10,7 @@ source url: "https://github.com/chef/chef-analyze/archive/refs/tags/#{default_ve
 # Update the internal_source URL to match the source URL
 internal_source url: "https://github.com/chef/chef-analyze/archive/refs/tags/#{default_version}.tar.gz"
 
+relative_path "chef-analyze-#{version}"
 dependency "go"
 
 build do
