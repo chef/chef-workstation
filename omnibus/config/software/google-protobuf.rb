@@ -31,7 +31,8 @@ source git: "https://github.com/google/protobuf.git"
 version("v3.21.12") do
   source sha256: "930c2c3b5ecc6c9c12615cf5ad93f1cd6e12d0aba862b572e076259970ac3a53"
   source url: "https://github.com/protocolbuffers/protobuf/archive/refs/tags/v3.21.12.tar.gz"
-  internal_source url: "https://github.com/protocolbuffers/protobuf/archive/refs/tags/v3.21.12.tar.gz"
+  internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/protobuf-#{version}.tar.gz",
+                authorization: "X-JFrog-Art-Api:#{ENV["ARTIFACTORY_TOKEN"]}"
 end
 
 relative_path "protobuf-3.21.12" # match the version above without the 'v'
