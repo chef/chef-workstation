@@ -8,7 +8,8 @@ source url: "https://github.com/chef/chef-analyze/archive/refs/tags/#{default_ve
        sha256: "b0a97ee948c312ec97c0acf4ab8f29b5806afc91292279f2bcd10504e890a7cb"
 
 # Update the internal_source URL to match the source URL
-internal_source url: "https://github.com/chef/chef-analyze/archive/refs/tags/#{default_version}.tar.gz"
+internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/#{name}-#{version}.tar.gz",
+                authorization: "X-JFrog-Art-Api:#{ENV["ARTIFACTORY_TOKEN"]}"
 
 relative_path "chef-analyze-#{version}"
 dependency "go"
