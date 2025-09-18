@@ -27,6 +27,8 @@ source url: "https://github.com/thibaudgg/rb-fsevent/archive/refs/tags/v#{defaul
        sha256: "db4168f54cd2ecc0d6c0332758af1c68a1c1a963fd3d0f88959a9abb097334c1"
 internal_source url: "https://github.com/thibaudgg/rb-fsevent/archive/refs/tags/v#{default_version}.tar.gz"
 
+relative_path "rb-fsevent-#{default_version}"
+
 license "Apache-2.0"
 license_file "https://raw.githubusercontent.com/thibaudgg/rb-fsevent/master/LICENSE.txt"
 
