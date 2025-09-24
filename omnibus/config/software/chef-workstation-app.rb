@@ -25,19 +25,35 @@ default_version "0.2.191"
 source sha1: "626695935f339114adfdfe29ac4b68f4088096f7" if windows?
 source sha1: "a13ba6239fbc839daeb5a6800bac87bcb74c257f" if linux?
 
-platform_name = if macos?
-                  if arm?
-                    "darwin-arm64"
-                  else
-                    "darwin-x64"
-                  end
-                elsif windows?
-                  "win32-x64"
-                else
-                  "linux-x64"
-                end
+# update the version list and shasum based when default version is updated
+if macos?
+  if arm?
+    platform_name = "darwin-arm64"
+    version("0.2.191") do
+      source sha256: "430c42999c07c41ab0eb27bcb40b7925b5311987c1d7cad352c4516a57540f24"
+    end
+  else
+    platform_name = "darwin-x64"
+    version("0.2.191") do
+      source sha256: "135ab6c1ac447399a918094ba50d720f842cf0515714709967fe4ce56059c477"
+    end
+  end
+elsif windows?
+  platform_name = "win32-x64"
+  version("0.2.191") do
+    source sha256: "09e63b50167f00d0ceb1e14cba4a3621b2d7109141fd1b338942e5f33a95c7b7"
+  end
+else
+  platform_name = "linux-x64"
+  version("0.2.191") do
+    source sha256: "3690120a99e11e1ff64b9a9d74a4fdd51fcb4dae1987bec92f006903b1a24de4"
+  end
+end
 
 source_url = "https://packages.chef.io/files/unstable/chef-workstation-app/#{version}/chef-workstation-app-#{version}-#{platform_name}.zip"
+
+internal_source url: "https://packages.chef.io/files/unstable/chef-workstation-app/#{version}/chef-workstation-app-#{version}-#{platform_name}.zip"
+
 app_install_path = "#{install_dir}/components/chef-workstation-app"
 
 # These electron dependencies are pulled in/created

@@ -1,26 +1,17 @@
-#
-# Copyright:: Copyright Chef Software, Inc.
-# License:: Apache License, Version 2.0
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
-
 name "chef-analyze"
-default_version "main"
+default_version "0.1.187"  # updated to latest version
 license "Apache-2.0"
 license_file "LICENSE"
-source git: "https://github.com/chef/chef-analyze.git"
 
+# versions_list: https://github.com/chef/chef-analyze/tags filter=*.tar.gz
+source url: "https://github.com/chef/chef-analyze/archive/refs/tags/#{default_version}.tar.gz",
+       sha256: "b0a97ee948c312ec97c0acf4ab8f29b5806afc91292279f2bcd10504e890a7cb"
+
+# Update the internal_source URL to match the source URL
+internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/#{name}-#{version}.tar.gz",
+                authorization: "X-JFrog-Art-Api:#{ENV["ARTIFACTORY_TOKEN"]}"
+
+relative_path "chef-analyze-#{version}"
 dependency "go"
 
 build do
