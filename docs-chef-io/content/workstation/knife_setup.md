@@ -154,6 +154,11 @@ In a script for Windows, use: `%USERPROFILE%\chef-repo\.chef`.
 Use `knife configure` command to generate your initial `config.rb` file in your home directory.
 See [knife configure](/workstation/knife_configure/) for details.
 
+## License Prerequisite
+
+To run knife commands in Chef Workstation, you need an active license installed on the system. Please refer to the license command
+[documentation](/workstation/ctl_chef/#chef-license) or run `chef license --help` to know more.
+
 ## Setting Your Text Editor
 
 Some knife commands, such as `knife data bag edit`, require that information be edited as JSON data using a text editor. For example, the following command:
