@@ -26,7 +26,7 @@
 name "git-custom-bindir"
 skip_transitive_dependency_licensing true
 
-default_version "2.39.3"
+default_version "2.43.7"
 
 license "LGPL-2.1"
 license_file "LGPL-2.1"
@@ -40,7 +40,7 @@ dependency "expat"
 
 relative_path "git-#{version}"
 
-version("2.39.3") { source sha256: "2f9aa93c548941cc5aff641cedc24add15b912ad8c9b36ff5a41b1a9dcad783e" }
+version("2.43.7") { source sha256: "b30055b0dac1aebcb6f332f1fddbc81e3ce43819920a23709d71b4f76763f1f4" }
 
 source url: "https://www.kernel.org/pub/software/scm/git/git-#{version}.tar.gz"
 internal_source url: "https://www.kernel.org/pub/software/scm/git/git-#{version}.tar.gz"
