@@ -159,7 +159,7 @@ When prompted to create a PR, follow this comprehensive workflow:
    <p>Detailed description of changes made</p>
    
    <h2>Jira Ticket</h2>
-   <p><a href="https://your-jira-instance.com/browse/{JIRA-ID}">{JIRA-ID}</a></p>
+   <p><a href="https://chefio.atlassian.net/browse/{JIRA-ID}">{JIRA-ID}</a></p>
    
    <h2>Changes Made</h2>
    <ul>
@@ -408,7 +408,8 @@ Since this PR only adds documentation and configuration files without changing f
 ### 14. Dependency Management Guidelines
 
 **Ruby Dependencies:**
-- Use `bundle _2.1.4_ lock --update --add-platform ruby x64-mingw32 x86-mingw32 x64-mingw-ucrt` for Gemfile.lock updates
+- Use `bundle _<BUNDLER_VERSION>_ lock --update --add-platform ruby x64-mingw32 x86-mingw32 x64-mingw-ucrt` for Gemfile.lock updates, where `<BUNDLER_VERSION>` matches the version specified in your Gemfile.lock or .ruby-version file.
+  - **Note:** If the Bundler version changes in Gemfile.lock or .ruby-version, update this command accordingly to maintain compatibility.
 - Pin security-critical gems (OpenSSL ≥ 3.2.0 for FIPS mode support)
 - Maintain compatibility with Ruby 3.1.7 (current version)
 
