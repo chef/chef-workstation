@@ -37,8 +37,8 @@ else
   install_dir "#{default_root}/#{name}"
 end
 
-# This will place NOTICE directly under install_dir in the package
-extra_package_file "omnibus/NOTICE"
+# Copy NOTICE file to the install directory
+extra_package_file "omnibus/NOTICE", "#{install_dir}/NOTICE"
 
 version_file = File.expand_path("../../../VERSION", __dir__)
 build_version File.read(version_file).strip
