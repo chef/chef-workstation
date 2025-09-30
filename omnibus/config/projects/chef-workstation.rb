@@ -37,9 +37,6 @@ else
   install_dir "#{default_root}/#{name}"
 end
 
-# Copy NOTICE file to the install directory
-extra_package_file "omnibus/NOTICE", "#{install_dir}/NOTICE"
-
 version_file = File.expand_path("../../../VERSION", __dir__)
 build_version File.read(version_file).strip
 build_iteration 1
@@ -51,6 +48,7 @@ overrides_path = File.expand_path("../../../omnibus_overrides.rb", __dir__)
 instance_eval(File.read(overrides_path), overrides_path)
 
 dependency "preparation"
+dependency "notice-file"
 
 # TODO: unless check should be removed once hab package is available in linux aarch64
 dependency "habitat" unless RUBY_PLATFORM =~ /aarch64-linux/
