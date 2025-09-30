@@ -20,7 +20,7 @@ name "notice-file"
 skip_transitive_dependency_licensing true
 license :project_license
 
-source path: "#{project.files_path}/.."
+source path: File.join("#{project.files_path}", "../../")
 
 build do
   # Copy NOTICE file to the install directory
