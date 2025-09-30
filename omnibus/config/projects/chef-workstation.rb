@@ -22,7 +22,9 @@ homepage      "https://community.chef.io/tools/chef-workstation/"
 
 license "Chef EULA"
 license_file "CHEF-EULA.md"
-license_file "NOTICE"
+
+# Copy NOTICE as a separate file
+extra_package_file "omnibus/NOTICE" => "#{install_dir}/LICENSES/chef-workstation-NOTICE"
 
 replace "chefdk"
 
