@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.9.1093 -->
-## [25.9.1093](https://github.com/chef/chef-workstation/tree/25.9.1093) (2025-09-24)
+<!-- latest_release 25.9.1094 -->
+## [25.9.1094](https://github.com/chef/chef-workstation/tree/25.9.1094) (2025-09-30)
 
 #### Merged Pull Requests
-- CHEF-21810 - Updated gems and dependencies for upcoming chef workstation 25.9 release [#3394](https://github.com/chef/chef-workstation/pull/3394) ([nikhil2611](https://github.com/nikhil2611))
+- Include NOTICE from repository root into the installer directory [#3419](https://github.com/chef/chef-workstation/pull/3419) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=25.5.1084 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Include NOTICE from repository root into the installer directory [#3419](https://github.com/chef/chef-workstation/pull/3419) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.9.1094 -->
 - CHEF-21810 - Updated gems and dependencies for upcoming chef workstation 25.9 release [#3394](https://github.com/chef/chef-workstation/pull/3394) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.9.1093 -->
 - Update for s3 private access , set  Internal_src url and windows-cert [#3408](https://github.com/chef/chef-workstation/pull/3408) ([poorndm](https://github.com/poorndm)) <!-- 25.9.1092 -->
 - Update libxml2 to 2.13.8 with conditional Nokogiri build configuration [#3381](https://github.com/chef/chef-workstation/pull/3381) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 25.8.1091 -->
