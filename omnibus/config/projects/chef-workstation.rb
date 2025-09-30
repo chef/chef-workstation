@@ -37,8 +37,8 @@ else
   install_dir "#{default_root}/#{name}"
 end
 
-# Copy NOTICE as a separate file
-extra_package_file "omnibus/NOTICE" => "#{install_dir}/LICENSES/chef-workstation-NOTICE"
+# This will place NOTICE directly under install_dir in the package
+extra_package_file "omnibus/NOTICE"
 
 version_file = File.expand_path("../../../VERSION", __dir__)
 build_version File.read(version_file).strip
