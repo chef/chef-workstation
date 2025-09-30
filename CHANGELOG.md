@@ -1,28 +1,26 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.9.1094 -->
-## [25.9.1094](https://github.com/chef/chef-workstation/tree/25.9.1094) (2025-09-30)
-
-#### Merged Pull Requests
-- Include NOTICE from repository root into the installer directory [#3419](https://github.com/chef/chef-workstation/pull/3419) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=25.5.1084 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Include NOTICE from repository root into the installer directory [#3419](https://github.com/chef/chef-workstation/pull/3419) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.9.1094 -->
-- CHEF-21810 - Updated gems and dependencies for upcoming chef workstation 25.9 release [#3394](https://github.com/chef/chef-workstation/pull/3394) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.9.1093 -->
-- Update for s3 private access , set  Internal_src url and windows-cert [#3408](https://github.com/chef/chef-workstation/pull/3408) ([poorndm](https://github.com/poorndm)) <!-- 25.9.1092 -->
-- Update libxml2 to 2.13.8 with conditional Nokogiri build configuration [#3381](https://github.com/chef/chef-workstation/pull/3381) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 25.8.1091 -->
-- CHEF-23974 Updated libraries to fix CVEs , component upgrades and other fixes [#3374](https://github.com/chef/chef-workstation/pull/3374) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.8.1090 -->
-- CHEF-23806- Security fixes for Chef Workstation [#3364](https://github.com/chef/chef-workstation/pull/3364) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.7.1089 -->
-- Bump omnibus-software from `9af77d5` to `6e8cf12` in /omnibus [#3358](https://github.com/chef/chef-workstation/pull/3358) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 25.7.1088 -->
-- Building the windows on 2019: removed the windows 8 and 2012 [#3356](https://github.com/chef/chef-workstation/pull/3356) ([ashiqueps](https://github.com/ashiqueps)) <!-- 25.7.1087 -->
-- Update knife_org.md [#3355](https://github.com/chef/chef-workstation/pull/3355) ([ashiqueps](https://github.com/ashiqueps)) <!-- 25.7.1086 -->
-- CHEF-22524 Describe chef-vault refresh command  [#3332](https://github.com/chef/chef-workstation/pull/3332) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 25.6.1085 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [25.9.1094](https://github.com/chef/chef-workstation/tree/25.9.1094) (2025-09-30)
+
+#### Merged Pull Requests
+- CHEF-22524 Describe chef-vault refresh command  [#3332](https://github.com/chef/chef-workstation/pull/3332) ([sanjain-progress](https://github.com/sanjain-progress))
+- Update knife_org.md [#3355](https://github.com/chef/chef-workstation/pull/3355) ([ashiqueps](https://github.com/ashiqueps))
+- Building the windows on 2019: removed the windows 8 and 2012 [#3356](https://github.com/chef/chef-workstation/pull/3356) ([ashiqueps](https://github.com/ashiqueps))
+- Bump omnibus-software from `9af77d5` to `6e8cf12` in /omnibus [#3358](https://github.com/chef/chef-workstation/pull/3358) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- CHEF-23806- Security fixes for Chef Workstation [#3364](https://github.com/chef/chef-workstation/pull/3364) ([nikhil2611](https://github.com/nikhil2611))
+- CHEF-23974 Updated libraries to fix CVEs , component upgrades and other fixes [#3374](https://github.com/chef/chef-workstation/pull/3374) ([nikhil2611](https://github.com/nikhil2611))
+- Update libxml2 to 2.13.8 with conditional Nokogiri build configuration [#3381](https://github.com/chef/chef-workstation/pull/3381) ([sanjain-progress](https://github.com/sanjain-progress))
+- Update for s3 private access , set  Internal_src url and windows-cert [#3408](https://github.com/chef/chef-workstation/pull/3408) ([poorndm](https://github.com/poorndm))
+- CHEF-21810 - Updated gems and dependencies for upcoming chef workstation 25.9 release [#3394](https://github.com/chef/chef-workstation/pull/3394) ([nikhil2611](https://github.com/nikhil2611))
+- Include NOTICE from repository root into the installer directory [#3419](https://github.com/chef/chef-workstation/pull/3419) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_stable_release -->
+
 ## [25.5.1084](https://github.com/chef/chef-workstation/tree/25.5.1084) (2025-05-27)
 
 #### Merged Pull Requests
@@ -35,7 +33,6 @@
 - update Mac builder matrix to resolve notarization step failure [#3328](https://github.com/chef/chef-workstation/pull/3328) ([sanjain-progress](https://github.com/sanjain-progress))
 - Updated gems and dependencies for upcoming chef workstation 25.5 release [#3340](https://github.com/chef/chef-workstation/pull/3340) ([nikhil2611](https://github.com/nikhil2611))
 - Remove rexml versions with potential CVEs  [#3342](https://github.com/chef/chef-workstation/pull/3342) ([nikhil2611](https://github.com/nikhil2611))
-<!-- latest_stable_release -->
 
 ## [25.2.1075](https://github.com/chef/chef-workstation/tree/25.2.1075) (2025-02-05)
 
