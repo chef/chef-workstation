@@ -23,9 +23,6 @@ homepage      "https://community.chef.io/tools/chef-workstation/"
 license "Chef EULA"
 license_file "CHEF-EULA.md"
 
-# Copy NOTICE as a separate file
-extra_package_file "omnibus/NOTICE" => "#{install_dir}/LICENSES/chef-workstation-NOTICE"
-
 replace "chefdk"
 
 # Defaults to C:/chef-workstation on Windows
@@ -39,6 +36,9 @@ if windows?
 else
   install_dir "#{default_root}/#{name}"
 end
+
+# Copy NOTICE as a separate file
+extra_package_file "omnibus/NOTICE" => "#{install_dir}/LICENSES/chef-workstation-NOTICE"
 
 version_file = File.expand_path("../../../VERSION", __dir__)
 build_version File.read(version_file).strip
