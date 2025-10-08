@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 25.10.1095 -->
+## [25.10.1095](https://github.com/chef/chef-workstation/tree/25.10.1095) (2025-10-08)
+
+#### Merged Pull Requests
+- Add amazon - fips support [#3422](https://github.com/chef/chef-workstation/pull/3422) ([poorndm](https://github.com/poorndm))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=25.9.1094 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Add amazon - fips support [#3422](https://github.com/chef/chef-workstation/pull/3422) ([poorndm](https://github.com/poorndm)) <!-- 25.10.1095 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
