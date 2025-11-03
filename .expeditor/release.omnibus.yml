@@ -26,7 +26,6 @@ builder-to-testers-map:
     - el-9-x86_64
   mac_os_x-13-arm64:
     - mac_os_x-13-arm64
-  mac_os_x-14-arm64:
     - mac_os_x-14-arm64
   ubuntu-18.04-x86_64:
     - ubuntu-18.04-x86_64
