@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.10.1095 -->
-## [25.10.1095](https://github.com/chef/chef-workstation/tree/25.10.1095) (2025-10-08)
+<!-- latest_release 25.11.1096 -->
+## [25.11.1096](https://github.com/chef/chef-workstation/tree/25.11.1096) (2025-11-10)
 
 #### Merged Pull Requests
-- Add amazon - fips support [#3422](https://github.com/chef/chef-workstation/pull/3422) ([poorndm](https://github.com/poorndm))
+- CHEF-27591 - fixing crypto GO vulnerability [#3440](https://github.com/chef/chef-workstation/pull/3440) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=25.9.1094 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- CHEF-27591 - fixing crypto GO vulnerability [#3440](https://github.com/chef/chef-workstation/pull/3440) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.11.1096 -->
 - Add amazon - fips support [#3422](https://github.com/chef/chef-workstation/pull/3422) ([poorndm](https://github.com/poorndm)) <!-- 25.10.1095 -->
 <!-- release_rollup -->
 
