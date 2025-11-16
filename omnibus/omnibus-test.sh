@@ -1,57 +1,168 @@
 #!/bin/bash
 set -ueo pipefail
 
-is_darwin()
-{
-  uname -a | grep "^Darwin" 2>&1 >/dev/null
-}
+if [[ "${BUILDKITE_LABEL:-}" =~ "el-.*-x86_64" || \
+      "${BUILDKITE_LABEL:-}" =~ "el-.*-ppc64" || \
+      "${BUILDKITE_LABEL:-}" =~ "el-.*aarch" || \
+      "${BUILDKITE_LABEL:-}" =~ "ubuntu-" || \
+      "${BUILDKITE_LABEL:-}" =~ "amazon-2023" ]]
+then
+  export OPENSSL_FIPS=1
+fi
 
-# TODO: Need to remove the lin_aarch64 function once the hab package is available in linux aarch64 platform
-lin_aarch="0"
-lin_aarch64()
-{
-  unamestr=$(uname)
-  unamearchstr=$(uname -m)
-  if [[ "$unamestr" == 'Linux' ]]; then
-    if [[ "$unamearchstr" == 'aarch64' ]]; then
-      lin_aarch="1"
-    fi
+# Our tests hammer YUM pretty hard and the EL6 testers get corrupted
+# after some period of time. Rebuilding the RPM database clears
+# up the underlying corruption. We'll do this each test run just to
+# be safe.
+if [[ -f /etc/redhat-release ]]; then
+  major_version="$(sed 's/^.\+ release \([0-9]\+\).*/\1/' /etc/redhat-release)"
+  if [[ "$major_version" -lt "7" ]]; then
+    sudo rm -rf /var/lib/rpm/__db*
+    sudo db_verify /var/lib/rpm/Packages
+    sudo rpm --rebuilddb
+    sudo yum clean all
   fi
-}
-
-# Ensure user variables are set in git config
-git config --global user.email "you@example.com"
-git config --global user.name "Your Name"
-
-export CHEF_LICENSE="accept-no-persist"
-export HAB_LICENSE="accept-no-persist"
-
-echo "--- Ensure the 'chef' cli works (chef env)"
-chef env
-
-echo "--- Ensure the 'chef report' subcommand cli works (chef report help)"
-chef report help
-
-# TODO: Need to remove the lin_aarch64 function call and the condition check once the hab package is available in linux aarch64 platform.
-lin_aarch64
-
-if [ "$lin_aarch" = "0" ]; then
-  echo "--- Ensure that 'hab' cli is available"
-  hab help
 fi
 
-# We are commenting this code on a purpose.
-# We have to stop building chef-automate-collect in chef workstation temporarily.
-# Please refer the issue: https://github.com/chef/chef-workstation/issues/2286
- 
-# echo "--- Ensure that 'chef-automate-collect' cli is available"
-# chef exec chef-automate-collect -h
+# Set up a custom tmpdir, and clean it up before and after the tests
+export TMPDIR="${TMPDIR:-/tmp}/cheftest"
+sudo rm -rf "$TMPDIR"
+mkdir -p "$TMPDIR"
 
-# Verify that the chef-workstation-app was installed (MacOS only)
-if is_darwin; then
-  echo "--- Verifying that chef-workstation-app exist in /Applications directory"
-  test -d "/Applications/Chef Workstation App.app"
+# Verify that we kill any orphaned test processes. Kill any orphaned rspec processes.
+if [[ $(ps ax | grep 'rspec' | grep -v grep | awk '{ print $1 }') ]]; then
+  sudo kill -9 $(ps ax | grep 'rspec' | grep -v grep | awk '{ print $1 }') || true
 fi
 
-echo "--- Run Workstation verification suite"
-/opt/chef-workstation/embedded/bin/ruby omnibus/verification/run.rb
+export PATH="/opt/chef/bin:$PATH"
+export BIN_DIR="/opt/chef/bin"
+
+# We don't want to add the embedded bin dir to the main PATH as this
+# could mask issues in our binstub shebangs.
+export EMBEDDED_BIN_DIR="/opt/chef/embedded/bin"
+
+# If we are on Mac our symlinks are located under /usr/local/bin
+# otherwise they are under /usr/bin
+if [[ -f /usr/bin/sw_vers ]]; then
+  export USR_BIN_DIR="/usr/local/bin"
+else
+  export USR_BIN_DIR="/usr/bin"
+fi
+
+# sanity check that we're getting the correct symlinks from the pre-install script
+# solaris doesn't have readlink or test -e. ls -n is different on BSD. proceed with caution.
+if [[ ! -L $USR_BIN_DIR/chef-client ]] || [[ $(ls -l $USR_BIN_DIR/chef-client | awk '{print$NF}') != "$BIN_DIR/chef-client" ]]; then
+  echo "$USR_BIN_DIR/chef-client symlink to $BIN_DIR/chef-client was not correctly created by the pre-install script!"
+  exit 1
+fi
+
+if [[ ! -L $USR_BIN_DIR/chef-solo ]] || [[ $(ls -l $USR_BIN_DIR/chef-solo | awk '{print$NF}') != "$BIN_DIR/chef-solo" ]]; then
+  echo "$USR_BIN_DIR/chef-solo symlink to $BIN_DIR/chef-solo was not correctly created by the pre-install script!"
+  exit 1
+fi
+
+if [[ ! -L $USR_BIN_DIR/ohai ]] || [[ $(ls -l $USR_BIN_DIR/ohai | awk '{print$NF}') != "$BIN_DIR/ohai" ]]; then
+  echo "$USR_BIN_DIR/ohai symlink to $BIN_DIR/ohai was not correctly created by the pre-install script!"
+  exit 1
+fi
+
+if [[ ! -x $EMBEDDED_BIN_DIR/inspec ]]; then
+  echo "$EMBEDDED_BIN_DIR/inspec does not exist!"
+  exit 1
+fi
+
+# Ensure the calling environment (disapproval look Bundler) does not
+# infect our Ruby environment created by the `chef-client` cli.
+for ruby_env_var in _ORIGINAL_GEM_PATH \
+                    BUNDLE_BIN_PATH \
+                    BUNDLE_GEMFILE \
+                    GEM_HOME \
+                    GEM_PATH \
+                    GEM_ROOT \
+                    RUBYLIB \
+                    RUBYOPT \
+                    RUBY_ENGINE \
+                    RUBY_ROOT \
+                    RUBY_VERSION \
+                    BUNDLER_VERSION
+
+do
+  unset $ruby_env_var
+done
+
+chef-client --version
+
+# Exercise various packaged tools to validate binstub shebangs
+"$EMBEDDED_BIN_DIR/ruby" --version
+"$EMBEDDED_BIN_DIR/gem" --version
+"$EMBEDDED_BIN_DIR/bundle" --version
+"$EMBEDDED_BIN_DIR/rspec" --version
+
+# ffi-yajl must run in c-extension mode or we take perf hits, so we force it
+# before running rspec so that we don't wind up testing the ffi mode
+export FORCE_FFI_YAJL=ext
+
+# chef-shell smoke tests require "rb-readline" which requires "infocmp"
+# most platforms provide "infocmp" by default via an "ncurses" package but SLES 12 provide it via "ncurses-devel" which
+# isn't typically installed. omnibus-toolchain has "infocmp" built-in so we add omnibus-toolchain to the PATH to ensure
+# tests will function properly.
+export PATH="/opt/${TOOLCHAIN:-omnibus-toolchain}/bin:/usr/local/bin:/opt/${TOOLCHAIN:-omnibus-toolchain}/embedded/bin:$PATH"
+
+# add chef's bin paths to PATH to ensure tests function properly
+export PATH="/opt/chef/bin:/opt/chef/embedded/bin:$PATH"
+
+gem_list="$(gem which chef)"
+lib_dir="$(dirname "$gem_list")"
+chef_gem="$(dirname "$lib_dir")"
+
+# ensure that PATH doesn't get reset by sudoers
+if [[ -d /etc/sudoers.d ]]; then
+  echo "Defaults:$(id -un) !secure_path, exempt_group += $(id -gn)" | sudo tee "/etc/sudoers.d/$(id -un)-preserve_path"
+  sudo chmod 440 "/etc/sudoers.d/$(id -un)-preserve_path"
+elif [[ -d /usr/local/etc/sudoers.d ]]; then
+  echo "Defaults:$(id -un) !secure_path, exempt_group += $(id -gn)" | sudo tee "/usr/local/etc/sudoers.d/$(id -un)-preserve_path"
+  sudo chmod 440 "/usr/local/etc/sudoers.d/$(id -un)-preserve_path"
+fi
+
+# accept license
+export CHEF_LICENSE=accept-no-persist
+
+cd "$chef_gem"
+
+# only add -E if not on centos 6
+sudo_path="$(command -v sudo)"
+# cspell:disable-next-line
+rhel_sudo="/opt/rh/devtoolset-7/root/usr/bin/sudo"
+sudo_args=""
+if [[ "$sudo_path" != "$rhel_sudo" ]]; then
+  sudo -E bundle install --jobs=3 --retry=3
+  sudo -E bundle exec rspec --profile -f progress
+else
+  sudo bundle install --jobs=3 --retry=3
+  sudo bundle exec rspec --profile -f progress
+fi
+
+if [ $? -ne 0 ]; then
+  echo "Tests failed"
+  exit 1
+fi
+
+echo "Verifying REXML gem version..."
+rexml_versions=$("$EMBEDDED_BIN_DIR/gem" list rexml)
+if [[ $rexml_versions =~ rexml\ \((.*)\) ]]; then
+  old_versions=$(echo "${BASH_REMATCH[1]}" | tr ',' '\n' | while read -r version; do
+    if [[ $(echo "$version" | tr -d ' ' | cut -d'.' -f1-3) < "3.4.2" ]]; then
+      echo "$version"
+    fi
+  done)
+
+  if [[ -n "$old_versions" ]]; then
+    echo "Error: Found old REXML versions: $old_versions"
+    echo "Minimum required version is 3.4.2"
+    exit 1
+  fi
+  echo "REXML version check passed"
+else
+  echo "Error: Could not determine REXML gem version"
+  exit 1
+fi
