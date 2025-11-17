@@ -101,9 +101,6 @@ dependency "ruby-cleanup"
 # further gem cleanup other projects might not yet want to use
 dependency "more-ruby-cleanup"
 
-# introduced for rexml cleanup
-dependency "remove-old-gems"
-
 dependency "go"
 dependency "main-chef-wrapper"
 
@@ -113,6 +110,10 @@ dependency "main-chef-wrapper"
 # dependency "chef-automate-collect"
 
 dependency "chef-analyze"
+
+# introduced for rexml cleanup - must run after all gems are installed
+dependency "remove-old-gems"
+
 # removes the go language installed at embedded/go
 dependency "go-uninstall"
 
