@@ -49,8 +49,9 @@ If ($rexml_versions -match "rexml \(([\d., ]+)\)") {
     if ($old_versions) {
         Write-Error "Found old REXML versions: $($old_versions -join ', '). Minimum required version is 3.4.2"
         $exit = 1
+    } else {
+        Write-Output "REXML version check passed"
     }
-    Write-Output "REXML version check passed"
 } else {
     Write-Error "Could not determine REXML gem version"
     $exit = 1
