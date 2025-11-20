@@ -51,7 +51,7 @@ workers 10
 # local_software_dirs ['/path/to/local/software']
 
 # note, this is statically set in the omnibus-buildkite-plugin, you are always going to be forced to use internal sources. If you dont want internal sources, you must enable this to false.
-use_internal_sources ENV.fetch("OMNIBUS_USE_INTERNAL_SOURCES", false)
+use_internal_sources ENV.fetch("OMNIBUS_USE_INTERNAL_SOURCES", true)
 
 # Windows architecture defaults
 # ------------------------------
