@@ -949,8 +949,9 @@ GEM
       net-protocol
       time
     net-imap (0.2.5)
-      date
+      digest
       net-protocol
+      strscan
     net-ping (2.0.8)
     net-protocol (0.2.2)
       timeout
