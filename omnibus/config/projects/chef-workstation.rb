@@ -110,6 +110,10 @@ dependency "main-chef-wrapper"
 # dependency "chef-automate-collect"
 
 dependency "chef-analyze"
+
+# introduced for rexml cleanup - must run after all gems are installed
+dependency "remove-old-gems"
+
 # removes the go language installed at embedded/go
 dependency "go-uninstall"
 
