@@ -33,3 +33,7 @@ replace github.com/go-chef/chef v0.24.5 => github.com/chef/go-chef v0.4.5
 // Security fix for CVE-2024-45337: Force golang.org/x/crypto to v0.31.0 or later
 // This replace directive ensures all indirect dependencies use the secure version
 replace golang.org/x/crypto => golang.org/x/crypto v0.31.0
+
+// Security fix for CVE-2022-32149: Force golang.org/x/text to v0.3.8 or later
+// This replace directive ensures all indirect dependencies use the secure version
+replace golang.org/x/text => golang.org/x/text v0.3.8
