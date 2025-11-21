@@ -35,3 +35,25 @@ If ($lastexitcode -ne 0) { Throw $lastexitcode }
 Write-Output "--- Run the verification suite"
 C:/opscode/chef-workstation/embedded/bin/ruby.exe omnibus/verification/run.rb
 If ($lastexitcode -ne 0) { Throw $lastexitcode }
+
+Write-Output "Verifying REXML gem version..."
+$rexml_versions = & "C:/opscode/chef-workstation/embedded/bin/gem.bat" list rexml
+If ($rexml_versions -match "rexml \(([\d., ]+)\)") {
+    $versions = $matches[1].Split(",").Trim()
+    $min_version = [System.Version]"3.4.2"
+    $old_versions = $versions | Where-Object {
+        $v = [System.Version]($_ -replace '^(\d+\.\d+\.\d+).*$', '$1')
+        $v -lt $min_version
+    }
+
+    if ($old_versions) {
+        Write-Error "Found old REXML versions: $($old_versions -join ', '). Minimum required version is 3.4.2"
+        $exit = 1
+    } else {
+        Write-Output "REXML version check passed"
+    }
+} else {
+    Write-Error "Could not determine REXML gem version"
+    $exit = 1
+}
+If ($lastexitcode -ne 0) { Throw $lastexitcode }

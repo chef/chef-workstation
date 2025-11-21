@@ -21,16 +21,16 @@
 # with the gem.
 
 name "google-protobuf"
-default_version "3.21.12"
+default_version "3.25.5"
 
 dependency "ruby"
 
 source git: "https://github.com/google/protobuf.git"
 
 # versions_list: https://github.com/protocolbuffers/protobuf/tags filter=*.tar.gz
-version("3.21.12") do
-  source sha256: "930c2c3b5ecc6c9c12615cf5ad93f1cd6e12d0aba862b572e076259970ac3a53"
-  source url: "https://github.com/protocolbuffers/protobuf/archive/refs/tags/v3.21.12.tar.gz"
+version("3.25.5") do
+  source sha256: "4356e78744dfb2df3890282386c8568c85868116317d9b3ad80eb11c2aecf2ff"
+  source url: "https://github.com/protocolbuffers/protobuf/archive/refs/tags/v3.25.5.tar.gz"
   internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/protobuf-#{version}.tar.gz",
                 authorization: "X-JFrog-Art-Api:#{ENV["ARTIFACTORY_TOKEN"]}"
 end
@@ -40,14 +40,23 @@ relative_path "protobuf-#{version}"
 license :project_license
 
 build do
-  mkdir "#{project_dir}/ruby/ext/google/protobuf_c/third_party/utf8_range"
-  copy "#{project_dir}/third_party/utf8_range/utf8_range.h",  "#{project_dir}/ruby/ext/google/protobuf_c/third_party/utf8_range"
-  copy "#{project_dir}/third_party/utf8_range/naive.c",       "#{project_dir}/ruby/ext/google/protobuf_c/third_party/utf8_range"
-  copy "#{project_dir}/third_party/utf8_range/range2-neon.c", "#{project_dir}/ruby/ext/google/protobuf_c/third_party/utf8_range"
-  copy "#{project_dir}/third_party/utf8_range/range2-sse.c",  "#{project_dir}/ruby/ext/google/protobuf_c/third_party/utf8_range"
-  copy "#{project_dir}/third_party/utf8_range/LICENSE",       "#{project_dir}/ruby/ext/google/protobuf_c/third_party/utf8_range"
-
   env = with_standard_compiler_flags(with_embedded_path)
-  gem "build google-protobuf.gemspec", env: env, cwd: "#{project_dir}/ruby"
-  gem "install google-protobuf-*.gem", env: env, cwd: "#{project_dir}/ruby"
+
+  # EL-7 (RHEL/CentOS 7) uses GCC 4.8.5 which doesn't support C11's stdatomic.h
+  # google-protobuf 3.25.5+ requires C11 support (specifically _Atomic and stdatomic.h)
+  # For el-7, we use the pre-compiled binary gem from RubyGems which was built with C11 support
+  if rhel? && platform_version.satisfies?("< 8.0")
+    gem "install google-protobuf --version #{version} --no-document", env: env
+  else
+    # Build from source for all other platforms
+    mkdir "#{project_dir}/ruby/ext/google/protobuf_c/third_party/utf8_range"
+    copy "#{project_dir}/third_party/utf8_range/utf8_range.h",  "#{project_dir}/ruby/ext/google/protobuf_c/third_party/utf8_range"
+    copy "#{project_dir}/third_party/utf8_range/naive.c",       "#{project_dir}/ruby/ext/google/protobuf_c/third_party/utf8_range"
+    copy "#{project_dir}/third_party/utf8_range/range2-neon.c", "#{project_dir}/ruby/ext/google/protobuf_c/third_party/utf8_range"
+    copy "#{project_dir}/third_party/utf8_range/range2-sse.c",  "#{project_dir}/ruby/ext/google/protobuf_c/third_party/utf8_range"
+    copy "#{project_dir}/third_party/utf8_range/LICENSE",       "#{project_dir}/ruby/ext/google/protobuf_c/third_party/utf8_range"
+
+    gem "build google-protobuf.gemspec", env: env, cwd: "#{project_dir}/ruby"
+    gem "install google-protobuf-*.gem", env: env, cwd: "#{project_dir}/ruby"
+  end
 end
