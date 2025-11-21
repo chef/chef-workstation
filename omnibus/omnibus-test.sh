@@ -55,3 +55,23 @@ fi
 
 echo "--- Run Workstation verification suite"
 /opt/chef-workstation/embedded/bin/ruby omnibus/verification/run.rb
+
+echo "Verifying REXML gem version..."
+rexml_versions=$("/opt/chef-workstation/embedded/bin/gem" list rexml)
+if [[ $rexml_versions =~ rexml\ \((.*)\) ]]; then
+  old_versions=$(echo "${BASH_REMATCH[1]}" | tr ',' '\n' | while read -r version; do
+    if [[ $(echo "$version" | tr -d ' ' | cut -d'.' -f1-3) < "3.4.2" ]]; then
+      echo "$version"
+    fi
+  done)
+
+  if [[ -n "$old_versions" ]]; then
+    echo "Error: Found old REXML versions: $old_versions"
+    echo "Minimum required version is 3.4.2"
+    exit 1
+  fi
+  echo "REXML version check passed"
+else
+  echo "Error: Could not determine REXML gem version"
+  exit 1
+fi
