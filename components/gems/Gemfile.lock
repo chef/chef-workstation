@@ -1410,7 +1410,7 @@ GEM
       rubyzip (~> 2.0)
       winrm (~> 2.0)
     wisper (2.0.1)
-    wmi-lite (1.0.8)
+    wmi-lite (1.0.7)
     yajl-ruby (1.4.3)
     yaml-safe_load_stream3 (0.1.2)
     zeitwerk (2.6.18)
