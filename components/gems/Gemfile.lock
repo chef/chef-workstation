@@ -956,6 +956,10 @@ GEM
     net-ftp (0.3.8)
       net-protocol
       time
+    net-imap (0.2.5)
+      digest
+      net-protocol
+      strscan
     net-ping (2.0.8)
     net-protocol (0.2.2)
       timeout
@@ -1067,6 +1071,7 @@ GEM
       declarative (< 0.1.0)
       trailblazer-option (>= 0.1.1, < 0.2.0)
       uber (< 0.2.0)
+    resolv (0.2.3)
     resource_kit (0.1.8)
       addressable (>= 2.3.6, < 3.0.0)
     rest-client (2.1.0)
@@ -1471,6 +1476,7 @@ DEPENDENCIES
   minitest (~> 5.16, >= 5.16.3)
   mixlib-archive (>= 1.0)
   mixlib-install
+  net-imap (>= 0.2.5)
   net-ssh (>= 4.2.0)
   nokogiri (>= 1.11.7)
   ohai (>= 18.1)
@@ -1482,6 +1488,7 @@ DEPENDENCIES
   rake (= 13.0.1)
   rb-readline
   rdoc (~> 6.4.1)
+  resolv (>= 0.2.3)
   ruby-shadow!
   test-kitchen (>= 3.0)
   unf_ext (~> 0.0.8.2)
