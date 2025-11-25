@@ -346,7 +346,7 @@ GEM
       thor
     mixlib-log (3.1.2.1)
       ffi (< 1.17.0)
-    mixlib-shellout (3.4.8)
+    mixlib-shellout (3.3.9)
       chef-utils
     mixlib-shellout (3.3.9-universal-mingw32)
       chef-utils
