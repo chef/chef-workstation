@@ -43,6 +43,6 @@ if resolv_info.include?("Installed at (default):") && resolv_info.include?("reso
   end
 
   puts "Installing resolv gem..."
-  system("gem install resolv") or raise "gem install resolv failed" # NOSONAR
+  system("gem install resolv -v 0.2.3") or raise "gem install resolv failed" # NOSONAR
   puts "resolv gem installed successfully"
 end
