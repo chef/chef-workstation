@@ -34,6 +34,8 @@ group(:omnibus_package, :development, :test) do
   gem "openssl", ">= 3.2.0"
 
   gem "rdoc", "~> 6.4.1" # 6.4.1.1 required for CVE-2024-27281, allow patch upgrades
+  gem "resolv", ">= 0.2.3" # 0.2.3+ required for CVE fix - GHSA-xh69-987w-hrp8
+  gem "net-imap", ">= 0.2.5" # 0.2.5+ required for CVE fix - GHSA-j3g3-5qv5-52mj
 end
 
 group(:dep_selector) do

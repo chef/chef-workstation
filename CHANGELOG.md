@@ -1,15 +1,17 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.10.1095 -->
-## [25.10.1095](https://github.com/chef/chef-workstation/tree/25.10.1095) (2025-10-08)
+<!-- latest_release 25.11.1097 -->
+## [25.11.1097](https://github.com/chef/chef-workstation/tree/25.11.1097) (2025-11-21)
 
 #### Merged Pull Requests
-- Add amazon - fips support [#3422](https://github.com/chef/chef-workstation/pull/3422) ([poorndm](https://github.com/poorndm))
+- Bump omnibus-software from `e5f302c` to `536e609` in /omnibus [#3449](https://github.com/chef/chef-workstation/pull/3449) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=25.9.1094 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump omnibus-software from `e5f302c` to `536e609` in /omnibus [#3449](https://github.com/chef/chef-workstation/pull/3449) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 25.11.1097 -->
+- CHEF-27591 - fixing crypto GO vulnerability [#3440](https://github.com/chef/chef-workstation/pull/3440) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.11.1096 -->
 - Add amazon - fips support [#3422](https://github.com/chef/chef-workstation/pull/3422) ([poorndm](https://github.com/poorndm)) <!-- 25.10.1095 -->
 <!-- release_rollup -->
 
