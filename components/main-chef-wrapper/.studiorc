@@ -8,6 +8,9 @@ source "$(hab pkg path chef/studio-common)/bin/studio-common"
 # switch all go commands to use the vendor/ directory
 #export GOFLAGS="-mod=vendor"
 
+# Set GOPROXY to allow downloading dependencies
+export GOPROXY="https://proxy.golang.org,direct"
+
 # Specify where to put 'go installed' binaries
 export GOBIN=/src/bin
 
