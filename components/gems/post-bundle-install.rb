@@ -25,7 +25,7 @@ Dir["#{gem_home}/bundler/gems/*"].each do |gempath|
   end
 end
 
-# Handle resolv gem conflict with default gem
+# Handle resolv gem conflict with default ruby gem
 puts "Checking resolv gem installation..."
 resolv_info = `gem info resolv`
 
