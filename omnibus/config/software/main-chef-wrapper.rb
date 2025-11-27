@@ -29,7 +29,7 @@ build do
   env = with_standard_compiler_flags(with_embedded_path)
   env["CGO_ENABLED"] = "1"
 
-  # Ensure go.mod is up to date before building
+  # Ensuring go.mod is up to date before building
   go "mod tidy", env: env
 
   if windows?
