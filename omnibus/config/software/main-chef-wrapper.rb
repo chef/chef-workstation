@@ -29,6 +29,9 @@ build do
   env = with_standard_compiler_flags(with_embedded_path)
   env["CGO_ENABLED"] = "1"
 
+  # Ensuring go.mod is up to date before building
+  go "mod tidy", env: env
+
   if windows?
     # Windows systems requires an extention (EXE)
     go "build -o #{install_dir}/bin/chef.exe", env: env
