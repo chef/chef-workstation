@@ -8,6 +8,9 @@ source "$(hab pkg path chef/studio-common)/bin/studio-common"
 # switch all go commands to use the vendor/ directory
 #export GOFLAGS="-mod=vendor"
 
+# Set GOPROXY to allow downloading dependencies
+export GOPROXY="https://proxy.golang.org,direct"
+
 # Specify where to put 'go installed' binaries
 export GOBIN=/src/bin
 
@@ -15,8 +18,10 @@ export GOBIN=/src/bin
 export PATH="$GOBIN:$PATH"
 
 function build_cross_platform() {
-  install_if_missing core/go go
+  install_if_missing core/go24 go
+  install_if_missing core/gcc gcc
   install_if_missing core/gox gox
+  go mod tidy
   go mod vendor
   ( cd /src || exit 1
     gox -output="../../bin/chef_{{.OS}}_{{.Arch}}" \
@@ -26,7 +31,7 @@ function build_cross_platform() {
 }
 
 function update_deps() {
-  install_if_missing core/go go
+  install_if_missing core/go24 go
   install_if_missing core/git git
   ( cd /src || return 1
     GOFLAGS="" go get -u "$@"
@@ -38,7 +43,7 @@ document "unit_tests" <<DOC
   Run unit tests (go-based)
 DOC
 function unit_tests() {
-  install_if_missing core/go go
+  install_if_missing core/go24 go
   install_if_missing core/gcc gcc
 
   log_line "Running unit tests of main.go"
@@ -58,7 +63,7 @@ function unit_tests() {
 
  # run integration tests
  function integration_tests() {
-   install_if_missing core/go go
+   install_if_missing core/go24 go
    install_if_missing core/gcc gcc
 
    log_line "Building cross-platform binaries"
