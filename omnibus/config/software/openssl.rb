@@ -99,9 +99,11 @@ build do
   configure_args << "enable-legacy"
   patch source: "openssl-3.2.6-enable-legacy-provider.patch", env: env
   
-  # Platform-specific fixes for el-7 - install Time::Piece module using CPAN
+  # Platform-specific fixes for el-7 - install Time::Piece module locally
   if rhel? && platform_version.satisfies?("< 8.0")
-    command "cpan -T Time::Piece", env: env
+    command "mkdir -p #{project_dir}/perl5/lib/perl5", env: env
+    env["PERL5LIB"] = "#{project_dir}/perl5/lib/perl5:#{env['PERL5LIB']}"
+    command "cpan -l #{project_dir}/perl5 Time::Piece", env: env
   end
 
   # Out of abundance of caution, we put the feature flags first and then
