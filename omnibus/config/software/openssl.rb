@@ -99,13 +99,9 @@ build do
   configure_args << "enable-legacy"
   patch source: "openssl-3.2.6-enable-legacy-provider.patch", env: env
   
-  # Platform-specific fixes for el-7
-  # OpenSSL 3.2.6 requires Time::Piece Perl module which is not available by default on el-7
+  # Platform-specific fixes for el-7 - install Time::Piece module
   if rhel? && platform_version.satisfies?("< 8.0")
-    # Install Time::Piece module using CPAN without admin privileges
-    command "export PERL_MM_USE_DEFAULT=1 && export PERL5LIB=/tmp/perl_lib:$PERL5LIB && mkdir -p /tmp/perl_lib && perl -MCPAN -e 'CPAN::Shell->notest(\"install\", \"Time::Piece\")'", env: env
-    # Set PERL5LIB environment variable for the configure command
-    env["PERL5LIB"] = "/tmp/perl_lib:#{env['PERL5LIB']}"
+    command "yum install -y perl-Time-Piece", env: env
   end
 
   # Out of abundance of caution, we put the feature flags first and then
