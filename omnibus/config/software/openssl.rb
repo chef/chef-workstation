@@ -102,7 +102,8 @@ build do
   # Platform-specific fixes for el-7
   # OpenSSL 3.2.6 requires Time::Piece Perl module which is not available by default on el-7
   if rhel? && platform_version.satisfies?("< 8.0")
-    patch source: "openssl-3.2.6-fix-time-piece-el7.patch", env: env
+    # Install Time::Piece module using CPAN without admin privileges
+    command "export PERL_MM_USE_DEFAULT=1 && export PERL5LIB=/tmp/perl_lib:$PERL5LIB && mkdir -p /tmp/perl_lib && perl -MCPAN -e 'CPAN::Shell->notest(\"install\", \"Time::Piece\")'", env: env
   end
 
   # Out of abundance of caution, we put the feature flags first and then
