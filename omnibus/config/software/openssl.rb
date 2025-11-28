@@ -99,9 +99,9 @@ build do
   configure_args << "enable-legacy"
   patch source: "openssl-3.2.6-enable-legacy-provider.patch", env: env
   
-  # Platform-specific fixes for el-7 - install Time::Piece module
+  # Platform-specific fixes for el-7 - install Time::Piece module using CPAN
   if rhel? && platform_version.satisfies?("< 8.0")
-    command "yum install -y perl-Time-Piece", env: env
+    command "cpan -T Time::Piece", env: env
   end
 
   # Out of abundance of caution, we put the feature flags first and then
