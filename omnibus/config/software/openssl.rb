@@ -104,6 +104,8 @@ build do
   if rhel? && platform_version.satisfies?("< 8.0")
     # Install Time::Piece module using CPAN without admin privileges
     command "export PERL_MM_USE_DEFAULT=1 && export PERL5LIB=/tmp/perl_lib:$PERL5LIB && mkdir -p /tmp/perl_lib && perl -MCPAN -e 'CPAN::Shell->notest(\"install\", \"Time::Piece\")'", env: env
+    # Set PERL5LIB environment variable for the configure command
+    env["PERL5LIB"] = "/tmp/perl_lib:#{env['PERL5LIB']}"
   end
 
   # Out of abundance of caution, we put the feature flags first and then
