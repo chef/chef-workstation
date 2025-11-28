@@ -1,0 +1,19 @@
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -34,7 +34,6 @@ BEGIN {
+ use if $^O ne "VMS", 'File::Glob' => qw/glob/;
+ use if $^O eq "VMS", 'VMS::Glob' => qw/glob/;
+ 
+-use Time::Piece;
+ use FindBin;
+ use lib "$FindBin::Bin/util/perl";
+ 
+@@ -48,7 +47,7 @@ my $config_name = basename($0, ".in");
+ # dependecy, we do this:
+ my $debug_prefix_map_build_file = abs_path($_) if defined $target{"debug_prefix_map"};
+ 
+-my $build_time = time;
++my $build_time = time();
+ # Large value, to make it harder to guess the actual build time
+ $build_time = ($build_time & ~0xFFF) + 0x7FF;
+ 

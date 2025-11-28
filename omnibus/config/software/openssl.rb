@@ -55,11 +55,6 @@ build do
     env["CXXFLAGS"] = env["CFLAGS"]
   end
 
-  # Install missing Perl module on RHEL/CentOS systems
-  if rhel?
-    command "yum install -y perl-Time-Piece", env: env
-  end
-
   configure_args = [
     "--prefix=#{install_dir}/embedded",
     "no-unit-test",
@@ -103,6 +98,12 @@ build do
   # This patch will enable the legacy providers!
   configure_args << "enable-legacy"
   patch source: "openssl-3.2.6-enable-legacy-provider.patch", env: env
+  
+  # Platform-specific fixes for el-7
+  # OpenSSL 3.2.6 requires Time::Piece Perl module which is not available by default on el-7
+  if rhel? && platform_version.satisfies?("< 8.0")
+    patch source: "openssl-3.2.6-fix-time-piece-el7.patch", env: env
+  end
 
   # Out of abundance of caution, we put the feature flags first and then
   # the crazy platform specific compiler flags at the end.
