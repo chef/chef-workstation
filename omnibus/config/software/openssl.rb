@@ -55,6 +55,11 @@ build do
     env["CXXFLAGS"] = env["CFLAGS"]
   end
 
+  # Install missing Perl module on RHEL/CentOS systems
+  if rhel?
+    command "yum install -y perl-Time-Piece", env: env
+  end
+
   configure_args = [
     "--prefix=#{install_dir}/embedded",
     "no-unit-test",
