@@ -113,6 +113,7 @@ build do
     command "cd Time-Piece-#{time_piece_version} && perl Makefile.PL INSTALL_BASE=#{project_dir}/perl5", env: env
     command "cd Time-Piece-#{time_piece_version} && make", env: env
     command "cd Time-Piece-#{time_piece_version} && make install", env: env
+    # Set PERL5LIB after installation so OpenSSL configure can find Time::Piece
     env["PERL5LIB"] = ["#{project_dir}/perl5/lib/perl5", env["PERL5LIB"]].compact.reject(&:empty?).join(":")
   end
 
