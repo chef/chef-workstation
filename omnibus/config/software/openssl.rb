@@ -105,7 +105,7 @@ build do
     time_piece_version = "1.3401"
     time_piece_url = "https://cpan.metacpan.org/authors/id/E/ES/ESAYM/Time-Piece-#{time_piece_version}.tar.gz"
     time_piece_sha256 = "4b55b7bb0eab45cf239a54dfead277dfa06121a43e63b3fce0853aecfdb04c27"
-    
+
     command "curl -L -o Time-Piece-#{time_piece_version}.tar.gz #{time_piece_url}", env: env
     command "echo \"#{time_piece_sha256}  Time-Piece-#{time_piece_version}.tar.gz\" | sha256sum -c -", env: env
     command "tar xzf Time-Piece-#{time_piece_version}.tar.gz", env: env
