@@ -102,9 +102,18 @@ build do
   # OpenSSL 3.2.6+ requires Time::Piece Perl module which is not available by default on el-7
   # This was not required in 3.2.4 and earlier versions
   if rhel? && platform_version.satisfies?("< 8.0")
-    command "curl -L https://cpan.metacpan.org/authors/id/E/ES/ESAYM/Time-Piece-1.3401.tar.gz | tar xz", env: env
-    command "cd Time-Piece-1.3401 && perl Makefile.PL INSTALL_BASE=#{project_dir}/perl5 && make && make install", env: env
-    env["PERL5LIB"] = "#{project_dir}/perl5/lib/perl5:#{env["PERL5LIB"]}"
+    time_piece_version = "1.3401"
+    time_piece_url = "https://cpan.metacpan.org/authors/id/E/ES/ESAYM/Time-Piece-#{time_piece_version}.tar.gz"
+    time_piece_sha256 = "4b55b7bb0eab45cf239a54dfead277dfa06121a43e63b3fce0853aecfdb04c27"
+    
+    command "curl -L -o Time-Piece-#{time_piece_version}.tar.gz #{time_piece_url}", env: env
+    command "echo \"#{time_piece_sha256}  Time-Piece-#{time_piece_version}.tar.gz\" | sha256sum -c -", env: env
+    command "tar xzf Time-Piece-#{time_piece_version}.tar.gz", env: env
+    command "cd Time-Piece-#{time_piece_version}", env: env
+    command "perl Makefile.PL INSTALL_BASE=#{project_dir}/perl5", env: env
+    command "make", env: env
+    command "make install", env: env
+    env["PERL5LIB"] = ["#{project_dir}/perl5/lib/perl5", env["PERL5LIB"]].compact.reject(&:empty?).join(":")
   end
 
   # Out of abundance of caution, we put the feature flags first and then
