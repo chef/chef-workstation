@@ -109,10 +109,10 @@ build do
     command "curl -L -o Time-Piece-#{time_piece_version}.tar.gz #{time_piece_url}", env: env
     command "echo \"#{time_piece_sha256}  Time-Piece-#{time_piece_version}.tar.gz\" | sha256sum -c -", env: env
     command "tar xzf Time-Piece-#{time_piece_version}.tar.gz", env: env
-    command "cd Time-Piece-#{time_piece_version}", env: env
-    command "perl Makefile.PL INSTALL_BASE=#{project_dir}/perl5", env: env
-    command "make", env: env
-    command "make install", env: env
+    # Commands chained with && to maintain directory context (each command runs in fresh shell)
+    command "cd Time-Piece-#{time_piece_version} && perl Makefile.PL INSTALL_BASE=#{project_dir}/perl5", env: env
+    command "cd Time-Piece-#{time_piece_version} && make", env: env
+    command "cd Time-Piece-#{time_piece_version} && make install", env: env
     env["PERL5LIB"] = ["#{project_dir}/perl5/lib/perl5", env["PERL5LIB"]].compact.reject(&:empty?).join(":")
   end
 
