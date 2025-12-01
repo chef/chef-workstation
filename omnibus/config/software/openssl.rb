@@ -98,13 +98,13 @@ build do
   # This patch will enable the legacy providers!
   configure_args << "enable-legacy"
   patch source: "openssl-3.2.6-enable-legacy-provider.patch", env: env
-  
+
   # OpenSSL 3.2.6+ requires Time::Piece Perl module which is not available by default on el-7
   # This was not required in 3.2.4 and earlier versions
   if rhel? && platform_version.satisfies?("< 8.0")
     command "curl -L https://cpan.metacpan.org/authors/id/E/ES/ESAYM/Time-Piece-1.3401.tar.gz | tar xz", env: env
     command "cd Time-Piece-1.3401 && perl Makefile.PL INSTALL_BASE=#{project_dir}/perl5 && make && make install", env: env
-    env["PERL5LIB"] = "#{project_dir}/perl5/lib/perl5:#{env['PERL5LIB']}"
+    env["PERL5LIB"] = "#{project_dir}/perl5/lib/perl5:#{env["PERL5LIB"]}"
   end
 
   # Out of abundance of caution, we put the feature flags first and then
