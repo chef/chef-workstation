@@ -23,7 +23,7 @@ skip_transitive_dependency_licensing true
 dependency "cacerts"
 dependency "openssl-fips" if fips_mode?
 
-default_version "3.2.4"
+default_version "3.2.6"
 
 # Openssl builds engines as libraries into a special directory. We need to include
 # that directory in lib_dirs so omnibus can sign them during macOS deep signing.
@@ -31,12 +31,12 @@ lib_dirs lib_dirs.concat(["#{install_dir}/embedded/lib/engines"])
 lib_dirs lib_dirs.concat(["#{install_dir}/embedded/lib/engines-3"])
 lib_dirs lib_dirs.concat(["#{install_dir}/embedded/lib/ossl-modules"])
 
-# Source URL for OpenSSL 3.2.4
+# Source URL for OpenSSL 3.2.6
 source url: "https://www.openssl.org/source/openssl-#{version}.tar.gz", extract: :lax_tar
 internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/#{name}-#{version}.tar.gz", extract: :lax_tar,
                 authorization: "X-JFrog-Art-Api:#{ENV["ARTIFACTORY_TOKEN"]}"
 
-version("3.2.4") { source sha256: "b23ad7fd9f73e43ad1767e636040e88ba7c9e5775bfa5618436a0dd2c17c3716" }
+version("3.2.6") { source sha256: "89681a9ddaa9ed7cf25ea8ef61338db805200bae47d00510490623547380c148" }
 
 relative_path "openssl-#{version}"
 
@@ -92,12 +92,30 @@ build do
     end
 
   # Patches
-  patch source: "openssl-3.2.4-do-not-install-docs.patch", env: env
+  patch source: "openssl-3.2.6-do-not-install-docs.patch", env: env
   # Some of the algorithms which are being used are deprecated in OpenSSL3 and moved to legacy provider.
   # We need those algorithms for the working of chef-workstation and other packages.
   # This patch will enable the legacy providers!
   configure_args << "enable-legacy"
-  patch source: "openssl-3.2.4-enable-legacy-provider.patch", env: env
+  patch source: "openssl-3.2.6-enable-legacy-provider.patch", env: env
+
+  # OpenSSL 3.2.6+ requires Time::Piece Perl module which is not available by default on el-7
+  # This was not required in 3.2.4 and earlier versions
+  if rhel? && platform_version.satisfies?("< 8.0")
+    time_piece_version = "1.3401"
+    time_piece_url = "https://cpan.metacpan.org/authors/id/E/ES/ESAYM/Time-Piece-#{time_piece_version}.tar.gz"
+    time_piece_sha256 = "4b55b7bb0eab45cf239a54dfead277dfa06121a43e63b3fce0853aecfdb04c27"
+
+    command "curl -L -o Time-Piece-#{time_piece_version}.tar.gz #{time_piece_url}", env: env
+    command "echo \"#{time_piece_sha256}  Time-Piece-#{time_piece_version}.tar.gz\" | sha256sum -c -", env: env
+    command "tar xzf Time-Piece-#{time_piece_version}.tar.gz", env: env
+    # Commands chained with && to maintain directory context (each command runs in fresh shell)
+    command "cd Time-Piece-#{time_piece_version} && perl Makefile.PL INSTALL_BASE=#{project_dir}/perl5", env: env
+    command "cd Time-Piece-#{time_piece_version} && make", env: env
+    command "cd Time-Piece-#{time_piece_version} && make install", env: env
+    # Set PERL5LIB after installation so OpenSSL configure can find Time::Piece
+    env["PERL5LIB"] = ["#{project_dir}/perl5/lib/perl5", env["PERL5LIB"]].compact.reject(&:empty?).join(":")
+  end
 
   # Out of abundance of caution, we put the feature flags first and then
   # the crazy platform specific compiler flags at the end.
