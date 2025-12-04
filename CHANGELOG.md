@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.12.1098 -->
-## [25.12.1098](https://github.com/chef/chef-workstation/tree/25.12.1098) (2025-12-03)
+<!-- latest_release 25.12.1099 -->
+## [25.12.1099](https://github.com/chef/chef-workstation/tree/25.12.1099) (2025-12-04)
 
 #### Merged Pull Requests
-- CHEF-26930: Fix OpenSSL 3.2.6 build failure on el-7 by installing Time::Piece [#3460](https://github.com/chef/chef-workstation/pull/3460) ([nikhil2611](https://github.com/nikhil2611))
+- Bump github.com/spf13/cobra from 1.10.1 to 1.10.2 in /components/main-chef-wrapper [#3465](https://github.com/chef/chef-workstation/pull/3465) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=25.9.1094 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Bump github.com/spf13/cobra from 1.10.1 to 1.10.2 in /components/main-chef-wrapper [#3465](https://github.com/chef/chef-workstation/pull/3465) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 25.12.1099 -->
 - CHEF-26930: Fix OpenSSL 3.2.6 build failure on el-7 by installing Time::Piece [#3460](https://github.com/chef/chef-workstation/pull/3460) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1098 -->
 - Bump omnibus-software from `e5f302c` to `536e609` in /omnibus [#3449](https://github.com/chef/chef-workstation/pull/3449) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 25.11.1097 -->
 - CHEF-27591 - fixing crypto GO vulnerability [#3440](https://github.com/chef/chef-workstation/pull/3440) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.11.1096 -->
