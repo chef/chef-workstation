@@ -1,12 +1,12 @@
 module github.com/chef/chef-workstation/components/main-chef-wrapper
 
-go 1.24
+go 1.24.0
 
 require (
 	github.com/chef/go-chef-cli v0.0.4
 	github.com/chef/go-libs v0.4.2
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/spf13/cobra v1.10.1
+	github.com/spf13/cobra v1.10.2
 	github.com/stretchr/testify v1.11.1
 	golang.org/x/sys v0.38.0
 	gopkg.in/yaml.v3 v3.0.1
