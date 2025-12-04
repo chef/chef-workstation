@@ -7,9 +7,9 @@ name: CI Pull Request on Main Branch
 
 on: 
   pull_request:
-    branches: [ main, develop, release/** ]
+    branches: [ nikhil/CHEF-28158-NOTICE-generation, develop, release/** ]
   push:
-    branches: [ main, develop, release/** ]
+    branches: [ nikhil/CHEF-28158-NOTICE-generation, develop, release/** ]
 
   workflow_dispatch:
 
