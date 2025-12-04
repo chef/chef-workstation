@@ -40,7 +40,7 @@ jobs:
       # go-private-modules: GOPRIVATE for Go private modules, default is 'github.com/progress-platform-services/*
 
       # if version specified, it takes precedence; can be a semver like 1.0.2-xyz or a tag like "latest"
-      version: '25.8.1091' # ${{ github.event.repository.version }}
+      version: '25.12.1100' # ${{ github.event.repository.version }}
       detect-version-source-type: 'none' # options include "none" (do not detect), "file", "github-tag" or "github-release"
       detect-version-source-parameter: '' # use for file name
       language: 'ruby'  # Go, Ruby, Rust, JavaScript, TypeScript, Python, Java, C#, PHP, other - used for build and SonarQube language setting
@@ -100,7 +100,7 @@ jobs:
       blackduck-project-group-name: 'Chef-Agents' # typically one of (Chef), Chef-Agents, Chef-Automate, Chef-Chef360, Chef-Habitat, Chef-Infrastructure-Server, Chef-Shared-Services, Chef-Non-Product'
       blackduck-project-name: ${{ github.event.repository.name }} # BlackDuck project name, typically the repository name
       blackduck-detect-source-paths: '.;omnibus;components/gems' # Semicolon-separated paths to scan for Gemfile.lock files in subdirectories
-      generate-blackduck-sbom: false # obsolete, use perform-blackduck-sca-scan instead
+      generate-blackduck-sbom: true # obsolete, use perform-blackduck-sca-scan instead
         
       generate-msft-sbom: false
       license_scout: false      # Run license scout for license compliance (uses .license_scout.yml)
