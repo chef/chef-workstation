@@ -348,54 +348,6 @@ GEM
       uri (~> 1.0.3)
       uuidtools (>= 2.1.5, < 3.0)
       vault (~> 0.18.2)
-    chef (18.8.11-universal-mingw-ucrt)
-      activesupport (>= 4.2.7.1, <= 7.1.3.2)
-      addressable
-      aws-sdk-s3 (~> 1.91)
-      aws-sdk-secretsmanager (~> 1.46)
-      chef-config (= 18.8.11)
-      chef-powershell (~> 18.1.0)
-      chef-utils (= 18.8.11)
-      chef-vault
-      chef-zero (>= 15.0.21)
-      corefoundation (~> 0.3.4)
-      diff-lcs (>= 1.2.4, < 1.6.0, != 1.4.0)
-      erubis (~> 2.7)
-      ffi (>= 1.15.5, <= 1.16.3)
-      ffi-libarchive (~> 1.0, >= 1.0.3)
-      ffi-yajl (~> 2.2)
-      iniparse (~> 1.4)
-      inspec-core (>= 5, < 6)
-      iso8601 (>= 0.12.1, < 0.14)
-      license-acceptance (>= 1.0.5, < 3)
-      mixlib-archive (>= 0.4, < 2.0)
-      mixlib-authentication (>= 2.1, < 4)
-      mixlib-cli (>= 2.1.1, < 3.0)
-      mixlib-log (>= 2.0.3, < 3.2)
-      mixlib-shellout (>= 3.1.1, < 4.0)
-      net-ftp
-      net-sftp (>= 2.1.2, < 5.0)
-      ohai (~> 18.0)
-      plist (~> 3.2)
-      proxifier2 (~> 1.1)
-      syslog-logger (~> 1.6)
-      train-core (~> 3.10, <= 3.12.13)
-      train-rest (>= 0.4.1)
-      train-winrm (~> 0.2.17)
-      unf_ext (~> 0.0.8.2)
-      uri (~> 1.0.3)
-      uuidtools (>= 2.1.5, < 3.0)
-      vault (~> 0.18.2)
-      win32-api (~> 1.10.0)
-      win32-certstore (~> 0.6.15)
-      win32-event (~> 0.6.1)
-      win32-eventlog (= 0.6.3)
-      win32-mmap (~> 0.4.1)
-      win32-mutex (~> 0.4.2)
-      win32-process (~> 0.9)
-      win32-service (>= 2.1.5, < 3.0)
-      win32-taskscheduler (~> 2.0)
-      wmi-lite (~> 1.0)
     chef-apply (0.9.6)
       chef (>= 16.0)
       chef-cli (>= 2.0.10)
@@ -443,9 +395,6 @@ GEM
       faraday-http-cache
       tty-prompt (~> 0.23)
       tty-spinner (~> 0.9.3)
-    chef-powershell (18.1.0)
-      ffi (~> 1.15)
-      ffi-yajl (~> 2.4)
     chef-telemetry (1.1.1)
       chef-config
       concurrent-ruby (~> 1.0)
@@ -520,6 +469,7 @@ GEM
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.5.1)
+    digest (3.2.1)
     docker-api (2.4.0)
       excon (>= 0.64.0)
       multi_json
@@ -900,10 +850,6 @@ GEM
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
     minitar (1.1.0)
-    minitest (5.25.5)
-    mixlib-archive (1.1.7)
-      mixlib-log
-    mixlib-archive (1.1.7-universal-mingw32)
     minitest (5.26.2)
     mixlib-archive (1.3.3)
       mixlib-log
@@ -958,8 +904,8 @@ GEM
     net-ftp (0.3.8)
       net-protocol
       time
-    net-imap (0.5.12)
-      date
+    net-imap (0.2.5)
+      digest
       net-protocol
       strscan
     net-ping (2.0.8)
@@ -1151,7 +1097,7 @@ GEM
       unicode-display_width (>= 1.5, < 3.0)
       unicode_utils (~> 1.4)
     strings-ansi (0.2.0)
-    structured_warnings (0.4.0)
+    strscan (3.1.5)
     syslog (0.3.0)
       logger
     syslog-logger (1.6.8)
@@ -1178,7 +1124,7 @@ GEM
     time (0.4.1)
       date
     timeliness (0.3.10)
-    timeout (0.4.3)
+    timeout (0.4.4)
     toml-rb (4.0.0)
       citrus (~> 3.0, > 3.0)
       racc (~> 1.7)
@@ -1363,39 +1309,8 @@ GEM
       vsphere-automation-cis (~> 0.4.6)
       vsphere-automation-runtime (~> 0.4.6)
     webrick (1.9.1)
-    win32-api (1.10.1)
-    win32-api (1.10.1-universal-mingw32)
-    win32-certstore (0.6.16)
-      chef-powershell
-      ffi
-    win32-dir (0.7.2)
-      ffi (>= 1.0.0)
-    win32-event (0.6.3)
-      win32-ipc (>= 0.6.0)
-    win32-eventlog (0.6.3)
-      ffi
-    win32-ipc (0.7.0)
-      ffi
-    win32-mmap (0.4.2)
-      ffi
-    win32-mutex (0.4.3)
-      win32-ipc (>= 0.6.0)
     win32-process (0.10.0)
       ffi (>= 1.0.0)
-    win32-security (0.5.0)
-      ffi
-      ffi-win32-extensions
-    win32-service (2.3.2)
-      ffi
-      ffi-win32-extensions
-    win32-taskscheduler (2.0.4)
-      ffi
-      structured_warnings
-    windows-api (0.4.5)
-      win32-api (>= 1.4.5)
-    windows-pr (1.2.6)
-      win32-api (>= 1.4.5)
-      windows-api (>= 0.4.0)
     winrm (2.3.8)
       builder (>= 2.1.2)
       erubi (~> 1.8)
@@ -1477,7 +1392,7 @@ DEPENDENCIES
   minitest (~> 5.16, >= 5.16.3)
   mixlib-archive (>= 1.0)
   mixlib-install
-  net-imap (>= 0.2.5)
+  net-imap (= 0.2.5)
   net-ssh (>= 4.2.0)
   nokogiri (>= 1.11.7)
   ohai (>= 18.1)
@@ -1492,16 +1407,8 @@ DEPENDENCIES
   ruby-shadow!
   test-kitchen (>= 3.0)
   unf_ext (~> 0.0.8.2)
-  win32-api
-  win32-dir
-  win32-event
-  win32-mutex
-  win32-process (>= 0.9.0)
-  win32-security
-  win32-service (>= 2.1.5)
-  windows-pr
   winrm-elevated
   winrm-fs
 
 BUNDLED WITH
-   2.3.7
+   2.6.7
