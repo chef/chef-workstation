@@ -26,55 +26,36 @@ Dir["#{gem_home}/bundler/gems/*"].each do |gempath|
 end
 
 # Handle default gem conflicts with bundled gems
-# Maps gem name to old version that needs to be replaced
+# CVE-2025-24294: resolv 0.2.1 has a security vulnerability
 default_gem_list = {
   resolv: "0.2.1",
 }
 
-default_gem_list.each do |gem_name, old_version|
+default_gem_list.each do |gem_name, version|
   puts "Checking #{gem_name} gem installation..."
   gem_info = `gem info #{gem_name}`
 
   # Check if the old default version exists
-  if gem_info.include?("Installed at (default):") && gem_info.include?("#{gem_name} (#{old_version})")
-    puts "Found default #{gem_name} (#{old_version}), removing gemspec and upgrading..."
+  if gem_info.include?("default):") && gem_info.match?(/#{gem_name} \([0-9., ]*#{version}[0-9., ]*\)/)
+    puts "Found default #{gem_name} (#{version}), removing gemspec and upgrading..."
     
-    # Windows-specific: check all gem paths due to multiple Ruby locations
-    # Other platforms: extract from gem info output (existing working logic)
-    if RUBY_PLATFORM =~ /mswin|mingw|windows/
-      # Remove gemspec from all gem paths
-      Gem.path.each do |gem_path|
-        gemspec_path = File.join(gem_path, "specifications", "default", "#{gem_name}-#{old_version}.gemspec")
-        
-        if File.exist?(gemspec_path)
-          puts "Removing: #{gemspec_path}"
-          File.delete(gemspec_path)
-        end
-      end
-    else
-      # Linux/macOS: extract default path from gem info output
-      gem_info.lines.each do |line|
-        if line.include?("Installed at (default):")
-          default_path = line.split("Installed at (default):").last&.strip
-          if default_path
-            gemspec_path = File.join(default_path, "specifications", "default", "#{gem_name}-#{old_version}.gemspec")
-            
-            if File.exist?(gemspec_path)
-              puts "Removing: #{gemspec_path}"
-              File.delete(gemspec_path)
-            end
-          end
-          break
-        end
+    # Extract the default gem path from gem info output
+    default_path = gem_info.match(/default\): (.+)$/)[1]
+
+    if default_path
+      gemspec_path = File.join(default_path.strip, "specifications", "default", "#{gem_name}-#{version}.gemspec")
+
+      if File.exist?(gemspec_path)
+        puts "Removing default #{gem_name} gemspec: #{gemspec_path}"
+        File.delete(gemspec_path)
       end
     end
 
-    # Install the newer version - specify version for resolv, latest for others
+    # Install the newer version
     puts "Installing #{gem_name} gem..."
-    install_cmd = gem_name == :resolv ? "gem install #{gem_name} -v 0.2.3" : "gem install #{gem_name}"
-    system(install_cmd) or raise "gem install #{gem_name} failed" # NOSONAR
+    system("gem install #{gem_name} -v 0.2.3") or raise "gem install #{gem_name} failed" # NOSONAR
     puts "#{gem_name} gem installed successfully"
   else
-    puts "#{gem_name} (#{old_version}) not found as default gem, skipping"
+    puts "#{gem_name} (#{version}) not found as default gem, skipping"
   end
 end
