@@ -65,10 +65,8 @@ default_gem_list.each do |gem_name, version|
     end
 
     # Install the newer version to the embedded gem path
-    # Use GEM_HOME environment variable (set by omnibus) to ensure correct installation path
-    install_dir = ENV["GEM_HOME"] || gem_home
-    puts "Installing #{gem_name} gem to #{install_dir}..."
-    system("gem install #{gem_name} -v 0.2.3 --install-dir #{install_dir} --no-document") or raise "gem install #{gem_name} failed" # NOSONAR
+    puts "Installing #{gem_name} gem to #{gem_home}..."
+    system("gem install #{gem_name} -v 0.2.3 --install-dir #{gem_home} --no-document") or raise "gem install #{gem_name} failed" # NOSONAR
     puts "#{gem_name} gem installed successfully"
   else
     puts "#{gem_name} (#{version}) not found as default gem, skipping"
