@@ -38,13 +38,13 @@ default_gem_list.each do |gem_name, version|
   # Check if the old default version exists
   if gem_info.include?("default):") && gem_info.match?(/#{gem_name} \([0-9., ]*#{version}[0-9., ]*\)/)
     puts "Found default #{gem_name} (#{version}), removing gemspec and upgrading..."
-    
+
     # Windows: Ruby runs from omnibus-toolchain during build, need to check all gem paths
     # Linux/macOS: Extract path directly from gem info output
     if RUBY_PLATFORM =~ /mswin|mingw|windows/
       Gem.path.each do |gem_path|
         gemspec_path = File.join(gem_path, "specifications", "default", "#{gem_name}-#{version}.gemspec")
-        
+
         if File.exist?(gemspec_path)
           puts "Removing default #{gem_name} gemspec: #{gemspec_path}"
           File.delete(gemspec_path)
@@ -53,10 +53,10 @@ default_gem_list.each do |gem_name, version|
     else
       # Extract the default gem path from gem info output
       default_path = gem_info.match(/default\): (.+)$/)[1]
-      
+
       if default_path
         gemspec_path = File.join(default_path.strip, "specifications", "default", "#{gem_name}-#{version}.gemspec")
-        
+
         if File.exist?(gemspec_path)
           puts "Removing default #{gem_name} gemspec: #{gemspec_path}"
           File.delete(gemspec_path)
