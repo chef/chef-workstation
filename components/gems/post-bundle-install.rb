@@ -66,7 +66,7 @@ default_gem_list.each do |gem_name, version|
 
     # Install the newer version to the embedded gem path
     puts "Installing #{gem_name} gem to #{gem_home}..."
-    system("gem install #{gem_name} -v 0.2.3 --install-dir #{gem_home} --no-document") or raise "gem install #{gem_name} failed" # NOSONAR
+    system("gem install #{gem_name} -v 0.2.3 --install-dir #{gem_home} --no-document") || raise("gem install #{gem_name} failed")
     puts "#{gem_name} gem installed successfully"
   else
     puts "#{gem_name} (#{version}) not found as default gem, skipping"
