@@ -19,7 +19,7 @@ Adam Grare | rbvmomi2 | 3.8.0 | MIT
 Adam Jacob | chef | 18.8.11 | Apache-2.0
 Adam Jacob | chef-bin | 18.8.11 | Apache-2.0
 Adam Jacob | chef-config | 18.8.11 | Apache-2.0
-Adam Jacob | knife | 18.8.65 | Apache-2.0
+Adam Jacob | knife | 18.8.68 | Apache-2.0
 Adam Jacob | ohai | 18.2.6 | Apache-2.0
 Adam Leff | vmware-vra | 3.2.1 | Apache-2.0
 Adam Meehan | timeliness | 0.3.10 | MIT
@@ -728,7 +728,7 @@ kitchen-openstack v6.2.1,
 kitchen-vagrant v2.2.0,
 kitchen-vcenter v2.12.2,
 kitchen-vra	v3.3.3,
-knife	v18.8.65,
+knife	v18.8.68,
 knife-azure	v4.0.0,
 knife-cloud v4.0.15,
 knife-ec2 v2.1.6,
