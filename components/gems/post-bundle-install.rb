@@ -25,24 +25,50 @@ Dir["#{gem_home}/bundler/gems/*"].each do |gempath|
   end
 end
 
-# Handle resolv gem conflict with default ruby gem
-puts "Checking resolv gem installation..."
-resolv_info = `gem info resolv`
+# Handle default gem conflicts with bundled gems
+# CVE-2025-24294: resolv 0.2.1 has a security vulnerability
+default_gem_list = {
+  resolv: "0.2.1",
+}
 
-if resolv_info.include?("Installed at (default):") && resolv_info.include?("resolv (0.2.1)")
-  # Extract the default gem path
-  default_path = resolv_info.match(/Installed at \(default\): (.+)$/)[1]
+default_gem_list.each do |gem_name, version|
+  puts "Checking #{gem_name} gem installation..."
+  gem_info = `gem info #{gem_name}`
 
-  if default_path
-    gemspec_path = File.join(default_path.strip, "specifications", "default", "resolv-0.2.1.gemspec")
+  # Check if the old default version exists
+  if gem_info.include?("default):") && gem_info.match?(/#{gem_name} \([0-9., ]*#{version}[0-9., ]*\)/)
+    puts "Found default #{gem_name} (#{version}), removing gemspec and upgrading..."
 
-    if File.exist?(gemspec_path)
-      puts "Removing default resolv gemspec: #{gemspec_path}"
-      File.delete(gemspec_path)
+    # Windows: Ruby runs from omnibus-toolchain during build, need to check all gem paths
+    # Linux/macOS: Extract path directly from gem info output
+    if RUBY_PLATFORM =~ /mswin|mingw|windows/
+      Gem.path.each do |gem_path|
+        gemspec_path = File.join(gem_path, "specifications", "default", "#{gem_name}-#{version}.gemspec")
+
+        if File.exist?(gemspec_path)
+          puts "Removing default #{gem_name} gemspec: #{gemspec_path}"
+          File.delete(gemspec_path)
+        end
+      end
+    else
+      # Extract the default gem path from gem info output
+      default_path = gem_info.match(/default\): (.+)$/)[1]
+
+      if default_path
+        gemspec_path = File.join(default_path.strip, "specifications", "default", "#{gem_name}-#{version}.gemspec")
+
+        if File.exist?(gemspec_path)
+          puts "Removing default #{gem_name} gemspec: #{gemspec_path}"
+          File.delete(gemspec_path)
+        end
+      end
     end
-  end
 
-  puts "Installing resolv gem..."
-  system("gem install resolv -v 0.2.3") or raise "gem install resolv failed" # NOSONAR
-  puts "resolv gem installed successfully"
+    # Install the newer version to the embedded gem path
+    puts "Installing #{gem_name} gem to #{gem_home}..."
+    system("gem install #{gem_name} -v 0.2.3 --install-dir #{gem_home} --no-document") || raise("gem install #{gem_name} failed")
+    puts "#{gem_name} gem installed successfully"
+  else
+    puts "#{gem_name} (#{version}) not found as default gem, skipping"
+  end
 end
