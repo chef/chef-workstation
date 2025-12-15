@@ -1,26 +1,24 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.12.1102 -->
-## [25.12.1102](https://github.com/chef/chef-workstation/tree/25.12.1102) (2025-12-12)
-
-#### Merged Pull Requests
-- Update NOTICE file [#3469](https://github.com/chef/chef-workstation/pull/3469) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=25.9.1094 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Update NOTICE file [#3469](https://github.com/chef/chef-workstation/pull/3469) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1102 -->
-- Upgrading knife to v18.8.68 [#3474](https://github.com/chef/chef-workstation/pull/3474) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1101 -->
-- Update knife, chef-cli, uri, and omnibus versions [#3464](https://github.com/chef/chef-workstation/pull/3464) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1100 -->
-- Bump github.com/spf13/cobra from 1.10.1 to 1.10.2 in /components/main-chef-wrapper [#3465](https://github.com/chef/chef-workstation/pull/3465) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 25.12.1099 -->
-- CHEF-26930: Fix OpenSSL 3.2.6 build failure on el-7 by installing Time::Piece [#3460](https://github.com/chef/chef-workstation/pull/3460) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1098 -->
-- Bump omnibus-software from `e5f302c` to `536e609` in /omnibus [#3449](https://github.com/chef/chef-workstation/pull/3449) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 25.11.1097 -->
-- CHEF-27591 - fixing crypto GO vulnerability [#3440](https://github.com/chef/chef-workstation/pull/3440) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.11.1096 -->
-- Add amazon - fips support [#3422](https://github.com/chef/chef-workstation/pull/3422) ([poorndm](https://github.com/poorndm)) <!-- 25.10.1095 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [25.12.1102](https://github.com/chef/chef-workstation/tree/25.12.1102) (2025-12-15)
+
+#### Merged Pull Requests
+- Add amazon - fips support [#3422](https://github.com/chef/chef-workstation/pull/3422) ([poorndm](https://github.com/poorndm))
+- CHEF-27591 - fixing crypto GO vulnerability [#3440](https://github.com/chef/chef-workstation/pull/3440) ([nikhil2611](https://github.com/nikhil2611))
+- Bump omnibus-software from `e5f302c` to `536e609` in /omnibus [#3449](https://github.com/chef/chef-workstation/pull/3449) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- CHEF-26930: Fix OpenSSL 3.2.6 build failure on el-7 by installing Time::Piece [#3460](https://github.com/chef/chef-workstation/pull/3460) ([nikhil2611](https://github.com/nikhil2611))
+- Bump github.com/spf13/cobra from 1.10.1 to 1.10.2 in /components/main-chef-wrapper [#3465](https://github.com/chef/chef-workstation/pull/3465) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Update knife, chef-cli, uri, and omnibus versions [#3464](https://github.com/chef/chef-workstation/pull/3464) ([nikhil2611](https://github.com/nikhil2611))
+- Upgrading knife to v18.8.68 [#3474](https://github.com/chef/chef-workstation/pull/3474) ([nikhil2611](https://github.com/nikhil2611))
+- Update NOTICE file [#3469](https://github.com/chef/chef-workstation/pull/3469) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_stable_release -->
+
 ## [25.9.1094](https://github.com/chef/chef-workstation/tree/25.9.1094) (2025-09-30)
 
 #### Merged Pull Requests
@@ -34,7 +32,6 @@
 - Update for s3 private access , set  Internal_src url and windows-cert [#3408](https://github.com/chef/chef-workstation/pull/3408) ([poorndm](https://github.com/poorndm))
 - CHEF-21810 - Updated gems and dependencies for upcoming chef workstation 25.9 release [#3394](https://github.com/chef/chef-workstation/pull/3394) ([nikhil2611](https://github.com/nikhil2611))
 - Include NOTICE from repository root into the installer directory [#3419](https://github.com/chef/chef-workstation/pull/3419) ([nikhil2611](https://github.com/nikhil2611))
-<!-- latest_stable_release -->
 
 ## [25.5.1084](https://github.com/chef/chef-workstation/tree/25.5.1084) (2025-05-27)
 
