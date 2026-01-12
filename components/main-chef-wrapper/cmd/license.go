@@ -1,5 +1,4 @@
 //
-// Copyright 2020 Chef Software, Inc.
 //
 // Author: Marc A. Paradise <marc.paradise@gmail.com>
 //

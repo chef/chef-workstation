@@ -46,6 +46,10 @@ Chef Workstation installs everything you need to get started using Chef products
 
 We use Omnibus to describe our packaging. Please review [chef-workstation/omnibus/README.MD](https://github.com/chef/chef-workstation/tree/main/omnibus) for further details.
 
-## Copyright and License
+## License
 
-Code released under the [Apache license](LICENSE). Images and any trademarked content are Copyright 2018 by [Chef Software, Inc.](https://www.chef.io).
+Code released under the [Apache license](LICENSE). 
+
+# Copyright
+
+See [COPYRIGHT.md](./COPYRIGHT.md).
