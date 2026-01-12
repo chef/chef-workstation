@@ -80,8 +80,6 @@ subscriptions:
     actions:
       - built_in:rollover_changelog
       - bash:.expeditor/update_dockerfile.sh
-      - bash:.expeditor/publish-release-notes.sh
-      - bash:.expeditor/announce-release.sh
       - purge_packages_chef_io_fastly:{{channel}}/{{product_key}}/latest
       - built_in:promote_docker_images
       # publish to third party package managers that have a dependency
