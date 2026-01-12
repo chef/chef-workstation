@@ -117,4 +117,4 @@ limitations under the License.
 ```
 
 # Copyright
-See [COPYRIGHT.md](./COPYRIGHT.md).
+See [COPYRIGHT.md](./../COPYRIGHT.md).
