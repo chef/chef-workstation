@@ -1,5 +1,5 @@
 //
-// Copyright 2020 Chef Software, Inc.
+// Copyright (c) 2018-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 //
 // Author: Marc A. Paradise <marc.paradise@gmail.com>
 //

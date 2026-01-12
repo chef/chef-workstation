@@ -1,5 +1,5 @@
 //
-// Copyright (c) Chef Software, Inc.
+// Copyright (c) 2018-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 // Copyright (c) 2020 Muneyuki Noguchi
 // Based on the original by Muneyuki Noguchi at https://github.com/mnogu/go-dig
 // Licensed under the Apache License, Version 2.0 (the "License");
