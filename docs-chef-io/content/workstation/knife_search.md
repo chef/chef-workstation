@@ -204,7 +204,7 @@ This subcommand has the following options:
 
 `-R INT`, `--rows INT`
 
-: The number of rows to be returned.
+: The number of rows to be returned. The default value is 10000.
 
 `SEARCH_QUERY`
 
