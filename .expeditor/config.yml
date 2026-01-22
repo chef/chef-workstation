@@ -18,6 +18,7 @@ changelog:
 
 pipelines:
   - verify:
+      public: true
       description: Pull Request validation tests
   - docker/build
   - omnibus/release:
