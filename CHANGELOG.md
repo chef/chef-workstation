@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.12.1103 -->
-## [25.12.1103](https://github.com/chef/chef-workstation/tree/25.12.1103) (2026-02-20)
+<!-- latest_release 25.12.1104 -->
+## [25.12.1104](https://github.com/chef/chef-workstation/tree/25.12.1104) (2026-02-20)
 
 #### Merged Pull Requests
-- Updated CW to follow sematic versioning from 25.x [#3504](https://github.com/chef/chef-workstation/pull/3504) ([nikhil2611](https://github.com/nikhil2611))
+- Using expeditor config to do bump versioning [#3505](https://github.com/chef/chef-workstation/pull/3505) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=25.12.1102 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Using expeditor config to do bump versioning [#3505](https://github.com/chef/chef-workstation/pull/3505) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1104 -->
 - Updated CW to follow sematic versioning from 25.x [#3504](https://github.com/chef/chef-workstation/pull/3504) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1103 -->
 <!-- release_rollup -->
 
