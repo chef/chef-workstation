@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/Stromweld/kitchen-dokken
+  revision: d9166a13a10b5463ea04a7b42df3f126cb4e9b97
+  branch: main
+  specs:
+    kitchen-dokken (2.22.2)
+      docker-api (>= 1.33, < 3)
+      lockfile (~> 2.1)
+      test-kitchen (>= 1.15, < 5)
+
+GIT
   remote: https://github.com/chef/ruby-shadow
   revision: 3b8ea40b0e943b5de721d956741308ce805a5c3c
   branch: lcg/ruby-3.0
