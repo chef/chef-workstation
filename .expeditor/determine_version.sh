@@ -1,14 +1,12 @@
 #!/bin/bash
 
-# This gets run as a pre-commit hook just prior to a merge to
-# determine the new version number.
+# Read current version parts
+MAJOR=$(cut -d. -f1 VERSION)
+MINOR=$(cut -d. -f2 VERSION)
+OLD_BUILD=$(cut -d. -f3 VERSION)
 
-# Leading zeros are not permitted in strict SemVer
-YEAR=`date +"%y" | sed -e 's/^0//'` # Must be < 256 per Microsoft
-MONTH=`date +"%m" | sed -e 's/^0//'`
 
-OLD_BUILD=`cut -f3 -d. < VERSION`
+NEW_BUILD=$((OLD_BUILD + 1))
 
-NEW_BUILD=$(($OLD_BUILD + 1)) # Monotonically increase the build number
 
-echo $YEAR.$MONTH.$NEW_BUILD > VERSION
+echo "${MAJOR}.${MINOR}.${NEW_BUILD}" > VERSION
