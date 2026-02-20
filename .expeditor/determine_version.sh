@@ -1,6 +1,4 @@
 #!/bin/bash
-set -euo pipefail
-
 
 # Read current version parts
 MAJOR=$(cut -d. -f1 VERSION)
