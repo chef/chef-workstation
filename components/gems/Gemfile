@@ -116,7 +116,7 @@ group(:omnibus_package) do
   gem "net-ssh", ">= 4.2.0"
   gem "listen"
   gem "mixlib-install", ">= 3.15"
-  gem "nokogiri", ">= 1.11.7"
+  gem "nokogiri", ">= 1.11.7", "< 1.19.1" # 1.19.1+ requires Ruby >= 3.2, we use Ruby 3.1.7
   # Locked because pry-byebug is broken with 13+
   # some work is ongoing? https://github.com/deivid-rodriguez/pry-byebug/issues/343
   gem "pry", "= 0.13.0"
