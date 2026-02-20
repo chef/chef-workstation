@@ -15,9 +15,6 @@ github:
   # allow bumping the minor release via label
   minor_bump_labels:
     - "Expeditor: Bump Version Minor"
-  # allow bumping the major release via label
-  major_bump_labels:
-    - "Expeditor: Bump Version Major"
 
 changelog:
   rollup_header: Changes not yet released to stable
@@ -50,7 +47,7 @@ pipelines:
 subscriptions:
   - workload: pull_request_merged:{{github_repo}}:{{release_branch}}:*
     actions:
-      - bash:.expeditor/determine_version.sh:
+      - built_in:bump_version:
           ignore_labels:
             - "Expeditor: Skip Version Bump"
             - "Expeditor: Skip All"
@@ -62,14 +59,14 @@ subscriptions:
             - "Aspect: Documentation"
       # The git commit happens here
       - bash:.expeditor/push-git-tag.sh:
-          only_if: bash:.expeditor/determine_version.sh
+          only_if: built_in:bump_version
           post_commit: true
       - trigger_pipeline:omnibus/release:
           ignore_labels:
             - "Expeditor: Skip Omnibus"
             - "Expeditor: Skip All"
             - "Aspect: Documentation"
-          only_if: bash:.expeditor/determine_version.sh
+          only_if: built_in:bump_version
   - workload: artifact_published:unstable:chef-workstation:{{version_constraint}}
     actions:
       - trigger_pipeline:docker/build
