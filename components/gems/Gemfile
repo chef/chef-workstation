@@ -60,14 +60,14 @@ group(:omnibus_package) do
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
 
-  gem "chef", ">= 18.2"
-  gem "chef-bin", ">= 18.2"
-  gem "chef-utils", ">= 18.2"
+  gem "chef", ">= 18.2", "< 19.0.0"
+  gem "chef-bin", ">= 18.2", "< 19.0.0"
+  gem "chef-utils", ">= 18.2", "< 19.0.0"
   gem "ohai", ">= 18.1"
 
   gem "cheffish", ">= 17.0"
 
-  gem "inspec-bin", "~> 5"
+  gem "inspec-bin", ">= 5", "< 6.6"
 
   # chefspec & fauxhai, now forked into https://github.com/chef
   gem "chefspec", ">= 9.3"
@@ -76,18 +76,18 @@ group(:omnibus_package) do
   # test-kitchen and plugins
   gem "test-kitchen", ">= 4.0"
   gem "kitchen-omnibus-chef", ">= 1.1"
-  gem "kitchen-azurerm", ">= 1.12.0"
-  gem "kitchen-ec2", ">= 3.10"
-  gem "kitchen-digitalocean", ">= 0.13"
-  gem "kitchen-dokken", ">= 2.14"
+  gem "kitchen-azurerm", ">= 1.13.6"
+  gem "kitchen-ec2", ">= 3.22.1"
+  gem "kitchen-digitalocean", ">= 0.16.2"
+  gem "kitchen-dokken", ">= 2.22.2"
   gem "docker-api", ">= 2.0" # make sure we get the Ruby 2.7+ compatible release
-  gem "kitchen-google", ">= 2.2"
-  gem "kitchen-hyperv", ">= 0.6"
-  gem "kitchen-inspec", ">= 2.5"
-  gem "kitchen-openstack", ">= 5.0"
-  gem "kitchen-vagrant", ">= 1.9"
-  gem "kitchen-vcenter", ">= 2.8"
-  gem "kitchen-vra", ">= 3.0"
+  gem "kitchen-google", ">= 2.6.2"
+  gem "kitchen-hyperv", ">= 0.10.3"
+  gem "kitchen-inspec", ">= 3.1"
+  gem "kitchen-openstack", ">= 6.2.2"
+  gem "kitchen-vagrant", ">= 2.2.1"
+  gem "kitchen-vcenter", ">= 2.12.3"
+  gem "kitchen-vra", ">= 3.3.3"
 
   # knife & plugins
   gem "knife", ">= 18.2"
@@ -105,6 +105,8 @@ group(:omnibus_package) do
   gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
   gem "chef-cli", ">= 5.3.1"
   gem "chef-apply", ">= 0.4.16"
+  gem "r18n-desktop", "< 6.0.0" # r18n-desktop 6.0.0+ requires Ruby >= 3.2; pin until Ruby is upgraded
+  gem "activesupport", "< 8.0" # activesupport 8.0.0+ requires Ruby >= 3.2; pin until Ruby is upgraded
 
   # chef-telemetry previously pulled in an unecessary library (http)
   gem "chef-telemetry", ">= 1.0.8"
@@ -113,7 +115,7 @@ group(:omnibus_package) do
   gem "mixlib-archive", ">= 1.0"
   gem "net-ssh", ">= 4.2.0"
   gem "listen"
-  gem "mixlib-install"
+  gem "mixlib-install", ">= 3.15"
   gem "nokogiri", ">= 1.11.7"
   # Locked because pry-byebug is broken with 13+
   # some work is ongoing? https://github.com/deivid-rodriguez/pry-byebug/issues/343
