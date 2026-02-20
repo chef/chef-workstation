@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/Stromweld/kitchen-dokken
+  revision: d9166a13a10b5463ea04a7b42df3f126cb4e9b97
+  branch: main
+  specs:
+    kitchen-dokken (2.22.2)
+      docker-api (>= 1.33, < 3)
+      lockfile (~> 2.1)
+      test-kitchen (>= 1.15, < 5)
+
+GIT
   remote: https://github.com/chef/ruby-shadow
   revision: 3b8ea40b0e943b5de721d956741308ce805a5c3c
   branch: lcg/ruby-3.0
@@ -757,10 +767,6 @@ GEM
     kitchen-digitalocean (0.16.1)
       droplet_kit (>= 3.7, < 4.0)
       test-kitchen (>= 1.17, < 4)
-    kitchen-dokken (2.20.8)
-      docker-api (>= 1.33, < 3)
-      lockfile (~> 2.1)
-      test-kitchen (>= 1.15, < 4)
     kitchen-ec2 (3.20.0)
       aws-sdk-ec2 (~> 1.0)
       retryable (>= 2.0, < 4.0)
@@ -1455,7 +1461,7 @@ DEPENDENCIES
   inspec-bin (~> 5)
   kitchen-azurerm (>= 1.12.0)
   kitchen-digitalocean (>= 0.13)
-  kitchen-dokken (>= 2.14)
+  kitchen-dokken!
   kitchen-ec2 (>= 3.10)
   kitchen-google (>= 2.2)
   kitchen-hyperv (>= 0.6)
