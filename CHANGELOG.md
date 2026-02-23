@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.12.1107 -->
-## [25.12.1107](https://github.com/chef/chef-workstation/tree/25.12.1107) (2026-02-23)
+<!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- Updated go in main-chef-wrapper to v1.25.3 [#3508](https://github.com/chef/chef-workstation/pull/3508) ([nikhil2611](https://github.com/nikhil2611))
+- Remove release notes Expeditor actions [#3485](https://github.com/chef/chef-workstation/pull/3485) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
 <!-- release_rollup since=25.12.1102 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Remove release notes Expeditor actions [#3485](https://github.com/chef/chef-workstation/pull/3485) ([IanMadd](https://github.com/IanMadd)) <!-- 25.12.1107 -->
 - Updated go in main-chef-wrapper to v1.25.3 [#3508](https://github.com/chef/chef-workstation/pull/3508) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1107 -->
 - Dependabot alerts fixes. [#3506](https://github.com/chef/chef-workstation/pull/3506) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1106 -->
 - Updating kitchen-dokken to v2.22.2 [#3503](https://github.com/chef/chef-workstation/pull/3503) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1105 -->
