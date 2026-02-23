@@ -1,6 +1,6 @@
 module github.com/chef/chef-workstation/components/main-chef-wrapper
 
-go 1.24.13
+go 1.25.3
 
 require (
 	github.com/chef/go-chef-cli v0.0.4
