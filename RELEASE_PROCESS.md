@@ -35,13 +35,13 @@ Finally, run a `bundle update` on the `omnibus` and `components/gems` folders to
 
 ## Write Release Notes
 
-Release notes are published from the [chef/chef-web-docs repository](https://github.com/chef/chef-web-docs/blob/main/content/release_notes/server.md).
+Release notes are published from the [chef/chef-web-docs repository](https://github.com/chef/chef-web-docs/blob/main/content/release_notes/workstation.md).
 
 The bulk of the release note content comes from the `components/gems/Gemfile.lock` file. This shows all the dependencies that have updated. Generally, patch level dependency updates are not included in the release notes. Any minor/major level updates to Chef maintained gems should be included in the release notes, as well as updates to security related gems (IE, OpenSSL).
 
 ## Release Notes Review
 
-Ask for a review of the [release notes](https://github.com/chef/chef-web-docs/blob/main/content/release_notes/server.md). Docs team has up to 3 days to review the release notes.
+Ask for a review of the [release notes](https://github.com/chef/chef-web-docs/blob/main/content/release_notes/workstation.md). Docs team has up to 3 days to review the release notes.
 
 Ask the InSpec and Chef Infra developers for review as well. They often have insight into what should be announced or not.
 
