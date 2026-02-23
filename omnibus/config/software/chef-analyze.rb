@@ -1,11 +1,11 @@
 name "chef-analyze"
-default_version "0.1.187"  # updated to latest version
+default_version "0.1.189"  # updated to latest version
 license "Apache-2.0"
 license_file "LICENSE"
 
 # versions_list: https://github.com/chef/chef-analyze/tags filter=*.tar.gz
 source url: "https://github.com/chef/chef-analyze/archive/refs/tags/#{default_version}.tar.gz",
-       sha256: "b0a97ee948c312ec97c0acf4ab8f29b5806afc91292279f2bcd10504e890a7cb"
+       sha256: "8f182755f5b7aa9926d03615c7bcf68750a9c2f6e1859a660707f86c5992c097"
 
 # Update the internal_source URL to match the source URL
 internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/#{name}-#{version}.tar.gz",
