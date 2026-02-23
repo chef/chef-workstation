@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-workstation"
 
-aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_windows.html", "/dk_windows.html", "/install_workstation/"]
+aliases = []
 
 [menu]
   [menu.workstation]
@@ -19,7 +19,7 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
 
 For general information about downloading Chef products, see the [Chef download documentation](/download/).
 
-For supported Chef Workstation versions, see the [Chef Workstation release notes](/release_notes_workstation/) or use the [Chef download APIs](/download).
+For supported Chef Workstation versions, see the [Chef Workstation release notes](/release_notes/workstation/) or use the [Chef download APIs](/download).
 
 ## Supported Platforms
 
