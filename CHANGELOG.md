@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.13.0 -->
-## [25.13.0](https://github.com/chef/chef-workstation/tree/25.13.0) (2026-02-24)
+<!-- latest_release 25.13.1 -->
+## [25.13.1](https://github.com/chef/chef-workstation/tree/25.13.1) (2026-02-24)
 
 #### Merged Pull Requests
-- Bump chef-analyze CLI to 0.1.191 [#3513](https://github.com/chef/chef-workstation/pull/3513) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Updated NOTICE for CW 25.13 release [#3512](https://github.com/chef/chef-workstation/pull/3512) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=25.12.1102 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Updated NOTICE for CW 25.13 release [#3512](https://github.com/chef/chef-workstation/pull/3512) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.13.1 -->
 - Bump chef-analyze CLI to 0.1.191 [#3513](https://github.com/chef/chef-workstation/pull/3513) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 25.13.0 -->
 - Update go to v1.25.6 in main-chef-wrapper [#3514](https://github.com/chef/chef-workstation/pull/3514) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1108 -->
 - Remove release notes Expeditor actions [#3485](https://github.com/chef/chef-workstation/pull/3485) ([IanMadd](https://github.com/IanMadd)) <!-- 25.12.1107 -->
