@@ -1,15 +1,20 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.12.1106 -->
-## [25.12.1106](https://github.com/chef/chef-workstation/tree/25.12.1106) (2026-02-20)
+<!-- latest_release 25.13.1 -->
+## [25.13.1](https://github.com/chef/chef-workstation/tree/25.13.1) (2026-02-24)
 
 #### Merged Pull Requests
-- Dependabot alerts fixes. [#3506](https://github.com/chef/chef-workstation/pull/3506) ([nikhil2611](https://github.com/nikhil2611))
+- Updated NOTICE for CW 25.13 release [#3512](https://github.com/chef/chef-workstation/pull/3512) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=25.12.1102 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Updated NOTICE for CW 25.13 release [#3512](https://github.com/chef/chef-workstation/pull/3512) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.13.1 -->
+- Bump chef-analyze CLI to 0.1.191 [#3513](https://github.com/chef/chef-workstation/pull/3513) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 25.13.0 -->
+- Update go to v1.25.6 in main-chef-wrapper [#3514](https://github.com/chef/chef-workstation/pull/3514) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1108 -->
+- Remove release notes Expeditor actions [#3485](https://github.com/chef/chef-workstation/pull/3485) ([IanMadd](https://github.com/IanMadd)) <!-- 25.12.1107 -->
+- Updated go in main-chef-wrapper to v1.25.3 [#3508](https://github.com/chef/chef-workstation/pull/3508) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1107 -->
 - Dependabot alerts fixes. [#3506](https://github.com/chef/chef-workstation/pull/3506) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1106 -->
 - Updating kitchen-dokken to v2.22.2 [#3503](https://github.com/chef/chef-workstation/pull/3503) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1105 -->
 - Using expeditor config to do bump versioning [#3505](https://github.com/chef/chef-workstation/pull/3505) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1104 -->

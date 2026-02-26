@@ -387,7 +387,7 @@ This ensures transparency and allows for course correction at any point in the d
 **Expeditor Automation:**
 - Automatically updates dependencies when gems are published
 - Triggers builds across multiple platforms and package formats
-- Updates Dockerfile and publishes release notes on stable releases
+- Updates Dockerfile on stable releases
 - Integrates with Slack (#chef-ws-notify) for build notifications
 
 **For This PR:**

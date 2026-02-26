@@ -35,17 +35,15 @@ Finally, run a `bundle update` on the `omnibus` and `components/gems` folders to
 
 ## Write Release Notes
 
-Release notes should be written in the [wiki](https://github.com/chef/chef-workstation/wiki/Pending-Release-Notes). The template is a guide but it is often useful to look at existing release notes in [discourse](https://discourse.chef.io/search?expanded=true&q=Chef%20Workstation%20%23chef-release%20order%3Alatest) for examples of the format and what should be included.
-
-To see changes that have occurred since the last release, run `git difftool -d 21.8.555` and supply the last released version. This can also be done in the browser by accessing https://github.com/chef/chef-workstation/compare/21.8.555...main and providing the last released version. This is helpful for seeing PRs that have updated code in the Chef Workstation repo. Changes to `omnibus_overrides.rb` should be looked for first.
+Release notes are published from the [chef/chef-web-docs repository](https://github.com/chef/chef-web-docs/blob/main/content/release_notes/workstation.md).
 
 The bulk of the release note content comes from the `components/gems/Gemfile.lock` file. This shows all the dependencies that have updated. Generally, patch level dependency updates are not included in the release notes. Any minor/major level updates to Chef maintained gems should be included in the release notes, as well as updates to security related gems (IE, OpenSSL).
 
 ## Release Notes Review
 
-Drop a note in the `#docs-support` Slack channel and ask for a review of the [release notes](https://github.com/chef/chef-workstation/wiki/Pending-Release-Notes). Docs team has up to 3 days to review the release notes.
+Ask for a review of the [release notes](https://github.com/chef/chef-web-docs/blob/main/content/release_notes/workstation.md). Docs team has up to 3 days to review the release notes.
 
-Ask the Inspec and Chef Infra developers for review as well. They often have insight into what should be announced or not.
+Ask the InSpec and Chef Infra developers for review as well. They often have insight into what should be announced or not.
 
 ## Perform the Release
 
