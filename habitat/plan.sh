@@ -9,7 +9,7 @@ ruby_pkg="core/ruby31"
 pkg_build_deps=(
   core/make
   core/gcc
-  core/go22
+  core/go26
   core/gcc-libs
   core/pkg-config
   # We make this a build dependency since we are going to import
