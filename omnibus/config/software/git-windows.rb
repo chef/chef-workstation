@@ -35,6 +35,7 @@ arch_suffix = "64"
 # builds, set the `source url:` again explicitly to the one appropriate for
 # that version's release.
 source url: "https://github.com/git-for-windows/git/releases/download/v#{version}.windows.1/PortableGit-#{version}-#{arch_suffix}-bit.7z.exe"
+internal_source url: "https://github.com/git-for-windows/git/releases/download/v#{version}.windows.1/PortableGit-#{version}-#{arch_suffix}-bit.7z.exe"
 
 # version_list: url=https://github.com/git-for-windows/git/releases filter=PortableGit-*-64-bit.7z.exe
 version("2.49.1") { source sha256: "643def94eaa15215ebe1018804d2ac3a458e80a2fc27aef6e5139411728f3a7d" }
