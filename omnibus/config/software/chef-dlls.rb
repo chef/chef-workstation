@@ -24,11 +24,20 @@ license :project_license
 
 build do
   block "Install windows powershell dlls to \\embedded\bin" do
-    # Copy the chef gem's distro stuff over
-    chef_gem_path = File.expand_path("../..", shellout!("#{install_dir}/embedded/bin/gem which chef").stdout.chomp)
-
-    chef_module_dir = "#{install_dir}/embedded/bin"
     require "fileutils"
-    FileUtils.cp_r "#{chef_gem_path}/distro/ruby_bin_folder/AMD64/.", chef_module_dir, verbose: true
+    chef_module_dir = "#{install_dir}/embedded/bin"
+
+    # The PowerShell DLLs now ship in the chef-powershell gem under
+    # bin/ruby_bin_folder/<ARCH>/ (moved out of the chef gem's distro/
+    # directory in Chef 18+, see chef/chef#15190).
+    chef_ps_gem_path = File.expand_path("../..", shellout!("#{install_dir}/embedded/bin/gem which chef-powershell").stdout.chomp)
+    arch = ENV["PROCESSOR_ARCHITECTURE"] || "AMD64"
+    dll_path = "#{chef_ps_gem_path}/bin/ruby_bin_folder/#{arch}"
+
+    if Dir.exist?(dll_path)
+      FileUtils.cp_r "#{dll_path}/.", chef_module_dir, verbose: true
+    else
+      raise "Could not find PowerShell DLLs in chef-powershell gem at: #{dll_path}"
+    end
   end
 end
