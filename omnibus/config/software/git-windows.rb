@@ -15,7 +15,7 @@
 #
 
 name "git-windows"
-default_version "2.49.1"
+default_version "2.53.0"
 
 license "LGPL-2.1"
 # the license file does not ship in the portable git package so pull from the source repo
@@ -38,6 +38,7 @@ source url: "https://github.com/git-for-windows/git/releases/download/v#{version
 internal_source url: "https://github.com/git-for-windows/git/releases/download/v#{version}.windows.1/PortableGit-#{version}-#{arch_suffix}-bit.7z.exe"
 
 # version_list: url=https://github.com/git-for-windows/git/releases filter=PortableGit-*-64-bit.7z.exe
+version("2.53.0") { source sha256: "08713a710ec91ac90de1c09f861289a3b103175f098676e5e664c04dd6c6bf23" }
 version("2.49.1") { source sha256: "643def94eaa15215ebe1018804d2ac3a458e80a2fc27aef6e5139411728f3a7d" }
 version("2.48.1") { source sha256: "a4335111b3363871cac632be93d7466154d8eb08782ff55103866b67d6722257" }
 
