@@ -1,4 +1,3 @@
-Workstation follows the contributing process detailed in the `chef` project's CONTRIBUTING.md:
+# Contributing to a Progress Chef Workstation Project
 
-Please refer to CONTRIBUTING.md for the `chef` project: https://github.com/chef/chef/blob/main/CONTRIBUTING.md
-
+Thank you for your interest in contributing to this project! It is part of the larger Progress Chef Workstation project. Contribution guidelines can be found at [Contributing to Progress Chef Workstation](https://chef.github.io/chef-oss-practices/projects/workstation/contributing/).
