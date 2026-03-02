@@ -22,7 +22,7 @@ license "LGPL-2.1"
 license_file "https://raw.githubusercontent.com/git-for-windows/git/master/LGPL-2.1"
 
 # Git for Windows dropped 32-bit support starting with version 2.49.0.
-# Only 64-bit builds are supported.
+# Only 64-bit builds are supported for versions > 2.48.1.
 arch_suffix = "64"
 
 # The Git for Windows project includes a build number in their tagging
@@ -38,9 +38,10 @@ source url: "https://github.com/git-for-windows/git/releases/download/v#{version
 internal_source url: "https://github.com/git-for-windows/git/releases/download/v#{version}.windows.1/PortableGit-#{version}-#{arch_suffix}-bit.7z.exe"
 
 # version_list: url=https://github.com/git-for-windows/git/releases filter=PortableGit-*-64-bit.7z.exe
+# NOTE: Versions >= 2.49.0 are 64-bit only. Version 2.48.1 is the last version with 32-bit support.
 version("2.53.0") { source sha256: "08713a710ec91ac90de1c09f861289a3b103175f098676e5e664c04dd6c6bf23" }
 version("2.49.1") { source sha256: "643def94eaa15215ebe1018804d2ac3a458e80a2fc27aef6e5139411728f3a7d" }
-version("2.48.1") { source sha256: "a4335111b3363871cac632be93d7466154d8eb08782ff55103866b67d6722257" }
+version("2.48.1") { source sha256: "a4335111b3363871cac632be93d7466154d8eb08782ff55103866b67d6722257" } # Last version with 32-bit support
 
 # The git portable archives come with their own copy of posix related tools
 # i.e. msys/basic posix/what-do-you-mean-you-dont-have-bash tools that git
