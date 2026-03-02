@@ -1,15 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.13.2 -->
-## [25.13.2](https://github.com/chef/chef-workstation/tree/25.13.2) (2026-02-27)
+<!-- latest_release 25.13.3 -->
+## [25.13.3](https://github.com/chef/chef-workstation/tree/25.13.3) (2026-03-02)
 
 #### Merged Pull Requests
-- Updating go in main-chef-wrapper and bumping chef-analyze to 0.1.192 and updating chef/go-libs library [#3517](https://github.com/chef/chef-workstation/pull/3517) ([nikhil2611](https://github.com/nikhil2611))
+- Update chef inspec knife and chef-dll lib fix [#3520](https://github.com/chef/chef-workstation/pull/3520) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=25.12.1102 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
+- Update chef inspec knife and chef-dll lib fix [#3520](https://github.com/chef/chef-workstation/pull/3520) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.13.3 -->
 - Updating go in main-chef-wrapper and bumping chef-analyze to 0.1.192 and updating chef/go-libs library [#3517](https://github.com/chef/chef-workstation/pull/3517) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.13.2 -->
 - Updated NOTICE for CW 25.13 release [#3512](https://github.com/chef/chef-workstation/pull/3512) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.13.1 -->
 - Bump chef-analyze CLI to 0.1.191 [#3513](https://github.com/chef/chef-workstation/pull/3513) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 25.13.0 -->
