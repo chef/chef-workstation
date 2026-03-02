@@ -267,7 +267,7 @@ GEM
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     iniparse (1.5.0)
-    inspec-core (5.24.5)
+    inspec-core (5.24.7)
       addressable (< 2.8.8)
       chef-telemetry (~> 1.0, >= 1.0.8)
       cookstyle
