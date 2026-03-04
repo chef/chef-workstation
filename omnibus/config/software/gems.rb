@@ -102,6 +102,7 @@ build do
   # but chef-client still needs git-checked-out gems)
   # On Windows, skip deletion because license_scout needs the bundler/gems directory to resolve git-sourced gems
   # from the Gemfile.lock
+  # TODO: Revert this Windows skip once kitchen-dokken is pulled from RubyGems instead of GitHub
   unless windows?
     block "Delete bundler git installs" do
       gemdir = shellout!("#{install_dir}/embedded/bin/gem environment gemdir", env: env).stdout.chomp
