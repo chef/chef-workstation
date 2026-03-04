@@ -8,20 +8,11 @@ puts "fixing bundle installed gems in #{gem_home}"
 # you can simply gem build + gem install the resulting gem, so nothing fancy.  This does not use
 # rake install since we need --conservative --minimal-deps in order to not install duplicate gems.
 #
-bundler_gems_path = File.join(gem_home, "bundler", "gems", "*")
-puts "Looking for git gems in: #{bundler_gems_path}"
-
-Dir[bundler_gems_path].each do |gempath|
-  puts "Found gem path: #{gempath}"
+Dir["#{gem_home}/bundler/gems/*"].each do |gempath|
   matches = File.basename(gempath).match(/.*-[A-Fa-f0-9]{12}/)
   next unless matches
 
-  gemspec_files = Dir[File.join(gempath, "*.gemspec")]
-  puts "Found gemspec files: #{gemspec_files.inspect}"
-
-  next if gemspec_files.empty?
-
-  gem_name = File.basename(gemspec_files.first, ".gemspec")
+  gem_name = File.basename(Dir["#{gempath}/*.gemspec"].first, ".gemspec")
   # FIXME: should strip any valid ruby platform off of the gem_name if it matches
 
   next unless gem_name
@@ -29,26 +20,8 @@ Dir[bundler_gems_path].each do |gempath|
   puts "re-installing #{gem_name}..."
 
   Dir.chdir(gempath) do
-    # Use full path to gem command for Windows compatibility
-    gem_cmd = File.join(RbConfig::CONFIG["bindir"], "gem")
-
-    build_cmd = "\"#{gem_cmd}\" build #{gem_name}.gemspec"
-    puts "Running: #{build_cmd}"
-    system(build_cmd) or raise "gem build failed for #{gem_name}"
-
-    install_cmd = "\"#{gem_cmd}\" install #{gem_name}*.gem --conservative --minimal-deps --no-document"
-    puts "Running: #{install_cmd}"
-    system(install_cmd) or raise "gem install failed for #{gem_name}"
-  end
-
-  # Verify the gem was installed using the correct gem command (not PATH's gem)
-  gem_cmd = File.join(RbConfig::CONFIG["bindir"], "gem")
-  puts "Verifying #{gem_name} installation..."
-  installed_gems = `"#{gem_cmd}" list #{gem_name}`.chomp
-  if installed_gems.include?(gem_name)
-    puts "#{gem_name} installed successfully: #{installed_gems}"
-  else
-    raise "#{gem_name} installation verification failed!"
+    system("gem build #{gem_name}.gemspec") or raise "gem build failed"
+    system("gem install #{gem_name}*.gem --conservative --minimal-deps --no-document") or raise "gem install failed"
   end
 end
 
