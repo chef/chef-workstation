@@ -23,6 +23,8 @@ Dir["#{gem_home}/bundler/gems/*"].each do |gempath|
     system("gem build #{gem_name}.gemspec") or raise "gem build failed"
     system("gem install #{gem_name}*.gem --conservative --minimal-deps --no-document") or raise "gem install failed"
   end
+
+  puts "#{gem_name} re-installed successfully"
 end
 
 # Handle default gem conflicts with bundled gems
