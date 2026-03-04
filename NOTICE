@@ -19,182 +19,164 @@ SUMMARY OF COMPONENTS:
 Vendor Name | Product Name | Version
 
 Apache License 2.0:
-  Adam Edwards                     | wmi-lite                   | 1.0.7
-  Adam Jacob                       | Chef                       | 18.8.11
-  Adam Jacob                       | knife                      | 18.8.68
-  Adam Jacob                       | opscode-ohai               | 18.2.6
-  Adam Leff                        | passwordmasker             | 1.2.0
-  Adam Leff, JJ Asghar             | vmware-vra                 | 3.2.1
-  Amazon Web Services              | AWS SDK for Ruby           | 1.101.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.103.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.106.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.108.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.110.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.111.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.118.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.1196.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.12.1
-  Amazon Web Services              | AWS SDK for Ruby           | 1.121.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.124.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.126.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.127.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.129.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.133.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.137.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.139.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.142.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.145.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.146.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.147.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.153.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.160.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.19.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.202.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.203.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.208.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.26.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.29.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.290.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.3.1
-  Amazon Web Services              | AWS SDK for Ruby           | 1.32.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.39.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.4.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.40.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.41.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.43.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.45.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.46.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.48.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.51.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.53.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.554.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.56.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.60.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.62.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.70.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.71.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.73.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.75.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.76.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.77.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.79.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.80.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.82.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.83.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.84.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.86.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.87.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.90.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.92.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.93.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.96.0
-  Amazon Web Services              | AWS SDK for Ruby           | 1.99.0
-  Amazon Web Services              | aws-sdk-cloudwatch         | 1.120.0
-  Amazon Web Services              | aws-sdk-core-ruby          | 3.240.0
-  Barry Davis, Chirag Jog          | knife-azure                | 4.0.0
-  Bob Aman                         | Addressable URI parser     | 2.8.7
-  Bob Aman                         | sporkmonger's uuidtools    | 2.2.0
-  Brad Geesaman                    | train-kubernetes           | 0.2.1
-  Charles Oliver Nutter,…          | thread_safe                | 0.3.6
-  > thedarkone                     |                            |
-  Chef Commmunity Tools Team       | kitchen-vra                | 3.3.3
-  Chef InSpec Core Engineering     | inspec/inspec              | 5.22.95
-  Chef InSpec Team                 | inspec-ruby                | 5.22.95
-  Chef InSpec Team                 | train                      | 3.12.13
-  Chef InSpec Team                 | train-aws                  | 0.2.36
-  Chef InSpec Team                 | train-core                 | 3.12.13
-  Chef InSpec Team                 | train-winrm                | 0.2.19
-  Chef Partner Engineering         | gcewinpass                 | 1.1.0
-  Chef Partner Engineering         | knife-vcenter              | 5.0.5
-  Chef Release Engineering Team    | opscode/artifactory-client | 3.0.17
-  Chef Software                    | dep-selector-libgecode     | 1.3.5
-  Chef Software                    | kitchen-vcenter            | 2.12.2
-  Chef Software                    | knife-vrealize             | 7.0.0
-  Chef Software, Inc               | Chef                       | 18.1.0
-  Chef Software, Inc               | chef-apply                 | 0.9.6
-  Chef Software, Inc               | mixlib-log                 | 3.1.2.1
-  Chef Software, Inc               | mixlib-shellout            | 3.3.9
-  Chef Software, Inc.              | chef-cli                   | 5.6.23
-  Chef Software, Inc.              | chefstyle                  | 2.2.3
-  Chef Software, Inc.              | kitchen-inspec             | 3.0.0
-  Chef Software, Inc.              | knife-ec2                  | 2.1.6
-  Chef Software, Inc.              | knife-tidy                 | 2.3.2
-  Chiraq Jog, Ranjib Dey, James…   | knife-google               | 5.0.11
-  > Tucker, Paul Rossman, Eric…    |                            |
-  > Johnson, Chef Partner…         |                            |
-  > Engineering                    |                            |
-  Christopher Walters, Mark…       | dep_selector               | 1.0.6
-  > Anderson                       |                            |
-  Dan Wanek, Paul Morton, Matt…    | WinRM                      | 2.3.8
-  > Wrock, Shawn Neal              |                            |
-  Dan Wanek, Paul Morton, Matt…    | chef-winrm                 | 2.3.12
-  > Wrock, Shawn Neal              |                            |
-  Daniel J. Berger                 | ffi-win32-extensions       | 1.0.4
-  Daniel J. Berger, Park Heesob    | win32-ipc                  | 0.7.0
-  Daniel J. Berger, Park Heesob    | win32-security             | 0.5.0
-  Ezra Pagel                       | knife-vsphere              | 5.2.0
-  Fletcher Nichol                  | kitchen-vagrant            | 2.2.0
-  Fletcher Nichol                  | test-kitchen               | 3.9.1
-  Google LLC                       | Signet                     | 0.21.0
-  Google LLC                       | google-api-ruby-client     | 0.11.3
-  Google LLC                       | google-api-ruby-client     | 0.30.0
-  Google LLC                       | google-api-ruby-client     | 0.35.0
-  Google LLC                       | google-api-ruby-client     | 0.41.0
-  Google LLC                       | google-api-ruby-client     | 0.46.0
-  Google LLC                       | google-api-ruby-client     | 0.50.0
-  Google LLC                       | google-api-ruby-client     | 0.51.0
-  Google LLC                       | google-api-ruby-client     | 0.83.0
-  Gregory Ruiz-ade                 | vcoworkflows               | 0.2.1
-  Inspec Team                      | chef-licensing             | 1.0.4
-  Jamie Winsor                     | semverse                   | 3.0.2
-  Jamie Winsor, Andrew Garson,…    | solve                      | 4.0.4
-  > Thibaud Guillaume-Gentil       |                            |
-  Jamie Winsor, Josiah Kiehl,…     | berkshelf                  | 8.1.6
-  > Michael Ivey, Justin Campbell… |                            |
-  > , Seth Vargo                   |                            |
-  Jamie Winsor, Josiah Kiehl,…     | cookbook-omnifetch         | 0.12.2
-  > Michael Ivey, Justin Campbell… |                            |
-  > , Seth Vargo, Daniel DeLeo     |                            |
-  John Bellone, Jamie Winsor,…     | ffi-libarchive             | 1.1.14
-  > Frank Fischer                  |                            |
-  Jonathan Hartman, JJ Asghar      | kitchen-openstack          | 6.2.1
-  Kaustubh Deorukhkar, Ameya…      | knife-cloud                | 4.0.15
-  > Varade                         |                            |
-  Kimmo Lehto, Levi Aul, InSpec…   | yaml-safe_load_stream3     | 0.1.2
-  > Team                           |                            |
-  Lucas Mazza, George Guimarães,…  | faraday-http-cache         | 2.5.1
-  > Gustavo Araujo                 |                            |
-  Progress Software Corporation    | train-habitat              | 0.2.22
-  Sean OMeara                      | kitchen-dokken             | 2.22.2
-  Seth Chisamore                   | knife-windows              | 4.0.7
-  Seth Chisamore, Christopher…     | mixlib-versioning          | 1.2.12
-  > Maier                          |                            |
-  Seth Vargo                       | chef-cleanroom             | 1.0.5
-  Shawn Neal                       | chef-winrm-elevated        | 1.2.5
-  Shawn Neal                       | winrm-elevated             | 1.2.3
-  Shawn Neal, Matt Wrock           | chef-winrm-fs              | 1.3.7
-  Shawn Neal, Matt Wrock           | winrm-fs                   | 1.3.5
-  Steven Bazyl, Tim Emiola,…       | google-api-ruby-client     | 0.52.0
-  > Sergio Gomes, Bob Aman         |                            |
-  Steven Murawski                  | kitchen-hyperv             | 0.10.1
-  Stuart Preston                   | kitchen-azurerm            | 1.13.2
-  Test Kitchen Team                | kitchen-digitalocean       | 0.16.1
-  Test Kitchen Team                | kitchen-ec2                | 3.20.0
-  Test Kitchen Team                | kitchen-google             | 2.6.1
-  Thom May                         | chef-vault                 | 4.2.5
-  Thom May, Patrick Wright         | mixlib-install             | 3.12.30
-  Thom May, Tim Smith              | cookstyle                  | 7.32.8
-  Tim Emiola                       | googleauth                 | 0.17.1
-  Tim Smith                        | chef_deprecations          | 0.2.0
-  Trevor Rowe                      | jmespath rubygems          | 1.6.2
-  Tyler Brock, Durran Jordan,…     | bson-ruby                  | 4.15.0
-  > Brandon Black, Emily Stolfo,…  |                            |
-  > Gary Murakami                  |                            |
-  Tyler Brock, Emily Stolfo,…      | Mongo Ruby Driver          | 2.13.2
-  > Durran Jordan                  |                            |
-  lamont-granquist                 | libyajl2                   | 2.1.0
-  rdx.net, Kontena, Inc.           | k8s-ruby                   | 0.16.0
-  tyler-ball                       | license-acceptance         | 2.1.13
+  Adam Edwards                     | wmi-lite                | 1.0.7
+  Adam Jacob                       | knife                   | 18.10.18
+  Adam Jacob                       | opscode-ohai            | 18.2.8
+  Adam Leff                        | passwordmasker          | 1.2.0
+  Adam Leff, JJ Asghar             | vmware-vra              | 3.2.1
+  Amazon Web Services              | AWS SDK for Ruby        | 1.104.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.106.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.107.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.111.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.112.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.115.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.117.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.12.1
+  Amazon Web Services              | AWS SDK for Ruby        | 1.122.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.1220.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.131.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.138.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.141.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.143.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.145.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.146.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.160.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.163.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.175.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.19.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.211.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.213.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.221.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.26.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.29.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.3.1
+  Amazon Web Services              | AWS SDK for Ruby        | 1.308.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.32.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.39.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.4.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.40.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.41.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.43.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.45.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.46.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.51.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.53.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.55.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.60.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.605.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.62.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.69.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.71.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.73.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.76.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.77.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.80.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.85.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.90.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.91.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.92.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.93.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.94.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.96.0
+  Amazon Web Services              | AWS SDK for Ruby        | 1.97.0
+  Amazon Web Services              | aws-sdk-cloudwatch      | 1.131.0
+  Amazon Web Services              | aws-sdk-core-ruby       | 3.242.0
+  Barry Davis, Chirag Jog          | knife-azure             | 4.0.0
+  Bob Aman                         | Addressable URI parser  | 2.8.7
+  Bob Aman                         | sporkmonger's uuidtools | 2.2.0
+  Brad Geesaman                    | train-kubernetes        | 0.2.1
+  Charles Oliver Nutter,…          | thread_safe             | 0.3.6
+  > thedarkone                     |                         |
+  Chef Commmunity Tools Team       | kitchen-vra             | 3.3.3
+  Chef InSpec Core Engineering     | inspec/inspec           | 5.24.7
+  Chef InSpec Team                 | inspec-ruby             | 5.24.7
+  Chef InSpec Team                 | train                   | 3.16.1
+  Chef InSpec Team                 | train-aws               | 0.2.36
+  Chef InSpec Team                 | train-core              | 3.16.1
+  Chef InSpec Team                 | train-winrm             | 0.4.3
+  Chef Partner Engineering         | gcewinpass              | 1.1.0
+  Chef Partner Engineering         | knife-vcenter           | 5.0.5
+  Chef Release Engineering Team    | artifactory-client      | 3.0.17
+  Chef Software                    | dep-selector-libgecode  | 1.3.5
+  Chef Software                    | kitchen-vcenter         | 2.12.2
+  Chef Software                    | knife-vrealize          | 7.0.0
+  Chef Software, Inc               | chef-apply              | 0.9.6
+  Chef Software, Inc               | mixlib-log              | 3.1.2.1
+  Chef Software, Inc               | mixlib-shellout         | 3.3.9
+  Chef Software, Inc.              | Chef                    | 18.10.17
+  Chef Software, Inc.              | chef-cli                | 5.6.23
+  Chef Software, Inc.              | chefstyle               | 2.2.3
+  Chef Software, Inc.              | knife-tidy              | 2.3.2
+  Christopher Walters, Mark…       | dep_selector            | 1.0.6
+  > Anderson                       |                         |
+  Dan Wanek, Paul Morton, Matt…    | WinRM                   | 2.3.9
+  > Wrock, Shawn Neal              |                         |
+  Dan Wanek, Paul Morton, Matt…    | chef-winrm              | 2.5.0
+  > Wrock, Shawn Neal              |                         |
+  Daniel J. Berger                 | ffi-win32-extensions    | 1.0.4
+  Daniel J. Berger, Park Heesob    | win32-ipc               | 0.7.0
+  Daniel J. Berger, Park Heesob    | win32-security          | 0.5.0
+  Ezra Pagel                       | knife-vsphere           | 5.2.0
+  Fletcher Nichol                  | kitchen-vagrant         | 2.2.0
+  Fletcher Nichol                  | test-kitchen            | 3.9.1
+  Google LLC                       | Signet                  | 0.21.0
+  Google LLC                       | google-api-ruby-client  | 0.11.3
+  Google LLC                       | google-api-ruby-client  | 0.12.0
+  Google LLC                       | google-api-ruby-client  | 0.14.0
+  Google LLC                       | google-api-ruby-client  | 0.30.0
+  Google LLC                       | google-api-ruby-client  | 0.35.0
+  Google LLC                       | google-api-ruby-client  | 0.41.0
+  Google LLC                       | google-api-ruby-client  | 0.46.0
+  Google LLC                       | google-api-ruby-client  | 0.50.0
+  Google LLC                       | google-api-ruby-client  | 0.51.0
+  Google LLC                       | google-api-ruby-client  | 0.83.0
+  Gregory Ruiz-ade                 | vcoworkflows            | 0.2.1
+  Inspec Team                      | chef-licensing          | 1.4.0
+  Jamie Winsor                     | semverse                | 3.0.2
+  Jamie Winsor, Andrew Garson,…    | solve                   | 4.0.4
+  > Thibaud Guillaume-Gentil       |                         |
+  Jamie Winsor, Josiah Kiehl,…     | berkshelf               | 8.1.6
+  > Michael Ivey, Justin Campbell… |                         |
+  > , Seth Vargo                   |                         |
+  Jamie Winsor, Josiah Kiehl,…     | cookbook-omnifetch      | 0.12.2
+  > Michael Ivey, Justin Campbell… |                         |
+  > , Seth Vargo, Daniel DeLeo     |                         |
+  John Bellone, Jamie Winsor,…     | ffi-libarchive          | 1.1.14
+  > Frank Fischer                  |                         |
+  Jonathan Hartman, JJ Asghar      | kitchen-openstack       | 6.2.1
+  Kaustubh Deorukhkar, Ameya…      | knife-cloud             | 4.0.15
+  > Varade                         |                         |
+  Kimmo Lehto, Levi Aul, InSpec…   | yaml-safe_load_stream3  | 0.1.2
+  > Team                           |                         |
+  Lucas Mazza, George Guimarães,…  | faraday-http-cache      | 2.5.1
+  > Gustavo Araujo                 |                         |
+  Progress Software Corporation    | train-habitat           | 0.2.22
+  Sean OMeara                      | kitchen-dokken          | 2.22.2
+  Seth Chisamore, Christopher…     | mixlib-versioning       | 1.2.12
+  > Maier                          |                         |
+  Seth Vargo                       | chef-cleanroom          | 1.0.5
+  Shawn Neal                       | chef-winrm-elevated     | 1.2.5
+  Shawn Neal                       | winrm-elevated          | 1.2.3
+  Shawn Neal, Matt Wrock           | chef-winrm-fs           | 1.4.2
+  Shawn Neal, Matt Wrock           | winrm-fs                | 1.3.5
+  Steven Bazyl, Tim Emiola,…       | google-api-ruby-client  | 0.53.0
+  > Sergio Gomes, Bob Aman         |                         |
+  Steven Murawski                  | kitchen-hyperv          | 0.10.3
+  Stuart Preston                   | kitchen-azurerm         | 1.13.6
+  Test Kitchen Team                | kitchen-digitalocean    | 0.16.1
+  Test Kitchen Team                | kitchen-ec2             | 3.22.1
+  Test Kitchen Team                | kitchen-google          | 2.6.1
+  The MongoDB Ruby Team            | Mongo Ruby Driver       | 2.21.3
+  The MongoDB Ruby Team            | bson-ruby               | 5.2.0
+  Thom May                         | chef-vault              | 4.2.5
+  Thom May, Patrick Wright         | mixlib-install          | 3.12.30
+  Thom May, Tim Smith              | cookstyle               | 7.32.8
+  Tim Emiola                       | googleauth              | 1.8.1
+  Tim Smith                        | chef_deprecations       | 0.2.0
+  Trevor Rowe                      | jmespath rubygems       | 1.6.2
+  lamont-granquist                 | libyajl2                | 2.1.0
+  rdx.net, Kontena, Inc.           | k8s-ruby                | 0.16.0
+  tyler-ball                       | license-acceptance      | 2.1.13
 
 Artistic License 2.0:
   Chris Chernesky                               | net-ping            | 2.0.8
@@ -211,13 +193,13 @@ Artistic License 2.0:
   Park Heesob, Daniel J. Berger                 | win32-taskscheduler | 2.0.4
 
 BSD 2-Clause "Simplified" License:
+  Akinori MUSHA                    | abbrev                | 0.1.2
   Akinori MUSHA                    | digest                | 3.2.1
   Akinori MUSHA                    | public_suffix_service | 0.6.20240107
-  Akinori MUSHA                    | syslog                | 0.3.0
   Akira Yamada                     | uri                   | 1.0.4
   Ara T. Howard                    | ahoward/options       | 2.3.2
   Austin Ziegler                   | minitar               | 1.1.0
-  Daniel Luz                       | JSON for Ruby         | 2.14.1
+  Daniel Luz                       | JSON for Ruby         | 2.18.1
   David Rodriguez, Kent Sibilev,…  | byebug                | 12.0.0
   > Mark Moseley                   |                       |
   Hiroshi Nakamura                 | nahi's httpclient     | 2.9.0
@@ -236,27 +218,32 @@ BSD 2-Clause "Simplified" License:
   Minero Aoki, Sutou Kouhei,…      | strscan               | 3.1.5
   > Charles Oliver Nutter          |                       |
   Naotoshi Seo, SHIBATA Hiroshi    | ruby/logger           | 1.5.3
-  Nobu Nakada                      | io-console            | 0.8.1
-  Nobu Nakada, Charles Oliver…     | stringio              | 3.1.8
+  Nobu Nakada                      | io-console            | 0.8.2
+  Nobu Nakada, Charles Oliver…     | stringio              | 3.2.0
   > Nutter                         |                       |
   Nobuyoshi Nakada                 | ruby2_keywords        | 0.0.5
   Robert Haines, John Lees-Miller… | RubyZip               | 2.4.1
   > , Alexander Simonov            |                       |
-  Shugo Maeda                      | net-ftp               | 0.3.8
+  Shugo Maeda                      | net-ftp               | 0.3.9
   Shugo Maeda                      | net-imap              | 0.2.5
-  TAKAHASHI Masayoshi, GOTOU…      | webrick               | 1.9.1
+  Stephan Maka, Andrey Kouznetsov… | Ruby-SOCKSify         | 1.8.1
+  > , Christopher Thorpe, Musy…    |                       |
+  > Bite, Yuichi Tateno, David…    |                       |
+  > Dollar                         |                       |
+  TAKAHASHI Masayoshi, GOTOU…      | webrick               | 1.9.2
   > YUUZOU, Eric Wong              |                       |
-  Tadayoshi Funaba                 | date                  | 3.5.0
+  Tadayoshi Funaba                 | date                  | 3.5.1
   Tanaka Akira                     | pp                    | 0.6.3
   Tanaka Akira                     | prettyprint           | 0.2.0
   Tanaka Akira                     | securerandom          | 0.4.1
-  Tanaka Akira                     | timingfuction         | 0.4.1
+  Tanaka Akira                     | timingfuction         | 0.4.2
   Yukihiro Matsumoto               | net-protocol          | 0.2.2
+  Yukihiro Matsumoto               | pstore                | 0.1.4
   Yukihiro Matsumoto               | ruby/benchmark        | 0.5.0
-  Yukihiro Matsumoto               | timeout               | 0.4.4
+  Yukihiro Matsumoto               | timeout               | 0.6.0
   Yusuke Endoh                     | base64                | 0.3.0
   aycabta                          | reline                | 0.6.3
-  aycabta, Keiju ISHITSUKA         | irb                   | 1.15.3
+  aycabta, Keiju ISHITSUKA         | irb                   | 1.17.0
 
 BSD 3-Clause "New" or "Revised" License:
   Park Heesob, Daniel Berger,…     | rb-readline   | 0.5.5
@@ -280,6 +267,7 @@ GNU Lesser General Public License v3.0 only:
   Andrey Sitnik, Alexander Popov | ai's r18n | 5.0.1
 
 Internal Progress Product License: (*)
+  Progress Software Corporation | Chef                  | 18.6.6
   Progress Software Corporation | appbundler            | 0.13.4
   Progress Software Corporation | chef-telemetry        | 1.1.1
   Progress Software Corporation | chef-zero             | 15.0.26
@@ -300,11 +288,11 @@ MIT License:
   @iMacTia                         | faraday-rack                  | 1.0.0
   @technoweenie, @iMacTia, …       | technoweenie's faraday        | 1.10.5
   > @olleolleolle                  |                               |
-  Aaron Patterson, SHIBATA…        | psych                         | 5.2.6
+  Aaron Patterson, SHIBATA…        | psych                         | 5.3.1
   > Hiroshi, Charles Oliver Nutter |                               |
   Adam Grare, Jason Frey           | rbvmomi                       | 3.8.0
   Adam Meehan                      | adzap/timeliness              | 0.3.10
-  Akinori MUSHA, Aaron Patterson,… | http-cookie                   | 1.0.8
+  Akinori MUSHA, Aaron Patterson,… | http-cookie                   | 1.1.0
   > Eric Hodel, Mike Dalessio      |                               |
   Ammar Ali, Janosch Müller        | regexp_parser                 | 2.11.3
   Andrew Crump, Seth Vargo         | chefspec                      | 9.3.8
@@ -312,14 +300,14 @@ MIT License:
   Anthony Williams                 | antw's iniparse               | 1.5.0
   Arnau Siches                     | arnau/iso8601                 | 0.13.0
   Austin Ziegler                   | halostatue/diff-lcs           | 1.5.1
-  Austin Ziegler                   | mime-types-data               | 3.2025.0916
+  Austin Ziegler                   | mime-types-data               | 3.2026.0224
   Austin Ziegler                   | ruby-mime-types               | 3.7.0
   Ben Bleything, Patrick May       | bleything's plist             | 3.7.2
   Bozhidar Batsov, Jonas…          | rubocop                       | 1.25.1
   > Arvidsson, Yuji Nakayama       |                               |
-  Bozhidar Batsov, Jonas…          | rubocop-ast                   | 1.46.0
+  Bozhidar Batsov, Jonas…          | rubocop-ast                   | 1.49.0
   > Arvidsson, Yuji Nakayama       |                               |
-  Brian Durand                     | bdurand/lumberjack            | 1.4.1
+  Brian Durand                     | bdurand/lumberjack            | 1.4.2
   Brian Lopez, Lloyd Hilaiel       | yajl-ruby                     | 1.4.3
   Cezary Baginski                  | nenv                          | 0.3.0
   Cezary Baginski                  | shellany                      | 0.0.1
@@ -330,13 +318,14 @@ MIT License:
   Dan Kubb, Piotr Solnica, Markus… | descendants_tracker           | 0.0.4
   > Schirp                         |                               |
   Dan Wanek                        | gssapi                        | 1.3.1
-  Daniel Harrington                | chef-gyoku                    | 1.4.5
+  Daniel Harrington                | chef-gyoku                    | 1.5.0
   Daniel Harrington                | gyoku                         | 1.4.0
-  Daniel Harrington, John…         | savonrb/nori                  | 2.7.0
+  Daniel Harrington, John…         | savonrb/nori                  | 2.7.1
   > Nunemaker, Wynn Netherland     |                               |
   David Chelimsky, Myron Marson,…  | rspec-support                 | 3.12.2
   > Jon Rowe, Sam Phippen,…        |                               |
   > Xaviery Shay, Bradley Schaefer |                               |
+  David Heinemeier Hansson         | Ruby on Rails                 | 7.2.3
   David Rodríguez, Gopal Patel     | pry-byebug                    | 3.11.0
   DigitalOcean API Engineering…    | droplet_kit                   | 3.19.0
   > team                           |                               |
@@ -344,12 +333,13 @@ MIT License:
   > team                           |                               |
   DigitalOcean Engineering         | resource_kit                  | 0.1.8
   Dominik Honnef                   | filesize                      | 0.2.0
-  Emiliano Mancuso, Lucas…         | toml-rb                       | 4.0.0
+  Emiliano Mancuso, Lucas…         | toml-rb                       | 4.1.0
   > Tolchinsky                     |                               |
   Eric Hodel; Chris Powell;…       | syslog-logger                 | 1.6.8
   > Matthew Boeh; Ian Lesperance;… |                               |
   > Dana Danger; Brian Smith;…     |                               |
   > Ashley Martens                 |                               |
+  Erik Michaels-Ober               | rubygems/gems                 | 1.3.0
   Erik Michaels-Ober, Wynn…        | lostisland/faraday_middleware | 1.2.1
   > Netherland                     |                               |
   Evan Light, Wesley Beary         | fog-core                      | 2.5.0
@@ -366,8 +356,8 @@ MIT License:
   J.R. Garcia                      | vsphere-automation-sdk        | 0.4.7
   J.R. Garcia                      | vsphere-automation-vapi       | 0.4.7
   J.R. Garcia                      | vsphere-automation-vcenter    | 0.4.7
-  Jack Chu                         | retriable                     | 3.1.2
-  James Miller                     | bensie/sshkey                 | 3.0.0
+  Jack Chu                         | retriable                     | 3.2.1
+  James Miller                     | bensie/sshkey                 | 2.0.0
   Jamis Buck, Delano Mandelbaum    | net-ssh-multi                 | 1.2.1
   Jamis Buck, Delano Mandelbaum,…  | net-scp                       | 4.1.0
   > Miklós Fazekas                 |                               |
@@ -380,7 +370,7 @@ MIT License:
   Jan Lelis                        | unicode-display_width         | 2.6.0
   Jan van der Pas                  | faraday-net_http              | 1.0.2
   Jeremy Evans, kuwata-lab.com     | erubi                         | 1.13.1
-  Jerry D'Antonio, Petr Chalupa,…  | concurrent-ruby               | 1.3.5
+  Jerry D'Antonio, Petr Chalupa,…  | concurrent-ruby               | 1.3.6
   > The Ruby Concurrency Team      |                               |
   Jim Weirich, Aaron Patterson     | jimweirich's builder          | 3.3.0
   John Mair (banisterfiend)        | binding_of_caller             | 1.0.1
@@ -391,32 +381,25 @@ MIT License:
   > Conrad Irwin, Ryan Fitzgerald… |                               |
   > , Kyrylo Silin                 |                               |
   Joshua Hull, Gergely Brautigam   | joshbuddy's jsonpath          | 1.1.5
-  Joshua Peek, Tarmo Tänav,…       | memoist                       | 0.16.2
-  > Jeremy Kemper, Eugene Pimenov… |                               |
-  > , Xavier Noria, Niels Ganser,… |                               |
-  > Carl Lerche & Yehuda Katz,…    |                               |
-  > jeem, Jay Pignata, Damien…     |                               |
-  > Mathieu, José Valim, Matthew…  |                               |
-  > Rudy Jacobs                    |                               |
   Kaspar Schiess                   | Parslet                       | 2.0.0
   Kohei Kajimoto, Paul Morton      | rubyntlm                      | 0.6.5
   Kornelius Kalnbach               | rubychan's coderay            | 1.1.3
   Kris Leech                       | wisper                        | 2.0.1
-  Lamont Granquist                 | ffi-yajl                      | 2.6.0
+  Lamont Granquist                 | ffi-yajl                      | 2.7.7
   Leah Neukirchen                  | Rack                          | 3.2.5
-  Lee Jarvis                       | leejarvis/slop                | 3.6.0
+  Lee Jarvis                       | slop                          | 3.6.0
   Liu Fengyun                      | hashdiff                      | 1.0.1
   Luca Guidi, Andrii Savchenko,…   | dry-inflector                 | 1.2.0
   > Abinoam P. Marques Jr.         |                               |
   Luis Lavena, Mike Dalessio,…     | mini_portile2                 | 2.8.9
   > Lars Kanis                     |                               |
   Marcin Kulik, Olle Jonsson       | sickill's rainbow             | 3.1.1
-  Mark Harrison                    | mdl                           | 0.13.0
+  Mark Harrison                    | mdl                           | 0.14.0
   Matt Darby                       | fog-openstack                 | 1.1.5
-  Mattia Giuffrida                 | faraday-multipart             | 1.1.1
+  Mattia Giuffrida                 | faraday-multipart             | 1.2.0
   Mattia Giuffrida                 | faraday-retry                 | 1.0.3
-  Michael Bleigh, Jerry Cheung     | hashie                        | 5.0.0
-  Michael Bleigh, Josh Kalderimis… | multi_json                    | 1.17.0
+  Michael Bleigh, Jerry Cheung     | hashie                        | 5.1.0
+  Michael Bleigh, Josh Kalderimis… | multi_json                    | 1.19.1
   > , Erik Berlin, Pavel Pravosud  |                               |
   Michael Grosser                  | grosser's parallel            | 1.27.0
   Michael Jackson                  | mjijackson's citrus           | 3.0.2
@@ -426,13 +409,13 @@ MIT License:
   Microsoft Corporation            | azure-sdk-for-python          | 0.26.1
   Microsoft Corporation            | azure_graph_rbac              | 0.17.2
   Microsoft Corporation            | azure_mgmt_key_vault          | 0.17.7
-  Microsoft Corporation            | azure_mgmt_network2           | 1.0.1
-  Microsoft Corporation            | azure_mgmt_resources2         | 1.0.1
+  Microsoft Corporation            | azure_mgmt_network2           | 1.1.0
+  Microsoft Corporation            | azure_mgmt_resources2         | 1.1.0
   Microsoft Corporation            | azure_mgmt_security           | 0.19.0
   Microsoft Corporation            | ms_rest                       | 0.7.6
-  Microsoft Corporation            | ms_rest2                      | 1.0.0
+  Microsoft Corporation            | ms_rest2                      | 1.1.0
   Microsoft Corporation            | ms_rest_azure                 | 0.12.0
-  Microsoft Corporation            | ms_rest_azure2                | 1.0.0
+  Microsoft Corporation            | ms_rest_azure2                | 1.1.0
   Mike Dalessio, Aaron Patterson,… | nokogiri                      | 1.18.10
   > Yoko Harada, Akinori MUSHA,…   |                               |
   > John Shahid, Karol Bucek, Sam… |                               |
@@ -440,6 +423,7 @@ MIT License:
   > Checkoway, Lars Kanis, Sergio… |                               |
   > Arbeo, Timothy Elliott,…       |                               |
   > Nobuyoshi Nakada               |                               |
+  Mike Perham, Damian Janowski     | connection_pool               | 2.5.5
   Mike Rogers                      | faraday-net_http_persistent   | 1.2.0
   Miklos Fazekas                   | bcrypt_pbkdf-ruby             | 1.1.2.rc1
   Natalie Weizenbaum, Samuel…      | rb-inotify                    | 0.11.1
@@ -494,36 +478,36 @@ MIT License:
   Piotr Solnica                    | virtus                        | 2.0.0
   REST Client Team                 | adamwiggins's rest-client     | 2.1.0
   Rich Lane, Christian Dickmann    | rbvmomi                       | 3.0.0
-  Rick Olson, Wynn Netherland      | lostisland/sawyer             | 0.9.2
+  Rick Olson, Wynn Netherland      | lostisland/sawyer             | 0.9.3
   Ryan Davis                       | minitest                      | 5.26.2
+  Ryan Davis                       | minitest                      | 5.27.0
   Sam Saffron                      | mini_mime                     | 1.1.5
   Samuel E. Giddins                | CocoaPods/molinillo           | 0.8.0
   Samuel Kadolph                   | proxifier2                    | 1.1.0
   Samuel Williams                  | http-accept                   | 1.7.0
-  Samuel Williams, James Tucker,…  | rackup                        | 2.2.1
+  Samuel Williams, James Tucker,…  | rackup                        | 2.3.1
   > Leah Neukirchen, Jeremy Evans… |                               |
   > , Joshua Peek, Megan Batty,…   |                               |
-  > Rafael Fran√ßa, Anurag Priyam… |                               |
-  > , Max Cantor, Michael…         |                               |
-  > Fellinger, Sophie Deziel,…     |                               |
-  > Yoshiyuki Hirano, Aaron…       |                               |
-  > Patterson, Jean Boussier,…     |                               |
-  > Katsuhiko Yoshida, Konstantin… |                               |
-  > Haase, Krzysztof Rybka,…       |                               |
-  > Martin Hrdlicka, Nick LaMuro,… |                               |
-  > Aaron Pfeifer, Akira Matsuda,… |                               |
-  > Andrew Bortz, Andrew Hoglund,… |                               |
-  > Bas Vodde, Blake Mizerany,…    |                               |
-  > Carl Lerche, David Celis,…     |                               |
-  > Dillon Welch, Genki Takiuchi,… |                               |
-  > Geremia Taglialatela, Hal…     |                               |
-  > Brodigan, Hrvoje ≈†imiƒá,…     |                               |
-  > Igor Bochkariov, Jeremy…       |                               |
+  > Rafael França, Anurag Priyam,… |                               |
+  > Max Cantor, Michael Fellinger… |                               |
+  > , Sophie Deziel, Yoshiyuki…    |                               |
+  > Hirano, Aaron Patterson, Jean… |                               |
+  > Boussier, Katsuhiko Yoshida,…  |                               |
+  > Konstantin Haase, Krzysztof…   |                               |
+  > Rybka, Martin Hrdlicka, Nick…  |                               |
+  > LaMuro, Aaron Pfeifer, Akira…  |                               |
+  > Matsuda, Andrew Bortz, Andrew… |                               |
+  > Hoglund, Bas Vodde, Blake…     |                               |
+  > Mizerany, Carl Lerche, David…  |                               |
+  > Celis, Dillon Welch, Genki…    |                               |
+  > Takiuchi, Geremia Taglialatel… |                               |
+  > a, Hal Brodigan, Hrvoje Šimić… |                               |
+  > , Igor Bochkariov, Jeremy…     |                               |
   > Kemper, Joe Fiorini, John…     |                               |
   > Barnette, John Sumsion, Julik… |                               |
   > Tarkhanov, Kang Sheng, Kazuya… |                               |
   > Hotta, Lenny Marks, Loren…     |                               |
-  > Segal, Marc-Andr√© Cournoyer,… |                               |
+  > Segal, Marc-André Cournoyer,…  |                               |
   > Misaki Shioi, Olle Jonsson,…   |                               |
   > Peter Wilmott, Petrik de Heus… |                               |
   > , Richard Schneeman,…          |                               |
@@ -534,9 +518,9 @@ MIT License:
   > Tsutomu Kuroda, Uchio Kondo,…  |                               |
   > Wyatt Pan, Yehuda Katz,…       |                               |
   > Zachary Scott                  |                               |
-  Sebastian Cohnen                 | faraday-follow_redirects      | 0.3.0
+  Sebastian Cohnen                 | faraday-follow_redirects      | 0.5.0
   Seth Vargo, Tim Smith            | fauxhai-chef                  | 9.3.26
-  Shopify                          | mwunsch's prism               | 1.5.1
+  Shopify                          | mwunsch's prism               | 1.9.0
   Simone Carletti                  | Ruby Public Suffix            | 6.0.2
   Steven Baker, David Chelimsky,…  | RSpec                         | 3.12.3
   > Chad Humphries, Myron Marston  |                               |
@@ -544,17 +528,16 @@ MIT License:
   > Myron Marston                  |                               |
   Steven Baker, David Chelimsky,…  | RSpec                         | 3.12.7
   > Myron Marston                  |                               |
-  Sven Fuchs, Joshua Harvey, Matt… | ruby-i18n                     | 1.14.7
+  Sven Fuchs, Joshua Harvey, Matt… | ruby-i18n                     | 1.14.8
   > Aimonetti, Stephan Soller,…    |                               |
   > Saimon Moore, Ryan Bigg        |                               |
   Swipely, Inc.                    | docker-api                    | 2.4.0
   Takeru Ohta, Akinori MUSHA       | unf_ext                       | 0.0.8.2
-  Tatsuhiko Miyagawa               | faraday-cookie_jar            | 0.0.7
+  Tatsuhiko Miyagawa               | faraday-cookie_jar            | 0.0.8
+  Tatsuhiko Miyagawa               | faraday-cookie_jar2           | 0.1.0
   Thibaud Guillaume-Gentil         | Guard                         | 2.19.0
-  Thibaud Guillaume-Gentil         | guard/listen                  | 3.9.0
   Thibaud Guillaume-Gentil,…       | rb-fsevent                    | 0.11.2
   > Travis Tilley                  |                               |
-  Thomas Leitner                   | kramdown                      | 2.5.1
   Thomas Leitner                   | kramdown-parser-gfm           | 1.1.0
   Tim Pease                        | TwP's inifile                 | 3.0.0
   Tim Pease                        | TwP's logging                 | 2.4.0
@@ -571,16 +554,17 @@ MIT License:
   > -Ober, Clint Shryock           |                               |
   Xavier Noria                     | zeitwerk                      | 2.6.18
   Yehuda Katz, José Valim          | Thor                          | 1.4.0
+  Zach Aysan                       | yajl                          | 0.3.4
   bluemonk, mikemackintosh         | ipaddress-gem/ipaddress       | 0.8.3
   dpiddy (Dan Peterson), geemus …  | excon                         | 0.112.0
   > (Wesley Beary), nextmat (Matt… |                               |
   > Sanders)                       |                               |
-  geemus (Wesley Beary)            | formatador                    | 1.2.0
+  geemus (Wesley Beary)            | formatador                    | 1.2.3
   makoto kuwata                    | erubis                        | 2.7.0
   rdp, David McCullars             | rdp's os                      | 1.1.4
   thekompanee, jfelchner           | jfelchner/ruby-progressbar    | 1.13.0
   whitequark                       | ast                           | 2.4.3
-  whitequark                       | parser                        | 3.3.9.0
+  whitequark                       | parser                        | 3.3.10.2
 
 Mozilla Public License 2.0:
   Dominik Richter | sslshake | 1.3.1
@@ -604,24 +588,15 @@ The Product contains HighLine 2.1.0, RDoc 6.4.1.1, ahoward's lockfile 2.1.3,
 net-ping 2.0.8, sslshake 1.3.1, vault 0.18.2, win32-api 1.10.1, win32-dir
 0.7.2, win32-event 0.6.3, win32-eventlog 0.6.3, win32-mmap 0.4.2, win32-mutex
 0.4.3, win32-process 0.10.0, win32-service 2.3.2, win32-taskscheduler 2.0.4,
-windows-api 0.4.5, windows-pr 1.2.6, and ai's r18n 5.0.1. These third-party 
-technologies are licensed to PSC and User is subject to the terms of a 
-third-party license, a copy of which is included herein. PSC will, at 
-Licensee's request, provide a copy of the source code for this third-party
-technology, including modifications, if any, made by PSC. PSC may charge 
-reasonable shipping and handling charges for such distribution. Licensee may
-also obtain the source code for these third-party technologies through
+windows-api 0.4.5, and windows-pr 1.2.6. These third-party technologies are
+licensed to PSC and User is subject to the terms of a third-party license, a
+copy of which is included herein. PSC will, at Licensee's request, provide a
+copy of the source code for this third-party technology, including
+modifications, if any, made by PSC. PSC may charge reasonable shipping and
+handling charges for such distribution. Licensee may also obtain the source
+code for these third-party technologies through
 http://iue.progress.com/3dpartysoftwares/Pages/default.aspx by following the
 instructions set forth therein.
-
-The product contains ai's r18n 5.0.1. This technology is subject to the terms of the
-GNU Library General Public License Version 2 (“LGPL v2”), GNU Lesser General Public 
-License Version 2.1 (“LGPL v2.1”) or GNU Lesser General Public License Version 3
-(“LGPL v3”).  In compliance with such Licenses, PSC provides You with reverse 
-engineering permission solely to the extent necessary in order to debug 
-modifications made to libraries licensed under the LGPL v2, LGPL v2.1, or LGPL v3
-(as identified above).
-
 
 1. Special Notices Regarding Open-Source Third-Party Components incorporated
 into the Product. Such technology is subject to the following terms and
@@ -629,56 +604,53 @@ conditions:
 
 (1) Apache License 2.0:
 
-Progress Chef Workstation 25.13 incorporates AWS SDK for Ruby 1.101.0, AWS SDK
-for Ruby 1.103.0, AWS SDK for Ruby 1.106.0, AWS SDK for Ruby 1.108.0, AWS SDK
-for Ruby 1.110.0, AWS SDK for Ruby 1.111.0, AWS SDK for Ruby 1.118.0, AWS SDK
-for Ruby 1.1196.0, AWS SDK for Ruby 1.12.1, AWS SDK for Ruby 1.121.0, AWS SDK
-for Ruby 1.124.0, AWS SDK for Ruby 1.126.0, AWS SDK for Ruby 1.127.0, AWS SDK
-for Ruby 1.129.0, AWS SDK for Ruby 1.133.0, AWS SDK for Ruby 1.137.0, AWS SDK
-for Ruby 1.139.0, AWS SDK for Ruby 1.142.0, AWS SDK for Ruby 1.145.0, AWS SDK
-for Ruby 1.146.0, AWS SDK for Ruby 1.147.0, AWS SDK for Ruby 1.153.0, AWS SDK
-for Ruby 1.160.0, AWS SDK for Ruby 1.19.0, AWS SDK for Ruby 1.202.0, AWS SDK
-for Ruby 1.203.0, AWS SDK for Ruby 1.208.0, AWS SDK for Ruby 1.26.0, AWS SDK
-for Ruby 1.29.0, AWS SDK for Ruby 1.290.0, AWS SDK for Ruby 1.3.1, AWS SDK for
-Ruby 1.32.0, AWS SDK for Ruby 1.39.0, AWS SDK for Ruby 1.4.0, AWS SDK for Ruby
-1.40.0, AWS SDK for Ruby 1.41.0, AWS SDK for Ruby 1.43.0, AWS SDK for Ruby
-1.45.0, AWS SDK for Ruby 1.46.0, AWS SDK for Ruby 1.48.0, AWS SDK for Ruby
-1.51.0, AWS SDK for Ruby 1.53.0, AWS SDK for Ruby 1.554.0, AWS SDK for Ruby
-1.56.0, AWS SDK for Ruby 1.60.0, AWS SDK for Ruby 1.62.0, AWS SDK for Ruby
-1.70.0, AWS SDK for Ruby 1.71.0, AWS SDK for Ruby 1.73.0, AWS SDK for Ruby
-1.75.0, AWS SDK for Ruby 1.76.0, AWS SDK for Ruby 1.77.0, AWS SDK for Ruby
-1.79.0, AWS SDK for Ruby 1.80.0, AWS SDK for Ruby 1.82.0, AWS SDK for Ruby
-1.83.0, AWS SDK for Ruby 1.84.0, AWS SDK for Ruby 1.86.0, AWS SDK for Ruby
-1.87.0, AWS SDK for Ruby 1.90.0, AWS SDK for Ruby 1.92.0, AWS SDK for Ruby
-1.93.0, AWS SDK for Ruby 1.96.0, AWS SDK for Ruby 1.99.0, Addressable URI
-parser 2.8.7, Chef 18.1.0, Chef 18.8.11, Mongo Ruby Driver 2.13.2, Signet
-0.21.0, WinRM 2.3.8, aws-sdk-cloudwatch 1.120.0, aws-sdk-core-ruby 3.240.0,
-berkshelf 8.1.6, bson-ruby 4.15.0, chef-apply 0.9.6, chef-cleanroom 1.0.5,
-chef-cli 5.6.23, chef-licensing 1.0.4, chef-vault 4.2.5, chef-winrm 2.3.12,
-chef-winrm-elevated 1.2.5, chef-winrm-fs 1.3.7, chef_deprecations 0.2.0,
+Progress Chef Workstation 25.13 incorporates AWS SDK for Ruby 1.104.0, AWS SDK
+for Ruby 1.106.0, AWS SDK for Ruby 1.107.0, AWS SDK for Ruby 1.111.0, AWS SDK
+for Ruby 1.112.0, AWS SDK for Ruby 1.115.0, AWS SDK for Ruby 1.117.0, AWS SDK
+for Ruby 1.12.1, AWS SDK for Ruby 1.122.0, AWS SDK for Ruby 1.1220.0, AWS SDK
+for Ruby 1.131.0, AWS SDK for Ruby 1.138.0, AWS SDK for Ruby 1.141.0, AWS SDK
+for Ruby 1.143.0, AWS SDK for Ruby 1.145.0, AWS SDK for Ruby 1.146.0, AWS SDK
+for Ruby 1.160.0, AWS SDK for Ruby 1.163.0, AWS SDK for Ruby 1.175.0, AWS SDK
+for Ruby 1.19.0, AWS SDK for Ruby 1.211.0, AWS SDK for Ruby 1.213.0, AWS SDK
+for Ruby 1.221.0, AWS SDK for Ruby 1.26.0, AWS SDK for Ruby 1.29.0, AWS SDK for
+Ruby 1.3.1, AWS SDK for Ruby 1.308.0, AWS SDK for Ruby 1.32.0, AWS SDK for Ruby
+1.39.0, AWS SDK for Ruby 1.4.0, AWS SDK for Ruby 1.40.0, AWS SDK for Ruby
+1.41.0, AWS SDK for Ruby 1.43.0, AWS SDK for Ruby 1.45.0, AWS SDK for Ruby
+1.46.0, AWS SDK for Ruby 1.51.0, AWS SDK for Ruby 1.53.0, AWS SDK for Ruby
+1.55.0, AWS SDK for Ruby 1.60.0, AWS SDK for Ruby 1.605.0, AWS SDK for Ruby
+1.62.0, AWS SDK for Ruby 1.69.0, AWS SDK for Ruby 1.71.0, AWS SDK for Ruby
+1.73.0, AWS SDK for Ruby 1.76.0, AWS SDK for Ruby 1.77.0, AWS SDK for Ruby
+1.80.0, AWS SDK for Ruby 1.85.0, AWS SDK for Ruby 1.90.0, AWS SDK for Ruby
+1.91.0, AWS SDK for Ruby 1.92.0, AWS SDK for Ruby 1.93.0, AWS SDK for Ruby
+1.94.0, AWS SDK for Ruby 1.96.0, AWS SDK for Ruby 1.97.0, Addressable URI
+parser 2.8.7, Chef 18.10.17, Mongo Ruby Driver 2.21.3, Signet 0.21.0, WinRM
+2.3.9, artifactory-client 3.0.17, aws-sdk-cloudwatch 1.131.0, aws-sdk-core-ruby
+3.242.0, berkshelf 8.1.6, bson-ruby 5.2.0, chef-apply 0.9.6, chef-cleanroom
+1.0.5, chef-cli 5.6.23, chef-licensing 1.4.0, chef-vault 4.2.5, chef-winrm
+2.5.0, chef-winrm-elevated 1.2.5, chef-winrm-fs 1.4.2, chef_deprecations 0.2.0,
 chefstyle 2.2.3, cookbook-omnifetch 0.12.2, cookstyle 7.32.8,
 dep-selector-libgecode 1.3.5, dep_selector 1.0.6, faraday-http-cache 2.5.1,
 ffi-libarchive 1.1.14, ffi-win32-extensions 1.0.4, gcewinpass 1.1.0,
-google-api-ruby-client 0.11.3, google-api-ruby-client 0.30.0,
+google-api-ruby-client 0.11.3, google-api-ruby-client 0.12.0,
+google-api-ruby-client 0.14.0, google-api-ruby-client 0.30.0,
 google-api-ruby-client 0.35.0, google-api-ruby-client 0.41.0,
 google-api-ruby-client 0.46.0, google-api-ruby-client 0.50.0,
-google-api-ruby-client 0.51.0, google-api-ruby-client 0.52.0,
-google-api-ruby-client 0.83.0, googleauth 0.17.1, inspec-ruby 5.22.95,
-inspec/inspec 5.22.95, jmespath rubygems 1.6.2, k8s-ruby 0.16.0,
-kitchen-azurerm 1.13.2, kitchen-digitalocean 0.16.1, kitchen-dokken 2.22.2,
-kitchen-ec2 3.20.0, kitchen-google 2.6.1, kitchen-hyperv 0.10.1, kitchen-inspec
-3.0.0, kitchen-openstack 6.2.1, kitchen-vagrant 2.2.0, kitchen-vcenter 2.12.2,
-kitchen-vra 3.3.3, knife 18.8.68, knife-azure 4.0.0, knife-cloud 4.0.15,
-knife-ec2 2.1.6, knife-google 5.0.11, knife-tidy 2.3.2, knife-vcenter 5.0.5,
-knife-vrealize 7.0.0, knife-vsphere 5.2.0, knife-windows 4.0.7, libyajl2 2.1.0,
+google-api-ruby-client 0.51.0, google-api-ruby-client 0.53.0,
+google-api-ruby-client 0.83.0, googleauth 1.8.1, inspec-ruby 5.24.7,
+inspec/inspec 5.24.7, jmespath rubygems 1.6.2, k8s-ruby 0.16.0, kitchen-azurerm
+1.13.6, kitchen-digitalocean 0.16.1, kitchen-dokken 2.22.2, kitchen-ec2 3.22.1,
+kitchen-google 2.6.1, kitchen-hyperv 0.10.3, kitchen-openstack 6.2.1,
+kitchen-vagrant 2.2.0, kitchen-vcenter 2.12.2, kitchen-vra 3.3.3, knife
+18.10.18, knife-azure 4.0.0, knife-cloud 4.0.15, knife-tidy 2.3.2,
+knife-vcenter 5.0.5, knife-vrealize 7.0.0, knife-vsphere 5.2.0, libyajl2 2.1.0,
 license-acceptance 2.1.13, mixlib-install 3.12.30, mixlib-log 3.1.2.1,
-mixlib-shellout 3.3.9, mixlib-versioning 1.2.12, opscode-ohai 18.2.6,
-opscode/artifactory-client 3.0.17, passwordmasker 1.2.0, semverse 3.0.2, solve
-4.0.4, sporkmonger's uuidtools 2.2.0, test-kitchen 3.9.1, thread_safe 0.3.6,
-train 3.12.13, train-aws 0.2.36, train-core 3.12.13, train-habitat 0.2.22,
-train-kubernetes 0.2.1, train-winrm 0.2.19, vcoworkflows 0.2.1, vmware-vra
-3.2.1, win32-ipc 0.7.0, win32-security 0.5.0, winrm-elevated 1.2.3, winrm-fs
-1.3.5, wmi-lite 1.0.7, and yaml-safe_load_stream3 0.1.2.
+mixlib-shellout 3.3.9, mixlib-versioning 1.2.12, opscode-ohai 18.2.8,
+passwordmasker 1.2.0, semverse 3.0.2, solve 4.0.4, sporkmonger's uuidtools
+2.2.0, test-kitchen 3.9.1, thread_safe 0.3.6, train 3.16.1, train-aws 0.2.36,
+train-core 3.16.1, train-habitat 0.2.22, train-kubernetes 0.2.1, train-winrm
+0.4.3, vcoworkflows 0.2.1, vmware-vra 3.2.1, win32-ipc 0.7.0, win32-security
+0.5.0, winrm-elevated 1.2.3, winrm-fs 1.3.5, wmi-lite 1.0.7, and
+yaml-safe_load_stream3 0.1.2.
 
   Apache License Version 2.0, January 2004
   =========================
@@ -869,35 +841,38 @@ train-kubernetes 0.2.1, train-winrm 0.2.19, vcoworkflows 0.2.1, vmware-vra
     governing permissions and limitations under the License.
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Contents of NOTICE text file for AWS SDK for Ruby 1.101.0, AWS SDK for Ruby
-1.103.0, AWS SDK for Ruby 1.106.0, AWS SDK for Ruby 1.108.0, AWS SDK for Ruby
-1.110.0, AWS SDK for Ruby 1.111.0, AWS SDK for Ruby 1.118.0, AWS SDK for Ruby
-1.1196.0, AWS SDK for Ruby 1.12.1, AWS SDK for Ruby 1.121.0, AWS SDK for Ruby
-1.124.0, AWS SDK for Ruby 1.126.0, AWS SDK for Ruby 1.127.0, AWS SDK for Ruby
-1.129.0, AWS SDK for Ruby 1.133.0, AWS SDK for Ruby 1.137.0, AWS SDK for Ruby
-1.139.0, AWS SDK for Ruby 1.142.0, AWS SDK for Ruby 1.145.0, AWS SDK for Ruby
-1.146.0, AWS SDK for Ruby 1.147.0, AWS SDK for Ruby 1.153.0, AWS SDK for Ruby
-1.160.0, AWS SDK for Ruby 1.19.0, AWS SDK for Ruby 1.202.0, AWS SDK for Ruby
-1.203.0, AWS SDK for Ruby 1.208.0, AWS SDK for Ruby 1.26.0, AWS SDK for Ruby
-1.29.0, AWS SDK for Ruby 1.290.0, AWS SDK for Ruby 1.3.1, AWS SDK for Ruby
-1.32.0, AWS SDK for Ruby 1.39.0, AWS SDK for Ruby 1.4.0, AWS SDK for Ruby
-1.40.0, AWS SDK for Ruby 1.41.0, AWS SDK for Ruby 1.43.0, AWS SDK for Ruby
-1.45.0, AWS SDK for Ruby 1.46.0, AWS SDK for Ruby 1.48.0, AWS SDK for Ruby
-1.51.0, AWS SDK for Ruby 1.53.0, AWS SDK for Ruby 1.554.0, AWS SDK for Ruby
-1.56.0, AWS SDK for Ruby 1.60.0, AWS SDK for Ruby 1.62.0, AWS SDK for Ruby
-1.70.0, AWS SDK for Ruby 1.71.0, AWS SDK for Ruby 1.73.0, AWS SDK for Ruby
-1.75.0, AWS SDK for Ruby 1.76.0, AWS SDK for Ruby 1.77.0, AWS SDK for Ruby
-1.79.0, AWS SDK for Ruby 1.80.0, AWS SDK for Ruby 1.82.0, AWS SDK for Ruby
-1.83.0, AWS SDK for Ruby 1.84.0, AWS SDK for Ruby 1.86.0, AWS SDK for Ruby
-1.87.0, AWS SDK for Ruby 1.90.0, AWS SDK for Ruby 1.92.0, AWS SDK for Ruby
-1.93.0, AWS SDK for Ruby 1.96.0, AWS SDK for Ruby 1.99.0, aws-sdk-cloudwatch
-1.120.0, aws-sdk-core-ruby 3.240.0, and opscode/artifactory-client 3.0.17:
+Contents of NOTICE text file for AWS SDK for Ruby 1.104.0, AWS SDK for Ruby
+1.106.0, AWS SDK for Ruby 1.107.0, AWS SDK for Ruby 1.111.0, AWS SDK for Ruby
+1.112.0, AWS SDK for Ruby 1.115.0, AWS SDK for Ruby 1.117.0, AWS SDK for Ruby
+1.12.1, AWS SDK for Ruby 1.122.0, AWS SDK for Ruby 1.1220.0, AWS SDK for Ruby
+1.131.0, AWS SDK for Ruby 1.138.0, AWS SDK for Ruby 1.141.0, AWS SDK for Ruby
+1.143.0, AWS SDK for Ruby 1.145.0, AWS SDK for Ruby 1.146.0, AWS SDK for Ruby
+1.160.0, AWS SDK for Ruby 1.163.0, AWS SDK for Ruby 1.175.0, AWS SDK for Ruby
+1.19.0, AWS SDK for Ruby 1.213.0, AWS SDK for Ruby 1.221.0, AWS SDK for Ruby
+1.26.0, AWS SDK for Ruby 1.29.0, AWS SDK for Ruby 1.3.1, AWS SDK for Ruby
+1.308.0, AWS SDK for Ruby 1.32.0, AWS SDK for Ruby 1.39.0, AWS SDK for Ruby
+1.4.0, AWS SDK for Ruby 1.40.0, AWS SDK for Ruby 1.41.0, AWS SDK for Ruby
+1.43.0, AWS SDK for Ruby 1.45.0, AWS SDK for Ruby 1.46.0, AWS SDK for Ruby
+1.51.0, AWS SDK for Ruby 1.53.0, AWS SDK for Ruby 1.55.0, AWS SDK for Ruby
+1.60.0, AWS SDK for Ruby 1.605.0, AWS SDK for Ruby 1.62.0, AWS SDK for Ruby
+1.69.0, AWS SDK for Ruby 1.71.0, AWS SDK for Ruby 1.73.0, AWS SDK for Ruby
+1.76.0, AWS SDK for Ruby 1.77.0, AWS SDK for Ruby 1.80.0, AWS SDK for Ruby
+1.85.0, AWS SDK for Ruby 1.90.0, AWS SDK for Ruby 1.91.0, AWS SDK for Ruby
+1.92.0, AWS SDK for Ruby 1.93.0, AWS SDK for Ruby 1.94.0, AWS SDK for Ruby
+1.96.0, AWS SDK for Ruby 1.97.0, artifactory-client 3.0.17, aws-sdk-cloudwatch
+1.131.0, and aws-sdk-core-ruby 3.242.0:
 
   AWS SDK for Ruby Copyright Amazon.com, Inc. or its affiliates. All Rights
   Reserved.
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Contents of NOTICE text file for bson-ruby 4.15.0:
+Contents of NOTICE text file for AWS SDK for Ruby 1.211.0:
+
+  AWS SDK for Ruby Copyright 2015 Amazon.com, Inc. or its affiliates. All
+  Rights Reserved.
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Contents of NOTICE text file for bson-ruby 5.2.0:
 
   Ruby BSON Copyright (C) 2009-2013 MongoDB, Inc.
 
@@ -935,7 +910,7 @@ Contents of NOTICE text file for mixlib-log 3.1.2.1:
   Howard.
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Contents of NOTICE text file for Mongo Ruby Driver 2.13.2:
+Contents of NOTICE text file for Mongo Ruby Driver 2.21.3:
 
   MongoDB Ruby Driver Copyright (C) 2009-2020 MongoDB, Inc.
 
@@ -1131,15 +1106,16 @@ win32-taskscheduler 2.0.4, windows-api 0.4.5, and windows-pr 1.2.6.
 
 (3) BSD 2-Clause "Simplified" License:
 
-Progress Chef Workstation 25.13 incorporates JSON for Ruby 2.14.1, RubyZip
-2.4.1, ahoward/options 2.3.2, base64 0.3.0, bigdecimal 3.3.1, byebug 12.0.0,
-date 3.5.0, digest 3.2.1, io-console 0.8.1, irb 1.15.3, minitar 1.1.0, mutex_m
-0.3.0, nahi's httpclient 2.9.0, net-ftp 0.3.8, net-imap 0.2.5, net-protocol
-0.2.2, ostruct 0.6.3, pp 0.6.3, prettyprint 0.2.0, public_suffix_service
-0.6.20240107, racc 1.8.1, reline 0.6.3, ruby csv 3.3.5, ruby/benchmark 0.5.0,
-ruby/drb 2.2.3, ruby/logger 1.5.3, ruby/openssl 3.3.0, ruby/rexml 3.4.4,
-ruby2_keywords 0.0.5, securerandom 0.4.1, stringio 3.1.8, strscan 3.1.5, syslog
-0.3.0, timeout 0.4.4, timingfuction 0.4.1, uri 1.0.4, and webrick 1.9.1.
+Progress Chef Workstation 25.13 incorporates JSON for Ruby 2.18.1,
+Ruby-SOCKSify 1.8.1, RubyZip 2.4.1, abbrev 0.1.2, ahoward/options 2.3.2, base64
+0.3.0, bigdecimal 3.3.1, byebug 12.0.0, date 3.5.1, digest 3.2.1, io-console
+0.8.2, irb 1.17.0, minitar 1.1.0, mutex_m 0.3.0, nahi's httpclient 2.9.0,
+net-ftp 0.3.9, net-imap 0.2.5, net-protocol 0.2.2, ostruct 0.6.3, pp 0.6.3,
+prettyprint 0.2.0, pstore 0.1.4, public_suffix_service 0.6.20240107, racc
+1.8.1, reline 0.6.3, ruby csv 3.3.5, ruby/benchmark 0.5.0, ruby/drb 2.2.3,
+ruby/logger 1.5.3, ruby/openssl 3.3.0, ruby/rexml 3.4.4, ruby2_keywords 0.0.5,
+securerandom 0.4.1, stringio 3.2.0, strscan 3.1.5, timeout 0.6.0, timingfuction
+0.4.2, uri 1.0.4, and webrick 1.9.2.
 
   BSD Two Clause License
   ======================
@@ -2270,34 +2246,6 @@ Progress Chef Workstation 25.13 incorporates fog-core 2.5.0.
 
 (14) MIT License:
 
-Progress Chef Workstation 25.13 incorporates memoist 0.16.2.
-
-  The MIT License
-  ===============
-  Copyright (c) Joshua Peek, Tarmo Tänav, Jeremy Kemper, Eugene Pimenov, Xavier
-  Noria, Niels Ganser, Carl Lerche & Yehuda Katz, jeem, Jay Pignata, Damien
-  Mathieu, José Valim, Matthew Rudy Jacobs
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  SOFTWARE.
-
-(15) MIT License:
-
 Progress Chef Workstation 25.13 incorporates axiom-types 0.1.1 and ice_nine
 0.11.2.
 
@@ -2323,7 +2271,7 @@ Progress Chef Workstation 25.13 incorporates axiom-types 0.1.1 and ice_nine
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(16) MIT License:
+(15) MIT License:
 
 Progress Chef Workstation 25.13 incorporates Rake 13.0.1.
 
@@ -2349,9 +2297,9 @@ Progress Chef Workstation 25.13 incorporates Rake 13.0.1.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(17) MIT License:
+(16) MIT License:
 
-Progress Chef Workstation 25.13 incorporates faraday-multipart 1.1.1 and
+Progress Chef Workstation 25.13 incorporates faraday-multipart 1.2.0 and
 faraday-retry 1.0.3.
 
   The MIT License
@@ -2376,7 +2324,7 @@ faraday-retry 1.0.3.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(18) MIT License:
+(17) MIT License:
 
 Progress Chef Workstation 25.13 incorporates rspec-support 3.12.2.
 
@@ -2403,9 +2351,9 @@ Progress Chef Workstation 25.13 incorporates rspec-support 3.12.2.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(19) MIT License:
+(18) MIT License:
 
-Progress Chef Workstation 25.13 incorporates savonrb/nori 2.7.0.
+Progress Chef Workstation 25.13 incorporates savonrb/nori 2.7.1.
 
   The MIT License
   ===============
@@ -2429,13 +2377,39 @@ Progress Chef Workstation 25.13 incorporates savonrb/nori 2.7.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(20) MIT License:
+(19) MIT License:
 
 Progress Chef Workstation 25.13 incorporates regexp_parser 2.11.3.
 
   The MIT License
   ===============
   Copyright (c) Ammar Ali, Janosch Müller
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+(20) MIT License:
+
+Progress Chef Workstation 25.13 incorporates yajl 0.3.4.
+
+  The MIT License
+  ===============
+  Copyright (c) Zach Aysan
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -2542,7 +2516,7 @@ strings-ansi 0.2.0, tty 0.23.1, tty 0.6.0, tty-command 0.7.0, tty-command
 (24) MIT License:
 
 Progress Chef Workstation 25.13 incorporates halostatue/diff-lcs 1.5.1,
-mime-types-data 3.2025.0916, and ruby-mime-types 3.7.0.
+mime-types-data 3.2026.0224, and ruby-mime-types 3.7.0.
 
   The MIT License
   ===============
@@ -2621,7 +2595,7 @@ Progress Chef Workstation 25.13 incorporates bleything's plist 3.7.2.
 
 (27) MIT License:
 
-Progress Chef Workstation 25.13 incorporates formatador 1.2.0.
+Progress Chef Workstation 25.13 incorporates formatador 1.2.3.
 
   The MIT License
   ===============
@@ -2673,7 +2647,7 @@ Progress Chef Workstation 25.13 incorporates hashdiff 1.0.1.
 
 (29) MIT License:
 
-Progress Chef Workstation 25.13 incorporates mdl 0.13.0.
+Progress Chef Workstation 25.13 incorporates mdl 0.14.0.
 
   The MIT License
   ===============
@@ -2725,7 +2699,7 @@ Progress Chef Workstation 25.13 incorporates dry-inflector 1.2.0.
 
 (31) MIT License:
 
-Progress Chef Workstation 25.13 incorporates retriable 3.1.2.
+Progress Chef Workstation 25.13 incorporates retriable 3.2.1.
 
   The MIT License
   ===============
@@ -2777,8 +2751,7 @@ Progress Chef Workstation 25.13 incorporates adzap/timeliness 0.3.10.
 
 (33) MIT License:
 
-Progress Chef Workstation 25.13 incorporates kramdown 2.5.1 and
-kramdown-parser-gfm 1.1.0.
+Progress Chef Workstation 25.13 incorporates kramdown-parser-gfm 1.1.0.
 
   The MIT License
   ===============
@@ -2856,7 +2829,7 @@ Progress Chef Workstation 25.13 incorporates Ruby Public Suffix 6.0.2.
 
 (36) MIT License:
 
-Progress Chef Workstation 25.13 incorporates ast 2.4.3 and parser 3.3.9.0.
+Progress Chef Workstation 25.13 incorporates ast 2.4.3 and parser 3.3.10.2.
 
   The MIT License
   ===============
@@ -2986,7 +2959,7 @@ Progress Chef Workstation 25.13 incorporates unicode-display_width 2.6.0.
 
 (41) MIT License:
 
-Progress Chef Workstation 25.13 incorporates bdurand/lumberjack 1.4.1.
+Progress Chef Workstation 25.13 incorporates bdurand/lumberjack 1.4.2.
 
   The MIT License
   ===============
@@ -3038,7 +3011,7 @@ Progress Chef Workstation 25.13 incorporates optimist 3.2.1.
 
 (43) MIT License:
 
-Progress Chef Workstation 25.13 incorporates lostisland/sawyer 0.9.2.
+Progress Chef Workstation 25.13 incorporates lostisland/sawyer 0.9.3.
 
   The MIT License
   ===============
@@ -3064,7 +3037,7 @@ Progress Chef Workstation 25.13 incorporates lostisland/sawyer 0.9.2.
 
 (44) MIT License:
 
-Progress Chef Workstation 25.13 incorporates psych 5.2.6.
+Progress Chef Workstation 25.13 incorporates psych 5.3.1.
 
   The MIT License
   ===============
@@ -3220,6 +3193,58 @@ Progress Chef Workstation 25.13 incorporates pry-byebug 3.11.0.
 
 (50) MIT License:
 
+Progress Chef Workstation 25.13 incorporates connection_pool 2.5.5.
+
+  The MIT License
+  ===============
+  Copyright (c) Mike Perham, Damian Janowski
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+(51) MIT License:
+
+Progress Chef Workstation 25.13 incorporates rubygems/gems 1.3.0.
+
+  The MIT License
+  ===============
+  Copyright (c) Erik Michaels-Ober
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+(52) MIT License:
+
 Progress Chef Workstation 25.13 incorporates mini_portile2 2.8.9.
 
   The MIT License
@@ -3244,7 +3269,7 @@ Progress Chef Workstation 25.13 incorporates mini_portile2 2.8.9.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(51) MIT License:
+(53) MIT License:
 
 Progress Chef Workstation 25.13 incorporates sickill's rainbow 3.1.1.
 
@@ -3270,7 +3295,7 @@ Progress Chef Workstation 25.13 incorporates sickill's rainbow 3.1.1.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(52) MIT License:
+(54) MIT License:
 
 Progress Chef Workstation 25.13 incorporates binding_of_caller 1.0.1,
 debug_inspector 1.2.0, method_source 1.1.0, and pry-stack_explorer 0.6.1.
@@ -3297,7 +3322,7 @@ debug_inspector 1.2.0, method_source 1.1.0, and pry-stack_explorer 0.6.1.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(53) MIT License:
+(55) MIT License:
 
 Progress Chef Workstation 25.13 incorporates technoweenie's faraday 1.10.5.
 
@@ -3323,7 +3348,7 @@ Progress Chef Workstation 25.13 incorporates technoweenie's faraday 1.10.5.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(54) MIT License:
+(56) MIT License:
 
 Progress Chef Workstation 25.13 incorporates bcrypt_pbkdf-ruby 1.1.2.rc1.
 
@@ -3349,7 +3374,7 @@ Progress Chef Workstation 25.13 incorporates bcrypt_pbkdf-ruby 1.1.2.rc1.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(55) MIT License:
+(57) MIT License:
 
 Progress Chef Workstation 25.13 incorporates corefoundation 0.3.13.
 
@@ -3375,7 +3400,7 @@ Progress Chef Workstation 25.13 incorporates corefoundation 0.3.13.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(56) MIT License:
+(58) MIT License:
 
 Progress Chef Workstation 25.13 incorporates TwP's inifile 3.0.0, TwP's logging
 2.4.0, and little-plugger 1.1.4.
@@ -3402,7 +3427,7 @@ Progress Chef Workstation 25.13 incorporates TwP's inifile 3.0.0, TwP's logging
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(57) MIT License:
+(59) MIT License:
 
 Progress Chef Workstation 25.13 incorporates arnau/iso8601 0.13.0.
 
@@ -3428,7 +3453,7 @@ Progress Chef Workstation 25.13 incorporates arnau/iso8601 0.13.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(58) MIT License:
+(60) MIT License:
 
 Progress Chef Workstation 25.13 incorporates nenv 0.3.0 and shellany 0.0.1.
 
@@ -3454,47 +3479,9 @@ Progress Chef Workstation 25.13 incorporates nenv 0.3.0 and shellany 0.0.1.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(59) MIT License:
+(61) MIT License:
 
-Progress Chef Workstation 25.13 incorporates rackup 2.2.1.
-
-  The MIT License
-  ===============
-  Copyright (c) Samuel Williams, James Tucker, Leah Neukirchen, Jeremy Evans,
-  Joshua Peek, Megan Batty, Rafael Fran√ßa, Anurag Priyam, Max Cantor, Michael
-  Fellinger, Sophie Deziel, Yoshiyuki Hirano, Aaron Patterson, Jean Boussier,
-  Katsuhiko Yoshida, Konstantin Haase, Krzysztof Rybka, Martin Hrdlicka, Nick
-  LaMuro, Aaron Pfeifer, Akira Matsuda, Andrew Bortz, Andrew Hoglund, Bas
-  Vodde, Blake Mizerany, Carl Lerche, David Celis, Dillon Welch, Genki
-  Takiuchi, Geremia Taglialatela, Hal Brodigan, Hrvoje ≈†imiƒá, Igor
-  Bochkariov, Jeremy Kemper, Joe Fiorini, John Barnette, John Sumsion, Julik
-  Tarkhanov, Kang Sheng, Kazuya Hotta, Lenny Marks, Loren Segal, Marc-Andr√©
-  Cournoyer, Misaki Shioi, Olle Jonsson, Peter Wilmott, Petrik de Heus, Richard
-  Schneeman, Ryunosuke Sato, Sean McGivern, Stephen Paul Weber, Tadashi Saito,
-  Tim Moore, Timur Batyrshin, Trevor Wennblom, Tsutomu Kuroda, Uchio Kondo,
-  Wyatt Pan, Yehuda Katz, Zachary Scott
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  SOFTWARE.
-
-(60) MIT License:
-
-Progress Chef Workstation 25.13 incorporates concurrent-ruby 1.3.5.
+Progress Chef Workstation 25.13 incorporates concurrent-ruby 1.3.6.
 
   The MIT License
   ===============
@@ -3518,7 +3505,7 @@ Progress Chef Workstation 25.13 incorporates concurrent-ruby 1.3.5.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(61) MIT License:
+(62) MIT License:
 
 Progress Chef Workstation 25.13 incorporates rbvmomi 3.8.0.
 
@@ -3544,7 +3531,7 @@ Progress Chef Workstation 25.13 incorporates rbvmomi 3.8.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(62) MIT License:
+(63) MIT License:
 
 Progress Chef Workstation 25.13 incorporates adamwiggins's rest-client 2.1.0.
 
@@ -3570,7 +3557,7 @@ Progress Chef Workstation 25.13 incorporates adamwiggins's rest-client 2.1.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(63) MIT License:
+(64) MIT License:
 
 Progress Chef Workstation 25.13 incorporates tomlrb 1.3.0.
 
@@ -3596,9 +3583,9 @@ Progress Chef Workstation 25.13 incorporates tomlrb 1.3.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(64) MIT License:
+(65) MIT License:
 
-Progress Chef Workstation 25.13 incorporates leejarvis/slop 3.6.0.
+Progress Chef Workstation 25.13 incorporates slop 3.6.0.
 
   The MIT License
   ===============
@@ -3622,7 +3609,7 @@ Progress Chef Workstation 25.13 incorporates leejarvis/slop 3.6.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(65) MIT License:
+(66) MIT License:
 
 Progress Chef Workstation 25.13 incorporates structured_warnings 0.4.0.
 
@@ -3648,7 +3635,33 @@ Progress Chef Workstation 25.13 incorporates structured_warnings 0.4.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(66) MIT License:
+(67) MIT License:
+
+Progress Chef Workstation 25.13 incorporates Ruby on Rails 7.2.3.
+
+  The MIT License
+  ===============
+  Copyright (c) David Heinemeier Hansson
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+(68) MIT License:
 
 Progress Chef Workstation 25.13 incorporates joshbuddy's jsonpath 1.1.5.
 
@@ -3674,9 +3687,10 @@ Progress Chef Workstation 25.13 incorporates joshbuddy's jsonpath 1.1.5.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(67) MIT License:
+(69) MIT License:
 
-Progress Chef Workstation 25.13 incorporates minitest 5.26.2.
+Progress Chef Workstation 25.13 incorporates minitest 5.26.2 and minitest
+5.27.0.
 
   The MIT License
   ===============
@@ -3700,7 +3714,7 @@ Progress Chef Workstation 25.13 incorporates minitest 5.26.2.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(68) MIT License:
+(70) MIT License:
 
 Progress Chef Workstation 25.13 incorporates retryable 3.0.5.
 
@@ -3726,7 +3740,7 @@ Progress Chef Workstation 25.13 incorporates retryable 3.0.5.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(69) MIT License:
+(71) MIT License:
 
 Progress Chef Workstation 25.13 incorporates http-accept 1.7.0.
 
@@ -3752,7 +3766,7 @@ Progress Chef Workstation 25.13 incorporates http-accept 1.7.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(70) MIT License:
+(72) MIT License:
 
 Progress Chef Workstation 25.13 incorporates unf_ext 0.0.8.2.
 
@@ -3778,7 +3792,7 @@ Progress Chef Workstation 25.13 incorporates unf_ext 0.0.8.2.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(71) MIT License:
+(73) MIT License:
 
 Progress Chef Workstation 25.13 incorporates lostisland/faraday_middleware
 1.2.1.
@@ -3805,7 +3819,7 @@ Progress Chef Workstation 25.13 incorporates lostisland/faraday_middleware
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(72) MIT License:
+(74) MIT License:
 
 Progress Chef Workstation 25.13 incorporates syslog-logger 1.6.8.
 
@@ -3833,7 +3847,7 @@ Progress Chef Workstation 25.13 incorporates syslog-logger 1.6.8.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(73) MIT License:
+(75) MIT License:
 
 Progress Chef Workstation 25.13 incorporates fog-openstack 1.1.5.
 
@@ -3859,7 +3873,7 @@ Progress Chef Workstation 25.13 incorporates fog-openstack 1.1.5.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(74) MIT License:
+(76) MIT License:
 
 Progress Chef Workstation 25.13 incorporates TZInfo 2.0.6.
 
@@ -3885,7 +3899,7 @@ Progress Chef Workstation 25.13 incorporates TZInfo 2.0.6.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(75) MIT License:
+(77) MIT License:
 
 Progress Chef Workstation 25.13 incorporates Rack 3.2.5.
 
@@ -3911,7 +3925,7 @@ Progress Chef Workstation 25.13 incorporates Rack 3.2.5.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(76) MIT License:
+(78) MIT License:
 
 Progress Chef Workstation 25.13 incorporates Parslet 2.0.0.
 
@@ -3937,7 +3951,7 @@ Progress Chef Workstation 25.13 incorporates Parslet 2.0.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(77) MIT License:
+(79) MIT License:
 
 Progress Chef Workstation 25.13 incorporates dry-core 1.1.0.
 
@@ -3963,9 +3977,10 @@ Progress Chef Workstation 25.13 incorporates dry-core 1.1.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(78) MIT License:
+(80) MIT License:
 
-Progress Chef Workstation 25.13 incorporates faraday-cookie_jar 0.0.7.
+Progress Chef Workstation 25.13 incorporates faraday-cookie_jar 0.0.8 and
+faraday-cookie_jar2 0.1.0.
 
   The MIT License
   ===============
@@ -3989,7 +4004,7 @@ Progress Chef Workstation 25.13 incorporates faraday-cookie_jar 0.0.7.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(79) MIT License:
+(81) MIT License:
 
 Progress Chef Workstation 25.13 incorporates ed25519 1.4.0.
 
@@ -4015,7 +4030,7 @@ Progress Chef Workstation 25.13 incorporates ed25519 1.4.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(80) MIT License:
+(82) MIT License:
 
 Progress Chef Workstation 25.13 incorporates gssapi 1.3.1.
 
@@ -4041,7 +4056,7 @@ Progress Chef Workstation 25.13 incorporates gssapi 1.3.1.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(81) MIT License:
+(83) MIT License:
 
 Progress Chef Workstation 25.13 incorporates CocoaPods/molinillo 0.8.0.
 
@@ -4067,7 +4082,7 @@ Progress Chef Workstation 25.13 incorporates CocoaPods/molinillo 0.8.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(82) MIT License:
+(84) MIT License:
 
 Progress Chef Workstation 25.13 incorporates rb-fsevent 0.11.2.
 
@@ -4093,7 +4108,7 @@ Progress Chef Workstation 25.13 incorporates rb-fsevent 0.11.2.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(83) MIT License:
+(85) MIT License:
 
 Progress Chef Workstation 25.13 incorporates faraday-net_http 1.0.2.
 
@@ -4119,7 +4134,7 @@ Progress Chef Workstation 25.13 incorporates faraday-net_http 1.0.2.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(84) MIT License:
+(86) MIT License:
 
 Progress Chef Workstation 25.13 incorporates rubyntlm 0.6.5.
 
@@ -4145,7 +4160,7 @@ Progress Chef Workstation 25.13 incorporates rubyntlm 0.6.5.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(85) MIT License:
+(87) MIT License:
 
 Progress Chef Workstation 25.13 incorporates grosser's parallel 1.27.0.
 
@@ -4171,7 +4186,7 @@ Progress Chef Workstation 25.13 incorporates grosser's parallel 1.27.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(86) MIT License:
+(88) MIT License:
 
 Progress Chef Workstation 25.13 incorporates descendants_tracker 0.0.4.
 
@@ -4197,9 +4212,9 @@ Progress Chef Workstation 25.13 incorporates descendants_tracker 0.0.4.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(87) MIT License:
+(89) MIT License:
 
-Progress Chef Workstation 25.13 incorporates hashie 5.0.0.
+Progress Chef Workstation 25.13 incorporates hashie 5.1.0.
 
   The MIT License
   ===============
@@ -4223,9 +4238,9 @@ Progress Chef Workstation 25.13 incorporates hashie 5.0.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(88) MIT License:
+(90) MIT License:
 
-Progress Chef Workstation 25.13 incorporates mwunsch's prism 1.5.1.
+Progress Chef Workstation 25.13 incorporates mwunsch's prism 1.9.0.
 
   The MIT License
   ===============
@@ -4249,7 +4264,7 @@ Progress Chef Workstation 25.13 incorporates mwunsch's prism 1.5.1.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(89) MIT License:
+(91) MIT License:
 
 Progress Chef Workstation 25.13 incorporates faraday-em_http 1.0.0,
 faraday-em_synchrony 1.0.1, faraday-excon 1.1.0, faraday-httpclient 1.0.1,
@@ -4277,7 +4292,7 @@ faraday-patron 1.0.0, and faraday-rack 1.0.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(90) MIT License:
+(92) MIT License:
 
 Progress Chef Workstation 25.13 incorporates fog-json 1.2.0.
 
@@ -4304,7 +4319,7 @@ Progress Chef Workstation 25.13 incorporates fog-json 1.2.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(91) MIT License:
+(93) MIT License:
 
 Progress Chef Workstation 25.13 incorporates nokogiri 1.18.10.
 
@@ -4332,7 +4347,7 @@ Progress Chef Workstation 25.13 incorporates nokogiri 1.18.10.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(92) MIT License:
+(94) MIT License:
 
 Progress Chef Workstation 25.13 incorporates nicksieger's multipart-post 2.4.1.
 
@@ -4365,7 +4380,7 @@ Progress Chef Workstation 25.13 incorporates nicksieger's multipart-post 2.4.1.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(93) MIT License:
+(95) MIT License:
 
 Progress Chef Workstation 25.13 incorporates coercible 1.0.0, dry-logic 1.6.0,
 dry-struct 1.8.0, dry-types 1.8.3, and virtus 2.0.0.
@@ -4392,7 +4407,7 @@ dry-struct 1.8.0, dry-types 1.8.3, and virtus 2.0.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(94) MIT License:
+(96) MIT License:
 
 Progress Chef Workstation 25.13 incorporates excon 0.112.0.
 
@@ -4419,7 +4434,7 @@ Progress Chef Workstation 25.13 incorporates excon 0.112.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(95) MIT License:
+(97) MIT License:
 
 Progress Chef Workstation 25.13 incorporates faraday-net_http_persistent 1.2.0.
 
@@ -4445,7 +4460,7 @@ Progress Chef Workstation 25.13 incorporates faraday-net_http_persistent 1.2.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(96) MIT License:
+(98) MIT License:
 
 Progress Chef Workstation 25.13 incorporates recursive-open-struct 1.1.3.
 
@@ -4471,7 +4486,7 @@ Progress Chef Workstation 25.13 incorporates recursive-open-struct 1.1.3.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(97) MIT License:
+(99) MIT License:
 
 Progress Chef Workstation 25.13 incorporates rdp's os 1.1.4.
 
@@ -4497,7 +4512,7 @@ Progress Chef Workstation 25.13 incorporates rdp's os 1.1.4.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(98) MIT License:
+(100) MIT License:
 
 Progress Chef Workstation 25.13 incorporates yajl-ruby 1.4.3.
 
@@ -4523,7 +4538,7 @@ Progress Chef Workstation 25.13 incorporates yajl-ruby 1.4.3.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(99) MIT License:
+(101) MIT License:
 
 Progress Chef Workstation 25.13 incorporates RSpec 3.12.0 and RSpec 3.12.7.
 
@@ -4549,9 +4564,9 @@ Progress Chef Workstation 25.13 incorporates RSpec 3.12.0 and RSpec 3.12.7.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(100) MIT License:
+(102) MIT License:
 
-Progress Chef Workstation 25.13 incorporates ruby-i18n 1.14.7.
+Progress Chef Workstation 25.13 incorporates ruby-i18n 1.14.8.
 
   The MIT License
   ===============
@@ -4576,7 +4591,7 @@ Progress Chef Workstation 25.13 incorporates ruby-i18n 1.14.7.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(101) MIT License:
+(103) MIT License:
 
 Progress Chef Workstation 25.13 incorporates Pry REPL 0.13.0.
 
@@ -4603,7 +4618,7 @@ Progress Chef Workstation 25.13 incorporates Pry REPL 0.13.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(102) MIT License:
+(104) MIT License:
 
 Progress Chef Workstation 25.13 incorporates antw's iniparse 1.5.0.
 
@@ -4629,7 +4644,7 @@ Progress Chef Workstation 25.13 incorporates antw's iniparse 1.5.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(103) MIT License:
+(105) MIT License:
 
 Progress Chef Workstation 25.13 incorporates net-scp 4.1.0, net-sftp 4.0.0,
 net-ssh-gateway 2.0.0, and ruby-net-ssh 7.3.0.
@@ -4656,7 +4671,7 @@ net-ssh-gateway 2.0.0, and ruby-net-ssh 7.3.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(104) MIT License:
+(106) MIT License:
 
 Progress Chef Workstation 25.13 incorporates proxifier2 1.1.0.
 
@@ -4682,7 +4697,7 @@ Progress Chef Workstation 25.13 incorporates proxifier2 1.1.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(105) MIT License:
+(107) MIT License:
 
 Progress Chef Workstation 25.13 incorporates fauxhai-chef 9.3.26.
 
@@ -4708,7 +4723,7 @@ Progress Chef Workstation 25.13 incorporates fauxhai-chef 9.3.26.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(106) MIT License:
+(108) MIT License:
 
 Progress Chef Workstation 25.13 incorporates jimweirich's builder 3.3.0.
 
@@ -4734,7 +4749,7 @@ Progress Chef Workstation 25.13 incorporates jimweirich's builder 3.3.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(107) MIT License:
+(109) MIT License:
 
 Progress Chef Workstation 25.13 incorporates docker-api 2.4.0.
 
@@ -4760,9 +4775,9 @@ Progress Chef Workstation 25.13 incorporates docker-api 2.4.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(108) MIT License:
+(110) MIT License:
 
-Progress Chef Workstation 25.13 incorporates chef-gyoku 1.4.5 and gyoku 1.4.0.
+Progress Chef Workstation 25.13 incorporates chef-gyoku 1.5.0 and gyoku 1.4.0.
 
   The MIT License
   ===============
@@ -4786,9 +4801,9 @@ Progress Chef Workstation 25.13 incorporates chef-gyoku 1.4.5 and gyoku 1.4.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(109) MIT License:
+(111) MIT License:
 
-Progress Chef Workstation 25.13 incorporates bensie/sshkey 3.0.0.
+Progress Chef Workstation 25.13 incorporates bensie/sshkey 2.0.0.
 
   The MIT License
   ===============
@@ -4812,9 +4827,9 @@ Progress Chef Workstation 25.13 incorporates bensie/sshkey 3.0.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(110) MIT License:
+(112) MIT License:
 
-Progress Chef Workstation 25.13 incorporates toml-rb 4.0.0.
+Progress Chef Workstation 25.13 incorporates toml-rb 4.1.0.
 
   The MIT License
   ===============
@@ -4838,7 +4853,7 @@ Progress Chef Workstation 25.13 incorporates toml-rb 4.0.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(111) MIT License:
+(113) MIT License:
 
 Progress Chef Workstation 25.13 incorporates rspec-its 1.3.1.
 
@@ -4864,7 +4879,7 @@ Progress Chef Workstation 25.13 incorporates rspec-its 1.3.1.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(112) MIT License:
+(114) MIT License:
 
 Progress Chef Workstation 25.13 incorporates wisper 2.0.1.
 
@@ -4890,14 +4905,14 @@ Progress Chef Workstation 25.13 incorporates wisper 2.0.1.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(113) MIT License:
+(115) MIT License:
 
 Progress Chef Workstation 25.13 incorporates azure-sdk-for-python 0.18.2,
 azure-sdk-for-python 0.22.0, azure-sdk-for-python 0.23.0, azure-sdk-for-python
 0.26.1, azure_graph_rbac 0.17.2, azure_mgmt_key_vault 0.17.7,
-azure_mgmt_network2 1.0.1, azure_mgmt_resources2 1.0.1, azure_mgmt_security
-0.19.0, ms_rest 0.7.6, ms_rest2 1.0.0, ms_rest_azure 0.12.0, and ms_rest_azure2
-1.0.0.
+azure_mgmt_network2 1.1.0, azure_mgmt_resources2 1.1.0, azure_mgmt_security
+0.19.0, ms_rest 0.7.6, ms_rest2 1.1.0, ms_rest_azure 0.12.0, and ms_rest_azure2
+1.1.0.
 
   The MIT License
   ===============
@@ -4921,9 +4936,9 @@ azure_mgmt_network2 1.0.1, azure_mgmt_resources2 1.0.1, azure_mgmt_security
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(114) MIT License:
+(116) MIT License:
 
-Progress Chef Workstation 25.13 incorporates faraday-follow_redirects 0.3.0.
+Progress Chef Workstation 25.13 incorporates faraday-follow_redirects 0.5.0.
 
   The MIT License
   ===============
@@ -4947,9 +4962,9 @@ Progress Chef Workstation 25.13 incorporates faraday-follow_redirects 0.3.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(115) MIT License:
+(117) MIT License:
 
-Progress Chef Workstation 25.13 incorporates http-cookie 1.0.8.
+Progress Chef Workstation 25.13 incorporates http-cookie 1.1.0.
 
   The MIT License
   ===============
@@ -4973,7 +4988,45 @@ Progress Chef Workstation 25.13 incorporates http-cookie 1.0.8.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(116) MIT License:
+(118) MIT License:
+
+Progress Chef Workstation 25.13 incorporates rackup 2.3.1.
+
+  The MIT License
+  ===============
+  Copyright (c) Samuel Williams, James Tucker, Leah Neukirchen, Jeremy Evans,
+  Joshua Peek, Megan Batty, Rafael França, Anurag Priyam, Max Cantor, Michael
+  Fellinger, Sophie Deziel, Yoshiyuki Hirano, Aaron Patterson, Jean Boussier,
+  Katsuhiko Yoshida, Konstantin Haase, Krzysztof Rybka, Martin Hrdlicka, Nick
+  LaMuro, Aaron Pfeifer, Akira Matsuda, Andrew Bortz, Andrew Hoglund, Bas
+  Vodde, Blake Mizerany, Carl Lerche, David Celis, Dillon Welch, Genki
+  Takiuchi, Geremia Taglialatela, Hal Brodigan, Hrvoje Šimić, Igor Bochkariov,
+  Jeremy Kemper, Joe Fiorini, John Barnette, John Sumsion, Julik Tarkhanov,
+  Kang Sheng, Kazuya Hotta, Lenny Marks, Loren Segal, Marc-André Cournoyer,
+  Misaki Shioi, Olle Jonsson, Peter Wilmott, Petrik de Heus, Richard Schneeman,
+  Ryunosuke Sato, Sean McGivern, Stephen Paul Weber, Tadashi Saito, Tim Moore,
+  Timur Batyrshin, Trevor Wennblom, Tsutomu Kuroda, Uchio Kondo, Wyatt Pan,
+  Yehuda Katz, Zachary Scott
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+(119) MIT License:
 
 Progress Chef Workstation 25.13 incorporates net-ssh-multi 1.2.1.
 
@@ -4999,7 +5052,7 @@ Progress Chef Workstation 25.13 incorporates net-ssh-multi 1.2.1.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(117) MIT License:
+(120) MIT License:
 
 Progress Chef Workstation 25.13 incorporates mini_mime 1.1.5.
 
@@ -5025,9 +5078,9 @@ Progress Chef Workstation 25.13 incorporates mini_mime 1.1.5.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(118) MIT License:
+(121) MIT License:
 
-Progress Chef Workstation 25.13 incorporates multi_json 1.17.0.
+Progress Chef Workstation 25.13 incorporates multi_json 1.19.1.
 
   The MIT License
   ===============
@@ -5051,7 +5104,7 @@ Progress Chef Workstation 25.13 incorporates multi_json 1.17.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(119) MIT License:
+(122) MIT License:
 
 Progress Chef Workstation 25.13 incorporates RSpec 3.12.3.
 
@@ -5077,7 +5130,7 @@ Progress Chef Workstation 25.13 incorporates RSpec 3.12.3.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(120) MIT License:
+(123) MIT License:
 
 Progress Chef Workstation 25.13 incorporates notiffany 0.1.3.
 
@@ -5103,7 +5156,7 @@ Progress Chef Workstation 25.13 incorporates notiffany 0.1.3.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(121) MIT License:
+(124) MIT License:
 
 Progress Chef Workstation 25.13 incorporates rbvmomi 3.0.0.
 
@@ -5129,7 +5182,7 @@ Progress Chef Workstation 25.13 incorporates rbvmomi 3.0.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(122) MIT License:
+(125) MIT License:
 
 Progress Chef Workstation 25.13 incorporates dry-configurable 1.3.0.
 
@@ -5155,7 +5208,7 @@ Progress Chef Workstation 25.13 incorporates dry-configurable 1.3.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(123) MIT License:
+(126) MIT License:
 
 Progress Chef Workstation 25.13 incorporates rb-inotify 0.11.1.
 
@@ -5181,7 +5234,7 @@ Progress Chef Workstation 25.13 incorporates rb-inotify 0.11.1.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(124) MIT License:
+(127) MIT License:
 
 Progress Chef Workstation 25.13 incorporates droplet_kit 3.19.0 and kartograph
 0.2.8.
@@ -5208,10 +5261,9 @@ Progress Chef Workstation 25.13 incorporates droplet_kit 3.19.0 and kartograph
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(125) MIT License:
+(128) MIT License:
 
-Progress Chef Workstation 25.13 incorporates Guard 2.19.0 and guard/listen
-3.9.0.
+Progress Chef Workstation 25.13 incorporates Guard 2.19.0.
 
   The MIT License
   ===============
@@ -5235,9 +5287,9 @@ Progress Chef Workstation 25.13 incorporates Guard 2.19.0 and guard/listen
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(126) MIT License:
+(129) MIT License:
 
-Progress Chef Workstation 25.13 incorporates ffi-yajl 2.6.0.
+Progress Chef Workstation 25.13 incorporates ffi-yajl 2.7.7.
 
   The MIT License
   ===============
@@ -5261,7 +5313,7 @@ Progress Chef Workstation 25.13 incorporates ffi-yajl 2.6.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(127) MIT License:
+(130) MIT License:
 
 Progress Chef Workstation 25.13 incorporates Thor 1.4.0.
 
@@ -5287,7 +5339,7 @@ Progress Chef Workstation 25.13 incorporates Thor 1.4.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(128) MIT License:
+(131) MIT License:
 
 Progress Chef Workstation 25.13 incorporates fuzzyurl 0.9.0.
 
@@ -5313,10 +5365,10 @@ Progress Chef Workstation 25.13 incorporates fuzzyurl 0.9.0.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(129) MIT License:
+(132) MIT License:
 
 Progress Chef Workstation 25.13 incorporates rubocop 1.25.1 and rubocop-ast
-1.46.0.
+1.49.0.
 
   The MIT License
   ===============
@@ -5340,7 +5392,7 @@ Progress Chef Workstation 25.13 incorporates rubocop 1.25.1 and rubocop-ast
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(130) MIT License:
+(133) MIT License:
 
 Progress Chef Workstation 25.13 incorporates ruby-jwt 2.10.2.
 
@@ -5366,7 +5418,7 @@ Progress Chef Workstation 25.13 incorporates ruby-jwt 2.10.2.
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-(131) Mozilla Public License 2.0:
+(134) Mozilla Public License 2.0:
 
 Progress Chef Workstation 25.13 incorporates sslshake 1.3.1 and vault 0.18.2.
 
@@ -5784,7 +5836,7 @@ Progress Chef Workstation 25.13 incorporates sslshake 1.3.1 and vault 0.18.2.
     This Source Code Form is "Incompatible With Secondary Licenses", as defined
     by the Mozilla Public License, v. 2.0.
 
-(132) Ruby License:
+(135) Ruby License:
 
 Progress Chef Workstation 25.13 incorporates HighLine 2.1.0, RDoc 6.4.1.1, and
 ahoward's lockfile 2.1.3.
@@ -5852,7 +5904,7 @@ ahoward's lockfile 2.1.3.
     WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
     MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
-(133) zlib License:
+(136) zlib License:
 
 Progress Chef Workstation 25.13 incorporates pry-remote 0.1.8.
 
@@ -5884,8 +5936,8 @@ Product:
 
 (1) Internal Progress Product License:
 
-Progress Chef Workstation 25.13 incorporates appbundler 0.13.4, chef-telemetry
-1.1.1, chef-zero 15.0.26, cheffish 17.1.8, mixlib-archive 1.1.7,
+Progress Chef Workstation 25.13 incorporates Chef 18.6.6, appbundler 0.13.4,
+chef-telemetry 1.1.1, chef-zero 15.0.26, cheffish 17.1.8, mixlib-archive 1.1.7,
 mixlib-authentication 3.0.10, mixlib-cli 2.1.8, mixlib-config 3.0.27,
 train-rest 0.5.0, and win32-certstore 0.6.16.
 
@@ -5895,4 +5947,4 @@ NOTICE FROM PROGRESS SOFTWARE CORPORATION: Additional notices may be included
 in the release notes or other documentation that accompanies updates received
 in connection with support of the Product.
 
-Updated February 22, 2026
+Updated March 3, 2026
