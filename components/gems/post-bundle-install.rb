@@ -41,9 +41,10 @@ Dir[bundler_gems_path].each do |gempath|
     system(install_cmd) or raise "gem install failed for #{gem_name}"
   end
 
-  # Verify the gem was installed
+  # Verify the gem was installed using the correct gem command (not PATH's gem)
+  gem_cmd = File.join(RbConfig::CONFIG["bindir"], "gem")
   puts "Verifying #{gem_name} installation..."
-  installed_gems = `gem list #{gem_name}`.chomp
+  installed_gems = `"#{gem_cmd}" list #{gem_name}`.chomp
   if installed_gems.include?(gem_name)
     puts "#{gem_name} installed successfully: #{installed_gems}"
   else
