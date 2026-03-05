@@ -34,11 +34,11 @@ Dir[bundler_gems_path].each do |gempath|
 
     build_cmd = "\"#{gem_cmd}\" build #{gem_name}.gemspec"
     puts "Running: #{build_cmd}"
-    raise RuntimeError, "gem build failed for #{gem_name}" unless system(build_cmd)
+    raise "gem build failed for #{gem_name}" unless system(build_cmd)
 
     install_cmd = "\"#{gem_cmd}\" install #{gem_name}*.gem --conservative --minimal-deps --no-document"
     puts "Running: #{install_cmd}"
-    raise RuntimeError, "gem install failed for #{gem_name}" unless system(install_cmd)
+    raise "gem install failed for #{gem_name}" unless system(install_cmd)
   end
 
   # Verify the gem was installed using the correct gem command (not PATH's gem)
@@ -49,7 +49,7 @@ Dir[bundler_gems_path].each do |gempath|
   if installed_gems.include?(gem_name)
     puts "#{gem_name} installed successfully: #{installed_gems}"
   else
-    raise RuntimeError, "#{gem_name} installation verification failed!"
+    raise "#{gem_name} installation verification failed!"
   end
 end
 
