@@ -34,21 +34,22 @@ Dir[bundler_gems_path].each do |gempath|
 
     build_cmd = "\"#{gem_cmd}\" build #{gem_name}.gemspec"
     puts "Running: #{build_cmd}"
-    system(build_cmd) or raise "gem build failed for #{gem_name}"
+    raise RuntimeError, "gem build failed for #{gem_name}" unless system(build_cmd)
 
     install_cmd = "\"#{gem_cmd}\" install #{gem_name}*.gem --conservative --minimal-deps --no-document"
     puts "Running: #{install_cmd}"
-    system(install_cmd) or raise "gem install failed for #{gem_name}"
+    raise RuntimeError, "gem install failed for #{gem_name}" unless system(install_cmd)
   end
 
   # Verify the gem was installed using the correct gem command (not PATH's gem)
   gem_cmd = File.join(RbConfig::CONFIG["bindir"], "gem")
   puts "Verifying #{gem_name} installation..."
-  installed_gems = `"#{gem_cmd}" list #{gem_name}`.chomp
+  # Use --exact to match only the specific gem name (avoids 'chef' matching 'chef-utils')
+  installed_gems = `"#{gem_cmd}" list --exact #{gem_name}`.chomp
   if installed_gems.include?(gem_name)
     puts "#{gem_name} installed successfully: #{installed_gems}"
   else
-    raise "#{gem_name} installation verification failed!"
+    raise RuntimeError, "#{gem_name} installation verification failed!"
   end
 end
 
