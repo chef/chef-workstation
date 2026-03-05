@@ -1,33 +1,31 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release 25.13.7 -->
-## [25.13.7](https://github.com/chef/chef-workstation/tree/25.13.7) (2026-03-05)
-
-#### Merged Pull Requests
-- Fix Windows build for git-sourced gems [#3526](https://github.com/chef/chef-workstation/pull/3526) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=25.12.1102 -->
-### Changes not yet released to stable
-
-#### Merged Pull Requests
-- Fix Windows build for git-sourced gems [#3526](https://github.com/chef/chef-workstation/pull/3526) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.13.7 -->
-- Updates notice file [#3525](https://github.com/chef/chef-workstation/pull/3525) ([Vasu1105](https://github.com/Vasu1105)) <!-- 25.13.6 -->
-- Fix Windows build failure for git-sourced gems [#3524](https://github.com/chef/chef-workstation/pull/3524) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.13.5 -->
-- Bump inspec to latest v5.24.7 [#3523](https://github.com/chef/chef-workstation/pull/3523) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.13.4 -->
-- Update chef inspec knife and chef-dll lib fix [#3520](https://github.com/chef/chef-workstation/pull/3520) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.13.3 -->
-- Updating go in main-chef-wrapper and bumping chef-analyze to 0.1.192 and updating chef/go-libs library [#3517](https://github.com/chef/chef-workstation/pull/3517) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.13.2 -->
-- Updated NOTICE for CW 25.13 release [#3512](https://github.com/chef/chef-workstation/pull/3512) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.13.1 -->
-- Bump chef-analyze CLI to 0.1.191 [#3513](https://github.com/chef/chef-workstation/pull/3513) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 25.13.0 -->
-- Update go to v1.25.6 in main-chef-wrapper [#3514](https://github.com/chef/chef-workstation/pull/3514) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1108 -->
-- Remove release notes Expeditor actions [#3485](https://github.com/chef/chef-workstation/pull/3485) ([IanMadd](https://github.com/IanMadd)) <!-- 25.12.1107 -->
-- Updated go in main-chef-wrapper to v1.25.3 [#3508](https://github.com/chef/chef-workstation/pull/3508) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1107 -->
-- Dependabot alerts fixes. [#3506](https://github.com/chef/chef-workstation/pull/3506) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1106 -->
-- Updating kitchen-dokken to v2.22.2 [#3503](https://github.com/chef/chef-workstation/pull/3503) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1105 -->
-- Using expeditor config to do bump versioning [#3505](https://github.com/chef/chef-workstation/pull/3505) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1104 -->
-- Updated CW to follow sematic versioning from 25.x [#3504](https://github.com/chef/chef-workstation/pull/3504) ([nikhil2611](https://github.com/nikhil2611)) <!-- 25.12.1103 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [25.13.7](https://github.com/chef/chef-workstation/tree/25.13.7) (2026-03-05)
+
+#### Merged Pull Requests
+- Updated CW to follow sematic versioning from 25.x [#3504](https://github.com/chef/chef-workstation/pull/3504) ([nikhil2611](https://github.com/nikhil2611))
+- Using expeditor config to do bump versioning [#3505](https://github.com/chef/chef-workstation/pull/3505) ([nikhil2611](https://github.com/nikhil2611))
+- Updating kitchen-dokken to v2.22.2 [#3503](https://github.com/chef/chef-workstation/pull/3503) ([nikhil2611](https://github.com/nikhil2611))
+- Dependabot alerts fixes. [#3506](https://github.com/chef/chef-workstation/pull/3506) ([nikhil2611](https://github.com/nikhil2611))
+- Updated go in main-chef-wrapper to v1.25.3 [#3508](https://github.com/chef/chef-workstation/pull/3508) ([nikhil2611](https://github.com/nikhil2611))
+- Remove release notes Expeditor actions [#3485](https://github.com/chef/chef-workstation/pull/3485) ([IanMadd](https://github.com/IanMadd))
+- Update go to v1.25.6 in main-chef-wrapper [#3514](https://github.com/chef/chef-workstation/pull/3514) ([nikhil2611](https://github.com/nikhil2611))
+- Bump chef-analyze CLI to 0.1.191 [#3513](https://github.com/chef/chef-workstation/pull/3513) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Updated NOTICE for CW 25.13 release [#3512](https://github.com/chef/chef-workstation/pull/3512) ([nikhil2611](https://github.com/nikhil2611))
+- Updating go in main-chef-wrapper and bumping chef-analyze to 0.1.192 and updating chef/go-libs library [#3517](https://github.com/chef/chef-workstation/pull/3517) ([nikhil2611](https://github.com/nikhil2611))
+- Update chef inspec knife and chef-dll lib fix [#3520](https://github.com/chef/chef-workstation/pull/3520) ([nikhil2611](https://github.com/nikhil2611))
+- Bump inspec to latest v5.24.7 [#3523](https://github.com/chef/chef-workstation/pull/3523) ([nikhil2611](https://github.com/nikhil2611))
+- Fix Windows build failure for git-sourced gems [#3524](https://github.com/chef/chef-workstation/pull/3524) ([nikhil2611](https://github.com/nikhil2611))
+- Updates notice file [#3525](https://github.com/chef/chef-workstation/pull/3525) ([Vasu1105](https://github.com/Vasu1105))
+- Fix Windows build for git-sourced gems [#3526](https://github.com/chef/chef-workstation/pull/3526) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_stable_release -->
+
 ## [25.12.1102](https://github.com/chef/chef-workstation/tree/25.12.1102) (2025-12-15)
 
 #### Merged Pull Requests
@@ -39,7 +37,6 @@
 - Update knife, chef-cli, uri, and omnibus versions [#3464](https://github.com/chef/chef-workstation/pull/3464) ([nikhil2611](https://github.com/nikhil2611))
 - Upgrading knife to v18.8.68 [#3474](https://github.com/chef/chef-workstation/pull/3474) ([nikhil2611](https://github.com/nikhil2611))
 - Update NOTICE file [#3469](https://github.com/chef/chef-workstation/pull/3469) ([nikhil2611](https://github.com/nikhil2611))
-<!-- latest_stable_release -->
 
 ## [25.9.1094](https://github.com/chef/chef-workstation/tree/25.9.1094) (2025-09-30)
 
