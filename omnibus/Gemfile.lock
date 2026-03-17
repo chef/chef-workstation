@@ -34,8 +34,8 @@ GEM
     artifactory (3.0.17)
     ast (2.4.3)
     aws-eventstream (1.4.0)
-    aws-partitions (1.1220.0)
-    aws-sdk-core (3.242.0)
+    aws-partitions (1.1227.0)
+    aws-sdk-core (3.243.0)
       aws-eventstream (~> 1, >= 1.3.0)
       aws-partitions (~> 1, >= 1.992.0)
       aws-sigv4 (~> 1.9)
@@ -248,9 +248,6 @@ GEM
     fuzzyurl (0.9.0)
     gssapi (1.3.1)
       ffi (>= 1.0.1)
-    gyoku (1.4.0)
-      builder (>= 2.1.2)
-      rexml (~> 3.0)
     hashie (5.1.0)
       logger
     http-accept (1.7.0)
@@ -293,7 +290,7 @@ GEM
       reline (>= 0.4.2)
     iso8601 (0.13.0)
     jmespath (1.6.2)
-    json (2.18.1)
+    json (2.19.1)
     kitchen-omnibus-chef (1.1.0)
       license-acceptance (>= 1.0.11, < 3.0)
       mixlib-install (>= 3.14)
@@ -322,7 +319,7 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2026.0224)
+    mime-types-data (3.2026.0303)
     minitar (1.1.0)
     mixlib-archive (1.3.3)
       mixlib-log
@@ -359,7 +356,7 @@ GEM
       net-ssh (>= 2.6.5, < 8.0.0)
     net-sftp (4.0.0)
       net-ssh (>= 5.0.0, < 8.0.0)
-    net-ssh (7.3.0)
+    net-ssh (7.3.1)
     net-ssh-gateway (2.0.0)
       net-ssh (>= 4.0.0)
     netrc (0.11.0)
@@ -465,7 +462,7 @@ GEM
       rubocop-ast (>= 1.49.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.49.0)
+    rubocop-ast (1.49.1)
       parser (>= 3.3.7.2)
       prism (~> 1.7)
     ruby-progressbar (1.13.0)
@@ -511,7 +508,7 @@ GEM
     thor (1.4.0)
     time (0.4.2)
       date
-    timeout (0.6.0)
+    timeout (0.6.1)
     toml-rb (2.2.0)
       citrus (~> 3.0, > 3.0)
     tomlrb (1.3.0)
@@ -580,25 +577,6 @@ GEM
     win32-taskscheduler (2.0.4)
       ffi
       structured_warnings
-    winrm (2.3.9)
-      builder (>= 2.1.2)
-      erubi (~> 1.8)
-      gssapi (~> 1.2)
-      gyoku (~> 1.0)
-      httpclient (~> 2.2, >= 2.2.0.2)
-      logging (>= 1.6.1, < 3.0)
-      nori (~> 2.0, >= 2.7.1)
-      rexml (~> 3.0)
-      rubyntlm (~> 0.6.0, >= 0.6.3)
-    winrm-elevated (1.2.3)
-      erubi (~> 1.8)
-      winrm (~> 2.0)
-      winrm-fs (~> 1.0)
-    winrm-fs (1.3.5)
-      erubi (~> 1.8)
-      logging (>= 1.6.1, < 3.0)
-      rubyzip (~> 2.0)
-      winrm (~> 2.0)
     wisper (2.0.1)
     wmi-lite (1.0.7)
     yajl (0.3.4)
@@ -620,7 +598,6 @@ DEPENDENCIES
   omnibus-software!
   pedump
   test-kitchen (>= 4.0)
-  winrm-elevated
 
 BUNDLED WITH
    2.3.27

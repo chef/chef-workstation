@@ -19,5 +19,4 @@ group :development do
   gem "kitchen-omnibus-chef", ">= 1.1"
 
   gem "kitchen-vagrant"
-  gem "winrm-elevated"
 end
