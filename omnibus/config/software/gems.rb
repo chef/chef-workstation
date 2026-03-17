@@ -100,8 +100,13 @@ build do
 
   # Clear git-checked-out gems (most of this cleanup has been moved into the chef-cleanup omnibus-software definition,
   # but chef-client still needs git-checked-out gems)
-  block "Delete bundler git installs" do
-    gemdir = shellout!("#{install_dir}/embedded/bin/gem environment gemdir", env: env).stdout.chomp
-    remove_directory "#{gemdir}/bundler"
+  # On Windows, skip deletion because license_scout needs the bundler/gems directory to resolve git-sourced gems
+  # from the Gemfile.lock
+  # TODO: Revert this Windows skip once kitchen-dokken is pulled from RubyGems instead of GitHub
+  unless windows?
+    block "Delete bundler git installs" do
+      gemdir = shellout!("#{install_dir}/embedded/bin/gem environment gemdir", env: env).stdout.chomp
+      remove_directory "#{gemdir}/bundler"
+    end
   end
 end
