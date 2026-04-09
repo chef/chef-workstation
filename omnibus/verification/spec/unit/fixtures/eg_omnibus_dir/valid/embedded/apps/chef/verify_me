@@ -1,3 +1,0 @@
-#!/usr/bin/env ruby
-puts "i'm not feeling good today..."
-exit(1)
