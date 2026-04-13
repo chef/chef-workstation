@@ -15,6 +15,8 @@ steps:
     executor:
       docker:
         image: ruby:3.1-bullseye
+        environment:
+          - GITHUB_TOKEN
 # This tests that our verify.rb script (and dependencies) can successfully test components included in CW
 - label: component-test-tests-ruby-3.1
   command:
@@ -23,6 +25,8 @@ steps:
     executor:
       docker:
         image: ruby:3.1-bullseye
+        environment:
+          - GITHUB_TOKEN
 - label: ":linux: :darwin: :windows: top-level chef cmd"
   commands:
     - cd components/main-chef-wrapper
