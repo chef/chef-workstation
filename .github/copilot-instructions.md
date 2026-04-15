@@ -37,7 +37,6 @@ chef-workstation/
 │   ├── architecture/            # Architecture diagrams and docs
 │   ├── clibuddy/               # CLI buddy configurations
 │   └── img/                    # Documentation images
-├── docs-chef-io/               # Chef.io documentation site
 ├── habitat/                     # Chef Habitat packaging
 ├── omnibus/                     # Omnibus packaging configuration
 │   ├── config/                  # Omnibus configuration

@@ -1,1 +1,0 @@
-Use the `chef generate profile` subcommand to generate a [profile](/inspec/profiles/) for the Chef Infra Client's Compliance Phase execution.
