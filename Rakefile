@@ -10,6 +10,9 @@ rescue LoadError
 end
 task default: %i{style}
 
+desc "Build: Run style checks"
+task build: %i{style}
+
 desc "Update the One True Gemfile.lock in the components/gems directory with the latest dependencies."
 task :update do
   require "bundler"
