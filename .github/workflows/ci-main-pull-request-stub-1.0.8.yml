@@ -165,7 +165,7 @@ jobs:
       blackduck-project-group-name: 'Chef-Agents' # typically one of (Chef), Chef-Agents, Chef-Automate, Chef-Chef360, Chef-Habitat, Chef-Infrastructure-Server, Chef-Shared-Services, Chef-Non-Product'
       blackduck-project-name: ${{ github.event.repository.name }} # BlackDuck project name, typically the repository name
 
-      run-bundle-install: true
+    #   run-bundle-install: true
       ruby-app-directory: 'components/gems'  # Path to directory containing Gemfile
   
       # udf1: 'default' # user defined flag 1
