@@ -91,6 +91,33 @@ module ChefWorkstation
       File.join(omnibus_embedded_bin_dir, binary)
     end
 
+    # Check if the current platform is a FIPS-enabled platform based on
+    # BUILDKITE_LABEL and the fips-platforms configuration in .expeditor/release.omnibus.yml
+    #
+    # FIPS platforms are:
+    # - el-*-x86_64 (RHEL/CentOS/AlmaLinux/etc)
+    # - ubuntu-*-x86_64 (Ubuntu)
+    # - windows-* (Windows)
+    #
+    # Returns true if running on a FIPS platform, false otherwise.
+    # If BUILDKITE_LABEL is not set (e.g., local development), returns false.
+    def fips_platform?
+      buildkite_label = ENV["BUILDKITE_LABEL"]
+      return false unless buildkite_label
+
+      # FIPS platforms from .expeditor/release.omnibus.yml:
+      # - el-*-x86_64
+      # - ubuntu-*-x86_64  
+      # - windows-*
+      fips_patterns = [
+        / el-.*-x86_64/,
+        / ubuntu-.*-x86_64/,
+        / windows-.*/
+      ]
+
+      fips_patterns.any? { |pattern| buildkite_label.match?(pattern) }
+    end
+
     def sh(command, options = {})
       puts command
       combined_opts = default_command_options.merge(options)
