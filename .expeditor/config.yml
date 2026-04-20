@@ -29,6 +29,10 @@ pipelines:
         - BUNDLE_GITHUB__COM: "x-access-token:$GITHUB_TOKEN"
         - EXPIRE_CACHE: true
         - IGNORE_CACHE: true
+        - BUNDLE_GITHUB__COM: "x-access-token:$GITHUB_TOKEN"
+        - GIT_CONFIG_COUNT: "1"
+        - GIT_CONFIG_KEY_0: "url.https://x-access-token:$GITHUB_TOKEN@github.com/.insteadOf"
+        - GIT_CONFIG_VALUE_0: "https://github.com/"
   - omnibus/adhoc:
       definition: .expeditor/release.omnibus.yml
       env:
@@ -37,6 +41,9 @@ pipelines:
         - EXPIRE_CACHE: true
         - IGNORE_CACHE: true
         - BUNDLE_GITHUB__COM: "x-access-token:$GITHUB_TOKEN"
+        - GIT_CONFIG_COUNT: "1"
+        - GIT_CONFIG_KEY_0: "url.https://x-access-token:$GITHUB_TOKEN@github.com/.insteadOf"
+        - GIT_CONFIG_VALUE_0: "https://github.com/"
   - omnibus/adhoc-canary:
       canary: true
       definition: .expeditor/release.omnibus.yml
@@ -44,6 +51,9 @@ pipelines:
         - ADHOC: true
         - IGNORE_ARTIFACTORY_RUBY_PROXY: true
         - BUNDLE_GITHUB__COM: "x-access-token:$GITHUB_TOKEN"
+        - GIT_CONFIG_COUNT: "1"
+        - GIT_CONFIG_KEY_0: "url.https://x-access-token:$GITHUB_TOKEN@github.com/.insteadOf"
+        - GIT_CONFIG_VALUE_0: "https://github.com/"
   - third-party-packages:
       description: post-release publishing of Workstation packages to third party distribution platforms
 
