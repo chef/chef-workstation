@@ -129,7 +129,7 @@ GEM
     aws-sdk-dynamodb (1.163.0)
       aws-sdk-core (~> 3, >= 3.241.4)
       aws-sigv4 (~> 1.5)
-    aws-sdk-ec2 (1.605.0)
+    aws-sdk-ec2 (1.606.0)
       aws-sdk-core (~> 3, >= 3.241.4)
       aws-sigv4 (~> 1.5)
     aws-sdk-ec2instanceconnect (1.69.0)
@@ -141,7 +141,7 @@ GEM
     aws-sdk-ecrpublic (1.62.0)
       aws-sdk-core (~> 3, >= 3.241.4)
       aws-sigv4 (~> 1.5)
-    aws-sdk-ecs (1.221.0)
+    aws-sdk-ecs (1.222.0)
       aws-sdk-core (~> 3, >= 3.241.4)
       aws-sigv4 (~> 1.5)
     aws-sdk-efs (1.107.0)
@@ -235,7 +235,7 @@ GEM
     aws-sdk-secretsmanager (1.46.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-securityhub (1.151.0)
+    aws-sdk-securityhub (1.152.0)
       aws-sdk-core (~> 3, >= 3.241.4)
       aws-sigv4 (~> 1.5)
     aws-sdk-servicecatalog (1.60.0)
@@ -303,7 +303,7 @@ GEM
     azure_mgmt_storage (0.23.0)
       ms_rest_azure (~> 0.12.0)
     base64 (0.3.0)
-    bcrypt_pbkdf (1.1.2.rc1)
+    bcrypt_pbkdf (1.1.2)
     benchmark (0.5.0)
     berkshelf (8.1.6)
       chef (>= 18.0.0)
@@ -535,7 +535,6 @@ GEM
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.5.1)
-    digest (3.2.1)
     docker-api (2.4.0)
       excon (>= 0.64.0)
       multi_json
@@ -614,9 +613,6 @@ GEM
       net-ssh
       ohai (>= 13.0)
     ffi (1.16.3)
-    ffi (1.16.3-x64-mingw-ucrt)
-    ffi (1.16.3-x64-mingw32)
-    ffi (1.16.3-x86-mingw32)
     ffi-libarchive (1.1.14)
       ffi (~> 1.0)
     ffi-win32-extensions (1.0.4)
@@ -780,9 +776,9 @@ GEM
       inifile (~> 3.0, >= 3.0.0)
       sshkey (>= 1.0.0, < 4)
       test-kitchen (>= 1.20, < 5.0)
-    kitchen-digitalocean (0.16.1)
+    kitchen-digitalocean (0.16.2)
       droplet_kit (>= 3.7, < 4.0)
-      test-kitchen (>= 1.17, < 4)
+      test-kitchen (>= 1.17, < 5)
     kitchen-ec2 (3.22.1)
       aws-sdk-ec2 (~> 1.0)
       aws-sdk-ec2instanceconnect (~> 1.0)
@@ -790,10 +786,10 @@ GEM
       retryable (>= 2.0, < 4.0)
       sshkey (~> 2.0)
       test-kitchen (>= 3.9.0, < 5)
-    kitchen-google (2.6.1)
+    kitchen-google (2.6.2)
       gcewinpass (~> 1.1)
       google-apis-compute_v1 (>= 0.75)
-      test-kitchen (>= 1.0.0, < 4.0)
+      test-kitchen (>= 1.0.0, < 5.0)
     kitchen-hyperv (0.10.3)
       test-kitchen (>= 1.4, < 5)
       train (>= 3.5, < 4.0)
@@ -803,16 +799,16 @@ GEM
       inspec-core (>= 2.2.64, < 8.0)
       test-kitchen (>= 2.7, < 5)
       train
-    kitchen-openstack (6.2.1)
+    kitchen-openstack (6.2.2)
       fog-openstack (~> 1.0)
       ohai
-      test-kitchen (>= 1.4.1, < 4)
-    kitchen-vagrant (2.2.0)
-      test-kitchen (>= 1.4, < 4)
-    kitchen-vcenter (2.12.2)
+      test-kitchen (>= 1.4.1, < 5)
+    kitchen-vagrant (2.2.1)
+      test-kitchen (>= 1.4, < 5)
+    kitchen-vcenter (2.12.3)
       net-ping (>= 2.0.0, < 3.0)
       rbvmomi2 (>= 3.5.0, < 4.0)
-      test-kitchen (>= 1.16, < 4)
+      test-kitchen (>= 1.16, < 5)
       vsphere-automation-sdk (~> 0.4)
     kitchen-vra (3.3.3)
       ffi-yajl (>= 2.2.3, < 3.1.0)
@@ -923,7 +919,6 @@ GEM
       mixlib-cli (~> 2.1, >= 2.1.1)
       mixlib-config (>= 2.2.1, < 4)
       mixlib-shellout
-    memoist (0.16.2)
     method_source (1.1.0)
     mime-types (3.7.0)
       logger
@@ -933,29 +928,21 @@ GEM
     mini_portile2 (2.8.9)
     minitar (1.1.0)
     minitest (5.27.0)
-    mixlib-archive (1.1.7)
+    mixlib-archive (1.3.3)
       mixlib-log
-    mixlib-archive (1.1.7-universal-mingw32)
-      mixlib-log
-    minitest (5.26.2)
     mixlib-authentication (3.0.10)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.27)
       tomlrb
-    mixlib-install (3.12.30)
+    mixlib-install (3.16.0)
       mixlib-shellout
       mixlib-versioning
       thor
     mixlib-log (3.1.2.1)
       ffi (< 1.17.0)
-    mixlib-shellout (3.3.9)
+    mixlib-shellout (3.4.10)
       chef-utils
-    mixlib-shellout (3.3.9-universal-mingw32)
-      chef-utils
-      ffi-win32-extensions (~> 1.0.3)
-      win32-process (~> 0.9)
-      wmi-lite (~> 1.0)
-    mixlib-shellout (3.3.9-x64-mingw-ucrt)
+    mixlib-shellout (3.4.10-x64-mingw-ucrt)
       chef-utils
       ffi-win32-extensions (~> 1.0.3)
       win32-process (~> 0.9)
@@ -991,10 +978,9 @@ GEM
     net-ftp (0.3.9)
       net-protocol
       time
-    net-imap (0.2.5)
-      digest
+    net-imap (0.5.13)
+      date
       net-protocol
-      strscan
     net-ping (2.0.8)
     net-protocol (0.2.2)
       timeout
@@ -1035,7 +1021,7 @@ GEM
       plist (~> 3.1)
       train-core
       wmi-lite (~> 1.0)
-    openssl (3.3.0)
+    openssl (4.0.1)
     optimist (3.2.1)
     options (2.3.2)
     os (1.1.4)
@@ -1186,18 +1172,19 @@ GEM
       unicode-display_width (>= 1.5, < 3.0)
       unicode_utils (~> 1.4)
     strings-ansi (0.2.0)
-    strscan (3.1.5)
     structured_warnings (0.4.0)
     syslog (0.4.0)
       logger
     syslog-logger (1.6.8)
-    test-kitchen (3.9.1)
+    test-kitchen (4.0.0)
       bcrypt_pbkdf (~> 1.0)
       chef-utils (>= 16.4.35)
+      chef-winrm (>= 2.5.0, < 3.0)
+      chef-winrm-elevated (>= 1.0, < 2.0)
+      chef-winrm-fs (>= 1.0, < 2.0)
       csv (~> 3.3)
       ed25519 (~> 1.3)
       irb (~> 1.15)
-      license-acceptance (>= 1.0.11, < 3.0)
       mixlib-install (~> 3.6)
       mixlib-shellout (>= 1.2, < 4.0)
       net-scp (>= 1.1, < 5.0)
@@ -1206,9 +1193,6 @@ GEM
       ostruct (~> 0.6)
       syslog (~> 0.3)
       thor (>= 0.19, < 2.0)
-      winrm (~> 2.0)
-      winrm-elevated (~> 1.0)
-      winrm-fs (~> 1.1)
     thor (1.4.0)
     thread_safe (0.3.6)
     time (0.4.2)
@@ -1361,7 +1345,6 @@ GEM
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
     unf_ext (0.0.8.2)
-    unf_ext (0.0.8.2-x64-mingw-ucrt)
     unicode-display_width (2.6.0)
     unicode_utils (1.4.0)
     uri (1.0.4)
@@ -1401,13 +1384,10 @@ GEM
       vsphere-automation-cis (~> 0.4.6)
       vsphere-automation-runtime (~> 0.4.6)
     webrick (1.9.2)
-    win32-api (1.10.1)
     win32-api (1.10.1-universal-mingw32)
     win32-certstore (0.6.16)
       chef-powershell
       ffi
-    win32-dir (0.7.2)
-      ffi (>= 1.0.0)
     win32-event (0.6.3)
       win32-ipc (>= 0.6.0)
     win32-eventlog (0.6.3)
@@ -1420,20 +1400,12 @@ GEM
       win32-ipc (>= 0.6.0)
     win32-process (0.10.0)
       ffi (>= 1.0.0)
-    win32-security (0.5.0)
-      ffi
-      ffi-win32-extensions
     win32-service (2.3.2)
       ffi
       ffi-win32-extensions
     win32-taskscheduler (2.0.4)
       ffi
       structured_warnings
-    windows-api (0.4.5)
-      win32-api (>= 1.4.5)
-    windows-pr (1.2.6)
-      win32-api (>= 1.4.5)
-      windows-api (>= 0.4.0)
     winrm (2.3.9)
       builder (>= 2.1.2)
       erubi (~> 1.8)
@@ -1518,7 +1490,7 @@ DEPENDENCIES
   mixlib-install
   net-imap (>= 0.2.5)
   net-ssh (>= 4.2.0)
-  nokogiri (>= 1.11.7)
+  nokogiri (>= 1.11.7, < 1.19.1)
   ohai (>= 18.1)
   openssl (>= 3.2.0)
   pry (= 0.13.0)
@@ -1531,16 +1503,8 @@ DEPENDENCIES
   ruby-shadow!
   test-kitchen (>= 3.0)
   unf_ext (~> 0.0.8.2)
-  win32-api
-  win32-dir
-  win32-event
-  win32-mutex
-  win32-process (>= 0.9.0)
-  win32-security
-  win32-service (>= 2.1.5)
-  windows-pr
   winrm-elevated
   winrm-fs
 
 BUNDLED WITH
-   2.3.7
+   2.3.27
