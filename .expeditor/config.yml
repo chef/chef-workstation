@@ -29,15 +29,6 @@ pipelines:
         - BUNDLE_GITHUB__COM: "x-access-token:$GITHUB_TOKEN"
         - EXPIRE_CACHE: true
         - IGNORE_CACHE: true
-        # Prevent git/GCM from prompting for credentials (hangs Windows CI)
-        - GIT_TERMINAL_PROMPT: "0"
-        - GCM_INTERACTIVE: never
-        - GIT_ASKPASS: ""
-        - GIT_CONFIG_COUNT: "2"
-        - GIT_CONFIG_KEY_0: "url.https://x-access-token:$GITHUB_TOKEN@github.com/.insteadOf"
-        - GIT_CONFIG_VALUE_0: "https://github.com/"
-        - GIT_CONFIG_KEY_1: "credential.helper"
-        - GIT_CONFIG_VALUE_1: ""
   - omnibus/adhoc:
       definition: .expeditor/release.omnibus.yml
       env:
@@ -46,15 +37,6 @@ pipelines:
         - EXPIRE_CACHE: true
         - IGNORE_CACHE: true
         - BUNDLE_GITHUB__COM: "x-access-token:$GITHUB_TOKEN"
-        # Prevent git/GCM from prompting for credentials (hangs Windows CI)
-        - GIT_TERMINAL_PROMPT: "0"
-        - GCM_INTERACTIVE: never
-        - GIT_ASKPASS: ""
-        - GIT_CONFIG_COUNT: "2"
-        - GIT_CONFIG_KEY_0: "url.https://x-access-token:$GITHUB_TOKEN@github.com/.insteadOf"
-        - GIT_CONFIG_VALUE_0: "https://github.com/"
-        - GIT_CONFIG_KEY_1: "credential.helper"
-        - GIT_CONFIG_VALUE_1: ""
   - omnibus/adhoc-canary:
       canary: true
       definition: .expeditor/release.omnibus.yml
@@ -62,15 +44,6 @@ pipelines:
         - ADHOC: true
         - IGNORE_ARTIFACTORY_RUBY_PROXY: true
         - BUNDLE_GITHUB__COM: "x-access-token:$GITHUB_TOKEN"
-        # Prevent git/GCM from prompting for credentials (hangs Windows CI)
-        - GIT_TERMINAL_PROMPT: "0"
-        - GCM_INTERACTIVE: never
-        - GIT_ASKPASS: ""
-        - GIT_CONFIG_COUNT: "2"
-        - GIT_CONFIG_KEY_0: "url.https://x-access-token:$GITHUB_TOKEN@github.com/.insteadOf"
-        - GIT_CONFIG_VALUE_0: "https://github.com/"
-        - GIT_CONFIG_KEY_1: "credential.helper"
-        - GIT_CONFIG_VALUE_1: ""
   - third-party-packages:
       description: post-release publishing of Workstation packages to third party distribution platforms
 
