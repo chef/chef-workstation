@@ -28,7 +28,7 @@ GEM
       drb
       i18n (>= 1.6, < 2)
       logger (>= 1.4.2)
-      minitest (>= 5.1)
+      minitest (>= 5.1, < 6)
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
     addressable (2.8.7)
@@ -937,7 +937,6 @@ GEM
       mixlib-log
     mixlib-archive (1.1.7-universal-mingw32)
       mixlib-log
-    minitest (5.26.2)
     mixlib-authentication (3.0.10)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.27)
