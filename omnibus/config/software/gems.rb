@@ -94,9 +94,13 @@ build do
   appbundle "fauxhai", lockdir: project_dir, gem: "fauxhai-chef", env: env
 
   # Note - 'chef-apply' gem provides 'chef-run', not 'chef-apply' which ships with chef-bin...
-  %w{chef-bin chef-apply chef-vault ohai}.each do |gem|
-    appbundle gem, lockdir: project_dir, gem: gem, without: %w{changelog chefstyle}, env: env
+  %w{chef-bin chef-apply ohai}.each do |gem|
+    appbundle gem, lockdir: project_dir, gem: gem, without: %w{changelog development chefstyle}, env: env
   end
+
+  # chef-vault ships with extra Gemfile development/test/doc dependencies that can
+  # inject chefstyle into the merged appbundler Gemfile unless we exclude them.
+  appbundle "chef-vault", lockdir: project_dir, gem: "chef-vault", without: %w{changelog development test docs debug integration chefstyle}, env: env
 
   # Clear git-checked-out gems (most of this cleanup has been moved into the chef-cleanup omnibus-software definition,
   # but chef-client still needs git-checked-out gems)
