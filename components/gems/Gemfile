@@ -90,7 +90,7 @@ group(:omnibus_package) do
   gem "kitchen-vra", ">= 3.3.3"
 
   # knife & plugins
-  gem "knife", ">= 18.2"
+  gem "knife", ">= 18.2", "< 19.0"
   gem "knife-azure", ">= 3.0.0"
   gem "knife-ec2", ">= 1.0.28"
   gem "knife-google", ">= 4.2.7"
