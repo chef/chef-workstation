@@ -921,7 +921,7 @@ GEM
     mini_mime (1.1.5)
     minitar (1.1.0)
     minitest (5.27.0)
-    mixlib-archive (1.3.4)
+    mixlib-archive (1.3.3)
       mixlib-log
     mixlib-authentication (3.2.1)
       base64
