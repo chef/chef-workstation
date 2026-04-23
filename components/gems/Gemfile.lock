@@ -448,7 +448,7 @@ GEM
       pstore (~> 0.1.1)
       tty-prompt (~> 0.23)
       tty-spinner (~> 0.9.3)
-    chef-telemetry (1.1.9)
+    chef-telemetry (1.1.1)
       chef-config
       concurrent-ruby (~> 1.0)
     chef-utils (18.10.17)
