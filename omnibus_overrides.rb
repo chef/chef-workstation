@@ -17,7 +17,7 @@ override "libyaml", version: "0.1.7"
 override "libxml2", version: "2.14.4"
 override "libxslt", version: "1.1.43"
 override "makedepend", version: "1.0.5"
-override "ncurses", version: "6.3"
+override "ncurses", version: "5.9"
 override :stunnel, version: "5.71"
 override "pkg-config-lite", version: "0.28-1"
 override "ruby", version: "3.1.7", unbundle_gems: %w{rbs typeprof}
