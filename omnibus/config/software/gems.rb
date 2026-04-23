@@ -95,7 +95,7 @@ build do
 
   # Note - 'chef-apply' gem provides 'chef-run', not 'chef-apply' which ships with chef-bin...
   %w{chef-bin chef-apply chef-vault ohai}.each do |gem|
-    appbundle gem, lockdir: project_dir, gem: gem, without: %w{changelog}, env: env
+    appbundle gem, lockdir: project_dir, gem: gem, without: %w{changelog chefstyle}, env: env
   end
 
   # Clear git-checked-out gems (most of this cleanup has been moved into the chef-cleanup omnibus-software definition,
