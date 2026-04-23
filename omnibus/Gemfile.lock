@@ -300,7 +300,7 @@ GEM
       reline (>= 0.4.2)
     iso8601 (0.13.0)
     jmespath (1.6.2)
-    json (2.18.1)
+    json (2.19.4)
     kitchen-vagrant (2.2.0)
       test-kitchen (>= 1.4, < 4)
     libyajl2 (2.1.0)
@@ -324,7 +324,7 @@ GEM
       mime-types-data (~> 3.2025, >= 3.2025.0507)
     mime-types-data (3.2026.0224)
     minitar (1.1.0)
-    minitest (5.26.2)
+    minitest (5.27.0)
     mixlib-archive (1.1.7)
       mixlib-log
     mixlib-archive (1.1.7-universal-mingw32)
@@ -418,7 +418,7 @@ GEM
       stringio
     public_suffix (6.0.2)
     racc (1.8.1)
-    rack (3.2.5)
+    rack (3.2.6)
     rackup (2.3.1)
       rack (>= 3)
     rainbow (3.1.1)
