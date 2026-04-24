@@ -73,7 +73,7 @@ GEM
       solve (~> 4.0)
       syslog (~> 0.3)
       thor (~> 1.4)
-    bigdecimal (4.1.2)
+    bigdecimal (3.1.9)
     builder (3.3.0)
     cgi (0.5.1)
     chef (18.10.17)
@@ -595,6 +595,7 @@ PLATFORMS
 
 DEPENDENCIES
   artifactory
+  bigdecimal (< 4.0)
   berkshelf (>= 8.0)
   kitchen-omnibus-chef (>= 1.1)
   kitchen-vagrant
