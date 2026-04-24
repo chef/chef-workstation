@@ -29,15 +29,25 @@ build do
 
     require "erb"
     template_file = File.join("#{chef_gem_path}", "distro", "templates", "powershell", "chef", "chef.psm1.erb")
-    psm1_path = File.join("#{chef_gem_path}", "distro", "powershell", "chef")
-    create_directory(psm1_path)
+    source_ps_path = File.join("#{chef_gem_path}", "distro", "powershell", "chef")
     chef_module_dir = "#{install_dir}/modules/chef"
     create_directory(chef_module_dir)
-    template = ERB.new(File.read(template_file))
-    chef_psm1 = template.result
-    File.open(::File.join(psm1_path, "chef.psm1"), "w") { |f| f.write(chef_psm1) }
-    Dir.glob("#{chef_gem_path}/distro/powershell/chef/*").each do |file|
-      copy_file(file, chef_module_dir)
+
+    # Chef gem layout differs by version:
+    # - Older builds ship chef.psm1.erb under distro/templates/powershell/chef
+    # - Newer builds may ship pre-rendered files under distro/powershell/chef
+    if File.exist?(template_file)
+      template = ERB.new(File.read(template_file))
+      chef_psm1 = template.result
+      File.open(::File.join(chef_module_dir, "chef.psm1"), "w") { |f| f.write(chef_psm1) }
+    elsif File.exist?(::File.join(source_ps_path, "chef.psm1"))
+      copy_file(::File.join(source_ps_path, "chef.psm1"), chef_module_dir)
+    end
+
+    if Dir.exist?(source_ps_path)
+      Dir.glob("#{source_ps_path}/*").each do |file|
+        copy_file(file, chef_module_dir)
+      end
     end
   end
 end
