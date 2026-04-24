@@ -29,10 +29,8 @@ require (
 
 replace github.com/go-chef/chef v0.24.5 => github.com/chef/go-chef v0.4.5
 
-// Security fix for CVE-2024-45337, GHSA-hcg3-q754-cr77, GHSA-j5w8-q4qc-rx2x, GHSA-f6x5-jh6r-wrfv:
 // Force golang.org/x/crypto to v0.45.0 or later
 replace golang.org/x/crypto => golang.org/x/crypto v0.45.0
 
-// Security fix for golang.org/x/text vulnerabilities
 // Force golang.org/x/text to v0.24.0 or later
 replace golang.org/x/text => golang.org/x/text v0.24.0
