@@ -55,6 +55,14 @@ build do
           { "Path" => "#{install_dir}\\embedded\\bin;#{ENV["PATH"]}" }
         end
 
+  # Windows: Ruby 3.1.6 + OpenSSL 3.2.6 causes GCC (MSYS2) to crash with internal compiler
+  # errors when compiling the native extensions. The issue is that OpenSSL 3.2.6 deprecation
+  # warnings are treated as errors. Suppress deprecation warnings during extension compilation.
+  if windows?
+    env["CFLAGS"] = "-Wno-deprecated-declarations"
+    env["CXXFLAGS"] = "-Wno-deprecated-declarations"
+  end
+
   #######################################################
   # !!!              IMPORTANT REMINDER             !!! #
   #######################################################
