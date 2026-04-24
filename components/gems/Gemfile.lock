@@ -311,7 +311,7 @@ GEM
       solve (~> 4.0)
       syslog (~> 0.3)
       thor (~> 1.4)
-    bigdecimal (4.1.2)
+    bigdecimal (3.1.9)
     binding_of_caller (2.0.0)
       debug_inspector (>= 1.2.0)
     bson (5.2.0)
@@ -1438,6 +1438,7 @@ DEPENDENCIES
   artifactory
   bcrypt_pbkdf (>= 1.1.0.rc1)
   berkshelf (>= 8.0)
+  bigdecimal (< 4.0)
   chef (>= 18.10.17, < 19.0.0)
   chef-apply (>= 0.4.16)
   chef-bin (>= 18.10.17, < 19.0.0)

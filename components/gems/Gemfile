@@ -33,6 +33,10 @@ group(:omnibus_package, :development, :test) do
   # and later, hence pinning the version for openssl.
   gem "openssl", ">= 3.2.0"
 
+  # bigdecimal 4.x uses __has_include in native extension code, which fails on
+  # EL7 toolchains. Keep this on the 3.x line until EL7 is dropped.
+  gem "bigdecimal", "< 4.0"
+
   gem "rdoc", "~> 6.4.1" # 6.4.1.1 required for CVE-2024-27281, allow patch upgrades
   gem "net-imap", ">= 0.2.5" # 0.2.5+ required for CVE fix - GHSA-j3g3-5qv5-52mj
 end
