@@ -14,10 +14,6 @@
 # limitations under the License.
 #
 
-# Workaround for a race condition in ncurses 6.4 when building with parallel (-j) jobs on macOS.
-# The error is: gmake[1]: *** No rule to make target '../lib/libtinfo.6.dylib', needed by 'all'.
-# Solution: Disable parallel make jobs on macOS by lowering the worker count in the environment
-
 name "ncurses"
 default_version "6.4"
 
@@ -31,23 +27,22 @@ internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/#{name}-#{version}.
 
 relative_path "ncurses-#{version}"
 
-# Patches directory for potential future fixes
-# patch source: "ncurses-fix-macos-arm64-race.patch"
-
 build do
   env = with_standard_compiler_flags(with_embedded_path)
+  env.delete("CPPFLAGS")
 
-  # On macOS, set worker count to 1 to avoid parallel make race conditions with libtinfo.6.dylib
-  if mac_os_x?
-    # Override workers for this build to disable parallel jobs
-    env["MAKE"] = "gmake -j 1"
-  else
-    env["MAKE"] = "gmake -j #{workers}"
-  end
+  # On macOS, use -j 1 to avoid a parallel make race condition where libtinfo.6.dylib
+  # is not yet assembled when sub-makes try to link against it.
+  # Setting env["MAKE"] does NOT work — omnibus's make DSL ignores the MAKE env var
+  # and invokes make directly, so we pass the -j flag explicitly.
+  j = mac_os_x? ? "-j 1" : "-j #{workers}"
 
   configure_args = [
+    "./configure",
     "--prefix=#{install_dir}/embedded",
     "--enable-shared",
+    "--enable-overwrite",
+    "--with-termlib",
     "--enable-ext-colors",
     "--enable-ext-mouse",
     "--with-default-terminfo-dir=#{install_dir}/embedded/share/terminfo",
@@ -57,9 +52,15 @@ build do
     "--without-progs",
   ]
 
-  configure_cmd = "./configure"
-  command "#{configure_cmd} #{configure_args.join(" ")}", env: env
+  # First pass: non-wide libraries
+  command configure_args.join(" "), env: env
+  make j, env: env
+  make "#{j} install", env: env
 
-  # Use the MAKE environment variable we set above
-  make "install", env: env
+  # Second pass: wide-character libraries (required by Ruby 1.9+ for UTF-8 / ncursesw)
+  make "distclean", env: env
+  configure_args << "--enable-widec"
+  command configure_args.join(" "), env: env
+  make j, env: env
+  make "#{j} install", env: env
 end
