@@ -91,12 +91,13 @@ build do
 
   command configure_command.join(" "), env: env
 
-  # unfortunately, libtool may try to link to libtinfo
-  # before it has been assembled; so we have to build in serial
-  make "libs", env: env if aix?
+  # ncurses 6.4 on macOS has a parallel build race in its Makefile: the 'ncurses'
+  # subdir tries to link against ../lib/libncurses.6.dylib before another subdir
+  # has produced it. Force serial make on macOS to avoid this.
+  j = mac_os_x? ? "-j 1" : "-j #{workers}"
 
-  make "-j #{workers}", env: env
-  make "-j #{workers} install", env: env
+  make j, env: env
+  make "#{j} install", env: env
 
   # Build wide-character libraries
   make "distclean", env: env
@@ -104,6 +105,6 @@ build do
 
   command configure_command.join(" "), env: env
   make "libs", env: env if aix?
-  make "-j #{workers}", env: env
-  make "-j #{workers} install", env: env
+  make j, env: env
+  make "#{j} install", env: env
 end
