@@ -15,7 +15,7 @@
 #
 
 name "ncurses"
-default_version "6.4"
+default_version "6.6"
 
 license "MIT"
 license_file "http://invisible-island.net/ncurses/ncurses-license.html"
@@ -25,6 +25,8 @@ skip_transitive_dependency_licensing true
 dependency "config_guess"
 
 # versions_list: https://ftp.gnu.org/gnu/ncurses/ filter=*.tar.gz
+version("6.6") { source sha256: "355b4cbbed880b0381a04c46617b7656e362585d52e9cf84a67e2009b749ff11" }
+version("6.5") { source sha256: "136d91bc269a9a5785e5f9e980bc76ab57428f604ce3e5a5a90cebc767971cc6" }
 version("6.4") { source sha256: "6931283d9ac87c5073f30b6290c4c75f21632bb4fc3603ac8100812bed248159" }
 version("6.3") { source sha256: "97fc51ac2b085d4cde31ef4d2c3122c21abc217e9090a43a30fc5ec21684e059" }
 version("6.2") { source sha256: "30306e0c76e0f9f1f0de987cf1c82a5c21e1ce6568b9227f7da5b71cbea86c9d" }
@@ -91,13 +93,8 @@ build do
 
   command configure_command.join(" "), env: env
 
-  # ncurses 6.4 on macOS has a parallel build race in its Makefile: the 'ncurses'
-  # subdir tries to link against ../lib/libncurses.6.dylib before another subdir
-  # has produced it. Force serial make on macOS to avoid this.
-  j = mac_os_x? ? "-j 1" : "-j #{workers}"
-
-  make j, env: env
-  make "#{j} install", env: env
+  make "-j #{workers}", env: env
+  make "-j #{workers} install", env: env
 
   # Build wide-character libraries
   make "distclean", env: env
@@ -105,6 +102,6 @@ build do
 
   command configure_command.join(" "), env: env
   make "libs", env: env if aix?
-  make j, env: env
-  make "#{j} install", env: env
+  make "-j #{workers}", env: env
+  make "-j #{workers} install", env: env
 end
