@@ -76,7 +76,6 @@ build do
     "--prefix=#{install_dir}/embedded",
     "--enable-overwrite",
     "--with-shared",
-    "--with-termlib",
     "--without-ada",
     "--without-cxx-binding",
     "--without-debug",
