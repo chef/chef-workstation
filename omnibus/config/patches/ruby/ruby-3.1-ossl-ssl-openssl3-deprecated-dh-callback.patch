@@ -1,0 +1,49 @@
+Ruby 3.1.x's ext/openssl uses SSL_CTX_set_tmp_dh_callback() which is deprecated
+in OpenSSL 3.0+ and carries the OSSL_DEPRECATEDIN_3_0 attribute. In OpenSSL 3.2.x
+that attribute expands to __attribute__((__deprecated__("Since OpenSSL 3.0"))) which
+triggers a GCC internal compiler error (ICE / Segmentation fault) in the MINGW
+toolchain used for Windows builds.
+
+Fix:
+ - Guard the DH callback helpers (struct + functions) so they are only compiled
+   for OpenSSL < 3.0, where the callback is still used.
+ - At the registration site, use SSL_CTX_set_dh_auto(ctx, 1) for OpenSSL >= 3.0,
+   which is the modern equivalent that lets OpenSSL auto-select DH parameters.
+
+--- a/ext/openssl/ossl_ssl.c
++++ b/ext/openssl/ossl_ssl.c
+@@ -237,7 +237,7 @@ ossl_ssl_info_cb(const SSL *ssl, int where, int ret)
+     return 1;
+ }
+ 
+-#if !defined(OPENSSL_NO_DH)
++#if !defined(OPENSSL_NO_DH) && OPENSSL_VERSION_NUMBER < 0x30000000L
+ struct tmp_dh_callback_args {
+     VALUE ssl_obj;
+     ID id;
+@@ -266,7 +266,7 @@ ossl_call_tmp_dh_callback(VALUE arg)
+ }
+ #endif
+ 
+-#if !defined(OPENSSL_NO_DH)
++#if !defined(OPENSSL_NO_DH) && OPENSSL_VERSION_NUMBER < 0x30000000L
+ static DH *
+ ossl_tmp_dh_callback(SSL *ssl, int is_export, int keylength)
+ {
+@@ -765,9 +765,13 @@ ossl_sslctx_setup(VALUE self)
+     if(OBJ_FROZEN(self)) return Qnil;
+     GetSSLCTX(self, ctx);
+ 
+-#if !defined(OPENSSL_NO_DH)
+-    SSL_CTX_set_tmp_dh_callback(ctx, ossl_tmp_dh_callback);
+-#endif
++#if !defined(OPENSSL_NO_DH)
++# if OPENSSL_VERSION_NUMBER < 0x30000000L
++    SSL_CTX_set_tmp_dh_callback(ctx, ossl_tmp_dh_callback);
++# else
++    SSL_CTX_set_dh_auto(ctx, 1);
++# endif
++#endif
+ 
+ #ifdef HAVE_SSL_CTX_SET_POST_HANDSHAKE_AUTH
+     SSL_CTX_set_post_handshake_auth(ctx, 1);
