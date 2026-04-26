@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright (c) Chef Software Inc.
+# Copyright 2012-2019, Chef Software Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,49 +18,93 @@ name "ncurses"
 default_version "6.4"
 
 license "MIT"
-license_file "COPYING"
+license_file "http://invisible-island.net/ncurses/ncurses-license.html"
+license_file "http://invisible-island.net/ncurses/ncurses.faq.html"
+skip_transitive_dependency_licensing true
 
-source url: "https://invisible-mirror.net/archives/ncurses/ncurses-#{version}.tar.gz",
-       sha256: "6931283d9ac87c5073f30b6290c4c75f21632bb4fc3603ac8100812bed248159"
+dependency "config_guess"
+
+# versions_list: https://ftp.gnu.org/gnu/ncurses/ filter=*.tar.gz
+version("6.4") { source sha256: "6931283d9ac87c5073f30b6290c4c75f21632bb4fc3603ac8100812bed248159" }
+version("6.3") { source sha256: "97fc51ac2b085d4cde31ef4d2c3122c21abc217e9090a43a30fc5ec21684e059" }
+version("6.2") { source sha256: "30306e0c76e0f9f1f0de987cf1c82a5c21e1ce6568b9227f7da5b71cbea86c9d" }
+version("6.1") { source sha256: "aa057eeeb4a14d470101eff4597d5833dcef5965331be3528c08d99cebaa0d17" }
+version("5.9") { source sha256: "9046298fb440324c9d4135ecea7879ffed8546dd1b58e59430ea07a4633f563b" }
+
+source url: "https://mirror.team-cymru.com/gnu/ncurses/ncurses-#{version}.tar.gz"
 internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/#{name}-#{version}.tar.gz",
                 authorization: "X-JFrog-Art-Api:#{ENV["ARTIFACTORY_TOKEN"]}"
 
 relative_path "ncurses-#{version}"
 
+########################################################################
+#
+# wide-character support:
+# Ruby 1.9 optimistically builds against libncursesw for UTF-8
+# support. In order to prevent Ruby from linking against a
+# package-installed version of ncursesw, we build wide-character
+# support into ncurses with the "--enable-widec" configure parameter.
+# To support other applications and libraries that still try to link
+# against libncurses, we also have to create non-wide libraries.
+#
+# The methods below are adapted from:
+# http://www.linuxfromscratch.org/lfs/view/development/chapter06/ncurses.html
+#
+########################################################################
+
 build do
   env = with_standard_compiler_flags(with_embedded_path)
   env.delete("CPPFLAGS")
 
-  # On macOS, use -j 1 to avoid a parallel make race condition where libtinfo.6.dylib
-  # is not yet assembled when sub-makes try to link against it.
-  # Setting env["MAKE"] does NOT work — omnibus's make DSL ignores the MAKE env var
-  # and invokes make directly, so we pass the -j flag explicitly.
-  j = mac_os_x? ? "-j 1" : "-j #{workers}"
+  update_config_guess
 
-  configure_args = [
+  if mac_os_x? ||
+      # Clang became the default compiler in FreeBSD 10+
+      (freebsd? && ohai["os_version"].to_i >= 1000024)
+    # References:
+    # https://github.com/Homebrew/homebrew-dupes/issues/43
+    # http://invisible-island.net/ncurses/NEWS.html#t20110409
+    #
+    # Patches ncurses for clang compiler. Changes have been accepted into
+    # upstream, but occurred shortly after the 5.9 release. We should be able
+    # to remove this after upgrading to any release created after June 2012
+    patch source: "ncurses-clang.patch", env: env
+  end
+
+  configure_command = [
     "./configure",
     "--prefix=#{install_dir}/embedded",
-    "--enable-shared",
     "--enable-overwrite",
+    "--with-shared",
     "--with-termlib",
-    "--enable-ext-colors",
-    "--enable-ext-mouse",
-    "--with-default-terminfo-dir=#{install_dir}/embedded/share/terminfo",
-    "--mandir=#{install_dir}/embedded/share/man",
     "--without-ada",
-    "--without-tests",
-    "--without-progs",
+    "--without-cxx-binding",
+    "--without-debug",
+    "--without-manpages",
   ]
 
-  # First pass: non-wide libraries
-  command configure_args.join(" "), env: env
-  make j, env: env
-  make "#{j} install", env: env
+  if aix?
+    configure_command << "--with-libtool=\"#{install_dir}/embedded/bin/libtool\""
+    configure_command << "--without-normal"
+    env.delete("ARFLAGS")
+    env["INSTALL"] = "/opt/freeware/bin/install"
+  end
 
-  # Second pass: wide-character libraries (required by Ruby 1.9+ for UTF-8 / ncursesw)
+  command configure_command.join(" "), env: env
+
+  # unfortunately, libtool may try to link to libtinfo
+  # before it has been assembled; so we have to build in serial
+  make "libs", env: env if aix?
+
+  make "-j #{workers}", env: env
+  make "-j #{workers} install", env: env
+
+  # Build wide-character libraries
   make "distclean", env: env
-  configure_args << "--enable-widec"
-  command configure_args.join(" "), env: env
-  make j, env: env
-  make "#{j} install", env: env
+  configure_command << "--enable-widec"
+
+  command configure_command.join(" "), env: env
+  make "libs", env: env if aix?
+  make "-j #{workers}", env: env
+  make "-j #{workers} install", env: env
 end
