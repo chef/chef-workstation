@@ -91,17 +91,24 @@ build do
     env["INSTALL"] = "/opt/freeware/bin/install"
   end
 
-  command configure_command.join(" "), env: env
-
+  # ncurses 6.4+ changed the build dependency: the non-wide ncurses subdir
+  # now depends on libncursesw being present in the build tree. Build widec
+  # first so the dependency is satisfied when we build non-wide.
+  command (configure_command + ["--enable-widec"]).join(" "), env: env
+  make "libs", env: env if aix?
   make "-j #{workers}", env: env
   make "-j #{workers} install", env: env
 
-  # Build wide-character libraries
   make "distclean", env: env
-  configure_command << "--enable-widec"
 
+  # After distclean the build-tree lib/ is gone. Restore the widec shared
+  # libraries so the non-wide pass can satisfy its ../lib/libncursesw* dep.
+  if mac_os_x?
+    command "mkdir -p lib && cp #{install_dir}/embedded/lib/libncursesw*.dylib lib/", env: env
+  end
+
+  # Build non-wide libraries (for apps that link against -lncurses directly)
   command configure_command.join(" "), env: env
-  make "libs", env: env if aix?
   make "-j #{workers}", env: env
   make "-j #{workers} install", env: env
 end
