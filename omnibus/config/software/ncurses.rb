@@ -26,6 +26,8 @@ license_file "COPYING"
 
 source url: "https://invisible-mirror.net/archives/ncurses/ncurses-#{version}.tar.gz",
        sha256: "6931283d9ac87c5073f30b6290c4c15f3fb1b100d6cbf8b02b6282f7f42a279e"
+internal_source url: "#{ENV["ARTIFACTORY_REPO_URL"]}/#{name}/#{name}-#{version}.tar.gz",
+                authorization: "X-JFrog-Art-Api:#{ENV["ARTIFACTORY_TOKEN"]}"
 
 relative_path "ncurses-#{version}"
 
