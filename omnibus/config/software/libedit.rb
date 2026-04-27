@@ -80,14 +80,17 @@ build do
   end
 
   if linux?
-    # libedit configure searches for tgetent in -ltinfo first, then -lncurses.
-    # Even with -L/embedded/lib, libtool (the actual linker) falls back to the
-    # SYSTEM libtinfo.so.6 because there is no embedded libtinfo.la file to
-    # tell it to use our embedded library. The resulting libedit.so records a
-    # runtime dependency on the system libtinfo.so.6, which omnibus health check
-    # rejects as unsafe. Fix: pre-cache the autoconf result for -ltinfo as "no"
-    # so configure falls through to -lncurses, which IS in the embedded lib.
-    env["ac_cv_lib_tinfo_tgetent"] = "no"
+    # libedit configure probes for tgetent in this order:
+    #   -ltinfo  → -lterminfo → -ltermcap → -lcurses → -lncurses
+    # On Debian 10 the system supplies libtinfo.so.6; on Ubuntu 18 it supplies
+    # libtinfo.so.5 (via the termcap compatibility shim). Even with
+    # -L/embedded/lib, libtool resolves to the system library because there is
+    # no embedded libtinfo.la / libtermcap.la. Pre-cache all probes except
+    # -lncurses as "no" so configure selects the embedded libncurses.so.6.
+    env["ac_cv_lib_tinfo_tgetent"]    = "no"
+    env["ac_cv_lib_terminfo_tgetent"] = "no"
+    env["ac_cv_lib_termcap_tgetent"]  = "no"
+    env["ac_cv_lib_curses_tgetent"]   = "no"
   end
 
   update_config_guess
