@@ -79,6 +79,18 @@ build do
     env["AWK"] = "#{install_dir}/embedded/bin/gawk-lang-wrapper"
   end
 
+  if linux?
+    # ncurses 6.x on Linux does not install a standalone libtinfo.so — tinfo
+    # symbols live inside libncurses.so.6. The ncurses build step creates these
+    # symlinks, but if ncurses is restored from the omnibus build cache its build
+    # block is skipped and the symlinks are never written. Create them here
+    # unconditionally (before configure) so libedit always links against the
+    # embedded library rather than the system /lib/x86_64-linux-gnu/libtinfo.so.6,
+    # which omnibus health check rejects as an unsafe dependency.
+    command "ln -sf #{install_dir}/embedded/lib/libncurses.so.6 #{install_dir}/embedded/lib/libtinfo.so.6 && " \
+            "ln -sf #{install_dir}/embedded/lib/libncurses.so #{install_dir}/embedded/lib/libtinfo.so", env: env
+  end
+
   update_config_guess
 
   command "./configure" \

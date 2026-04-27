@@ -130,10 +130,8 @@ build do
     # separate libtinfo.so by default with our configure flags. libedit links
     # against -ltinfo; without an embedded libtinfo the linker falls back to the
     # system library, which the omnibus health check flags as an unsafe dependency.
-    # Create symlinks so anything linking against libtinfo picks up the embedded
-    # libncurses instead.
-    command "cd #{install_dir}/embedded/lib && " \
-            "ln -sf libncurses.so.6 libtinfo.so.6 && " \
-            "ln -sf libncurses.so libtinfo.so", env: env
+    # Use absolute symlink targets so the links work regardless of cwd.
+    command "ln -sf #{install_dir}/embedded/lib/libncurses.so.6 #{install_dir}/embedded/lib/libtinfo.so.6 && " \
+            "ln -sf #{install_dir}/embedded/lib/libncurses.so #{install_dir}/embedded/lib/libtinfo.so", env: env
   end
 end
