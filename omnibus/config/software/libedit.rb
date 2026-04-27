@@ -80,13 +80,21 @@ build do
   end
 
   if linux?
-    # libedit configure probes for tgetent in this order:
-    #   -ltinfo  → -lterminfo → -ltermcap → -lcurses → -lncurses
-    # On Debian 10 the system supplies libtinfo.so.6; on Ubuntu 18 it supplies
-    # libtinfo.so.5 (via the termcap compatibility shim). Even with
-    # -L/embedded/lib, libtool resolves to the system library because there is
-    # no embedded libtinfo.la / libtermcap.la. Pre-cache all probes except
-    # -lncurses as "no" so configure selects the embedded libncurses.so.6.
+    # ncurses 6.4+ defaults to wide-char always: both passes build libncursesw.so.6
+    # rather than a separate non-wide libncurses.so.6. Without an embedded
+    # libncurses.so, libedit configure finds the SYSTEM libncurses.so.6 (which on
+    # Ubuntu 18.04 is a shim that chains to libtinfo.so.5; on Debian 10 it chains
+    # to libtinfo.so.6) for its tgetent probe. The resulting libedit.so records the
+    # system libtinfo as a DT_NEEDED which the omnibus health check rejects.
+    #
+    # Fix: create libncurses.so.6 → libncursesw.so.6 symlinks in embedded/lib so
+    # configure's -lncurses probe resolves to our embedded wide-char library. The
+    # SONAME inside libncursesw.so.6.6 is "libncursesw.so.6", so libedit.so will
+    # record DT_NEEDED: libncursesw.so.6, which is our embedded lib (passes check).
+    # Also block all tinfo/termcap/curses probes that precede -lncurses so configure
+    # doesn't stop early and pick up a system library.
+    command "ln -sf #{install_dir}/embedded/lib/libncursesw.so.6 #{install_dir}/embedded/lib/libncurses.so.6 && " \
+            "ln -sf #{install_dir}/embedded/lib/libncursesw.so #{install_dir}/embedded/lib/libncurses.so", env: env
     env["ac_cv_lib_tinfo_tgetent"]    = "no"
     env["ac_cv_lib_terminfo_tgetent"] = "no"
     env["ac_cv_lib_termcap_tgetent"]  = "no"
