@@ -124,14 +124,4 @@ build do
   command configure_command.join(" "), env: env
   make "-j #{workers}", env: env
   make "-j #{workers} install", env: env
-
-  if linux?
-    # ncurses 6.x includes tinfo symbols in libncurses but does not install a
-    # separate libtinfo.so by default with our configure flags. libedit links
-    # against -ltinfo; without an embedded libtinfo the linker falls back to the
-    # system library, which the omnibus health check flags as an unsafe dependency.
-    # Use absolute symlink targets so the links work regardless of cwd.
-    command "ln -sf #{install_dir}/embedded/lib/libncurses.so.6 #{install_dir}/embedded/lib/libtinfo.so.6 && " \
-            "ln -sf #{install_dir}/embedded/lib/libncurses.so #{install_dir}/embedded/lib/libtinfo.so", env: env
-  end
 end
