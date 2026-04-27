@@ -225,7 +225,7 @@ GEM
     diff-lcs (1.5.1)
     domain_name (0.6.20240107)
     ed25519 (1.4.0)
-    erb (4.0.4)
+    erb (4.0.4.1)
       cgi (>= 0.3.3)
     erubi (1.13.1)
     erubis (2.7.0)

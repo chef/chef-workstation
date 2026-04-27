@@ -29,6 +29,9 @@ require (
 
 replace github.com/go-chef/chef v0.24.5 => github.com/chef/go-chef v0.4.5
 
+// Security fix for CVE-2024-6104: Force go-retryablehttp to v0.7.7 or later
+replace github.com/hashicorp/go-retryablehttp => github.com/hashicorp/go-retryablehttp v0.7.7
+
 // Force golang.org/x/crypto to v0.45.0 or later
 replace golang.org/x/crypto => golang.org/x/crypto v0.45.0
 
