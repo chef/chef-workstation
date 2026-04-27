@@ -91,6 +91,19 @@ build do
     env["INSTALL"] = "/opt/freeware/bin/install"
   end
 
+  if mac_os_x?
+    # ncurses 6.4+ uses mk-1st.awk which calls gsub("[+]", " ", check) to parse
+    # subset lists. With gawk 4.4+ on macOS, this gsub fails silently when LANG is
+    # unset because [+] is treated as the ERE quantifier (+) not a literal character.
+    # config.status unconditionally unsets LANG at startup, so passing LANG in the
+    # outer env has no effect. The fix: create a gawk wrapper that forces LANG=C
+    # and point AWK to it so configure embeds the wrapper in config.status.
+    gawk_path = `which gawk 2>/dev/null`.strip
+    gawk_wrapper = "#{project_dir}/../gawk-lang-wrapper"
+    command "printf '#!/bin/sh\\nLANG=C exec #{gawk_path} \"$@\"\\n' > #{gawk_wrapper} && chmod +x #{gawk_wrapper}", env: env
+    env["AWK"] = gawk_wrapper
+  end
+
   # ncurses 6.4+ changed the build dependency: the non-wide ncurses subdir
   # now depends on libncursesw being present in the build tree. Build widec
   # first so the dependency is satisfied when we build non-wide.
@@ -111,4 +124,16 @@ build do
   command configure_command.join(" "), env: env
   make "-j #{workers}", env: env
   make "-j #{workers} install", env: env
+
+  if linux?
+    # ncurses 6.x includes tinfo symbols in libncurses but does not install a
+    # separate libtinfo.so by default with our configure flags. libedit links
+    # against -ltinfo; without an embedded libtinfo the linker falls back to the
+    # system library, which the omnibus health check flags as an unsafe dependency.
+    # Create symlinks so anything linking against libtinfo picks up the embedded
+    # libncurses instead.
+    command "cd #{install_dir}/embedded/lib && " \
+            "ln -sf libncurses.so.6 libtinfo.so.6 && " \
+            "ln -sf libncurses.so libtinfo.so", env: env
+  end
 end
