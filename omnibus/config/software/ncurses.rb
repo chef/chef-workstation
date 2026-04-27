@@ -92,14 +92,14 @@ build do
   end
 
   if mac_os_x?
-    # ncurses 6.4+ uses mk-1st.awk which calls gsub("[+]", " ", check) to parse
-    # subset lists. With gawk 4.4+ on macOS, this gsub fails silently when LANG is
-    # unset because [+] is treated as the ERE quantifier (+) not a literal character.
-    # config.status unconditionally unsets LANG at startup, so passing LANG in the
-    # outer env has no effect. The fix: create a gawk wrapper that forces LANG=C
-    # and point AWK to it so configure embeds the wrapper in config.status.
+    # gawk 4.4+ on macOS treats [+] in regex as an ERE quantifier when LANG is
+    # unset. ncurses mk-1st.awk and libedit makelist both use gsub("[+]",...),
+    # so both builds fail without LANG set. config.status unconditionally unsets
+    # LANG, so it must be forced inside a wrapper script that is exec'd as AWK.
+    # Write to embedded/bin so the wrapper persists for downstream builds that
+    # also need it (e.g. libedit, which depends on ncurses and runs after it).
     gawk_path = `which gawk 2>/dev/null`.strip
-    gawk_wrapper = "#{project_dir}/../gawk-lang-wrapper"
+    gawk_wrapper = "#{install_dir}/embedded/bin/gawk-lang-wrapper"
     command "printf '#!/bin/sh\\nLANG=C exec #{gawk_path} \"$@\"\\n' > #{gawk_wrapper} && chmod +x #{gawk_wrapper}", env: env
     env["AWK"] = gawk_wrapper
   end

@@ -293,8 +293,7 @@ GEM
     azure_mgmt_storage (0.23.0)
       ms_rest_azure (~> 0.12.0)
     base64 (0.3.0)
-    bcrypt_pbkdf (1.1.2-arm64-darwin)
-    bcrypt_pbkdf (1.1.2-x86_64-darwin)
+    bcrypt_pbkdf (1.1.2)
     benchmark (0.5.0)
     berkshelf (8.1.21)
       chef (>= 18.10)
@@ -352,53 +351,6 @@ GEM
       uri (~> 1.0.4)
       uuidtools (>= 2.1.5, < 3.0)
       vault (~> 0.18.2)
-    chef (18.10.17-universal-mingw-ucrt)
-      addressable
-      aws-sdk-s3 (~> 1.91)
-      aws-sdk-secretsmanager (~> 1.46)
-      chef-config (= 18.10.17)
-      chef-powershell (~> 18.6.0)
-      chef-utils (= 18.10.17)
-      chef-vault
-      chef-zero (>= 15.0.21, < 15.2)
-      corefoundation (~> 0.3.4)
-      diff-lcs (>= 1.2.4, < 1.6.0, != 1.4.0)
-      erubis (~> 2.7)
-      ffi (>= 1.15.5, <= 1.16.3)
-      ffi-libarchive (~> 1.0, >= 1.0.3)
-      ffi-yajl (~> 2.2)
-      iniparse (~> 1.4)
-      inspec-core (>= 5, < 6)
-      iso8601 (>= 0.12.1, < 0.14)
-      license-acceptance (>= 1.0.5, < 3)
-      mixlib-archive (>= 0.4, < 2.0)
-      mixlib-authentication (>= 2.1, < 4)
-      mixlib-cli (>= 2.1.1, < 3.0)
-      mixlib-log (>= 2.0.3, < 3.2)
-      mixlib-shellout (>= 3.1.1, < 4.0)
-      net-ftp
-      net-sftp (>= 2.1.2, < 5.0)
-      ohai (~> 18.0)
-      plist (~> 3.2)
-      proxifier2 (~> 1.1)
-      syslog-logger (~> 1.6)
-      train-core (~> 3.13, >= 3.13.4)
-      train-rest (>= 0.4.1)
-      train-winrm (~> 0.4.0)
-      unf_ext (~> 0.0.8.2)
-      uri (~> 1.0.4)
-      uuidtools (>= 2.1.5, < 3.0)
-      vault (~> 0.18.2)
-      win32-api (~> 1.10.0)
-      win32-certstore (~> 0.6.15)
-      win32-event (~> 0.6.1)
-      win32-eventlog (= 0.6.3)
-      win32-mmap (~> 0.4.1)
-      win32-mutex (~> 0.4.2)
-      win32-process (~> 0.9)
-      win32-service (>= 2.1.5, < 3.0)
-      win32-taskscheduler (~> 2.0)
-      wmi-lite (~> 1.0)
     chef-apply (0.9.6)
       chef (>= 16.0)
       chef-cli (>= 2.0.10)
@@ -603,8 +555,6 @@ GEM
     ffi (1.16.3-x86-mingw32)
     ffi-libarchive (1.1.14)
       ffi (~> 1.0)
-    ffi-win32-extensions (1.0.4)
-      ffi
     ffi-yajl (2.7.7)
       libyajl2 (>= 2.1)
       yajl
@@ -919,6 +869,7 @@ GEM
       mime-types-data (~> 3.2025, >= 3.2025.0507)
     mime-types-data (3.2026.0414)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.9)
     minitar (1.1.0)
     minitest (5.27.0)
     mixlib-archive (1.3.3)
@@ -987,9 +938,10 @@ GEM
       net-ssh (>= 2.6.5)
       net-ssh-gateway (>= 1.2.0)
     netrc (0.11.0)
-    nokogiri (1.18.10-arm64-darwin)
+    nokogiri (1.18.10)
+      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    nokogiri (1.18.10-x86_64-darwin)
+    nokogiri (1.18.10-x64-mingw-ucrt)
       racc (~> 1.4)
     nori (2.7.1)
       bigdecimal
@@ -1148,7 +1100,7 @@ GEM
       semverse (>= 1.1, < 4.0)
     sshkey (2.0.0)
     sslshake (1.3.1)
-    stringio (3.2.0)
+    stringio (3.0.1.2)
     strings (0.2.1)
       strings-ansi (~> 0.2)
       unicode-display_width (>= 1.5, < 3.0)
@@ -1366,58 +1318,6 @@ GEM
       vsphere-automation-cis (~> 0.4.6)
       vsphere-automation-runtime (~> 0.4.6)
     webrick (1.9.2)
-    win32-api (1.10.1)
-    win32-api (1.10.1-universal-mingw32)
-    win32-certstore (0.6.16)
-      chef-powershell
-      ffi
-    win32-dir (0.7.2)
-      ffi (>= 1.0.0)
-    win32-event (0.6.3)
-      win32-ipc (>= 0.6.0)
-    win32-eventlog (0.6.3)
-      ffi
-    win32-ipc (0.7.0)
-      ffi
-    win32-mmap (0.4.2)
-      ffi
-    win32-mutex (0.4.3)
-      win32-ipc (>= 0.6.0)
-    win32-process (0.10.0)
-      ffi (>= 1.0.0)
-    win32-security (0.5.0)
-      ffi
-      ffi-win32-extensions
-    win32-service (2.3.2)
-      ffi
-      ffi-win32-extensions
-    win32-taskscheduler (2.0.4)
-      ffi
-      structured_warnings
-    windows-api (0.4.5)
-      win32-api (>= 1.4.5)
-    windows-pr (1.2.6)
-      win32-api (>= 1.4.5)
-      windows-api (>= 0.4.0)
-    winrm (2.3.9)
-      builder (>= 2.1.2)
-      erubi (~> 1.8)
-      gssapi (~> 1.2)
-      gyoku (~> 1.0)
-      httpclient (~> 2.2, >= 2.2.0.2)
-      logging (>= 1.6.1, < 3.0)
-      nori (~> 2.0, >= 2.7.1)
-      rexml (~> 3.0)
-      rubyntlm (~> 0.6.0, >= 0.6.3)
-    winrm-elevated (1.2.3)
-      erubi (~> 1.8)
-      winrm (~> 2.0)
-      winrm-fs (~> 1.0)
-    winrm-fs (1.3.5)
-      erubi (~> 1.8)
-      logging (>= 1.6.1, < 3.0)
-      rubyzip (~> 2.0)
-      winrm (~> 2.0)
     wisper (2.0.1)
     wmi-lite (1.0.7)
     yajl (0.3.4)
@@ -1497,18 +1397,9 @@ DEPENDENCIES
   rb-readline
   rdoc (~> 6.4.1)
   ruby-shadow!
+  stringio (= 3.0.1.2)
   test-kitchen (>= 4.0)
   unf_ext (~> 0.0.8.2)
-  win32-api
-  win32-dir
-  win32-event
-  win32-mutex
-  win32-process (>= 0.9.0)
-  win32-security
-  win32-service (>= 2.1.5)
-  windows-pr
-  winrm-elevated
-  winrm-fs
 
 BUNDLED WITH
    2.6.9

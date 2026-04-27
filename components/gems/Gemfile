@@ -39,6 +39,14 @@ group(:omnibus_package, :development, :test) do
 
   gem "rdoc", "~> 6.4.1" # 6.4.1.1 required for CVE-2024-27281, allow patch upgrades
   gem "net-imap", ">= 0.2.5" # 0.2.5+ required for CVE fix - GHSA-j3g3-5qv5-52mj
+
+  # Ruby 3.1.x ships with stringio 3.0.1.2 as a default (built-in) gem. If bundler
+  # installs a newer version (e.g. 3.2.0 via psych), both versions are present and
+  # Gem::Specification.reset raises "Unresolved or ambiguous specs" for stringio,
+  # which causes `gem which <any-gem>` to fail on Windows (breaks the chef-dlls step
+  # that runs `gem which chef-powershell`). Pin to the exact version Ruby 3.1 ships with
+  # to prevent a second version from being installed alongside the default gem.
+  gem "stringio", "= 3.0.1.2"
 end
 
 group(:dep_selector) do
