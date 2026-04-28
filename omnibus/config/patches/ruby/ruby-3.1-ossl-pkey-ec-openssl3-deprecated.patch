@@ -1,0 +1,72 @@
+Ruby 3.1.x's ext/openssl/ossl_pkey_ec.c uses ECPKParameters functions
+(PEM_read_bio_ECPKParameters, d2i_ECPKParameters_bio,
+PEM_write_bio_ECPKParameters, i2d_ECPKParameters_bio, ECPKParameters_print)
+that are deprecated in OpenSSL 3.0+ and carry the OSSL_DEPRECATEDIN_3_0
+attribute. In OpenSSL 3.2.x, this attribute expands to
+__attribute__((__deprecated__("Since OpenSSL 3.0"))) which triggers a GCC
+internal compiler error (ICE / Segmentation fault) in the MINGW toolchain
+used for Windows builds.
+
+Fix:
+ - Guard PEM_read_bio_ECPKParameters / d2i_ECPKParameters_bio so they are
+   only compiled for OpenSSL < 3.0. On OpenSSL 3.x the code falls through
+   to the named-curve lookup path which is not deprecated.
+ - Guard PEM_write_bio_ECPKParameters / i2d_ECPKParameters_bio in
+   ossl_ec_group_to_string; raise NotImplementedError on OpenSSL 3.x.
+ - Guard ECPKParameters_print in ossl_ec_group_to_text; raise
+   NotImplementedError on OpenSSL 3.x.
+
+--- a/ext/openssl/ossl_pkey_ec.c
++++ b/ext/openssl/ossl_pkey_ec.c
+@@ -574,11 +574,13 @@ ossl_ec_group_initialize(int argc, VALUE *argv, VALUE self)
+         } else {
+             BIO *in = ossl_obj2bio(&arg1);
+ 
++#if OPENSSL_VERSION_NUMBER < 0x30000000L
+             group = PEM_read_bio_ECPKParameters(in, NULL, NULL, NULL);
+             if (!group) {
+ 		OSSL_BIO_reset(in);
+                 group = d2i_ECPKParameters_bio(in, NULL);
+             }
++#endif
+ 
+             BIO_free(in);
+@@ -1018,17 +1020,21 @@ ossl_ec_group_to_string(VALUE self, int format)
+     if (!(out = BIO_new(BIO_s_mem())))
+         ossl_raise(eEC_GROUP, "BIO_new(BIO_s_mem())");
+ 
++#if OPENSSL_VERSION_NUMBER < 0x30000000L
+     switch(format) {
+     case EXPORT_PEM:
+         i = PEM_write_bio_ECPKParameters(out, group);
+     	break;
+     case EXPORT_DER:
+         i = i2d_ECPKParameters_bio(out, group);
+     	break;
+     default:
+         BIO_free(out);
+     	ossl_raise(rb_eRuntimeError, "unknown format (internal error)");
+     }
++#else
++    BIO_free(out);
++    ossl_raise(rb_eNotImpError, "EC group serialization not supported on OpenSSL 3.0+");
++#endif
+ 
+     if (i != 1) {
+         BIO_free(out);
+@@ -1078,10 +1084,14 @@ ossl_ec_group_to_text(VALUE self)
+     if (!(out = BIO_new(BIO_s_mem()))) {
+ 	ossl_raise(eEC_GROUP, "BIO_new(BIO_s_mem())");
+     }
++#if OPENSSL_VERSION_NUMBER < 0x30000000L
+     if (!ECPKParameters_print(out, group, 0)) {
+ 	BIO_free(out);
+ 	ossl_raise(eEC_GROUP, NULL);
+     }
++#else
++    BIO_free(out);
++    ossl_raise(rb_eNotImpError, "EC group text print not supported on OpenSSL 3.0+");
++#endif
+     str = ossl_membio2str(out);
+ 
+     return str;

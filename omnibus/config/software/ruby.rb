@@ -161,6 +161,14 @@ build do
     patch source: "ruby-3.1-ossl-ssl-openssl3-deprecated-dh-callback.patch", plevel: 1, env: patch_env
   end
 
+  # Ruby 3.1.x ext/openssl/ossl_pkey_ec.c uses ECPKParameters functions that are deprecated
+  # in OpenSSL 3.0+ (OSSL_DEPRECATEDIN_3_0). In OpenSSL 3.2.x this attribute triggers a GCC
+  # ICE (internal compiler error: Segmentation fault) in the MINGW toolchain on Windows.
+  # This patch guards all deprecated EC parameter I/O functions with an OpenSSL version check.
+  if windows? && version.satisfies?("~> 3.1")
+    patch source: "ruby-3.1-ossl-pkey-ec-openssl3-deprecated.patch", plevel: 1, env: patch_env
+  end
+
   if suse? && version.satisfies?("= 3.1.4")
     patch source: "ruby-3.1.4-configure.patch", plevel: 1, env: patch_env
   end
