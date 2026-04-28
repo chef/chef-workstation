@@ -31,7 +31,8 @@ Fix:
 +#endif
  
              BIO_free(in);
-@@ -1018,17 +1020,21 @@ ossl_ec_group_to_string(VALUE self, int format)
+ 
+@@ -1018,17 +1020,22 @@ ossl_ec_group_to_string(VALUE self, int format)
      if (!(out = BIO_new(BIO_s_mem())))
          ossl_raise(eEC_GROUP, "BIO_new(BIO_s_mem())");
  
@@ -54,7 +55,7 @@ Fix:
  
      if (i != 1) {
          BIO_free(out);
-@@ -1078,10 +1084,14 @@ ossl_ec_group_to_text(VALUE self)
+@@ -1078,10 +1085,15 @@ ossl_ec_group_to_text(VALUE self)
      if (!(out = BIO_new(BIO_s_mem()))) {
  	ossl_raise(eEC_GROUP, "BIO_new(BIO_s_mem())");
      }
