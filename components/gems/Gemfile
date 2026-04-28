@@ -86,7 +86,7 @@ group(:omnibus_package) do
   gem "fauxhai-chef", ">= 9.3"
 
   # test-kitchen and plugins
-  gem "test-kitchen", ">= 4.0"
+  gem "test-kitchen", ">= 4.0", "< 4.999"  # 4.999.0 was yanked from rubygems
   gem "kitchen-omnibus-chef", ">= 1.1"
   gem "kitchen-azurerm", ">= 1.13.6"
   gem "kitchen-ec2", ">= 3.22.1"
