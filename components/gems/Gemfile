@@ -149,6 +149,12 @@ end
 
 # Ensure support for push-client on Windows
 if RUBY_PLATFORM.match?(/mswin|mingw|windows/)
+  # chef-powershell ships the PowerShell DLLs needed by the chef-dlls omnibus step.
+  # It is normally a transitive dep of chef (18.x-universal-mingw-ucrt), but bundler
+  # may choose the ruby-platform chef variant when the lock was generated on macOS,
+  # in which case chef-powershell is never installed. Pin it explicitly to ensure it
+  # is always present on Windows regardless of which chef variant bundler selects.
+  gem "chef-powershell"
   gem "rdp-ruby-wmi"
   gem "windows-pr"
   gem "win32-api"
