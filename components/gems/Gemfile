@@ -155,6 +155,16 @@ if RUBY_PLATFORM.match?(/mswin|mingw|windows/)
   # in which case chef-powershell is never installed. Pin it explicitly to ensure it
   # is always present on Windows regardless of which chef variant bundler selects.
   gem "chef-powershell"
+  # These gems are transitive deps of chef (18.x-universal-mingw-ucrt) but not of the
+  # ruby-platform chef variant. When the lockfile is generated on macOS, bundler may
+  # select the ruby-platform chef, causing these to be omitted. Pin them explicitly so
+  # they are always installed on Windows regardless of which chef variant is selected.
+  gem "win32-certstore"
+  gem "win32-eventlog"
+  gem "win32-mmap"
+  gem "win32-taskscheduler"
+  gem "wmi-lite"
+  gem "iso8601"
   gem "rdp-ruby-wmi"
   gem "windows-pr"
   gem "win32-api"
