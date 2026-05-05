@@ -72,11 +72,7 @@ group(:omnibus_package) do
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
 
-  if RUBY_PLATFORM.include?("mingw")
-    gem "chef", ">= 18.10.17", "< 19.0.0"
-  else
-    gem "chef", ">= 18.10.17", "< 19.0.0", platforms: [:ruby]
-  end
+  gem "chef", ">= 18.10.17", "< 19.0.0"
   gem "chef-bin", ">= 18.10.17", "< 19.0.0"
   gem "chef-utils", ">= 18.10.17", "< 19.0.0"
   gem "ohai", ">= 18.1"
