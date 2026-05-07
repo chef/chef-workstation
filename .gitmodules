@@ -1,4 +1,4 @@
 [submodule "omnibus"]
 	path = omnibus
 	url = https://github.com/chef/chef-workstation-omnibus-config.git
-	branch = CHEF-32262-gem-updates
+	branch = main
