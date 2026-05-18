@@ -2,3 +2,4 @@
 image_registry: chef
 env:
   DOCKER_API_VERSION: "1.44"
+  EXPEDITOR_VERSION: "{{version}}"
