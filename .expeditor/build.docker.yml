@@ -1,4 +1,4 @@
 ---
-image_registry: chef
+image_registry: chefes
 env:
   DOCKER_API_VERSION: "1.44"
