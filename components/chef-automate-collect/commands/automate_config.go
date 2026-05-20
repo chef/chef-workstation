@@ -10,6 +10,7 @@ import (
 	"os"
 	"runtime"
 	"strings"
+	"time"
 
 	fpath "path/filepath"
 
@@ -108,16 +109,24 @@ func (l *ConfigLoader) ViableConfigPaths() []string {
 }
 
 func (l *ConfigLoader) Load() error {
+	start := time.Now()
 	l.LoadedConfig = &Config{Automate: &AutomateConfig{}}
+	configPaths := l.ViableConfigPaths()
 
-	for _, p := range l.ViableConfigPaths() {
+	for _, p := range configPaths {
 		configFromFile := &PrivateConfig{}
 		fileContent, err := ioutil.ReadFile(p)
 		if err != nil {
+			cliIO.structuredVerbose("config_load", "error", time.Since(start),
+				StructuredField{Key: "path", Value: p},
+				StructuredField{Key: "error", Value: "read_config"})
 			return errors.Wrapf(err, "failed to read config file %q", p)
 		}
 		err = toml.Unmarshal(fileContent, configFromFile)
 		if err != nil {
+			cliIO.structuredVerbose("config_load", "error", time.Since(start),
+				StructuredField{Key: "path", Value: p},
+				StructuredField{Key: "error", Value: "decode_toml"})
 			return errors.Wrapf(err, "cannot decode TOML content in %q", p)
 		}
 		cliIO.verbose("applying configuration from %q", p)
@@ -125,6 +134,8 @@ func (l *ConfigLoader) Load() error {
 	}
 
 	l.LoadedConfig.ApplyValuesFromEnv()
+	cliIO.structuredVerbose("config_load", "success", time.Since(start),
+		StructuredField{Key: "config_paths", Value: fmt.Sprintf("%d", len(configPaths))})
 
 	return nil
 }
