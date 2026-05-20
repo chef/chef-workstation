@@ -1,6 +1,7 @@
 package commands
 
 const (
+	// Automate connection settings.
 	// Set the Automate URL to use. Overrides all configuration.
 	AutomateURLEnvVar = "CHEF_AC_AUTOMATE_URL"
 	// Set the Automate Auth Token to use. Overrides all configuration.
@@ -9,7 +10,11 @@ const (
 	// set to "false", certificates will be verified. If set to any other value,
 	// certificate verification will be disabled.
 	AutomateInsecureTLSEnvVar = "CHEF_AC_AUTOMATE_INSECURE_TLS"
+)
 
+
+const (
+	// Configuration directory overrides.
 	// Directory where the chef-automate-collector should look for per-repo
 	// configuration. The config loader will look for files named
 	// `.automate_collector.toml`  and `.automate_collector_private.toml` in this
@@ -23,7 +28,11 @@ const (
 	// configuration. The config loader will look for a file named
 	// `automate_collector.toml` inside this directory.
 	SystemConfigDirPathEnvVar = "CHEF_AC_SYSTEM_CONFIG_DIR"
+)
 
+
+const (
+	// Configuration loading toggles.
 	// Whether to disable loading per-repo configuration. If set to "false,"
 	// per-repo config will be loaded. If set to any other value, per-repo config
 	// will not be loaded.
@@ -36,7 +45,11 @@ const (
 	// per-repo config will be loaded. If set to any other value, systemwide
 	// config will not be loaded.
 	NoSystemConfigEnvVar = "CHEF_AC_NO_SYSTEM_CONFIG"
+)
 
+
+const (
+	// Reporting and source control behavior.
 	// Whether to disable reporting new rollouts to Chef Automate. If set to
 	// "false," reports will be sent. If set to any other value, reports will not
 	// be sent.
