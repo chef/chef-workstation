@@ -13,10 +13,10 @@ image=chef:
   context: .
 
   tags:
-    - '{sh("cat VERSION")}'
+    - '{env.EXPEDITOR_VERSION}'
 
   args:
-    VERSION: '{sh("cat VERSION")}'
+    VERSION: '{env.EXPEDITOR_VERSION}'
     CHANNEL: unstable
 
   annotations:
