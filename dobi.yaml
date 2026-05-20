@@ -11,11 +11,14 @@
 image=chef:
   image: '{env.IMAGE_REGISTRY}/chefworkstation'
   context: .
+
   tags:
-    - '{env.EXPEDITOR_VERSION}'
+    - '{sh("cat VERSION")}'
+
   args:
-    VERSION: '{env.EXPEDITOR_VERSION}'
+    VERSION: '{sh("cat VERSION")}'
     CHANNEL: unstable
+
   annotations:
     tags:
       - expeditor:default-tags={{channel}}
