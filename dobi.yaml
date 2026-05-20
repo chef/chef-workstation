@@ -10,7 +10,7 @@
 
 env=version:
   variables:
-    - EXPEDITOR_VERSION=$(cat VERSION)
+    - EXPEDITOR_VERSION=$(cat VERSION | tr -d '\n')
 
 image=chef:
   image: '{env.IMAGE_REGISTRY}/chefworkstation'
