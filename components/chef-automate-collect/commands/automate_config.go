@@ -589,11 +589,24 @@ func (a *AutomateConfig) Test() error {
 	cliIO.verbose("\nEND HTTP RESPONSE BODY--------")
 
 	if response.StatusCode != 200 {
-		cliIO.msg("ERROR: request to %q failed with status code %d", a.URL, response.StatusCode)
-		os.Exit(1)
+		return mapTestConfigHTTPError(a.URL, response.StatusCode, string(bodyBytes))
 	}
 
 	return nil
+}
+
+func mapTestConfigHTTPError(baseURL string, statusCode int, responseBody string) error {
+	responseBody = strings.TrimSpace(responseBody)
+	if responseBody == "" {
+		return errors.Errorf("request to %q failed with status code %d", baseURL, statusCode)
+	}
+
+	const maxBodyChars = 200
+	if len(responseBody) > maxBodyChars {
+		responseBody = responseBody[:maxBodyChars] + "..."
+	}
+
+	return errors.Errorf("request to %q failed with status code %d: %s", baseURL, statusCode, responseBody)
 }
 
 func (p *PrivateAutomateConfig) ToConfig() *AutomateConfig {
