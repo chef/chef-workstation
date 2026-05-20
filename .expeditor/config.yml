@@ -22,7 +22,9 @@ changelog:
 pipelines:
   - verify:
       description: Pull Request validation tests
-  - docker/build
+  - docker/build:
+      env:
+        - EXPEDITOR_VERSION={{version}}
   - omnibus/release:
       env:
         - IGNORE_ARTIFACTORY_RUBY_PROXY: true # Artifactory is throwing 500's when downloading some gems like ffi.
