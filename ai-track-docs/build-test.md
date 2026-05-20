@@ -1,46 +1,41 @@
 # Build & Test Reference
 
-This file documents commands verified during Crawl Exercise 1 and is intended to be copy/paste repeatable from the repository root.
+> Placeholder – update as you verify commands during the AI track exercises.
 
 ## Prerequisites
 
-```sh
-# macOS: install Go if missing
-command -v go >/dev/null || brew install go
+<!-- Go version, Ruby version, Habitat, Docker, etc. -->
 
-# confirm toolchain
-go version
-```
-
-## Build Commands
+## Building
 
 ```sh
-# from repo root
-cd components/chef-automate-collect
-go build ./...
+# Go components (example)
+cd components/main-chef-wrapper && go build ./...
+cd components/chef-automate-collect && go build ./...
 ```
 
-## Deterministic Unit Test (Chosen Module)
-
-Target module: `components/chef-automate-collect/commands/environment_variables.go`
+## Running Tests
 
 ```sh
-# from repo root
-cd components/chef-automate-collect
-go test ./commands -run TestEnvironmentVariableConstantsStable -count=1 -v
+# Go unit tests
+go test ./...
+
+# Ruby / Rake
+bundle exec rake
 ```
 
-Expected result: `PASS` with exit code `0`.
-
-## Optional Wider Test Sweep
+## Linting / Static Analysis
 
 ```sh
-# from repo root
-cd components/chef-automate-collect
-go test ./... -count=1
+# Go
+go vet ./...
+
+# Spell check
+cspell "**/*.{go,rb,md}"
 ```
 
-## Notes
+## CI / Release
 
-- The deterministic test validates env var constants and checks for accidental duplicate values.
-- This gives a low-risk guardrail for the selected reusable module before changing config behavior elsewhere.
+- Habitat plan: `habitat/plan.sh`
+- Omnibus packaging: `omnibus/`
+- See [RELEASE_PROCESS.md](../RELEASE_PROCESS.md) for the release workflow.
