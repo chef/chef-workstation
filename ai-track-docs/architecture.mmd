@@ -1,0 +1,22 @@
+%% Chef Workstation – Architecture Diagram (Mermaid)
+%% Placeholder – refine during AI track architecture exercise.
+
+graph TD
+    User["Developer / Operator"]
+
+    subgraph Chef Workstation Package
+        CLI["chef CLI<br/>(main-chef-wrapper)"]
+        Collect["chef-automate-collect"]
+        Gems["Bundled Ruby Gems"]
+    end
+
+    subgraph External
+        Infra["Chef Infra Server"]
+        Automate["Chef Automate"]
+    end
+
+    User -->|runs| CLI
+    CLI -->|sub-commands| Gems
+    CLI -->|telemetry| Collect
+    Collect -->|reports| Automate
+    CLI -->|converge / upload| Infra
