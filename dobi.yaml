@@ -8,13 +8,8 @@
 # For more information on how this file is used, please check out the Chef Expeditor docs:
 #   https://expeditor.chef.io/docs/pipelines/docker/
 
-env=version:
-  variables:
-    - EXPEDITOR_VERSION=$(cat VERSION | tr -d '\n')
-
 image=chef:
   image: '{env.IMAGE_REGISTRY}/chefworkstation'
-  depends: [version]
   context: .
   tags:
     - '{env.EXPEDITOR_VERSION}'
