@@ -9,12 +9,12 @@
 #   https://expeditor.chef.io/docs/pipelines/docker/
 
 image=chef:
-  image: '{env.IMAGE_REGISTRY}/chefworkstation'
+  image: 'chef/chefworkstation'
   context: .
   tags:
-    - '{env.EXPEDITOR_VERSION}'
+    - '{fs:VERSION}'
   args:
-    VERSION: '{env.EXPEDITOR_VERSION}'
+    VERSION: '{fs:VERSION}'
     CHANNEL: unstable
   annotations:
     tags:
