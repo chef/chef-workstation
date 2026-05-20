@@ -52,6 +52,11 @@ const (
 
 const (
 	// Reporting and source control behavior.
+	// Whether to enable structured verbose logs. If set to "false", structured
+	// logs are disabled. Any other value, or an unset variable, leaves them
+	// enabled.
+	StructuredLogsEnvVar = "CHEF_AC_STRUCTURED_LOGS"
+
 	// Whether to disable reporting new rollouts to Chef Automate. If set to
 	// "false," reports will be sent. If set to any other value, reports will not
 	// be sent.

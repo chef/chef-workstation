@@ -25,3 +25,33 @@ func TestStructuredLogLinePreservesFieldOrder(t *testing.T) {
 		t.Fatalf("got %q, want %q", got, want)
 	}
 }
+
+func TestStructuredLoggingEnabledDefaultsOn(t *testing.T) {
+	got := structuredLoggingEnabled(func(string) (string, bool) {
+		return "", false
+	})
+
+	if !got {
+		t.Fatal("expected structured logging to be enabled when env var is unset")
+	}
+}
+
+func TestStructuredLoggingEnabledTurnsOff(t *testing.T) {
+	got := structuredLoggingEnabled(func(string) (string, bool) {
+		return "false", true
+	})
+
+	if got {
+		t.Fatal("expected structured logging to be disabled when env var is false")
+	}
+}
+
+func TestStructuredLoggingEnabledTurnsOn(t *testing.T) {
+	got := structuredLoggingEnabled(func(string) (string, bool) {
+		return "true", true
+	})
+
+	if !got {
+		t.Fatal("expected structured logging to be enabled when env var is true")
+	}
+}

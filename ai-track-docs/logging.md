@@ -8,6 +8,9 @@ This note covers the current structured logging added in `components/chef-automa
 
 The current structured log line format is emitted to `stderr` when verbose mode is enabled.
 
+Structured logging can be disabled by setting `CHEF_AC_STRUCTURED_LOGS=false`.
+If the variable is unset, or set to any other value, structured logging stays enabled.
+
 Required fields:
 
 - `op`: operation name
@@ -36,6 +39,13 @@ cd components/chef-automate-collect
 go run . show-config -v
 ```
 
+Show computed config with structured logs disabled:
+
+```sh
+cd components/chef-automate-collect
+CHEF_AC_STRUCTURED_LOGS=false go run . show-config -v
+```
+
 Test config and verbose logs:
 
 ```sh
@@ -56,3 +66,4 @@ go run . show-config -v 2>verbose.log
 - Add extra fields only when they help identify the failing resource or boundary.
 - Do not include secrets in structured fields.
 - Prefer logging at boundary operations such as config loading, HTTP calls, and external command execution.
+- Use `CHEF_AC_STRUCTURED_LOGS=false` as a low-risk rollback toggle if a new structured log shape causes operator friction.

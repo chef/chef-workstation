@@ -18,6 +18,15 @@ type CLIIO struct {
 	EnableVerbose bool
 }
 
+func structuredLoggingEnabled(lookupEnv func(string) (string, bool)) bool {
+	value, isSet := lookupEnv(StructuredLogsEnvVar)
+	if !isSet {
+		return true
+	}
+
+	return strings.TrimSpace(value) != "false"
+}
+
 func (c *CLIIO) msg(format string, args ...interface{}) {
 	fmt.Fprintf(os.Stderr, newlineify(format), args...)
 }
@@ -33,7 +42,7 @@ func (c *CLIIO) verbose(format string, args ...interface{}) {
 }
 
 func (c *CLIIO) structuredVerbose(op string, status string, elapsed time.Duration, fields ...StructuredField) {
-	if c.EnableVerbose {
+	if c.EnableVerbose && structuredLoggingEnabled(os.LookupEnv) {
 		c.msg(structuredLogLine(op, status, elapsed, fields...))
 	}
 }
