@@ -7,6 +7,18 @@ tags
 Gemfile.lock
 */vendor/*
 
+# local secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.netrc
+secrets.yml
+secrets.local.yml
+
 # vi
 *.swp
 

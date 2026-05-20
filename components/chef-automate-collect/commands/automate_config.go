@@ -71,6 +71,14 @@ type PrivateAutomateConfig struct {
 	InsecureTLS bool   `toml:"insecure_tls"`
 }
 
+func redactSecretForLog(secret string) string {
+	if secret == "" {
+		return ""
+	}
+
+	return "[REDACTED]"
+}
+
 func NewConfigLoader() *ConfigLoader {
 	c := &ConfigLoader{}
 	c.findRepoConfig()
@@ -481,7 +489,7 @@ func (a *AutomateConfig) ApplyValuesFromEnv() {
 		a.URL = url
 	}
 	if token, envVarSet := os.LookupEnv(AutomateTokenEnvVar); envVarSet {
-		cliIO.verbose("found environment %s=%q setting Automate Token", AutomateURLEnvVar, token)
+		cliIO.verbose("found environment %s=%q setting Automate Token", AutomateTokenEnvVar, redactSecretForLog(token))
 		a.authToken = token
 	}
 	if val, envVarSet := os.LookupEnv(AutomateInsecureTLSEnvVar); envVarSet {
