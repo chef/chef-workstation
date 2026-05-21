@@ -19,7 +19,6 @@ package cmd
 
 import (
 	"fmt"
-	"os"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 	"github.com/spf13/cobra"
@@ -44,9 +43,7 @@ upgrade compatibility errors and node cookbook usage.
 
 The result is written to file.`,
 		DisableFlagParsing: true,
-		RunE: func(cmd *cobra.Command, args []string) error {
-			return Runner.PassThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
-		},
+		RunE:               passThroughAnalyzeCommand,
 	}
 
 	reportNodesCmd = &cobra.Command{
@@ -54,27 +51,21 @@ The result is written to file.`,
 		Short: "Generates a nodes-oriented report",
 		Long: `Generates a nodes-oriented report containing basic information about the node,
 any applied policies, and the cookbooks used during the most recent chef-client run`,
-		RunE: func(cmd *cobra.Command, args []string) error {
-			return Runner.PassThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
-		},
+		RunE: passThroughAnalyzeCommand,
 	}
 	uploadCmd = &cobra.Command{
 		Use:    "report upload LOCATION FILE",
 		Short:  fmt.Sprintf("Upload FILE to named LOCATION for %s to review", dist.CompanyName),
 		Args:   cobra.ExactArgs(2),
 		Hidden: true,
-		RunE: func(cmd *cobra.Command, args []string) error {
-			return Runner.PassThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
-		},
+		RunE:   passThroughAnalyzeCommand,
 	}
 	sessionCmd = &cobra.Command{
 		Use:    "session MINUTES",
 		Hidden: true,
 		Short:  fmt.Sprintf("Creates new access credentials to upload files to %s. Expires in MINUTES.", dist.CompanyName),
 		Args:   cobra.ExactArgs(1),
-		RunE: func(cmd *cobra.Command, args []string) error {
-			return Runner.PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
-		},
+		RunE:   passThroughWorkstationCommand,
 	}
 )
 
