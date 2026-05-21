@@ -1,9 +1,40 @@
 package commands
 
 import (
+	"io"
+	"os"
+	"strings"
 	"testing"
 	"time"
 )
+
+func captureStderrForStructuredVerbose(t *testing.T) (func(), func() string) {
+	t.Helper()
+
+	origStderr := os.Stderr
+	r, w, err := os.Pipe()
+	if err != nil {
+		t.Fatalf("failed to create stderr pipe: %v", err)
+	}
+
+	os.Stderr = w
+
+	restore := func() {
+		_ = w.Close()
+		os.Stderr = origStderr
+	}
+
+	readOutput := func() string {
+		b, err := io.ReadAll(r)
+		if err != nil {
+			t.Fatalf("failed to read stderr output: %v", err)
+		}
+		_ = r.Close()
+		return string(b)
+	}
+
+	return restore, readOutput
+}
 
 func BenchmarkStructuredLogLine(b *testing.B) {
 	fields := []StructuredField{
@@ -69,5 +100,39 @@ func TestStructuredLoggingEnabledTurnsOn(t *testing.T) {
 
 	if !got {
 		t.Fatal("expected structured logging to be enabled when env var is true")
+	}
+}
+
+func TestStructuredVerboseHonorsProcessEnvToggle(t *testing.T) {
+	originalVerbose := cliIO.EnableVerbose
+	cliIO.EnableVerbose = true
+	defer func() {
+		cliIO.EnableVerbose = originalVerbose
+	}()
+
+	restore, readOutput := captureStderrForStructuredVerbose(t)
+	cliIO.structuredVerbose(
+		"config_load",
+		"success",
+		5*time.Millisecond,
+		StructuredField{Key: "config_paths", Value: "1"},
+	)
+	restore()
+
+	output := strings.TrimSpace(readOutput())
+	value, isSet := os.LookupEnv(StructuredLogsEnvVar)
+	enabled := !isSet || strings.TrimSpace(value) != "false"
+
+	t.Logf("%s=%q enabled=%t output=%q", StructuredLogsEnvVar, value, enabled, output)
+
+	if enabled {
+		if !strings.Contains(output, "op=config_load") {
+			t.Fatalf("expected structured log output when flag is enabled, got %q", output)
+		}
+		return
+	}
+
+	if output != "" {
+		t.Fatalf("expected no structured output when flag is disabled, got %q", output)
 	}
 }

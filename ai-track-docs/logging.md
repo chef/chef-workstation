@@ -45,6 +45,34 @@ New structured event fields:
 
 This gives operators a direct latency and outcome signal for the test-config network boundary without exposing secrets.
 
+## Feature Flag Lifecycle (Walk Ex13)
+
+Flag name:
+
+- `CHEF_AC_STRUCTURED_LOGS`
+
+Creation:
+
+- Introduced to provide a low-risk toggle for structured verbose logging output in `chef-automate-collect` commands.
+
+Default state:
+
+- **ON** when unset.
+
+How to enable:
+
+- Unset the variable, or set it to any value other than `false`.
+- Example: `CHEF_AC_STRUCTURED_LOGS=true`
+
+How to disable:
+
+- Set `CHEF_AC_STRUCTURED_LOGS=false`.
+
+Removal criteria:
+
+- Remove the flag only after all supported consumers have migrated to structured output and no operational workflow depends on legacy/no-structured-log behavior.
+- Before removal, run ON/OFF validation tests and announce deprecation in contributor docs/release notes.
+
 ## How To View Logs
 
 Run from the repository root.
@@ -75,6 +103,14 @@ To verify format via tests:
 ```sh
 cd components/chef-automate-collect
 go test ./commands -run TestAutomateConfigTestEmitsStructuredHTTPLog -count=1 -v
+```
+
+To validate ON/OFF flag behavior explicitly:
+
+```sh
+cd components/chef-automate-collect
+CHEF_AC_STRUCTURED_LOGS=true go test ./commands -run TestStructuredVerboseHonorsProcessEnvToggle -count=1 -v
+CHEF_AC_STRUCTURED_LOGS=false go test ./commands -run TestStructuredVerboseHonorsProcessEnvToggle -count=1 -v
 ```
 
 Expected `-v` output includes a logged line containing:
