@@ -3,6 +3,7 @@ package commands
 import (
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -48,17 +49,24 @@ func (c *CLIIO) structuredVerbose(op string, status string, elapsed time.Duratio
 }
 
 func structuredLogLine(op string, status string, elapsed time.Duration, fields ...StructuredField) string {
-	parts := []string{
-		fmt.Sprintf("op=%s", op),
-		fmt.Sprintf("status=%s", status),
-		fmt.Sprintf("elapsed_ms=%d", elapsed.Milliseconds()),
-	}
+	buf := strings.Builder{}
+	buf.Grow(32 + len(op) + len(status) + len(fields)*16)
+
+	buf.WriteString("op=")
+	buf.WriteString(op)
+	buf.WriteString(" status=")
+	buf.WriteString(status)
+	buf.WriteString(" elapsed_ms=")
+	buf.WriteString(strconv.FormatInt(elapsed.Milliseconds(), 10))
 
 	for _, field := range fields {
-		parts = append(parts, fmt.Sprintf("%s=%s", field.Key, field.Value))
+		buf.WriteByte(' ')
+		buf.WriteString(field.Key)
+		buf.WriteByte('=')
+		buf.WriteString(field.Value)
 	}
 
-	return strings.Join(parts, " ")
+	return buf.String()
 }
 
 func newlineify(s string) string {

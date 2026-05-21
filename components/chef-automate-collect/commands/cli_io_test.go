@@ -5,6 +5,22 @@ import (
 	"time"
 )
 
+func BenchmarkStructuredLogLine(b *testing.B) {
+	fields := []StructuredField{
+		{Key: "config_paths", Value: "3"},
+		{Key: "source", Value: "repo"},
+		{Key: "result", Value: "ok"},
+		{Key: "module", Value: "automate_config"},
+	}
+
+	b.ReportAllocs()
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+		_ = structuredLogLine("config_load", "success", 37*time.Millisecond, fields...)
+	}
+}
+
 func TestStructuredLogLineIncludesRequiredFields(t *testing.T) {
 	got := structuredLogLine("config_load", "success", 12*time.Millisecond,
 		StructuredField{Key: "config_paths", Value: "2"})
