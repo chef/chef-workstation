@@ -101,3 +101,37 @@ Include the following block in every PR description when code changes touch a Go
 - `components/main-chef-wrapper/cmd`:          X.X% (baseline 56.9%)
 - Command: `go test -tags=unit -cover -count=1 ./cmd`
 ```
+
+---
+
+## CI Soft Gating (Walk Ex10)
+
+Workflow: `.github/workflows/soft-evidence-summary.yml`
+
+Purpose:
+
+- Publish validation evidence in GitHub Actions Job Summary.
+- Stay advisory-only (non-blocking) even if the coverage command fails.
+
+Current soft gate metric:
+
+- `components/main-chef-wrapper/cmd` unit coverage using:
+	- `cd components/main-chef-wrapper && go test -tags=unit -cover -count=1 ./cmd`
+
+Where to view in CI:
+
+1. Open the **CI Soft Evidence Summary** workflow run.
+2. Open job **Soft coverage summary (advisory)**.
+3. Read the **Soft Gate Evidence** section in Job Summary.
+
+Local equivalent command:
+
+```sh
+cd components/main-chef-wrapper
+go test -tags=unit -cover -count=1 ./cmd
+```
+
+Expected behavior:
+
+- Job always passes by design.
+- Summary shows `Status=PASS` or `Status=SOFT-FAIL` and includes raw command output for reviewer context.
