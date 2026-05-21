@@ -1,9 +1,87 @@
 package commands
 
 import (
+	"io"
+	"net/http"
+	"net/http/httptest"
+	"os"
 	"strings"
 	"testing"
 )
+
+func captureStderrForTestConfig(t *testing.T) (func(), func() string) {
+	t.Helper()
+
+	origStderr := os.Stderr
+	r, w, err := os.Pipe()
+	if err != nil {
+		t.Fatalf("failed to create stderr pipe: %v", err)
+	}
+
+	os.Stderr = w
+
+	restore := func() {
+		_ = w.Close()
+		os.Stderr = origStderr
+	}
+
+	readOutput := func() string {
+		b, err := io.ReadAll(r)
+		if err != nil {
+			t.Fatalf("failed to read stderr output: %v", err)
+		}
+		_ = r.Close()
+		return string(b)
+	}
+
+	return restore, readOutput
+}
+
+func TestAutomateConfigTestEmitsStructuredHTTPLog(t *testing.T) {
+	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != TestCreateURLPath {
+			t.Fatalf("unexpected path: got %q want %q", r.URL.Path, TestCreateURLPath)
+		}
+		w.WriteHeader(http.StatusOK)
+		_, _ = w.Write([]byte(`{"ok":true}`))
+	}))
+	defer server.Close()
+
+	c := &AutomateConfig{
+		URL:         server.URL,
+		authToken:   "test-token-not-secret",
+		InsecureTLS: true,
+	}
+
+	originalVerbose := cliIO.EnableVerbose
+	cliIO.EnableVerbose = true
+	defer func() {
+		cliIO.EnableVerbose = originalVerbose
+	}()
+
+	t.Setenv(StructuredLogsEnvVar, "true")
+
+	restore, readOutput := captureStderrForTestConfig(t)
+	err := c.Test()
+	restore()
+	output := readOutput()
+
+	if err != nil {
+		t.Fatalf("expected test-config request to succeed, got error: %v", err)
+	}
+
+	t.Logf("captured structured output: %s", strings.TrimSpace(output))
+
+	if !strings.Contains(output, "op=test_config_http") {
+		t.Fatalf("expected structured op field in output, got %q", output)
+	}
+	if !strings.Contains(output, "status=success") {
+		t.Fatalf("expected success status field in output, got %q", output)
+	}
+	if !strings.Contains(output, "status_code=200") {
+		t.Fatalf("expected status_code field in output, got %q", output)
+	}
+}
 
 func TestRedactSecretForLogRedactsNonEmptySecrets(t *testing.T) {
 	secret := "super-secret-token"

@@ -529,14 +529,17 @@ func (a *AutomateConfig) Test() error {
 	tr := httputils.NewDefaultTransport()
 	tr.TLSClientConfig = &tls.Config{InsecureSkipVerify: a.InsecureTLS}
 	httpClient := &http.Client{Transport: tr}
+	start := time.Now()
 
 	testURL, err := a.TestURL()
 	if err != nil {
+		emitTestConfigHTTPStructuredLog(start, "error", 0)
 		return err
 	}
 
 	req, err := http.NewRequest("POST", testURL.String(), nil)
 	if err != nil {
+		emitTestConfigHTTPStructuredLog(start, "error", 0)
 		return err
 	}
 
@@ -570,6 +573,7 @@ func (a *AutomateConfig) Test() error {
 
 	response, err := httpClient.Do(req)
 	if err != nil {
+		emitTestConfigHTTPStructuredLog(start, "error", 0)
 		return err
 	}
 	defer func() {
@@ -589,10 +593,22 @@ func (a *AutomateConfig) Test() error {
 	cliIO.verbose("\nEND HTTP RESPONSE BODY--------")
 
 	if response.StatusCode != 200 {
+		emitTestConfigHTTPStructuredLog(start, "error", response.StatusCode)
 		return mapTestConfigHTTPError(a.URL, response.StatusCode, string(bodyBytes))
 	}
 
+	emitTestConfigHTTPStructuredLog(start, "success", response.StatusCode)
+
 	return nil
+}
+
+func emitTestConfigHTTPStructuredLog(start time.Time, status string, statusCode int) {
+	fields := []StructuredField{}
+	if statusCode > 0 {
+		fields = append(fields, StructuredField{Key: "status_code", Value: fmt.Sprintf("%d", statusCode)})
+	}
+
+	cliIO.structuredVerbose("test_config_http", status, time.Since(start), fields...)
 }
 
 func mapTestConfigHTTPError(baseURL string, statusCode int, responseBody string) error {
