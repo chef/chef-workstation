@@ -54,6 +54,21 @@ Reference:
 
 - `.vale.ini`
 
+### 6) Path-scoped strict static analysis (Walk Ex14)
+
+GitHub Actions workflow enforces `staticcheck` on one focused path:
+
+- target: `components/chef-automate-collect/commands`
+- workflow: `.github/workflows/staticcheck-commands.yml`
+
+This gate is intentionally scoped so unrelated code paths are not blocked.
+
+Suppression used:
+
+- File: `components/chef-automate-collect/commands/automate_config.go`
+- Check: `ST1005`
+- Rationale: error text is intentionally capitalized because it is user-facing CLI output and should remain consistent with existing command messaging.
+
 ## How To Run Locally
 
 Run from repository root.
@@ -84,8 +99,16 @@ bundle exec rake omnibus/verification/spec/ --trace
 cspell "**/*.{md,rb,go}"
 ```
 
+### Strict staticcheck for commands path
+
+```sh
+cd components/chef-automate-collect
+"$(go env GOPATH)/bin/staticcheck" ./commands
+```
+
 ## Notes
 
 - This exercise documents existing checks rather than introducing broad new lint gates.
 - The current baseline is mixed-language: Ruby lint/spec checks in CI and focused Go checks via local script.
 - If future work tightens linting, prefer scoped changes (single component or workflow path) to avoid noisy cross-repo regressions.
+- Walk Ex14 applies that principle by gating only the commands path with stricter static analysis.

@@ -200,7 +200,6 @@ func (l *ConfigLoader) findRepoConfig() {
 	}
 	cliIO.verbose("found private config file %q", candidatePrivateConfigFilename)
 	l.RepoPrivateConfigPath = candidatePrivateConfigFilename
-	return
 }
 
 func (l *ConfigLoader) findUserConfig() {
@@ -234,7 +233,6 @@ func (l *ConfigLoader) findUserConfig() {
 	}
 	cliIO.verbose("found user config file %q", userConfigFilename)
 	l.UserConfigPath = userConfigFilename
-	return
 }
 
 func (l *ConfigLoader) findSystemConfig() {
@@ -278,7 +276,6 @@ func (l *ConfigLoader) findSystemConfig() {
 	}
 	cliIO.verbose("found system config file %q", candidateFilename)
 	l.SystemConfigPath = candidateFilename
-	return
 }
 
 func (p *PrivateConfig) ToConfig() *Config {
@@ -440,6 +437,7 @@ func newAutomateConfig(givenURL, token string) (*AutomateConfig, error) {
 		return nil, err
 	}
 	if cleanedURL.Scheme != "https" {
+		//lint:ignore ST1005 Keep leading capitalization for user-facing CLI consistency.
 		return nil, fmt.Errorf("Automate URL %q is invalid; must use \"https\" protocol", givenURL)
 	}
 	cleanedURL.Path = ""
