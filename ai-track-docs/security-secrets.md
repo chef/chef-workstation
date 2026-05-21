@@ -46,3 +46,31 @@ cd components/chef-automate-collect
 go test ./commands -run 'TestRedactSecretForLog|TestGitRemoteNameFromEnv|TestEnvironmentVariableConstantsStable' -count=1 -v
 go build ./...
 ```
+
+## Secret Scanning Baseline (Walk Ex8)
+
+Lightweight repository scanning is now part of CI via:
+
+- `.github/workflows/secret-scan.yml`
+
+This workflow runs Gitleaks against the checked-out workspace (`detect --source . --no-git`) and fails the job when new findings are detected.
+
+### Local Command
+
+```sh
+gitleaks detect --source . --no-git --config .gitleaks.toml
+```
+
+### Findings Remediated
+
+- Replaced test-only key-like placeholder values in `components/main-chef-wrapper/main_test.go` with `test-token-not-secret`.
+
+### Justified Ignore
+
+`.gitleaks.toml` includes a narrow allowlist entry for:
+
+- `components/main-chef-wrapper/dist/licensingConfig.json`
+
+Reason: this file contains a known non-production licensing acceptance fixture value required by workstation licensing configuration, not a developer credential.
+
+If this fixture changes, update the allowlist entry and rerun the local command above before opening a PR.

@@ -57,7 +57,7 @@ func Test_ValidateRolloutSetup(t *testing.T) {
 	os.Setenv("CHEF_AC_SERVER_URL", "http://testhost")
 	os.Setenv("CHEF_AC_SERVER_USER", "testuser")
 	os.Setenv("CHEF_AC_AUTOMATE_URL", "http://testhost2")
-	os.Setenv("CHEF_AC_AUTOMATE_TOKEN", "xyz123455677709u0")
+	os.Setenv("CHEF_AC_AUTOMATE_TOKEN", "test-token-not-secret")
 	got := cmd.ValidateRolloutSetup()
 	assert.Equal(t, got, true)
 }
@@ -74,7 +74,7 @@ func Test_ValidateRolloutSetup(t *testing.T) {
 //	// all are set except CHEF_AC_SERVER_URL
 //	os.Setenv("CHEF_AC_SERVER_USER", "testuser")
 //	os.Setenv("CHEF_AC_AUTOMATE_URL", "http://testhost2")
-//	os.Setenv("CHEF_AC_AUTOMATE_TOKEN", "xyz123455677709u0")
+//	os.Setenv("CHEF_AC_AUTOMATE_TOKEN", "test-token-not-secret")
 //	got = cmd.ValidateRolloutSetup()
 //	assert.Equal(t, got, false)
 //
@@ -118,7 +118,7 @@ func Test_ValidateRolloutSetup(t *testing.T) {
 //
 //	os.Setenv("CHEF_AC_SERVER_USER", "testuser")
 //	os.Setenv("CHEF_AC_AUTOMATE_URL", "http://testhost2")
-//	os.Setenv("CHEF_AC_AUTOMATE_TOKEN", "xyz123455677709u0")
+//	os.Setenv("CHEF_AC_AUTOMATE_TOKEN", "test-token-not-secret")
 //	cmd = getAction("push")
 //	assert.Equal(t, cmd, "policy-rollout")
 //
