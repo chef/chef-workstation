@@ -94,3 +94,74 @@ Avoid vague messages like:
 - Put exact commands in a `Verification` section.
 - Include rollback even for low-risk docs or tooling changes.
 - Mention when Copilot was used to draft the PR content.
+
+## Walk PR Review Focus (Ex11)
+
+Use the following when drafting Walk PRs so reviewers can quickly validate the riskiest areas.
+
+### Review Focus Bullets (3-5)
+
+- Confirm the change is scoped to the intended files only and does not expand beyond the exercise goal.
+- Verify behavior-impact claims match the diff (for refactors/docs/tooling, check that runtime logic is unchanged unless explicitly stated).
+- Check that evidence commands in the PR body are reproducible and align with the touched component.
+- Validate that observability/security/CI changes are additive and have clear rollback.
+- Confirm no secrets or sensitive values are introduced in code, logs, or examples.
+
+### Reviewer Verification Steps
+
+Pick the commands relevant to the PR surface and include them verbatim in the PR body.
+
+```sh
+# main-chef-wrapper unit slice
+cd components/main-chef-wrapper
+go test -tags=unit ./cmd -count=1
+
+# chef-automate-collect command slice
+cd components/chef-automate-collect
+go test ./commands -count=1
+
+# repo-level soft evidence command used in CI advisory summary
+cd components/main-chef-wrapper
+go test -tags=unit -cover -count=1 ./cmd
+```
+
+### Rollback Pattern
+
+Always include a one-line rollback in PRs:
+
+```sh
+git revert <commit-sha>
+```
+
+### Final PR Text Template (Walk)
+
+```text
+Title: GHCP -- Walk: <ex#> <name>
+
+Summary
+- What changed and why
+- Plan: <inline summary>
+- Files/paths touched
+
+Evidence
+- Tests/logs/metrics: <commands + output summary>
+- Coverage: <percentage or contract evidence>
+
+Risk & Rollback
+- Risk: low/medium
+- Rollback: revert <commit SHA>
+
+Review Focus
+- Confirm <risk area 1>
+- Confirm <risk area 2>
+- Confirm <scope / safety claim>
+
+Verification Steps
+- <command 1>
+- <command 2>
+- <expected success signal>
+
+Track
+- Level: Walk
+- Exercise: <ex#>
+```
