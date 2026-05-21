@@ -44,3 +44,60 @@ go test ./... -count=1
 
 - The deterministic test validates env var constants and checks for accidental duplicate values.
 - This gives a low-risk guardrail for the selected reusable module before changing config behavior elsewhere.
+
+---
+
+## Coverage
+
+*Added: Walk Ex2 – coverage surfacing baseline.*
+
+### Commands: `components/chef-automate-collect`
+
+```sh
+cd components/chef-automate-collect
+go test -cover -count=1 ./commands
+# → ok  ...commands  0.655s  coverage: 4.9% of statements
+
+# Per-function detail
+go test -coverprofile=coverage.out -count=1 ./commands && go tool cover -func=coverage.out
+rm coverage.out
+```
+
+| Package | Coverage | Notes |
+|---------|----------|-------|
+| `commands/` | **4.9%** | Low by design: most command bodies invoke external HTTP/IO not covered by unit tests. Pure-logic layer (env-var constants, error mapping) is covered. |
+
+### Commands: `components/main-chef-wrapper`
+
+```sh
+cd components/main-chef-wrapper
+go test -tags=unit -cover -count=1 ./cmd
+# → ok  ...cmd  0.528s  coverage: 56.9% of statements
+
+# Per-function detail
+go test -tags=unit -coverprofile=coverage.out -count=1 ./cmd && go tool cover -func=coverage.out
+rm coverage.out
+```
+
+| Package | Coverage | Notes |
+|---------|----------|-------|
+| `cmd/` (unit tag) | **56.9%** | Covers command wiring, flag registration, and `init()` blocks. Passthrough `RunE` wrappers that delegate to external executables are not reachable under unit tests. |
+
+### Ruby / Omnibus (CI only)
+
+CI enforces **≥ 79%** SimpleCov threshold via `.github/workflows/unit.yml`.
+Run locally with:
+```sh
+bundle exec rake omnibus/verification/spec/ --trace
+```
+
+### PR Coverage Snippet Template
+
+Include the following block in every PR description when code changes touch a Go package:
+
+```
+## Coverage
+- `components/chef-automate-collect/commands`: X.X% (baseline 4.9%)
+- `components/main-chef-wrapper/cmd`:          X.X% (baseline 56.9%)
+- Command: `go test -tags=unit -cover -count=1 ./cmd`
+```

@@ -2,6 +2,8 @@
 test_results/
 tags
 .DS_Store
+coverage.out
+coverage.html
 
 # ruby / bundler
 Gemfile.lock
