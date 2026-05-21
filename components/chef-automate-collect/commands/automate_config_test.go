@@ -7,6 +7,7 @@ import (
 	"os"
 	"strings"
 	"testing"
+	"time"
 )
 
 func captureStderrForTestConfig(t *testing.T) (func(), func() string) {
@@ -80,6 +81,41 @@ func TestAutomateConfigTestEmitsStructuredHTTPLog(t *testing.T) {
 	}
 	if !strings.Contains(output, "status_code=200") {
 		t.Fatalf("expected status_code field in output, got %q", output)
+	}
+}
+
+func TestAutomateConfigTestRetriesTransientServerError(t *testing.T) {
+	hits := 0
+	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		hits++
+		if hits == 1 {
+			w.WriteHeader(http.StatusServiceUnavailable)
+			_, _ = w.Write([]byte(`{"error":"temporary"}`))
+			return
+		}
+		w.WriteHeader(http.StatusOK)
+		_, _ = w.Write([]byte(`{"ok":true}`))
+	}))
+	defer server.Close()
+
+	originalOptions := testConfigHTTPResilienceOptions
+	testConfigHTTPResilienceOptions.InitialBackoff = 1 * time.Millisecond
+	t.Cleanup(func() {
+		testConfigHTTPResilienceOptions = originalOptions
+	})
+
+	c := &AutomateConfig{
+		URL:         server.URL,
+		authToken:   "test-token-not-secret",
+		InsecureTLS: true,
+	}
+
+	err := c.Test()
+	if err != nil {
+		t.Fatalf("expected retry to recover from transient error, got: %v", err)
+	}
+	if hits != 2 {
+		t.Fatalf("expected exactly one retry, got %d requests", hits)
 	}
 }
 

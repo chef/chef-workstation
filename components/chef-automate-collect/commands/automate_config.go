@@ -72,6 +72,13 @@ type PrivateAutomateConfig struct {
 	InsecureTLS bool   `toml:"insecure_tls"`
 }
 
+var testConfigHTTPResilienceOptions = HTTPResilienceOptions{
+	MaxAttempts:       3,
+	InitialBackoff:    200 * time.Millisecond,
+	PerAttemptTimeout: 5 * time.Second,
+	RetryStatusCodes:  map[int]bool{500: true, 502: true, 503: true, 504: true},
+}
+
 func redactSecretForLog(secret string) string {
 	if secret == "" {
 		return ""
@@ -200,6 +207,7 @@ func (l *ConfigLoader) findRepoConfig() {
 	}
 	cliIO.verbose("found private config file %q", candidatePrivateConfigFilename)
 	l.RepoPrivateConfigPath = candidatePrivateConfigFilename
+	return
 }
 
 func (l *ConfigLoader) findUserConfig() {
@@ -233,6 +241,7 @@ func (l *ConfigLoader) findUserConfig() {
 	}
 	cliIO.verbose("found user config file %q", userConfigFilename)
 	l.UserConfigPath = userConfigFilename
+	return
 }
 
 func (l *ConfigLoader) findSystemConfig() {
@@ -276,6 +285,7 @@ func (l *ConfigLoader) findSystemConfig() {
 	}
 	cliIO.verbose("found system config file %q", candidateFilename)
 	l.SystemConfigPath = candidateFilename
+	return
 }
 
 func (p *PrivateConfig) ToConfig() *Config {
@@ -437,7 +447,6 @@ func newAutomateConfig(givenURL, token string) (*AutomateConfig, error) {
 		return nil, err
 	}
 	if cleanedURL.Scheme != "https" {
-		//lint:ignore ST1005 Keep leading capitalization for user-facing CLI consistency.
 		return nil, fmt.Errorf("Automate URL %q is invalid; must use \"https\" protocol", givenURL)
 	}
 	cleanedURL.Path = ""
@@ -535,14 +544,7 @@ func (a *AutomateConfig) Test() error {
 		return err
 	}
 
-	req, err := http.NewRequest("POST", testURL.String(), nil)
-	if err != nil {
-		emitTestConfigHTTPStructuredLog(start, "error", 0)
-		return err
-	}
-
-	req.Header["Api-Token"] = []string{a.authToken}
-
+	host := testURL.Host
 	trace := &httptrace.ClientTrace{
 		DNSDone: func(d httptrace.DNSDoneInfo) {
 			addrStrs := make([]string, len(d.Addrs))
@@ -556,10 +558,10 @@ func (a *AutomateConfig) Test() error {
 				// fatal, so we still log the
 				// addresses here.
 				cliIO.verbose("HTTP TRACE: %q resolved to %v (with error: %s)",
-					req.URL.Host, addrStrs, d.Err.Error())
+					host, addrStrs, d.Err.Error())
 				return
 			}
-			cliIO.verbose("HTTP TRACE: %q resolved to %v", req.URL.Host, addrStrs)
+			cliIO.verbose("HTTP TRACE: %q resolved to %v", host, addrStrs)
 		},
 		GotConn: func(c httptrace.GotConnInfo) {
 			cliIO.verbose("HTTP TRACE: connected to %q (reused: %t) (was idle: %t)",
@@ -567,9 +569,17 @@ func (a *AutomateConfig) Test() error {
 		},
 	}
 
-	req = req.WithContext(httptrace.WithClientTrace(req.Context(), trace))
-
-	response, err := httpClient.Do(req)
+	response, err := doHTTPRequestWithResilience(
+		httpClient,
+		"POST",
+		testURL.String(),
+		nil,
+		map[string]string{"Api-Token": a.authToken},
+		testConfigHTTPResilienceOptions,
+		func(req *http.Request) *http.Request {
+			return req.WithContext(httptrace.WithClientTrace(req.Context(), trace))
+		},
+	)
 	if err != nil {
 		emitTestConfigHTTPStructuredLog(start, "error", 0)
 		return err
