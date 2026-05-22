@@ -42,4 +42,4 @@ Files under review:
 
 | Comment ID/Link | Summary | Resolution | Status |
 |---|---|---|---|
-| pending | Awaiting reviewer feedback | Will update after review comments arrive | Open |
+| https://github.com/chef/chef-workstation/pull/3602#issuecomment-4516943673 | Human review requested with artifact pointers | Awaiting reviewer feedback; findings log will be updated per-comment with commit links | Open |
