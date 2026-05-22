@@ -21,7 +21,9 @@ package cmd
 import (
 	"errors"
 	"fmt"
+	"net/url"
 	"os"
+	"strings"
 
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 	"github.com/spf13/cobra"
@@ -52,8 +54,10 @@ https://docs.chef.io/policyfile/
 			if err != nil {
 				return err
 			}
+			serverURL := strings.TrimSpace(os.Getenv("CHEF_AC_SERVER_URL"))
+			serverUser := strings.TrimSpace(os.Getenv("CHEF_AC_SERVER_USER"))
 			allArgs := []string{"report-new-rollout", "-g", allArgs[1], "-l", allArgs[2],
-				"-s", os.Getenv("CHEF_AC_SERVER_URL"), "-u", os.Getenv("CHEF_AC_SERVER_USER")}
+				"-s", serverURL, "-u", serverUser}
 			return Runner.PassThroughCommand(dist.AutomateCollectExec, "", allArgs)
 		}
 		return Runner.PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
@@ -75,20 +79,56 @@ func isRollOutEnabled() bool {
 }
 
 func ValidateRolloutSetup() bool {
-	if os.Getenv("CHEF_AC_SERVER_URL") == "" {
+	serverURL := strings.TrimSpace(os.Getenv("CHEF_AC_SERVER_URL"))
+	if serverURL == "" {
 		fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_SERVER_URL environment variable must be set for rollout reporting")
 		return false
 	}
-	if os.Getenv("CHEF_AC_SERVER_USER") == "" {
+	if !validateHTTPURL("CHEF_AC_SERVER_URL", serverURL) {
+		return false
+	}
+
+	serverUser := strings.TrimSpace(os.Getenv("CHEF_AC_SERVER_USER"))
+	if serverUser == "" {
 		fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_SERVER_USER environment variable must be set for rollout reporting")
 		return false
 	}
-	if os.Getenv("CHEF_AC_AUTOMATE_URL") == "" {
+	if strings.ContainsAny(serverUser, "\r\n") {
+		fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_SERVER_USER must not contain newline characters")
+		return false
+	}
+
+	automateURL := strings.TrimSpace(os.Getenv("CHEF_AC_AUTOMATE_URL"))
+	if automateURL == "" {
 		fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_AUTOMATE_URL environment variable must be set for rollout reporting")
 		return false
 	}
-	if os.Getenv("CHEF_AC_AUTOMATE_TOKEN") == "" {
+	if !validateHTTPURL("CHEF_AC_AUTOMATE_URL", automateURL) {
+		return false
+	}
+
+	automateToken := strings.TrimSpace(os.Getenv("CHEF_AC_AUTOMATE_TOKEN"))
+	if automateToken == "" {
 		fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_AUTOMATE_TOKEN environment variable must be set for rollout reporting")
+		return false
+	}
+	if strings.ContainsAny(automateToken, "\r\n") {
+		fmt.Fprintln(os.Stderr, "ERROR:", "CHEF_AC_AUTOMATE_TOKEN must not contain newline characters")
+		return false
+	}
+
+	return true
+}
+
+func validateHTTPURL(varName, value string) bool {
+	u, err := url.Parse(value)
+	if err != nil || u.Scheme == "" || u.Host == "" {
+		fmt.Fprintf(os.Stderr, "ERROR: %s must be a valid absolute URL\n", varName)
+		return false
+	}
+
+	if u.Scheme != "http" && u.Scheme != "https" {
+		fmt.Fprintf(os.Stderr, "ERROR: %s must use http or https\n", varName)
 		return false
 	}
 

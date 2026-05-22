@@ -20,6 +20,7 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"log"
 	"os"
@@ -37,6 +38,8 @@ import (
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
 	homedir "github.com/mitchellh/go-homedir"
 )
+
+const licenseFlagFilename = "fbffb2ea48910514676e1b7a51c7248290ea958c"
 
 func doStartupTasks() error {
 	createDotChef()
@@ -161,25 +164,25 @@ func exists(path string) (bool, error) {
 
 // feature flag for license
 func checkLicenseFlag() {
-	home, _ := os.UserHomeDir()
+	home, err := os.UserHomeDir()
+	if err != nil {
+		log.Fatal("Not able to resolve home directory")
+	}
 	if len(os.Args) > 3 && os.Args[1] == "license" && os.Args[2] == "enable" && os.Args[3] == "true" {
-		f, err := os.Create(filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c"))
-		if err != nil {
+		if err := enableLicenseFlag(home); err != nil {
 			log.Fatal("Not able to enable chef")
 		}
-		defer f.Close()
-		f.Write([]byte(`true`))
 		log.Println("Now you can use chef commands using the license.")
 		os.Exit(0)
 	} else if len(os.Args) > 3 && os.Args[1] == "license" && os.Args[2] == "enable" && os.Args[3] == "false" {
-		err := os.Remove(filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c"))
+		err := os.Remove(licenseFlagPath(home))
 		if err != nil {
 			log.Fatal("Not able to disable chef")
 		}
 		log.Println("License feature got disabled")
 		os.Exit(0)
 	} else if len(os.Args) > 2 && os.Args[1] == "license" {
-		info, _ := os.Stat(filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c"))
+		info, _ := os.Stat(licenseFlagPath(home))
 		if info == nil {
 			log.Fatal("To use chef license feature you need to enable the license flag. \nTo enable it run `chef license enable true`")
 		}
@@ -188,14 +191,44 @@ func checkLicenseFlag() {
 }
 
 func featureEnabled() bool {
-	home, _ := os.UserHomeDir()
-	licensePath := filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c")
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return false
+	}
+	licensePath := licenseFlagPath(home)
 	info, _ := os.Stat(licensePath)
 	if info != nil {
 		return true
 	} else {
 		return false
 	}
+}
+
+func licenseFlagPath(home string) string {
+	return filepath.Join(home, ".chef", licenseFlagFilename)
+}
+
+func enableLicenseFlag(home string) error {
+	flagDir := filepath.Join(home, ".chef")
+	if err := os.MkdirAll(flagDir, 0o700); err != nil {
+		return err
+	}
+
+	f, err := os.OpenFile(licenseFlagPath(home), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0o600)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	if _, err := f.Write([]byte("true")); err != nil {
+		return err
+	}
+
+	if err := f.Chmod(0o600); err != nil && !errors.Is(err, os.ErrPermission) {
+		return err
+	}
+
+	return nil
 }
 
 type Configuration struct {

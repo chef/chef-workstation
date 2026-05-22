@@ -19,19 +19,21 @@ package main
 import (
 	"bytes"
 	"fmt"
-	"io/ioutil"
-	"os"
 	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
 	"github.com/spf13/cobra"
-	"testing"
 	"github.com/stretchr/testify/assert"
+	"io/ioutil"
+	"os"
+	"path/filepath"
+	"testing"
 )
+
 func NewRootCmd(in string) *cobra.Command {
 	return &cobra.Command{
-		Use:   "chef",
-		Short: "chef",
+		Use:           "chef",
+		Short:         "chef",
 		SilenceErrors: true,
-		RunE: func(cmd *cobra.Command, args []string) (error) {
+		RunE: func(cmd *cobra.Command, args []string) error {
 			fmt.Fprintf(cmd.OutOrStdout(), in)
 			return nil
 		},
@@ -62,6 +64,48 @@ func Test_ValidateRolloutSetup(t *testing.T) {
 	assert.Equal(t, got, true)
 }
 
+func TestLicenseFlagPathUsesChefSubdir(t *testing.T) {
+	home := filepath.Join("tmp", "home")
+	got := licenseFlagPath(home)
+	want := filepath.Join(home, ".chef", licenseFlagFilename)
+
+	if got != want {
+		t.Fatalf("expected %q, got %q", want, got)
+	}
+}
+
+func TestEnableLicenseFlagWritesPrivateMarker(t *testing.T) {
+	home := t.TempDir()
+
+	if err := enableLicenseFlag(home); err != nil {
+		t.Fatalf("enableLicenseFlag failed: %v", err)
+	}
+
+	flagPath := licenseFlagPath(home)
+	content, err := os.ReadFile(flagPath)
+	if err != nil {
+		t.Fatalf("failed to read marker file: %v", err)
+	}
+	if string(content) != "true" {
+		t.Fatalf("expected marker content %q, got %q", "true", string(content))
+	}
+
+	fileInfo, err := os.Stat(flagPath)
+	if err != nil {
+		t.Fatalf("failed to stat marker file: %v", err)
+	}
+	if fileInfo.Mode().Perm()&0o077 != 0 {
+		t.Fatalf("expected marker to be private (0600-style), got mode %o", fileInfo.Mode().Perm())
+	}
+
+	dirInfo, err := os.Stat(filepath.Join(home, ".chef"))
+	if err != nil {
+		t.Fatalf("failed to stat .chef dir: %v", err)
+	}
+	if dirInfo.Mode().Perm()&0o077 != 0 {
+		t.Fatalf("expected .chef dir to be private (0700-style), got mode %o", dirInfo.Mode().Perm())
+	}
+}
 
 //******commenting out  code added by @shafique for time being (test of policy rollout)*********
 
@@ -98,7 +142,6 @@ func Test_ValidateRolloutSetup(t *testing.T) {
 //
 //}
 
-
 //func Test_getAction(t *testing.T) {
 //
 //	cmd := getAction("push")
@@ -123,6 +166,3 @@ func Test_ValidateRolloutSetup(t *testing.T) {
 //	assert.Equal(t, cmd, "policy-rollout")
 //
 //}
-
-
-
