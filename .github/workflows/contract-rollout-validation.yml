@@ -10,15 +10,21 @@ on:
       - 'components/main-chef-wrapper/cmd/push_contract_test.go'
       - '.github/workflows/contract-rollout-validation.yml'
   push:
+    branches: [ main ]
     paths:
       - 'components/main-chef-wrapper/cmd/push.go'
       - 'components/main-chef-wrapper/cmd/push_contract_test.go'
       - '.github/workflows/contract-rollout-validation.yml'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   rollout-contract-test:
     name: Rollout env contract
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     defaults:
       run:
         working-directory: components/main-chef-wrapper
