@@ -460,23 +460,47 @@ func newAutomateConfig(givenURL, token string) (*AutomateConfig, error) {
 }
 
 func (a *AutomateConfig) TestURL() (*url.URL, error) {
+	if a.URL == "" {
+		return nil, errors.New("automate URL is required")
+	}
+
 	u, err := url.Parse(a.URL)
 	if err != nil {
-		return nil, err
+		return nil, errors.Wrapf(err, "invalid automate URL %q", a.URL)
 	}
-	u.Path = ""
 
+	// Validate scheme and host for HTTP(S) endpoints
+	if u.Scheme != "http" && u.Scheme != "https" {
+		return nil, errors.Errorf("automate URL must use http or https scheme, got %q", u.Scheme)
+	}
+	if u.Host == "" {
+		return nil, errors.Errorf("automate URL must include a host, got %q", a.URL)
+	}
+
+	u.Path = ""
 	u.Path = TestCreateURLPath
 	return u, nil
 }
 
 func (a *AutomateConfig) CreateRolloutURL() (*url.URL, error) {
+	if a.URL == "" {
+		return nil, errors.New("automate URL is required")
+	}
+
 	u, err := url.Parse(a.URL)
 	if err != nil {
-		return nil, err
+		return nil, errors.Wrapf(err, "invalid automate URL %q", a.URL)
 	}
-	u.Path = ""
 
+	// Validate scheme and host for HTTP(S) endpoints
+	if u.Scheme != "http" && u.Scheme != "https" {
+		return nil, errors.Errorf("automate URL must use http or https scheme, got %q", u.Scheme)
+	}
+	if u.Host == "" {
+		return nil, errors.Errorf("automate URL must include a host, got %q", a.URL)
+	}
+
+	u.Path = ""
 	u.Path = CreateRolloutsURLPath
 	return u, nil
 }

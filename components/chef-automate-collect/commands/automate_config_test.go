@@ -308,3 +308,141 @@ func TestLogConfigLoadErrorEmitsStructuredLogAndWrapsError(t *testing.T) {
 		t.Fatalf("expected path in error message, got %q", wrappedErr.Error())
 	}
 }
+
+func TestTestURLValidatesURL(t *testing.T) {
+	tests := []struct {
+		name    string
+		url     string
+		wantErr bool
+		desc    string
+	}{
+		{
+			name:    "valid_https_url",
+			url:     "https://automate.example.com",
+			wantErr: false,
+			desc:    "valid HTTPS URL should succeed",
+		},
+		{
+			name:    "valid_http_url",
+			url:     "http://localhost:8080",
+			wantErr: false,
+			desc:    "valid HTTP URL should succeed",
+		},
+		{
+			name:    "empty_url",
+			url:     "",
+			wantErr: true,
+			desc:    "empty URL should fail",
+		},
+		{
+			name:    "relative_path_only",
+			url:     "/api/v0/endpoint",
+			wantErr: true,
+			desc:    "path-only URL should fail (not a valid endpoint)",
+		},
+		{
+			name:    "invalid_scheme",
+			url:     "ftp://automate.example.com",
+			wantErr: true,
+			desc:    "non-HTTP scheme should fail",
+		},
+		{
+			name:    "no_host",
+			url:     "http://",
+			wantErr: true,
+			desc:    "URL without host should fail",
+		},
+		{
+			name:    "malformed_url",
+			url:     "ht!tp://bad",
+			wantErr: true,
+			desc:    "malformed URL should fail",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ac := &AutomateConfig{URL: tt.url}
+			u, err := ac.TestURL()
+
+			if tt.wantErr {
+				if err == nil {
+					t.Fatalf("test case %q: expected error, got nil (url=%q)", tt.desc, u)
+				}
+			} else {
+				if err != nil {
+					t.Fatalf("test case %q: unexpected error: %v", tt.desc, err)
+				}
+				if u == nil {
+					t.Fatalf("test case %q: expected non-nil URL", tt.desc)
+				}
+				if u.Scheme != "http" && u.Scheme != "https" {
+					t.Fatalf("test case %q: expected http/https scheme, got %q", tt.desc, u.Scheme)
+				}
+				if u.Host == "" {
+					t.Fatalf("test case %q: expected non-empty host", tt.desc)
+				}
+			}
+		})
+	}
+}
+
+func TestCreateRolloutURLValidatesURL(t *testing.T) {
+	tests := []struct {
+		name    string
+		url     string
+		wantErr bool
+		desc    string
+	}{
+		{
+			name:    "valid_https_url",
+			url:     "https://automate.example.com",
+			wantErr: false,
+			desc:    "valid HTTPS URL should succeed",
+		},
+		{
+			name:    "empty_url",
+			url:     "",
+			wantErr: true,
+			desc:    "empty URL should fail",
+		},
+		{
+			name:    "relative_path_only",
+			url:     "/api/v0/endpoint",
+			wantErr: true,
+			desc:    "path-only URL should fail (not a valid endpoint)",
+		},
+		{
+			name:    "invalid_scheme",
+			url:     "ftp://automate.example.com",
+			wantErr: true,
+			desc:    "non-HTTP scheme should fail",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ac := &AutomateConfig{URL: tt.url}
+			u, err := ac.CreateRolloutURL()
+
+			if tt.wantErr {
+				if err == nil {
+					t.Fatalf("test case %q: expected error, got nil (url=%q)", tt.desc, u)
+				}
+			} else {
+				if err != nil {
+					t.Fatalf("test case %q: unexpected error: %v", tt.desc, err)
+				}
+				if u == nil {
+					t.Fatalf("test case %q: expected non-nil URL", tt.desc)
+				}
+				if u.Scheme != "http" && u.Scheme != "https" {
+					t.Fatalf("test case %q: expected http/https scheme, got %q", tt.desc, u.Scheme)
+				}
+				if u.Host == "" {
+					t.Fatalf("test case %q: expected non-empty host", tt.desc)
+				}
+			}
+		})
+	}
+}
