@@ -171,3 +171,97 @@ func TestMapTestConfigHTTPErrorWithBodyTruncatesLongBody(t *testing.T) {
 		t.Fatalf("expected truncated body content in message, got %q", message)
 	}
 }
+
+func TestPrivateConfigIsAutomateCollectorConfig(t *testing.T) {
+	pc := &PrivateConfig{Automate: &PrivateAutomateConfig{}}
+	if !pc.IsAutomateCollectorConfig() {
+		t.Fatal("expected PrivateConfig.IsAutomateCollectorConfig() to return true")
+	}
+}
+
+func TestConfigIsAutomateCollectorConfig(t *testing.T) {
+	c := &Config{Automate: &AutomateConfig{}}
+	if !c.IsAutomateCollectorConfig() {
+		t.Fatal("expected Config.IsAutomateCollectorConfig() to return true")
+	}
+}
+
+func TestPrivateConfigToConfigPreservesAutomateConfig(t *testing.T) {
+	pac := &PrivateAutomateConfig{
+		AutomateConfig: &AutomateConfig{
+			URL:         "https://automate.example",
+			authToken:   "secret-token",
+			InsecureTLS: true,
+		},
+		AuthToken:   "secret-token",
+		InsecureTLS: true,
+	}
+	pc := &PrivateConfig{Automate: pac}
+
+	result := pc.ToConfig()
+
+	if result == nil {
+		t.Fatal("expected non-nil Config result")
+	}
+	if result.Automate == nil {
+		t.Fatal("expected non-nil Automate config in result")
+	}
+	if result.Automate.URL != "https://automate.example" {
+		t.Fatalf("expected URL %q, got %q", "https://automate.example", result.Automate.URL)
+	}
+	if result.Automate.authToken != "secret-token" {
+		t.Fatalf("expected authToken %q, got %q", "secret-token", result.Automate.authToken)
+	}
+	if !result.Automate.InsecureTLS {
+		t.Fatal("expected InsecureTLS to be true")
+	}
+}
+
+func TestPrivateAutomateConfigToConfigConvertsProperly(t *testing.T) {
+	pac := &PrivateAutomateConfig{
+		AutomateConfig: &AutomateConfig{
+			URL:         "https://automate.example",
+			authToken:   "old-token",
+			InsecureTLS: false,
+		},
+		AuthToken:   "new-token",
+		InsecureTLS: true,
+	}
+
+	result := pac.ToConfig()
+
+	if result == nil {
+		t.Fatal("expected non-nil AutomateConfig result")
+	}
+	if result.URL != "https://automate.example" {
+		t.Fatalf("expected URL %q, got %q", "https://automate.example", result.URL)
+	}
+	// AuthToken and InsecureTLS should be overwritten from PrivateAutomateConfig
+	if result.authToken != "new-token" {
+		t.Fatalf("expected authToken %q, got %q", "new-token", result.authToken)
+	}
+	if !result.InsecureTLS {
+		t.Fatal("expected InsecureTLS to be true after conversion")
+	}
+}
+
+func TestViableConfigPathsFiltersEmptyPaths(t *testing.T) {
+	loader := &ConfigLoader{
+		SystemConfigPath:    "/etc/automate.toml",
+		UserConfigPath:      "", // empty, should be filtered
+		RepoConfigPath:      ".automate/config.toml",
+		RepoPrivateConfigPath: "",  // empty, should be filtered
+	}
+
+	result := loader.ViableConfigPaths()
+
+	if len(result) != 2 {
+		t.Fatalf("expected 2 paths after filtering, got %d", len(result))
+	}
+	if result[0] != "/etc/automate.toml" {
+		t.Fatalf("expected first path %q, got %q", "/etc/automate.toml", result[0])
+	}
+	if result[1] != ".automate/config.toml" {
+		t.Fatalf("expected second path %q, got %q", ".automate/config.toml", result[1])
+	}
+}
