@@ -1,0 +1,34 @@
+permissions:
+  contents: read
+
+name: Contract - Rollout Validation
+
+on:
+  pull_request:
+    paths:
+      - 'components/main-chef-wrapper/cmd/push.go'
+      - 'components/main-chef-wrapper/cmd/push_contract_test.go'
+      - '.github/workflows/contract-rollout-validation.yml'
+  push:
+    paths:
+      - 'components/main-chef-wrapper/cmd/push.go'
+      - 'components/main-chef-wrapper/cmd/push_contract_test.go'
+      - '.github/workflows/contract-rollout-validation.yml'
+
+jobs:
+  rollout-contract-test:
+    name: Rollout env contract
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: components/main-chef-wrapper
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: components/main-chef-wrapper/go.mod
+
+      - name: Run rollout contract test
+        run: go test -tags=unit ./cmd -run TestValidateRolloutSetupContract -count=1 -v

@@ -1,0 +1,55 @@
+%% Chef Workstation – Architecture Diagram (Mermaid)
+%% Updated: Run Ex1 – added http_resilience.go node (Walk Ex15); refresh-diagram.sh now keeps this current.
+
+graph TD
+    User["Developer / Operator"]
+
+    subgraph Wrapper ["main-chef-wrapper · components/main-chef-wrapper/"]
+        Main["main.go<br/>entry point · startup tasks<br/>createDotChef · createRubyEnv"]
+        Root["cmd/root.go<br/>Cobra root command"]
+        CmdLayer["cmd/ sub-commands<br/>capture · report · push · exec<br/>install · gem · generate · …"]
+        PlatformLib["platform-lib/<br/>ruby env JSON · version matching"]
+    end
+
+    subgraph Collect ["chef-automate-collect · components/chef-automate-collect/"]
+        CollectMain["chef_automate_collect.go<br/>entry point"]
+        CollectCmds["commands/init_cli.go<br/>Cobra root: gen-config · show-config<br/>test-config · describe · report-new-rollout"]
+        AutomateCfg["commands/automate_config.go<br/>ConfigLoader · TOML · HTTP client<br/>POST /api/beta/cfgmgmt/rollouts/…"]
+        HttpResilience["commands/http_resilience.go<br/>retry + exponential backoff<br/>per-attempt timeout wrapper"]
+        EnvVars["commands/environment_variables.go<br/>env-var name constants (no I/O)"]
+    end
+
+    subgraph GemsComp ["Gems · components/gems/"]
+        GemFiles["Gemfile · post-bundle-install.rb<br/>bundled Ruby tools"]
+    end
+
+    subgraph Packaging ["Packaging · omnibus/ + habitat/plan.sh"]
+        Omnibus["omnibus/<br/>Omnibus build definitions"]
+        Habitat["habitat/plan.sh<br/>Habitat plan"]
+    end
+
+    subgraph External ["External Services"]
+        Infra["Chef Infra Server<br/>REST API"]
+        Automate["Chef Automate<br/>REST /api/beta/cfgmgmt/rollouts/…"]
+    end
+
+    %% ── Dependency Flow ──────────────────────────────────────────────
+    Main -->|"imports cmd package"| Root
+    Main -->|"startup tasks"| PlatformLib
+    Root -->|"registers sub-commands"| CmdLayer
+    CollectMain -->|"calls commands.Execute()"| CollectCmds
+    CollectCmds -->|"uses ConfigLoader"| AutomateCfg
+    AutomateCfg -->|"wraps HTTP via"| HttpResilience
+    AutomateCfg -->|"reads env-var constants"| EnvVars
+
+    %% ── Invocation Flow (user entry points) ─────────────────────────
+    User -->|"chef cmd"| Main
+    User -->|"chef-automate-collect cmd"| CollectMain
+
+    %% ── Data Flow 1: CLI passthrough to Ruby tools → Infra Server ───
+    CmdLayer -->|"PassThroughCommand<br/>(exec / report / capture)"| GemFiles
+    GemFiles -->|"converge / upload / report"| Infra
+
+    %% ── Data Flow 2: Telemetry rollout → Chef Automate ──────────────
+    CmdLayer -.->|"telemetry trigger"| CollectMain
+    AutomateCfg -.->|"HTTP POST rollout (TLS)"| Automate

@@ -1,0 +1,46 @@
+permissions:
+  contents: read
+
+name: Feature Flag Validation - Structured Logs
+
+on:
+  pull_request:
+    paths:
+      - 'components/chef-automate-collect/commands/cli_io.go'
+      - 'components/chef-automate-collect/commands/cli_io_test.go'
+      - 'components/chef-automate-collect/commands/environment_variables.go'
+      - '.github/workflows/feature-flag-structured-logs.yml'
+      - 'ai-track-docs/logging.md'
+  push:
+    branches: [ main ]
+    paths:
+      - 'components/chef-automate-collect/commands/cli_io.go'
+      - 'components/chef-automate-collect/commands/cli_io_test.go'
+      - 'components/chef-automate-collect/commands/environment_variables.go'
+      - '.github/workflows/feature-flag-structured-logs.yml'
+      - 'ai-track-docs/logging.md'
+
+jobs:
+  structured-logs-flag-on-off:
+    name: Structured logs flag=${{ matrix.structured_logs }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        structured_logs: ["true", "false"]
+    env:
+      CHEF_AC_STRUCTURED_LOGS: ${{ matrix.structured_logs }}
+    defaults:
+      run:
+        working-directory: components/chef-automate-collect
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          # Tests use io.ReadAll (1.16+), t.Setenv (1.17+), b.Loop (1.24+);
+          # pin to a modern toolchain regardless of go.mod minimum.
+          go-version: '1.26.x'
+
+      - name: Validate structured logging behavior for flag mode
+        run: go test ./commands -run TestStructuredVerboseHonorsProcessEnvToggle -count=1 -v

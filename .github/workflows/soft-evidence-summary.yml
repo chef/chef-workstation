@@ -1,0 +1,65 @@
+permissions:
+  contents: read
+
+name: CI Soft Evidence Summary
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  soft-coverage-summary:
+    name: Soft coverage summary (advisory)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: components/main-chef-wrapper/go.mod
+
+      - name: Collect coverage evidence (non-blocking)
+        shell: bash
+        run: |
+          set +e
+
+          output="$(cd components/main-chef-wrapper && go test -tags=unit -cover -count=1 ./cmd 2>&1)"
+          cmd_exit=$?
+
+          coverage="$(printf "%s\n" "$output" | sed -n 's/.*coverage: \([0-9.]*%\) of statements.*/\1/p' | tail -1)"
+          if [[ -z "$coverage" ]]; then
+            coverage="N/A"
+          fi
+
+          if [[ $cmd_exit -eq 0 ]]; then
+            status="PASS"
+          else
+            status="SOFT-FAIL"
+          fi
+
+          {
+            echo "## Soft Gate Evidence"
+            echo
+            echo "| Metric | Value |"
+            echo "|--------|-------|"
+            echo "| Validation | main-chef-wrapper unit coverage |"
+            echo "| Status | ${status} (advisory) |"
+            echo "| Coverage | ${coverage} |"
+            echo "| Command | \`cd components/main-chef-wrapper && go test -tags=unit -cover -count=1 ./cmd\` |"
+            echo
+            echo "This job is intentionally non-blocking and provides evidence only."
+            echo
+            echo "### Command Output"
+            echo '```text'
+            printf "%s\n" "$output"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          echo "=== SOFT GATE SUMMARY ==="
+          echo "status=${status} coverage=${coverage}"
+          printf "%s\n" "$output"
+
+          # Always succeed: this is advisory-only by design.
+          exit 0

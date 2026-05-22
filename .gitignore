@@ -2,10 +2,24 @@
 test_results/
 tags
 .DS_Store
+coverage.out
+coverage.html
 
 # ruby / bundler
 Gemfile.lock
 */vendor/*
+
+# local secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.netrc
+secrets.yml
+secrets.local.yml
 
 # vi
 *.swp

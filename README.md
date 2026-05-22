@@ -40,6 +40,11 @@ Chef Workstation installs everything you need to get started using Chef products
 
 We use Omnibus to describe our packaging. Please review [chef-workstation/omnibus/README.MD](https://github.com/chef/chef-workstation/tree/main/omnibus) for further details.
 
+## Contributor Walk Track Docs
+
+- Walk workflow guidance: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Copilot onboarding prompt: [ai-track-docs/onboarding-walk.md](ai-track-docs/onboarding-walk.md)
+
 ## Copyright and License
 
 Code released under the [Apache license](LICENSE). Images and any trademarked content are Copyright 2018 by [Chef Software, Inc.](https://www.chef.io).

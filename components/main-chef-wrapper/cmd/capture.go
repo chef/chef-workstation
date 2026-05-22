@@ -18,9 +18,6 @@
 package cmd
 
 import (
-	"os"
-
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
 	"github.com/spf13/cobra"
 )
 
@@ -36,9 +33,7 @@ Captures a node's state as a local chef-repo, which can then be used to
 converge locally.
 `,
 		DisableFlagParsing: true,
-		RunE: func(cmd *cobra.Command, args []string) error {
-			return Runner.PassThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
-		},
+		RunE:               passThroughAnalyzeCommand,
 	}
 )
 

@@ -1,0 +1,31 @@
+permissions:
+  contents: read
+
+name: Architecture Diagram Refresh
+
+on:
+  pull_request:
+    paths:
+      - 'components/**/*.go'
+      - 'scripts/refresh-diagram.sh'
+      - 'ai-track-docs/architecture.mmd'
+      - '.github/workflows/refresh-diagram.yml'
+
+jobs:
+  diagram-drift-check:
+    name: Diagram drift check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run diagram refresh / drift check
+        id: drift
+        run: |
+          bash scripts/refresh-diagram.sh | tee /tmp/drift-report.txt
+
+      - name: Post drift report to job summary
+        if: always()
+        run: |
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          cat /tmp/drift-report.txt >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"

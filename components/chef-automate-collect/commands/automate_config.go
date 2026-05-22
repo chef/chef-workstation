@@ -10,6 +10,7 @@ import (
 	"os"
 	"runtime"
 	"strings"
+	"time"
 
 	fpath "path/filepath"
 
@@ -71,6 +72,21 @@ type PrivateAutomateConfig struct {
 	InsecureTLS bool   `toml:"insecure_tls"`
 }
 
+var testConfigHTTPResilienceOptions = HTTPResilienceOptions{
+	MaxAttempts:       3,
+	InitialBackoff:    200 * time.Millisecond,
+	PerAttemptTimeout: 5 * time.Second,
+	RetryStatusCodes:  map[int]bool{500: true, 502: true, 503: true, 504: true},
+}
+
+func redactSecretForLog(secret string) string {
+	if secret == "" {
+		return ""
+	}
+
+	return "[REDACTED]"
+}
+
 func NewConfigLoader() *ConfigLoader {
 	c := &ConfigLoader{}
 	c.findRepoConfig()
@@ -100,16 +116,24 @@ func (l *ConfigLoader) ViableConfigPaths() []string {
 }
 
 func (l *ConfigLoader) Load() error {
+	start := time.Now()
 	l.LoadedConfig = &Config{Automate: &AutomateConfig{}}
+	configPaths := l.ViableConfigPaths()
 
-	for _, p := range l.ViableConfigPaths() {
+	for _, p := range configPaths {
 		configFromFile := &PrivateConfig{}
 		fileContent, err := ioutil.ReadFile(p)
 		if err != nil {
+			cliIO.structuredVerbose("config_load", "error", time.Since(start),
+				StructuredField{Key: "path", Value: p},
+				StructuredField{Key: "error", Value: "read_config"})
 			return errors.Wrapf(err, "failed to read config file %q", p)
 		}
 		err = toml.Unmarshal(fileContent, configFromFile)
 		if err != nil {
+			cliIO.structuredVerbose("config_load", "error", time.Since(start),
+				StructuredField{Key: "path", Value: p},
+				StructuredField{Key: "error", Value: "decode_toml"})
 			return errors.Wrapf(err, "cannot decode TOML content in %q", p)
 		}
 		cliIO.verbose("applying configuration from %q", p)
@@ -117,6 +141,8 @@ func (l *ConfigLoader) Load() error {
 	}
 
 	l.LoadedConfig.ApplyValuesFromEnv()
+	cliIO.structuredVerbose("config_load", "success", time.Since(start),
+		StructuredField{Key: "config_paths", Value: fmt.Sprintf("%d", len(configPaths))})
 
 	return nil
 }
@@ -481,7 +507,7 @@ func (a *AutomateConfig) ApplyValuesFromEnv() {
 		a.URL = url
 	}
 	if token, envVarSet := os.LookupEnv(AutomateTokenEnvVar); envVarSet {
-		cliIO.verbose("found environment %s=%q setting Automate Token", AutomateURLEnvVar, token)
+		cliIO.verbose("found environment %s=%q setting Automate Token", AutomateTokenEnvVar, redactSecretForLog(token))
 		a.authToken = token
 	}
 	if val, envVarSet := os.LookupEnv(AutomateInsecureTLSEnvVar); envVarSet {
@@ -510,19 +536,15 @@ func (a *AutomateConfig) Test() error {
 	tr := httputils.NewDefaultTransport()
 	tr.TLSClientConfig = &tls.Config{InsecureSkipVerify: a.InsecureTLS}
 	httpClient := &http.Client{Transport: tr}
+	start := time.Now()
 
 	testURL, err := a.TestURL()
 	if err != nil {
+		emitTestConfigHTTPStructuredLog(start, "error", 0)
 		return err
 	}
 
-	req, err := http.NewRequest("POST", testURL.String(), nil)
-	if err != nil {
-		return err
-	}
-
-	req.Header["Api-Token"] = []string{a.authToken}
-
+	host := testURL.Host
 	trace := &httptrace.ClientTrace{
 		DNSDone: func(d httptrace.DNSDoneInfo) {
 			addrStrs := make([]string, len(d.Addrs))
@@ -536,10 +558,10 @@ func (a *AutomateConfig) Test() error {
 				// fatal, so we still log the
 				// addresses here.
 				cliIO.verbose("HTTP TRACE: %q resolved to %v (with error: %s)",
-					req.URL.Host, addrStrs, d.Err.Error())
+					host, addrStrs, d.Err.Error())
 				return
 			}
-			cliIO.verbose("HTTP TRACE: %q resolved to %v", req.URL.Host, addrStrs)
+			cliIO.verbose("HTTP TRACE: %q resolved to %v", host, addrStrs)
 		},
 		GotConn: func(c httptrace.GotConnInfo) {
 			cliIO.verbose("HTTP TRACE: connected to %q (reused: %t) (was idle: %t)",
@@ -547,10 +569,19 @@ func (a *AutomateConfig) Test() error {
 		},
 	}
 
-	req = req.WithContext(httptrace.WithClientTrace(req.Context(), trace))
-
-	response, err := httpClient.Do(req)
+	response, err := doHTTPRequestWithResilience(
+		httpClient,
+		"POST",
+		testURL.String(),
+		nil,
+		map[string]string{"Api-Token": a.authToken},
+		testConfigHTTPResilienceOptions,
+		func(req *http.Request) *http.Request {
+			return req.WithContext(httptrace.WithClientTrace(req.Context(), trace))
+		},
+	)
 	if err != nil {
+		emitTestConfigHTTPStructuredLog(start, "error", 0)
 		return err
 	}
 	defer func() {
@@ -570,11 +601,36 @@ func (a *AutomateConfig) Test() error {
 	cliIO.verbose("\nEND HTTP RESPONSE BODY--------")
 
 	if response.StatusCode != 200 {
-		cliIO.msg("ERROR: request to %q failed with status code %d", a.URL, response.StatusCode)
-		os.Exit(1)
+		emitTestConfigHTTPStructuredLog(start, "error", response.StatusCode)
+		return mapTestConfigHTTPError(a.URL, response.StatusCode, string(bodyBytes))
 	}
 
+	emitTestConfigHTTPStructuredLog(start, "success", response.StatusCode)
+
 	return nil
+}
+
+func emitTestConfigHTTPStructuredLog(start time.Time, status string, statusCode int) {
+	fields := []StructuredField{}
+	if statusCode > 0 {
+		fields = append(fields, StructuredField{Key: "status_code", Value: fmt.Sprintf("%d", statusCode)})
+	}
+
+	cliIO.structuredVerbose("test_config_http", status, time.Since(start), fields...)
+}
+
+func mapTestConfigHTTPError(baseURL string, statusCode int, responseBody string) error {
+	responseBody = strings.TrimSpace(responseBody)
+	if responseBody == "" {
+		return errors.Errorf("request to %q failed with status code %d", baseURL, statusCode)
+	}
+
+	const maxBodyChars = 200
+	if len(responseBody) > maxBodyChars {
+		responseBody = responseBody[:maxBodyChars] + "..."
+	}
+
+	return errors.Errorf("request to %q failed with status code %d: %s", baseURL, statusCode, responseBody)
 }
 
 func (p *PrivateAutomateConfig) ToConfig() *AutomateConfig {

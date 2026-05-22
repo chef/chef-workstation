@@ -1,12 +1,12 @@
 package commands
 
 import (
-	"bytes"
 	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/spf13/cobra"
 
@@ -30,6 +30,13 @@ type rStringVarP struct {
 }
 
 var requiredStringVarPList = []rStringVarP{}
+
+var reportNewRolloutHTTPResilienceOptions = HTTPResilienceOptions{
+	MaxAttempts:       3,
+	InitialBackoff:    200 * time.Millisecond,
+	PerAttemptTimeout: 5 * time.Second,
+	RetryStatusCodes:  map[int]bool{500: true, 502: true, 503: true, 504: true},
+}
 
 func newReportNewRolloutCommand() *cobra.Command {
 	c := &cobra.Command{
@@ -158,26 +165,18 @@ func runReportNewRolloutCommand(cmd *cobra.Command, args []string) error {
 	reqBytes, err := json.Marshal(reqData)
 	reportNewRolloutFailErr(err, "failed to generate API request JSON")
 
-	req, err := http.NewRequest("POST", url.String(), bytes.NewReader(reqBytes))
-	if err != nil {
-		reportNewRolloutFailErr(err, "failed to generate API request")
-	}
-
-	req.Header["Api-Token"] = []string{automate.authToken}
-
-	response, err := httpClient.Do(req)
+	response, err := doHTTPRequestWithResilience(
+		httpClient,
+		"POST",
+		url.String(),
+		reqBytes,
+		map[string]string{"Api-Token": automate.authToken},
+		reportNewRolloutHTTPResilienceOptions,
+		nil,
+	)
 	if err != nil {
 		reportNewRolloutFailErr(err, fmt.Sprintf("HTTP API request to %q failed", url))
 	}
-
-	retryErrorCodes := map[int]bool { 500: true, 502: true, 503: true, 504: true }
-	for retryCount := 2; retryCount > 0 && retryErrorCodes[response.StatusCode]; retryCount -- {
-		response, err = httpClient.Do(req)
-		if err != nil {
-			reportNewRolloutFailErr(err, fmt.Sprintf("HTTP API request to %q failed", url))
-		}
-	}
-
 
 	defer func() {
 		_ = response.Body.Close()

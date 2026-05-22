@@ -1,0 +1,34 @@
+permissions:
+  contents: read
+
+name: Validate Architecture Diagram
+
+on:
+  push:
+    branches: main
+    paths:
+      - 'ai-track-docs/architecture.mmd'
+      - 'scripts/validate-diagram.sh'
+  pull_request:
+    branches: main
+    paths:
+      - 'ai-track-docs/architecture.mmd'
+      - 'scripts/validate-diagram.sh'
+
+jobs:
+  validate-diagram:
+    name: Mermaid diagram validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Mermaid CLI
+        run: npm install -g @mermaid-js/mermaid-cli
+
+      - name: Validate diagram
+        run: bash scripts/validate-diagram.sh

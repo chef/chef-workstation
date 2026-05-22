@@ -89,6 +89,23 @@ func newSCMMetadata(policyLockPath string) SCMMetadata {
 	}
 }
 
+func gitRemoteNameFromEnv(lookupEnv func(string) (string, bool)) string {
+	gitRemoteName := "origin"
+
+	if value, envVarSet := lookupEnv(GitRemoteNameEnvVar); envVarSet {
+		trimmedValue := strings.TrimSpace(value)
+		if trimmedValue == "" {
+			cliIO.verbose("Found environment %s=%q, ignoring empty value and using default git remote %q", GitRemoteNameEnvVar, value, gitRemoteName)
+			return gitRemoteName
+		}
+
+		cliIO.verbose("Found environment %s=%q, using this value to detect git URL", GitRemoteNameEnvVar, trimmedValue)
+		return trimmedValue
+	}
+
+	return gitRemoteName
+}
+
 func (s *SCMMetadata) ReadGitMetadata() error {
 	gitDir := fpath.Dir(s.policyLockPath)
 
@@ -157,12 +174,7 @@ func (s *SCMMetadata) ReadGitMetadata() error {
 	s.SCMAuthorName = strings.Trim(commiterNameOut, "\n")
 	s.SCMAuthorEmail = strings.Trim(commiterEmailOut, "\n")
 
-	gitRemoteName := "origin"
-
-	if value, envVarSet := os.LookupEnv(GitRemoteNameEnvVar); envVarSet {
-		cliIO.verbose("Found environment %s=%q, using this value to detect git URL", GitRemoteNameEnvVar, value)
-		gitRemoteName = value
-	}
+	gitRemoteName := gitRemoteNameFromEnv(os.LookupEnv)
 	// get the URL of the remote
 	//   git ls-remote --get-url $origin
 	originURLOut, err := c.Output("git", g("ls-remote", "--get-url", gitRemoteName))

@@ -1,0 +1,13 @@
+title = "chef-workstation gitleaks config"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Known non-production licensing API key fixture used for workstation licensing acceptance tests"
+paths = [
+  '''components/main-chef-wrapper/dist/licensingConfig.json''',
+]
+regexes = [
+  '''yDblv75Xt84wULmc8qTM88a3Dr2OuuKxa6GDXxH5''',
+]
