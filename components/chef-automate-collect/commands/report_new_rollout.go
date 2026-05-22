@@ -162,7 +162,7 @@ func runReportNewRolloutCommand(cmd *cobra.Command, args []string) error {
 	url, err := automate.CreateRolloutURL()
 	reportNewRolloutFailErr(err, fmt.Sprintf("invalid Automate URL %q", automate.URL))
 
-	reqBytes, err := json.Marshal(reqData)
+	reqBytes, err := json.Marshal(&reqData)
 	reportNewRolloutFailErr(err, "failed to generate API request JSON")
 
 	response, err := doHTTPRequestWithResilience(

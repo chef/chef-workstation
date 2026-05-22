@@ -165,3 +165,38 @@ Captured evidence (May 22, 2026):
 - `--- PASS: TestAutomateConfigTestHTTPVerboseDiagnosticsOffByDefault`
 - `=== RUN   TestAutomateConfigTestHTTPVerboseDiagnosticsOn`
 - `--- PASS: TestAutomateConfigTestHTTPVerboseDiagnosticsOn`
+
+---
+
+## Static Analysis Validation (Ex14)
+
+Target folder: `components/chef-automate-collect/commands`
+
+Baseline commands (before fixes):
+
+```sh
+cd components/chef-automate-collect
+~/go/bin/staticcheck ./commands/...
+go test ./commands -vet=all -run '^$'
+```
+
+Autofix command:
+
+```sh
+./scripts/autofix-static-analysis-ex14.sh
+```
+
+Post-fix verification:
+
+```sh
+cd components/chef-automate-collect
+~/go/bin/staticcheck ./commands/...
+go test ./commands -vet=all -run '^$'
+go test ./commands -count=1
+```
+
+Captured evidence (May 22, 2026):
+
+- `staticcheck ./commands/...` returned no findings.
+- `go test ./commands -vet=all -run '^$'` returned `ok` with no tests to run.
+- `go test ./commands -count=1` returned `ok`.
