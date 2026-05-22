@@ -71,7 +71,7 @@ func structuredLogLine(op string, status string, elapsed time.Duration, fields .
 
 func newlineify(s string) string {
 	if !strings.HasSuffix(s, "\n") {
-		return fmt.Sprintf("%s\n", s)
+		return s + "\n"
 	}
 	return s
 }

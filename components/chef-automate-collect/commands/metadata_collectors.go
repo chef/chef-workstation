@@ -95,11 +95,15 @@ func gitRemoteNameFromEnv(lookupEnv func(string) (string, bool)) string {
 	if value, envVarSet := lookupEnv(GitRemoteNameEnvVar); envVarSet {
 		trimmedValue := strings.TrimSpace(value)
 		if trimmedValue == "" {
-			cliIO.verbose("Found environment %s=%q, ignoring empty value and using default git remote %q", GitRemoteNameEnvVar, value, gitRemoteName)
+			if cliIO.EnableVerbose {
+				cliIO.verbose("Found environment %s=%q, ignoring empty value and using default git remote %q", GitRemoteNameEnvVar, value, gitRemoteName)
+			}
 			return gitRemoteName
 		}
 
-		cliIO.verbose("Found environment %s=%q, using this value to detect git URL", GitRemoteNameEnvVar, trimmedValue)
+		if cliIO.EnableVerbose {
+			cliIO.verbose("Found environment %s=%q, using this value to detect git URL", GitRemoteNameEnvVar, trimmedValue)
+		}
 		return trimmedValue
 	}
 
