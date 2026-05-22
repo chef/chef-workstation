@@ -85,6 +85,78 @@ func TestAutomateConfigTestEmitsStructuredHTTPLog(t *testing.T) {
 	}
 }
 
+func TestAutomateConfigTestHTTPVerboseDiagnosticsOffByDefault(t *testing.T) {
+	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		_, _ = w.Write([]byte(`{"ok":true,"token":"should-not-log"}`))
+	}))
+	defer server.Close()
+
+	c := &AutomateConfig{
+		URL:         server.URL,
+		authToken:   "test-token",
+		InsecureTLS: true,
+	}
+
+	originalVerbose := cliIO.EnableVerbose
+	cliIO.EnableVerbose = true
+	defer func() {
+		cliIO.EnableVerbose = originalVerbose
+	}()
+
+	t.Setenv(StructuredLogsEnvVar, "true")
+	t.Setenv(HTTPVerboseDiagnosticsEnvVar, "false")
+
+	restore, readOutput := captureStderrForTestConfig(t)
+	err := c.Test()
+	restore()
+	output := readOutput()
+
+	if err != nil {
+		t.Fatalf("expected test-config request to succeed, got error: %v", err)
+	}
+
+	if strings.Contains(output, "HTTP RESPONSE BODY------------") {
+		t.Fatalf("expected response body diagnostics to be disabled, got %q", output)
+	}
+}
+
+func TestAutomateConfigTestHTTPVerboseDiagnosticsOn(t *testing.T) {
+	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		_, _ = w.Write([]byte(`{"ok":true,"debug":"visible-when-flag-on"}`))
+	}))
+	defer server.Close()
+
+	c := &AutomateConfig{
+		URL:         server.URL,
+		authToken:   "test-token",
+		InsecureTLS: true,
+	}
+
+	originalVerbose := cliIO.EnableVerbose
+	cliIO.EnableVerbose = true
+	defer func() {
+		cliIO.EnableVerbose = originalVerbose
+	}()
+
+	t.Setenv(StructuredLogsEnvVar, "true")
+	t.Setenv(HTTPVerboseDiagnosticsEnvVar, "true")
+
+	restore, readOutput := captureStderrForTestConfig(t)
+	err := c.Test()
+	restore()
+	output := readOutput()
+
+	if err != nil {
+		t.Fatalf("expected test-config request to succeed, got error: %v", err)
+	}
+
+	if !strings.Contains(output, "HTTP RESPONSE BODY------------") {
+		t.Fatalf("expected response body diagnostics when feature flag is on, got %q", output)
+	}
+}
+
 func TestAutomateConfigTestRetriesTransientServerError(t *testing.T) {
 	hits := 0
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
