@@ -8,15 +8,21 @@ import (
 	"os"
 	fpath "path/filepath"
 	"strings"
+	"time"
 
 	req "github.com/chef/automate/api/external/cfgmgmt/request"
-	c "github.com/chef/automate/lib/platform/command"
 )
 
 var SCMType_UNKNOWN_SCM = req.SCMType_name[int32(req.SCMType_UNKNOWN_SCM)]
 var SCMType_GIT = req.SCMType_name[int32(req.SCMType_GIT)]
 var SCMWebType_UNKNOWN_SCM_WEB = req.SCMWebType_name[int32(req.SCMWebType_UNKNOWN_SCM_WEB)]
 var SCMWebType_GITHUB = req.SCMWebType_name[int32(req.SCMWebType_GITHUB)]
+
+var gitCommandResilienceOptions = CommandResilienceOptions{
+	MaxAttempts:       3,
+	InitialBackoff:    150 * time.Millisecond,
+	PerAttemptTimeout: 2 * time.Second,
+}
 
 type RolloutMetadata struct {
 	policyLockPath   string
@@ -113,16 +119,16 @@ func gitRemoteNameFromEnv(lookupEnv func(string) (string, bool)) string {
 func (s *SCMMetadata) ReadGitMetadata() error {
 	gitDir := fpath.Dir(s.policyLockPath)
 
-	g := func(args ...string) c.Opt {
-		args = append([]string{"-C", gitDir}, args...)
-		return c.Args(args...)
+	runGit := func(args ...string) (string, error) {
+		fullArgs := append([]string{"-C", gitDir}, args...)
+		return executeCommandWithResilience(runCommand, "git", fullArgs, gitCommandResilienceOptions)
 	}
 
 	s.SCMType = "UNKNOWN_SCM"
 	s.SCMWebType = SCMWebType_UNKNOWN_SCM_WEB
 
 	// test if we are in a git directory, if we are not, exit and leave scmtype set to unknown
-	_, err := c.Output("git", g("rev-parse", "--git-dir"))
+	_, err := runGit("rev-parse", "--git-dir")
 	if err != nil {
 		return nil
 	}
@@ -133,7 +139,7 @@ func (s *SCMMetadata) ReadGitMetadata() error {
 	// that it was tracked in the past but was removed; in that case, the command
 	// `git rev-list -1 Policyfile.lock.json` still returns a commit.
 
-	_, err = c.Output("git", g("ls-files", "--error-unmatch", s.policyLockPath))
+	_, err = runGit("ls-files", "--error-unmatch", s.policyLockPath)
 	lockfileIsGitTracked := (err == nil)
 
 	var commitOutput string
@@ -141,11 +147,11 @@ func (s *SCMMetadata) ReadGitMetadata() error {
 	if lockfileIsGitTracked {
 		// get last commit to the lockfile:
 		//   git rev-list -1 HEAD "$file"
-		commitOutput, err = c.Output("git", g("rev-list", "-1", "HEAD", s.policyLockPath))
+		commitOutput, err = runGit("rev-list", "-1", "HEAD", s.policyLockPath)
 	} else {
 		// last commit to the repo:
 		//   git rev-list -1 HEAD
-		commitOutput, err = c.Output("git", g("rev-list", "-1", "HEAD"))
+		commitOutput, err = runGit("rev-list", "-1", "HEAD")
 	}
 	if err != nil {
 		return err
@@ -156,7 +162,7 @@ func (s *SCMMetadata) ReadGitMetadata() error {
 
 	// get the commit message
 	//   git show -s --format=%B "$commit"
-	commitMessageOut, err := c.Output("git", g("show", "-s", "--format=%B", commit))
+	commitMessageOut, err := runGit("show", "-s", "--format=%B", commit)
 	if err != nil {
 		return err
 	}
@@ -165,12 +171,12 @@ func (s *SCMMetadata) ReadGitMetadata() error {
 	// get the author/email:
 	//   git show -s --format=%an "$commit"
 	//   git show -s --format=%ae "$commit"
-	commiterNameOut, err := c.Output("git", g("show", "-s", "--format=%an", commit))
+	commiterNameOut, err := runGit("show", "-s", "--format=%an", commit)
 	if err != nil {
 		return err
 	}
 
-	commiterEmailOut, err := c.Output("git", g("show", "-s", "--format=%ae", commit))
+	commiterEmailOut, err := runGit("show", "-s", "--format=%ae", commit)
 	if err != nil {
 		return err
 	}
@@ -181,7 +187,7 @@ func (s *SCMMetadata) ReadGitMetadata() error {
 	gitRemoteName := gitRemoteNameFromEnv(os.LookupEnv)
 	// get the URL of the remote
 	//   git ls-remote --get-url $origin
-	originURLOut, err := c.Output("git", g("ls-remote", "--get-url", gitRemoteName))
+	originURLOut, err := runGit("ls-remote", "--get-url", gitRemoteName)
 	if err != nil {
 		return err
 	}

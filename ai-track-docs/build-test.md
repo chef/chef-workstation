@@ -200,3 +200,36 @@ Captured evidence (May 22, 2026):
 - `staticcheck ./commands/...` returned no findings.
 - `go test ./commands -vet=all -run '^$'` returned `ok` with no tests to run.
 - `go test ./commands -count=1` returned `ok`.
+
+---
+
+## Resilience and Error Handling Validation (Ex15)
+
+Target folder: `components/chef-automate-collect/commands`
+
+Failure simulation tests:
+
+```sh
+cd components/chef-automate-collect
+go test ./commands -run 'TestExecuteCommandWithResilience' -count=1 -v
+```
+
+Package validation:
+
+```sh
+cd components/chef-automate-collect
+go test ./commands -count=1
+go build ./...
+```
+
+Expected result:
+
+- Failure simulation tests pass for timeout, transient error retry, and retry exhaustion paths.
+- commands package tests and build pass.
+
+Captured evidence (May 22, 2026):
+
+- `--- PASS: TestExecuteCommandWithResilienceRetriesOnErrorThenSucceeds`
+- `--- PASS: TestExecuteCommandWithResilienceReturnsErrorAfterExhaustion`
+- `--- PASS: TestExecuteCommandWithResilienceHandlesTimeouts`
+- `ok .../commands` from package test run.
