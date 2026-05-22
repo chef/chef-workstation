@@ -47,10 +47,13 @@ https://docs.chef.io/policyfile/
 	RunE: func(cmd *cobra.Command, args []string) error {
 		allArgs := os.Args[1:]
 		if isRollOutEnabled() {
+			emitCommandObservation("push_rollout_validation", "", nil, "start", nil)
 			if !ValidateRolloutSetup() { // roll-out is enabled but setup not complete, we don't do anything
+				emitCommandObservation("push_rollout_validation", "", nil, "error", errors.New("required rollout environment variables are not set"))
 				return errors.New("Policy roll-out is enabled but required variables are not set")
 			}
-			err := Runner.PassThroughCommand(dist.WorkstationExec, "", allArgs)
+			emitCommandObservation("push_rollout_validation", "", nil, "success", nil)
+			err := passThroughWithObservability("push_workstation", dist.WorkstationExec, allArgs)
 			if err != nil {
 				return err
 			}
@@ -58,9 +61,9 @@ https://docs.chef.io/policyfile/
 			serverUser := strings.TrimSpace(os.Getenv("CHEF_AC_SERVER_USER"))
 			allArgs := []string{"report-new-rollout", "-g", allArgs[1], "-l", allArgs[2],
 				"-s", serverURL, "-u", serverUser}
-			return Runner.PassThroughCommand(dist.AutomateCollectExec, "", allArgs)
+			return passThroughWithObservability("push_rollout_report", dist.AutomateCollectExec, allArgs)
 		}
-		return Runner.PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+		return passThroughWithObservability("push", dist.WorkstationExec, os.Args[1:])
 	},
 }
 

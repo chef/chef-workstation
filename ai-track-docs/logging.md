@@ -138,3 +138,56 @@ go run . show-config -v 2>verbose.log
 
 When `test-config` is run with `-v`, the structured event is emitted to stderr by `chef-automate-collect`.
 In deployed environments, view this in command stderr logs (for example, CI step logs, container stderr stream, or host process logs that collect stderr).
+
+## Main Chef Wrapper Command Observability (Run Ex9)
+
+### Scope
+
+Folder: `components/main-chef-wrapper/cmd`
+
+Related files instrumented:
+
+- `passthrough_helpers.go`
+- `push.go`
+- `pushArchive.go`
+
+### Pattern
+
+Dominant folder pattern for operational output is stderr logging with clear prefixes (`ERROR:`).
+For Ex9, command execution instrumentation uses a consistent info line on stderr:
+
+```text
+INFO: op=<operation> target=<binary> argc=<N> status=<start|success|error> [error="..."]
+```
+
+Implementation source:
+
+- `observability.go`
+
+Design choices:
+
+- Logs only operation metadata and argument count (`argc`) to avoid leaking argument values.
+- Emits `start`, then `success` or `error` for each passthrough boundary.
+- Keeps command-level instrumentation consistent across rollout and non-rollout entry points.
+
+### Validation Instructions
+
+Run from repository root:
+
+```sh
+cd components/main-chef-wrapper
+go test ./cmd -run 'TestValidateRolloutSetupContract|TestBuildObservationLineDoesNotLeakArgs|TestEmitCommandObservationWritesConsistentInfoLine|TestEmitCommandObservationIncludesErrorDetails' -count=1 -v
+```
+
+Sample output includes lines like:
+
+```text
+sample-observation-line: INFO: op=push_archive target=chef argc=3 status=success
+```
+
+To review broader side effects in this subsystem:
+
+```sh
+cd components/main-chef-wrapper
+go test ./cmd ./integration ./lib
+```

@@ -8,9 +8,9 @@ import (
 )
 
 func passThroughAnalyzeCommand(_ *cobra.Command, _ []string) error {
-	return Runner.PassThroughCommand(dist.AnalyzeExec, "", os.Args[1:])
+	return passThroughWithObservability("analyze_passthrough", dist.AnalyzeExec, os.Args[1:])
 }
 
 func passThroughWorkstationCommand(_ *cobra.Command, _ []string) error {
-	return Runner.PassThroughCommand(dist.WorkstationExec, "", os.Args[1:])
+	return passThroughWithObservability("workstation_passthrough", dist.WorkstationExec, os.Args[1:])
 }
