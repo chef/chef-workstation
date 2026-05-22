@@ -165,3 +165,95 @@ Track
 - Level: Walk
 - Exercise: <ex#>
 ```
+
+## Run PR Hygiene Workflow (Ex11)
+
+Use this workflow for Run-track PRs to keep review quality high while reducing back-and-forth.
+
+Concrete example artifact for this exercise:
+
+- `ai-track-docs/pr-review-artifact-ex11.md`
+
+### 1) Review Focus Section (Required in PR Body)
+
+Include these fields explicitly:
+
+- Scope risk: what could break if this PR is wrong
+- Verification scope: exact commands/checks used
+- Rollback confidence: one-line revert plan
+
+Suggested block:
+
+```text
+Review Focus
+- Key risk 1: <risk + why it matters>
+- Key risk 2: <risk + why it matters>
+- Verification steps: <commands>
+- Rollback: git revert <commit-sha>
+```
+
+### 2) AI Review (or Simulated Checklist)
+
+If an AI review tool is unavailable, run this checklist manually and include it in the PR body.
+
+Checklist categories (required):
+
+- Correctness
+- Test Coverage
+- Security
+- Performance
+- Documentation
+
+Example template:
+
+```text
+AI/Simulated Review Checklist
+- Correctness: pass/fail + notes
+- Test Coverage: pass/fail + notes
+- Security: pass/fail + notes
+- Performance: pass/fail + notes
+- Documentation: pass/fail + notes
+```
+
+### 3) Findings Response Log (Systematic Resolution)
+
+Track every finding in a table and resolve each item explicitly.
+
+| Source | Finding | Response | Status |
+|---|---|---|---|
+| AI/Checklist | <finding> | <what changed or why no change> | Resolved/Accepted risk |
+| Human Review | <comment> | <what changed or rationale> | Resolved/Accepted risk |
+
+Rules:
+
+- Do not leave findings undocumented.
+- If two comments conflict, record the tradeoff and chosen path.
+- Link the commit or file section used to resolve the comment.
+
+### 4) Human Review Request (Required)
+
+Request a human reviewer after checklist pass and before marking final ready.
+
+Suggested commands:
+
+```sh
+gh pr edit <pr-number> --add-reviewer <github-handle>
+gh pr comment <pr-number> --body "Requesting human review. Review focus and findings log are in the PR body."
+```
+
+### 5) Human Feedback Resolution (Required)
+
+After human comments arrive:
+
+1. Add each comment to the findings response log.
+2. Apply fixes in a focused follow-up commit.
+3. Reply on the thread with the exact resolution.
+
+Suggested close-out comment format:
+
+```text
+Addressed in <commit-sha>:
+- <comment summary>
+- <change made>
+- <verification rerun>
+```
