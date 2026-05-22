@@ -20,12 +20,7 @@ type CLIIO struct {
 }
 
 func structuredLoggingEnabled(lookupEnv func(string) (string, bool)) bool {
-	value, isSet := lookupEnv(StructuredLogsEnvVar)
-	if !isSet {
-		return true
-	}
-
-	return strings.TrimSpace(value) != "false"
+	return featureFlagEnabled(structuredLoggingFlag, lookupEnv, func(string, ...interface{}) {})
 }
 
 func (c *CLIIO) msg(format string, args ...interface{}) {

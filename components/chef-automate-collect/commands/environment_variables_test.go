@@ -14,6 +14,7 @@ func TestEnvironmentVariableConstantsStable(t *testing.T) {
 		"NoUserConfigEnvVar":            NoUserConfigEnvVar,
 		"NoSystemConfigEnvVar":          NoSystemConfigEnvVar,
 		"StructuredLogsEnvVar":          StructuredLogsEnvVar,
+		"HTTPVerboseDiagnosticsEnvVar":  HTTPVerboseDiagnosticsEnvVar,
 		"DisableReportNewRolloutEnvVar": DisableReportNewRolloutEnvVar,
 		"GitRemoteNameEnvVar":           GitRemoteNameEnvVar,
 	}
@@ -29,6 +30,7 @@ func TestEnvironmentVariableConstantsStable(t *testing.T) {
 		"NoUserConfigEnvVar":            "CHEF_AC_NO_USER_CONFIG",
 		"NoSystemConfigEnvVar":          "CHEF_AC_NO_SYSTEM_CONFIG",
 		"StructuredLogsEnvVar":          "CHEF_AC_STRUCTURED_LOGS",
+		"HTTPVerboseDiagnosticsEnvVar":  "CHEF_AC_FF_HTTP_VERBOSE_DIAGNOSTICS",
 		"DisableReportNewRolloutEnvVar": "CHEF_AC_DISABLE_COLLECTOR",
 		"GitRemoteNameEnvVar":           "CHEF_AC_GIT_REMOTE_NAME",
 	}

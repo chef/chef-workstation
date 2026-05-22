@@ -562,6 +562,7 @@ func (a *AutomateConfig) Test() error {
 	tr.TLSClientConfig = &tls.Config{InsecureSkipVerify: a.InsecureTLS}
 	httpClient := &http.Client{Transport: tr}
 	start := time.Now()
+	httpVerboseDiagnosticsEnabled := featureFlagEnabled(httpVerboseDiagnosticsFlag, os.LookupEnv, cliIO.verbose)
 
 	testURL, err := a.TestURL()
 	if err != nil {
@@ -572,6 +573,10 @@ func (a *AutomateConfig) Test() error {
 	host := testURL.Host
 	trace := &httptrace.ClientTrace{
 		DNSDone: func(d httptrace.DNSDoneInfo) {
+			if !httpVerboseDiagnosticsEnabled {
+				return
+			}
+
 			addrStrs := make([]string, len(d.Addrs))
 			for i, addr := range d.Addrs {
 				addrStrs[i] = addr.String()
@@ -589,6 +594,10 @@ func (a *AutomateConfig) Test() error {
 			cliIO.verbose("HTTP TRACE: %q resolved to %v", host, addrStrs)
 		},
 		GotConn: func(c httptrace.GotConnInfo) {
+			if !httpVerboseDiagnosticsEnabled {
+				return
+			}
+
 			cliIO.verbose("HTTP TRACE: connected to %q (reused: %t) (was idle: %t)",
 				c.Conn.RemoteAddr(), c.Reused, c.WasIdle)
 		},
@@ -618,12 +627,18 @@ func (a *AutomateConfig) Test() error {
 		return err
 	}
 
-	for k, v := range response.Header {
-		cliIO.verbose("HTTP RESPONSE HEADER %s: %s", k, strings.Join(v, ", "))
+	if httpVerboseDiagnosticsEnabled {
+		for k, v := range response.Header {
+			cliIO.verbose("HTTP RESPONSE HEADER %s: %s", k, strings.Join(v, ", "))
+		}
+		cliIO.verbose("HTTP RESPONSE BODY------------")
+		cliIO.verbose(string(bodyBytes))
+		cliIO.verbose("\nEND HTTP RESPONSE BODY--------")
 	}
-	cliIO.verbose("HTTP RESPONSE BODY------------")
-	cliIO.verbose(string(bodyBytes))
-	cliIO.verbose("\nEND HTTP RESPONSE BODY--------")
+
+	cliIO.structuredVerbose("feature_flag", "evaluated", 0,
+		StructuredField{Key: "flag", Value: httpVerboseDiagnosticsFlag.Name},
+		StructuredField{Key: "enabled", Value: fmt.Sprintf("%t", httpVerboseDiagnosticsEnabled)})
 
 	if response.StatusCode != 200 {
 		emitTestConfigHTTPStructuredLog(start, "error", response.StatusCode)

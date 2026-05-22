@@ -135,3 +135,33 @@ Expected behavior:
 
 - Job always passes by design.
 - Summary shows `Status=PASS` or `Status=SOFT-FAIL` and includes raw command output for reviewer context.
+
+---
+
+## Feature Flag Validation (Ex13)
+
+Target module: `components/chef-automate-collect/commands`
+
+Feature flag under test:
+
+- `CHEF_AC_FF_HTTP_VERBOSE_DIAGNOSTICS`
+
+ON/OFF mode tests:
+
+```sh
+cd components/chef-automate-collect
+go test ./commands -run TestAutomateConfigTestHTTPVerboseDiagnosticsOffByDefault -count=1 -v
+go test ./commands -run TestAutomateConfigTestHTTPVerboseDiagnosticsOn -count=1 -v
+```
+
+Expected result:
+
+- OFF test passes and asserts HTTP response body dump is absent.
+- ON test passes and asserts HTTP response body dump is present.
+
+Captured evidence (May 22, 2026):
+
+- `=== RUN   TestAutomateConfigTestHTTPVerboseDiagnosticsOffByDefault`
+- `--- PASS: TestAutomateConfigTestHTTPVerboseDiagnosticsOffByDefault`
+- `=== RUN   TestAutomateConfigTestHTTPVerboseDiagnosticsOn`
+- `--- PASS: TestAutomateConfigTestHTTPVerboseDiagnosticsOn`

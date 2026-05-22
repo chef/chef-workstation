@@ -56,6 +56,9 @@ const (
 	// logs are disabled. Any other value, or an unset variable, leaves them
 	// enabled.
 	StructuredLogsEnvVar = "CHEF_AC_STRUCTURED_LOGS"
+	// Feature flag that enables verbose HTTP response diagnostics in test-config.
+	// Defaults to disabled unless set to "true".
+	HTTPVerboseDiagnosticsEnvVar = "CHEF_AC_FF_HTTP_VERBOSE_DIAGNOSTICS"
 
 	// Whether to disable reporting new rollouts to Chef Automate. If set to
 	// "false," reports will be sent. If set to any other value, reports will not

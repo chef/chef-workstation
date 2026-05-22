@@ -33,3 +33,33 @@ go build ./...
 - Treat these constants as part of the external configuration surface.
 - Changing a constant value is a behavior change, not a refactor.
 - Prefer adding to an existing themed block rather than creating ad hoc grouping.
+
+## Ex13 Feature Flag Example
+
+Flag name pattern:
+
+- `CHEF_AC_FF_<BEHAVIOR_NAME>`
+
+Implemented flag:
+
+- `CHEF_AC_FF_HTTP_VERBOSE_DIAGNOSTICS`
+
+Purpose:
+
+- Controls verbose HTTP trace/response diagnostics in `AutomateConfig.Test`.
+- Keeps default behavior risk low for higher-impact logging changes by requiring explicit opt-in.
+
+Default state:
+
+- `false` (disabled unless set to `true`).
+
+Toggle mechanism:
+
+- Set `CHEF_AC_FF_HTTP_VERBOSE_DIAGNOSTICS=true` to enable verbose HTTP diagnostics.
+- Set `CHEF_AC_FF_HTTP_VERBOSE_DIAGNOSTICS=false` to disable.
+- Any invalid value falls back to the default (`false`).
+
+Rollback path:
+
+1. Immediate rollback: set `CHEF_AC_FF_HTTP_VERBOSE_DIAGNOSTICS=false` in the environment.
+2. Code rollback: revert the Ex13 feature-flag commit if complete removal is required.
