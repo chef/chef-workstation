@@ -87,6 +87,13 @@ func redactSecretForLog(secret string) string {
 	return "[REDACTED]"
 }
 
+func logConfigLoadError(start time.Time, path string, errorType string, err error, messageTemplate string) error {
+	cliIO.structuredVerbose("config_load", "error", time.Since(start),
+		StructuredField{Key: "path", Value: path},
+		StructuredField{Key: "error", Value: errorType})
+	return errors.Wrapf(err, messageTemplate, path)
+}
+
 func NewConfigLoader() *ConfigLoader {
 	c := &ConfigLoader{}
 	c.findRepoConfig()
@@ -124,17 +131,11 @@ func (l *ConfigLoader) Load() error {
 		configFromFile := &PrivateConfig{}
 		fileContent, err := ioutil.ReadFile(p)
 		if err != nil {
-			cliIO.structuredVerbose("config_load", "error", time.Since(start),
-				StructuredField{Key: "path", Value: p},
-				StructuredField{Key: "error", Value: "read_config"})
-			return errors.Wrapf(err, "failed to read config file %q", p)
+			return logConfigLoadError(start, p, "read_config", err, "failed to read config file %q")
 		}
 		err = toml.Unmarshal(fileContent, configFromFile)
 		if err != nil {
-			cliIO.structuredVerbose("config_load", "error", time.Since(start),
-				StructuredField{Key: "path", Value: p},
-				StructuredField{Key: "error", Value: "decode_toml"})
-			return errors.Wrapf(err, "cannot decode TOML content in %q", p)
+			return logConfigLoadError(start, p, "decode_toml", err, "cannot decode TOML content in %q")
 		}
 		cliIO.verbose("applying configuration from %q", p)
 		l.LoadedConfig.ApplyValuesFrom(configFromFile.ToConfig())

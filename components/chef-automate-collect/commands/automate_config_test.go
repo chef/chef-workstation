@@ -1,6 +1,7 @@
 package commands
 
 import (
+	"errors"
 	"io"
 	"net/http"
 	"net/http/httptest"
@@ -247,10 +248,10 @@ func TestPrivateAutomateConfigToConfigConvertsProperly(t *testing.T) {
 
 func TestViableConfigPathsFiltersEmptyPaths(t *testing.T) {
 	loader := &ConfigLoader{
-		SystemConfigPath:    "/etc/automate.toml",
-		UserConfigPath:      "", // empty, should be filtered
-		RepoConfigPath:      ".automate/config.toml",
-		RepoPrivateConfigPath: "",  // empty, should be filtered
+		SystemConfigPath:      "/etc/automate.toml",
+		UserConfigPath:        "", // empty, should be filtered
+		RepoConfigPath:        ".automate/config.toml",
+		RepoPrivateConfigPath: "", // empty, should be filtered
 	}
 
 	result := loader.ViableConfigPaths()
@@ -263,5 +264,47 @@ func TestViableConfigPathsFiltersEmptyPaths(t *testing.T) {
 	}
 	if result[1] != ".automate/config.toml" {
 		t.Fatalf("expected second path %q, got %q", ".automate/config.toml", result[1])
+	}
+}
+
+func TestLogConfigLoadErrorEmitsStructuredLogAndWrapsError(t *testing.T) {
+	originalVerbose := cliIO.EnableVerbose
+	cliIO.EnableVerbose = true
+	defer func() {
+		cliIO.EnableVerbose = originalVerbose
+	}()
+
+	t.Setenv(StructuredLogsEnvVar, "true")
+
+	restore, readOutput := captureStderrForTestConfig(t)
+	start := time.Now()
+	testErr := errors.New("underlying read failure")
+	wrappedErr := logConfigLoadError(start, "/path/to/config.toml", "read_config", testErr, "failed to read config file %q")
+	restore()
+	output := readOutput()
+
+	// Verify structured log was emitted
+	if !strings.Contains(output, "op=config_load") {
+		t.Fatalf("expected op=config_load in output, got %q", output)
+	}
+	if !strings.Contains(output, "error") {
+		t.Fatalf("expected status=error in output, got %q", output)
+	}
+	if !strings.Contains(output, "read_config") {
+		t.Fatalf("expected error type 'read_config' in output, got %q", output)
+	}
+	if !strings.Contains(output, "/path/to/config.toml") {
+		t.Fatalf("expected path in output, got %q", output)
+	}
+
+	// Verify error was wrapped correctly
+	if wrappedErr == nil {
+		t.Fatal("expected a wrapped error")
+	}
+	if !strings.Contains(wrappedErr.Error(), "failed to read config file") {
+		t.Fatalf("expected wrapped message in error, got %q", wrappedErr.Error())
+	}
+	if !strings.Contains(wrappedErr.Error(), "/path/to/config.toml") {
+		t.Fatalf("expected path in error message, got %q", wrappedErr.Error())
 	}
 }
