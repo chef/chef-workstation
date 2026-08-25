@@ -1,8 +1,16 @@
 <!-- usage documentation: https://expeditor.chef.io/docs/reference/changelog/ -->
-<!-- latest_release -->
+<!-- latest_release 25.14.3 -->
+## [25.14.3](https://github.com/chef/chef-workstation/tree/25.14.3) (2026-08-25)
+
+#### Merged Pull Requests
+- Update omnibus for Progress signing key changes [#3627](https://github.com/chef/chef-workstation/pull/3627) ([muthuja](https://github.com/muthuja))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=25.14.2 -->
+### Changes not yet released to stable
+
+#### Merged Pull Requests
+- Update omnibus for Progress signing key changes [#3627](https://github.com/chef/chef-workstation/pull/3627) ([muthuja](https://github.com/muthuja)) <!-- 25.14.3 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
